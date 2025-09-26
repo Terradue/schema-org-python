@@ -13,26 +13,41 @@ Any offered product or service. For example: a pair of shoes; a concert ticket; 
     inProductGroupWithID: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('inProductGroupWithID', 'https://schema.org/inProductGroupWithID'),serialization_alias='https://schema.org/inProductGroupWithID')
     gtin: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('gtin', 'https://schema.org/gtin'),serialization_alias='https://schema.org/gtin')
     @field_serializer('gtin')
-    def gtin2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def gtin2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     gtin8: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('gtin8', 'https://schema.org/gtin8'),serialization_alias='https://schema.org/gtin8')
     isRelatedTo: Optional[Union["Service", List["Service"], "Product", List["Product"]]] = Field(default=None,validation_alias=AliasChoices('isRelatedTo', 'https://schema.org/isRelatedTo'),serialization_alias='https://schema.org/isRelatedTo')
     colorSwatch: Optional[Union["ImageObject", List["ImageObject"], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('colorSwatch', 'https://schema.org/colorSwatch'),serialization_alias='https://schema.org/colorSwatch')
     @field_serializer('colorSwatch')
-    def colorSwatch2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def colorSwatch2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     asin: Optional[Union[HttpUrl, List[HttpUrl], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('asin', 'https://schema.org/asin'),serialization_alias='https://schema.org/asin')
     @field_serializer('asin')
-    def asin2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def asin2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     pattern: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('pattern', 'https://schema.org/pattern'),serialization_alias='https://schema.org/pattern')
     awards: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('awards', 'https://schema.org/awards'),serialization_alias='https://schema.org/awards')
@@ -43,10 +58,15 @@ Any offered product or service. For example: a pair of shoes; a concert ticket; 
     isFamilyFriendly: Optional[Union[bool, List[bool]]] = Field(default=None,validation_alias=AliasChoices('isFamilyFriendly', 'https://schema.org/isFamilyFriendly'),serialization_alias='https://schema.org/isFamilyFriendly')
     logo: Optional[Union[HttpUrl, List[HttpUrl], "ImageObject", List["ImageObject"]]] = Field(default=None,validation_alias=AliasChoices('logo', 'https://schema.org/logo'),serialization_alias='https://schema.org/logo')
     @field_serializer('logo')
-    def logo2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def logo2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     aggregateRating: Optional[Union["AggregateRating", List["AggregateRating"]]] = Field(default=None,validation_alias=AliasChoices('aggregateRating', 'https://schema.org/aggregateRating'),serialization_alias='https://schema.org/aggregateRating')
     sku: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('sku', 'https://schema.org/sku'),serialization_alias='https://schema.org/sku')
@@ -60,10 +80,15 @@ Any offered product or service. For example: a pair of shoes; a concert ticket; 
     mobileUrl: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('mobileUrl', 'https://schema.org/mobileUrl'),serialization_alias='https://schema.org/mobileUrl')
     keywords: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], "DefinedTerm", List["DefinedTerm"]]] = Field(default=None,validation_alias=AliasChoices('keywords', 'https://schema.org/keywords'),serialization_alias='https://schema.org/keywords')
     @field_serializer('keywords')
-    def keywords2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def keywords2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     hasProductReturnPolicy: Optional[Union["ProductReturnPolicy", List["ProductReturnPolicy"]]] = Field(default=None,validation_alias=AliasChoices('hasProductReturnPolicy', 'https://schema.org/hasProductReturnPolicy'),serialization_alias='https://schema.org/hasProductReturnPolicy')
     award: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('award', 'https://schema.org/award'),serialization_alias='https://schema.org/award')
@@ -75,10 +100,15 @@ Any offered product or service. For example: a pair of shoes; a concert ticket; 
     audience: Optional[Union["Audience", List["Audience"]]] = Field(default=None,validation_alias=AliasChoices('audience', 'https://schema.org/audience'),serialization_alias='https://schema.org/audience')
     hasGS1DigitalLink: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('hasGS1DigitalLink', 'https://schema.org/hasGS1DigitalLink'),serialization_alias='https://schema.org/hasGS1DigitalLink')
     @field_serializer('hasGS1DigitalLink')
-    def hasGS1DigitalLink2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def hasGS1DigitalLink2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     isConsumableFor: Optional[Union["Product", List["Product"]]] = Field(default=None,validation_alias=AliasChoices('isConsumableFor', 'https://schema.org/isConsumableFor'),serialization_alias='https://schema.org/isConsumableFor')
     funding: Optional[Union["Grant", List["Grant"]]] = Field(default=None,validation_alias=AliasChoices('funding', 'https://schema.org/funding'),serialization_alias='https://schema.org/funding')
@@ -89,10 +119,15 @@ Any offered product or service. For example: a pair of shoes; a concert ticket; 
     itemCondition: Optional[Union["OfferItemCondition", List["OfferItemCondition"]]] = Field(default=None,validation_alias=AliasChoices('itemCondition', 'https://schema.org/itemCondition'),serialization_alias='https://schema.org/itemCondition')
     material: Optional[Union[str, List[str], "Product", List["Product"], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('material', 'https://schema.org/material'),serialization_alias='https://schema.org/material')
     @field_serializer('material')
-    def material2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def material2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     mpn: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('mpn', 'https://schema.org/mpn'),serialization_alias='https://schema.org/mpn')
     height: Optional[Union["Distance", List["Distance"], "QuantitativeValue", List["QuantitativeValue"]]] = Field(default=None,validation_alias=AliasChoices('height', 'https://schema.org/height'),serialization_alias='https://schema.org/height')
@@ -100,10 +135,15 @@ Any offered product or service. For example: a pair of shoes; a concert ticket; 
     size: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str], "SizeSpecification", List["SizeSpecification"], "QuantitativeValue", List["QuantitativeValue"]]] = Field(default=None,validation_alias=AliasChoices('size', 'https://schema.org/size'),serialization_alias='https://schema.org/size')
     category: Optional[Union["PhysicalActivityCategory", List["PhysicalActivityCategory"], "CategoryCode", List["CategoryCode"], str, List[str], Thing, List[Thing], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('category', 'https://schema.org/category'),serialization_alias='https://schema.org/category')
     @field_serializer('category')
-    def category2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def category2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     weight: Optional[Union["QuantitativeValue", List["QuantitativeValue"], "Mass", List["Mass"]]] = Field(default=None,validation_alias=AliasChoices('weight', 'https://schema.org/weight'),serialization_alias='https://schema.org/weight')
     hasMerchantReturnPolicy: Optional[Union["MerchantReturnPolicy", List["MerchantReturnPolicy"]]] = Field(default=None,validation_alias=AliasChoices('hasMerchantReturnPolicy', 'https://schema.org/hasMerchantReturnPolicy'),serialization_alias='https://schema.org/hasMerchantReturnPolicy')

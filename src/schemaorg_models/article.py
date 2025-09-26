@@ -19,9 +19,14 @@ See also [blog post](https://blog.schema.org/2014/09/02/schema-org-support-for-b
     articleSection: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('articleSection', 'https://schema.org/articleSection'),serialization_alias='https://schema.org/articleSection')
     speakable: Optional[Union[HttpUrl, List[HttpUrl], SpeakableSpecification, List[SpeakableSpecification]]] = Field(default=None,validation_alias=AliasChoices('speakable', 'https://schema.org/speakable'),serialization_alias='https://schema.org/speakable')
     @field_serializer('speakable')
-    def speakable2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def speakable2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     pageStart: Optional[Union[int, List[int], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('pageStart', 'https://schema.org/pageStart'),serialization_alias='https://schema.org/pageStart')

@@ -18,9 +18,14 @@ Used to describe a ticket to an event, a flight, a bus ride, etc.
     totalPrice: Optional[Union[str, List[str], "PriceSpecification", List["PriceSpecification"], float, List[float]]] = Field(default=None,validation_alias=AliasChoices('totalPrice', 'https://schema.org/totalPrice'),serialization_alias='https://schema.org/totalPrice')
     ticketToken: Optional[Union[HttpUrl, List[HttpUrl], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('ticketToken', 'https://schema.org/ticketToken'),serialization_alias='https://schema.org/ticketToken')
     @field_serializer('ticketToken')
-    def ticketToken2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def ticketToken2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     issuedBy: Optional[Union[Organization, List[Organization]]] = Field(default=None,validation_alias=AliasChoices('issuedBy', 'https://schema.org/issuedBy'),serialization_alias='https://schema.org/issuedBy')

@@ -16,10 +16,15 @@ An organization such as a school, NGO, corporation, club, etc.
     """
     knowsAbout: Optional[Union[str, List[str], Thing, List[Thing], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('knowsAbout', 'https://schema.org/knowsAbout'),serialization_alias='https://schema.org/knowsAbout')
     @field_serializer('knowsAbout')
-    def knowsAbout2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def knowsAbout2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     employees: Optional[Union[Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('employees', 'https://schema.org/employees'),serialization_alias='https://schema.org/employees')
     iso6523Code: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('iso6523Code', 'https://schema.org/iso6523Code'),serialization_alias='https://schema.org/iso6523Code')
@@ -33,10 +38,15 @@ An organization such as a school, NGO, corporation, club, etc.
     hasShippingService: Optional[Union["ShippingService", List["ShippingService"]]] = Field(default=None,validation_alias=AliasChoices('hasShippingService', 'https://schema.org/hasShippingService'),serialization_alias='https://schema.org/hasShippingService')
     publishingPrinciples: Optional[Union[CreativeWork, List[CreativeWork], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('publishingPrinciples', 'https://schema.org/publishingPrinciples'),serialization_alias='https://schema.org/publishingPrinciples')
     @field_serializer('publishingPrinciples')
-    def publishingPrinciples2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def publishingPrinciples2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     department: Optional[Union["Organization", List["Organization"]]] = Field(default=None,validation_alias=AliasChoices('department', 'https://schema.org/department'),serialization_alias='https://schema.org/department')
     isicV4: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('isicV4', 'https://schema.org/isicV4'),serialization_alias='https://schema.org/isicV4')
@@ -47,20 +57,30 @@ An organization such as a school, NGO, corporation, club, etc.
     hasMerchantReturnPolicy: Optional[Union["MerchantReturnPolicy", List["MerchantReturnPolicy"]]] = Field(default=None,validation_alias=AliasChoices('hasMerchantReturnPolicy', 'https://schema.org/hasMerchantReturnPolicy'),serialization_alias='https://schema.org/hasMerchantReturnPolicy')
     ownershipFundingInfo: Optional[Union[str, List[str], CreativeWork, List[CreativeWork], HttpUrl, List[HttpUrl], "AboutPage", List["AboutPage"]]] = Field(default=None,validation_alias=AliasChoices('ownershipFundingInfo', 'https://schema.org/ownershipFundingInfo'),serialization_alias='https://schema.org/ownershipFundingInfo')
     @field_serializer('ownershipFundingInfo')
-    def ownershipFundingInfo2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def ownershipFundingInfo2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     knowsLanguage: Optional[Union[str, List[str], "Language", List["Language"]]] = Field(default=None,validation_alias=AliasChoices('knowsLanguage', 'https://schema.org/knowsLanguage'),serialization_alias='https://schema.org/knowsLanguage')
     makesOffer: Optional[Union["Offer", List["Offer"]]] = Field(default=None,validation_alias=AliasChoices('makesOffer', 'https://schema.org/makesOffer'),serialization_alias='https://schema.org/makesOffer')
     faxNumber: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('faxNumber', 'https://schema.org/faxNumber'),serialization_alias='https://schema.org/faxNumber')
     ethicsPolicy: Optional[Union[CreativeWork, List[CreativeWork], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('ethicsPolicy', 'https://schema.org/ethicsPolicy'),serialization_alias='https://schema.org/ethicsPolicy')
     @field_serializer('ethicsPolicy')
-    def ethicsPolicy2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def ethicsPolicy2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     globalLocationNumber: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('globalLocationNumber', 'https://schema.org/globalLocationNumber'),serialization_alias='https://schema.org/globalLocationNumber')
     sponsor: Optional[Union["Organization", List["Organization"], Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('sponsor', 'https://schema.org/sponsor'),serialization_alias='https://schema.org/sponsor')
@@ -82,10 +102,15 @@ An organization such as a school, NGO, corporation, club, etc.
     location: Optional[Union["VirtualLocation", List["VirtualLocation"], "PostalAddress", List["PostalAddress"], str, List[str], Place, List[Place]]] = Field(default=None,validation_alias=AliasChoices('location', 'https://schema.org/location'),serialization_alias='https://schema.org/location')
     actionableFeedbackPolicy: Optional[Union[CreativeWork, List[CreativeWork], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('actionableFeedbackPolicy', 'https://schema.org/actionableFeedbackPolicy'),serialization_alias='https://schema.org/actionableFeedbackPolicy')
     @field_serializer('actionableFeedbackPolicy')
-    def actionableFeedbackPolicy2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def actionableFeedbackPolicy2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     legalRepresentative: Optional[Union[Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('legalRepresentative', 'https://schema.org/legalRepresentative'),serialization_alias='https://schema.org/legalRepresentative')
     serviceArea: Optional[Union["AdministrativeArea", List["AdministrativeArea"], "GeoShape", List["GeoShape"], Place, List[Place]]] = Field(default=None,validation_alias=AliasChoices('serviceArea', 'https://schema.org/serviceArea'),serialization_alias='https://schema.org/serviceArea')
@@ -93,26 +118,41 @@ An organization such as a school, NGO, corporation, club, etc.
     hasCertification: Optional[Union["Certification", List["Certification"]]] = Field(default=None,validation_alias=AliasChoices('hasCertification', 'https://schema.org/hasCertification'),serialization_alias='https://schema.org/hasCertification')
     correctionsPolicy: Optional[Union[HttpUrl, List[HttpUrl], CreativeWork, List[CreativeWork]]] = Field(default=None,validation_alias=AliasChoices('correctionsPolicy', 'https://schema.org/correctionsPolicy'),serialization_alias='https://schema.org/correctionsPolicy')
     @field_serializer('correctionsPolicy')
-    def correctionsPolicy2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def correctionsPolicy2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     members: Optional[Union["Organization", List["Organization"], Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('members', 'https://schema.org/members'),serialization_alias='https://schema.org/members')
     keywords: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], "DefinedTerm", List["DefinedTerm"]]] = Field(default=None,validation_alias=AliasChoices('keywords', 'https://schema.org/keywords'),serialization_alias='https://schema.org/keywords')
     @field_serializer('keywords')
-    def keywords2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def keywords2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     hasProductReturnPolicy: Optional[Union["ProductReturnPolicy", List["ProductReturnPolicy"]]] = Field(default=None,validation_alias=AliasChoices('hasProductReturnPolicy', 'https://schema.org/hasProductReturnPolicy'),serialization_alias='https://schema.org/hasProductReturnPolicy')
     logo: Optional[Union[HttpUrl, List[HttpUrl], "ImageObject", List["ImageObject"]]] = Field(default=None,validation_alias=AliasChoices('logo', 'https://schema.org/logo'),serialization_alias='https://schema.org/logo')
     @field_serializer('logo')
-    def logo2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def logo2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     numberOfEmployees: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(default=None,validation_alias=AliasChoices('numberOfEmployees', 'https://schema.org/numberOfEmployees'),serialization_alias='https://schema.org/numberOfEmployees')
     email: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('email', 'https://schema.org/email'),serialization_alias='https://schema.org/email')
@@ -128,20 +168,30 @@ An organization such as a school, NGO, corporation, club, etc.
     foundingDate: Optional[Union[date, List[date]]] = Field(default=None,validation_alias=AliasChoices('foundingDate', 'https://schema.org/foundingDate'),serialization_alias='https://schema.org/foundingDate')
     diversityPolicy: Optional[Union[CreativeWork, List[CreativeWork], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('diversityPolicy', 'https://schema.org/diversityPolicy'),serialization_alias='https://schema.org/diversityPolicy')
     @field_serializer('diversityPolicy')
-    def diversityPolicy2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def diversityPolicy2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     founders: Optional[Union[Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('founders', 'https://schema.org/founders'),serialization_alias='https://schema.org/founders')
     award: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('award', 'https://schema.org/award'),serialization_alias='https://schema.org/award')
     foundingLocation: Optional[Union[Place, List[Place]]] = Field(default=None,validation_alias=AliasChoices('foundingLocation', 'https://schema.org/foundingLocation'),serialization_alias='https://schema.org/foundingLocation')
     unnamedSourcesPolicy: Optional[Union[CreativeWork, List[CreativeWork], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('unnamedSourcesPolicy', 'https://schema.org/unnamedSourcesPolicy'),serialization_alias='https://schema.org/unnamedSourcesPolicy')
     @field_serializer('unnamedSourcesPolicy')
-    def unnamedSourcesPolicy2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def unnamedSourcesPolicy2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     leiCode: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('leiCode', 'https://schema.org/leiCode'),serialization_alias='https://schema.org/leiCode')
     address: Optional[Union[str, List[str], "PostalAddress", List["PostalAddress"]]] = Field(default=None,validation_alias=AliasChoices('address', 'https://schema.org/address'),serialization_alias='https://schema.org/address')
@@ -150,16 +200,26 @@ An organization such as a school, NGO, corporation, club, etc.
     taxID: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('taxID', 'https://schema.org/taxID'),serialization_alias='https://schema.org/taxID')
     hasGS1DigitalLink: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('hasGS1DigitalLink', 'https://schema.org/hasGS1DigitalLink'),serialization_alias='https://schema.org/hasGS1DigitalLink')
     @field_serializer('hasGS1DigitalLink')
-    def hasGS1DigitalLink2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def hasGS1DigitalLink2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     diversityStaffingReport: Optional[Union["Article", List["Article"], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('diversityStaffingReport', 'https://schema.org/diversityStaffingReport'),serialization_alias='https://schema.org/diversityStaffingReport')
     @field_serializer('diversityStaffingReport')
-    def diversityStaffingReport2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def diversityStaffingReport2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     companyRegistration: Optional[Union["Certification", List["Certification"]]] = Field(default=None,validation_alias=AliasChoices('companyRegistration', 'https://schema.org/companyRegistration'),serialization_alias='https://schema.org/companyRegistration')

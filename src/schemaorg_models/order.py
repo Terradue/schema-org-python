@@ -36,10 +36,15 @@ An order is a confirmation of a transaction (a receipt), which can contain multi
     paymentDue: Optional[Union[datetime, List[datetime]]] = Field(default=None,validation_alias=AliasChoices('paymentDue', 'https://schema.org/paymentDue'),serialization_alias='https://schema.org/paymentDue')
     paymentUrl: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('paymentUrl', 'https://schema.org/paymentUrl'),serialization_alias='https://schema.org/paymentUrl')
     @field_serializer('paymentUrl')
-    def paymentUrl2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def paymentUrl2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     discountCode: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('discountCode', 'https://schema.org/discountCode'),serialization_alias='https://schema.org/discountCode')
     paymentMethodId: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('paymentMethodId', 'https://schema.org/paymentMethodId'),serialization_alias='https://schema.org/paymentMethodId')

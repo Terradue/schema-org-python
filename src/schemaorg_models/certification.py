@@ -16,10 +16,15 @@ A Certification is an official and authoritative statement about a subject, for 
     certificationIdentification: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('certificationIdentification', 'https://schema.org/certificationIdentification'),serialization_alias='https://schema.org/certificationIdentification')
     logo: Optional[Union[HttpUrl, List[HttpUrl], "ImageObject", List["ImageObject"]]] = Field(default=None,validation_alias=AliasChoices('logo', 'https://schema.org/logo'),serialization_alias='https://schema.org/logo')
     @field_serializer('logo')
-    def logo2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def logo2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     about: Optional[Union[Thing, List[Thing]]] = Field(default=None,validation_alias=AliasChoices('about', 'https://schema.org/about'),serialization_alias='https://schema.org/about')
     validFrom: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(default=None,validation_alias=AliasChoices('validFrom', 'https://schema.org/validFrom'),serialization_alias='https://schema.org/validFrom')

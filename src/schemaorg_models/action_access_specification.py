@@ -19,8 +19,13 @@ A set of requirements that must be fulfilled in order to perform an Action.
     availabilityStarts: Optional[Union[datetime, List[datetime], date, List[date], time, List[time]]] = Field(default=None,validation_alias=AliasChoices('availabilityStarts', 'https://schema.org/availabilityStarts'),serialization_alias='https://schema.org/availabilityStarts')
     category: Optional[Union["PhysicalActivityCategory", List["PhysicalActivityCategory"], "CategoryCode", List["CategoryCode"], str, List[str], Thing, List[Thing], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('category', 'https://schema.org/category'),serialization_alias='https://schema.org/category')
     @field_serializer('category')
-    def category2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def category2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 

@@ -15,8 +15,13 @@ The Game type represents things which are games. These are typically rule-govern
     numberOfPlayers: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(default=None,validation_alias=AliasChoices('numberOfPlayers', 'https://schema.org/numberOfPlayers'),serialization_alias='https://schema.org/numberOfPlayers')
     gameLocation: Optional[Union[Place, List[Place], HttpUrl, List[HttpUrl], "PostalAddress", List["PostalAddress"]]] = Field(default=None,validation_alias=AliasChoices('gameLocation', 'https://schema.org/gameLocation'),serialization_alias='https://schema.org/gameLocation')
     @field_serializer('gameLocation')
-    def gameLocation2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def gameLocation2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 

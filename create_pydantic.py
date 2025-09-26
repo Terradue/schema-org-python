@@ -207,10 +207,14 @@ def generate_models(graph: Graph):
                 
                 if 'HttpUrl' in prop_type_list:
                     f.write(f"    @field_serializer('{variable_name}')\n")
-                    f.write(f"    def {variable_name}2str(self, val) -> str:\n")
-                    f.write('        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error\n')
-                    f.write('            return str(val)\n')
-                    f.write('        return val\n\n')
+                    f.write(f"    def {variable_name}2str(self, val) -> str | List[str]:\n")
+                    f.write('        def _to_str(value):\n')
+                    f.write('            if isinstance(value, HttpUrl):\n')
+                    f.write('                return str(value)\n')
+                    f.write('            return value\n\n')
+                    f.write('        if isinstance(val, list):\n')
+                    f.write('            return [_to_str(i) for i in val]\n')
+                    f.write('        return _to_str(val)\n\n')
 
     for s in BASE_TYPES_STR:
         class_name = safe_name(s.split("/")[-1])

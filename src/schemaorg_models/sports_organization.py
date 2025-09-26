@@ -9,8 +9,13 @@ Represents the collection of all sports organizations, including sports teams, g
     """
     sport: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('sport', 'https://schema.org/sport'),serialization_alias='https://schema.org/sport')
     @field_serializer('sport')
-    def sport2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def sport2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 

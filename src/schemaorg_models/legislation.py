@@ -28,10 +28,15 @@ A legal document such as an act, decree, bill, etc. (enforceable or not) or a co
     legislationDateOfApplicability: Optional[Union[date, List[date]]] = Field(default=None,validation_alias=AliasChoices('legislationDateOfApplicability', 'https://schema.org/legislationDateOfApplicability'),serialization_alias='https://schema.org/legislationDateOfApplicability')
     legislationIdentifier: Optional[Union[HttpUrl, List[HttpUrl], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('legislationIdentifier', 'https://schema.org/legislationIdentifier'),serialization_alias='https://schema.org/legislationIdentifier')
     @field_serializer('legislationIdentifier')
-    def legislationIdentifier2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def legislationIdentifier2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     legislationLegalForce: Optional[Union["LegalForceStatus", List["LegalForceStatus"]]] = Field(default=None,validation_alias=AliasChoices('legislationLegalForce', 'https://schema.org/legislationLegalForce'),serialization_alias='https://schema.org/legislationLegalForce')
     legislationAmends: Optional[Union["Legislation", List["Legislation"]]] = Field(default=None,validation_alias=AliasChoices('legislationAmends', 'https://schema.org/legislationAmends'),serialization_alias='https://schema.org/legislationAmends')

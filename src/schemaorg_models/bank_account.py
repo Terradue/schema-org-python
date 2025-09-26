@@ -10,10 +10,15 @@ A product or service offered by a bank whereby one may deposit, withdraw or tran
     """
     bankAccountType: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('bankAccountType', 'https://schema.org/bankAccountType'),serialization_alias='https://schema.org/bankAccountType')
     @field_serializer('bankAccountType')
-    def bankAccountType2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def bankAccountType2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     accountOverdraftLimit: Optional[Union[MonetaryAmount, List[MonetaryAmount]]] = Field(default=None,validation_alias=AliasChoices('accountOverdraftLimit', 'https://schema.org/accountOverdraftLimit'),serialization_alias='https://schema.org/accountOverdraftLimit')
     accountMinimumInflow: Optional[Union[MonetaryAmount, List[MonetaryAmount]]] = Field(default=None,validation_alias=AliasChoices('accountMinimumInflow', 'https://schema.org/accountMinimumInflow'),serialization_alias='https://schema.org/accountMinimumInflow')

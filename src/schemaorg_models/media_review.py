@@ -16,9 +16,14 @@ A [[MediaReview]] is a more specialized form of Review dedicated to the evaluati
     mediaAuthenticityCategory: Optional[Union[MediaManipulationRatingEnumeration, List[MediaManipulationRatingEnumeration]]] = Field(default=None,validation_alias=AliasChoices('mediaAuthenticityCategory', 'https://schema.org/mediaAuthenticityCategory'),serialization_alias='https://schema.org/mediaAuthenticityCategory')
     originalMediaLink: Optional[Union[WebPage, List[WebPage], HttpUrl, List[HttpUrl], MediaObject, List[MediaObject]]] = Field(default=None,validation_alias=AliasChoices('originalMediaLink', 'https://schema.org/originalMediaLink'),serialization_alias='https://schema.org/originalMediaLink')
     @field_serializer('originalMediaLink')
-    def originalMediaLink2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def originalMediaLink2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     originalMediaContextDescription: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('originalMediaContextDescription', 'https://schema.org/originalMediaContextDescription'),serialization_alias='https://schema.org/originalMediaContextDescription')

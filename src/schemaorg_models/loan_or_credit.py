@@ -21,9 +21,14 @@ A financial product for the loaning of an amount of money, or line of credit, un
     loanTerm: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(default=None,validation_alias=AliasChoices('loanTerm', 'https://schema.org/loanTerm'),serialization_alias='https://schema.org/loanTerm')
     loanType: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('loanType', 'https://schema.org/loanType'),serialization_alias='https://schema.org/loanType')
     @field_serializer('loanType')
-    def loanType2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def loanType2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     renegotiableLoan: Optional[Union[bool, List[bool]]] = Field(default=None,validation_alias=AliasChoices('renegotiableLoan', 'https://schema.org/renegotiableLoan'),serialization_alias='https://schema.org/renegotiableLoan')

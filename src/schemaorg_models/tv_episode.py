@@ -14,9 +14,14 @@ A TV episode which can be part of a series or season.
     subtitleLanguage: Optional[Union[Language, List[Language], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('subtitleLanguage', 'https://schema.org/subtitleLanguage'),serialization_alias='https://schema.org/subtitleLanguage')
     titleEIDR: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('titleEIDR', 'https://schema.org/titleEIDR'),serialization_alias='https://schema.org/titleEIDR')
     @field_serializer('titleEIDR')
-    def titleEIDR2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def titleEIDR2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     countryOfOrigin: Optional[Union[Country, List[Country]]] = Field(default=None,validation_alias=AliasChoices('countryOfOrigin', 'https://schema.org/countryOfOrigin'),serialization_alias='https://schema.org/countryOfOrigin')

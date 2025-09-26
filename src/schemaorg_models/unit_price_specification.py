@@ -15,10 +15,15 @@ The price asked for a given offer by the respective organization or person.
     billingDuration: Optional[Union[Duration, List[Duration], float, List[float], QuantitativeValue, List[QuantitativeValue]]] = Field(default=None,validation_alias=AliasChoices('billingDuration', 'https://schema.org/billingDuration'),serialization_alias='https://schema.org/billingDuration')
     unitCode: Optional[Union[HttpUrl, List[HttpUrl], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('unitCode', 'https://schema.org/unitCode'),serialization_alias='https://schema.org/unitCode')
     @field_serializer('unitCode')
-    def unitCode2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def unitCode2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     referenceQuantity: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(default=None,validation_alias=AliasChoices('referenceQuantity', 'https://schema.org/referenceQuantity'),serialization_alias='https://schema.org/referenceQuantity')
     priceComponentType: Optional[Union[PriceComponentTypeEnumeration, List[PriceComponentTypeEnumeration]]] = Field(default=None,validation_alias=AliasChoices('priceComponentType', 'https://schema.org/priceComponentType'),serialization_alias='https://schema.org/priceComponentType')

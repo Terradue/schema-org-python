@@ -10,8 +10,13 @@ A word, name, acronym, phrase, etc. with a formal definition. Often used in the 
     termCode: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('termCode', 'https://schema.org/termCode'),serialization_alias='https://schema.org/termCode')
     inDefinedTermSet: Optional[Union[HttpUrl, List[HttpUrl], "DefinedTermSet", List["DefinedTermSet"]]] = Field(default=None,validation_alias=AliasChoices('inDefinedTermSet', 'https://schema.org/inDefinedTermSet'),serialization_alias='https://schema.org/inDefinedTermSet')
     @field_serializer('inDefinedTermSet')
-    def inDefinedTermSet2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def inDefinedTermSet2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 

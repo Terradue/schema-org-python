@@ -19,10 +19,15 @@ A statement of the money due for goods or services; a bill.
     accountId: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('accountId', 'https://schema.org/accountId'),serialization_alias='https://schema.org/accountId')
     category: Optional[Union["PhysicalActivityCategory", List["PhysicalActivityCategory"], "CategoryCode", List["CategoryCode"], str, List[str], Thing, List[Thing], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('category', 'https://schema.org/category'),serialization_alias='https://schema.org/category')
     @field_serializer('category')
-    def category2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def category2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     scheduledPaymentDate: Optional[Union[date, List[date]]] = Field(default=None,validation_alias=AliasChoices('scheduledPaymentDate', 'https://schema.org/scheduledPaymentDate'),serialization_alias='https://schema.org/scheduledPaymentDate')
     totalPaymentDue: Optional[Union["PriceSpecification", List["PriceSpecification"], "MonetaryAmount", List["MonetaryAmount"]]] = Field(default=None,validation_alias=AliasChoices('totalPaymentDue', 'https://schema.org/totalPaymentDue'),serialization_alias='https://schema.org/totalPaymentDue')

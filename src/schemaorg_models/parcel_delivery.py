@@ -21,10 +21,15 @@ The delivery of a parcel either via the postal service or a commercial service.
     provider: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(default=None,validation_alias=AliasChoices('provider', 'https://schema.org/provider'),serialization_alias='https://schema.org/provider')
     trackingUrl: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('trackingUrl', 'https://schema.org/trackingUrl'),serialization_alias='https://schema.org/trackingUrl')
     @field_serializer('trackingUrl')
-    def trackingUrl2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def trackingUrl2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     expectedArrivalFrom: Optional[Union[datetime, List[datetime], date, List[date]]] = Field(default=None,validation_alias=AliasChoices('expectedArrivalFrom', 'https://schema.org/expectedArrivalFrom'),serialization_alias='https://schema.org/expectedArrivalFrom')
     carrier: Optional[Union[Organization, List[Organization]]] = Field(default=None,validation_alias=AliasChoices('carrier', 'https://schema.org/carrier'),serialization_alias='https://schema.org/carrier')

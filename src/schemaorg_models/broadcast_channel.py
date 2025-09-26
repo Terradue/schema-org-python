@@ -15,8 +15,13 @@ A unique instance of a BroadcastService on a CableOrSatelliteService lineup.
     broadcastServiceTier: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('broadcastServiceTier', 'https://schema.org/broadcastServiceTier'),serialization_alias='https://schema.org/broadcastServiceTier')
     genre: Optional[Union[HttpUrl, List[HttpUrl], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('genre', 'https://schema.org/genre'),serialization_alias='https://schema.org/genre')
     @field_serializer('genre')
-    def genre2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def genre2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 

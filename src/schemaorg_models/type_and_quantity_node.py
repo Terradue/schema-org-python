@@ -16,8 +16,13 @@ A structured value indicating the quantity, unit of measurement, and business fu
     typeOfGood: Optional[Union[Product, List[Product], Service, List[Service]]] = Field(default=None,validation_alias=AliasChoices('typeOfGood', 'https://schema.org/typeOfGood'),serialization_alias='https://schema.org/typeOfGood')
     unitCode: Optional[Union[HttpUrl, List[HttpUrl], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('unitCode', 'https://schema.org/unitCode'),serialization_alias='https://schema.org/unitCode')
     @field_serializer('unitCode')
-    def unitCode2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def unitCode2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 

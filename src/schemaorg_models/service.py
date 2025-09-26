@@ -18,10 +18,15 @@ A service provided by an organization, e.g. delivery service, print services, et
     slogan: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('slogan', 'https://schema.org/slogan'),serialization_alias='https://schema.org/slogan')
     logo: Optional[Union[HttpUrl, List[HttpUrl], "ImageObject", List["ImageObject"]]] = Field(default=None,validation_alias=AliasChoices('logo', 'https://schema.org/logo'),serialization_alias='https://schema.org/logo')
     @field_serializer('logo')
-    def logo2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def logo2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     audience: Optional[Union[Audience, List[Audience]]] = Field(default=None,validation_alias=AliasChoices('audience', 'https://schema.org/audience'),serialization_alias='https://schema.org/audience')
     produces: Optional[Union[Thing, List[Thing]]] = Field(default=None,validation_alias=AliasChoices('produces', 'https://schema.org/produces'),serialization_alias='https://schema.org/produces')
@@ -29,10 +34,15 @@ A service provided by an organization, e.g. delivery service, print services, et
     serviceAudience: Optional[Union[Audience, List[Audience]]] = Field(default=None,validation_alias=AliasChoices('serviceAudience', 'https://schema.org/serviceAudience'),serialization_alias='https://schema.org/serviceAudience')
     termsOfService: Optional[Union[HttpUrl, List[HttpUrl], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('termsOfService', 'https://schema.org/termsOfService'),serialization_alias='https://schema.org/termsOfService')
     @field_serializer('termsOfService')
-    def termsOfService2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def termsOfService2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     award: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('award', 'https://schema.org/award'),serialization_alias='https://schema.org/award')
     availableChannel: Optional[Union["ServiceChannel", List["ServiceChannel"]]] = Field(default=None,validation_alias=AliasChoices('availableChannel', 'https://schema.org/availableChannel'),serialization_alias='https://schema.org/availableChannel')
@@ -45,10 +55,15 @@ A service provided by an organization, e.g. delivery service, print services, et
     provider: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(default=None,validation_alias=AliasChoices('provider', 'https://schema.org/provider'),serialization_alias='https://schema.org/provider')
     category: Optional[Union["PhysicalActivityCategory", List["PhysicalActivityCategory"], "CategoryCode", List["CategoryCode"], str, List[str], Thing, List[Thing], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('category', 'https://schema.org/category'),serialization_alias='https://schema.org/category')
     @field_serializer('category')
-    def category2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def category2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     serviceArea: Optional[Union[AdministrativeArea, List[AdministrativeArea], "GeoShape", List["GeoShape"], Place, List[Place]]] = Field(default=None,validation_alias=AliasChoices('serviceArea', 'https://schema.org/serviceArea'),serialization_alias='https://schema.org/serviceArea')
     hasOfferCatalog: Optional[Union["OfferCatalog", List["OfferCatalog"]]] = Field(default=None,validation_alias=AliasChoices('hasOfferCatalog', 'https://schema.org/hasOfferCatalog'),serialization_alias='https://schema.org/hasOfferCatalog')

@@ -13,8 +13,13 @@ An instance of a [[Course]] which is distinct from other instances because it is
     courseSchedule: Optional[Union["Schedule", List["Schedule"]]] = Field(default=None,validation_alias=AliasChoices('courseSchedule', 'https://schema.org/courseSchedule'),serialization_alias='https://schema.org/courseSchedule')
     courseMode: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('courseMode', 'https://schema.org/courseMode'),serialization_alias='https://schema.org/courseMode')
     @field_serializer('courseMode')
-    def courseMode2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def courseMode2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 

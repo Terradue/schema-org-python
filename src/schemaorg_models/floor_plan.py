@@ -11,10 +11,15 @@ A FloorPlan is an explicit representation of a collection of similar accommodati
     numberOfAvailableAccommodationUnits: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(default=None,validation_alias=AliasChoices('numberOfAvailableAccommodationUnits', 'https://schema.org/numberOfAvailableAccommodationUnits'),serialization_alias='https://schema.org/numberOfAvailableAccommodationUnits')
     layoutImage: Optional[Union[HttpUrl, List[HttpUrl], "ImageObject", List["ImageObject"]]] = Field(default=None,validation_alias=AliasChoices('layoutImage', 'https://schema.org/layoutImage'),serialization_alias='https://schema.org/layoutImage')
     @field_serializer('layoutImage')
-    def layoutImage2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def layoutImage2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     numberOfPartialBathrooms: Optional[Union[float, List[float]]] = Field(default=None,validation_alias=AliasChoices('numberOfPartialBathrooms', 'https://schema.org/numberOfPartialBathrooms'),serialization_alias='https://schema.org/numberOfPartialBathrooms')
     numberOfBedrooms: Optional[Union[float, List[float], "QuantitativeValue", List["QuantitativeValue"]]] = Field(default=None,validation_alias=AliasChoices('numberOfBedrooms', 'https://schema.org/numberOfBedrooms'),serialization_alias='https://schema.org/numberOfBedrooms')

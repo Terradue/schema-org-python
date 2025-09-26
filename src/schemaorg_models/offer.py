@@ -27,10 +27,15 @@ For [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, se
     """
     asin: Optional[Union[HttpUrl, List[HttpUrl], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('asin', 'https://schema.org/asin'),serialization_alias='https://schema.org/asin')
     @field_serializer('asin')
-    def asin2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def asin2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     hasAdultConsideration: Optional[Union["AdultOrientedEnumeration", List["AdultOrientedEnumeration"]]] = Field(default=None,validation_alias=AliasChoices('hasAdultConsideration', 'https://schema.org/hasAdultConsideration'),serialization_alias='https://schema.org/hasAdultConsideration')
     eligibleTransactionVolume: Optional[Union["PriceSpecification", List["PriceSpecification"]]] = Field(default=None,validation_alias=AliasChoices('eligibleTransactionVolume', 'https://schema.org/eligibleTransactionVolume'),serialization_alias='https://schema.org/eligibleTransactionVolume')
@@ -48,10 +53,15 @@ For [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, se
     gtin13: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('gtin13', 'https://schema.org/gtin13'),serialization_alias='https://schema.org/gtin13')
     hasGS1DigitalLink: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('hasGS1DigitalLink', 'https://schema.org/hasGS1DigitalLink'),serialization_alias='https://schema.org/hasGS1DigitalLink')
     @field_serializer('hasGS1DigitalLink')
-    def hasGS1DigitalLink2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def hasGS1DigitalLink2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     hasMeasurement: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(default=None,validation_alias=AliasChoices('hasMeasurement', 'https://schema.org/hasMeasurement'),serialization_alias='https://schema.org/hasMeasurement')
     inventoryLevel: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(default=None,validation_alias=AliasChoices('inventoryLevel', 'https://schema.org/inventoryLevel'),serialization_alias='https://schema.org/inventoryLevel')
@@ -61,10 +71,15 @@ For [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, se
     checkoutPageURLTemplate: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('checkoutPageURLTemplate', 'https://schema.org/checkoutPageURLTemplate'),serialization_alias='https://schema.org/checkoutPageURLTemplate')
     category: Optional[Union["PhysicalActivityCategory", List["PhysicalActivityCategory"], "CategoryCode", List["CategoryCode"], str, List[str], Thing, List[Thing], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('category', 'https://schema.org/category'),serialization_alias='https://schema.org/category')
     @field_serializer('category')
-    def category2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def category2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     hasMerchantReturnPolicy: Optional[Union[MerchantReturnPolicy, List[MerchantReturnPolicy]]] = Field(default=None,validation_alias=AliasChoices('hasMerchantReturnPolicy', 'https://schema.org/hasMerchantReturnPolicy'),serialization_alias='https://schema.org/hasMerchantReturnPolicy')
     priceCurrency: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('priceCurrency', 'https://schema.org/priceCurrency'),serialization_alias='https://schema.org/priceCurrency')
@@ -83,10 +98,15 @@ For [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, se
     reviews: Optional[Union["Review", List["Review"]]] = Field(default=None,validation_alias=AliasChoices('reviews', 'https://schema.org/reviews'),serialization_alias='https://schema.org/reviews')
     gtin: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('gtin', 'https://schema.org/gtin'),serialization_alias='https://schema.org/gtin')
     @field_serializer('gtin')
-    def gtin2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def gtin2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     availableAtOrFrom: Optional[Union[Place, List[Place]]] = Field(default=None,validation_alias=AliasChoices('availableAtOrFrom', 'https://schema.org/availableAtOrFrom'),serialization_alias='https://schema.org/availableAtOrFrom')
     addOn: Optional[Union["Offer", List["Offer"]]] = Field(default=None,validation_alias=AliasChoices('addOn', 'https://schema.org/addOn'),serialization_alias='https://schema.org/addOn')

@@ -19,19 +19,29 @@ A description of an educational course which may be offered as distinct instance
     syllabusSections: Optional[Union["Syllabus", List["Syllabus"]]] = Field(default=None,validation_alias=AliasChoices('syllabusSections', 'https://schema.org/syllabusSections'),serialization_alias='https://schema.org/syllabusSections')
     educationalCredentialAwarded: Optional[Union[EducationalOccupationalCredential, List[EducationalOccupationalCredential], str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('educationalCredentialAwarded', 'https://schema.org/educationalCredentialAwarded'),serialization_alias='https://schema.org/educationalCredentialAwarded')
     @field_serializer('educationalCredentialAwarded')
-    def educationalCredentialAwarded2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def educationalCredentialAwarded2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     financialAidEligible: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('financialAidEligible', 'https://schema.org/financialAidEligible'),serialization_alias='https://schema.org/financialAidEligible')
     coursePrerequisites: Optional[Union["Course", List["Course"], AlignmentObject, List[AlignmentObject], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('coursePrerequisites', 'https://schema.org/coursePrerequisites'),serialization_alias='https://schema.org/coursePrerequisites')
     occupationalCredentialAwarded: Optional[Union[HttpUrl, List[HttpUrl], EducationalOccupationalCredential, List[EducationalOccupationalCredential], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('occupationalCredentialAwarded', 'https://schema.org/occupationalCredentialAwarded'),serialization_alias='https://schema.org/occupationalCredentialAwarded')
     @field_serializer('occupationalCredentialAwarded')
-    def occupationalCredentialAwarded2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def occupationalCredentialAwarded2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     totalHistoricalEnrollment: Optional[Union[int, List[int]]] = Field(default=None,validation_alias=AliasChoices('totalHistoricalEnrollment', 'https://schema.org/totalHistoricalEnrollment'),serialization_alias='https://schema.org/totalHistoricalEnrollment')
     hasCourseInstance: Optional[Union[CourseInstance, List[CourseInstance]]] = Field(default=None,validation_alias=AliasChoices('hasCourseInstance', 'https://schema.org/hasCourseInstance'),serialization_alias='https://schema.org/hasCourseInstance')

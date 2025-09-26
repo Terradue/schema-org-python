@@ -13,10 +13,15 @@ Computer programming source code. Example: Full (compile ready) solutions, code 
     runtimePlatform: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('runtimePlatform', 'https://schema.org/runtimePlatform'),serialization_alias='https://schema.org/runtimePlatform')
     codeRepository: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('codeRepository', 'https://schema.org/codeRepository'),serialization_alias='https://schema.org/codeRepository')
     @field_serializer('codeRepository')
-    def codeRepository2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def codeRepository2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     codeSampleType: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('codeSampleType', 'https://schema.org/codeSampleType'),serialization_alias='https://schema.org/codeSampleType')
     runtime: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('runtime', 'https://schema.org/runtime'),serialization_alias='https://schema.org/runtime')

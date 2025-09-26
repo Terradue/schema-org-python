@@ -24,10 +24,15 @@ See also the <a href="/docs/hotels.html">dedicated document on the use of schema
     amenityFeature: Optional[Union["LocationFeatureSpecification", List["LocationFeatureSpecification"]]] = Field(default=None,validation_alias=AliasChoices('amenityFeature', 'https://schema.org/amenityFeature'),serialization_alias='https://schema.org/amenityFeature')
     tourBookingPage: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('tourBookingPage', 'https://schema.org/tourBookingPage'),serialization_alias='https://schema.org/tourBookingPage')
     @field_serializer('tourBookingPage')
-    def tourBookingPage2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def tourBookingPage2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     occupancy: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(default=None,validation_alias=AliasChoices('occupancy', 'https://schema.org/occupancy'),serialization_alias='https://schema.org/occupancy')
     permittedUsage: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('permittedUsage', 'https://schema.org/permittedUsage'),serialization_alias='https://schema.org/permittedUsage')

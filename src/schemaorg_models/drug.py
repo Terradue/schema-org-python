@@ -20,10 +20,15 @@ Specifying a drug or medicine used in a medication procedure.
     maximumIntake: Optional[Union["MaximumDoseSchedule", List["MaximumDoseSchedule"]]] = Field(default=None,validation_alias=AliasChoices('maximumIntake', 'https://schema.org/maximumIntake'),serialization_alias='https://schema.org/maximumIntake')
     prescribingInfo: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('prescribingInfo', 'https://schema.org/prescribingInfo'),serialization_alias='https://schema.org/prescribingInfo')
     @field_serializer('prescribingInfo')
-    def prescribingInfo2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def prescribingInfo2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     doseSchedule: Optional[Union["DoseSchedule", List["DoseSchedule"]]] = Field(default=None,validation_alias=AliasChoices('doseSchedule', 'https://schema.org/doseSchedule'),serialization_alias='https://schema.org/doseSchedule')
     foodWarning: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('foodWarning', 'https://schema.org/foodWarning'),serialization_alias='https://schema.org/foodWarning')
@@ -38,18 +43,28 @@ Specifying a drug or medicine used in a medication procedure.
     clincalPharmacology: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('clincalPharmacology', 'https://schema.org/clincalPharmacology'),serialization_alias='https://schema.org/clincalPharmacology')
     labelDetails: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('labelDetails', 'https://schema.org/labelDetails'),serialization_alias='https://schema.org/labelDetails')
     @field_serializer('labelDetails')
-    def labelDetails2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def labelDetails2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     availableStrength: Optional[Union["DrugStrength", List["DrugStrength"]]] = Field(default=None,validation_alias=AliasChoices('availableStrength', 'https://schema.org/availableStrength'),serialization_alias='https://schema.org/availableStrength')
     warning: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('warning', 'https://schema.org/warning'),serialization_alias='https://schema.org/warning')
     @field_serializer('warning')
-    def warning2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def warning2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     includedInHealthInsurancePlan: Optional[Union[HealthInsurancePlan, List[HealthInsurancePlan]]] = Field(default=None,validation_alias=AliasChoices('includedInHealthInsurancePlan', 'https://schema.org/includedInHealthInsurancePlan'),serialization_alias='https://schema.org/includedInHealthInsurancePlan')
     drugClass: Optional[Union[DrugClass, List[DrugClass]]] = Field(default=None,validation_alias=AliasChoices('drugClass', 'https://schema.org/drugClass'),serialization_alias='https://schema.org/drugClass')

@@ -50,74 +50,124 @@ media type information, e.g. "application/rss+xml" or "application/atom+xml".
     """
     travelBans: Optional[Union[HttpUrl, List[HttpUrl], WebContent, List[WebContent]]] = Field(default=None,validation_alias=AliasChoices('travelBans', 'https://schema.org/travelBans'),serialization_alias='https://schema.org/travelBans')
     @field_serializer('travelBans')
-    def travelBans2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def travelBans2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     quarantineGuidelines: Optional[Union[HttpUrl, List[HttpUrl], WebContent, List[WebContent]]] = Field(default=None,validation_alias=AliasChoices('quarantineGuidelines', 'https://schema.org/quarantineGuidelines'),serialization_alias='https://schema.org/quarantineGuidelines')
     @field_serializer('quarantineGuidelines')
-    def quarantineGuidelines2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def quarantineGuidelines2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     datePosted: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(default=None,validation_alias=AliasChoices('datePosted', 'https://schema.org/datePosted'),serialization_alias='https://schema.org/datePosted')
     newsUpdatesAndGuidelines: Optional[Union[HttpUrl, List[HttpUrl], WebContent, List[WebContent]]] = Field(default=None,validation_alias=AliasChoices('newsUpdatesAndGuidelines', 'https://schema.org/newsUpdatesAndGuidelines'),serialization_alias='https://schema.org/newsUpdatesAndGuidelines')
     @field_serializer('newsUpdatesAndGuidelines')
-    def newsUpdatesAndGuidelines2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def newsUpdatesAndGuidelines2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     publicTransportClosuresInfo: Optional[Union[HttpUrl, List[HttpUrl], WebContent, List[WebContent]]] = Field(default=None,validation_alias=AliasChoices('publicTransportClosuresInfo', 'https://schema.org/publicTransportClosuresInfo'),serialization_alias='https://schema.org/publicTransportClosuresInfo')
     @field_serializer('publicTransportClosuresInfo')
-    def publicTransportClosuresInfo2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def publicTransportClosuresInfo2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     governmentBenefitsInfo: Optional[Union["GovernmentService", List["GovernmentService"]]] = Field(default=None,validation_alias=AliasChoices('governmentBenefitsInfo', 'https://schema.org/governmentBenefitsInfo'),serialization_alias='https://schema.org/governmentBenefitsInfo')
     gettingTestedInfo: Optional[Union[HttpUrl, List[HttpUrl], WebContent, List[WebContent]]] = Field(default=None,validation_alias=AliasChoices('gettingTestedInfo', 'https://schema.org/gettingTestedInfo'),serialization_alias='https://schema.org/gettingTestedInfo')
     @field_serializer('gettingTestedInfo')
-    def gettingTestedInfo2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def gettingTestedInfo2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     diseasePreventionInfo: Optional[Union[HttpUrl, List[HttpUrl], WebContent, List[WebContent]]] = Field(default=None,validation_alias=AliasChoices('diseasePreventionInfo', 'https://schema.org/diseasePreventionInfo'),serialization_alias='https://schema.org/diseasePreventionInfo')
     @field_serializer('diseasePreventionInfo')
-    def diseasePreventionInfo2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def diseasePreventionInfo2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     category: Optional[Union["PhysicalActivityCategory", List["PhysicalActivityCategory"], "CategoryCode", List["CategoryCode"], str, List[str], Thing, List[Thing], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('category', 'https://schema.org/category'),serialization_alias='https://schema.org/category')
     @field_serializer('category')
-    def category2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def category2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     schoolClosuresInfo: Optional[Union[HttpUrl, List[HttpUrl], WebContent, List[WebContent]]] = Field(default=None,validation_alias=AliasChoices('schoolClosuresInfo', 'https://schema.org/schoolClosuresInfo'),serialization_alias='https://schema.org/schoolClosuresInfo')
     @field_serializer('schoolClosuresInfo')
-    def schoolClosuresInfo2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def schoolClosuresInfo2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     diseaseSpreadStatistics: Optional[Union[Observation, List[Observation], HttpUrl, List[HttpUrl], "Dataset", List["Dataset"], WebContent, List[WebContent]]] = Field(default=None,validation_alias=AliasChoices('diseaseSpreadStatistics', 'https://schema.org/diseaseSpreadStatistics'),serialization_alias='https://schema.org/diseaseSpreadStatistics')
     @field_serializer('diseaseSpreadStatistics')
-    def diseaseSpreadStatistics2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def diseaseSpreadStatistics2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     announcementLocation: Optional[Union[LocalBusiness, List[LocalBusiness], CivicStructure, List[CivicStructure]]] = Field(default=None,validation_alias=AliasChoices('announcementLocation', 'https://schema.org/announcementLocation'),serialization_alias='https://schema.org/announcementLocation')
     webFeed: Optional[Union["DataFeed", List["DataFeed"], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('webFeed', 'https://schema.org/webFeed'),serialization_alias='https://schema.org/webFeed')
     @field_serializer('webFeed')
-    def webFeed2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def webFeed2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 

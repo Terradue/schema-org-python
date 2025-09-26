@@ -18,8 +18,13 @@ A musical group, such as a band, an orchestra, or a choir. Can also be a solo mu
     track: Optional[Union[ItemList, List[ItemList], MusicRecording, List[MusicRecording]]] = Field(default=None,validation_alias=AliasChoices('track', 'https://schema.org/track'),serialization_alias='https://schema.org/track')
     genre: Optional[Union[HttpUrl, List[HttpUrl], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('genre', 'https://schema.org/genre'),serialization_alias='https://schema.org/genre')
     @field_serializer('genre')
-    def genre2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def genre2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 

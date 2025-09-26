@@ -16,10 +16,15 @@ Any bodily activity that enhances or maintains physical fitness and overall heal
     pathophysiology: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('pathophysiology', 'https://schema.org/pathophysiology'),serialization_alias='https://schema.org/pathophysiology')
     category: Optional[Union[PhysicalActivityCategory, List[PhysicalActivityCategory], CategoryCode, List[CategoryCode], str, List[str], Thing, List[Thing], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('category', 'https://schema.org/category'),serialization_alias='https://schema.org/category')
     @field_serializer('category')
-    def category2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def category2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     epidemiology: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('epidemiology', 'https://schema.org/epidemiology'),serialization_alias='https://schema.org/epidemiology')
     associatedAnatomy: Optional[Union[AnatomicalSystem, List[AnatomicalSystem], SuperficialAnatomy, List[SuperficialAnatomy], AnatomicalStructure, List[AnatomicalStructure]]] = Field(default=None,validation_alias=AliasChoices('associatedAnatomy', 'https://schema.org/associatedAnatomy'),serialization_alias='https://schema.org/associatedAnatomy')

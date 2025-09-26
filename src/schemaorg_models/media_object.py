@@ -23,17 +23,27 @@ A media object, such as an image, video, audio, or text object embedded in a web
     bitrate: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('bitrate', 'https://schema.org/bitrate'),serialization_alias='https://schema.org/bitrate')
     encodingFormat: Optional[Union[HttpUrl, List[HttpUrl], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('encodingFormat', 'https://schema.org/encodingFormat'),serialization_alias='https://schema.org/encodingFormat')
     @field_serializer('encodingFormat')
-    def encodingFormat2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def encodingFormat2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     contentUrl: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('contentUrl', 'https://schema.org/contentUrl'),serialization_alias='https://schema.org/contentUrl')
     @field_serializer('contentUrl')
-    def contentUrl2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def contentUrl2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     associatedArticle: Optional[Union["NewsArticle", List["NewsArticle"]]] = Field(default=None,validation_alias=AliasChoices('associatedArticle', 'https://schema.org/associatedArticle'),serialization_alias='https://schema.org/associatedArticle')
     width: Optional[Union["QuantitativeValue", List["QuantitativeValue"], "Distance", List["Distance"]]] = Field(default=None,validation_alias=AliasChoices('width', 'https://schema.org/width'),serialization_alias='https://schema.org/width')
@@ -41,10 +51,15 @@ A media object, such as an image, video, audio, or text object embedded in a web
     duration: Optional[Union["Duration", List["Duration"], "QuantitativeValue", List["QuantitativeValue"]]] = Field(default=None,validation_alias=AliasChoices('duration', 'https://schema.org/duration'),serialization_alias='https://schema.org/duration')
     embedUrl: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('embedUrl', 'https://schema.org/embedUrl'),serialization_alias='https://schema.org/embedUrl')
     @field_serializer('embedUrl')
-    def embedUrl2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def embedUrl2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     startTime: Optional[Union[time, List[time], datetime, List[datetime]]] = Field(default=None,validation_alias=AliasChoices('startTime', 'https://schema.org/startTime'),serialization_alias='https://schema.org/startTime')
     ineligibleRegion: Optional[Union[str, List[str], Place, List[Place], "GeoShape", List["GeoShape"]]] = Field(default=None,validation_alias=AliasChoices('ineligibleRegion', 'https://schema.org/ineligibleRegion'),serialization_alias='https://schema.org/ineligibleRegion')

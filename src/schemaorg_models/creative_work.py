@@ -16,10 +16,15 @@ The most generic kind of creative work, including books, movies, photographs, so
     accessMode: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('accessMode', 'https://schema.org/accessMode'),serialization_alias='https://schema.org/accessMode')
     sdLicense: Optional[Union["CreativeWork", List["CreativeWork"], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('sdLicense', 'https://schema.org/sdLicense'),serialization_alias='https://schema.org/sdLicense')
     @field_serializer('sdLicense')
-    def sdLicense2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def sdLicense2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     isAccessibleForFree: Optional[Union[bool, List[bool]]] = Field(default=None,validation_alias=AliasChoices('isAccessibleForFree', 'https://schema.org/isAccessibleForFree'),serialization_alias='https://schema.org/isAccessibleForFree')
     learningResourceType: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('learningResourceType', 'https://schema.org/learningResourceType'),serialization_alias='https://schema.org/learningResourceType')
@@ -34,10 +39,15 @@ The most generic kind of creative work, including books, movies, photographs, so
     publication: Optional[Union["PublicationEvent", List["PublicationEvent"]]] = Field(default=None,validation_alias=AliasChoices('publication', 'https://schema.org/publication'),serialization_alias='https://schema.org/publication')
     license: Optional[Union["CreativeWork", List["CreativeWork"], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('license', 'https://schema.org/license'),serialization_alias='https://schema.org/license')
     @field_serializer('license')
-    def license2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def license2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     position: Optional[Union[int, List[int], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('position', 'https://schema.org/position'),serialization_alias='https://schema.org/position')
     contentRating: Optional[Union["Rating", List["Rating"], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('contentRating', 'https://schema.org/contentRating'),serialization_alias='https://schema.org/contentRating')
@@ -47,10 +57,15 @@ The most generic kind of creative work, including books, movies, photographs, so
     accessibilityAPI: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('accessibilityAPI', 'https://schema.org/accessibilityAPI'),serialization_alias='https://schema.org/accessibilityAPI')
     usageInfo: Optional[Union["CreativeWork", List["CreativeWork"], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('usageInfo', 'https://schema.org/usageInfo'),serialization_alias='https://schema.org/usageInfo')
     @field_serializer('usageInfo')
-    def usageInfo2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def usageInfo2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     creditText: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('creditText', 'https://schema.org/creditText'),serialization_alias='https://schema.org/creditText')
     workTranslation: Optional[Union["CreativeWork", List["CreativeWork"]]] = Field(default=None,validation_alias=AliasChoices('workTranslation', 'https://schema.org/workTranslation'),serialization_alias='https://schema.org/workTranslation')
@@ -59,19 +74,29 @@ The most generic kind of creative work, including books, movies, photographs, so
     awards: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('awards', 'https://schema.org/awards'),serialization_alias='https://schema.org/awards')
     discussionUrl: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('discussionUrl', 'https://schema.org/discussionUrl'),serialization_alias='https://schema.org/discussionUrl')
     @field_serializer('discussionUrl')
-    def discussionUrl2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def discussionUrl2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     accountablePerson: Optional[Union[Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('accountablePerson', 'https://schema.org/accountablePerson'),serialization_alias='https://schema.org/accountablePerson')
     conditionsOfAccess: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('conditionsOfAccess', 'https://schema.org/conditionsOfAccess'),serialization_alias='https://schema.org/conditionsOfAccess')
     encodingFormat: Optional[Union[HttpUrl, List[HttpUrl], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('encodingFormat', 'https://schema.org/encodingFormat'),serialization_alias='https://schema.org/encodingFormat')
     @field_serializer('encodingFormat')
-    def encodingFormat2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def encodingFormat2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     publisherImprint: Optional[Union["Organization", List["Organization"]]] = Field(default=None,validation_alias=AliasChoices('publisherImprint', 'https://schema.org/publisherImprint'),serialization_alias='https://schema.org/publisherImprint')
     accessibilitySummary: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('accessibilitySummary', 'https://schema.org/accessibilitySummary'),serialization_alias='https://schema.org/accessibilitySummary')
@@ -79,42 +104,67 @@ The most generic kind of creative work, including books, movies, photographs, so
     sdDatePublished: Optional[Union[date, List[date]]] = Field(default=None,validation_alias=AliasChoices('sdDatePublished', 'https://schema.org/sdDatePublished'),serialization_alias='https://schema.org/sdDatePublished')
     temporalCoverage: Optional[Union[datetime, List[datetime], str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('temporalCoverage', 'https://schema.org/temporalCoverage'),serialization_alias='https://schema.org/temporalCoverage')
     @field_serializer('temporalCoverage')
-    def temporalCoverage2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def temporalCoverage2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     isFamilyFriendly: Optional[Union[bool, List[bool]]] = Field(default=None,validation_alias=AliasChoices('isFamilyFriendly', 'https://schema.org/isFamilyFriendly'),serialization_alias='https://schema.org/isFamilyFriendly')
     acquireLicensePage: Optional[Union[HttpUrl, List[HttpUrl], "CreativeWork", List["CreativeWork"]]] = Field(default=None,validation_alias=AliasChoices('acquireLicensePage', 'https://schema.org/acquireLicensePage'),serialization_alias='https://schema.org/acquireLicensePage')
     @field_serializer('acquireLicensePage')
-    def acquireLicensePage2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def acquireLicensePage2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     headline: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('headline', 'https://schema.org/headline'),serialization_alias='https://schema.org/headline')
     aggregateRating: Optional[Union["AggregateRating", List["AggregateRating"]]] = Field(default=None,validation_alias=AliasChoices('aggregateRating', 'https://schema.org/aggregateRating'),serialization_alias='https://schema.org/aggregateRating')
     editEIDR: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('editEIDR', 'https://schema.org/editEIDR'),serialization_alias='https://schema.org/editEIDR')
     @field_serializer('editEIDR')
-    def editEIDR2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def editEIDR2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     correction: Optional[Union["CorrectionComment", List["CorrectionComment"], str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('correction', 'https://schema.org/correction'),serialization_alias='https://schema.org/correction')
     @field_serializer('correction')
-    def correction2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def correction2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     alternativeHeadline: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('alternativeHeadline', 'https://schema.org/alternativeHeadline'),serialization_alias='https://schema.org/alternativeHeadline')
     isPartOf: Optional[Union[HttpUrl, List[HttpUrl], "CreativeWork", List["CreativeWork"]]] = Field(default=None,validation_alias=AliasChoices('isPartOf', 'https://schema.org/isPartOf'),serialization_alias='https://schema.org/isPartOf')
     @field_serializer('isPartOf')
-    def isPartOf2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def isPartOf2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     version: Optional[Union[str, List[str], float, List[float]]] = Field(default=None,validation_alias=AliasChoices('version', 'https://schema.org/version'),serialization_alias='https://schema.org/version')
     translationOfWork: Optional[Union["CreativeWork", List["CreativeWork"]]] = Field(default=None,validation_alias=AliasChoices('translationOfWork', 'https://schema.org/translationOfWork'),serialization_alias='https://schema.org/translationOfWork')
@@ -127,17 +177,27 @@ The most generic kind of creative work, including books, movies, photographs, so
     mentions: Optional[Union[Thing, List[Thing]]] = Field(default=None,validation_alias=AliasChoices('mentions', 'https://schema.org/mentions'),serialization_alias='https://schema.org/mentions')
     archivedAt: Optional[Union[HttpUrl, List[HttpUrl], "WebPage", List["WebPage"]]] = Field(default=None,validation_alias=AliasChoices('archivedAt', 'https://schema.org/archivedAt'),serialization_alias='https://schema.org/archivedAt')
     @field_serializer('archivedAt')
-    def archivedAt2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def archivedAt2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     genre: Optional[Union[HttpUrl, List[HttpUrl], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('genre', 'https://schema.org/genre'),serialization_alias='https://schema.org/genre')
     @field_serializer('genre')
-    def genre2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def genre2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     copyrightYear: Optional[Union[float, List[float]]] = Field(default=None,validation_alias=AliasChoices('copyrightYear', 'https://schema.org/copyrightYear'),serialization_alias='https://schema.org/copyrightYear')
     funder: Optional[Union["Organization", List["Organization"], Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('funder', 'https://schema.org/funder'),serialization_alias='https://schema.org/funder')
@@ -147,10 +207,15 @@ The most generic kind of creative work, including books, movies, photographs, so
     accessibilityFeature: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('accessibilityFeature', 'https://schema.org/accessibilityFeature'),serialization_alias='https://schema.org/accessibilityFeature')
     keywords: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], "DefinedTerm", List["DefinedTerm"]]] = Field(default=None,validation_alias=AliasChoices('keywords', 'https://schema.org/keywords'),serialization_alias='https://schema.org/keywords')
     @field_serializer('keywords')
-    def keywords2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def keywords2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     award: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('award', 'https://schema.org/award'),serialization_alias='https://schema.org/award')
     translator: Optional[Union[Person, List[Person], "Organization", List["Organization"]]] = Field(default=None,validation_alias=AliasChoices('translator', 'https://schema.org/translator'),serialization_alias='https://schema.org/translator')
@@ -169,51 +234,81 @@ The most generic kind of creative work, including books, movies, photographs, so
     funding: Optional[Union["Grant", List["Grant"]]] = Field(default=None,validation_alias=AliasChoices('funding', 'https://schema.org/funding'),serialization_alias='https://schema.org/funding')
     isBasedOn: Optional[Union["Product", List["Product"], "CreativeWork", List["CreativeWork"], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('isBasedOn', 'https://schema.org/isBasedOn'),serialization_alias='https://schema.org/isBasedOn')
     @field_serializer('isBasedOn')
-    def isBasedOn2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def isBasedOn2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     educationalLevel: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], "DefinedTerm", List["DefinedTerm"]]] = Field(default=None,validation_alias=AliasChoices('educationalLevel', 'https://schema.org/educationalLevel'),serialization_alias='https://schema.org/educationalLevel')
     @field_serializer('educationalLevel')
-    def educationalLevel2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def educationalLevel2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     mainEntity: Optional[Union[Thing, List[Thing]]] = Field(default=None,validation_alias=AliasChoices('mainEntity', 'https://schema.org/mainEntity'),serialization_alias='https://schema.org/mainEntity')
     thumbnailUrl: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('thumbnailUrl', 'https://schema.org/thumbnailUrl'),serialization_alias='https://schema.org/thumbnailUrl')
     @field_serializer('thumbnailUrl')
-    def thumbnailUrl2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def thumbnailUrl2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     author: Optional[Union[Person, List[Person], "Organization", List["Organization"]]] = Field(default=None,validation_alias=AliasChoices('author', 'https://schema.org/author'),serialization_alias='https://schema.org/author')
     releasedEvent: Optional[Union["PublicationEvent", List["PublicationEvent"]]] = Field(default=None,validation_alias=AliasChoices('releasedEvent', 'https://schema.org/releasedEvent'),serialization_alias='https://schema.org/releasedEvent')
     recordedAt: Optional[Union[Event, List[Event]]] = Field(default=None,validation_alias=AliasChoices('recordedAt', 'https://schema.org/recordedAt'),serialization_alias='https://schema.org/recordedAt')
     schemaVersion: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('schemaVersion', 'https://schema.org/schemaVersion'),serialization_alias='https://schema.org/schemaVersion')
     @field_serializer('schemaVersion')
-    def schemaVersion2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def schemaVersion2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     material: Optional[Union[str, List[str], "Product", List["Product"], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('material', 'https://schema.org/material'),serialization_alias='https://schema.org/material')
     @field_serializer('material')
-    def material2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def material2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     digitalSourceType: Optional[Union["IPTCDigitalSourceEnumeration", List["IPTCDigitalSourceEnumeration"]]] = Field(default=None,validation_alias=AliasChoices('digitalSourceType', 'https://schema.org/digitalSourceType'),serialization_alias='https://schema.org/digitalSourceType')
     exampleOfWork: Optional[Union["CreativeWork", List["CreativeWork"]]] = Field(default=None,validation_alias=AliasChoices('exampleOfWork', 'https://schema.org/exampleOfWork'),serialization_alias='https://schema.org/exampleOfWork')
     publishingPrinciples: Optional[Union["CreativeWork", List["CreativeWork"], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('publishingPrinciples', 'https://schema.org/publishingPrinciples'),serialization_alias='https://schema.org/publishingPrinciples')
     @field_serializer('publishingPrinciples')
-    def publishingPrinciples2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def publishingPrinciples2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     datePublished: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(default=None,validation_alias=AliasChoices('datePublished', 'https://schema.org/datePublished'),serialization_alias='https://schema.org/datePublished')
     temporal: Optional[Union[str, List[str], datetime, List[datetime]]] = Field(default=None,validation_alias=AliasChoices('temporal', 'https://schema.org/temporal'),serialization_alias='https://schema.org/temporal')
@@ -221,10 +316,15 @@ The most generic kind of creative work, including books, movies, photographs, so
     contributor: Optional[Union["Organization", List["Organization"], Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('contributor', 'https://schema.org/contributor'),serialization_alias='https://schema.org/contributor')
     fileFormat: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('fileFormat', 'https://schema.org/fileFormat'),serialization_alias='https://schema.org/fileFormat')
     @field_serializer('fileFormat')
-    def fileFormat2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def fileFormat2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     size: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str], "SizeSpecification", List["SizeSpecification"], "QuantitativeValue", List["QuantitativeValue"]]] = Field(default=None,validation_alias=AliasChoices('size', 'https://schema.org/size'),serialization_alias='https://schema.org/size')
     sdPublisher: Optional[Union[Person, List[Person], "Organization", List["Organization"]]] = Field(default=None,validation_alias=AliasChoices('sdPublisher', 'https://schema.org/sdPublisher'),serialization_alias='https://schema.org/sdPublisher')
@@ -248,8 +348,13 @@ The most generic kind of creative work, including books, movies, photographs, so
     provider: Optional[Union[Person, List[Person], "Organization", List["Organization"]]] = Field(default=None,validation_alias=AliasChoices('provider', 'https://schema.org/provider'),serialization_alias='https://schema.org/provider')
     isBasedOnUrl: Optional[Union["Product", List["Product"], "CreativeWork", List["CreativeWork"], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('isBasedOnUrl', 'https://schema.org/isBasedOnUrl'),serialization_alias='https://schema.org/isBasedOnUrl')
     @field_serializer('isBasedOnUrl')
-    def isBasedOnUrl2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def isBasedOnUrl2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 

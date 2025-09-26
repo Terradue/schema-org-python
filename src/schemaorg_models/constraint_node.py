@@ -12,8 +12,13 @@ The ConstraintNode type is provided to support usecases in which a node in a str
     numConstraints: Optional[Union[int, List[int]]] = Field(default=None,validation_alias=AliasChoices('numConstraints', 'https://schema.org/numConstraints'),serialization_alias='https://schema.org/numConstraints')
     constraintProperty: Optional[Union[HttpUrl, List[HttpUrl], Property, List[Property]]] = Field(default=None,validation_alias=AliasChoices('constraintProperty', 'https://schema.org/constraintProperty'),serialization_alias='https://schema.org/constraintProperty')
     @field_serializer('constraintProperty')
-    def constraintProperty2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def constraintProperty2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 

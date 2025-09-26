@@ -29,10 +29,15 @@ Upcoming or past event associated with this place, organization, or action.
     duration: Optional[Union["Duration", List["Duration"], "QuantitativeValue", List["QuantitativeValue"]]] = Field(default=None,validation_alias=AliasChoices('duration', 'https://schema.org/duration'),serialization_alias='https://schema.org/duration')
     keywords: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], "DefinedTerm", List["DefinedTerm"]]] = Field(default=None,validation_alias=AliasChoices('keywords', 'https://schema.org/keywords'),serialization_alias='https://schema.org/keywords')
     @field_serializer('keywords')
-    def keywords2str(self, val) -> str:
-        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
-            return str(val)
-        return val
+    def keywords2str(self, val) -> str | List[str]:
+        def _to_str(value):
+            if isinstance(value, HttpUrl):
+                return str(value)
+            return value
+
+        if isinstance(val, list):
+            return [_to_str(i) for i in val]
+        return _to_str(val)
 
     translator: Optional[Union[Person, List[Person], "Organization", List["Organization"]]] = Field(default=None,validation_alias=AliasChoices('translator', 'https://schema.org/translator'),serialization_alias='https://schema.org/translator')
     doorTime: Optional[Union[time, List[time], datetime, List[datetime]]] = Field(default=None,validation_alias=AliasChoices('doorTime', 'https://schema.org/doorTime'),serialization_alias='https://schema.org/doorTime')
