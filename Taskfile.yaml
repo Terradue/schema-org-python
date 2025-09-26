@@ -2,9 +2,22 @@ version: '3'
 
 tasks:
 
-  default:
+  setup:
     cmds:
     - rm -rf schemaorg-all-https.nt
     - wget https://schema.org/version/latest/schemaorg-all-https.nt
+    - pip install flake8
+
+  generate:
+    cmds:
     - ./create_pydantic.py schemaorg-all-https.nt
+    - autoflake --remove-all-unused-imports -i -r ./src/schemaorg_models
+
+  install:
+    cmds:
     - pip install .
+
+  default:
+    cmds:
+    - task: generate
+    - task: install

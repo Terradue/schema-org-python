@@ -221,17 +221,6 @@ def generate_models(graph: Graph):
             f.write("    pass\n")
     return classes
 
-
-def run_autoflake():
-    command = ["autoflake", "--remove-all-unused-imports", "-i", "-r", "."]
-
-    # Run the command
-    result = subprocess.run(command, capture_output=True, text=True)
-    if result.returncode != 0:
-        print(result.stderr)
-        sys.exit(1)
-
-
 def main():
     # Create an ArgumentParser object
     parser = argparse.ArgumentParser(
@@ -256,9 +245,6 @@ def main():
 
     print("Generating Pydantic models...")
     generate_models(graph)
-
-    print("Running autoflake...")
-    run_autoflake()
 
     print("Models generated in src/schemaorg_models directory")
 
