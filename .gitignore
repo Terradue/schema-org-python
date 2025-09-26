@@ -128,4 +128,4 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-schemaorg-all-https.nt
+schemaorg-all-https.nt*
