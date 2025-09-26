@@ -1,5 +1,5 @@
 from typing import Union, List, Optional
-from pydantic import AliasChoices, Field, HttpUrl
+from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.intangible import Intangible
 
 from schemaorg_models.property import Property
@@ -11,3 +11,9 @@ The ConstraintNode type is provided to support usecases in which a node in a str
     """
     numConstraints: Optional[Union[int, List[int]]] = Field(default=None,validation_alias=AliasChoices('numConstraints', 'https://schema.org/numConstraints'),serialization_alias='https://schema.org/numConstraints')
     constraintProperty: Optional[Union[HttpUrl, List[HttpUrl], Property, List[Property]]] = Field(default=None,validation_alias=AliasChoices('constraintProperty', 'https://schema.org/constraintProperty'),serialization_alias='https://schema.org/constraintProperty')
+    @field_serializer('constraintProperty')
+    def constraintProperty2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+

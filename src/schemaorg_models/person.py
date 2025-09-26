@@ -1,6 +1,6 @@
 from typing import Union, List, Optional
 from datetime import date
-from pydantic import AliasChoices, Field, HttpUrl
+from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.thing import Thing
 
 from schemaorg_models.thing import Thing
@@ -44,6 +44,12 @@ A person (alive, dead, undead, or fictional).
     agentInteractionStatistic: Optional[Union["InteractionCounter", List["InteractionCounter"]]] = Field(default=None,validation_alias=AliasChoices('agentInteractionStatistic', 'https://schema.org/agentInteractionStatistic'),serialization_alias='https://schema.org/agentInteractionStatistic')
     naics: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('naics', 'https://schema.org/naics'),serialization_alias='https://schema.org/naics')
     colleague: Optional[Union["Person", List["Person"], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('colleague', 'https://schema.org/colleague'),serialization_alias='https://schema.org/colleague')
+    @field_serializer('colleague')
+    def colleague2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     givenName: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('givenName', 'https://schema.org/givenName'),serialization_alias='https://schema.org/givenName')
     worksFor: Optional[Union["Organization", List["Organization"]]] = Field(default=None,validation_alias=AliasChoices('worksFor', 'https://schema.org/worksFor'),serialization_alias='https://schema.org/worksFor')
     additionalName: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('additionalName', 'https://schema.org/additionalName'),serialization_alias='https://schema.org/additionalName')
@@ -59,6 +65,12 @@ A person (alive, dead, undead, or fictional).
     performerIn: Optional[Union["Event", List["Event"]]] = Field(default=None,validation_alias=AliasChoices('performerIn', 'https://schema.org/performerIn'),serialization_alias='https://schema.org/performerIn')
     pronouns: Optional[Union[str, List[str], "StructuredValue", List["StructuredValue"], "DefinedTerm", List["DefinedTerm"]]] = Field(default=None,validation_alias=AliasChoices('pronouns', 'https://schema.org/pronouns'),serialization_alias='https://schema.org/pronouns')
     knowsAbout: Optional[Union[str, List[str], Thing, List[Thing], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('knowsAbout', 'https://schema.org/knowsAbout'),serialization_alias='https://schema.org/knowsAbout')
+    @field_serializer('knowsAbout')
+    def knowsAbout2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     telephone: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('telephone', 'https://schema.org/telephone'),serialization_alias='https://schema.org/telephone')
     callSign: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('callSign', 'https://schema.org/callSign'),serialization_alias='https://schema.org/callSign')
     brand: Optional[Union["Organization", List["Organization"], "Brand", List["Brand"]]] = Field(default=None,validation_alias=AliasChoices('brand', 'https://schema.org/brand'),serialization_alias='https://schema.org/brand')
@@ -67,6 +79,12 @@ A person (alive, dead, undead, or fictional).
     makesOffer: Optional[Union["Offer", List["Offer"]]] = Field(default=None,validation_alias=AliasChoices('makesOffer', 'https://schema.org/makesOffer'),serialization_alias='https://schema.org/makesOffer')
     birthPlace: Optional[Union["Place", List["Place"]]] = Field(default=None,validation_alias=AliasChoices('birthPlace', 'https://schema.org/birthPlace'),serialization_alias='https://schema.org/birthPlace')
     publishingPrinciples: Optional[Union["CreativeWork", List["CreativeWork"], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('publishingPrinciples', 'https://schema.org/publishingPrinciples'),serialization_alias='https://schema.org/publishingPrinciples')
+    @field_serializer('publishingPrinciples')
+    def publishingPrinciples2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     isicV4: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('isicV4', 'https://schema.org/isicV4'),serialization_alias='https://schema.org/isicV4')
     honorificSuffix: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('honorificSuffix', 'https://schema.org/honorificSuffix'),serialization_alias='https://schema.org/honorificSuffix')
     duns: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('duns', 'https://schema.org/duns'),serialization_alias='https://schema.org/duns')

@@ -1,6 +1,6 @@
 from typing import Union, List, Optional
 from datetime import date
-from pydantic import AliasChoices, Field, HttpUrl
+from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.product import Product
 
 
@@ -13,12 +13,30 @@ A vehicle is a device that is designed or used to transport people or cargo over
     callSign: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('callSign', 'https://schema.org/callSign'),serialization_alias='https://schema.org/callSign')
     fuelCapacity: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(default=None,validation_alias=AliasChoices('fuelCapacity', 'https://schema.org/fuelCapacity'),serialization_alias='https://schema.org/fuelCapacity')
     bodyType: Optional[Union[str, List[str], "QualitativeValue", List["QualitativeValue"], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('bodyType', 'https://schema.org/bodyType'),serialization_alias='https://schema.org/bodyType')
+    @field_serializer('bodyType')
+    def bodyType2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     driveWheelConfiguration: Optional[Union[str, List[str], "DriveWheelConfigurationValue", List["DriveWheelConfigurationValue"]]] = Field(default=None,validation_alias=AliasChoices('driveWheelConfiguration', 'https://schema.org/driveWheelConfiguration'),serialization_alias='https://schema.org/driveWheelConfiguration')
     fuelType: Optional[Union[str, List[str], "QualitativeValue", List["QualitativeValue"], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('fuelType', 'https://schema.org/fuelType'),serialization_alias='https://schema.org/fuelType')
+    @field_serializer('fuelType')
+    def fuelType2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     trailerWeight: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(default=None,validation_alias=AliasChoices('trailerWeight', 'https://schema.org/trailerWeight'),serialization_alias='https://schema.org/trailerWeight')
     numberOfPreviousOwners: Optional[Union[float, List[float], "QuantitativeValue", List["QuantitativeValue"]]] = Field(default=None,validation_alias=AliasChoices('numberOfPreviousOwners', 'https://schema.org/numberOfPreviousOwners'),serialization_alias='https://schema.org/numberOfPreviousOwners')
     numberOfAirbags: Optional[Union[float, List[float], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('numberOfAirbags', 'https://schema.org/numberOfAirbags'),serialization_alias='https://schema.org/numberOfAirbags')
     vehicleTransmission: Optional[Union[str, List[str], "QualitativeValue", List["QualitativeValue"], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('vehicleTransmission', 'https://schema.org/vehicleTransmission'),serialization_alias='https://schema.org/vehicleTransmission')
+    @field_serializer('vehicleTransmission')
+    def vehicleTransmission2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     payload: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(default=None,validation_alias=AliasChoices('payload', 'https://schema.org/payload'),serialization_alias='https://schema.org/payload')
     numberOfAxles: Optional[Union[float, List[float], "QuantitativeValue", List["QuantitativeValue"]]] = Field(default=None,validation_alias=AliasChoices('numberOfAxles', 'https://schema.org/numberOfAxles'),serialization_alias='https://schema.org/numberOfAxles')
     tongueWeight: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(default=None,validation_alias=AliasChoices('tongueWeight', 'https://schema.org/tongueWeight'),serialization_alias='https://schema.org/tongueWeight')
@@ -37,6 +55,12 @@ A vehicle is a device that is designed or used to transport people or cargo over
     vehicleConfiguration: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('vehicleConfiguration', 'https://schema.org/vehicleConfiguration'),serialization_alias='https://schema.org/vehicleConfiguration')
     knownVehicleDamages: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('knownVehicleDamages', 'https://schema.org/knownVehicleDamages'),serialization_alias='https://schema.org/knownVehicleDamages')
     meetsEmissionStandard: Optional[Union[str, List[str], "QualitativeValue", List["QualitativeValue"], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('meetsEmissionStandard', 'https://schema.org/meetsEmissionStandard'),serialization_alias='https://schema.org/meetsEmissionStandard')
+    @field_serializer('meetsEmissionStandard')
+    def meetsEmissionStandard2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     weightTotal: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(default=None,validation_alias=AliasChoices('weightTotal', 'https://schema.org/weightTotal'),serialization_alias='https://schema.org/weightTotal')
     numberOfForwardGears: Optional[Union[float, List[float], "QuantitativeValue", List["QuantitativeValue"]]] = Field(default=None,validation_alias=AliasChoices('numberOfForwardGears', 'https://schema.org/numberOfForwardGears'),serialization_alias='https://schema.org/numberOfForwardGears')
     modelDate: Optional[Union[date, List[date]]] = Field(default=None,validation_alias=AliasChoices('modelDate', 'https://schema.org/modelDate'),serialization_alias='https://schema.org/modelDate')

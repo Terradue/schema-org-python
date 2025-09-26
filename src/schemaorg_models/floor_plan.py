@@ -1,5 +1,5 @@
 from typing import Union, List, Optional
-from pydantic import AliasChoices, Field, HttpUrl
+from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.intangible import Intangible
 
 from schemaorg_models.accommodation import Accommodation
@@ -10,6 +10,12 @@ A FloorPlan is an explicit representation of a collection of similar accommodati
     """
     numberOfAvailableAccommodationUnits: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(default=None,validation_alias=AliasChoices('numberOfAvailableAccommodationUnits', 'https://schema.org/numberOfAvailableAccommodationUnits'),serialization_alias='https://schema.org/numberOfAvailableAccommodationUnits')
     layoutImage: Optional[Union[HttpUrl, List[HttpUrl], "ImageObject", List["ImageObject"]]] = Field(default=None,validation_alias=AliasChoices('layoutImage', 'https://schema.org/layoutImage'),serialization_alias='https://schema.org/layoutImage')
+    @field_serializer('layoutImage')
+    def layoutImage2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     numberOfPartialBathrooms: Optional[Union[float, List[float]]] = Field(default=None,validation_alias=AliasChoices('numberOfPartialBathrooms', 'https://schema.org/numberOfPartialBathrooms'),serialization_alias='https://schema.org/numberOfPartialBathrooms')
     numberOfBedrooms: Optional[Union[float, List[float], "QuantitativeValue", List["QuantitativeValue"]]] = Field(default=None,validation_alias=AliasChoices('numberOfBedrooms', 'https://schema.org/numberOfBedrooms'),serialization_alias='https://schema.org/numberOfBedrooms')
     numberOfRooms: Optional[Union[float, List[float], "QuantitativeValue", List["QuantitativeValue"]]] = Field(default=None,validation_alias=AliasChoices('numberOfRooms', 'https://schema.org/numberOfRooms'),serialization_alias='https://schema.org/numberOfRooms')

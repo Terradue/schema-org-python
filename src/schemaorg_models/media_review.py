@@ -1,5 +1,5 @@
 from typing import Union, List, Optional
-from pydantic import AliasChoices, Field, HttpUrl
+from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.review import Review
 
 from schemaorg_models.media_manipulation_rating_enumeration import MediaManipulationRatingEnumeration
@@ -15,4 +15,10 @@ A [[MediaReview]] is a more specialized form of Review dedicated to the evaluati
     """
     mediaAuthenticityCategory: Optional[Union[MediaManipulationRatingEnumeration, List[MediaManipulationRatingEnumeration]]] = Field(default=None,validation_alias=AliasChoices('mediaAuthenticityCategory', 'https://schema.org/mediaAuthenticityCategory'),serialization_alias='https://schema.org/mediaAuthenticityCategory')
     originalMediaLink: Optional[Union[WebPage, List[WebPage], HttpUrl, List[HttpUrl], MediaObject, List[MediaObject]]] = Field(default=None,validation_alias=AliasChoices('originalMediaLink', 'https://schema.org/originalMediaLink'),serialization_alias='https://schema.org/originalMediaLink')
+    @field_serializer('originalMediaLink')
+    def originalMediaLink2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     originalMediaContextDescription: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('originalMediaContextDescription', 'https://schema.org/originalMediaContextDescription'),serialization_alias='https://schema.org/originalMediaContextDescription')

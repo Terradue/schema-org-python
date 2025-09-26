@@ -146,7 +146,7 @@ def generate_models(graph: Graph):
             f.write("from typing import Union, List, Optional\n")
             f.write("from datetime import date, datetime, time\n")
             f.write(
-                "from pydantic import field_validator, AliasChoices, ConfigDict, Field, HttpUrl\n"
+                "from pydantic import field_serializer, field_validator, AliasChoices, ConfigDict, Field, HttpUrl\n"
             )
 
             # Import parent class if exists
@@ -204,6 +204,13 @@ def generate_models(graph: Graph):
                 variable_name = f"{prop_name}_" if prop_name[0].isdigit() or prop_name.lower() in kwlist else prop_name
                 	
                 f.write(f"    {variable_name}: Optional[Union[{prop_types}]] = Field(default=None,validation_alias=AliasChoices('{prop_name}', 'https://schema.org/{prop_name}'),serialization_alias='https://schema.org/{prop_name}')\n")
+                
+                if 'HttpUrl' in prop_type_list:
+                    f.write(f"    @field_serializer('{variable_name}')\n")
+                    f.write(f"    def {variable_name}2str(self, val) -> str:\n")
+                    f.write('        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error\n')
+                    f.write('            return str(val)\n')
+                    f.write('        return val\n\n')
 
     for s in BASE_TYPES_STR:
         class_name = safe_name(s.split("/")[-1])

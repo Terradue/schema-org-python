@@ -1,6 +1,6 @@
 from typing import Union, List, Optional
 from datetime import date, datetime
-from pydantic import AliasChoices, Field, HttpUrl
+from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.intangible import Intangible
 
 from schemaorg_models.parcel_delivery import ParcelDelivery
@@ -35,6 +35,12 @@ An order is a confirmation of a transaction (a receipt), which can contain multi
     orderDate: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(default=None,validation_alias=AliasChoices('orderDate', 'https://schema.org/orderDate'),serialization_alias='https://schema.org/orderDate')
     paymentDue: Optional[Union[datetime, List[datetime]]] = Field(default=None,validation_alias=AliasChoices('paymentDue', 'https://schema.org/paymentDue'),serialization_alias='https://schema.org/paymentDue')
     paymentUrl: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('paymentUrl', 'https://schema.org/paymentUrl'),serialization_alias='https://schema.org/paymentUrl')
+    @field_serializer('paymentUrl')
+    def paymentUrl2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     discountCode: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('discountCode', 'https://schema.org/discountCode'),serialization_alias='https://schema.org/discountCode')
     paymentMethodId: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('paymentMethodId', 'https://schema.org/paymentMethodId'),serialization_alias='https://schema.org/paymentMethodId')
     discount: Optional[Union[str, List[str], float, List[float]]] = Field(default=None,validation_alias=AliasChoices('discount', 'https://schema.org/discount'),serialization_alias='https://schema.org/discount')

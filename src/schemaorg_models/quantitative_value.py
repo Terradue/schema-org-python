@@ -1,5 +1,5 @@
 from typing import Union, List, Optional
-from pydantic import AliasChoices, Field, HttpUrl
+from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.structured_value import StructuredValue
 
 from schemaorg_models.structured_value import StructuredValue
@@ -17,5 +17,11 @@ class QuantitativeValue(StructuredValue):
     value: Optional[Union[float, List[float], StructuredValue, List[StructuredValue], bool, List[bool], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('value', 'https://schema.org/value'),serialization_alias='https://schema.org/value')
     maxValue: Optional[Union[float, List[float]]] = Field(default=None,validation_alias=AliasChoices('maxValue', 'https://schema.org/maxValue'),serialization_alias='https://schema.org/maxValue')
     unitCode: Optional[Union[HttpUrl, List[HttpUrl], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('unitCode', 'https://schema.org/unitCode'),serialization_alias='https://schema.org/unitCode')
+    @field_serializer('unitCode')
+    def unitCode2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     additionalProperty: Optional[Union["PropertyValue", List["PropertyValue"]]] = Field(default=None,validation_alias=AliasChoices('additionalProperty', 'https://schema.org/additionalProperty'),serialization_alias='https://schema.org/additionalProperty')
     valueReference: Optional[Union[DefinedTerm, List[DefinedTerm], MeasurementTypeEnumeration, List[MeasurementTypeEnumeration], str, List[str], Enumeration, List[Enumeration], QualitativeValue, List[QualitativeValue], "QuantitativeValue", List["QuantitativeValue"], "PropertyValue", List["PropertyValue"], StructuredValue, List[StructuredValue]]] = Field(default=None,validation_alias=AliasChoices('valueReference', 'https://schema.org/valueReference'),serialization_alias='https://schema.org/valueReference')

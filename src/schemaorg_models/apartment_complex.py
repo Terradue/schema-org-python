@@ -1,5 +1,5 @@
 from typing import Union, List, Optional
-from pydantic import AliasChoices, Field, HttpUrl
+from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.residence import Residence
 
 
@@ -8,6 +8,12 @@ class ApartmentComplex(Residence):
 Residence type: Apartment complex.
     """
     tourBookingPage: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('tourBookingPage', 'https://schema.org/tourBookingPage'),serialization_alias='https://schema.org/tourBookingPage')
+    @field_serializer('tourBookingPage')
+    def tourBookingPage2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     numberOfAvailableAccommodationUnits: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(default=None,validation_alias=AliasChoices('numberOfAvailableAccommodationUnits', 'https://schema.org/numberOfAvailableAccommodationUnits'),serialization_alias='https://schema.org/numberOfAvailableAccommodationUnits')
     numberOfBedrooms: Optional[Union[float, List[float], "QuantitativeValue", List["QuantitativeValue"]]] = Field(default=None,validation_alias=AliasChoices('numberOfBedrooms', 'https://schema.org/numberOfBedrooms'),serialization_alias='https://schema.org/numberOfBedrooms')
     petsAllowed: Optional[Union[str, List[str], bool, List[bool]]] = Field(default=None,validation_alias=AliasChoices('petsAllowed', 'https://schema.org/petsAllowed'),serialization_alias='https://schema.org/petsAllowed')

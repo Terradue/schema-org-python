@@ -1,5 +1,5 @@
 from typing import Union, List, Optional
-from pydantic import AliasChoices, Field, HttpUrl
+from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.intangible import Intangible
 
 
@@ -14,3 +14,9 @@ An entry point, within some Web-based protocol.
     encodingType: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('encodingType', 'https://schema.org/encodingType'),serialization_alias='https://schema.org/encodingType')
     application: Optional[Union["SoftwareApplication", List["SoftwareApplication"]]] = Field(default=None,validation_alias=AliasChoices('application', 'https://schema.org/application'),serialization_alias='https://schema.org/application')
     actionPlatform: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], "DigitalPlatformEnumeration", List["DigitalPlatformEnumeration"]]] = Field(default=None,validation_alias=AliasChoices('actionPlatform', 'https://schema.org/actionPlatform'),serialization_alias='https://schema.org/actionPlatform')
+    @field_serializer('actionPlatform')
+    def actionPlatform2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+

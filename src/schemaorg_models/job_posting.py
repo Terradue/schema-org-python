@@ -1,6 +1,6 @@
 from typing import Union, List, Optional
 from datetime import date, datetime
-from pydantic import AliasChoices, Field, HttpUrl
+from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.intangible import Intangible
 
 from schemaorg_models.administrative_area import AdministrativeArea
@@ -28,11 +28,23 @@ A listing that describes a job opening in a certain organization.
     benefits: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('benefits', 'https://schema.org/benefits'),serialization_alias='https://schema.org/benefits')
     industry: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('industry', 'https://schema.org/industry'),serialization_alias='https://schema.org/industry')
     sensoryRequirement: Optional[Union[HttpUrl, List[HttpUrl], "DefinedTerm", List["DefinedTerm"], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('sensoryRequirement', 'https://schema.org/sensoryRequirement'),serialization_alias='https://schema.org/sensoryRequirement')
+    @field_serializer('sensoryRequirement')
+    def sensoryRequirement2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     incentives: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('incentives', 'https://schema.org/incentives'),serialization_alias='https://schema.org/incentives')
     experienceInPlaceOfEducation: Optional[Union[bool, List[bool]]] = Field(default=None,validation_alias=AliasChoices('experienceInPlaceOfEducation', 'https://schema.org/experienceInPlaceOfEducation'),serialization_alias='https://schema.org/experienceInPlaceOfEducation')
     applicationContact: Optional[Union["ContactPoint", List["ContactPoint"]]] = Field(default=None,validation_alias=AliasChoices('applicationContact', 'https://schema.org/applicationContact'),serialization_alias='https://schema.org/applicationContact')
     occupationalCategory: Optional[Union["CategoryCode", List["CategoryCode"], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('occupationalCategory', 'https://schema.org/occupationalCategory'),serialization_alias='https://schema.org/occupationalCategory')
     physicalRequirement: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('physicalRequirement', 'https://schema.org/physicalRequirement'),serialization_alias='https://schema.org/physicalRequirement')
+    @field_serializer('physicalRequirement')
+    def physicalRequirement2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     relevantOccupation: Optional[Union[Occupation, List[Occupation]]] = Field(default=None,validation_alias=AliasChoices('relevantOccupation', 'https://schema.org/relevantOccupation'),serialization_alias='https://schema.org/relevantOccupation')
     datePosted: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(default=None,validation_alias=AliasChoices('datePosted', 'https://schema.org/datePosted'),serialization_alias='https://schema.org/datePosted')
     experienceRequirements: Optional[Union["OccupationalExperienceRequirements", List["OccupationalExperienceRequirements"], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('experienceRequirements', 'https://schema.org/experienceRequirements'),serialization_alias='https://schema.org/experienceRequirements')
@@ -47,6 +59,12 @@ A listing that describes a job opening in a certain organization.
     jobLocation: Optional[Union[Place, List[Place]]] = Field(default=None,validation_alias=AliasChoices('jobLocation', 'https://schema.org/jobLocation'),serialization_alias='https://schema.org/jobLocation')
     employerOverview: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('employerOverview', 'https://schema.org/employerOverview'),serialization_alias='https://schema.org/employerOverview')
     securityClearanceRequirement: Optional[Union[HttpUrl, List[HttpUrl], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('securityClearanceRequirement', 'https://schema.org/securityClearanceRequirement'),serialization_alias='https://schema.org/securityClearanceRequirement')
+    @field_serializer('securityClearanceRequirement')
+    def securityClearanceRequirement2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     baseSalary: Optional[Union[float, List[float], "PriceSpecification", List["PriceSpecification"], "MonetaryAmount", List["MonetaryAmount"]]] = Field(default=None,validation_alias=AliasChoices('baseSalary', 'https://schema.org/baseSalary'),serialization_alias='https://schema.org/baseSalary')
     qualifications: Optional[Union["EducationalOccupationalCredential", List["EducationalOccupationalCredential"], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('qualifications', 'https://schema.org/qualifications'),serialization_alias='https://schema.org/qualifications')
     jobBenefits: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('jobBenefits', 'https://schema.org/jobBenefits'),serialization_alias='https://schema.org/jobBenefits')

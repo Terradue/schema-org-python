@@ -1,6 +1,6 @@
 from typing import Union, List, Optional
 from datetime import date, datetime, time
-from pydantic import AliasChoices, Field, HttpUrl
+from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.thing import Thing
 
 from schemaorg_models.person import Person
@@ -28,6 +28,12 @@ Upcoming or past event associated with this place, organization, or action.
     maximumVirtualAttendeeCapacity: Optional[Union[int, List[int]]] = Field(default=None,validation_alias=AliasChoices('maximumVirtualAttendeeCapacity', 'https://schema.org/maximumVirtualAttendeeCapacity'),serialization_alias='https://schema.org/maximumVirtualAttendeeCapacity')
     duration: Optional[Union["Duration", List["Duration"], "QuantitativeValue", List["QuantitativeValue"]]] = Field(default=None,validation_alias=AliasChoices('duration', 'https://schema.org/duration'),serialization_alias='https://schema.org/duration')
     keywords: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], "DefinedTerm", List["DefinedTerm"]]] = Field(default=None,validation_alias=AliasChoices('keywords', 'https://schema.org/keywords'),serialization_alias='https://schema.org/keywords')
+    @field_serializer('keywords')
+    def keywords2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     translator: Optional[Union[Person, List[Person], "Organization", List["Organization"]]] = Field(default=None,validation_alias=AliasChoices('translator', 'https://schema.org/translator'),serialization_alias='https://schema.org/translator')
     doorTime: Optional[Union[time, List[time], datetime, List[datetime]]] = Field(default=None,validation_alias=AliasChoices('doorTime', 'https://schema.org/doorTime'),serialization_alias='https://schema.org/doorTime')
     attendee: Optional[Union[Person, List[Person], "Organization", List["Organization"]]] = Field(default=None,validation_alias=AliasChoices('attendee', 'https://schema.org/attendee'),serialization_alias='https://schema.org/attendee')

@@ -1,5 +1,5 @@
 from typing import Union, List, Optional
-from pydantic import AliasChoices, Field, HttpUrl
+from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.thing import Thing
 
 
@@ -17,6 +17,12 @@ Entities that have a somewhat fixed, physical extension.
     reviews: Optional[Union["Review", List["Review"]]] = Field(default=None,validation_alias=AliasChoices('reviews', 'https://schema.org/reviews'),serialization_alias='https://schema.org/reviews')
     aggregateRating: Optional[Union["AggregateRating", List["AggregateRating"]]] = Field(default=None,validation_alias=AliasChoices('aggregateRating', 'https://schema.org/aggregateRating'),serialization_alias='https://schema.org/aggregateRating')
     hasMap: Optional[Union[HttpUrl, List[HttpUrl], "Map", List["Map"]]] = Field(default=None,validation_alias=AliasChoices('hasMap', 'https://schema.org/hasMap'),serialization_alias='https://schema.org/hasMap')
+    @field_serializer('hasMap')
+    def hasMap2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     longitude: Optional[Union[float, List[float], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('longitude', 'https://schema.org/longitude'),serialization_alias='https://schema.org/longitude')
     photos: Optional[Union["Photograph", List["Photograph"], "ImageObject", List["ImageObject"]]] = Field(default=None,validation_alias=AliasChoices('photos', 'https://schema.org/photos'),serialization_alias='https://schema.org/photos')
     photo: Optional[Union["Photograph", List["Photograph"], "ImageObject", List["ImageObject"]]] = Field(default=None,validation_alias=AliasChoices('photo', 'https://schema.org/photo'),serialization_alias='https://schema.org/photo')
@@ -26,19 +32,55 @@ Entities that have a somewhat fixed, physical extension.
     slogan: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('slogan', 'https://schema.org/slogan'),serialization_alias='https://schema.org/slogan')
     amenityFeature: Optional[Union["LocationFeatureSpecification", List["LocationFeatureSpecification"]]] = Field(default=None,validation_alias=AliasChoices('amenityFeature', 'https://schema.org/amenityFeature'),serialization_alias='https://schema.org/amenityFeature')
     keywords: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], "DefinedTerm", List["DefinedTerm"]]] = Field(default=None,validation_alias=AliasChoices('keywords', 'https://schema.org/keywords'),serialization_alias='https://schema.org/keywords')
+    @field_serializer('keywords')
+    def keywords2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     logo: Optional[Union[HttpUrl, List[HttpUrl], "ImageObject", List["ImageObject"]]] = Field(default=None,validation_alias=AliasChoices('logo', 'https://schema.org/logo'),serialization_alias='https://schema.org/logo')
+    @field_serializer('logo')
+    def logo2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     map: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('map', 'https://schema.org/map'),serialization_alias='https://schema.org/map')
+    @field_serializer('map')
+    def map2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     geo: Optional[Union["GeoShape", List["GeoShape"], "GeoCoordinates", List["GeoCoordinates"]]] = Field(default=None,validation_alias=AliasChoices('geo', 'https://schema.org/geo'),serialization_alias='https://schema.org/geo')
     tourBookingPage: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('tourBookingPage', 'https://schema.org/tourBookingPage'),serialization_alias='https://schema.org/tourBookingPage')
+    @field_serializer('tourBookingPage')
+    def tourBookingPage2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     latitude: Optional[Union[str, List[str], float, List[float]]] = Field(default=None,validation_alias=AliasChoices('latitude', 'https://schema.org/latitude'),serialization_alias='https://schema.org/latitude')
     publicAccess: Optional[Union[bool, List[bool]]] = Field(default=None,validation_alias=AliasChoices('publicAccess', 'https://schema.org/publicAccess'),serialization_alias='https://schema.org/publicAccess')
     maps: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('maps', 'https://schema.org/maps'),serialization_alias='https://schema.org/maps')
+    @field_serializer('maps')
+    def maps2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     branchCode: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('branchCode', 'https://schema.org/branchCode'),serialization_alias='https://schema.org/branchCode')
     address: Optional[Union[str, List[str], "PostalAddress", List["PostalAddress"]]] = Field(default=None,validation_alias=AliasChoices('address', 'https://schema.org/address'),serialization_alias='https://schema.org/address')
     additionalProperty: Optional[Union["PropertyValue", List["PropertyValue"]]] = Field(default=None,validation_alias=AliasChoices('additionalProperty', 'https://schema.org/additionalProperty'),serialization_alias='https://schema.org/additionalProperty')
     events: Optional[Union["Event", List["Event"]]] = Field(default=None,validation_alias=AliasChoices('events', 'https://schema.org/events'),serialization_alias='https://schema.org/events')
     openingHoursSpecification: Optional[Union["OpeningHoursSpecification", List["OpeningHoursSpecification"]]] = Field(default=None,validation_alias=AliasChoices('openingHoursSpecification', 'https://schema.org/openingHoursSpecification'),serialization_alias='https://schema.org/openingHoursSpecification')
     hasGS1DigitalLink: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('hasGS1DigitalLink', 'https://schema.org/hasGS1DigitalLink'),serialization_alias='https://schema.org/hasGS1DigitalLink')
+    @field_serializer('hasGS1DigitalLink')
+    def hasGS1DigitalLink2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     geoContains: Optional[Union["Place", List["Place"], "GeospatialGeometry", List["GeospatialGeometry"]]] = Field(default=None,validation_alias=AliasChoices('geoContains', 'https://schema.org/geoContains'),serialization_alias='https://schema.org/geoContains')
     telephone: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('telephone', 'https://schema.org/telephone'),serialization_alias='https://schema.org/telephone')
     smokingAllowed: Optional[Union[bool, List[bool]]] = Field(default=None,validation_alias=AliasChoices('smokingAllowed', 'https://schema.org/smokingAllowed'),serialization_alias='https://schema.org/smokingAllowed')

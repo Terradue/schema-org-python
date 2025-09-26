@@ -1,5 +1,5 @@
 from typing import Union, List, Optional
-from pydantic import AliasChoices, Field, HttpUrl
+from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.financial_product import FinancialProduct
 
 from schemaorg_models.duration import Duration
@@ -20,4 +20,10 @@ A financial product for the loaning of an amount of money, or line of credit, un
     recourseLoan: Optional[Union[bool, List[bool]]] = Field(default=None,validation_alias=AliasChoices('recourseLoan', 'https://schema.org/recourseLoan'),serialization_alias='https://schema.org/recourseLoan')
     loanTerm: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(default=None,validation_alias=AliasChoices('loanTerm', 'https://schema.org/loanTerm'),serialization_alias='https://schema.org/loanTerm')
     loanType: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('loanType', 'https://schema.org/loanType'),serialization_alias='https://schema.org/loanType')
+    @field_serializer('loanType')
+    def loanType2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     renegotiableLoan: Optional[Union[bool, List[bool]]] = Field(default=None,validation_alias=AliasChoices('renegotiableLoan', 'https://schema.org/renegotiableLoan'),serialization_alias='https://schema.org/renegotiableLoan')

@@ -1,5 +1,5 @@
 from typing import Union, List, Optional
-from pydantic import AliasChoices, Field, HttpUrl
+from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.creative_work_series import CreativeWorkSeries
 
 from schemaorg_models.episode import Episode
@@ -18,6 +18,12 @@ CreativeWorkSeries dedicated to radio broadcast and associated online delivery.
     actor: Optional[Union[Person, List[Person], PerformingGroup, List[PerformingGroup]]] = Field(default=None,validation_alias=AliasChoices('actor', 'https://schema.org/actor'),serialization_alias='https://schema.org/actor')
     actors: Optional[Union[Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('actors', 'https://schema.org/actors'),serialization_alias='https://schema.org/actors')
     season: Optional[Union[CreativeWorkSeason, List[CreativeWorkSeason], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('season', 'https://schema.org/season'),serialization_alias='https://schema.org/season')
+    @field_serializer('season')
+    def season2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     productionCompany: Optional[Union[Organization, List[Organization]]] = Field(default=None,validation_alias=AliasChoices('productionCompany', 'https://schema.org/productionCompany'),serialization_alias='https://schema.org/productionCompany')
     musicBy: Optional[Union["MusicGroup", List["MusicGroup"], Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('musicBy', 'https://schema.org/musicBy'),serialization_alias='https://schema.org/musicBy')
     seasons: Optional[Union[CreativeWorkSeason, List[CreativeWorkSeason]]] = Field(default=None,validation_alias=AliasChoices('seasons', 'https://schema.org/seasons'),serialization_alias='https://schema.org/seasons')

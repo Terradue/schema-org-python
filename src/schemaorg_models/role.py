@@ -1,6 +1,6 @@
 from typing import Union, List, Optional
 from datetime import date, datetime
-from pydantic import AliasChoices, Field, HttpUrl
+from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.intangible import Intangible
 
 
@@ -11,6 +11,18 @@ Represents additional information about a relationship or property. For example 
 See also [blog post](https://blog.schema.org/2014/06/16/introducing-role/).
     """
     roleName: Optional[Union[HttpUrl, List[HttpUrl], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('roleName', 'https://schema.org/roleName'),serialization_alias='https://schema.org/roleName')
+    @field_serializer('roleName')
+    def roleName2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     namedPosition: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('namedPosition', 'https://schema.org/namedPosition'),serialization_alias='https://schema.org/namedPosition')
+    @field_serializer('namedPosition')
+    def namedPosition2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     endDate: Optional[Union[datetime, List[datetime], date, List[date]]] = Field(default=None,validation_alias=AliasChoices('endDate', 'https://schema.org/endDate'),serialization_alias='https://schema.org/endDate')
     startDate: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(default=None,validation_alias=AliasChoices('startDate', 'https://schema.org/startDate'),serialization_alias='https://schema.org/startDate')

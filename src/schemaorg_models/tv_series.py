@@ -1,5 +1,5 @@
 from typing import Union, List, Optional
-from pydantic import AliasChoices, Field, HttpUrl
+from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.creative_work import CreativeWork
 
 from schemaorg_models.organization import Organization
@@ -10,8 +10,20 @@ class TVSeries(CreativeWork):
 CreativeWorkSeries dedicated to TV broadcast and associated online delivery.
     """
     season: Optional[Union["CreativeWorkSeason", List["CreativeWorkSeason"], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('season', 'https://schema.org/season'),serialization_alias='https://schema.org/season')
+    @field_serializer('season')
+    def season2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     productionCompany: Optional[Union[Organization, List[Organization]]] = Field(default=None,validation_alias=AliasChoices('productionCompany', 'https://schema.org/productionCompany'),serialization_alias='https://schema.org/productionCompany')
     titleEIDR: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('titleEIDR', 'https://schema.org/titleEIDR'),serialization_alias='https://schema.org/titleEIDR')
+    @field_serializer('titleEIDR')
+    def titleEIDR2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     musicBy: Optional[Union["MusicGroup", List["MusicGroup"], Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('musicBy', 'https://schema.org/musicBy'),serialization_alias='https://schema.org/musicBy')
     actors: Optional[Union[Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('actors', 'https://schema.org/actors'),serialization_alias='https://schema.org/actors')
     seasons: Optional[Union["CreativeWorkSeason", List["CreativeWorkSeason"]]] = Field(default=None,validation_alias=AliasChoices('seasons', 'https://schema.org/seasons'),serialization_alias='https://schema.org/seasons')

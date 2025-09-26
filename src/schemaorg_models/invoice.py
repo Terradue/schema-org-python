@@ -1,6 +1,6 @@
 from typing import Union, List, Optional
 from datetime import date, datetime
-from pydantic import AliasChoices, Field, HttpUrl
+from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.intangible import Intangible
 
 from schemaorg_models.person import Person
@@ -18,6 +18,12 @@ A statement of the money due for goods or services; a bill.
     broker: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(default=None,validation_alias=AliasChoices('broker', 'https://schema.org/broker'),serialization_alias='https://schema.org/broker')
     accountId: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('accountId', 'https://schema.org/accountId'),serialization_alias='https://schema.org/accountId')
     category: Optional[Union["PhysicalActivityCategory", List["PhysicalActivityCategory"], "CategoryCode", List["CategoryCode"], str, List[str], Thing, List[Thing], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('category', 'https://schema.org/category'),serialization_alias='https://schema.org/category')
+    @field_serializer('category')
+    def category2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     scheduledPaymentDate: Optional[Union[date, List[date]]] = Field(default=None,validation_alias=AliasChoices('scheduledPaymentDate', 'https://schema.org/scheduledPaymentDate'),serialization_alias='https://schema.org/scheduledPaymentDate')
     totalPaymentDue: Optional[Union["PriceSpecification", List["PriceSpecification"], "MonetaryAmount", List["MonetaryAmount"]]] = Field(default=None,validation_alias=AliasChoices('totalPaymentDue', 'https://schema.org/totalPaymentDue'),serialization_alias='https://schema.org/totalPaymentDue')
     customer: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(default=None,validation_alias=AliasChoices('customer', 'https://schema.org/customer'),serialization_alias='https://schema.org/customer')

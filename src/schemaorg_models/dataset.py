@@ -1,6 +1,6 @@
 from typing import Union, List, Optional
 from datetime import datetime
-from pydantic import AliasChoices, Field, HttpUrl
+from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.creative_work import CreativeWork
 
 from schemaorg_models.property import Property
@@ -19,5 +19,17 @@ A dataset contained in this catalog.
     variablesMeasured: Optional[Union[str, List[str], "PropertyValue", List["PropertyValue"]]] = Field(default=None,validation_alias=AliasChoices('variablesMeasured', 'https://schema.org/variablesMeasured'),serialization_alias='https://schema.org/variablesMeasured')
     distribution: Optional[Union["DataDownload", List["DataDownload"]]] = Field(default=None,validation_alias=AliasChoices('distribution', 'https://schema.org/distribution'),serialization_alias='https://schema.org/distribution')
     measurementTechnique: Optional[Union[DefinedTerm, List[DefinedTerm], "MeasurementMethodEnum", List["MeasurementMethodEnum"], str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('measurementTechnique', 'https://schema.org/measurementTechnique'),serialization_alias='https://schema.org/measurementTechnique')
+    @field_serializer('measurementTechnique')
+    def measurementTechnique2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     datasetTimeInterval: Optional[Union[datetime, List[datetime]]] = Field(default=None,validation_alias=AliasChoices('datasetTimeInterval', 'https://schema.org/datasetTimeInterval'),serialization_alias='https://schema.org/datasetTimeInterval')
     measurementMethod: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str], "MeasurementMethodEnum", List["MeasurementMethodEnum"], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('measurementMethod', 'https://schema.org/measurementMethod'),serialization_alias='https://schema.org/measurementMethod')
+    @field_serializer('measurementMethod')
+    def measurementMethod2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+

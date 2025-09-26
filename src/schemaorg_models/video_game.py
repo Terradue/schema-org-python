@@ -1,5 +1,5 @@
 from typing import Union, List, Optional
-from pydantic import AliasChoices, Field, HttpUrl
+from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.game import Game
 
 from schemaorg_models.creative_work import CreativeWork
@@ -16,6 +16,12 @@ A video game is an electronic game that involves human interaction with a user i
     gameTip: Optional[Union[CreativeWork, List[CreativeWork]]] = Field(default=None,validation_alias=AliasChoices('gameTip', 'https://schema.org/gameTip'),serialization_alias='https://schema.org/gameTip')
     musicBy: Optional[Union["MusicGroup", List["MusicGroup"], Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('musicBy', 'https://schema.org/musicBy'),serialization_alias='https://schema.org/musicBy')
     gamePlatform: Optional[Union[HttpUrl, List[HttpUrl], str, List[str], Thing, List[Thing]]] = Field(default=None,validation_alias=AliasChoices('gamePlatform', 'https://schema.org/gamePlatform'),serialization_alias='https://schema.org/gamePlatform')
+    @field_serializer('gamePlatform')
+    def gamePlatform2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     cheatCode: Optional[Union[CreativeWork, List[CreativeWork]]] = Field(default=None,validation_alias=AliasChoices('cheatCode', 'https://schema.org/cheatCode'),serialization_alias='https://schema.org/cheatCode')
     trailer: Optional[Union["VideoObject", List["VideoObject"]]] = Field(default=None,validation_alias=AliasChoices('trailer', 'https://schema.org/trailer'),serialization_alias='https://schema.org/trailer')
     directors: Optional[Union[Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('directors', 'https://schema.org/directors'),serialization_alias='https://schema.org/directors')

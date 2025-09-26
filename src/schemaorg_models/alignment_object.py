@@ -1,5 +1,5 @@
 from typing import Union, List, Optional
-from pydantic import AliasChoices, Field, HttpUrl
+from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.intangible import Intangible
 
 
@@ -14,3 +14,9 @@ Should not be used where the nature of the alignment can be described using a si
     educationalFramework: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('educationalFramework', 'https://schema.org/educationalFramework'),serialization_alias='https://schema.org/educationalFramework')
     targetDescription: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('targetDescription', 'https://schema.org/targetDescription'),serialization_alias='https://schema.org/targetDescription')
     targetUrl: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('targetUrl', 'https://schema.org/targetUrl'),serialization_alias='https://schema.org/targetUrl')
+    @field_serializer('targetUrl')
+    def targetUrl2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+

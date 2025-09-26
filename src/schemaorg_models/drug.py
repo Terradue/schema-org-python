@@ -1,5 +1,5 @@
 from typing import Union, List, Optional
-from pydantic import AliasChoices, Field, HttpUrl
+from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.substance import Substance
 
 from schemaorg_models.medical_enumeration import MedicalEnumeration
@@ -19,6 +19,12 @@ Specifying a drug or medicine used in a medication procedure.
     isProprietary: Optional[Union[bool, List[bool]]] = Field(default=None,validation_alias=AliasChoices('isProprietary', 'https://schema.org/isProprietary'),serialization_alias='https://schema.org/isProprietary')
     maximumIntake: Optional[Union["MaximumDoseSchedule", List["MaximumDoseSchedule"]]] = Field(default=None,validation_alias=AliasChoices('maximumIntake', 'https://schema.org/maximumIntake'),serialization_alias='https://schema.org/maximumIntake')
     prescribingInfo: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('prescribingInfo', 'https://schema.org/prescribingInfo'),serialization_alias='https://schema.org/prescribingInfo')
+    @field_serializer('prescribingInfo')
+    def prescribingInfo2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     doseSchedule: Optional[Union["DoseSchedule", List["DoseSchedule"]]] = Field(default=None,validation_alias=AliasChoices('doseSchedule', 'https://schema.org/doseSchedule'),serialization_alias='https://schema.org/doseSchedule')
     foodWarning: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('foodWarning', 'https://schema.org/foodWarning'),serialization_alias='https://schema.org/foodWarning')
     administrationRoute: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('administrationRoute', 'https://schema.org/administrationRoute'),serialization_alias='https://schema.org/administrationRoute')
@@ -31,8 +37,20 @@ Specifying a drug or medicine used in a medication procedure.
     breastfeedingWarning: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('breastfeedingWarning', 'https://schema.org/breastfeedingWarning'),serialization_alias='https://schema.org/breastfeedingWarning')
     clincalPharmacology: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('clincalPharmacology', 'https://schema.org/clincalPharmacology'),serialization_alias='https://schema.org/clincalPharmacology')
     labelDetails: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('labelDetails', 'https://schema.org/labelDetails'),serialization_alias='https://schema.org/labelDetails')
+    @field_serializer('labelDetails')
+    def labelDetails2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     availableStrength: Optional[Union["DrugStrength", List["DrugStrength"]]] = Field(default=None,validation_alias=AliasChoices('availableStrength', 'https://schema.org/availableStrength'),serialization_alias='https://schema.org/availableStrength')
     warning: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('warning', 'https://schema.org/warning'),serialization_alias='https://schema.org/warning')
+    @field_serializer('warning')
+    def warning2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     includedInHealthInsurancePlan: Optional[Union[HealthInsurancePlan, List[HealthInsurancePlan]]] = Field(default=None,validation_alias=AliasChoices('includedInHealthInsurancePlan', 'https://schema.org/includedInHealthInsurancePlan'),serialization_alias='https://schema.org/includedInHealthInsurancePlan')
     drugClass: Optional[Union[DrugClass, List[DrugClass]]] = Field(default=None,validation_alias=AliasChoices('drugClass', 'https://schema.org/drugClass'),serialization_alias='https://schema.org/drugClass')
     pregnancyCategory: Optional[Union["DrugPregnancyCategory", List["DrugPregnancyCategory"]]] = Field(default=None,validation_alias=AliasChoices('pregnancyCategory', 'https://schema.org/pregnancyCategory'),serialization_alias='https://schema.org/pregnancyCategory')

@@ -1,5 +1,5 @@
 from typing import Union, List, Optional
-from pydantic import AliasChoices, Field, HttpUrl
+from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.price_specification import PriceSpecification
 
 from schemaorg_models.duration import Duration
@@ -14,6 +14,12 @@ The price asked for a given offer by the respective organization or person.
     unitText: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('unitText', 'https://schema.org/unitText'),serialization_alias='https://schema.org/unitText')
     billingDuration: Optional[Union[Duration, List[Duration], float, List[float], QuantitativeValue, List[QuantitativeValue]]] = Field(default=None,validation_alias=AliasChoices('billingDuration', 'https://schema.org/billingDuration'),serialization_alias='https://schema.org/billingDuration')
     unitCode: Optional[Union[HttpUrl, List[HttpUrl], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('unitCode', 'https://schema.org/unitCode'),serialization_alias='https://schema.org/unitCode')
+    @field_serializer('unitCode')
+    def unitCode2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     referenceQuantity: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(default=None,validation_alias=AliasChoices('referenceQuantity', 'https://schema.org/referenceQuantity'),serialization_alias='https://schema.org/referenceQuantity')
     priceComponentType: Optional[Union[PriceComponentTypeEnumeration, List[PriceComponentTypeEnumeration]]] = Field(default=None,validation_alias=AliasChoices('priceComponentType', 'https://schema.org/priceComponentType'),serialization_alias='https://schema.org/priceComponentType')
     billingIncrement: Optional[Union[float, List[float]]] = Field(default=None,validation_alias=AliasChoices('billingIncrement', 'https://schema.org/billingIncrement'),serialization_alias='https://schema.org/billingIncrement')

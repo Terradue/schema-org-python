@@ -1,5 +1,5 @@
 from typing import Union, List, Optional
-from pydantic import AliasChoices, Field, HttpUrl
+from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.lifestyle_modification import LifestyleModification
 
 from schemaorg_models.physical_activity_category import PhysicalActivityCategory
@@ -15,5 +15,11 @@ Any bodily activity that enhances or maintains physical fitness and overall heal
     """
     pathophysiology: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('pathophysiology', 'https://schema.org/pathophysiology'),serialization_alias='https://schema.org/pathophysiology')
     category: Optional[Union[PhysicalActivityCategory, List[PhysicalActivityCategory], CategoryCode, List[CategoryCode], str, List[str], Thing, List[Thing], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('category', 'https://schema.org/category'),serialization_alias='https://schema.org/category')
+    @field_serializer('category')
+    def category2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     epidemiology: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('epidemiology', 'https://schema.org/epidemiology'),serialization_alias='https://schema.org/epidemiology')
     associatedAnatomy: Optional[Union[AnatomicalSystem, List[AnatomicalSystem], SuperficialAnatomy, List[SuperficialAnatomy], AnatomicalStructure, List[AnatomicalStructure]]] = Field(default=None,validation_alias=AliasChoices('associatedAnatomy', 'https://schema.org/associatedAnatomy'),serialization_alias='https://schema.org/associatedAnatomy')

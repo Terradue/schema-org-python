@@ -1,5 +1,5 @@
 from typing import Union, List, Optional
-from pydantic import AliasChoices, Field, HttpUrl
+from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.creative_work import CreativeWork
 
 from schemaorg_models.thing import Thing
@@ -14,3 +14,9 @@ The Game type represents things which are games. These are typically rule-govern
     gameItem: Optional[Union[Thing, List[Thing]]] = Field(default=None,validation_alias=AliasChoices('gameItem', 'https://schema.org/gameItem'),serialization_alias='https://schema.org/gameItem')
     numberOfPlayers: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(default=None,validation_alias=AliasChoices('numberOfPlayers', 'https://schema.org/numberOfPlayers'),serialization_alias='https://schema.org/numberOfPlayers')
     gameLocation: Optional[Union[Place, List[Place], HttpUrl, List[HttpUrl], "PostalAddress", List["PostalAddress"]]] = Field(default=None,validation_alias=AliasChoices('gameLocation', 'https://schema.org/gameLocation'),serialization_alias='https://schema.org/gameLocation')
+    @field_serializer('gameLocation')
+    def gameLocation2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+

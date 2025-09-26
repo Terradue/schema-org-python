@@ -1,6 +1,6 @@
 from typing import Union, List, Optional
 from datetime import date, datetime
-from pydantic import AliasChoices, Field, HttpUrl
+from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.intangible import Intangible
 
 from schemaorg_models.member_program_tier import MemberProgramTier
@@ -13,6 +13,12 @@ A MerchantReturnPolicy provides information about product return policies associ
     additionalProperty: Optional[Union["PropertyValue", List["PropertyValue"]]] = Field(default=None,validation_alias=AliasChoices('additionalProperty', 'https://schema.org/additionalProperty'),serialization_alias='https://schema.org/additionalProperty')
     customerRemorseReturnShippingFeesAmount: Optional[Union["MonetaryAmount", List["MonetaryAmount"]]] = Field(default=None,validation_alias=AliasChoices('customerRemorseReturnShippingFeesAmount', 'https://schema.org/customerRemorseReturnShippingFeesAmount'),serialization_alias='https://schema.org/customerRemorseReturnShippingFeesAmount')
     merchantReturnLink: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('merchantReturnLink', 'https://schema.org/merchantReturnLink'),serialization_alias='https://schema.org/merchantReturnLink')
+    @field_serializer('merchantReturnLink')
+    def merchantReturnLink2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     returnPolicyCountry: Optional[Union[str, List[str], "Country", List["Country"]]] = Field(default=None,validation_alias=AliasChoices('returnPolicyCountry', 'https://schema.org/returnPolicyCountry'),serialization_alias='https://schema.org/returnPolicyCountry')
     merchantReturnDays: Optional[Union[date, List[date], int, List[int], datetime, List[datetime]]] = Field(default=None,validation_alias=AliasChoices('merchantReturnDays', 'https://schema.org/merchantReturnDays'),serialization_alias='https://schema.org/merchantReturnDays')
     refundType: Optional[Union["RefundTypeEnumeration", List["RefundTypeEnumeration"]]] = Field(default=None,validation_alias=AliasChoices('refundType', 'https://schema.org/refundType'),serialization_alias='https://schema.org/refundType')

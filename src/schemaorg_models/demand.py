@@ -1,6 +1,6 @@
 from typing import Union, List, Optional
 from datetime import date, datetime, time
-from pydantic import AliasChoices, Field, HttpUrl
+from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.intangible import Intangible
 
 from schemaorg_models.place import Place
@@ -46,8 +46,20 @@ A demand entity represents the public, not necessarily binding, not necessarily 
     eligibleRegion: Optional[Union["GeoShape", List["GeoShape"], str, List[str], Place, List[Place]]] = Field(default=None,validation_alias=AliasChoices('eligibleRegion', 'https://schema.org/eligibleRegion'),serialization_alias='https://schema.org/eligibleRegion')
     priceSpecification: Optional[Union["PriceSpecification", List["PriceSpecification"]]] = Field(default=None,validation_alias=AliasChoices('priceSpecification', 'https://schema.org/priceSpecification'),serialization_alias='https://schema.org/priceSpecification')
     gtin: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('gtin', 'https://schema.org/gtin'),serialization_alias='https://schema.org/gtin')
+    @field_serializer('gtin')
+    def gtin2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     areaServed: Optional[Union["GeoShape", List["GeoShape"], str, List[str], AdministrativeArea, List[AdministrativeArea], Place, List[Place]]] = Field(default=None,validation_alias=AliasChoices('areaServed', 'https://schema.org/areaServed'),serialization_alias='https://schema.org/areaServed')
     asin: Optional[Union[HttpUrl, List[HttpUrl], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('asin', 'https://schema.org/asin'),serialization_alias='https://schema.org/asin')
+    @field_serializer('asin')
+    def asin2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     seller: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('seller', 'https://schema.org/seller'),serialization_alias='https://schema.org/seller')
     validThrough: Optional[Union[datetime, List[datetime], date, List[date]]] = Field(default=None,validation_alias=AliasChoices('validThrough', 'https://schema.org/validThrough'),serialization_alias='https://schema.org/validThrough')
     warranty: Optional[Union["WarrantyPromise", List["WarrantyPromise"]]] = Field(default=None,validation_alias=AliasChoices('warranty', 'https://schema.org/warranty'),serialization_alias='https://schema.org/warranty')

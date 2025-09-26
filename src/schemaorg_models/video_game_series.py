@@ -1,5 +1,5 @@
 from typing import Union, List, Optional
-from pydantic import AliasChoices, Field, HttpUrl
+from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.creative_work_series import CreativeWorkSeries
 
 from schemaorg_models.thing import Thing
@@ -25,8 +25,20 @@ A video game series.
     actor: Optional[Union[Person, List[Person], PerformingGroup, List[PerformingGroup]]] = Field(default=None,validation_alias=AliasChoices('actor', 'https://schema.org/actor'),serialization_alias='https://schema.org/actor')
     quest: Optional[Union[Thing, List[Thing]]] = Field(default=None,validation_alias=AliasChoices('quest', 'https://schema.org/quest'),serialization_alias='https://schema.org/quest')
     gameLocation: Optional[Union[Place, List[Place], HttpUrl, List[HttpUrl], "PostalAddress", List["PostalAddress"]]] = Field(default=None,validation_alias=AliasChoices('gameLocation', 'https://schema.org/gameLocation'),serialization_alias='https://schema.org/gameLocation')
+    @field_serializer('gameLocation')
+    def gameLocation2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     playMode: Optional[Union[GamePlayMode, List[GamePlayMode]]] = Field(default=None,validation_alias=AliasChoices('playMode', 'https://schema.org/playMode'),serialization_alias='https://schema.org/playMode')
     season: Optional[Union[CreativeWorkSeason, List[CreativeWorkSeason], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('season', 'https://schema.org/season'),serialization_alias='https://schema.org/season')
+    @field_serializer('season')
+    def season2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     productionCompany: Optional[Union[Organization, List[Organization]]] = Field(default=None,validation_alias=AliasChoices('productionCompany', 'https://schema.org/productionCompany'),serialization_alias='https://schema.org/productionCompany')
     musicBy: Optional[Union["MusicGroup", List["MusicGroup"], Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('musicBy', 'https://schema.org/musicBy'),serialization_alias='https://schema.org/musicBy')
     characterAttribute: Optional[Union[Thing, List[Thing]]] = Field(default=None,validation_alias=AliasChoices('characterAttribute', 'https://schema.org/characterAttribute'),serialization_alias='https://schema.org/characterAttribute')
@@ -39,4 +51,10 @@ A video game series.
     containsSeason: Optional[Union[CreativeWorkSeason, List[CreativeWorkSeason]]] = Field(default=None,validation_alias=AliasChoices('containsSeason', 'https://schema.org/containsSeason'),serialization_alias='https://schema.org/containsSeason')
     episodes: Optional[Union[Episode, List[Episode]]] = Field(default=None,validation_alias=AliasChoices('episodes', 'https://schema.org/episodes'),serialization_alias='https://schema.org/episodes')
     gamePlatform: Optional[Union[HttpUrl, List[HttpUrl], str, List[str], Thing, List[Thing]]] = Field(default=None,validation_alias=AliasChoices('gamePlatform', 'https://schema.org/gamePlatform'),serialization_alias='https://schema.org/gamePlatform')
+    @field_serializer('gamePlatform')
+    def gamePlatform2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     director: Optional[Union[Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('director', 'https://schema.org/director'),serialization_alias='https://schema.org/director')

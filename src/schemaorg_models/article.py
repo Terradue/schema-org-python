@@ -1,5 +1,5 @@
 from typing import Union, List, Optional
-from pydantic import AliasChoices, Field, HttpUrl
+from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.creative_work import CreativeWork
 
 from schemaorg_models.creative_work import CreativeWork
@@ -18,4 +18,10 @@ See also [blog post](https://blog.schema.org/2014/09/02/schema-org-support-for-b
     wordCount: Optional[Union[int, List[int]]] = Field(default=None,validation_alias=AliasChoices('wordCount', 'https://schema.org/wordCount'),serialization_alias='https://schema.org/wordCount')
     articleSection: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('articleSection', 'https://schema.org/articleSection'),serialization_alias='https://schema.org/articleSection')
     speakable: Optional[Union[HttpUrl, List[HttpUrl], SpeakableSpecification, List[SpeakableSpecification]]] = Field(default=None,validation_alias=AliasChoices('speakable', 'https://schema.org/speakable'),serialization_alias='https://schema.org/speakable')
+    @field_serializer('speakable')
+    def speakable2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     pageStart: Optional[Union[int, List[int], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('pageStart', 'https://schema.org/pageStart'),serialization_alias='https://schema.org/pageStart')

@@ -1,5 +1,5 @@
 from typing import Union, List, Optional
-from pydantic import AliasChoices, Field, HttpUrl
+from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.intangible import Intangible
 
 from schemaorg_models.broadcast_frequency_specification import BroadcastFrequencySpecification
@@ -14,3 +14,9 @@ A unique instance of a BroadcastService on a CableOrSatelliteService lineup.
     broadcastFrequency: Optional[Union[str, List[str], BroadcastFrequencySpecification, List[BroadcastFrequencySpecification]]] = Field(default=None,validation_alias=AliasChoices('broadcastFrequency', 'https://schema.org/broadcastFrequency'),serialization_alias='https://schema.org/broadcastFrequency')
     broadcastServiceTier: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('broadcastServiceTier', 'https://schema.org/broadcastServiceTier'),serialization_alias='https://schema.org/broadcastServiceTier')
     genre: Optional[Union[HttpUrl, List[HttpUrl], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('genre', 'https://schema.org/genre'),serialization_alias='https://schema.org/genre')
+    @field_serializer('genre')
+    def genre2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+

@@ -1,6 +1,6 @@
 from typing import Union, List, Optional
 from datetime import datetime, time
-from pydantic import AliasChoices, Field, HttpUrl
+from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.thing import Thing
 
 from schemaorg_models.thing import Thing
@@ -15,6 +15,12 @@ See also [blog post](https://blog.schema.org/2014/04/16/announcing-schema-org-ac
     """
     actionStatus: Optional[Union["ActionStatusType", List["ActionStatusType"]]] = Field(default=None,validation_alias=AliasChoices('actionStatus', 'https://schema.org/actionStatus'),serialization_alias='https://schema.org/actionStatus')
     target: Optional[Union[HttpUrl, List[HttpUrl], "EntryPoint", List["EntryPoint"]]] = Field(default=None,validation_alias=AliasChoices('target', 'https://schema.org/target'),serialization_alias='https://schema.org/target')
+    @field_serializer('target')
+    def target2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     instrument: Optional[Union[Thing, List[Thing]]] = Field(default=None,validation_alias=AliasChoices('instrument', 'https://schema.org/instrument'),serialization_alias='https://schema.org/instrument')
     provider: Optional[Union[Person, List[Person], "Organization", List["Organization"]]] = Field(default=None,validation_alias=AliasChoices('provider', 'https://schema.org/provider'),serialization_alias='https://schema.org/provider')
     actionProcess: Optional[Union["HowTo", List["HowTo"]]] = Field(default=None,validation_alias=AliasChoices('actionProcess', 'https://schema.org/actionProcess'),serialization_alias='https://schema.org/actionProcess')

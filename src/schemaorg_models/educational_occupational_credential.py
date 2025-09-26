@@ -1,5 +1,5 @@
 from typing import Union, List, Optional
-from pydantic import AliasChoices, Field, HttpUrl
+from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.creative_work import CreativeWork
 
 from schemaorg_models.organization import Organization
@@ -14,5 +14,23 @@ An educational or occupational credential. A diploma, academic degree, certifica
     validFor: Optional[Union["Duration", List["Duration"]]] = Field(default=None,validation_alias=AliasChoices('validFor', 'https://schema.org/validFor'),serialization_alias='https://schema.org/validFor')
     validIn: Optional[Union[AdministrativeArea, List[AdministrativeArea]]] = Field(default=None,validation_alias=AliasChoices('validIn', 'https://schema.org/validIn'),serialization_alias='https://schema.org/validIn')
     educationalLevel: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], DefinedTerm, List[DefinedTerm]]] = Field(default=None,validation_alias=AliasChoices('educationalLevel', 'https://schema.org/educationalLevel'),serialization_alias='https://schema.org/educationalLevel')
+    @field_serializer('educationalLevel')
+    def educationalLevel2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     competencyRequired: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('competencyRequired', 'https://schema.org/competencyRequired'),serialization_alias='https://schema.org/competencyRequired')
+    @field_serializer('competencyRequired')
+    def competencyRequired2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     credentialCategory: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('credentialCategory', 'https://schema.org/credentialCategory'),serialization_alias='https://schema.org/credentialCategory')
+    @field_serializer('credentialCategory')
+    def credentialCategory2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+

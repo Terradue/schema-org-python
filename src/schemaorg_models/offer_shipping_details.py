@@ -1,5 +1,5 @@
 from typing import Union, List, Optional
-from pydantic import AliasChoices, Field, HttpUrl
+from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.structured_value import StructuredValue
 
 from schemaorg_models.quantitative_value import QuantitativeValue
@@ -39,3 +39,9 @@ or Fast and expensive: $15 in 1-2 days.
     weight: Optional[Union[QuantitativeValue, List[QuantitativeValue], "Mass", List["Mass"]]] = Field(default=None,validation_alias=AliasChoices('weight', 'https://schema.org/weight'),serialization_alias='https://schema.org/weight')
     shippingRate: Optional[Union[ShippingRateSettings, List[ShippingRateSettings], MonetaryAmount, List[MonetaryAmount]]] = Field(default=None,validation_alias=AliasChoices('shippingRate', 'https://schema.org/shippingRate'),serialization_alias='https://schema.org/shippingRate')
     shippingSettingsLink: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('shippingSettingsLink', 'https://schema.org/shippingSettingsLink'),serialization_alias='https://schema.org/shippingSettingsLink')
+    @field_serializer('shippingSettingsLink')
+    def shippingSettingsLink2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+

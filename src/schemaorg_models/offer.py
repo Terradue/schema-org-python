@@ -1,6 +1,6 @@
 from typing import Union, List, Optional
 from datetime import date, datetime, time
-from pydantic import AliasChoices, Field, HttpUrl
+from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.intangible import Intangible
 
 from schemaorg_models.member_program_tier import MemberProgramTier
@@ -26,6 +26,12 @@ Note: As the [[businessFunction]] property, which identifies the form of offer (
 For [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, see [Check Digit calculator](http://www.gs1.org/barcodes/support/check_digit_calculator) and [validation guide](http://www.gs1us.org/resources/standards/gtin-validation-guide) from [GS1](http://www.gs1.org/).
     """
     asin: Optional[Union[HttpUrl, List[HttpUrl], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('asin', 'https://schema.org/asin'),serialization_alias='https://schema.org/asin')
+    @field_serializer('asin')
+    def asin2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     hasAdultConsideration: Optional[Union["AdultOrientedEnumeration", List["AdultOrientedEnumeration"]]] = Field(default=None,validation_alias=AliasChoices('hasAdultConsideration', 'https://schema.org/hasAdultConsideration'),serialization_alias='https://schema.org/hasAdultConsideration')
     eligibleTransactionVolume: Optional[Union["PriceSpecification", List["PriceSpecification"]]] = Field(default=None,validation_alias=AliasChoices('eligibleTransactionVolume', 'https://schema.org/eligibleTransactionVolume'),serialization_alias='https://schema.org/eligibleTransactionVolume')
     includesObject: Optional[Union["TypeAndQuantityNode", List["TypeAndQuantityNode"]]] = Field(default=None,validation_alias=AliasChoices('includesObject', 'https://schema.org/includesObject'),serialization_alias='https://schema.org/includesObject')
@@ -41,6 +47,12 @@ For [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, se
     ineligibleRegion: Optional[Union[str, List[str], Place, List[Place], "GeoShape", List["GeoShape"]]] = Field(default=None,validation_alias=AliasChoices('ineligibleRegion', 'https://schema.org/ineligibleRegion'),serialization_alias='https://schema.org/ineligibleRegion')
     gtin13: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('gtin13', 'https://schema.org/gtin13'),serialization_alias='https://schema.org/gtin13')
     hasGS1DigitalLink: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('hasGS1DigitalLink', 'https://schema.org/hasGS1DigitalLink'),serialization_alias='https://schema.org/hasGS1DigitalLink')
+    @field_serializer('hasGS1DigitalLink')
+    def hasGS1DigitalLink2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     hasMeasurement: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(default=None,validation_alias=AliasChoices('hasMeasurement', 'https://schema.org/hasMeasurement'),serialization_alias='https://schema.org/hasMeasurement')
     inventoryLevel: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(default=None,validation_alias=AliasChoices('inventoryLevel', 'https://schema.org/inventoryLevel'),serialization_alias='https://schema.org/inventoryLevel')
     itemCondition: Optional[Union["OfferItemCondition", List["OfferItemCondition"]]] = Field(default=None,validation_alias=AliasChoices('itemCondition', 'https://schema.org/itemCondition'),serialization_alias='https://schema.org/itemCondition')
@@ -48,6 +60,12 @@ For [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, se
     additionalProperty: Optional[Union["PropertyValue", List["PropertyValue"]]] = Field(default=None,validation_alias=AliasChoices('additionalProperty', 'https://schema.org/additionalProperty'),serialization_alias='https://schema.org/additionalProperty')
     checkoutPageURLTemplate: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('checkoutPageURLTemplate', 'https://schema.org/checkoutPageURLTemplate'),serialization_alias='https://schema.org/checkoutPageURLTemplate')
     category: Optional[Union["PhysicalActivityCategory", List["PhysicalActivityCategory"], "CategoryCode", List["CategoryCode"], str, List[str], Thing, List[Thing], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('category', 'https://schema.org/category'),serialization_alias='https://schema.org/category')
+    @field_serializer('category')
+    def category2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     hasMerchantReturnPolicy: Optional[Union[MerchantReturnPolicy, List[MerchantReturnPolicy]]] = Field(default=None,validation_alias=AliasChoices('hasMerchantReturnPolicy', 'https://schema.org/hasMerchantReturnPolicy'),serialization_alias='https://schema.org/hasMerchantReturnPolicy')
     priceCurrency: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('priceCurrency', 'https://schema.org/priceCurrency'),serialization_alias='https://schema.org/priceCurrency')
     availability: Optional[Union["ItemAvailability", List["ItemAvailability"]]] = Field(default=None,validation_alias=AliasChoices('availability', 'https://schema.org/availability'),serialization_alias='https://schema.org/availability')
@@ -64,6 +82,12 @@ For [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, se
     priceSpecification: Optional[Union["PriceSpecification", List["PriceSpecification"]]] = Field(default=None,validation_alias=AliasChoices('priceSpecification', 'https://schema.org/priceSpecification'),serialization_alias='https://schema.org/priceSpecification')
     reviews: Optional[Union["Review", List["Review"]]] = Field(default=None,validation_alias=AliasChoices('reviews', 'https://schema.org/reviews'),serialization_alias='https://schema.org/reviews')
     gtin: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('gtin', 'https://schema.org/gtin'),serialization_alias='https://schema.org/gtin')
+    @field_serializer('gtin')
+    def gtin2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     availableAtOrFrom: Optional[Union[Place, List[Place]]] = Field(default=None,validation_alias=AliasChoices('availableAtOrFrom', 'https://schema.org/availableAtOrFrom'),serialization_alias='https://schema.org/availableAtOrFrom')
     addOn: Optional[Union["Offer", List["Offer"]]] = Field(default=None,validation_alias=AliasChoices('addOn', 'https://schema.org/addOn'),serialization_alias='https://schema.org/addOn')
     businessFunction: Optional[Union["BusinessFunction", List["BusinessFunction"]]] = Field(default=None,validation_alias=AliasChoices('businessFunction', 'https://schema.org/businessFunction'),serialization_alias='https://schema.org/businessFunction')

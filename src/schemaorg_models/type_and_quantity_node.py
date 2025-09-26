@@ -1,5 +1,5 @@
 from typing import Union, List, Optional
-from pydantic import AliasChoices, Field, HttpUrl
+from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.structured_value import StructuredValue
 
 from schemaorg_models.business_function import BusinessFunction
@@ -15,3 +15,9 @@ A structured value indicating the quantity, unit of measurement, and business fu
     businessFunction: Optional[Union[BusinessFunction, List[BusinessFunction]]] = Field(default=None,validation_alias=AliasChoices('businessFunction', 'https://schema.org/businessFunction'),serialization_alias='https://schema.org/businessFunction')
     typeOfGood: Optional[Union[Product, List[Product], Service, List[Service]]] = Field(default=None,validation_alias=AliasChoices('typeOfGood', 'https://schema.org/typeOfGood'),serialization_alias='https://schema.org/typeOfGood')
     unitCode: Optional[Union[HttpUrl, List[HttpUrl], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('unitCode', 'https://schema.org/unitCode'),serialization_alias='https://schema.org/unitCode')
+    @field_serializer('unitCode')
+    def unitCode2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+

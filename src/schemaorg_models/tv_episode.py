@@ -1,5 +1,5 @@
 from typing import Union, List, Optional
-from pydantic import AliasChoices, Field, HttpUrl
+from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.episode import Episode
 
 from schemaorg_models.tv_series import TVSeries
@@ -13,4 +13,10 @@ A TV episode which can be part of a series or season.
     partOfTVSeries: Optional[Union[TVSeries, List[TVSeries]]] = Field(default=None,validation_alias=AliasChoices('partOfTVSeries', 'https://schema.org/partOfTVSeries'),serialization_alias='https://schema.org/partOfTVSeries')
     subtitleLanguage: Optional[Union[Language, List[Language], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('subtitleLanguage', 'https://schema.org/subtitleLanguage'),serialization_alias='https://schema.org/subtitleLanguage')
     titleEIDR: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('titleEIDR', 'https://schema.org/titleEIDR'),serialization_alias='https://schema.org/titleEIDR')
+    @field_serializer('titleEIDR')
+    def titleEIDR2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     countryOfOrigin: Optional[Union[Country, List[Country]]] = Field(default=None,validation_alias=AliasChoices('countryOfOrigin', 'https://schema.org/countryOfOrigin'),serialization_alias='https://schema.org/countryOfOrigin')

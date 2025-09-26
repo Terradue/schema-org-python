@@ -1,6 +1,6 @@
 from typing import Union, List, Optional
 from datetime import date, datetime
-from pydantic import AliasChoices, Field, HttpUrl
+from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.intangible import Intangible
 
 from schemaorg_models.product import Product
@@ -20,6 +20,12 @@ The delivery of a parcel either via the postal service or a commercial service.
     trackingNumber: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('trackingNumber', 'https://schema.org/trackingNumber'),serialization_alias='https://schema.org/trackingNumber')
     provider: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(default=None,validation_alias=AliasChoices('provider', 'https://schema.org/provider'),serialization_alias='https://schema.org/provider')
     trackingUrl: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('trackingUrl', 'https://schema.org/trackingUrl'),serialization_alias='https://schema.org/trackingUrl')
+    @field_serializer('trackingUrl')
+    def trackingUrl2str(self, val) -> str:
+        if isinstance(val, HttpUrl): ### This magic! If isinstance(val, HttpUrl) - error
+            return str(val)
+        return val
+
     expectedArrivalFrom: Optional[Union[datetime, List[datetime], date, List[date]]] = Field(default=None,validation_alias=AliasChoices('expectedArrivalFrom', 'https://schema.org/expectedArrivalFrom'),serialization_alias='https://schema.org/expectedArrivalFrom')
     carrier: Optional[Union[Organization, List[Organization]]] = Field(default=None,validation_alias=AliasChoices('carrier', 'https://schema.org/carrier'),serialization_alias='https://schema.org/carrier')
     deliveryStatus: Optional[Union[DeliveryEvent, List[DeliveryEvent]]] = Field(default=None,validation_alias=AliasChoices('deliveryStatus', 'https://schema.org/deliveryStatus'),serialization_alias='https://schema.org/deliveryStatus')
