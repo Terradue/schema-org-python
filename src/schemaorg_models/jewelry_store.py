@@ -1,0 +1,7 @@
+from schemaorg_models.store import Store
+
+
+class JewelryStore(Store):
+    """
+A jewelry store.
+    """

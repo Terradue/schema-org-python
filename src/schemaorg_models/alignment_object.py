@@ -1,0 +1,16 @@
+from typing import Union, List, Optional
+from pydantic import AliasChoices, Field, HttpUrl
+from schemaorg_models.intangible import Intangible
+
+
+class AlignmentObject(Intangible):
+    """
+An intangible item that describes an alignment between a learning resource and a node in an educational framework.
+
+Should not be used where the nature of the alignment can be described using a simple property, for example to express that a resource [[teaches]] or [[assesses]] a competency.
+    """
+    alignmentType: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('alignmentType', 'https://schema.org/alignmentType'),serialization_alias='https://schema.org/alignmentType')
+    targetName: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('targetName', 'https://schema.org/targetName'),serialization_alias='https://schema.org/targetName')
+    educationalFramework: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('educationalFramework', 'https://schema.org/educationalFramework'),serialization_alias='https://schema.org/educationalFramework')
+    targetDescription: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('targetDescription', 'https://schema.org/targetDescription'),serialization_alias='https://schema.org/targetDescription')
+    targetUrl: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('targetUrl', 'https://schema.org/targetUrl'),serialization_alias='https://schema.org/targetUrl')

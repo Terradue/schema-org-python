@@ -1,0 +1,11 @@
+from typing import Union, List, Optional
+from pydantic import AliasChoices, Field
+from schemaorg_models.move_action import MoveAction
+
+from schemaorg_models.distance import Distance
+
+class TravelAction(MoveAction):
+    """
+The act of traveling from a fromLocation to a destination by a specified mode of transport, optionally with participants.
+    """
+    distance: Optional[Union[Distance, List[Distance]]] = Field(default=None,validation_alias=AliasChoices('distance', 'https://schema.org/distance'),serialization_alias='https://schema.org/distance')

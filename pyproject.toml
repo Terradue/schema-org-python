@@ -1,22 +1,84 @@
 [build-system]
-requires = ["poetry>=0.12"]
-build-backend = "poetry.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
-[tool.poetry]
-name = "schema_models"
-version = "0.1.0"
-description = "Schema.org schemas as pydantic models"
+[project]
+name = "schemaorg-models"
+dynamic = ["version"]
+description = 'Schema.org schemas as Pydantic models'
 
-[tool.poetry.dependencies]
-python = "^3.9"
-fquery = "^0.4"
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+keywords = []
+authors = [
+  { name = "adsharma" },
+  { name = "Fabrice Brito", email = "info@terradue.com" },
+  { name = "Simone Tripodi", email = "info@terradue.com"}
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = [
+  "pydantic"
+]
 
-[tool.poetry.group.dev-dependencies.dependencies]
-pytest = "^7.1.2"
-pytest-cov = "^4.0.0"
-black = "^24.10.0"
-isort = "^5.13.2"
-flake8 = "^7.1.1"
+[project.urls]
+Documentation = "https://github.com/Terradue/schema-org-python#readme"
+Issues = "https://github.com/Terradue/schema-org-python/issues"
+Source = "https://github.com/Terradue/schema-org-python"
 
-[tool.isort]
-profile = "black"
+[tool.hatch.version]
+path = "src/schemaorg_models/__about__.py"
+
+[tool.hatch.envs.types]
+extra-dependencies = [
+  "mypy>=1.0.0",
+]
+[tool.hatch.envs.types.scripts]
+check = "mypy --install-types --non-interactive {args:src/schemaorg_models tests}"
+
+[tool.coverage.run]
+source_pkgs = ["schemaorg_models", "tests"]
+branch = true
+parallel = true
+omit = [
+  "src/schemaorg_models/__about__.py",
+]
+
+[tool.coverage.paths]
+schemaorg_models = ["src/schemaorg_models", "*/schemaorg_models/src/schemaorg_models"]
+tests = ["tests", "*/schemaorg_models/tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
+
+
+[tool.hatch.envs.test]
+skip-install = false
+
+dependencies = [
+  "pydantic",
+  "nose2",
+]
+
+
+[tool.hatch.envs.test.scripts]
+test = "hatch run nose2"
+testv = "hatch run nose2 --verbose"
+cov = ["coverage run --source=src/schemaorg_models -m nose2", "coverage report"]
+
+[[tool.hatch.envs.test.matrix]]
+python = ["3.9", "3.10", "3.11", "3.12", "3.13"]

@@ -1,0 +1,11 @@
+from typing import Union, List, Optional
+from datetime import date, datetime
+from pydantic import AliasChoices, Field
+from schemaorg_models.organize_action import OrganizeAction
+
+
+class PlanAction(OrganizeAction):
+    """
+The act of planning the execution of an event/task/action/reservation/plan to a future date.
+    """
+    scheduledTime: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(default=None,validation_alias=AliasChoices('scheduledTime', 'https://schema.org/scheduledTime'),serialization_alias='https://schema.org/scheduledTime')

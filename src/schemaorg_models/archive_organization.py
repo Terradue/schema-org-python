@@ -1,0 +1,11 @@
+from typing import Union, List, Optional
+from pydantic import AliasChoices, Field
+from schemaorg_models.local_business import LocalBusiness
+
+from schemaorg_models.archive_component import ArchiveComponent
+
+class ArchiveOrganization(LocalBusiness):
+    """
+An organization with archival holdings. An organization which keeps and preserves archival material and typically makes it accessible to the public.
+    """
+    archiveHeld: Optional[Union[ArchiveComponent, List[ArchiveComponent]]] = Field(default=None,validation_alias=AliasChoices('archiveHeld', 'https://schema.org/archiveHeld'),serialization_alias='https://schema.org/archiveHeld')

@@ -2,9 +2,9 @@ from dataclasses import is_dataclass
 
 from pydantic import BaseModel
 
-from schema_models.person import Person
-from schema_models.place import Place
-from schema_models.thing import Thing
+from schemaorg_models.person import Person
+from schemaorg_models.place import Place
+from schemaorg_models.thing import Thing
 
 
 def test_person():

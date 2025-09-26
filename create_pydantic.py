@@ -10,7 +10,6 @@ from graphlib import TopologicalSorter
 from keyword import kwlist
 from typing import Dict
 
-import requests
 from rdflib import RDF, RDFS, Graph, Namespace
 
 SCHEMA = Namespace("https://schema.org/")
@@ -28,14 +27,6 @@ BASE_TYPES = {
     SCHEMA.DataType: "str",
 }
 BASE_TYPES_STR = {str(k) for k in BASE_TYPES.keys()}
-
-
-def fetch_schema():
-    url = "https://schema.org/version/latest/schemaorg-all-https.nt"
-    response = requests.get(url)
-    response.raise_for_status()
-    return response.text
-
 
 def parse_schema(content: str) -> Graph:
     g = Graph()
@@ -65,7 +56,7 @@ def camel_to_snake(name):
 
 
 def generate_models(graph: Graph):
-    os.makedirs("schema_models", exist_ok=True)
+    os.makedirs("src/schemaorg_models", exist_ok=True)
 
     classes: Dict[str, Dict] = {}
 
@@ -108,21 +99,21 @@ def generate_models(graph: Graph):
             ts_sorted.append(class_name)
 
     # Write init file
-    with open("schema_models/__init__.py", "w") as f:
+    with open("src/schemaorg_models/__init__.py", "w") as f:
         f.write("from typing import Union, List, Optional\n")
         f.write("from datetime import date, datetime, time\n")
-        f.write("from pydantic import field_validator, ConfigDict, Field, HttpUrl\n\n")
+        f.write("from pydantic import field_validator, AliasChoices, ConfigDict, Field, HttpUrl\n\n")
 
         for class_name in ts_sorted:
             if class_name is not None:
                 class_filename = camel_to_snake(class_name)
-                f.write(f"from schema_models.{class_filename} import {class_name}\n")
+                f.write(f"from schemaorg_models.{class_filename} import {class_name}\n")
 
         f.write("\n\n")
 
         for class_name in ts_sorted:
             if class_name is not None:
-                f.write(f"{class_name}.__pydantic__.model_rebuild()\n")
+                f.write(f"{class_name}.model_rebuild()\n")
 
     # Second pass: collect properties
     for class_name, class_info in classes.items():
@@ -141,28 +132,28 @@ def generate_models(graph: Graph):
                     if python_type[0].isdigit() or python_type.lower() in kwlist:
                         python_type = f"_{python_type}"
                     # Ditto for property names
-                    if prop_name[0].isdigit() or prop_name.lower() in kwlist:
-                        prop_name = f"_{prop_name}"
+                    # if prop_name[0].isdigit() or prop_name.lower() in kwlist:
+                    #    prop_name = f"_{prop_name}"
                     class_info["properties"].append((prop_name, python_type))
                 except Exception:
                     pass
 
     # Generate model files
     for class_name, class_info in classes.items():
-        filename = f"schema_models/{camel_to_snake(class_name)}.py"
+        filename = f"src/schemaorg_models/{camel_to_snake(class_name)}.py"
         with open(filename, "w") as f:
             # Imports
             f.write("from typing import Union, List, Optional\n")
             f.write("from datetime import date, datetime, time\n")
             f.write(
-                "from pydantic import field_validator, ConfigDict, Field, HttpUrl\n"
+                "from pydantic import field_validator, AliasChoices, ConfigDict, Field, HttpUrl\n"
             )
 
             # Import parent class if exists
             if class_info["parent"]:
                 parent = camel_to_snake(class_info["parent"])
                 f.write(
-                    f"from schema_models.{parent} import {class_info['parent']}\n\n"
+                    f"from schemaorg_models.{parent} import {class_info['parent']}\n\n"
                 )
             else:
                 f.write("\n")
@@ -177,7 +168,7 @@ def generate_models(graph: Graph):
             for prop_type, forward_def in other_classes.items():
                 other_snake = camel_to_snake(prop_type)
                 if not forward_def:
-                    f.write(f"from schema_models.{other_snake} import {prop_type}\n")
+                    f.write(f"from schemaorg_models.{other_snake} import {prop_type}\n")
             f.write("\n")
 
             # Class definition
@@ -185,9 +176,8 @@ def generate_models(graph: Graph):
                 f.write(f"class {class_name}({class_info['parent']}):\n")
             else:
                 if class_name == "Thing":
-                    f.write("from fquery.pydantic import pydantic\n\n")
-                    f.write("@pydantic\n")
-                f.write(f"class {class_name}:\n")
+                    f.write("from pydantic import BaseModel\n")
+                f.write(f"class {class_name}(BaseModel):\n")
             docstring = class_info.get("docstring", None)
             if docstring is not None:
                 f.write(f'    """\n{docstring}\n    """\n')
@@ -210,15 +200,17 @@ def generate_models(graph: Graph):
                 prop_types = ", ".join(
                     [f"{prop_type}, List[{prop_type}]" for prop_type in prop_type_list]
                 )
-                f.write(f"    {prop_name}: Optional[Union[{prop_types}]] = None\n")
+
+                variable_name = f"{prop_name}_" if prop_name[0].isdigit() or prop_name.lower() in kwlist else prop_name
+                	
+                f.write(f"    {variable_name}: Optional[Union[{prop_types}]] = Field(default=None,validation_alias=AliasChoices('{prop_name}', 'https://schema.org/{prop_name}'),serialization_alias='https://schema.org/{prop_name}')\n")
 
     for s in BASE_TYPES_STR:
         class_name = safe_name(s.split("/")[-1])
-        filename = f"schema_models/{camel_to_snake(class_name)}.py"
+        filename = f"src/schemaorg_models/{camel_to_snake(class_name)}.py"
         with open(filename, "w") as f:
-            f.write("from fquery.pydantic import pydantic\n\n")
-            f.write("@pydantic\n")
-            f.write(f"class {class_name}:\n")
+            f.write("from pydantic import BaseModel\n\n")
+            f.write(f"class {class_name}(BaseModel):\n")
             f.write("    pass\n")
     return classes
 
@@ -234,9 +226,6 @@ def run_autoflake():
 
 
 def main():
-    # print("Fetching Schema.org definitions...")
-    # content = fetch_schema()
-
     # Create an ArgumentParser object
     parser = argparse.ArgumentParser(
         description="Generate pydantic models from schema.org"
@@ -264,7 +253,7 @@ def main():
     print("Running autoflake...")
     run_autoflake()
 
-    print("Models generated in schema_models directory")
+    print("Models generated in src/schemaorg_models directory")
 
 
 if __name__ == "__main__":

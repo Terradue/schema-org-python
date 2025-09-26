@@ -1,0 +1,10 @@
+version: '3'
+
+tasks:
+
+  default:
+    cmds:
+    - rm -rf schemaorg-all-https.nt
+    - wget https://schema.org/version/latest/schemaorg-all-https.nt
+    - ./create_pydantic.py schemaorg-all-https.nt
+    - pip install .

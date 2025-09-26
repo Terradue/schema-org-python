@@ -1,0 +1,12 @@
+from typing import Union, List, Optional
+from pydantic import AliasChoices, Field
+from schemaorg_models.assess_action import AssessAction
+
+from schemaorg_models.thing import Thing
+
+class ChooseAction(AssessAction):
+    """
+The act of expressing a preference from a set of options or a large or unbounded set of choices/options.
+    """
+    option: Optional[Union[str, List[str], Thing, List[Thing]]] = Field(default=None,validation_alias=AliasChoices('option', 'https://schema.org/option'),serialization_alias='https://schema.org/option')
+    actionOption: Optional[Union[str, List[str], Thing, List[Thing]]] = Field(default=None,validation_alias=AliasChoices('actionOption', 'https://schema.org/actionOption'),serialization_alias='https://schema.org/actionOption')
