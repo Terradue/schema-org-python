@@ -8,5 +8,5 @@ class LegislationObject(Legislation):
     """
 A specific object or file containing a Legislation. Note that the same Legislation can be published in multiple files. For example, a digitally signed PDF, a plain PDF and an HTML version.
     """
-    type_: Literal['https://schema.org/LegislationObject'] = Field(default='https://schema.org/LegislationObject', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/LegislationObject'] = Field(default='https://schema.org/LegislationObject', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     legislationLegalValue: Optional[Union[LegalValueLevel, List[LegalValueLevel]]] = Field(default=None, validation_alias=AliasChoices('legislationLegalValue', 'https://schema.org/legislationLegalValue'), serialization_alias='https://schema.org/legislationLegalValue')

@@ -15,4 +15,4 @@ In British English a campsite, or campground, is an area, usually divided into a
 See also the dedicated [document on the use of schema.org for marking up hotels and other forms of accommodations](/docs/hotels.html).
 
     """
-    type_: Literal['https://schema.org/CampingPitch'] = Field(default='https://schema.org/CampingPitch', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/CampingPitch'] = Field(default='https://schema.org/CampingPitch', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore

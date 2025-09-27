@@ -21,7 +21,7 @@ PostalCode Set: { [94000-94585], [97000, 97999], [13000, 13599]}
 Region = state, canton, prefecture, autonomous community...
 
     """
-    type_: Literal['https://schema.org/DefinedRegion'] = Field(default='https://schema.org/DefinedRegion', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/DefinedRegion'] = Field(default='https://schema.org/DefinedRegion', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     postalCodeRange: Optional[Union["PostalCodeRangeSpecification", List["PostalCodeRangeSpecification"]]] = Field(default=None, validation_alias=AliasChoices('postalCodeRange', 'https://schema.org/postalCodeRange'), serialization_alias='https://schema.org/postalCodeRange')
     addressRegion: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('addressRegion', 'https://schema.org/addressRegion'), serialization_alias='https://schema.org/addressRegion')
     postalCode: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('postalCode', 'https://schema.org/postalCode'), serialization_alias='https://schema.org/postalCode')

@@ -7,4 +7,4 @@ class HealthAndBeautyBusiness(LocalBusiness):
     """
 Health and beauty.
     """
-    type_: Literal['https://schema.org/HealthAndBeautyBusiness'] = Field(default='https://schema.org/HealthAndBeautyBusiness', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/HealthAndBeautyBusiness'] = Field(default='https://schema.org/HealthAndBeautyBusiness', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore

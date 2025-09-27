@@ -9,7 +9,7 @@ class NewsMediaOrganization(Organization):
     """
 A News/Media organization such as a newspaper or TV station.
     """
-    type_: Literal['https://schema.org/NewsMediaOrganization'] = Field(default='https://schema.org/NewsMediaOrganization', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/NewsMediaOrganization'] = Field(default='https://schema.org/NewsMediaOrganization', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     ownershipFundingInfo: Optional[Union[str, List[str], CreativeWork, List[CreativeWork], HttpUrl, List[HttpUrl], "AboutPage", List["AboutPage"]]] = Field(default=None, validation_alias=AliasChoices('ownershipFundingInfo', 'https://schema.org/ownershipFundingInfo'), serialization_alias='https://schema.org/ownershipFundingInfo')
     @field_serializer('ownershipFundingInfo')
     def ownershipFundingInfo2str(self, val) -> str | List[str]:

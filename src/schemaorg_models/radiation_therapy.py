@@ -7,4 +7,4 @@ class RadiationTherapy(MedicalTherapy):
     """
 A process of care using radiation aimed at improving a health condition.
     """
-    type_: Literal['https://schema.org/RadiationTherapy'] = Field(default='https://schema.org/RadiationTherapy', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/RadiationTherapy'] = Field(default='https://schema.org/RadiationTherapy', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore

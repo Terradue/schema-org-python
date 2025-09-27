@@ -7,4 +7,4 @@ class RVPark(CivicStructure):
     """
 A place offering space for "Recreational Vehicles", Caravans, mobile homes and the like.
     """
-    type_: Literal['https://schema.org/RVPark'] = Field(default='https://schema.org/RVPark', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/RVPark'] = Field(default='https://schema.org/RVPark', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore

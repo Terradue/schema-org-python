@@ -7,4 +7,4 @@ class OfferCatalog(ItemList):
     """
 An OfferCatalog is an ItemList that contains related Offers and/or further OfferCatalogs that are offeredBy the same provider.
     """
-    type_: Literal['https://schema.org/OfferCatalog'] = Field(default='https://schema.org/OfferCatalog', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/OfferCatalog'] = Field(default='https://schema.org/OfferCatalog', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore

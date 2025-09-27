@@ -11,7 +11,7 @@ class ShippingDeliveryTime(StructuredValue):
     """
 ShippingDeliveryTime provides various pieces of information about delivery times for shipping.
     """
-    type_: Literal['https://schema.org/ShippingDeliveryTime'] = Field(default='https://schema.org/ShippingDeliveryTime', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/ShippingDeliveryTime'] = Field(default='https://schema.org/ShippingDeliveryTime', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     businessDays: Optional[Union["OpeningHoursSpecification", List["OpeningHoursSpecification"], DayOfWeek, List[DayOfWeek]]] = Field(default=None, validation_alias=AliasChoices('businessDays', 'https://schema.org/businessDays'), serialization_alias='https://schema.org/businessDays')
     transitTime: Optional[Union[ServicePeriod, List[ServicePeriod], QuantitativeValue, List[QuantitativeValue]]] = Field(default=None, validation_alias=AliasChoices('transitTime', 'https://schema.org/transitTime'), serialization_alias='https://schema.org/transitTime')
     handlingTime: Optional[Union[ServicePeriod, List[ServicePeriod], QuantitativeValue, List[QuantitativeValue]]] = Field(default=None, validation_alias=AliasChoices('handlingTime', 'https://schema.org/handlingTime'), serialization_alias='https://schema.org/handlingTime')

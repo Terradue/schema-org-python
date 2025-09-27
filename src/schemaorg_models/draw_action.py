@@ -7,4 +7,4 @@ class DrawAction(CreateAction):
     """
 The act of producing a visual/graphical representation of an object, typically with a pen/pencil and paper as instruments.
     """
-    type_: Literal['https://schema.org/DrawAction'] = Field(default='https://schema.org/DrawAction', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/DrawAction'] = Field(default='https://schema.org/DrawAction', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore

@@ -7,4 +7,4 @@ class CheckoutPage(WebPage):
     """
 Web page type: Checkout page.
     """
-    type_: Literal['https://schema.org/CheckoutPage'] = Field(default='https://schema.org/CheckoutPage', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/CheckoutPage'] = Field(default='https://schema.org/CheckoutPage', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore

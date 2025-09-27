@@ -17,7 +17,7 @@ A property-value pair, e.g. representing a feature of a product or place. Use th
  Always use specific schema.org properties when a) they exist and b) you can populate them. Using PropertyValue as a substitute will typically not trigger the same effect as using the original, specific property.
     
     """
-    type_: Literal['https://schema.org/PropertyValue'] = Field(default='https://schema.org/PropertyValue', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/PropertyValue'] = Field(default='https://schema.org/PropertyValue', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     unitText: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('unitText', 'https://schema.org/unitText'), serialization_alias='https://schema.org/unitText')
     measurementTechnique: Optional[Union[DefinedTerm, List[DefinedTerm], MeasurementMethodEnum, List[MeasurementMethodEnum], str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None, validation_alias=AliasChoices('measurementTechnique', 'https://schema.org/measurementTechnique'), serialization_alias='https://schema.org/measurementTechnique')
     @field_serializer('measurementTechnique')

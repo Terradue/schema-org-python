@@ -13,7 +13,7 @@ A [[MediaReview]] is a more specialized form of Review dedicated to the evaluati
     a work in progress. While the [[MediaManipulationRatingEnumeration]] list reflects significant community review amongst fact-checkers and others working
     to combat misinformation, the specific structures for representing media objects, their versions and publication context, are still evolving. Similarly, best practices for the relationship between [[MediaReview]] and [[ClaimReview]] markup have not yet been finalized.
     """
-    type_: Literal['https://schema.org/MediaReview'] = Field(default='https://schema.org/MediaReview', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/MediaReview'] = Field(default='https://schema.org/MediaReview', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     mediaAuthenticityCategory: Optional[Union[MediaManipulationRatingEnumeration, List[MediaManipulationRatingEnumeration]]] = Field(default=None, validation_alias=AliasChoices('mediaAuthenticityCategory', 'https://schema.org/mediaAuthenticityCategory'), serialization_alias='https://schema.org/mediaAuthenticityCategory')
     originalMediaLink: Optional[Union[WebPage, List[WebPage], HttpUrl, List[HttpUrl], MediaObject, List[MediaObject]]] = Field(default=None, validation_alias=AliasChoices('originalMediaLink', 'https://schema.org/originalMediaLink'), serialization_alias='https://schema.org/originalMediaLink')
     @field_serializer('originalMediaLink')

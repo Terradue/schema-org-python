@@ -8,7 +8,7 @@ class MedicalProcedure(MedicalEntity):
     """
 A process of care used in either a diagnostic, therapeutic, preventive or palliative capacity that relies on invasive (surgical), non-invasive, or other techniques.
     """
-    type_: Literal['https://schema.org/MedicalProcedure'] = Field(default='https://schema.org/MedicalProcedure', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/MedicalProcedure'] = Field(default='https://schema.org/MedicalProcedure', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     bodyLocation: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('bodyLocation', 'https://schema.org/bodyLocation'), serialization_alias='https://schema.org/bodyLocation')
     preparation: Optional[Union[MedicalEntity, List[MedicalEntity], str, List[str]]] = Field(default=None, validation_alias=AliasChoices('preparation', 'https://schema.org/preparation'), serialization_alias='https://schema.org/preparation')
     status: Optional[Union["EventStatusType", List["EventStatusType"], "MedicalStudyStatus", List["MedicalStudyStatus"], str, List[str]]] = Field(default=None, validation_alias=AliasChoices('status', 'https://schema.org/status'), serialization_alias='https://schema.org/status')

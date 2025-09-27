@@ -9,7 +9,7 @@ class Game(CreativeWork):
     """
 The Game type represents things which are games. These are typically rule-governed recreational activities, e.g. role-playing games in which players assume the role of characters in a fictional setting.
     """
-    type_: Literal['https://schema.org/Game'] = Field(default='https://schema.org/Game', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/Game'] = Field(default='https://schema.org/Game', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     quest: Optional[Union[Thing, List[Thing]]] = Field(default=None, validation_alias=AliasChoices('quest', 'https://schema.org/quest'), serialization_alias='https://schema.org/quest')
     characterAttribute: Optional[Union[Thing, List[Thing]]] = Field(default=None, validation_alias=AliasChoices('characterAttribute', 'https://schema.org/characterAttribute'), serialization_alias='https://schema.org/characterAttribute')
     gameItem: Optional[Union[Thing, List[Thing]]] = Field(default=None, validation_alias=AliasChoices('gameItem', 'https://schema.org/gameItem'), serialization_alias='https://schema.org/gameItem')

@@ -11,7 +11,7 @@ class UserComments(UserInteraction):
     """
 UserInteraction and its subtypes is an old way of talking about users interacting with pages. It is generally better to use [[Action]]-based vocabulary, alongside types such as [[Comment]].
     """
-    type_: Literal['https://schema.org/UserComments'] = Field(default='https://schema.org/UserComments', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/UserComments'] = Field(default='https://schema.org/UserComments', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     commentTime: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(default=None, validation_alias=AliasChoices('commentTime', 'https://schema.org/commentTime'), serialization_alias='https://schema.org/commentTime')
     replyToUrl: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(default=None, validation_alias=AliasChoices('replyToUrl', 'https://schema.org/replyToUrl'), serialization_alias='https://schema.org/replyToUrl')
     @field_serializer('replyToUrl')

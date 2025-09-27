@@ -7,4 +7,4 @@ class ImageGallery(MediaGallery):
     """
 Web page type: Image gallery page.
     """
-    type_: Literal['https://schema.org/ImageGallery'] = Field(default='https://schema.org/ImageGallery', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/ImageGallery'] = Field(default='https://schema.org/ImageGallery', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore

@@ -10,6 +10,6 @@ class DigitalDocumentPermission(Intangible):
     """
 A permission for a particular person or group to access a particular file.
     """
-    type_: Literal['https://schema.org/DigitalDocumentPermission'] = Field(default='https://schema.org/DigitalDocumentPermission', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/DigitalDocumentPermission'] = Field(default='https://schema.org/DigitalDocumentPermission', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     permissionType: Optional[Union["DigitalDocumentPermissionType", List["DigitalDocumentPermissionType"]]] = Field(default=None, validation_alias=AliasChoices('permissionType', 'https://schema.org/permissionType'), serialization_alias='https://schema.org/permissionType')
     grantee: Optional[Union[Organization, List[Organization], Audience, List[Audience], Person, List[Person], "ContactPoint", List["ContactPoint"]]] = Field(default=None, validation_alias=AliasChoices('grantee', 'https://schema.org/grantee'), serialization_alias='https://schema.org/grantee')

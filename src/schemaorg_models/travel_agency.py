@@ -7,4 +7,4 @@ class TravelAgency(LocalBusiness):
     """
 A travel agency.
     """
-    type_: Literal['https://schema.org/TravelAgency'] = Field(default='https://schema.org/TravelAgency', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/TravelAgency'] = Field(default='https://schema.org/TravelAgency', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore

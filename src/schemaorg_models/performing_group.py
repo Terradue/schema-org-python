@@ -7,4 +7,4 @@ class PerformingGroup(Organization):
     """
 A performance group, such as a band, an orchestra, or a circus.
     """
-    type_: Literal['https://schema.org/PerformingGroup'] = Field(default='https://schema.org/PerformingGroup', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/PerformingGroup'] = Field(default='https://schema.org/PerformingGroup', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore

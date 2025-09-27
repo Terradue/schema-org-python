@@ -8,7 +8,7 @@ class Vehicle(Product):
     """
 A vehicle is a device that is designed or used to transport people or cargo over land, water, air, or through space.
     """
-    type_: Literal['https://schema.org/Vehicle'] = Field(default='https://schema.org/Vehicle', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/Vehicle'] = Field(default='https://schema.org/Vehicle', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     vehicleIdentificationNumber: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('vehicleIdentificationNumber', 'https://schema.org/vehicleIdentificationNumber'), serialization_alias='https://schema.org/vehicleIdentificationNumber')
     dateVehicleFirstRegistered: Optional[Union[date, List[date]]] = Field(default=None, validation_alias=AliasChoices('dateVehicleFirstRegistered', 'https://schema.org/dateVehicleFirstRegistered'), serialization_alias='https://schema.org/dateVehicleFirstRegistered')
     callSign: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('callSign', 'https://schema.org/callSign'), serialization_alias='https://schema.org/callSign')

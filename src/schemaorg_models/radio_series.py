@@ -13,7 +13,7 @@ class RadioSeries(CreativeWorkSeries):
     """
 CreativeWorkSeries dedicated to radio broadcast and associated online delivery.
     """
-    type_: Literal['https://schema.org/RadioSeries'] = Field(default='https://schema.org/RadioSeries', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/RadioSeries'] = Field(default='https://schema.org/RadioSeries', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     episode: Optional[Union[Episode, List[Episode]]] = Field(default=None, validation_alias=AliasChoices('episode', 'https://schema.org/episode'), serialization_alias='https://schema.org/episode')
     numberOfEpisodes: Optional[Union[int, List[int]]] = Field(default=None, validation_alias=AliasChoices('numberOfEpisodes', 'https://schema.org/numberOfEpisodes'), serialization_alias='https://schema.org/numberOfEpisodes')
     actor: Optional[Union[Person, List[Person], PerformingGroup, List[PerformingGroup]]] = Field(default=None, validation_alias=AliasChoices('actor', 'https://schema.org/actor'), serialization_alias='https://schema.org/actor')

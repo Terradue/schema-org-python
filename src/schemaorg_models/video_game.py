@@ -13,7 +13,7 @@ class VideoGame(Game):
     """
 A video game is an electronic game that involves human interaction with a user interface to generate visual feedback on a video device.
     """
-    type_: Literal['https://schema.org/VideoGame'] = Field(default='https://schema.org/VideoGame', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/VideoGame'] = Field(default='https://schema.org/VideoGame', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     gameTip: Optional[Union[CreativeWork, List[CreativeWork]]] = Field(default=None, validation_alias=AliasChoices('gameTip', 'https://schema.org/gameTip'), serialization_alias='https://schema.org/gameTip')
     musicBy: Optional[Union["MusicGroup", List["MusicGroup"], Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('musicBy', 'https://schema.org/musicBy'), serialization_alias='https://schema.org/musicBy')
     gamePlatform: Optional[Union[HttpUrl, List[HttpUrl], str, List[str], Thing, List[Thing]]] = Field(default=None, validation_alias=AliasChoices('gamePlatform', 'https://schema.org/gamePlatform'), serialization_alias='https://schema.org/gamePlatform')

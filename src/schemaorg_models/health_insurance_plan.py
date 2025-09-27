@@ -7,7 +7,7 @@ class HealthInsurancePlan(Intangible):
     """
 A US-style health insurance plan, including PPOs, EPOs, and HMOs.
     """
-    type_: Literal['https://schema.org/HealthInsurancePlan'] = Field(default='https://schema.org/HealthInsurancePlan', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/HealthInsurancePlan'] = Field(default='https://schema.org/HealthInsurancePlan', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     benefitsSummaryUrl: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(default=None, validation_alias=AliasChoices('benefitsSummaryUrl', 'https://schema.org/benefitsSummaryUrl'), serialization_alias='https://schema.org/benefitsSummaryUrl')
     @field_serializer('benefitsSummaryUrl')
     def benefitsSummaryUrl2str(self, val) -> str | List[str]:

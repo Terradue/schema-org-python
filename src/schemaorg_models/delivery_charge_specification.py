@@ -11,7 +11,7 @@ class DeliveryChargeSpecification(PriceSpecification):
     """
 The price for the delivery of an offer using a particular delivery method.
     """
-    type_: Literal['https://schema.org/DeliveryChargeSpecification'] = Field(default='https://schema.org/DeliveryChargeSpecification', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/DeliveryChargeSpecification'] = Field(default='https://schema.org/DeliveryChargeSpecification', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     areaServed: Optional[Union[GeoShape, List[GeoShape], str, List[str], AdministrativeArea, List[AdministrativeArea], Place, List[Place]]] = Field(default=None, validation_alias=AliasChoices('areaServed', 'https://schema.org/areaServed'), serialization_alias='https://schema.org/areaServed')
     eligibleRegion: Optional[Union[GeoShape, List[GeoShape], str, List[str], Place, List[Place]]] = Field(default=None, validation_alias=AliasChoices('eligibleRegion', 'https://schema.org/eligibleRegion'), serialization_alias='https://schema.org/eligibleRegion')
     appliesToDeliveryMethod: Optional[Union[DeliveryMethod, List[DeliveryMethod]]] = Field(default=None, validation_alias=AliasChoices('appliesToDeliveryMethod', 'https://schema.org/appliesToDeliveryMethod'), serialization_alias='https://schema.org/appliesToDeliveryMethod')

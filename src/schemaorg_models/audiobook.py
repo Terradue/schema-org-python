@@ -10,6 +10,6 @@ class Audiobook(AudioObject):
     """
 An audiobook.
     """
-    type_: Literal['https://schema.org/Audiobook'] = Field(default='https://schema.org/Audiobook', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/Audiobook'] = Field(default='https://schema.org/Audiobook', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     duration: Optional[Union[Duration, List[Duration], QuantitativeValue, List[QuantitativeValue]]] = Field(default=None, validation_alias=AliasChoices('duration', 'https://schema.org/duration'), serialization_alias='https://schema.org/duration')
     readBy: Optional[Union[Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('readBy', 'https://schema.org/readBy'), serialization_alias='https://schema.org/readBy')

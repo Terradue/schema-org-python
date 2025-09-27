@@ -10,7 +10,7 @@ class Movie(CreativeWork):
     """
 A movie.
     """
-    type_: Literal['https://schema.org/Movie'] = Field(default='https://schema.org/Movie', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/Movie'] = Field(default='https://schema.org/Movie', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     titleEIDR: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None, validation_alias=AliasChoices('titleEIDR', 'https://schema.org/titleEIDR'), serialization_alias='https://schema.org/titleEIDR')
     @field_serializer('titleEIDR')
     def titleEIDR2str(self, val) -> str | List[str]:

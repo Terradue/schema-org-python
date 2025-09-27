@@ -7,4 +7,4 @@ class AutoRepair(AutomotiveBusiness):
     """
 Car repair business.
     """
-    type_: Literal['https://schema.org/AutoRepair'] = Field(default='https://schema.org/AutoRepair', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/AutoRepair'] = Field(default='https://schema.org/AutoRepair', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore

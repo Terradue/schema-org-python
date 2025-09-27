@@ -8,6 +8,6 @@ class Car(Vehicle):
     """
 A car is a wheeled, self-powered motor vehicle used for transportation.
     """
-    type_: Literal['https://schema.org/Car'] = Field(default='https://schema.org/Car', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/Car'] = Field(default='https://schema.org/Car', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     roofLoad: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(default=None, validation_alias=AliasChoices('roofLoad', 'https://schema.org/roofLoad'), serialization_alias='https://schema.org/roofLoad')
     acrissCode: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('acrissCode', 'https://schema.org/acrissCode'), serialization_alias='https://schema.org/acrissCode')

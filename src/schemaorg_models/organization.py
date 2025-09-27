@@ -14,7 +14,7 @@ class Organization(Thing):
     """
 An organization such as a school, NGO, corporation, club, etc.
     """
-    type_: Literal['https://schema.org/Organization'] = Field(default='https://schema.org/Organization', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/Organization'] = Field(default='https://schema.org/Organization', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     knowsAbout: Optional[Union[str, List[str], Thing, List[Thing], HttpUrl, List[HttpUrl]]] = Field(default=None, validation_alias=AliasChoices('knowsAbout', 'https://schema.org/knowsAbout'), serialization_alias='https://schema.org/knowsAbout')
     @field_serializer('knowsAbout')
     def knowsAbout2str(self, val) -> str | List[str]:

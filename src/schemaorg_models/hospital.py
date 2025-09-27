@@ -10,7 +10,7 @@ class Hospital(CivicStructure):
     """
 A hospital.
     """
-    type_: Literal['https://schema.org/Hospital'] = Field(default='https://schema.org/Hospital', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/Hospital'] = Field(default='https://schema.org/Hospital', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     healthcareReportingData: Optional[Union[Dataset, List[Dataset], "CDCPMDRecord", List["CDCPMDRecord"]]] = Field(default=None, validation_alias=AliasChoices('healthcareReportingData', 'https://schema.org/healthcareReportingData'), serialization_alias='https://schema.org/healthcareReportingData')
     medicalSpecialty: Optional[Union["MedicalSpecialty", List["MedicalSpecialty"]]] = Field(default=None, validation_alias=AliasChoices('medicalSpecialty', 'https://schema.org/medicalSpecialty'), serialization_alias='https://schema.org/medicalSpecialty')
     availableService: Optional[Union[MedicalProcedure, List[MedicalProcedure], "MedicalTherapy", List["MedicalTherapy"], MedicalTest, List[MedicalTest]]] = Field(default=None, validation_alias=AliasChoices('availableService', 'https://schema.org/availableService'), serialization_alias='https://schema.org/availableService')

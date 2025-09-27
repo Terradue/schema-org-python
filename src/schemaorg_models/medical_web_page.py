@@ -8,6 +8,6 @@ class MedicalWebPage(WebPage):
     """
 A web page that provides medical information.
     """
-    type_: Literal['https://schema.org/MedicalWebPage'] = Field(default='https://schema.org/MedicalWebPage', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/MedicalWebPage'] = Field(default='https://schema.org/MedicalWebPage', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     medicalAudience: Optional[Union[MedicalAudience, List[MedicalAudience], "MedicalAudienceType", List["MedicalAudienceType"]]] = Field(default=None, validation_alias=AliasChoices('medicalAudience', 'https://schema.org/medicalAudience'), serialization_alias='https://schema.org/medicalAudience')
     aspect: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('aspect', 'https://schema.org/aspect'), serialization_alias='https://schema.org/aspect')

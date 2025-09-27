@@ -13,5 +13,5 @@ Related actions:\
 * [[JoinAction]]: The antonym of LeaveAction.\
 * [[UnRegisterAction]]: Unlike UnRegisterAction, LeaveAction implies leaving a group/team of people rather than a service.
     """
-    type_: Literal['https://schema.org/LeaveAction'] = Field(default='https://schema.org/LeaveAction', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/LeaveAction'] = Field(default='https://schema.org/LeaveAction', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     event: Optional[Union[Event, List[Event]]] = Field(default=None, validation_alias=AliasChoices('event', 'https://schema.org/event'), serialization_alias='https://schema.org/event')

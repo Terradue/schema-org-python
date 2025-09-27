@@ -7,4 +7,4 @@ class HowToTip(CreativeWork):
     """
 An explanation in the instructions for how to achieve a result. It provides supplementary information about a technique, supply, author's preference, etc. It can explain what could be done, or what should not be done, but doesn't specify what should be done (see HowToDirection).
     """
-    type_: Literal['https://schema.org/HowToTip'] = Field(default='https://schema.org/HowToTip', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/HowToTip'] = Field(default='https://schema.org/HowToTip', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore

@@ -7,4 +7,4 @@ class FurnitureStore(Store):
     """
 A furniture store.
     """
-    type_: Literal['https://schema.org/FurnitureStore'] = Field(default='https://schema.org/FurnitureStore', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/FurnitureStore'] = Field(default='https://schema.org/FurnitureStore', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore

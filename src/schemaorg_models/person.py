@@ -9,7 +9,7 @@ class Person(Thing):
     """
 A person (alive, dead, undead, or fictional).
     """
-    type_: Literal['https://schema.org/Person'] = Field(default='https://schema.org/Person', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/Person'] = Field(default='https://schema.org/Person', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     knowsLanguage: Optional[Union[str, List[str], "Language", List["Language"]]] = Field(default=None, validation_alias=AliasChoices('knowsLanguage', 'https://schema.org/knowsLanguage'), serialization_alias='https://schema.org/knowsLanguage')
     gender: Optional[Union["GenderType", List["GenderType"], str, List[str]]] = Field(default=None, validation_alias=AliasChoices('gender', 'https://schema.org/gender'), serialization_alias='https://schema.org/gender')
     faxNumber: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('faxNumber', 'https://schema.org/faxNumber'), serialization_alias='https://schema.org/faxNumber')

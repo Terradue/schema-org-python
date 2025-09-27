@@ -8,6 +8,6 @@ class TransferAction(Action):
     """
 The act of transferring/moving (abstract or concrete) animate or inanimate objects from one place to another.
     """
-    type_: Literal['https://schema.org/TransferAction'] = Field(default='https://schema.org/TransferAction', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/TransferAction'] = Field(default='https://schema.org/TransferAction', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     fromLocation: Optional[Union[Place, List[Place]]] = Field(default=None, validation_alias=AliasChoices('fromLocation', 'https://schema.org/fromLocation'), serialization_alias='https://schema.org/fromLocation')
     toLocation: Optional[Union[Place, List[Place]]] = Field(default=None, validation_alias=AliasChoices('toLocation', 'https://schema.org/toLocation'), serialization_alias='https://schema.org/toLocation')

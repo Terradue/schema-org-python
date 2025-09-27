@@ -8,5 +8,5 @@ class HowToSupply(HowToItem):
     """
 A supply consumed when performing the instructions for how to achieve a result.
     """
-    type_: Literal['https://schema.org/HowToSupply'] = Field(default='https://schema.org/HowToSupply', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/HowToSupply'] = Field(default='https://schema.org/HowToSupply', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     estimatedCost: Optional[Union[str, List[str], MonetaryAmount, List[MonetaryAmount]]] = Field(default=None, validation_alias=AliasChoices('estimatedCost', 'https://schema.org/estimatedCost'), serialization_alias='https://schema.org/estimatedCost')

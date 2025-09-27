@@ -11,4 +11,4 @@ Related actions:\
 \
 * [[FollowAction]]: Unlike FollowAction, BefriendAction implies that the connection is reciprocal.
     """
-    type_: Literal['https://schema.org/BefriendAction'] = Field(default='https://schema.org/BefriendAction', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/BefriendAction'] = Field(default='https://schema.org/BefriendAction', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore

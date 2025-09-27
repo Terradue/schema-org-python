@@ -11,7 +11,7 @@ class SizeSpecification(QualitativeValue):
     """
 Size related properties of a product, typically a size code ([[name]]) and optionally a [[sizeSystem]], [[sizeGroup]], and product measurements ([[hasMeasurement]]). In addition, the intended audience can be defined through [[suggestedAge]], [[suggestedGender]], and suggested body measurements ([[suggestedMeasurement]]).
     """
-    type_: Literal['https://schema.org/SizeSpecification'] = Field(default='https://schema.org/SizeSpecification', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/SizeSpecification'] = Field(default='https://schema.org/SizeSpecification', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     suggestedMeasurement: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(default=None, validation_alias=AliasChoices('suggestedMeasurement', 'https://schema.org/suggestedMeasurement'), serialization_alias='https://schema.org/suggestedMeasurement')
     sizeSystem: Optional[Union[str, List[str], SizeSystemEnumeration, List[SizeSystemEnumeration]]] = Field(default=None, validation_alias=AliasChoices('sizeSystem', 'https://schema.org/sizeSystem'), serialization_alias='https://schema.org/sizeSystem')
     suggestedAge: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(default=None, validation_alias=AliasChoices('suggestedAge', 'https://schema.org/suggestedAge'), serialization_alias='https://schema.org/suggestedAge')

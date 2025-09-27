@@ -11,7 +11,7 @@ class Invoice(Intangible):
     """
 A statement of the money due for goods or services; a bill.
     """
-    type_: Literal['https://schema.org/Invoice'] = Field(default='https://schema.org/Invoice', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/Invoice'] = Field(default='https://schema.org/Invoice', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     referencesOrder: Optional[Union["Order", List["Order"]]] = Field(default=None, validation_alias=AliasChoices('referencesOrder', 'https://schema.org/referencesOrder'), serialization_alias='https://schema.org/referencesOrder')
     paymentDueDate: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(default=None, validation_alias=AliasChoices('paymentDueDate', 'https://schema.org/paymentDueDate'), serialization_alias='https://schema.org/paymentDueDate')
     paymentDue: Optional[Union[datetime, List[datetime]]] = Field(default=None, validation_alias=AliasChoices('paymentDue', 'https://schema.org/paymentDue'), serialization_alias='https://schema.org/paymentDue')

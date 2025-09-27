@@ -7,4 +7,4 @@ class Photograph(CreativeWork):
     """
 A photograph.
     """
-    type_: Literal['https://schema.org/Photograph'] = Field(default='https://schema.org/Photograph', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/Photograph'] = Field(default='https://schema.org/Photograph', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore

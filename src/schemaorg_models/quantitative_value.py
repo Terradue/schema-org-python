@@ -12,7 +12,7 @@ class QuantitativeValue(StructuredValue):
     """
  A point value or interval for product characteristics and other purposes.
     """
-    type_: Literal['https://schema.org/QuantitativeValue'] = Field(default='https://schema.org/QuantitativeValue', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/QuantitativeValue'] = Field(default='https://schema.org/QuantitativeValue', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     unitText: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('unitText', 'https://schema.org/unitText'), serialization_alias='https://schema.org/unitText')
     minValue: Optional[Union[float, List[float]]] = Field(default=None, validation_alias=AliasChoices('minValue', 'https://schema.org/minValue'), serialization_alias='https://schema.org/minValue')
     value: Optional[Union[float, List[float], StructuredValue, List[StructuredValue], bool, List[bool], str, List[str]]] = Field(default=None, validation_alias=AliasChoices('value', 'https://schema.org/value'), serialization_alias='https://schema.org/value')

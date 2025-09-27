@@ -11,7 +11,7 @@ class Event(Thing):
     """
 Upcoming or past event associated with this place, organization, or action.
     """
-    type_: Literal['https://schema.org/Event'] = Field(default='https://schema.org/Event', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/Event'] = Field(default='https://schema.org/Event', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     recordedIn: Optional[Union["CreativeWork", List["CreativeWork"]]] = Field(default=None, validation_alias=AliasChoices('recordedIn', 'https://schema.org/recordedIn'), serialization_alias='https://schema.org/recordedIn')
     isAccessibleForFree: Optional[Union[bool, List[bool]]] = Field(default=None, validation_alias=AliasChoices('isAccessibleForFree', 'https://schema.org/isAccessibleForFree'), serialization_alias='https://schema.org/isAccessibleForFree')
     aggregateRating: Optional[Union["AggregateRating", List["AggregateRating"]]] = Field(default=None, validation_alias=AliasChoices('aggregateRating', 'https://schema.org/aggregateRating'), serialization_alias='https://schema.org/aggregateRating')

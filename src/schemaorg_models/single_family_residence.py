@@ -8,6 +8,6 @@ class SingleFamilyResidence(House):
     """
 Residence type: Single-family home.
     """
-    type_: Literal['https://schema.org/SingleFamilyResidence'] = Field(default='https://schema.org/SingleFamilyResidence', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/SingleFamilyResidence'] = Field(default='https://schema.org/SingleFamilyResidence', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     numberOfRooms: Optional[Union[float, List[float], QuantitativeValue, List[QuantitativeValue]]] = Field(default=None, validation_alias=AliasChoices('numberOfRooms', 'https://schema.org/numberOfRooms'), serialization_alias='https://schema.org/numberOfRooms')
     occupancy: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(default=None, validation_alias=AliasChoices('occupancy', 'https://schema.org/occupancy'), serialization_alias='https://schema.org/occupancy')

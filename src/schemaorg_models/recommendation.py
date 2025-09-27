@@ -10,7 +10,7 @@ class Recommendation(Review):
     """
 [[Recommendation]] is a type of [[Review]] that suggests or proposes something as the best option or best course of action. Recommendations may be for products or services, or other concrete things, as in the case of a ranked list or product guide. A [[Guide]] may list multiple recommendations for different categories. For example, in a [[Guide]] about which TVs to buy, the author may have several [[Recommendation]]s.
     """
-    type_: Literal['https://schema.org/Recommendation'] = Field(default='https://schema.org/Recommendation', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/Recommendation'] = Field(default='https://schema.org/Recommendation', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     category: Optional[Union[PhysicalActivityCategory, List[PhysicalActivityCategory], CategoryCode, List[CategoryCode], str, List[str], Thing, List[Thing], HttpUrl, List[HttpUrl]]] = Field(default=None, validation_alias=AliasChoices('category', 'https://schema.org/category'), serialization_alias='https://schema.org/category')
     @field_serializer('category')
     def category2str(self, val) -> str | List[str]:

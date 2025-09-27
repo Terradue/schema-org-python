@@ -9,7 +9,7 @@ class TVSeries(CreativeWork):
     """
 CreativeWorkSeries dedicated to TV broadcast and associated online delivery.
     """
-    type_: Literal['https://schema.org/TVSeries'] = Field(default='https://schema.org/TVSeries', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/TVSeries'] = Field(default='https://schema.org/TVSeries', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     season: Optional[Union["CreativeWorkSeason", List["CreativeWorkSeason"], HttpUrl, List[HttpUrl]]] = Field(default=None, validation_alias=AliasChoices('season', 'https://schema.org/season'), serialization_alias='https://schema.org/season')
     @field_serializer('season')
     def season2str(self, val) -> str | List[str]:

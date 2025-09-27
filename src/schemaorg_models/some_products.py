@@ -7,5 +7,5 @@ class SomeProducts(Product):
     """
 A placeholder for multiple similar products of the same kind.
     """
-    type_: Literal['https://schema.org/SomeProducts'] = Field(default='https://schema.org/SomeProducts', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/SomeProducts'] = Field(default='https://schema.org/SomeProducts', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     inventoryLevel: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(default=None, validation_alias=AliasChoices('inventoryLevel', 'https://schema.org/inventoryLevel'), serialization_alias='https://schema.org/inventoryLevel')

@@ -13,7 +13,7 @@ class Course(LearningResource):
     """
 A description of an educational course which may be offered as distinct instances which take place at different times or take place at different locations, or be offered through different media or modes of study. An educational course is a sequence of one or more educational events and/or creative works which aims to build knowledge, competence or ability of learners.
     """
-    type_: Literal['https://schema.org/Course'] = Field(default='https://schema.org/Course', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/Course'] = Field(default='https://schema.org/Course', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     availableLanguage: Optional[Union[str, List[str], Language, List[Language]]] = Field(default=None, validation_alias=AliasChoices('availableLanguage', 'https://schema.org/availableLanguage'), serialization_alias='https://schema.org/availableLanguage')
     courseCode: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('courseCode', 'https://schema.org/courseCode'), serialization_alias='https://schema.org/courseCode')
     numberOfCredits: Optional[Union[int, List[int], StructuredValue, List[StructuredValue]]] = Field(default=None, validation_alias=AliasChoices('numberOfCredits', 'https://schema.org/numberOfCredits'), serialization_alias='https://schema.org/numberOfCredits')

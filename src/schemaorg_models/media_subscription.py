@@ -8,6 +8,6 @@ class MediaSubscription(Intangible):
     """
 A subscription which allows a user to access media including audio, video, books, etc.
     """
-    type_: Literal['https://schema.org/MediaSubscription'] = Field(default='https://schema.org/MediaSubscription', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/MediaSubscription'] = Field(default='https://schema.org/MediaSubscription', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     expectsAcceptanceOf: Optional[Union["Offer", List["Offer"]]] = Field(default=None, validation_alias=AliasChoices('expectsAcceptanceOf', 'https://schema.org/expectsAcceptanceOf'), serialization_alias='https://schema.org/expectsAcceptanceOf')
     authenticator: Optional[Union[Organization, List[Organization]]] = Field(default=None, validation_alias=AliasChoices('authenticator', 'https://schema.org/authenticator'), serialization_alias='https://schema.org/authenticator')

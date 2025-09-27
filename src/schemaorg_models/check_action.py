@@ -7,4 +7,4 @@ class CheckAction(FindAction):
     """
 An agent inspects, determines, investigates, inquires, or examines an object's accuracy, quality, condition, or state.
     """
-    type_: Literal['https://schema.org/CheckAction'] = Field(default='https://schema.org/CheckAction', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/CheckAction'] = Field(default='https://schema.org/CheckAction', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore

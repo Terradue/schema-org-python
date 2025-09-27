@@ -7,4 +7,4 @@ class RadioEpisode(Episode):
     """
 A radio episode which can be part of a series or season.
     """
-    type_: Literal['https://schema.org/RadioEpisode'] = Field(default='https://schema.org/RadioEpisode', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/RadioEpisode'] = Field(default='https://schema.org/RadioEpisode', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore

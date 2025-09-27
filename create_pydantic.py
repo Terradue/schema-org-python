@@ -185,7 +185,7 @@ def generate_models(graph: Graph):
             # f.write("    model_config = ConfigDict(arbitrary_types_allowed=True)\n\n")
 
             # type class
-            f.write(f"    type_: Literal['https://schema.org/{class_name}'] = Field(default='https://schema.org/{class_name}', alias='@type', serialization_alias='@type') # type: ignore\n")
+            f.write(f"    class_: Literal['https://schema.org/{class_name}'] = Field(default='https://schema.org/{class_name}', alias='http://www.w3.org/2000/01/rdf-schema#/Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore\n")
 
             # Properties
             if not class_info["properties"]:

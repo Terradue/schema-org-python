@@ -7,4 +7,4 @@ class SportsClub(SportsActivityLocation):
     """
 A sports club.
     """
-    type_: Literal['https://schema.org/SportsClub'] = Field(default='https://schema.org/SportsClub', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/SportsClub'] = Field(default='https://schema.org/SportsClub', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore

@@ -7,4 +7,4 @@ class MedicineSystem(MedicalEnumeration):
     """
 The system of medicine that includes this MedicalEntity, for example 'evidence-based', 'homeopathic', 'chiropractic', etc.
     """
-    type_: Literal['https://schema.org/MedicineSystem'] = Field(default='https://schema.org/MedicineSystem', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/MedicineSystem'] = Field(default='https://schema.org/MedicineSystem', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore

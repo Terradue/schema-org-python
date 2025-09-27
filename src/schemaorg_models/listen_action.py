@@ -7,4 +7,4 @@ class ListenAction(ConsumeAction):
     """
 The act of consuming audio content.
     """
-    type_: Literal['https://schema.org/ListenAction'] = Field(default='https://schema.org/ListenAction', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/ListenAction'] = Field(default='https://schema.org/ListenAction', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore

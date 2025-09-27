@@ -10,7 +10,7 @@ Represents additional information about a relationship or property. For example 
 \
 See also [blog post](https://blog.schema.org/2014/06/16/introducing-role/).
     """
-    type_: Literal['https://schema.org/Role'] = Field(default='https://schema.org/Role', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/Role'] = Field(default='https://schema.org/Role', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     roleName: Optional[Union[HttpUrl, List[HttpUrl], str, List[str]]] = Field(default=None, validation_alias=AliasChoices('roleName', 'https://schema.org/roleName'), serialization_alias='https://schema.org/roleName')
     @field_serializer('roleName')
     def roleName2str(self, val) -> str | List[str]:

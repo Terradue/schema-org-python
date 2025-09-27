@@ -8,7 +8,7 @@ class MerchantReturnPolicySeasonalOverride(Intangible):
     """
 A seasonal override of a return policy, for example used for holidays.
     """
-    type_: Literal['https://schema.org/MerchantReturnPolicySeasonalOverride'] = Field(default='https://schema.org/MerchantReturnPolicySeasonalOverride', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/MerchantReturnPolicySeasonalOverride'] = Field(default='https://schema.org/MerchantReturnPolicySeasonalOverride', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     startDate: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(default=None, validation_alias=AliasChoices('startDate', 'https://schema.org/startDate'), serialization_alias='https://schema.org/startDate')
     returnFees: Optional[Union["ReturnFeesEnumeration", List["ReturnFeesEnumeration"]]] = Field(default=None, validation_alias=AliasChoices('returnFees', 'https://schema.org/returnFees'), serialization_alias='https://schema.org/returnFees')
     returnShippingFeesAmount: Optional[Union["MonetaryAmount", List["MonetaryAmount"]]] = Field(default=None, validation_alias=AliasChoices('returnShippingFeesAmount', 'https://schema.org/returnShippingFeesAmount'), serialization_alias='https://schema.org/returnShippingFeesAmount')

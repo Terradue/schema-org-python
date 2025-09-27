@@ -7,7 +7,7 @@ class HealthPlanCostSharingSpecification(Intangible):
     """
 A description of costs to the patient under a given network or formulary.
     """
-    type_: Literal['https://schema.org/HealthPlanCostSharingSpecification'] = Field(default='https://schema.org/HealthPlanCostSharingSpecification', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/HealthPlanCostSharingSpecification'] = Field(default='https://schema.org/HealthPlanCostSharingSpecification', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     healthPlanCoinsuranceRate: Optional[Union[float, List[float]]] = Field(default=None, validation_alias=AliasChoices('healthPlanCoinsuranceRate', 'https://schema.org/healthPlanCoinsuranceRate'), serialization_alias='https://schema.org/healthPlanCoinsuranceRate')
     healthPlanCopay: Optional[Union["PriceSpecification", List["PriceSpecification"]]] = Field(default=None, validation_alias=AliasChoices('healthPlanCopay', 'https://schema.org/healthPlanCopay'), serialization_alias='https://schema.org/healthPlanCopay')
     healthPlanCopayOption: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('healthPlanCopayOption', 'https://schema.org/healthPlanCopayOption'), serialization_alias='https://schema.org/healthPlanCopayOption')

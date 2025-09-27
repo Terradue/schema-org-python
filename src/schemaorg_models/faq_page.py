@@ -7,4 +7,4 @@ class FAQPage(WebPage):
     """
 A [[FAQPage]] is a [[WebPage]] presenting one or more "[Frequently asked questions](https://en.wikipedia.org/wiki/FAQ)" (see also [[QAPage]]).
     """
-    type_: Literal['https://schema.org/FAQPage'] = Field(default='https://schema.org/FAQPage', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/FAQPage'] = Field(default='https://schema.org/FAQPage', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore

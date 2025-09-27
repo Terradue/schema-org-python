@@ -10,7 +10,7 @@ class EducationalOccupationalProgram(Intangible):
     """
 A program offered by an institution which determines the learning progress to achieve an outcome, usually a credential like a degree or certificate. This would define a discrete set of opportunities (e.g., job, courses) that together constitute a program with a clear start, end, set of requirements, and transition to a new occupational opportunity (e.g., a job), or sometimes a higher educational opportunity (e.g., an advanced degree).
     """
-    type_: Literal['https://schema.org/EducationalOccupationalProgram'] = Field(default='https://schema.org/EducationalOccupationalProgram', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/EducationalOccupationalProgram'] = Field(default='https://schema.org/EducationalOccupationalProgram', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     timeToComplete: Optional[Union["Duration", List["Duration"]]] = Field(default=None, validation_alias=AliasChoices('timeToComplete', 'https://schema.org/timeToComplete'), serialization_alias='https://schema.org/timeToComplete')
     programType: Optional[Union[str, List[str], "DefinedTerm", List["DefinedTerm"]]] = Field(default=None, validation_alias=AliasChoices('programType', 'https://schema.org/programType'), serialization_alias='https://schema.org/programType')
     applicationStartDate: Optional[Union[date, List[date]]] = Field(default=None, validation_alias=AliasChoices('applicationStartDate', 'https://schema.org/applicationStartDate'), serialization_alias='https://schema.org/applicationStartDate')

@@ -7,4 +7,4 @@ class AnimalShelter(LocalBusiness):
     """
 Animal shelter.
     """
-    type_: Literal['https://schema.org/AnimalShelter'] = Field(default='https://schema.org/AnimalShelter', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/AnimalShelter'] = Field(default='https://schema.org/AnimalShelter', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore

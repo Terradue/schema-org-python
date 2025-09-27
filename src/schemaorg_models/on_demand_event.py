@@ -7,4 +7,4 @@ class OnDemandEvent(PublicationEvent):
     """
 A publication event, e.g. catch-up TV or radio podcast, during which a program is available on-demand.
     """
-    type_: Literal['https://schema.org/OnDemandEvent'] = Field(default='https://schema.org/OnDemandEvent', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/OnDemandEvent'] = Field(default='https://schema.org/OnDemandEvent', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore

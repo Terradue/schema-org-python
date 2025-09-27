@@ -8,7 +8,7 @@ class TrainTrip(Trip):
     """
 A trip on a commercial train line.
     """
-    type_: Literal['https://schema.org/TrainTrip'] = Field(default='https://schema.org/TrainTrip', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/TrainTrip'] = Field(default='https://schema.org/TrainTrip', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     arrivalStation: Optional[Union[TrainStation, List[TrainStation]]] = Field(default=None, validation_alias=AliasChoices('arrivalStation', 'https://schema.org/arrivalStation'), serialization_alias='https://schema.org/arrivalStation')
     trainName: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('trainName', 'https://schema.org/trainName'), serialization_alias='https://schema.org/trainName')
     departureStation: Optional[Union[TrainStation, List[TrainStation]]] = Field(default=None, validation_alias=AliasChoices('departureStation', 'https://schema.org/departureStation'), serialization_alias='https://schema.org/departureStation')

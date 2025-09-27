@@ -8,7 +8,7 @@ class PropertyValueSpecification(Intangible):
     """
 A Property value specification.
     """
-    type_: Literal['https://schema.org/PropertyValueSpecification'] = Field(default='https://schema.org/PropertyValueSpecification', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/PropertyValueSpecification'] = Field(default='https://schema.org/PropertyValueSpecification', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     valuePattern: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('valuePattern', 'https://schema.org/valuePattern'), serialization_alias='https://schema.org/valuePattern')
     minValue: Optional[Union[float, List[float]]] = Field(default=None, validation_alias=AliasChoices('minValue', 'https://schema.org/minValue'), serialization_alias='https://schema.org/minValue')
     stepValue: Optional[Union[float, List[float]]] = Field(default=None, validation_alias=AliasChoices('stepValue', 'https://schema.org/stepValue'), serialization_alias='https://schema.org/stepValue')

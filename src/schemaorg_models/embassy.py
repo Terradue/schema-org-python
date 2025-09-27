@@ -7,4 +7,4 @@ class Embassy(GovernmentBuilding):
     """
 An embassy.
     """
-    type_: Literal['https://schema.org/Embassy'] = Field(default='https://schema.org/Embassy', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/Embassy'] = Field(default='https://schema.org/Embassy', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore

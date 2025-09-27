@@ -13,7 +13,7 @@ class JobPosting(Intangible):
     """
 A listing that describes a job opening in a certain organization.
     """
-    type_: Literal['https://schema.org/JobPosting'] = Field(default='https://schema.org/JobPosting', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/JobPosting'] = Field(default='https://schema.org/JobPosting', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     estimatedSalary: Optional[Union["MonetaryAmountDistribution", List["MonetaryAmountDistribution"], float, List[float], "MonetaryAmount", List["MonetaryAmount"]]] = Field(default=None, validation_alias=AliasChoices('estimatedSalary', 'https://schema.org/estimatedSalary'), serialization_alias='https://schema.org/estimatedSalary')
     directApply: Optional[Union[bool, List[bool]]] = Field(default=None, validation_alias=AliasChoices('directApply', 'https://schema.org/directApply'), serialization_alias='https://schema.org/directApply')
     totalJobOpenings: Optional[Union[int, List[int]]] = Field(default=None, validation_alias=AliasChoices('totalJobOpenings', 'https://schema.org/totalJobOpenings'), serialization_alias='https://schema.org/totalJobOpenings')

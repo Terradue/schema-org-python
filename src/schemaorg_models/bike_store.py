@@ -7,4 +7,4 @@ class BikeStore(Store):
     """
 A bike store.
     """
-    type_: Literal['https://schema.org/BikeStore'] = Field(default='https://schema.org/BikeStore', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/BikeStore'] = Field(default='https://schema.org/BikeStore', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore

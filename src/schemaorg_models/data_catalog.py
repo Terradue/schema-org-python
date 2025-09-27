@@ -8,7 +8,7 @@ class DataCatalog(CreativeWork):
     """
 A collection of datasets.
     """
-    type_: Literal['https://schema.org/DataCatalog'] = Field(default='https://schema.org/DataCatalog', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/DataCatalog'] = Field(default='https://schema.org/DataCatalog', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     measurementTechnique: Optional[Union[DefinedTerm, List[DefinedTerm], "MeasurementMethodEnum", List["MeasurementMethodEnum"], str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None, validation_alias=AliasChoices('measurementTechnique', 'https://schema.org/measurementTechnique'), serialization_alias='https://schema.org/measurementTechnique')
     @field_serializer('measurementTechnique')
     def measurementTechnique2str(self, val) -> str | List[str]:

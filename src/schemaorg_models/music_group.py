@@ -11,7 +11,7 @@ class MusicGroup(PerformingGroup):
     """
 A musical group, such as a band, an orchestra, or a choir. Can also be a solo musician.
     """
-    type_: Literal['https://schema.org/MusicGroup'] = Field(default='https://schema.org/MusicGroup', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/MusicGroup'] = Field(default='https://schema.org/MusicGroup', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     albums: Optional[Union[MusicAlbum, List[MusicAlbum]]] = Field(default=None, validation_alias=AliasChoices('albums', 'https://schema.org/albums'), serialization_alias='https://schema.org/albums')
     album: Optional[Union[MusicAlbum, List[MusicAlbum]]] = Field(default=None, validation_alias=AliasChoices('album', 'https://schema.org/album'), serialization_alias='https://schema.org/album')
     musicGroupMember: Optional[Union[Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('musicGroupMember', 'https://schema.org/musicGroupMember'), serialization_alias='https://schema.org/musicGroupMember')

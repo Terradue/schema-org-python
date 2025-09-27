@@ -12,6 +12,6 @@ A GeoCircle is a GeoShape representing a circular geographic area. As it is a Ge
           The center of the circle can be indicated via the 'geoMidpoint' property, or more approximately using 'address', 'postalCode'.
        
     """
-    type_: Literal['https://schema.org/GeoCircle'] = Field(default='https://schema.org/GeoCircle', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/GeoCircle'] = Field(default='https://schema.org/GeoCircle', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     geoMidpoint: Optional[Union[GeoCoordinates, List[GeoCoordinates]]] = Field(default=None, validation_alias=AliasChoices('geoMidpoint', 'https://schema.org/geoMidpoint'), serialization_alias='https://schema.org/geoMidpoint')
     geoRadius: Optional[Union[float, List[float], Distance, List[Distance], str, List[str]]] = Field(default=None, validation_alias=AliasChoices('geoRadius', 'https://schema.org/geoRadius'), serialization_alias='https://schema.org/geoRadius')

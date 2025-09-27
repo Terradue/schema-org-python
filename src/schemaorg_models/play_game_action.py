@@ -8,5 +8,5 @@ class PlayGameAction(ConsumeAction):
     """
 The act of playing a video game.
     """
-    type_: Literal['https://schema.org/PlayGameAction'] = Field(default='https://schema.org/PlayGameAction', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/PlayGameAction'] = Field(default='https://schema.org/PlayGameAction', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     gameAvailabilityType: Optional[Union[str, List[str], GameAvailabilityEnumeration, List[GameAvailabilityEnumeration]]] = Field(default=None, validation_alias=AliasChoices('gameAvailabilityType', 'https://schema.org/gameAvailabilityType'), serialization_alias='https://schema.org/gameAvailabilityType')

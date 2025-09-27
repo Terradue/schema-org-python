@@ -7,4 +7,4 @@ class PaymentMethodType(Enumeration):
     """
 The type of payment method, only for generic payment types, specific forms of payments, like card payment should be expressed using subclasses of PaymentMethod.
     """
-    type_: Literal['https://schema.org/PaymentMethodType'] = Field(default='https://schema.org/PaymentMethodType', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/PaymentMethodType'] = Field(default='https://schema.org/PaymentMethodType', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore

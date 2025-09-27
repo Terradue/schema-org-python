@@ -7,4 +7,4 @@ class EmergencyService(LocalBusiness):
     """
 An emergency service, such as a fire station or ER.
     """
-    type_: Literal['https://schema.org/EmergencyService'] = Field(default='https://schema.org/EmergencyService', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/EmergencyService'] = Field(default='https://schema.org/EmergencyService', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore

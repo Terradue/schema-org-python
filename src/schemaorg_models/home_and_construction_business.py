@@ -11,4 +11,4 @@ A HomeAndConstructionBusiness is a [[LocalBusiness]] that provides services arou
 \
 As a [[LocalBusiness]] it can be described as a [[provider]] of one or more [[Service]]\\(s).
     """
-    type_: Literal['https://schema.org/HomeAndConstructionBusiness'] = Field(default='https://schema.org/HomeAndConstructionBusiness', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/HomeAndConstructionBusiness'] = Field(default='https://schema.org/HomeAndConstructionBusiness', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore

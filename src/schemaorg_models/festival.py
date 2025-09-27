@@ -7,4 +7,4 @@ class Festival(Event):
     """
 Event type: Festival.
     """
-    type_: Literal['https://schema.org/Festival'] = Field(default='https://schema.org/Festival', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/Festival'] = Field(default='https://schema.org/Festival', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore

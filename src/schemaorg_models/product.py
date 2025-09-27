@@ -9,7 +9,7 @@ class Product(Thing):
     """
 Any offered product or service. For example: a pair of shoes; a concert ticket; the rental of a car; a haircut; or an episode of a TV show streamed online.
     """
-    type_: Literal['https://schema.org/Product'] = Field(default='https://schema.org/Product', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/Product'] = Field(default='https://schema.org/Product', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     reviews: Optional[Union["Review", List["Review"]]] = Field(default=None, validation_alias=AliasChoices('reviews', 'https://schema.org/reviews'), serialization_alias='https://schema.org/reviews')
     inProductGroupWithID: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('inProductGroupWithID', 'https://schema.org/inProductGroupWithID'), serialization_alias='https://schema.org/inProductGroupWithID')
     gtin: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None, validation_alias=AliasChoices('gtin', 'https://schema.org/gtin'), serialization_alias='https://schema.org/gtin')

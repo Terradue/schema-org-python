@@ -7,4 +7,4 @@ class MedicalStudyStatus(MedicalEnumeration):
     """
 The status of a medical study. Enumerated type.
     """
-    type_: Literal['https://schema.org/MedicalStudyStatus'] = Field(default='https://schema.org/MedicalStudyStatus', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/MedicalStudyStatus'] = Field(default='https://schema.org/MedicalStudyStatus', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore

@@ -7,4 +7,4 @@ class WholesaleStore(Store):
     """
 A wholesale store.
     """
-    type_: Literal['https://schema.org/WholesaleStore'] = Field(default='https://schema.org/WholesaleStore', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/WholesaleStore'] = Field(default='https://schema.org/WholesaleStore', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore

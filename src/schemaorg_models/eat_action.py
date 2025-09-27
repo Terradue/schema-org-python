@@ -7,4 +7,4 @@ class EatAction(ConsumeAction):
     """
 The act of swallowing solid objects.
     """
-    type_: Literal['https://schema.org/EatAction'] = Field(default='https://schema.org/EatAction', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/EatAction'] = Field(default='https://schema.org/EatAction', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore

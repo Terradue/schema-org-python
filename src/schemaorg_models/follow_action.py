@@ -17,5 +17,5 @@ Related actions:\
 * [[JoinAction]]: Unlike JoinAction, FollowAction implies that the agent is interested in getting updates from the object.\
 * [[TrackAction]]: Unlike TrackAction, FollowAction refers to the polling of updates of all aspects of animate objects rather than the location of inanimate objects (e.g. you track a package, but you don't follow it).
     """
-    type_: Literal['https://schema.org/FollowAction'] = Field(default='https://schema.org/FollowAction', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/FollowAction'] = Field(default='https://schema.org/FollowAction', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     followee: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(default=None, validation_alias=AliasChoices('followee', 'https://schema.org/followee'), serialization_alias='https://schema.org/followee')

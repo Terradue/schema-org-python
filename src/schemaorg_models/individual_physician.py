@@ -9,5 +9,5 @@ class IndividualPhysician(Physician):
 An individual medical practitioner. For their official address use [[address]], for affiliations to hospitals use [[hospitalAffiliation]]. 
 The [[practicesAt]] property can be used to indicate [[MedicalOrganization]] hospitals, clinics, pharmacies etc. where this physician practices.
     """
-    type_: Literal['https://schema.org/IndividualPhysician'] = Field(default='https://schema.org/IndividualPhysician', alias='@type', serialization_alias='@type') # type: ignore
+    type_: Literal['https://schema.org/IndividualPhysician'] = Field(default='https://schema.org/IndividualPhysician', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
     practicesAt: Optional[Union[MedicalOrganization, List[MedicalOrganization]]] = Field(default=None, validation_alias=AliasChoices('practicesAt', 'https://schema.org/practicesAt'), serialization_alias='https://schema.org/practicesAt')
