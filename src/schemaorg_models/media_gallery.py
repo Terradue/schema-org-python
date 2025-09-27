@@ -7,4 +7,4 @@ class MediaGallery(CollectionPage):
     """
 Web page type: Media gallery page. A mixed-media page that can contain media such as images, videos, and other multimedia.
     """
-    class_: Literal['https://schema.org/MediaGallery'] = Field(default='https://schema.org/MediaGallery', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/MediaGallery'] = Field(default='https://schema.org/MediaGallery', alias='@type', serialization_alias='@type') # type: ignore

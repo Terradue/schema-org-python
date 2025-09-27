@@ -7,4 +7,4 @@ class AdultEntertainment(EntertainmentBusiness):
     """
 An adult entertainment establishment.
     """
-    class_: Literal['https://schema.org/AdultEntertainment'] = Field(default='https://schema.org/AdultEntertainment', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/AdultEntertainment'] = Field(default='https://schema.org/AdultEntertainment', alias='@type', serialization_alias='@type') # type: ignore

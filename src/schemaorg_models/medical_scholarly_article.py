@@ -7,5 +7,5 @@ class MedicalScholarlyArticle(ScholarlyArticle):
     """
 A scholarly article in the medical domain.
     """
-    class_: Literal['https://schema.org/MedicalScholarlyArticle'] = Field(default='https://schema.org/MedicalScholarlyArticle', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/MedicalScholarlyArticle'] = Field(default='https://schema.org/MedicalScholarlyArticle', alias='@type', serialization_alias='@type') # type: ignore
     publicationType: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('publicationType', 'https://schema.org/publicationType'), serialization_alias='https://schema.org/publicationType')

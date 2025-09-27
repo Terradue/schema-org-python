@@ -8,5 +8,5 @@ class MedicalRiskFactor(MedicalEntity):
     """
 A risk factor is anything that increases a person's likelihood of developing or contracting a disease, medical condition, or complication.
     """
-    class_: Literal['https://schema.org/MedicalRiskFactor'] = Field(default='https://schema.org/MedicalRiskFactor', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/MedicalRiskFactor'] = Field(default='https://schema.org/MedicalRiskFactor', alias='@type', serialization_alias='@type') # type: ignore
     increasesRiskOf: Optional[Union[MedicalEntity, List[MedicalEntity]]] = Field(default=None, validation_alias=AliasChoices('increasesRiskOf', 'https://schema.org/increasesRiskOf'), serialization_alias='https://schema.org/increasesRiskOf')

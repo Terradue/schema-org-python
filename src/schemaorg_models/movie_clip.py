@@ -7,4 +7,4 @@ class MovieClip(Clip):
     """
 A short segment/part of a movie.
     """
-    class_: Literal['https://schema.org/MovieClip'] = Field(default='https://schema.org/MovieClip', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/MovieClip'] = Field(default='https://schema.org/MovieClip', alias='@type', serialization_alias='@type') # type: ignore

@@ -9,6 +9,6 @@ class WarrantyPromise(StructuredValue):
     """
 A structured value representing the duration and scope of services that will be provided to a customer free of charge in case of a defect or malfunction of a product.
     """
-    class_: Literal['https://schema.org/WarrantyPromise'] = Field(default='https://schema.org/WarrantyPromise', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/WarrantyPromise'] = Field(default='https://schema.org/WarrantyPromise', alias='@type', serialization_alias='@type') # type: ignore
     warrantyScope: Optional[Union[WarrantyScope, List[WarrantyScope]]] = Field(default=None, validation_alias=AliasChoices('warrantyScope', 'https://schema.org/warrantyScope'), serialization_alias='https://schema.org/warrantyScope')
     durationOfWarranty: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(default=None, validation_alias=AliasChoices('durationOfWarranty', 'https://schema.org/durationOfWarranty'), serialization_alias='https://schema.org/durationOfWarranty')

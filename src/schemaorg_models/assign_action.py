@@ -7,4 +7,4 @@ class AssignAction(AllocateAction):
     """
 The act of allocating an action/event/task to some destination (someone or something).
     """
-    class_: Literal['https://schema.org/AssignAction'] = Field(default='https://schema.org/AssignAction', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/AssignAction'] = Field(default='https://schema.org/AssignAction', alias='@type', serialization_alias='@type') # type: ignore

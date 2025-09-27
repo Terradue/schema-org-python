@@ -7,4 +7,4 @@ class CollectionPage(WebPage):
     """
 Web page type: Collection page.
     """
-    class_: Literal['https://schema.org/CollectionPage'] = Field(default='https://schema.org/CollectionPage', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/CollectionPage'] = Field(default='https://schema.org/CollectionPage', alias='@type', serialization_alias='@type') # type: ignore

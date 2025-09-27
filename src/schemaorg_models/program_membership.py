@@ -9,7 +9,7 @@ class ProgramMembership(Intangible):
     """
 Used to describe membership in a loyalty programs (e.g. "StarAliance"), traveler clubs (e.g. "AAA"), purchase clubs ("Safeway Club"), etc.
     """
-    class_: Literal['https://schema.org/ProgramMembership'] = Field(default='https://schema.org/ProgramMembership', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/ProgramMembership'] = Field(default='https://schema.org/ProgramMembership', alias='@type', serialization_alias='@type') # type: ignore
     programName: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('programName', 'https://schema.org/programName'), serialization_alias='https://schema.org/programName')
     members: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('members', 'https://schema.org/members'), serialization_alias='https://schema.org/members')
     program: Optional[Union["MemberProgram", List["MemberProgram"]]] = Field(default=None, validation_alias=AliasChoices('program', 'https://schema.org/program'), serialization_alias='https://schema.org/program')

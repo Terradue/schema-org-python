@@ -10,6 +10,6 @@ class RentAction(TradeAction):
     """
 The act of giving money in return for temporary use, but not ownership, of an object such as a vehicle or property. For example, an agent rents a property from a landlord in exchange for a periodic payment.
     """
-    class_: Literal['https://schema.org/RentAction'] = Field(default='https://schema.org/RentAction', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/RentAction'] = Field(default='https://schema.org/RentAction', alias='@type', serialization_alias='@type') # type: ignore
     realEstateAgent: Optional[Union[RealEstateAgent, List[RealEstateAgent]]] = Field(default=None, validation_alias=AliasChoices('realEstateAgent', 'https://schema.org/realEstateAgent'), serialization_alias='https://schema.org/realEstateAgent')
     landlord: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('landlord', 'https://schema.org/landlord'), serialization_alias='https://schema.org/landlord')

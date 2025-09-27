@@ -13,4 +13,4 @@ An [[EndorsementRating]] may be part of a numeric scale or organized system, but
 endorsement rating is particularly useful in the absence of numeric scales as it helps consumers understand that the rating is broadly positive.
 
     """
-    class_: Literal['https://schema.org/EndorsementRating'] = Field(default='https://schema.org/EndorsementRating', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/EndorsementRating'] = Field(default='https://schema.org/EndorsementRating', alias='@type', serialization_alias='@type') # type: ignore

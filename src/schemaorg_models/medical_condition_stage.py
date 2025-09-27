@@ -7,6 +7,6 @@ class MedicalConditionStage(MedicalIntangible):
     """
 A stage of a medical condition, such as 'Stage IIIa'.
     """
-    class_: Literal['https://schema.org/MedicalConditionStage'] = Field(default='https://schema.org/MedicalConditionStage', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/MedicalConditionStage'] = Field(default='https://schema.org/MedicalConditionStage', alias='@type', serialization_alias='@type') # type: ignore
     stageAsNumber: Optional[Union[float, List[float]]] = Field(default=None, validation_alias=AliasChoices('stageAsNumber', 'https://schema.org/stageAsNumber'), serialization_alias='https://schema.org/stageAsNumber')
     subStageSuffix: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('subStageSuffix', 'https://schema.org/subStageSuffix'), serialization_alias='https://schema.org/subStageSuffix')

@@ -7,4 +7,4 @@ class DrinkAction(ConsumeAction):
     """
 The act of swallowing liquids.
     """
-    class_: Literal['https://schema.org/DrinkAction'] = Field(default='https://schema.org/DrinkAction', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/DrinkAction'] = Field(default='https://schema.org/DrinkAction', alias='@type', serialization_alias='@type') # type: ignore

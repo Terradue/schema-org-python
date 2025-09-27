@@ -7,4 +7,4 @@ class RadioClip(Clip):
     """
 A short radio program or a segment/part of a radio program.
     """
-    class_: Literal['https://schema.org/RadioClip'] = Field(default='https://schema.org/RadioClip', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/RadioClip'] = Field(default='https://schema.org/RadioClip', alias='@type', serialization_alias='@type') # type: ignore

@@ -7,4 +7,4 @@ class ComicCoverArt(ComicStory):
     """
 The artwork on the cover of a comic.
     """
-    class_: Literal['https://schema.org/ComicCoverArt'] = Field(default='https://schema.org/ComicCoverArt', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/ComicCoverArt'] = Field(default='https://schema.org/ComicCoverArt', alias='@type', serialization_alias='@type') # type: ignore

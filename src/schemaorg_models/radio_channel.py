@@ -7,4 +7,4 @@ class RadioChannel(BroadcastChannel):
     """
 A unique instance of a radio BroadcastService on a CableOrSatelliteService lineup.
     """
-    class_: Literal['https://schema.org/RadioChannel'] = Field(default='https://schema.org/RadioChannel', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/RadioChannel'] = Field(default='https://schema.org/RadioChannel', alias='@type', serialization_alias='@type') # type: ignore

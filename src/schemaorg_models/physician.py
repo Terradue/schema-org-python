@@ -11,7 +11,7 @@ class Physician(MedicalBusiness):
     """
 An individual physician or a physician's office considered as a [[MedicalOrganization]].
     """
-    class_: Literal['https://schema.org/Physician'] = Field(default='https://schema.org/Physician', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/Physician'] = Field(default='https://schema.org/Physician', alias='@type', serialization_alias='@type') # type: ignore
     hospitalAffiliation: Optional[Union[Hospital, List[Hospital]]] = Field(default=None, validation_alias=AliasChoices('hospitalAffiliation', 'https://schema.org/hospitalAffiliation'), serialization_alias='https://schema.org/hospitalAffiliation')
     availableService: Optional[Union[MedicalProcedure, List[MedicalProcedure], "MedicalTherapy", List["MedicalTherapy"], MedicalTest, List[MedicalTest]]] = Field(default=None, validation_alias=AliasChoices('availableService', 'https://schema.org/availableService'), serialization_alias='https://schema.org/availableService')
     usNPI: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('usNPI', 'https://schema.org/usNPI'), serialization_alias='https://schema.org/usNPI')

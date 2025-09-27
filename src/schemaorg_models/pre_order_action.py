@@ -7,4 +7,4 @@ class PreOrderAction(TradeAction):
     """
 An agent orders a (not yet released) object/product/service to be delivered/sent.
     """
-    class_: Literal['https://schema.org/PreOrderAction'] = Field(default='https://schema.org/PreOrderAction', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/PreOrderAction'] = Field(default='https://schema.org/PreOrderAction', alias='@type', serialization_alias='@type') # type: ignore

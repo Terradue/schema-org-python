@@ -7,4 +7,4 @@ class OccupationalTherapy(MedicalTherapy):
     """
 A treatment of people with physical, emotional, or social problems, using purposeful activity to help them overcome or learn to deal with their problems.
     """
-    class_: Literal['https://schema.org/OccupationalTherapy'] = Field(default='https://schema.org/OccupationalTherapy', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/OccupationalTherapy'] = Field(default='https://schema.org/OccupationalTherapy', alias='@type', serialization_alias='@type') # type: ignore

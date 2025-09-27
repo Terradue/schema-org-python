@@ -7,7 +7,7 @@ class EducationEvent(Event):
     """
 Event type: Education event.
     """
-    class_: Literal['https://schema.org/EducationEvent'] = Field(default='https://schema.org/EducationEvent', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/EducationEvent'] = Field(default='https://schema.org/EducationEvent', alias='@type', serialization_alias='@type') # type: ignore
     educationalLevel: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], "DefinedTerm", List["DefinedTerm"]]] = Field(default=None, validation_alias=AliasChoices('educationalLevel', 'https://schema.org/educationalLevel'), serialization_alias='https://schema.org/educationalLevel')
     @field_serializer('educationalLevel')
     def educationalLevel2str(self, val) -> str | List[str]:

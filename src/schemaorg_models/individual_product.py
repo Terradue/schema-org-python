@@ -7,5 +7,5 @@ class IndividualProduct(Product):
     """
 A single, identifiable product instance (e.g. a laptop with a particular serial number).
     """
-    class_: Literal['https://schema.org/IndividualProduct'] = Field(default='https://schema.org/IndividualProduct', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/IndividualProduct'] = Field(default='https://schema.org/IndividualProduct', alias='@type', serialization_alias='@type') # type: ignore
     serialNumber: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('serialNumber', 'https://schema.org/serialNumber'), serialization_alias='https://schema.org/serialNumber')

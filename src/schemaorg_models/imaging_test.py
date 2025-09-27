@@ -7,5 +7,5 @@ class ImagingTest(MedicalTest):
     """
 Any medical imaging modality typically used for diagnostic purposes.
     """
-    class_: Literal['https://schema.org/ImagingTest'] = Field(default='https://schema.org/ImagingTest', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/ImagingTest'] = Field(default='https://schema.org/ImagingTest', alias='@type', serialization_alias='@type') # type: ignore
     imagingTechnique: Optional[Union["MedicalImagingTechnique", List["MedicalImagingTechnique"]]] = Field(default=None, validation_alias=AliasChoices('imagingTechnique', 'https://schema.org/imagingTechnique'), serialization_alias='https://schema.org/imagingTechnique')

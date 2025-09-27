@@ -7,4 +7,4 @@ class ExerciseGym(SportsActivityLocation):
     """
 A gym.
     """
-    class_: Literal['https://schema.org/ExerciseGym'] = Field(default='https://schema.org/ExerciseGym', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/ExerciseGym'] = Field(default='https://schema.org/ExerciseGym', alias='@type', serialization_alias='@type') # type: ignore

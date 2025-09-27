@@ -11,5 +11,5 @@ class AuthorizeAction(AllocateAction):
     """
 The act of granting permission to an object.
     """
-    class_: Literal['https://schema.org/AuthorizeAction'] = Field(default='https://schema.org/AuthorizeAction', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/AuthorizeAction'] = Field(default='https://schema.org/AuthorizeAction', alias='@type', serialization_alias='@type') # type: ignore
     recipient: Optional[Union[Organization, List[Organization], Audience, List[Audience], ContactPoint, List[ContactPoint], Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('recipient', 'https://schema.org/recipient'), serialization_alias='https://schema.org/recipient')

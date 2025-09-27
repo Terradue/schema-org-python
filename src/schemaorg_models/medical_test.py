@@ -7,7 +7,7 @@ class MedicalTest(MedicalEntity):
     """
 Any medical test, typically performed for diagnostic purposes.
     """
-    class_: Literal['https://schema.org/MedicalTest'] = Field(default='https://schema.org/MedicalTest', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/MedicalTest'] = Field(default='https://schema.org/MedicalTest', alias='@type', serialization_alias='@type') # type: ignore
     affectedBy: Optional[Union["Drug", List["Drug"]]] = Field(default=None, validation_alias=AliasChoices('affectedBy', 'https://schema.org/affectedBy'), serialization_alias='https://schema.org/affectedBy')
     signDetected: Optional[Union["MedicalSign", List["MedicalSign"]]] = Field(default=None, validation_alias=AliasChoices('signDetected', 'https://schema.org/signDetected'), serialization_alias='https://schema.org/signDetected')
     usesDevice: Optional[Union["MedicalDevice", List["MedicalDevice"]]] = Field(default=None, validation_alias=AliasChoices('usesDevice', 'https://schema.org/usesDevice'), serialization_alias='https://schema.org/usesDevice')

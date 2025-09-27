@@ -7,4 +7,4 @@ class DriveWheelConfigurationValue(QualitativeValue):
     """
 A value indicating which roadwheels will receive torque.
     """
-    class_: Literal['https://schema.org/DriveWheelConfigurationValue'] = Field(default='https://schema.org/DriveWheelConfigurationValue', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/DriveWheelConfigurationValue'] = Field(default='https://schema.org/DriveWheelConfigurationValue', alias='@type', serialization_alias='@type') # type: ignore

@@ -11,7 +11,7 @@ class UnitPriceSpecification(PriceSpecification):
     """
 The price asked for a given offer by the respective organization or person.
     """
-    class_: Literal['https://schema.org/UnitPriceSpecification'] = Field(default='https://schema.org/UnitPriceSpecification', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/UnitPriceSpecification'] = Field(default='https://schema.org/UnitPriceSpecification', alias='@type', serialization_alias='@type') # type: ignore
     unitText: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('unitText', 'https://schema.org/unitText'), serialization_alias='https://schema.org/unitText')
     billingDuration: Optional[Union[Duration, List[Duration], float, List[float], QuantitativeValue, List[QuantitativeValue]]] = Field(default=None, validation_alias=AliasChoices('billingDuration', 'https://schema.org/billingDuration'), serialization_alias='https://schema.org/billingDuration')
     unitCode: Optional[Union[HttpUrl, List[HttpUrl], str, List[str]]] = Field(default=None, validation_alias=AliasChoices('unitCode', 'https://schema.org/unitCode'), serialization_alias='https://schema.org/unitCode')

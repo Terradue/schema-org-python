@@ -7,4 +7,4 @@ class Quiz(LearningResource):
     """
 Quiz: A test of knowledge, skills and abilities.
     """
-    class_: Literal['https://schema.org/Quiz'] = Field(default='https://schema.org/Quiz', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/Quiz'] = Field(default='https://schema.org/Quiz', alias='@type', serialization_alias='@type') # type: ignore

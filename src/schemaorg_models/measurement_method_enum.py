@@ -7,4 +7,4 @@ class MeasurementMethodEnum(Enumeration):
     """
 Enumeration(s) for use with [[measurementMethod]].
     """
-    class_: Literal['https://schema.org/MeasurementMethodEnum'] = Field(default='https://schema.org/MeasurementMethodEnum', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/MeasurementMethodEnum'] = Field(default='https://schema.org/MeasurementMethodEnum', alias='@type', serialization_alias='@type') # type: ignore

@@ -7,4 +7,4 @@ class SteeringPositionValue(QualitativeValue):
     """
 A value indicating a steering position.
     """
-    class_: Literal['https://schema.org/SteeringPositionValue'] = Field(default='https://schema.org/SteeringPositionValue', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/SteeringPositionValue'] = Field(default='https://schema.org/SteeringPositionValue', alias='@type', serialization_alias='@type') # type: ignore

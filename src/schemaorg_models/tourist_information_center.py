@@ -7,4 +7,4 @@ class TouristInformationCenter(LocalBusiness):
     """
 A tourist information center.
     """
-    class_: Literal['https://schema.org/TouristInformationCenter'] = Field(default='https://schema.org/TouristInformationCenter', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/TouristInformationCenter'] = Field(default='https://schema.org/TouristInformationCenter', alias='@type', serialization_alias='@type') # type: ignore

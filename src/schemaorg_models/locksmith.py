@@ -7,4 +7,4 @@ class Locksmith(HomeAndConstructionBusiness):
     """
 A locksmith.
     """
-    class_: Literal['https://schema.org/Locksmith'] = Field(default='https://schema.org/Locksmith', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/Locksmith'] = Field(default='https://schema.org/Locksmith', alias='@type', serialization_alias='@type') # type: ignore

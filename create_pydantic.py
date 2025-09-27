@@ -185,7 +185,7 @@ def generate_models(graph: Graph):
             # f.write("    model_config = ConfigDict(arbitrary_types_allowed=True)\n\n")
 
             # type class
-            f.write(f"    class_: Literal['https://schema.org/{class_name}'] = Field(default='https://schema.org/{class_name}', alias='class', serialization_alias='class') # type: ignore\n")
+            f.write(f"    type_: Literal['https://schema.org/{class_name}'] = Field(default='https://schema.org/{class_name}', alias='@type', serialization_alias='@type') # type: ignore\n")
 
             # Properties
             if not class_info["properties"]:

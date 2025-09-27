@@ -7,4 +7,4 @@ class Playground(CivicStructure):
     """
 A playground.
     """
-    class_: Literal['https://schema.org/Playground'] = Field(default='https://schema.org/Playground', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/Playground'] = Field(default='https://schema.org/Playground', alias='@type', serialization_alias='@type') # type: ignore

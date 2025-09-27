@@ -7,7 +7,7 @@ class FinancialService(LocalBusiness):
     """
 Financial services business.
     """
-    class_: Literal['https://schema.org/FinancialService'] = Field(default='https://schema.org/FinancialService', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/FinancialService'] = Field(default='https://schema.org/FinancialService', alias='@type', serialization_alias='@type') # type: ignore
     feesAndCommissionsSpecification: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None, validation_alias=AliasChoices('feesAndCommissionsSpecification', 'https://schema.org/feesAndCommissionsSpecification'), serialization_alias='https://schema.org/feesAndCommissionsSpecification')
     @field_serializer('feesAndCommissionsSpecification')
     def feesAndCommissionsSpecification2str(self, val) -> str | List[str]:

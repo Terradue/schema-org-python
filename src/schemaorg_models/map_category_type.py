@@ -7,4 +7,4 @@ class MapCategoryType(Enumeration):
     """
 An enumeration of several kinds of Map.
     """
-    class_: Literal['https://schema.org/MapCategoryType'] = Field(default='https://schema.org/MapCategoryType', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/MapCategoryType'] = Field(default='https://schema.org/MapCategoryType', alias='@type', serialization_alias='@type') # type: ignore

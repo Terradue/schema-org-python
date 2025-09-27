@@ -7,4 +7,4 @@ class StatusEnumeration(Enumeration):
     """
 Lists or enumerations dealing with status types.
     """
-    class_: Literal['https://schema.org/StatusEnumeration'] = Field(default='https://schema.org/StatusEnumeration', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/StatusEnumeration'] = Field(default='https://schema.org/StatusEnumeration', alias='@type', serialization_alias='@type') # type: ignore

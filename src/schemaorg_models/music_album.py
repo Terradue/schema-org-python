@@ -10,7 +10,7 @@ class MusicAlbum(MusicPlaylist):
     """
 A collection of music tracks.
     """
-    class_: Literal['https://schema.org/MusicAlbum'] = Field(default='https://schema.org/MusicAlbum', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/MusicAlbum'] = Field(default='https://schema.org/MusicAlbum', alias='@type', serialization_alias='@type') # type: ignore
     albumRelease: Optional[Union["MusicRelease", List["MusicRelease"]]] = Field(default=None, validation_alias=AliasChoices('albumRelease', 'https://schema.org/albumRelease'), serialization_alias='https://schema.org/albumRelease')
     byArtist: Optional[Union["MusicGroup", List["MusicGroup"], Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('byArtist', 'https://schema.org/byArtist'), serialization_alias='https://schema.org/byArtist')
     albumProductionType: Optional[Union[MusicAlbumProductionType, List[MusicAlbumProductionType]]] = Field(default=None, validation_alias=AliasChoices('albumProductionType', 'https://schema.org/albumProductionType'), serialization_alias='https://schema.org/albumProductionType')

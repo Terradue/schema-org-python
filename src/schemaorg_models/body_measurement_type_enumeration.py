@@ -7,4 +7,4 @@ class BodyMeasurementTypeEnumeration(MeasurementTypeEnumeration):
     """
 Enumerates types (or dimensions) of a person's body measurements, for example for fitting of clothes.
     """
-    class_: Literal['https://schema.org/BodyMeasurementTypeEnumeration'] = Field(default='https://schema.org/BodyMeasurementTypeEnumeration', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/BodyMeasurementTypeEnumeration'] = Field(default='https://schema.org/BodyMeasurementTypeEnumeration', alias='@type', serialization_alias='@type') # type: ignore

@@ -8,7 +8,7 @@ class AnatomicalStructure(MedicalEntity):
     """
 Any part of the human body, typically a component of an anatomical system. Organs, tissues, and cells are all anatomical structures.
     """
-    class_: Literal['https://schema.org/AnatomicalStructure'] = Field(default='https://schema.org/AnatomicalStructure', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/AnatomicalStructure'] = Field(default='https://schema.org/AnatomicalStructure', alias='@type', serialization_alias='@type') # type: ignore
     subStructure: Optional[Union["AnatomicalStructure", List["AnatomicalStructure"]]] = Field(default=None, validation_alias=AliasChoices('subStructure', 'https://schema.org/subStructure'), serialization_alias='https://schema.org/subStructure')
     associatedPathophysiology: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('associatedPathophysiology', 'https://schema.org/associatedPathophysiology'), serialization_alias='https://schema.org/associatedPathophysiology')
     diagram: Optional[Union["ImageObject", List["ImageObject"]]] = Field(default=None, validation_alias=AliasChoices('diagram', 'https://schema.org/diagram'), serialization_alias='https://schema.org/diagram')

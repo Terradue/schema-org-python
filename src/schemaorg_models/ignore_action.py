@@ -7,4 +7,4 @@ class IgnoreAction(AssessAction):
     """
 The act of intentionally disregarding the object. An agent ignores an object.
     """
-    class_: Literal['https://schema.org/IgnoreAction'] = Field(default='https://schema.org/IgnoreAction', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/IgnoreAction'] = Field(default='https://schema.org/IgnoreAction', alias='@type', serialization_alias='@type') # type: ignore

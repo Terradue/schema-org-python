@@ -10,7 +10,7 @@ class MerchantReturnPolicy(Intangible):
     """
 A MerchantReturnPolicy provides information about product return policies associated with an [[Organization]], [[Product]], or [[Offer]].
     """
-    class_: Literal['https://schema.org/MerchantReturnPolicy'] = Field(default='https://schema.org/MerchantReturnPolicy', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/MerchantReturnPolicy'] = Field(default='https://schema.org/MerchantReturnPolicy', alias='@type', serialization_alias='@type') # type: ignore
     additionalProperty: Optional[Union["PropertyValue", List["PropertyValue"]]] = Field(default=None, validation_alias=AliasChoices('additionalProperty', 'https://schema.org/additionalProperty'), serialization_alias='https://schema.org/additionalProperty')
     customerRemorseReturnShippingFeesAmount: Optional[Union["MonetaryAmount", List["MonetaryAmount"]]] = Field(default=None, validation_alias=AliasChoices('customerRemorseReturnShippingFeesAmount', 'https://schema.org/customerRemorseReturnShippingFeesAmount'), serialization_alias='https://schema.org/customerRemorseReturnShippingFeesAmount')
     merchantReturnLink: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(default=None, validation_alias=AliasChoices('merchantReturnLink', 'https://schema.org/merchantReturnLink'), serialization_alias='https://schema.org/merchantReturnLink')

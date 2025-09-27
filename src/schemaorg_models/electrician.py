@@ -7,4 +7,4 @@ class Electrician(HomeAndConstructionBusiness):
     """
 An electrician.
     """
-    class_: Literal['https://schema.org/Electrician'] = Field(default='https://schema.org/Electrician', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/Electrician'] = Field(default='https://schema.org/Electrician', alias='@type', serialization_alias='@type') # type: ignore

@@ -15,6 +15,6 @@ The act of physically/electronically dispatching an object for transfer from an 
 * [[ReceiveAction]]: The reciprocal of SendAction.\
 * [[GiveAction]]: Unlike GiveAction, SendAction does not imply the transfer of ownership (e.g. I can send you my laptop, but I'm not necessarily giving it to you).
     """
-    class_: Literal['https://schema.org/SendAction'] = Field(default='https://schema.org/SendAction', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/SendAction'] = Field(default='https://schema.org/SendAction', alias='@type', serialization_alias='@type') # type: ignore
     deliveryMethod: Optional[Union[DeliveryMethod, List[DeliveryMethod]]] = Field(default=None, validation_alias=AliasChoices('deliveryMethod', 'https://schema.org/deliveryMethod'), serialization_alias='https://schema.org/deliveryMethod')
     recipient: Optional[Union[Organization, List[Organization], Audience, List[Audience], ContactPoint, List[ContactPoint], Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('recipient', 'https://schema.org/recipient'), serialization_alias='https://schema.org/recipient')

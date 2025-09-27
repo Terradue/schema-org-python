@@ -7,4 +7,4 @@ class ElementarySchool(EducationalOrganization):
     """
 An elementary school.
     """
-    class_: Literal['https://schema.org/ElementarySchool'] = Field(default='https://schema.org/ElementarySchool', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/ElementarySchool'] = Field(default='https://schema.org/ElementarySchool', alias='@type', serialization_alias='@type') # type: ignore

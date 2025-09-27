@@ -12,7 +12,7 @@ class LoanOrCredit(FinancialProduct):
     """
 A financial product for the loaning of an amount of money, or line of credit, under agreed terms and charges.
     """
-    class_: Literal['https://schema.org/LoanOrCredit'] = Field(default='https://schema.org/LoanOrCredit', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/LoanOrCredit'] = Field(default='https://schema.org/LoanOrCredit', alias='@type', serialization_alias='@type') # type: ignore
     gracePeriod: Optional[Union[Duration, List[Duration]]] = Field(default=None, validation_alias=AliasChoices('gracePeriod', 'https://schema.org/gracePeriod'), serialization_alias='https://schema.org/gracePeriod')
     requiredCollateral: Optional[Union[str, List[str], Thing, List[Thing]]] = Field(default=None, validation_alias=AliasChoices('requiredCollateral', 'https://schema.org/requiredCollateral'), serialization_alias='https://schema.org/requiredCollateral')
     currency: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('currency', 'https://schema.org/currency'), serialization_alias='https://schema.org/currency')

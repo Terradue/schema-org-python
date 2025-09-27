@@ -8,6 +8,6 @@ class Menu(CreativeWork):
     """
 A structured representation of food or drink items available from a FoodEstablishment.
     """
-    class_: Literal['https://schema.org/Menu'] = Field(default='https://schema.org/Menu', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/Menu'] = Field(default='https://schema.org/Menu', alias='@type', serialization_alias='@type') # type: ignore
     hasMenuItem: Optional[Union[MenuItem, List[MenuItem]]] = Field(default=None, validation_alias=AliasChoices('hasMenuItem', 'https://schema.org/hasMenuItem'), serialization_alias='https://schema.org/hasMenuItem')
     hasMenuSection: Optional[Union["MenuSection", List["MenuSection"]]] = Field(default=None, validation_alias=AliasChoices('hasMenuSection', 'https://schema.org/hasMenuSection'), serialization_alias='https://schema.org/hasMenuSection')

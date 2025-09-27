@@ -12,7 +12,7 @@ class BroadcastService(Service):
     """
 A delivery service through which content is provided via broadcast over the air or online.
     """
-    class_: Literal['https://schema.org/BroadcastService'] = Field(default='https://schema.org/BroadcastService', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/BroadcastService'] = Field(default='https://schema.org/BroadcastService', alias='@type', serialization_alias='@type') # type: ignore
     callSign: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('callSign', 'https://schema.org/callSign'), serialization_alias='https://schema.org/callSign')
     broadcastAffiliateOf: Optional[Union[Organization, List[Organization]]] = Field(default=None, validation_alias=AliasChoices('broadcastAffiliateOf', 'https://schema.org/broadcastAffiliateOf'), serialization_alias='https://schema.org/broadcastAffiliateOf')
     broadcaster: Optional[Union[Organization, List[Organization]]] = Field(default=None, validation_alias=AliasChoices('broadcaster', 'https://schema.org/broadcaster'), serialization_alias='https://schema.org/broadcaster')

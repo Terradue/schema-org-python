@@ -8,5 +8,5 @@ class DrugLegalStatus(MedicalIntangible):
     """
 The legal availability status of a medical drug.
     """
-    class_: Literal['https://schema.org/DrugLegalStatus'] = Field(default='https://schema.org/DrugLegalStatus', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/DrugLegalStatus'] = Field(default='https://schema.org/DrugLegalStatus', alias='@type', serialization_alias='@type') # type: ignore
     applicableLocation: Optional[Union[AdministrativeArea, List[AdministrativeArea]]] = Field(default=None, validation_alias=AliasChoices('applicableLocation', 'https://schema.org/applicableLocation'), serialization_alias='https://schema.org/applicableLocation')

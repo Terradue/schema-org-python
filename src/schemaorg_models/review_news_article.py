@@ -7,4 +7,4 @@ class ReviewNewsArticle(NewsArticle):
     """
 A [[NewsArticle]] and [[CriticReview]] providing a professional critic's assessment of a service, product, performance, or artistic or literary work.
     """
-    class_: Literal['https://schema.org/ReviewNewsArticle'] = Field(default='https://schema.org/ReviewNewsArticle', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/ReviewNewsArticle'] = Field(default='https://schema.org/ReviewNewsArticle', alias='@type', serialization_alias='@type') # type: ignore

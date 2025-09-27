@@ -7,4 +7,4 @@ class SizeSystemEnumeration(Enumeration):
     """
 Enumerates common size systems for different categories of products, for example "EN-13402" or "UK" for wearables or "Imperial" for screws.
     """
-    class_: Literal['https://schema.org/SizeSystemEnumeration'] = Field(default='https://schema.org/SizeSystemEnumeration', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/SizeSystemEnumeration'] = Field(default='https://schema.org/SizeSystemEnumeration', alias='@type', serialization_alias='@type') # type: ignore

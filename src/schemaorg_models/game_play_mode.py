@@ -7,4 +7,4 @@ class GamePlayMode(Enumeration):
     """
 Indicates whether this game is multi-player, co-op or single-player.
     """
-    class_: Literal['https://schema.org/GamePlayMode'] = Field(default='https://schema.org/GamePlayMode', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/GamePlayMode'] = Field(default='https://schema.org/GamePlayMode', alias='@type', serialization_alias='@type') # type: ignore

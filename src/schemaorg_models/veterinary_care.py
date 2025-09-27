@@ -7,4 +7,4 @@ class VeterinaryCare(MedicalOrganization):
     """
 A vet's office.
     """
-    class_: Literal['https://schema.org/VeterinaryCare'] = Field(default='https://schema.org/VeterinaryCare', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/VeterinaryCare'] = Field(default='https://schema.org/VeterinaryCare', alias='@type', serialization_alias='@type') # type: ignore

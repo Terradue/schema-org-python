@@ -18,7 +18,7 @@ class VideoGameSeries(CreativeWorkSeries):
     """
 A video game series.
     """
-    class_: Literal['https://schema.org/VideoGameSeries'] = Field(default='https://schema.org/VideoGameSeries', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/VideoGameSeries'] = Field(default='https://schema.org/VideoGameSeries', alias='@type', serialization_alias='@type') # type: ignore
     gameItem: Optional[Union[Thing, List[Thing]]] = Field(default=None, validation_alias=AliasChoices('gameItem', 'https://schema.org/gameItem'), serialization_alias='https://schema.org/gameItem')
     episode: Optional[Union[Episode, List[Episode]]] = Field(default=None, validation_alias=AliasChoices('episode', 'https://schema.org/episode'), serialization_alias='https://schema.org/episode')
     numberOfEpisodes: Optional[Union[int, List[int]]] = Field(default=None, validation_alias=AliasChoices('numberOfEpisodes', 'https://schema.org/numberOfEpisodes'), serialization_alias='https://schema.org/numberOfEpisodes')

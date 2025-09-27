@@ -7,4 +7,4 @@ class ActionStatusType(StatusEnumeration):
     """
 The status of an Action.
     """
-    class_: Literal['https://schema.org/ActionStatusType'] = Field(default='https://schema.org/ActionStatusType', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/ActionStatusType'] = Field(default='https://schema.org/ActionStatusType', alias='@type', serialization_alias='@type') # type: ignore

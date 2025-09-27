@@ -10,4 +10,4 @@ An [[OfferForPurchase]] in Schema.org represents an [[Offer]] to sell something,
   background on the underlying concepts.
   
     """
-    class_: Literal['https://schema.org/OfferForPurchase'] = Field(default='https://schema.org/OfferForPurchase', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/OfferForPurchase'] = Field(default='https://schema.org/OfferForPurchase', alias='@type', serialization_alias='@type') # type: ignore

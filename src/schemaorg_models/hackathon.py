@@ -7,4 +7,4 @@ class Hackathon(Event):
     """
 A [hackathon](https://en.wikipedia.org/wiki/Hackathon) event.
     """
-    class_: Literal['https://schema.org/Hackathon'] = Field(default='https://schema.org/Hackathon', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/Hackathon'] = Field(default='https://schema.org/Hackathon', alias='@type', serialization_alias='@type') # type: ignore

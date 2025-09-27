@@ -7,4 +7,4 @@ class GovernmentOffice(LocalBusiness):
     """
 A government office&#x2014;for example, an IRS or DMV office.
     """
-    class_: Literal['https://schema.org/GovernmentOffice'] = Field(default='https://schema.org/GovernmentOffice', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/GovernmentOffice'] = Field(default='https://schema.org/GovernmentOffice', alias='@type', serialization_alias='@type') # type: ignore

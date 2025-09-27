@@ -7,7 +7,7 @@ class EntryPoint(Intangible):
     """
 An entry point, within some Web-based protocol.
     """
-    class_: Literal['https://schema.org/EntryPoint'] = Field(default='https://schema.org/EntryPoint', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/EntryPoint'] = Field(default='https://schema.org/EntryPoint', alias='@type', serialization_alias='@type') # type: ignore
     httpMethod: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('httpMethod', 'https://schema.org/httpMethod'), serialization_alias='https://schema.org/httpMethod')
     contentType: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('contentType', 'https://schema.org/contentType'), serialization_alias='https://schema.org/contentType')
     urlTemplate: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('urlTemplate', 'https://schema.org/urlTemplate'), serialization_alias='https://schema.org/urlTemplate')

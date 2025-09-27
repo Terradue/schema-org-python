@@ -7,4 +7,4 @@ class Barcode(ImageObject):
     """
 An image of a visual machine-readable code such as a barcode or QR code.
     """
-    class_: Literal['https://schema.org/Barcode'] = Field(default='https://schema.org/Barcode', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/Barcode'] = Field(default='https://schema.org/Barcode', alias='@type', serialization_alias='@type') # type: ignore

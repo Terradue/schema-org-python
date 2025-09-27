@@ -8,7 +8,7 @@ class PaymentCard(FinancialProduct):
     """
 A payment method using a credit, debit, store or other card to associate the payment with an account.
     """
-    class_: Literal['https://schema.org/PaymentCard'] = Field(default='https://schema.org/PaymentCard', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/PaymentCard'] = Field(default='https://schema.org/PaymentCard', alias='@type', serialization_alias='@type') # type: ignore
     monthlyMinimumRepaymentAmount: Optional[Union[float, List[float], MonetaryAmount, List[MonetaryAmount]]] = Field(default=None, validation_alias=AliasChoices('monthlyMinimumRepaymentAmount', 'https://schema.org/monthlyMinimumRepaymentAmount'), serialization_alias='https://schema.org/monthlyMinimumRepaymentAmount')
     floorLimit: Optional[Union[MonetaryAmount, List[MonetaryAmount]]] = Field(default=None, validation_alias=AliasChoices('floorLimit', 'https://schema.org/floorLimit'), serialization_alias='https://schema.org/floorLimit')
     cashBack: Optional[Union[float, List[float], bool, List[bool]]] = Field(default=None, validation_alias=AliasChoices('cashBack', 'https://schema.org/cashBack'), serialization_alias='https://schema.org/cashBack')

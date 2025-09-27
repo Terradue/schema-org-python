@@ -7,7 +7,7 @@ class RepaymentSpecification(StructuredValue):
     """
 A structured value representing repayment.
     """
-    class_: Literal['https://schema.org/RepaymentSpecification'] = Field(default='https://schema.org/RepaymentSpecification', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/RepaymentSpecification'] = Field(default='https://schema.org/RepaymentSpecification', alias='@type', serialization_alias='@type') # type: ignore
     numberOfLoanPayments: Optional[Union[float, List[float]]] = Field(default=None, validation_alias=AliasChoices('numberOfLoanPayments', 'https://schema.org/numberOfLoanPayments'), serialization_alias='https://schema.org/numberOfLoanPayments')
     loanPaymentAmount: Optional[Union["MonetaryAmount", List["MonetaryAmount"]]] = Field(default=None, validation_alias=AliasChoices('loanPaymentAmount', 'https://schema.org/loanPaymentAmount'), serialization_alias='https://schema.org/loanPaymentAmount')
     earlyPrepaymentPenalty: Optional[Union["MonetaryAmount", List["MonetaryAmount"]]] = Field(default=None, validation_alias=AliasChoices('earlyPrepaymentPenalty', 'https://schema.org/earlyPrepaymentPenalty'), serialization_alias='https://schema.org/earlyPrepaymentPenalty')

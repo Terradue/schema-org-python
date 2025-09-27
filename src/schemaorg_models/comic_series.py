@@ -9,4 +9,4 @@ A sequential publication of comic stories under a
     	unifying title, for example "The Amazing Spider-Man" or "Groo the
     	Wanderer".
     """
-    class_: Literal['https://schema.org/ComicSeries'] = Field(default='https://schema.org/ComicSeries', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/ComicSeries'] = Field(default='https://schema.org/ComicSeries', alias='@type', serialization_alias='@type') # type: ignore

@@ -7,4 +7,4 @@ class WantAction(ReactAction):
     """
 The act of expressing a desire about the object. An agent wants an object.
     """
-    class_: Literal['https://schema.org/WantAction'] = Field(default='https://schema.org/WantAction', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/WantAction'] = Field(default='https://schema.org/WantAction', alias='@type', serialization_alias='@type') # type: ignore

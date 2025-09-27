@@ -7,4 +7,4 @@ class Painting(CreativeWork):
     """
 A painting.
     """
-    class_: Literal['https://schema.org/Painting'] = Field(default='https://schema.org/Painting', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/Painting'] = Field(default='https://schema.org/Painting', alias='@type', serialization_alias='@type') # type: ignore

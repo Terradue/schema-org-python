@@ -7,4 +7,4 @@ class NightClub(EntertainmentBusiness):
     """
 A nightclub or discotheque.
     """
-    class_: Literal['https://schema.org/NightClub'] = Field(default='https://schema.org/NightClub', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/NightClub'] = Field(default='https://schema.org/NightClub', alias='@type', serialization_alias='@type') # type: ignore

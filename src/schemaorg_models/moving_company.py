@@ -7,4 +7,4 @@ class MovingCompany(HomeAndConstructionBusiness):
     """
 A moving company.
     """
-    class_: Literal['https://schema.org/MovingCompany'] = Field(default='https://schema.org/MovingCompany', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/MovingCompany'] = Field(default='https://schema.org/MovingCompany', alias='@type', serialization_alias='@type') # type: ignore

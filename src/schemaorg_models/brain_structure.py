@@ -7,4 +7,4 @@ class BrainStructure(AnatomicalStructure):
     """
 Any anatomical structure which pertains to the soft nervous tissue functioning as the coordinating center of sensation and intellectual and nervous activity.
     """
-    class_: Literal['https://schema.org/BrainStructure'] = Field(default='https://schema.org/BrainStructure', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/BrainStructure'] = Field(default='https://schema.org/BrainStructure', alias='@type', serialization_alias='@type') # type: ignore

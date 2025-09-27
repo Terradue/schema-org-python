@@ -7,4 +7,4 @@ class HighSchool(EducationalOrganization):
     """
 A high school.
     """
-    class_: Literal['https://schema.org/HighSchool'] = Field(default='https://schema.org/HighSchool', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/HighSchool'] = Field(default='https://schema.org/HighSchool', alias='@type', serialization_alias='@type') # type: ignore

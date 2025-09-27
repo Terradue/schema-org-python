@@ -7,4 +7,4 @@ class PhysicalExam(MedicalEnumeration):
     """
 A type of physical examination of a patient performed by a physician. 
     """
-    class_: Literal['https://schema.org/PhysicalExam'] = Field(default='https://schema.org/PhysicalExam', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/PhysicalExam'] = Field(default='https://schema.org/PhysicalExam', alias='@type', serialization_alias='@type') # type: ignore

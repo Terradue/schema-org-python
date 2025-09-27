@@ -13,7 +13,7 @@ class ExerciseAction(PlayAction):
     """
 The act of participating in exertive activity for the purposes of improving health and fitness.
     """
-    class_: Literal['https://schema.org/ExerciseAction'] = Field(default='https://schema.org/ExerciseAction', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/ExerciseAction'] = Field(default='https://schema.org/ExerciseAction', alias='@type', serialization_alias='@type') # type: ignore
     diet: Optional[Union["Diet", List["Diet"]]] = Field(default=None, validation_alias=AliasChoices('diet', 'https://schema.org/diet'), serialization_alias='https://schema.org/diet')
     distance: Optional[Union[Distance, List[Distance]]] = Field(default=None, validation_alias=AliasChoices('distance', 'https://schema.org/distance'), serialization_alias='https://schema.org/distance')
     exerciseRelatedDiet: Optional[Union["Diet", List["Diet"]]] = Field(default=None, validation_alias=AliasChoices('exerciseRelatedDiet', 'https://schema.org/exerciseRelatedDiet'), serialization_alias='https://schema.org/exerciseRelatedDiet')

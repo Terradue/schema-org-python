@@ -12,7 +12,7 @@ class WebPage(CreativeWork):
     """
 A web page. Every web page is implicitly assumed to be declared to be of type WebPage, so the various properties about that webpage, such as <code>breadcrumb</code> may be used. We recommend explicit declaration if these properties are specified, but if they are found outside of an itemscope, they will be assumed to be about the page.
     """
-    class_: Literal['https://schema.org/WebPage'] = Field(default='https://schema.org/WebPage', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/WebPage'] = Field(default='https://schema.org/WebPage', alias='@type', serialization_alias='@type') # type: ignore
     mainContentOfPage: Optional[Union[WebPageElement, List[WebPageElement]]] = Field(default=None, validation_alias=AliasChoices('mainContentOfPage', 'https://schema.org/mainContentOfPage'), serialization_alias='https://schema.org/mainContentOfPage')
     significantLink: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(default=None, validation_alias=AliasChoices('significantLink', 'https://schema.org/significantLink'), serialization_alias='https://schema.org/significantLink')
     @field_serializer('significantLink')

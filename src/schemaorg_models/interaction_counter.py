@@ -13,7 +13,7 @@ class InteractionCounter(StructuredValue):
     """
 A summary of how users have interacted with this CreativeWork. In most cases, authors will use a subtype to specify the specific type of interaction.
     """
-    class_: Literal['https://schema.org/InteractionCounter'] = Field(default='https://schema.org/InteractionCounter', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/InteractionCounter'] = Field(default='https://schema.org/InteractionCounter', alias='@type', serialization_alias='@type') # type: ignore
     interactionType: Optional[Union[Action, List[Action]]] = Field(default=None, validation_alias=AliasChoices('interactionType', 'https://schema.org/interactionType'), serialization_alias='https://schema.org/interactionType')
     userInteractionCount: Optional[Union[int, List[int]]] = Field(default=None, validation_alias=AliasChoices('userInteractionCount', 'https://schema.org/userInteractionCount'), serialization_alias='https://schema.org/userInteractionCount')
     endTime: Optional[Union[time, List[time], datetime, List[datetime]]] = Field(default=None, validation_alias=AliasChoices('endTime', 'https://schema.org/endTime'), serialization_alias='https://schema.org/endTime')

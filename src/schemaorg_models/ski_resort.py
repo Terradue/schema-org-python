@@ -7,4 +7,4 @@ class SkiResort(Resort):
     """
 A ski resort.
     """
-    class_: Literal['https://schema.org/SkiResort'] = Field(default='https://schema.org/SkiResort', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/SkiResort'] = Field(default='https://schema.org/SkiResort', alias='@type', serialization_alias='@type') # type: ignore

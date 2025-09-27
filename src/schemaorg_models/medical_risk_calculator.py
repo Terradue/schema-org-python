@@ -7,4 +7,4 @@ class MedicalRiskCalculator(MedicalRiskEstimator):
     """
 A complex mathematical calculation requiring an online calculator, used to assess prognosis. Note: use the url property of Thing to record any URLs for online calculators.
     """
-    class_: Literal['https://schema.org/MedicalRiskCalculator'] = Field(default='https://schema.org/MedicalRiskCalculator', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/MedicalRiskCalculator'] = Field(default='https://schema.org/MedicalRiskCalculator', alias='@type', serialization_alias='@type') # type: ignore

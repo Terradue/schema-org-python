@@ -7,4 +7,4 @@ class Distillery(FoodEstablishment):
     """
 A distillery.
     """
-    class_: Literal['https://schema.org/Distillery'] = Field(default='https://schema.org/Distillery', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/Distillery'] = Field(default='https://schema.org/Distillery', alias='@type', serialization_alias='@type') # type: ignore

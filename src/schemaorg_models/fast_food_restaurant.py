@@ -7,4 +7,4 @@ class FastFoodRestaurant(FoodEstablishment):
     """
 A fast-food restaurant.
     """
-    class_: Literal['https://schema.org/FastFoodRestaurant'] = Field(default='https://schema.org/FastFoodRestaurant', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/FastFoodRestaurant'] = Field(default='https://schema.org/FastFoodRestaurant', alias='@type', serialization_alias='@type') # type: ignore

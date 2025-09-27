@@ -8,7 +8,7 @@ class PostalAddress(ContactPoint):
     """
 The mailing address.
     """
-    class_: Literal['https://schema.org/PostalAddress'] = Field(default='https://schema.org/PostalAddress', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/PostalAddress'] = Field(default='https://schema.org/PostalAddress', alias='@type', serialization_alias='@type') # type: ignore
     addressRegion: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('addressRegion', 'https://schema.org/addressRegion'), serialization_alias='https://schema.org/addressRegion')
     postalCode: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('postalCode', 'https://schema.org/postalCode'), serialization_alias='https://schema.org/postalCode')
     streetAddress: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('streetAddress', 'https://schema.org/streetAddress'), serialization_alias='https://schema.org/streetAddress')

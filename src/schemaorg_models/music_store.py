@@ -7,4 +7,4 @@ class MusicStore(Store):
     """
 A music store.
     """
-    class_: Literal['https://schema.org/MusicStore'] = Field(default='https://schema.org/MusicStore', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/MusicStore'] = Field(default='https://schema.org/MusicStore', alias='@type', serialization_alias='@type') # type: ignore

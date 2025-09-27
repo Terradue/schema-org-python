@@ -8,7 +8,7 @@ class SoftwareApplication(CreativeWork):
     """
 A software application.
     """
-    class_: Literal['https://schema.org/SoftwareApplication'] = Field(default='https://schema.org/SoftwareApplication', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/SoftwareApplication'] = Field(default='https://schema.org/SoftwareApplication', alias='@type', serialization_alias='@type') # type: ignore
     applicationCategory: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None, validation_alias=AliasChoices('applicationCategory', 'https://schema.org/applicationCategory'), serialization_alias='https://schema.org/applicationCategory')
     @field_serializer('applicationCategory')
     def applicationCategory2str(self, val) -> str | List[str]:

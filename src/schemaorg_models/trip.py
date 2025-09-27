@@ -14,7 +14,7 @@ class Trip(Intangible):
     """
 A trip or journey. An itinerary of visits to one or more places.
     """
-    class_: Literal['https://schema.org/Trip'] = Field(default='https://schema.org/Trip', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/Trip'] = Field(default='https://schema.org/Trip', alias='@type', serialization_alias='@type') # type: ignore
     subTrip: Optional[Union["Trip", List["Trip"]]] = Field(default=None, validation_alias=AliasChoices('subTrip', 'https://schema.org/subTrip'), serialization_alias='https://schema.org/subTrip')
     provider: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(default=None, validation_alias=AliasChoices('provider', 'https://schema.org/provider'), serialization_alias='https://schema.org/provider')
     partOfTrip: Optional[Union["Trip", List["Trip"]]] = Field(default=None, validation_alias=AliasChoices('partOfTrip', 'https://schema.org/partOfTrip'), serialization_alias='https://schema.org/partOfTrip')

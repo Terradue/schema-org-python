@@ -8,7 +8,7 @@ class VisualArtwork(CreativeWork):
     """
 A work of art that is primarily visual in character.
     """
-    class_: Literal['https://schema.org/VisualArtwork'] = Field(default='https://schema.org/VisualArtwork', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/VisualArtwork'] = Field(default='https://schema.org/VisualArtwork', alias='@type', serialization_alias='@type') # type: ignore
     weight: Optional[Union["QuantitativeValue", List["QuantitativeValue"], "Mass", List["Mass"]]] = Field(default=None, validation_alias=AliasChoices('weight', 'https://schema.org/weight'), serialization_alias='https://schema.org/weight')
     artworkSurface: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None, validation_alias=AliasChoices('artworkSurface', 'https://schema.org/artworkSurface'), serialization_alias='https://schema.org/artworkSurface')
     @field_serializer('artworkSurface')

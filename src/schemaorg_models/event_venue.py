@@ -7,4 +7,4 @@ class EventVenue(CivicStructure):
     """
 An event venue.
     """
-    class_: Literal['https://schema.org/EventVenue'] = Field(default='https://schema.org/EventVenue', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/EventVenue'] = Field(default='https://schema.org/EventVenue', alias='@type', serialization_alias='@type') # type: ignore

@@ -7,4 +7,4 @@ class Plumber(HomeAndConstructionBusiness):
     """
 A plumbing service.
     """
-    class_: Literal['https://schema.org/Plumber'] = Field(default='https://schema.org/Plumber', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/Plumber'] = Field(default='https://schema.org/Plumber', alias='@type', serialization_alias='@type') # type: ignore

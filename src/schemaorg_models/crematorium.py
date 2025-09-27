@@ -7,4 +7,4 @@ class Crematorium(CivicStructure):
     """
 A crematorium.
     """
-    class_: Literal['https://schema.org/Crematorium'] = Field(default='https://schema.org/Crematorium', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/Crematorium'] = Field(default='https://schema.org/Crematorium', alias='@type', serialization_alias='@type') # type: ignore

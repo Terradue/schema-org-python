@@ -7,4 +7,4 @@ class MovieRentalStore(Store):
     """
 A movie rental store.
     """
-    class_: Literal['https://schema.org/MovieRentalStore'] = Field(default='https://schema.org/MovieRentalStore', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/MovieRentalStore'] = Field(default='https://schema.org/MovieRentalStore', alias='@type', serialization_alias='@type') # type: ignore

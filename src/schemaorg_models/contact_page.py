@@ -7,4 +7,4 @@ class ContactPage(WebPage):
     """
 Web page type: Contact page.
     """
-    class_: Literal['https://schema.org/ContactPage'] = Field(default='https://schema.org/ContactPage', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/ContactPage'] = Field(default='https://schema.org/ContactPage', alias='@type', serialization_alias='@type') # type: ignore

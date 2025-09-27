@@ -7,4 +7,4 @@ class AllocateAction(OrganizeAction):
     """
 The act of organizing tasks/objects/events by associating resources to it.
     """
-    class_: Literal['https://schema.org/AllocateAction'] = Field(default='https://schema.org/AllocateAction', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/AllocateAction'] = Field(default='https://schema.org/AllocateAction', alias='@type', serialization_alias='@type') # type: ignore

@@ -11,7 +11,7 @@ class Nerve(AnatomicalStructure):
     """
 The underlying innervation associated with the muscle.
     """
-    class_: Literal['https://schema.org/Nerve'] = Field(default='https://schema.org/Nerve', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/Nerve'] = Field(default='https://schema.org/Nerve', alias='@type', serialization_alias='@type') # type: ignore
     sensoryUnit: Optional[Union[SuperficialAnatomy, List[SuperficialAnatomy], AnatomicalStructure, List[AnatomicalStructure]]] = Field(default=None, validation_alias=AliasChoices('sensoryUnit', 'https://schema.org/sensoryUnit'), serialization_alias='https://schema.org/sensoryUnit')
     branch: Optional[Union[AnatomicalStructure, List[AnatomicalStructure]]] = Field(default=None, validation_alias=AliasChoices('branch', 'https://schema.org/branch'), serialization_alias='https://schema.org/branch')
     nerveMotor: Optional[Union[Muscle, List[Muscle]]] = Field(default=None, validation_alias=AliasChoices('nerveMotor', 'https://schema.org/nerveMotor'), serialization_alias='https://schema.org/nerveMotor')

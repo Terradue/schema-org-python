@@ -12,7 +12,7 @@ class ParcelDelivery(Intangible):
     """
 The delivery of a parcel either via the postal service or a commercial service.
     """
-    class_: Literal['https://schema.org/ParcelDelivery'] = Field(default='https://schema.org/ParcelDelivery', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/ParcelDelivery'] = Field(default='https://schema.org/ParcelDelivery', alias='@type', serialization_alias='@type') # type: ignore
     hasDeliveryMethod: Optional[Union["DeliveryMethod", List["DeliveryMethod"]]] = Field(default=None, validation_alias=AliasChoices('hasDeliveryMethod', 'https://schema.org/hasDeliveryMethod'), serialization_alias='https://schema.org/hasDeliveryMethod')
     expectedArrivalUntil: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(default=None, validation_alias=AliasChoices('expectedArrivalUntil', 'https://schema.org/expectedArrivalUntil'), serialization_alias='https://schema.org/expectedArrivalUntil')
     originAddress: Optional[Union["PostalAddress", List["PostalAddress"]]] = Field(default=None, validation_alias=AliasChoices('originAddress', 'https://schema.org/originAddress'), serialization_alias='https://schema.org/originAddress')

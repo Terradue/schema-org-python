@@ -9,7 +9,7 @@ class Muscle(AnatomicalStructure):
     """
 A muscle is an anatomical structure consisting of a contractile form of tissue that animals use to effect movement.
     """
-    class_: Literal['https://schema.org/Muscle'] = Field(default='https://schema.org/Muscle', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/Muscle'] = Field(default='https://schema.org/Muscle', alias='@type', serialization_alias='@type') # type: ignore
     antagonist: Optional[Union["Muscle", List["Muscle"]]] = Field(default=None, validation_alias=AliasChoices('antagonist', 'https://schema.org/antagonist'), serialization_alias='https://schema.org/antagonist')
     insertion: Optional[Union[AnatomicalStructure, List[AnatomicalStructure]]] = Field(default=None, validation_alias=AliasChoices('insertion', 'https://schema.org/insertion'), serialization_alias='https://schema.org/insertion')
     nerve: Optional[Union["Nerve", List["Nerve"]]] = Field(default=None, validation_alias=AliasChoices('nerve', 'https://schema.org/nerve'), serialization_alias='https://schema.org/nerve')

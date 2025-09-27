@@ -7,4 +7,4 @@ class DepartAction(MoveAction):
     """
 The act of  departing from a place. An agent departs from a fromLocation for a destination, optionally with participants.
     """
-    class_: Literal['https://schema.org/DepartAction'] = Field(default='https://schema.org/DepartAction', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/DepartAction'] = Field(default='https://schema.org/DepartAction', alias='@type', serialization_alias='@type') # type: ignore

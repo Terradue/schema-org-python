@@ -7,4 +7,4 @@ class ShoppingCenter(LocalBusiness):
     """
 A shopping center or mall.
     """
-    class_: Literal['https://schema.org/ShoppingCenter'] = Field(default='https://schema.org/ShoppingCenter', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/ShoppingCenter'] = Field(default='https://schema.org/ShoppingCenter', alias='@type', serialization_alias='@type') # type: ignore

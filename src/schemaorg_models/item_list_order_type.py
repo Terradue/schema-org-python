@@ -7,4 +7,4 @@ class ItemListOrderType(Enumeration):
     """
 Enumerated for values for itemListOrder for indicating how an ordered ItemList is organized.
     """
-    class_: Literal['https://schema.org/ItemListOrderType'] = Field(default='https://schema.org/ItemListOrderType', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/ItemListOrderType'] = Field(default='https://schema.org/ItemListOrderType', alias='@type', serialization_alias='@type') # type: ignore

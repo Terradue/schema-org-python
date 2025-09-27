@@ -7,4 +7,4 @@ class GasStation(AutomotiveBusiness):
     """
 A gas station.
     """
-    class_: Literal['https://schema.org/GasStation'] = Field(default='https://schema.org/GasStation', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/GasStation'] = Field(default='https://schema.org/GasStation', alias='@type', serialization_alias='@type') # type: ignore

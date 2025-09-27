@@ -7,4 +7,4 @@ class MotorcycleDealer(AutomotiveBusiness):
     """
 A motorcycle dealer.
     """
-    class_: Literal['https://schema.org/MotorcycleDealer'] = Field(default='https://schema.org/MotorcycleDealer', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/MotorcycleDealer'] = Field(default='https://schema.org/MotorcycleDealer', alias='@type', serialization_alias='@type') # type: ignore

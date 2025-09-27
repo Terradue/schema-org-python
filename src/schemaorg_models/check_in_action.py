@@ -13,4 +13,4 @@ Related actions:\
 * [[ArriveAction]]: Unlike ArriveAction, CheckInAction implies that the agent is informing/confirming the start of a previously reserved service.\
 * [[ConfirmAction]]: Unlike ConfirmAction, CheckInAction implies that the agent is informing/confirming the *start* of a previously reserved service rather than its validity/existence.
     """
-    class_: Literal['https://schema.org/CheckInAction'] = Field(default='https://schema.org/CheckInAction', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/CheckInAction'] = Field(default='https://schema.org/CheckInAction', alias='@type', serialization_alias='@type') # type: ignore

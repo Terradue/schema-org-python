@@ -7,4 +7,4 @@ class Museum(CivicStructure):
     """
 A museum.
     """
-    class_: Literal['https://schema.org/Museum'] = Field(default='https://schema.org/Museum', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/Museum'] = Field(default='https://schema.org/Museum', alias='@type', serialization_alias='@type') # type: ignore

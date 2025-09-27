@@ -7,4 +7,4 @@ class MiddleSchool(EducationalOrganization):
     """
 A middle school (typically for children aged around 11-14, although this varies somewhat).
     """
-    class_: Literal['https://schema.org/MiddleSchool'] = Field(default='https://schema.org/MiddleSchool', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/MiddleSchool'] = Field(default='https://schema.org/MiddleSchool', alias='@type', serialization_alias='@type') # type: ignore

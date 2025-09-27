@@ -7,4 +7,4 @@ class PaymentStatusType(StatusEnumeration):
     """
 A specific payment status. For example, PaymentDue, PaymentComplete, etc.
     """
-    class_: Literal['https://schema.org/PaymentStatusType'] = Field(default='https://schema.org/PaymentStatusType', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/PaymentStatusType'] = Field(default='https://schema.org/PaymentStatusType', alias='@type', serialization_alias='@type') # type: ignore

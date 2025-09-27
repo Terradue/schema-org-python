@@ -9,7 +9,7 @@ class ImageObject(MediaObject):
     """
 An image file.
     """
-    class_: Literal['https://schema.org/ImageObject'] = Field(default='https://schema.org/ImageObject', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/ImageObject'] = Field(default='https://schema.org/ImageObject', alias='@type', serialization_alias='@type') # type: ignore
     representativeOfPage: Optional[Union[bool, List[bool]]] = Field(default=None, validation_alias=AliasChoices('representativeOfPage', 'https://schema.org/representativeOfPage'), serialization_alias='https://schema.org/representativeOfPage')
     caption: Optional[Union[MediaObject, List[MediaObject], str, List[str]]] = Field(default=None, validation_alias=AliasChoices('caption', 'https://schema.org/caption'), serialization_alias='https://schema.org/caption')
     embeddedTextCaption: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('embeddedTextCaption', 'https://schema.org/embeddedTextCaption'), serialization_alias='https://schema.org/embeddedTextCaption')

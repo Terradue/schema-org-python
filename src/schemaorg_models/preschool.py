@@ -7,4 +7,4 @@ class Preschool(EducationalOrganization):
     """
 A preschool.
     """
-    class_: Literal['https://schema.org/Preschool'] = Field(default='https://schema.org/Preschool', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/Preschool'] = Field(default='https://schema.org/Preschool', alias='@type', serialization_alias='@type') # type: ignore

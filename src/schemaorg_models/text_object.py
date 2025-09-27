@@ -7,4 +7,4 @@ class TextObject(MediaObject):
     """
 A text file. The text can be unformatted or contain markup, html, etc.
     """
-    class_: Literal['https://schema.org/TextObject'] = Field(default='https://schema.org/TextObject', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/TextObject'] = Field(default='https://schema.org/TextObject', alias='@type', serialization_alias='@type') # type: ignore

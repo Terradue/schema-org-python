@@ -7,4 +7,4 @@ class WarrantyScope(Enumeration):
     """
 The scope of the warranty promise.
     """
-    class_: Literal['https://schema.org/WarrantyScope'] = Field(default='https://schema.org/WarrantyScope', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/WarrantyScope'] = Field(default='https://schema.org/WarrantyScope', alias='@type', serialization_alias='@type') # type: ignore

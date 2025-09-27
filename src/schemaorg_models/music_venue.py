@@ -7,4 +7,4 @@ class MusicVenue(CivicStructure):
     """
 A music venue.
     """
-    class_: Literal['https://schema.org/MusicVenue'] = Field(default='https://schema.org/MusicVenue', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/MusicVenue'] = Field(default='https://schema.org/MusicVenue', alias='@type', serialization_alias='@type') # type: ignore

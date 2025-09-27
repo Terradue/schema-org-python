@@ -13,7 +13,7 @@ Individual comic issues are serially published as
     	series to which the issue belongs; the issue number; and the variant
     	description of the issue (if any).
     """
-    class_: Literal['https://schema.org/ComicIssue'] = Field(default='https://schema.org/ComicIssue', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/ComicIssue'] = Field(default='https://schema.org/ComicIssue', alias='@type', serialization_alias='@type') # type: ignore
     variantCover: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('variantCover', 'https://schema.org/variantCover'), serialization_alias='https://schema.org/variantCover')
     colorist: Optional[Union[Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('colorist', 'https://schema.org/colorist'), serialization_alias='https://schema.org/colorist')
     artist: Optional[Union[Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('artist', 'https://schema.org/artist'), serialization_alias='https://schema.org/artist')

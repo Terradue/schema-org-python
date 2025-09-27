@@ -9,7 +9,7 @@ class HowTo(CreativeWork):
     """
 Instructions that explain how to achieve a result by performing a sequence of steps.
     """
-    class_: Literal['https://schema.org/HowTo'] = Field(default='https://schema.org/HowTo', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/HowTo'] = Field(default='https://schema.org/HowTo', alias='@type', serialization_alias='@type') # type: ignore
     prepTime: Optional[Union["Duration", List["Duration"]]] = Field(default=None, validation_alias=AliasChoices('prepTime', 'https://schema.org/prepTime'), serialization_alias='https://schema.org/prepTime')
     performTime: Optional[Union["Duration", List["Duration"]]] = Field(default=None, validation_alias=AliasChoices('performTime', 'https://schema.org/performTime'), serialization_alias='https://schema.org/performTime')
     supply: Optional[Union["HowToSupply", List["HowToSupply"], str, List[str]]] = Field(default=None, validation_alias=AliasChoices('supply', 'https://schema.org/supply'), serialization_alias='https://schema.org/supply')

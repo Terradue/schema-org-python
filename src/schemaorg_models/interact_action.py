@@ -7,4 +7,4 @@ class InteractAction(Action):
     """
 The act of interacting with another person or organization.
     """
-    class_: Literal['https://schema.org/InteractAction'] = Field(default='https://schema.org/InteractAction', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/InteractAction'] = Field(default='https://schema.org/InteractAction', alias='@type', serialization_alias='@type') # type: ignore

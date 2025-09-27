@@ -13,7 +13,7 @@ class Flight(Trip):
     """
 An airline flight.
     """
-    class_: Literal['https://schema.org/Flight'] = Field(default='https://schema.org/Flight', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/Flight'] = Field(default='https://schema.org/Flight', alias='@type', serialization_alias='@type') # type: ignore
     boardingPolicy: Optional[Union[BoardingPolicyType, List[BoardingPolicyType]]] = Field(default=None, validation_alias=AliasChoices('boardingPolicy', 'https://schema.org/boardingPolicy'), serialization_alias='https://schema.org/boardingPolicy')
     estimatedFlightDuration: Optional[Union[str, List[str], "Duration", List["Duration"]]] = Field(default=None, validation_alias=AliasChoices('estimatedFlightDuration', 'https://schema.org/estimatedFlightDuration'), serialization_alias='https://schema.org/estimatedFlightDuration')
     departureAirport: Optional[Union[Airport, List[Airport]]] = Field(default=None, validation_alias=AliasChoices('departureAirport', 'https://schema.org/departureAirport'), serialization_alias='https://schema.org/departureAirport')

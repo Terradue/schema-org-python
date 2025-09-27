@@ -9,4 +9,4 @@ Professional service: Attorney. \
 \
 This type is deprecated - [[LegalService]] is more inclusive and less ambiguous.
     """
-    class_: Literal['https://schema.org/Attorney'] = Field(default='https://schema.org/Attorney', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/Attorney'] = Field(default='https://schema.org/Attorney', alias='@type', serialization_alias='@type') # type: ignore

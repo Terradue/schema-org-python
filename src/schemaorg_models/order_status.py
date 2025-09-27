@@ -7,4 +7,4 @@ class OrderStatus(StatusEnumeration):
     """
 Enumerated status values for Order.
     """
-    class_: Literal['https://schema.org/OrderStatus'] = Field(default='https://schema.org/OrderStatus', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/OrderStatus'] = Field(default='https://schema.org/OrderStatus', alias='@type', serialization_alias='@type') # type: ignore

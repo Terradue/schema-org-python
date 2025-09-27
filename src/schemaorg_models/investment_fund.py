@@ -7,4 +7,4 @@ class InvestmentFund(InvestmentOrDeposit):
     """
 A company or fund that gathers capital from a number of investors to create a pool of money that is then re-invested into stocks, bonds and other assets.
     """
-    class_: Literal['https://schema.org/InvestmentFund'] = Field(default='https://schema.org/InvestmentFund', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/InvestmentFund'] = Field(default='https://schema.org/InvestmentFund', alias='@type', serialization_alias='@type') # type: ignore

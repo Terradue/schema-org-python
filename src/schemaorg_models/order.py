@@ -16,7 +16,7 @@ class Order(Intangible):
     """
 An order is a confirmation of a transaction (a receipt), which can contain multiple line items, each represented by an Offer that has been accepted by the customer.
     """
-    class_: Literal['https://schema.org/Order'] = Field(default='https://schema.org/Order', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/Order'] = Field(default='https://schema.org/Order', alias='@type', serialization_alias='@type') # type: ignore
     orderDelivery: Optional[Union[ParcelDelivery, List[ParcelDelivery]]] = Field(default=None, validation_alias=AliasChoices('orderDelivery', 'https://schema.org/orderDelivery'), serialization_alias='https://schema.org/orderDelivery')
     broker: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(default=None, validation_alias=AliasChoices('broker', 'https://schema.org/broker'), serialization_alias='https://schema.org/broker')
     isGift: Optional[Union[bool, List[bool]]] = Field(default=None, validation_alias=AliasChoices('isGift', 'https://schema.org/isGift'), serialization_alias='https://schema.org/isGift')

@@ -7,4 +7,4 @@ class Syllabus(LearningResource):
     """
 A syllabus that describes the material covered in a course, often with several such sections per [[Course]] so that a distinct [[timeRequired]] can be provided for that section of the [[Course]].
     """
-    class_: Literal['https://schema.org/Syllabus'] = Field(default='https://schema.org/Syllabus', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/Syllabus'] = Field(default='https://schema.org/Syllabus', alias='@type', serialization_alias='@type') # type: ignore

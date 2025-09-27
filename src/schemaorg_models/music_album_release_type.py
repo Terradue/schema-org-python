@@ -7,4 +7,4 @@ class MusicAlbumReleaseType(Enumeration):
     """
 The kind of release which this album is: single, EP or album.
     """
-    class_: Literal['https://schema.org/MusicAlbumReleaseType'] = Field(default='https://schema.org/MusicAlbumReleaseType', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/MusicAlbumReleaseType'] = Field(default='https://schema.org/MusicAlbumReleaseType', alias='@type', serialization_alias='@type') # type: ignore

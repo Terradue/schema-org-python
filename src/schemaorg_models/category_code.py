@@ -7,7 +7,7 @@ class CategoryCode(DefinedTerm):
     """
 A Category Code.
     """
-    class_: Literal['https://schema.org/CategoryCode'] = Field(default='https://schema.org/CategoryCode', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/CategoryCode'] = Field(default='https://schema.org/CategoryCode', alias='@type', serialization_alias='@type') # type: ignore
     inCodeSet: Optional[Union[HttpUrl, List[HttpUrl], "CategoryCodeSet", List["CategoryCodeSet"]]] = Field(default=None, validation_alias=AliasChoices('inCodeSet', 'https://schema.org/inCodeSet'), serialization_alias='https://schema.org/inCodeSet')
     @field_serializer('inCodeSet')
     def inCodeSet2str(self, val) -> str | List[str]:

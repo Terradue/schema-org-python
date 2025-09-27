@@ -14,7 +14,7 @@ class Recipe(HowTo):
     """
 A sub property of instrument. The recipe/instructions used to perform the action.
     """
-    class_: Literal['https://schema.org/Recipe'] = Field(default='https://schema.org/Recipe', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/Recipe'] = Field(default='https://schema.org/Recipe', alias='@type', serialization_alias='@type') # type: ignore
     suitableForDiet: Optional[Union[RestrictedDiet, List[RestrictedDiet]]] = Field(default=None, validation_alias=AliasChoices('suitableForDiet', 'https://schema.org/suitableForDiet'), serialization_alias='https://schema.org/suitableForDiet')
     cookTime: Optional[Union[Duration, List[Duration]]] = Field(default=None, validation_alias=AliasChoices('cookTime', 'https://schema.org/cookTime'), serialization_alias='https://schema.org/cookTime')
     recipeIngredient: Optional[Union[PropertyValue, List[PropertyValue], ItemList, List[ItemList], str, List[str]]] = Field(default=None, validation_alias=AliasChoices('recipeIngredient', 'https://schema.org/recipeIngredient'), serialization_alias='https://schema.org/recipeIngredient')

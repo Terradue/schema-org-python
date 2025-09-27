@@ -7,4 +7,4 @@ class EmailMessage(Message):
     """
 An email message.
     """
-    class_: Literal['https://schema.org/EmailMessage'] = Field(default='https://schema.org/EmailMessage', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/EmailMessage'] = Field(default='https://schema.org/EmailMessage', alias='@type', serialization_alias='@type') # type: ignore

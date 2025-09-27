@@ -7,4 +7,4 @@ class Motorcycle(Vehicle):
     """
 A motorcycle or motorbike is a single-track, two-wheeled motor vehicle.
     """
-    class_: Literal['https://schema.org/Motorcycle'] = Field(default='https://schema.org/Motorcycle', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/Motorcycle'] = Field(default='https://schema.org/Motorcycle', alias='@type', serialization_alias='@type') # type: ignore

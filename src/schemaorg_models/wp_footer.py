@@ -7,4 +7,4 @@ class WPFooter(WebPageElement):
     """
 The footer section of the page.
     """
-    class_: Literal['https://schema.org/WPFooter'] = Field(default='https://schema.org/WPFooter', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/WPFooter'] = Field(default='https://schema.org/WPFooter', alias='@type', serialization_alias='@type') # type: ignore

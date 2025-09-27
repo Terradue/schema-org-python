@@ -12,5 +12,5 @@ Related actions:\
 \
 * [[BorrowAction]]: Reciprocal of LendAction.
     """
-    class_: Literal['https://schema.org/LendAction'] = Field(default='https://schema.org/LendAction', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/LendAction'] = Field(default='https://schema.org/LendAction', alias='@type', serialization_alias='@type') # type: ignore
     borrower: Optional[Union[Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('borrower', 'https://schema.org/borrower'), serialization_alias='https://schema.org/borrower')

@@ -7,4 +7,4 @@ class ReadAction(ConsumeAction):
     """
 The act of consuming written content.
     """
-    class_: Literal['https://schema.org/ReadAction'] = Field(default='https://schema.org/ReadAction', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/ReadAction'] = Field(default='https://schema.org/ReadAction', alias='@type', serialization_alias='@type') # type: ignore

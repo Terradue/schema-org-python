@@ -7,4 +7,4 @@ class MedicalProcedureType(MedicalEnumeration):
     """
 An enumeration that describes different types of medical procedures.
     """
-    class_: Literal['https://schema.org/MedicalProcedureType'] = Field(default='https://schema.org/MedicalProcedureType', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/MedicalProcedureType'] = Field(default='https://schema.org/MedicalProcedureType', alias='@type', serialization_alias='@type') # type: ignore

@@ -7,4 +7,4 @@ class BookFormatType(Enumeration):
     """
 The publication format of the book.
     """
-    class_: Literal['https://schema.org/BookFormatType'] = Field(default='https://schema.org/BookFormatType', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/BookFormatType'] = Field(default='https://schema.org/BookFormatType', alias='@type', serialization_alias='@type') # type: ignore

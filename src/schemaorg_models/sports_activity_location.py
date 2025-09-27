@@ -7,4 +7,4 @@ class SportsActivityLocation(LocalBusiness):
     """
 A sub property of location. The sports activity location where this action occurred.
     """
-    class_: Literal['https://schema.org/SportsActivityLocation'] = Field(default='https://schema.org/SportsActivityLocation', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/SportsActivityLocation'] = Field(default='https://schema.org/SportsActivityLocation', alias='@type', serialization_alias='@type') # type: ignore

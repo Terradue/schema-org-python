@@ -7,4 +7,4 @@ class TreatmentIndication(MedicalIndication):
     """
 An indication for treating an underlying condition, symptom, etc.
     """
-    class_: Literal['https://schema.org/TreatmentIndication'] = Field(default='https://schema.org/TreatmentIndication', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/TreatmentIndication'] = Field(default='https://schema.org/TreatmentIndication', alias='@type', serialization_alias='@type') # type: ignore

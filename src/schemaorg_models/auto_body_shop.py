@@ -7,4 +7,4 @@ class AutoBodyShop(AutomotiveBusiness):
     """
 Auto body shop.
     """
-    class_: Literal['https://schema.org/AutoBodyShop'] = Field(default='https://schema.org/AutoBodyShop', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/AutoBodyShop'] = Field(default='https://schema.org/AutoBodyShop', alias='@type', serialization_alias='@type') # type: ignore

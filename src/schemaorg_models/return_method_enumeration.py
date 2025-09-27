@@ -7,4 +7,4 @@ class ReturnMethodEnumeration(Enumeration):
     """
 Enumerates several types of product return methods.
     """
-    class_: Literal['https://schema.org/ReturnMethodEnumeration'] = Field(default='https://schema.org/ReturnMethodEnumeration', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/ReturnMethodEnumeration'] = Field(default='https://schema.org/ReturnMethodEnumeration', alias='@type', serialization_alias='@type') # type: ignore

@@ -7,4 +7,4 @@ class LegalForceStatus(StatusEnumeration):
     """
 A list of possible statuses for the legal force of a legislation.
     """
-    class_: Literal['https://schema.org/LegalForceStatus'] = Field(default='https://schema.org/LegalForceStatus', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/LegalForceStatus'] = Field(default='https://schema.org/LegalForceStatus', alias='@type', serialization_alias='@type') # type: ignore

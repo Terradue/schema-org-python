@@ -7,4 +7,4 @@ class DrugPrescriptionStatus(MedicalEnumeration):
     """
 Indicates whether this drug is available by prescription or over-the-counter.
     """
-    class_: Literal['https://schema.org/DrugPrescriptionStatus'] = Field(default='https://schema.org/DrugPrescriptionStatus', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/DrugPrescriptionStatus'] = Field(default='https://schema.org/DrugPrescriptionStatus', alias='@type', serialization_alias='@type') # type: ignore

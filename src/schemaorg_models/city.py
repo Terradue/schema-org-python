@@ -7,4 +7,4 @@ class City(AdministrativeArea):
     """
 A city or town.
     """
-    class_: Literal['https://schema.org/City'] = Field(default='https://schema.org/City', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/City'] = Field(default='https://schema.org/City', alias='@type', serialization_alias='@type') # type: ignore

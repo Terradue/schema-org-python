@@ -8,5 +8,5 @@ class TravelAction(MoveAction):
     """
 The act of traveling from a fromLocation to a destination by a specified mode of transport, optionally with participants.
     """
-    class_: Literal['https://schema.org/TravelAction'] = Field(default='https://schema.org/TravelAction', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/TravelAction'] = Field(default='https://schema.org/TravelAction', alias='@type', serialization_alias='@type') # type: ignore
     distance: Optional[Union[Distance, List[Distance]]] = Field(default=None, validation_alias=AliasChoices('distance', 'https://schema.org/distance'), serialization_alias='https://schema.org/distance')

@@ -7,4 +7,4 @@ class DiscoverAction(FindAction):
     """
 The act of discovering/finding an object.
     """
-    class_: Literal['https://schema.org/DiscoverAction'] = Field(default='https://schema.org/DiscoverAction', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/DiscoverAction'] = Field(default='https://schema.org/DiscoverAction', alias='@type', serialization_alias='@type') # type: ignore

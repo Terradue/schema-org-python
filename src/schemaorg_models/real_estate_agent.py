@@ -7,4 +7,4 @@ class RealEstateAgent(LocalBusiness):
     """
 A real-estate agent.
     """
-    class_: Literal['https://schema.org/RealEstateAgent'] = Field(default='https://schema.org/RealEstateAgent', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/RealEstateAgent'] = Field(default='https://schema.org/RealEstateAgent', alias='@type', serialization_alias='@type') # type: ignore

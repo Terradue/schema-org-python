@@ -7,4 +7,4 @@ class MedicalObservationalStudyDesign(MedicalEnumeration):
     """
 Design models for observational medical studies. Enumerated type.
     """
-    class_: Literal['https://schema.org/MedicalObservationalStudyDesign'] = Field(default='https://schema.org/MedicalObservationalStudyDesign', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/MedicalObservationalStudyDesign'] = Field(default='https://schema.org/MedicalObservationalStudyDesign', alias='@type', serialization_alias='@type') # type: ignore

@@ -7,5 +7,5 @@ class Map(CreativeWork):
     """
 A map.
     """
-    class_: Literal['https://schema.org/Map'] = Field(default='https://schema.org/Map', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/Map'] = Field(default='https://schema.org/Map', alias='@type', serialization_alias='@type') # type: ignore
     mapType: Optional[Union["MapCategoryType", List["MapCategoryType"]]] = Field(default=None, validation_alias=AliasChoices('mapType', 'https://schema.org/mapType'), serialization_alias='https://schema.org/mapType')

@@ -7,5 +7,5 @@ class MonetaryAmountDistribution(QuantitativeValueDistribution):
     """
 A statistical distribution of monetary amounts.
     """
-    class_: Literal['https://schema.org/MonetaryAmountDistribution'] = Field(default='https://schema.org/MonetaryAmountDistribution', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/MonetaryAmountDistribution'] = Field(default='https://schema.org/MonetaryAmountDistribution', alias='@type', serialization_alias='@type') # type: ignore
     currency: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('currency', 'https://schema.org/currency'), serialization_alias='https://schema.org/currency')

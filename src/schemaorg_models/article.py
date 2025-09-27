@@ -11,7 +11,7 @@ An article, such as a news article or piece of investigative report. Newspapers 
 \
 See also [blog post](https://blog.schema.org/2014/09/02/schema-org-support-for-bibliographic-relationships-and-periodicals/).
     """
-    class_: Literal['https://schema.org/Article'] = Field(default='https://schema.org/Article', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/Article'] = Field(default='https://schema.org/Article', alias='@type', serialization_alias='@type') # type: ignore
     pagination: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('pagination', 'https://schema.org/pagination'), serialization_alias='https://schema.org/pagination')
     articleBody: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('articleBody', 'https://schema.org/articleBody'), serialization_alias='https://schema.org/articleBody')
     pageEnd: Optional[Union[str, List[str], int, List[int]]] = Field(default=None, validation_alias=AliasChoices('pageEnd', 'https://schema.org/pageEnd'), serialization_alias='https://schema.org/pageEnd')

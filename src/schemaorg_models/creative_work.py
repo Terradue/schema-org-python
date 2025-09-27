@@ -12,7 +12,7 @@ class CreativeWork(Thing):
     """
 The most generic kind of creative work, including books, movies, photographs, software programs, etc.
     """
-    class_: Literal['https://schema.org/CreativeWork'] = Field(default='https://schema.org/CreativeWork', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/CreativeWork'] = Field(default='https://schema.org/CreativeWork', alias='@type', serialization_alias='@type') # type: ignore
     educationalUse: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str]]] = Field(default=None, validation_alias=AliasChoices('educationalUse', 'https://schema.org/educationalUse'), serialization_alias='https://schema.org/educationalUse')
     accessMode: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('accessMode', 'https://schema.org/accessMode'), serialization_alias='https://schema.org/accessMode')
     sdLicense: Optional[Union["CreativeWork", List["CreativeWork"], HttpUrl, List[HttpUrl]]] = Field(default=None, validation_alias=AliasChoices('sdLicense', 'https://schema.org/sdLicense'), serialization_alias='https://schema.org/sdLicense')

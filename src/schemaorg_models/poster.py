@@ -7,4 +7,4 @@ class Poster(CreativeWork):
     """
 A large, usually printed placard, bill, or announcement, often illustrated, that is posted to advertise or publicize something.
     """
-    class_: Literal['https://schema.org/Poster'] = Field(default='https://schema.org/Poster', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/Poster'] = Field(default='https://schema.org/Poster', alias='@type', serialization_alias='@type') # type: ignore

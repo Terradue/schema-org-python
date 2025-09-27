@@ -7,4 +7,4 @@ class Drawing(CreativeWork):
     """
 A picture or diagram made with a pencil, pen, or crayon rather than paint.
     """
-    class_: Literal['https://schema.org/Drawing'] = Field(default='https://schema.org/Drawing', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/Drawing'] = Field(default='https://schema.org/Drawing', alias='@type', serialization_alias='@type') # type: ignore

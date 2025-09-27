@@ -18,7 +18,7 @@ Observations can also encode a subset of simple RDF-like statements (its observa
 In the context of a quantitative knowledge graph, typical properties could include [[measuredProperty]], [[observationAbout]], [[observationDate]], [[value]], [[unitCode]], [[unitText]], [[measurementMethod]].
     
     """
-    class_: Literal['https://schema.org/Observation'] = Field(default='https://schema.org/Observation', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/Observation'] = Field(default='https://schema.org/Observation', alias='@type', serialization_alias='@type') # type: ignore
     measurementTechnique: Optional[Union[DefinedTerm, List[DefinedTerm], "MeasurementMethodEnum", List["MeasurementMethodEnum"], str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None, validation_alias=AliasChoices('measurementTechnique', 'https://schema.org/measurementTechnique'), serialization_alias='https://schema.org/measurementTechnique')
     @field_serializer('measurementTechnique')
     def measurementTechnique2str(self, val) -> str | List[str]:

@@ -7,4 +7,4 @@ class ReactAction(AssessAction):
     """
 The act of responding instinctively and emotionally to an object, expressing a sentiment.
     """
-    class_: Literal['https://schema.org/ReactAction'] = Field(default='https://schema.org/ReactAction', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/ReactAction'] = Field(default='https://schema.org/ReactAction', alias='@type', serialization_alias='@type') # type: ignore

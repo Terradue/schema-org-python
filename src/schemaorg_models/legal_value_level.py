@@ -7,4 +7,4 @@ class LegalValueLevel(Enumeration):
     """
 A list of possible levels for the legal validity of a legislation.
     """
-    class_: Literal['https://schema.org/LegalValueLevel'] = Field(default='https://schema.org/LegalValueLevel', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/LegalValueLevel'] = Field(default='https://schema.org/LegalValueLevel', alias='@type', serialization_alias='@type') # type: ignore

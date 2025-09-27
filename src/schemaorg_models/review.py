@@ -12,7 +12,7 @@ class Review(CreativeWork):
     """
 A review of the item.
     """
-    class_: Literal['https://schema.org/Review'] = Field(default='https://schema.org/Review', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/Review'] = Field(default='https://schema.org/Review', alias='@type', serialization_alias='@type') # type: ignore
     itemReviewed: Optional[Union[Thing, List[Thing]]] = Field(default=None, validation_alias=AliasChoices('itemReviewed', 'https://schema.org/itemReviewed'), serialization_alias='https://schema.org/itemReviewed')
     positiveNotes: Optional[Union[WebContent, List[WebContent], ItemList, List[ItemList], str, List[str], ListItem, List[ListItem]]] = Field(default=None, validation_alias=AliasChoices('positiveNotes', 'https://schema.org/positiveNotes'), serialization_alias='https://schema.org/positiveNotes')
     reviewAspect: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('reviewAspect', 'https://schema.org/reviewAspect'), serialization_alias='https://schema.org/reviewAspect')

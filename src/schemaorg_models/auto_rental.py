@@ -7,4 +7,4 @@ class AutoRental(AutomotiveBusiness):
     """
 A car rental business.
     """
-    class_: Literal['https://schema.org/AutoRental'] = Field(default='https://schema.org/AutoRental', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/AutoRental'] = Field(default='https://schema.org/AutoRental', alias='@type', serialization_alias='@type') # type: ignore

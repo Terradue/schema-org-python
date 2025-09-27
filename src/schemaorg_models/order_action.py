@@ -8,5 +8,5 @@ class OrderAction(TradeAction):
     """
 An agent orders an object/product/service to be delivered/sent.
     """
-    class_: Literal['https://schema.org/OrderAction'] = Field(default='https://schema.org/OrderAction', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/OrderAction'] = Field(default='https://schema.org/OrderAction', alias='@type', serialization_alias='@type') # type: ignore
     deliveryMethod: Optional[Union[DeliveryMethod, List[DeliveryMethod]]] = Field(default=None, validation_alias=AliasChoices('deliveryMethod', 'https://schema.org/deliveryMethod'), serialization_alias='https://schema.org/deliveryMethod')

@@ -9,5 +9,5 @@ class EndorseAction(ReactAction):
     """
 An agent approves/certifies/likes/supports/sanctions an object.
     """
-    class_: Literal['https://schema.org/EndorseAction'] = Field(default='https://schema.org/EndorseAction', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/EndorseAction'] = Field(default='https://schema.org/EndorseAction', alias='@type', serialization_alias='@type') # type: ignore
     endorsee: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(default=None, validation_alias=AliasChoices('endorsee', 'https://schema.org/endorsee'), serialization_alias='https://schema.org/endorsee')

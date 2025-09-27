@@ -11,7 +11,7 @@ For more specific types of accommodations not defined in schema.org, one can use
 See also the <a href="/docs/hotels.html">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>.
 
     """
-    class_: Literal['https://schema.org/Accommodation'] = Field(default='https://schema.org/Accommodation', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/Accommodation'] = Field(default='https://schema.org/Accommodation', alias='@type', serialization_alias='@type') # type: ignore
     numberOfRooms: Optional[Union[float, List[float], "QuantitativeValue", List["QuantitativeValue"]]] = Field(default=None, validation_alias=AliasChoices('numberOfRooms', 'https://schema.org/numberOfRooms'), serialization_alias='https://schema.org/numberOfRooms')
     petsAllowed: Optional[Union[str, List[str], bool, List[bool]]] = Field(default=None, validation_alias=AliasChoices('petsAllowed', 'https://schema.org/petsAllowed'), serialization_alias='https://schema.org/petsAllowed')
     numberOfBathroomsTotal: Optional[Union[int, List[int]]] = Field(default=None, validation_alias=AliasChoices('numberOfBathroomsTotal', 'https://schema.org/numberOfBathroomsTotal'), serialization_alias='https://schema.org/numberOfBathroomsTotal')

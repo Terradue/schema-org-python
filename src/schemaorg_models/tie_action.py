@@ -7,4 +7,4 @@ class TieAction(AchieveAction):
     """
 The act of reaching a draw in a competitive activity.
     """
-    class_: Literal['https://schema.org/TieAction'] = Field(default='https://schema.org/TieAction', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/TieAction'] = Field(default='https://schema.org/TieAction', alias='@type', serialization_alias='@type') # type: ignore

@@ -7,4 +7,4 @@ class HobbyShop(Store):
     """
 A store that sells materials useful or necessary for various hobbies.
     """
-    class_: Literal['https://schema.org/HobbyShop'] = Field(default='https://schema.org/HobbyShop', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/HobbyShop'] = Field(default='https://schema.org/HobbyShop', alias='@type', serialization_alias='@type') # type: ignore

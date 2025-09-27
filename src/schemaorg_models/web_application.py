@@ -7,5 +7,5 @@ class WebApplication(SoftwareApplication):
     """
 Web applications.
     """
-    class_: Literal['https://schema.org/WebApplication'] = Field(default='https://schema.org/WebApplication', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/WebApplication'] = Field(default='https://schema.org/WebApplication', alias='@type', serialization_alias='@type') # type: ignore
     browserRequirements: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('browserRequirements', 'https://schema.org/browserRequirements'), serialization_alias='https://schema.org/browserRequirements')

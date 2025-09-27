@@ -7,4 +7,4 @@ class MedicalSpecialty(Specialty):
     """
 Any specific branch of medical science or practice. Medical specialities include clinical specialties that pertain to particular organ systems and their respective disease states, as well as allied health specialties. Enumerated type.
     """
-    class_: Literal['https://schema.org/MedicalSpecialty'] = Field(default='https://schema.org/MedicalSpecialty', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/MedicalSpecialty'] = Field(default='https://schema.org/MedicalSpecialty', alias='@type', serialization_alias='@type') # type: ignore

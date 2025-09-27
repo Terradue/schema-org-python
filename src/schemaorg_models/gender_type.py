@@ -7,4 +7,4 @@ class GenderType(Enumeration):
     """
 An enumeration of genders.
     """
-    class_: Literal['https://schema.org/GenderType'] = Field(default='https://schema.org/GenderType', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/GenderType'] = Field(default='https://schema.org/GenderType', alias='@type', serialization_alias='@type') # type: ignore

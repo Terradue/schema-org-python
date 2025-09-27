@@ -7,4 +7,4 @@ class LakeBodyOfWater(BodyOfWater):
     """
 A lake (for example, Lake Pontrachain).
     """
-    class_: Literal['https://schema.org/LakeBodyOfWater'] = Field(default='https://schema.org/LakeBodyOfWater', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/LakeBodyOfWater'] = Field(default='https://schema.org/LakeBodyOfWater', alias='@type', serialization_alias='@type') # type: ignore

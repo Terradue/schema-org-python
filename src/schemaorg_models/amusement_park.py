@@ -7,4 +7,4 @@ class AmusementPark(EntertainmentBusiness):
     """
 An amusement park.
     """
-    class_: Literal['https://schema.org/AmusementPark'] = Field(default='https://schema.org/AmusementPark', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/AmusementPark'] = Field(default='https://schema.org/AmusementPark', alias='@type', serialization_alias='@type') # type: ignore

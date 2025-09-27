@@ -7,5 +7,5 @@ class Corporation(Organization):
     """
 Organization: A business corporation.
     """
-    class_: Literal['https://schema.org/Corporation'] = Field(default='https://schema.org/Corporation', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/Corporation'] = Field(default='https://schema.org/Corporation', alias='@type', serialization_alias='@type') # type: ignore
     tickerSymbol: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('tickerSymbol', 'https://schema.org/tickerSymbol'), serialization_alias='https://schema.org/tickerSymbol')

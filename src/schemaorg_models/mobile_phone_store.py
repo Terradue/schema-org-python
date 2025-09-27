@@ -7,4 +7,4 @@ class MobilePhoneStore(Store):
     """
 A store that sells mobile phones and related accessories.
     """
-    class_: Literal['https://schema.org/MobilePhoneStore'] = Field(default='https://schema.org/MobilePhoneStore', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/MobilePhoneStore'] = Field(default='https://schema.org/MobilePhoneStore', alias='@type', serialization_alias='@type') # type: ignore

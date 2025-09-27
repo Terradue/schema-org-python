@@ -7,4 +7,4 @@ class PodcastSeason(CreativeWorkSeason):
     """
 A single season of a podcast. Many podcasts do not break down into separate seasons. In that case, PodcastSeries should be used.
     """
-    class_: Literal['https://schema.org/PodcastSeason'] = Field(default='https://schema.org/PodcastSeason', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/PodcastSeason'] = Field(default='https://schema.org/PodcastSeason', alias='@type', serialization_alias='@type') # type: ignore

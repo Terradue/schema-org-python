@@ -7,4 +7,4 @@ class CertificationStatusEnumeration(Enumeration):
     """
 Enumerates the different statuses of a Certification (Active and Inactive).
     """
-    class_: Literal['https://schema.org/CertificationStatusEnumeration'] = Field(default='https://schema.org/CertificationStatusEnumeration', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/CertificationStatusEnumeration'] = Field(default='https://schema.org/CertificationStatusEnumeration', alias='@type', serialization_alias='@type') # type: ignore

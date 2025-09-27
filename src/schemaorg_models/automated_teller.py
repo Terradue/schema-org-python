@@ -7,4 +7,4 @@ class AutomatedTeller(FinancialService):
     """
 ATM/cash machine.
     """
-    class_: Literal['https://schema.org/AutomatedTeller'] = Field(default='https://schema.org/AutomatedTeller', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/AutomatedTeller'] = Field(default='https://schema.org/AutomatedTeller', alias='@type', serialization_alias='@type') # type: ignore

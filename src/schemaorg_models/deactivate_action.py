@@ -7,4 +7,4 @@ class DeactivateAction(ControlAction):
     """
 The act of stopping or deactivating a device or application (e.g. stopping a timer or turning off a flashlight).
     """
-    class_: Literal['https://schema.org/DeactivateAction'] = Field(default='https://schema.org/DeactivateAction', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/DeactivateAction'] = Field(default='https://schema.org/DeactivateAction', alias='@type', serialization_alias='@type') # type: ignore

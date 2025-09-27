@@ -7,4 +7,4 @@ class BankOrCreditUnion(FinancialService):
     """
 Bank or credit union.
     """
-    class_: Literal['https://schema.org/BankOrCreditUnion'] = Field(default='https://schema.org/BankOrCreditUnion', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/BankOrCreditUnion'] = Field(default='https://schema.org/BankOrCreditUnion', alias='@type', serialization_alias='@type') # type: ignore

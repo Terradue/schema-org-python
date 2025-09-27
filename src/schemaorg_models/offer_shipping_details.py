@@ -25,7 +25,7 @@ Two entities that are identical but differ in rate and time:
 E.g. Cheaper and slower: $5 in 5-7 days
 or Fast and expensive: $15 in 1-2 days.
     """
-    class_: Literal['https://schema.org/OfferShippingDetails'] = Field(default='https://schema.org/OfferShippingDetails', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/OfferShippingDetails'] = Field(default='https://schema.org/OfferShippingDetails', alias='@type', serialization_alias='@type') # type: ignore
     depth: Optional[Union["Distance", List["Distance"], QuantitativeValue, List[QuantitativeValue]]] = Field(default=None, validation_alias=AliasChoices('depth', 'https://schema.org/depth'), serialization_alias='https://schema.org/depth')
     shippingLabel: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('shippingLabel', 'https://schema.org/shippingLabel'), serialization_alias='https://schema.org/shippingLabel')
     hasShippingService: Optional[Union[ShippingService, List[ShippingService]]] = Field(default=None, validation_alias=AliasChoices('hasShippingService', 'https://schema.org/hasShippingService'), serialization_alias='https://schema.org/hasShippingService')

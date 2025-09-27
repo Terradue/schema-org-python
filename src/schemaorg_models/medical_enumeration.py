@@ -7,4 +7,4 @@ class MedicalEnumeration(Enumeration):
     """
 Enumerations related to health and the practice of medicine: A concept that is used to attribute a quality to another concept, as a qualifier, a collection of items or a listing of all of the elements of a set in medicine practice.
     """
-    class_: Literal['https://schema.org/MedicalEnumeration'] = Field(default='https://schema.org/MedicalEnumeration', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/MedicalEnumeration'] = Field(default='https://schema.org/MedicalEnumeration', alias='@type', serialization_alias='@type') # type: ignore

@@ -7,4 +7,4 @@ class RecyclingCenter(LocalBusiness):
     """
 A recycling center.
     """
-    class_: Literal['https://schema.org/RecyclingCenter'] = Field(default='https://schema.org/RecyclingCenter', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/RecyclingCenter'] = Field(default='https://schema.org/RecyclingCenter', alias='@type', serialization_alias='@type') # type: ignore

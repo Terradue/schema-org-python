@@ -7,4 +7,4 @@ class RoofingContractor(HomeAndConstructionBusiness):
     """
 A roofing contractor.
     """
-    class_: Literal['https://schema.org/RoofingContractor'] = Field(default='https://schema.org/RoofingContractor', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/RoofingContractor'] = Field(default='https://schema.org/RoofingContractor', alias='@type', serialization_alias='@type') # type: ignore

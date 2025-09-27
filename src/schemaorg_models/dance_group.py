@@ -7,4 +7,4 @@ class DanceGroup(PerformingGroup):
     """
 A dance group&#x2014;for example, the Alvin Ailey Dance Theater or Riverdance.
     """
-    class_: Literal['https://schema.org/DanceGroup'] = Field(default='https://schema.org/DanceGroup', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/DanceGroup'] = Field(default='https://schema.org/DanceGroup', alias='@type', serialization_alias='@type') # type: ignore

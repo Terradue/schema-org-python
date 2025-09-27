@@ -9,4 +9,4 @@ An enterprise (potentially individual but typically collaborative), planned to a
 Use properties from [[Organization]], [[subOrganization]]/[[parentOrganization]] to indicate project sub-structures. 
    
     """
-    class_: Literal['https://schema.org/Project'] = Field(default='https://schema.org/Project', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/Project'] = Field(default='https://schema.org/Project', alias='@type', serialization_alias='@type') # type: ignore

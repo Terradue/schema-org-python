@@ -7,4 +7,4 @@ class FireStation(CivicStructure):
     """
 A fire station. With firemen.
     """
-    class_: Literal['https://schema.org/FireStation'] = Field(default='https://schema.org/FireStation', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/FireStation'] = Field(default='https://schema.org/FireStation', alias='@type', serialization_alias='@type') # type: ignore

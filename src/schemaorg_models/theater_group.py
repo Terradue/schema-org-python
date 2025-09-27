@@ -7,4 +7,4 @@ class TheaterGroup(PerformingGroup):
     """
 A theater group or company, for example, the Royal Shakespeare Company or Druid Theatre.
     """
-    class_: Literal['https://schema.org/TheaterGroup'] = Field(default='https://schema.org/TheaterGroup', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/TheaterGroup'] = Field(default='https://schema.org/TheaterGroup', alias='@type', serialization_alias='@type') # type: ignore

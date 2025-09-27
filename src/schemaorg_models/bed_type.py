@@ -7,4 +7,4 @@ class BedType(QualitativeValue):
     """
 A type of bed. This is used for indicating the bed or beds available in an accommodation.
     """
-    class_: Literal['https://schema.org/BedType'] = Field(default='https://schema.org/BedType', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/BedType'] = Field(default='https://schema.org/BedType', alias='@type', serialization_alias='@type') # type: ignore

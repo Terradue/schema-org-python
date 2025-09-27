@@ -7,4 +7,4 @@ class HealthAndBeautyBusiness(LocalBusiness):
     """
 Health and beauty.
     """
-    class_: Literal['https://schema.org/HealthAndBeautyBusiness'] = Field(default='https://schema.org/HealthAndBeautyBusiness', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/HealthAndBeautyBusiness'] = Field(default='https://schema.org/HealthAndBeautyBusiness', alias='@type', serialization_alias='@type') # type: ignore

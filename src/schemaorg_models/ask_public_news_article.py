@@ -7,4 +7,4 @@ class AskPublicNewsArticle(NewsArticle):
     """
 A [[NewsArticle]] expressing an open call by a [[NewsMediaOrganization]] asking the public for input, insights, clarifications, anecdotes, documentation, etc., on an issue, for reporting purposes.
     """
-    class_: Literal['https://schema.org/AskPublicNewsArticle'] = Field(default='https://schema.org/AskPublicNewsArticle', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/AskPublicNewsArticle'] = Field(default='https://schema.org/AskPublicNewsArticle', alias='@type', serialization_alias='@type') # type: ignore

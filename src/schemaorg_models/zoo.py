@@ -7,4 +7,4 @@ class Zoo(CivicStructure):
     """
 A zoo.
     """
-    class_: Literal['https://schema.org/Zoo'] = Field(default='https://schema.org/Zoo', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/Zoo'] = Field(default='https://schema.org/Zoo', alias='@type', serialization_alias='@type') # type: ignore

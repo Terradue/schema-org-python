@@ -8,7 +8,7 @@ class Book(CreativeWork):
     """
 A book.
     """
-    class_: Literal['https://schema.org/Book'] = Field(default='https://schema.org/Book', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/Book'] = Field(default='https://schema.org/Book', alias='@type', serialization_alias='@type') # type: ignore
     abridged: Optional[Union[bool, List[bool]]] = Field(default=None, validation_alias=AliasChoices('abridged', 'https://schema.org/abridged'), serialization_alias='https://schema.org/abridged')
     bookFormat: Optional[Union["BookFormatType", List["BookFormatType"]]] = Field(default=None, validation_alias=AliasChoices('bookFormat', 'https://schema.org/bookFormat'), serialization_alias='https://schema.org/bookFormat')
     isbn: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('isbn', 'https://schema.org/isbn'), serialization_alias='https://schema.org/isbn')

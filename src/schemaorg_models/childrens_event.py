@@ -7,4 +7,4 @@ class ChildrensEvent(Event):
     """
 Event type: Children's event.
     """
-    class_: Literal['https://schema.org/ChildrensEvent'] = Field(default='https://schema.org/ChildrensEvent', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/ChildrensEvent'] = Field(default='https://schema.org/ChildrensEvent', alias='@type', serialization_alias='@type') # type: ignore

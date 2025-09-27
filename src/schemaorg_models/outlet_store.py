@@ -7,4 +7,4 @@ class OutletStore(Store):
     """
 An outlet store.
     """
-    class_: Literal['https://schema.org/OutletStore'] = Field(default='https://schema.org/OutletStore', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/OutletStore'] = Field(default='https://schema.org/OutletStore', alias='@type', serialization_alias='@type') # type: ignore

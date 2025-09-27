@@ -7,4 +7,4 @@ class PodcastEpisode(Episode):
     """
 A single episode of a podcast series.
     """
-    class_: Literal['https://schema.org/PodcastEpisode'] = Field(default='https://schema.org/PodcastEpisode', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/PodcastEpisode'] = Field(default='https://schema.org/PodcastEpisode', alias='@type', serialization_alias='@type') # type: ignore

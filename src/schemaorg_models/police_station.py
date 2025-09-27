@@ -7,4 +7,4 @@ class PoliceStation(CivicStructure):
     """
 A police station.
     """
-    class_: Literal['https://schema.org/PoliceStation'] = Field(default='https://schema.org/PoliceStation', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/PoliceStation'] = Field(default='https://schema.org/PoliceStation', alias='@type', serialization_alias='@type') # type: ignore

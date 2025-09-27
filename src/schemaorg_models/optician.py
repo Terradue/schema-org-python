@@ -7,4 +7,4 @@ class Optician(MedicalBusiness):
     """
 A store that sells reading glasses and similar devices for improving vision.
     """
-    class_: Literal['https://schema.org/Optician'] = Field(default='https://schema.org/Optician', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/Optician'] = Field(default='https://schema.org/Optician', alias='@type', serialization_alias='@type') # type: ignore

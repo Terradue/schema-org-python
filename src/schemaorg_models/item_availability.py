@@ -7,4 +7,4 @@ class ItemAvailability(Enumeration):
     """
 A list of possible product availability options.
     """
-    class_: Literal['https://schema.org/ItemAvailability'] = Field(default='https://schema.org/ItemAvailability', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/ItemAvailability'] = Field(default='https://schema.org/ItemAvailability', alias='@type', serialization_alias='@type') # type: ignore

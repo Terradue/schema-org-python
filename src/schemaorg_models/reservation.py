@@ -15,7 +15,7 @@ Describes a reservation for travel, dining or an event. Some reservations requir
 \
 Note: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations. For offers of tickets, restaurant reservations, flights, or rental cars, use [[Offer]].
     """
-    class_: Literal['https://schema.org/Reservation'] = Field(default='https://schema.org/Reservation', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/Reservation'] = Field(default='https://schema.org/Reservation', alias='@type', serialization_alias='@type') # type: ignore
     reservationStatus: Optional[Union["ReservationStatusType", List["ReservationStatusType"]]] = Field(default=None, validation_alias=AliasChoices('reservationStatus', 'https://schema.org/reservationStatus'), serialization_alias='https://schema.org/reservationStatus')
     bookingAgent: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(default=None, validation_alias=AliasChoices('bookingAgent', 'https://schema.org/bookingAgent'), serialization_alias='https://schema.org/bookingAgent')
     reservationFor: Optional[Union[Thing, List[Thing]]] = Field(default=None, validation_alias=AliasChoices('reservationFor', 'https://schema.org/reservationFor'), serialization_alias='https://schema.org/reservationFor')

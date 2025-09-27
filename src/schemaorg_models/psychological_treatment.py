@@ -7,4 +7,4 @@ class PsychologicalTreatment(TherapeuticProcedure):
     """
 A process of care relying upon counseling, dialogue and communication  aimed at improving a mental health condition without use of drugs.
     """
-    class_: Literal['https://schema.org/PsychologicalTreatment'] = Field(default='https://schema.org/PsychologicalTreatment', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/PsychologicalTreatment'] = Field(default='https://schema.org/PsychologicalTreatment', alias='@type', serialization_alias='@type') # type: ignore

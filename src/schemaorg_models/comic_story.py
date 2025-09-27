@@ -10,7 +10,7 @@ The term "story" is any indivisible, re-printable
     	unit of a comic, including the interior stories, covers, and backmatter. Most
     	comics have at least two stories: a cover (ComicCoverArt) and an interior story.
     """
-    class_: Literal['https://schema.org/ComicStory'] = Field(default='https://schema.org/ComicStory', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/ComicStory'] = Field(default='https://schema.org/ComicStory', alias='@type', serialization_alias='@type') # type: ignore
     penciler: Optional[Union[Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('penciler', 'https://schema.org/penciler'), serialization_alias='https://schema.org/penciler')
     inker: Optional[Union[Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('inker', 'https://schema.org/inker'), serialization_alias='https://schema.org/inker')
     letterer: Optional[Union[Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('letterer', 'https://schema.org/letterer'), serialization_alias='https://schema.org/letterer')

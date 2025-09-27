@@ -9,4 +9,4 @@ A publication in any medium issued in successive parts bearing numerical or chro
 \
 See also [blog post](https://blog.schema.org/2014/09/02/schema-org-support-for-bibliographic-relationships-and-periodicals/).
     """
-    class_: Literal['https://schema.org/Periodical'] = Field(default='https://schema.org/Periodical', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/Periodical'] = Field(default='https://schema.org/Periodical', alias='@type', serialization_alias='@type') # type: ignore

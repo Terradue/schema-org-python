@@ -7,4 +7,4 @@ class BarOrPub(FoodEstablishment):
     """
 A bar or pub.
     """
-    class_: Literal['https://schema.org/BarOrPub'] = Field(default='https://schema.org/BarOrPub', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/BarOrPub'] = Field(default='https://schema.org/BarOrPub', alias='@type', serialization_alias='@type') # type: ignore

@@ -7,4 +7,4 @@ class DigitalDocumentPermissionType(Enumeration):
     """
 A type of permission which can be granted for accessing a digital document.
     """
-    class_: Literal['https://schema.org/DigitalDocumentPermissionType'] = Field(default='https://schema.org/DigitalDocumentPermissionType', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/DigitalDocumentPermissionType'] = Field(default='https://schema.org/DigitalDocumentPermissionType', alias='@type', serialization_alias='@type') # type: ignore

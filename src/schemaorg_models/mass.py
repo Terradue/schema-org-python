@@ -7,4 +7,4 @@ class Mass(Quantity):
     """
 Properties that take Mass as values are of the form '&lt;Number&gt; &lt;Mass unit of measure&gt;'. E.g., '7 kg'.
     """
-    class_: Literal['https://schema.org/Mass'] = Field(default='https://schema.org/Mass', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/Mass'] = Field(default='https://schema.org/Mass', alias='@type', serialization_alias='@type') # type: ignore

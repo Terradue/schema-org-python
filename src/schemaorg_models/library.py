@@ -7,4 +7,4 @@ class Library(LocalBusiness):
     """
 A library.
     """
-    class_: Literal['https://schema.org/Library'] = Field(default='https://schema.org/Library', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/Library'] = Field(default='https://schema.org/Library', alias='@type', serialization_alias='@type') # type: ignore

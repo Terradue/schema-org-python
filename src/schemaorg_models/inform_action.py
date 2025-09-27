@@ -8,5 +8,5 @@ class InformAction(CommunicateAction):
     """
 The act of notifying someone of information pertinent to them, with no expectation of a response.
     """
-    class_: Literal['https://schema.org/InformAction'] = Field(default='https://schema.org/InformAction', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/InformAction'] = Field(default='https://schema.org/InformAction', alias='@type', serialization_alias='@type') # type: ignore
     event: Optional[Union[Event, List[Event]]] = Field(default=None, validation_alias=AliasChoices('event', 'https://schema.org/event'), serialization_alias='https://schema.org/event')

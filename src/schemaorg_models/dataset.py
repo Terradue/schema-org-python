@@ -11,7 +11,7 @@ class Dataset(CreativeWork):
     """
 A dataset contained in this catalog.
     """
-    class_: Literal['https://schema.org/Dataset'] = Field(default='https://schema.org/Dataset', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/Dataset'] = Field(default='https://schema.org/Dataset', alias='@type', serialization_alias='@type') # type: ignore
     issn: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('issn', 'https://schema.org/issn'), serialization_alias='https://schema.org/issn')
     variableMeasured: Optional[Union[Property, List[Property], "StatisticalVariable", List["StatisticalVariable"], str, List[str], "PropertyValue", List["PropertyValue"]]] = Field(default=None, validation_alias=AliasChoices('variableMeasured', 'https://schema.org/variableMeasured'), serialization_alias='https://schema.org/variableMeasured')
     includedDataCatalog: Optional[Union[DataCatalog, List[DataCatalog]]] = Field(default=None, validation_alias=AliasChoices('includedDataCatalog', 'https://schema.org/includedDataCatalog'), serialization_alias='https://schema.org/includedDataCatalog')

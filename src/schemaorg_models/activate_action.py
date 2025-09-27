@@ -7,4 +7,4 @@ class ActivateAction(ControlAction):
     """
 The act of starting or activating a device or application (e.g. starting a timer or turning on a flashlight).
     """
-    class_: Literal['https://schema.org/ActivateAction'] = Field(default='https://schema.org/ActivateAction', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/ActivateAction'] = Field(default='https://schema.org/ActivateAction', alias='@type', serialization_alias='@type') # type: ignore

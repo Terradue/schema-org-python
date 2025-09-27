@@ -7,4 +7,4 @@ class PurchaseType(Enumeration):
     """
 Optional. The type of purchase the consumer must make in order to qualify for this incentive.
     """
-    class_: Literal['https://schema.org/PurchaseType'] = Field(default='https://schema.org/PurchaseType', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/PurchaseType'] = Field(default='https://schema.org/PurchaseType', alias='@type', serialization_alias='@type') # type: ignore

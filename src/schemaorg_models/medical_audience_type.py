@@ -7,4 +7,4 @@ class MedicalAudienceType(MedicalEnumeration):
     """
 Target audiences types for medical web pages. Enumerated type.
     """
-    class_: Literal['https://schema.org/MedicalAudienceType'] = Field(default='https://schema.org/MedicalAudienceType', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/MedicalAudienceType'] = Field(default='https://schema.org/MedicalAudienceType', alias='@type', serialization_alias='@type') # type: ignore

@@ -7,4 +7,4 @@ class ReportedDoseSchedule(DoseSchedule):
     """
 A patient-reported or observed dosing schedule for a drug or supplement.
     """
-    class_: Literal['https://schema.org/ReportedDoseSchedule'] = Field(default='https://schema.org/ReportedDoseSchedule', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/ReportedDoseSchedule'] = Field(default='https://schema.org/ReportedDoseSchedule', alias='@type', serialization_alias='@type') # type: ignore

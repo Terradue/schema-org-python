@@ -7,4 +7,4 @@ class EntertainmentBusiness(LocalBusiness):
     """
 A sub property of location. The entertainment business where the action occurred.
     """
-    class_: Literal['https://schema.org/EntertainmentBusiness'] = Field(default='https://schema.org/EntertainmentBusiness', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/EntertainmentBusiness'] = Field(default='https://schema.org/EntertainmentBusiness', alias='@type', serialization_alias='@type') # type: ignore

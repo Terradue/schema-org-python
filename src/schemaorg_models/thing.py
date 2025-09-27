@@ -7,7 +7,7 @@ class Thing(BaseModel):
     """
 The most generic type of item.
     """
-    class_: Literal['https://schema.org/Thing'] = Field(default='https://schema.org/Thing', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/Thing'] = Field(default='https://schema.org/Thing', alias='@type', serialization_alias='@type') # type: ignore
     additionalType: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None, validation_alias=AliasChoices('additionalType', 'https://schema.org/additionalType'), serialization_alias='https://schema.org/additionalType')
     @field_serializer('additionalType')
     def additionalType2str(self, val) -> str | List[str]:

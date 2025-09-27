@@ -7,4 +7,4 @@ class Courthouse(GovernmentBuilding):
     """
 A courthouse.
     """
-    class_: Literal['https://schema.org/Courthouse'] = Field(default='https://schema.org/Courthouse', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/Courthouse'] = Field(default='https://schema.org/Courthouse', alias='@type', serialization_alias='@type') # type: ignore

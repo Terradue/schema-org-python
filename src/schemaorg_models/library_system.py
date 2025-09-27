@@ -7,4 +7,4 @@ class LibrarySystem(Organization):
     """
 A [[LibrarySystem]] is a collaborative system amongst several libraries.
     """
-    class_: Literal['https://schema.org/LibrarySystem'] = Field(default='https://schema.org/LibrarySystem', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/LibrarySystem'] = Field(default='https://schema.org/LibrarySystem', alias='@type', serialization_alias='@type') # type: ignore

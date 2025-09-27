@@ -9,7 +9,7 @@ class Person(Thing):
     """
 A person (alive, dead, undead, or fictional).
     """
-    class_: Literal['https://schema.org/Person'] = Field(default='https://schema.org/Person', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/Person'] = Field(default='https://schema.org/Person', alias='@type', serialization_alias='@type') # type: ignore
     knowsLanguage: Optional[Union[str, List[str], "Language", List["Language"]]] = Field(default=None, validation_alias=AliasChoices('knowsLanguage', 'https://schema.org/knowsLanguage'), serialization_alias='https://schema.org/knowsLanguage')
     gender: Optional[Union["GenderType", List["GenderType"], str, List[str]]] = Field(default=None, validation_alias=AliasChoices('gender', 'https://schema.org/gender'), serialization_alias='https://schema.org/gender')
     faxNumber: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('faxNumber', 'https://schema.org/faxNumber'), serialization_alias='https://schema.org/faxNumber')

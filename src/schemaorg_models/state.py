@@ -7,4 +7,4 @@ class State(AdministrativeArea):
     """
 A state or province of a country.
     """
-    class_: Literal['https://schema.org/State'] = Field(default='https://schema.org/State', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/State'] = Field(default='https://schema.org/State', alias='@type', serialization_alias='@type') # type: ignore

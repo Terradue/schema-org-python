@@ -7,7 +7,7 @@ class ApartmentComplex(Residence):
     """
 Residence type: Apartment complex.
     """
-    class_: Literal['https://schema.org/ApartmentComplex'] = Field(default='https://schema.org/ApartmentComplex', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/ApartmentComplex'] = Field(default='https://schema.org/ApartmentComplex', alias='@type', serialization_alias='@type') # type: ignore
     tourBookingPage: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(default=None, validation_alias=AliasChoices('tourBookingPage', 'https://schema.org/tourBookingPage'), serialization_alias='https://schema.org/tourBookingPage')
     @field_serializer('tourBookingPage')
     def tourBookingPage2str(self, val) -> str | List[str]:

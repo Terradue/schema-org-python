@@ -8,7 +8,7 @@ class BioChemEntity(Thing):
     """
 Any biological, chemical, or biochemical thing. For example: a protein; a gene; a chemical; a synthetic chemical.
     """
-    class_: Literal['https://schema.org/BioChemEntity'] = Field(default='https://schema.org/BioChemEntity', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/BioChemEntity'] = Field(default='https://schema.org/BioChemEntity', alias='@type', serialization_alias='@type') # type: ignore
     taxonomicRange: Optional[Union[Taxon, List[Taxon], "DefinedTerm", List["DefinedTerm"], str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None, validation_alias=AliasChoices('taxonomicRange', 'https://schema.org/taxonomicRange'), serialization_alias='https://schema.org/taxonomicRange')
     @field_serializer('taxonomicRange')
     def taxonomicRange2str(self, val) -> str | List[str]:

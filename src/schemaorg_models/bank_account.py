@@ -8,7 +8,7 @@ class BankAccount(FinancialProduct):
     """
 A product or service offered by a bank whereby one may deposit, withdraw or transfer money and in some cases be paid interest.
     """
-    class_: Literal['https://schema.org/BankAccount'] = Field(default='https://schema.org/BankAccount', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/BankAccount'] = Field(default='https://schema.org/BankAccount', alias='@type', serialization_alias='@type') # type: ignore
     bankAccountType: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None, validation_alias=AliasChoices('bankAccountType', 'https://schema.org/bankAccountType'), serialization_alias='https://schema.org/bankAccountType')
     @field_serializer('bankAccountType')
     def bankAccountType2str(self, val) -> str | List[str]:

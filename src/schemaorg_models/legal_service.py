@@ -9,4 +9,4 @@ A LegalService is a business that provides legally-oriented services, advice and
 \
 As a [[LocalBusiness]] it can be described as a [[provider]] of one or more [[Service]]\\(s).
     """
-    class_: Literal['https://schema.org/LegalService'] = Field(default='https://schema.org/LegalService', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/LegalService'] = Field(default='https://schema.org/LegalService', alias='@type', serialization_alias='@type') # type: ignore

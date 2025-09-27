@@ -8,7 +8,7 @@ class DeliveryEvent(Event):
     """
 An event involving the delivery of an item.
     """
-    class_: Literal['https://schema.org/DeliveryEvent'] = Field(default='https://schema.org/DeliveryEvent', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/DeliveryEvent'] = Field(default='https://schema.org/DeliveryEvent', alias='@type', serialization_alias='@type') # type: ignore
     availableThrough: Optional[Union[datetime, List[datetime]]] = Field(default=None, validation_alias=AliasChoices('availableThrough', 'https://schema.org/availableThrough'), serialization_alias='https://schema.org/availableThrough')
     availableFrom: Optional[Union[datetime, List[datetime]]] = Field(default=None, validation_alias=AliasChoices('availableFrom', 'https://schema.org/availableFrom'), serialization_alias='https://schema.org/availableFrom')
     hasDeliveryMethod: Optional[Union["DeliveryMethod", List["DeliveryMethod"]]] = Field(default=None, validation_alias=AliasChoices('hasDeliveryMethod', 'https://schema.org/hasDeliveryMethod'), serialization_alias='https://schema.org/hasDeliveryMethod')

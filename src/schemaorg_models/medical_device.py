@@ -9,7 +9,7 @@ class MedicalDevice(MedicalEntity):
     """
 Any object used in a medical capacity, such as to diagnose or treat a patient.
     """
-    class_: Literal['https://schema.org/MedicalDevice'] = Field(default='https://schema.org/MedicalDevice', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/MedicalDevice'] = Field(default='https://schema.org/MedicalDevice', alias='@type', serialization_alias='@type') # type: ignore
     procedure: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('procedure', 'https://schema.org/procedure'), serialization_alias='https://schema.org/procedure')
     seriousAdverseOutcome: Optional[Union[MedicalEntity, List[MedicalEntity]]] = Field(default=None, validation_alias=AliasChoices('seriousAdverseOutcome', 'https://schema.org/seriousAdverseOutcome'), serialization_alias='https://schema.org/seriousAdverseOutcome')
     adverseOutcome: Optional[Union[MedicalEntity, List[MedicalEntity]]] = Field(default=None, validation_alias=AliasChoices('adverseOutcome', 'https://schema.org/adverseOutcome'), serialization_alias='https://schema.org/adverseOutcome')

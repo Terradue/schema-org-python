@@ -7,4 +7,4 @@ class PriceTypeEnumeration(Enumeration):
     """
 Enumerates different price types, for example list price, invoice price, and sale price.
     """
-    class_: Literal['https://schema.org/PriceTypeEnumeration'] = Field(default='https://schema.org/PriceTypeEnumeration', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/PriceTypeEnumeration'] = Field(default='https://schema.org/PriceTypeEnumeration', alias='@type', serialization_alias='@type') # type: ignore

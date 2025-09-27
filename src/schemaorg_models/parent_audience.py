@@ -7,6 +7,6 @@ class ParentAudience(PeopleAudience):
     """
 A set of characteristics describing parents, who can be interested in viewing some content.
     """
-    class_: Literal['https://schema.org/ParentAudience'] = Field(default='https://schema.org/ParentAudience', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/ParentAudience'] = Field(default='https://schema.org/ParentAudience', alias='@type', serialization_alias='@type') # type: ignore
     childMaxAge: Optional[Union[float, List[float]]] = Field(default=None, validation_alias=AliasChoices('childMaxAge', 'https://schema.org/childMaxAge'), serialization_alias='https://schema.org/childMaxAge')
     childMinAge: Optional[Union[float, List[float]]] = Field(default=None, validation_alias=AliasChoices('childMinAge', 'https://schema.org/childMinAge'), serialization_alias='https://schema.org/childMinAge')

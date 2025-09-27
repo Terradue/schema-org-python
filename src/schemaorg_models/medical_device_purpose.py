@@ -7,4 +7,4 @@ class MedicalDevicePurpose(MedicalEnumeration):
     """
 Categories of medical devices, organized by the purpose or intended use of the device.
     """
-    class_: Literal['https://schema.org/MedicalDevicePurpose'] = Field(default='https://schema.org/MedicalDevicePurpose', alias='class', serialization_alias='class') # type: ignore
+    type_: Literal['https://schema.org/MedicalDevicePurpose'] = Field(default='https://schema.org/MedicalDevicePurpose', alias='@type', serialization_alias='@type') # type: ignore
