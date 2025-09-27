@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.substance import Substance
 
@@ -8,6 +8,7 @@ class DietarySupplement(Substance):
     """
 A product taken by mouth that contains a dietary ingredient intended to supplement the diet. Dietary ingredients may include vitamins, minerals, herbs or other botanicals, amino acids, and substances such as enzymes, organ tissues, glandulars and metabolites.
     """
+    type_: Literal['https://schema.org/DietarySupplement'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/DietarySupplement'),serialization_alias='class') # type: ignore
     proprietaryName: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('proprietaryName', 'https://schema.org/proprietaryName'),serialization_alias='https://schema.org/proprietaryName')
     mechanismOfAction: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('mechanismOfAction', 'https://schema.org/mechanismOfAction'),serialization_alias='https://schema.org/mechanismOfAction')
     isProprietary: Optional[Union[bool, List[bool]]] = Field(default=None,validation_alias=AliasChoices('isProprietary', 'https://schema.org/isProprietary'),serialization_alias='https://schema.org/isProprietary')

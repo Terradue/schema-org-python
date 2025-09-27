@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from datetime import date, datetime, time
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.intangible import Intangible
@@ -25,6 +25,7 @@ Note: As the [[businessFunction]] property, which identifies the form of offer (
 \
 For [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, see [Check Digit calculator](http://www.gs1.org/barcodes/support/check_digit_calculator) and [validation guide](http://www.gs1us.org/resources/standards/gtin-validation-guide) from [GS1](http://www.gs1.org/).
     """
+    type_: Literal['https://schema.org/Offer'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/Offer'),serialization_alias='class') # type: ignore
     asin: Optional[Union[HttpUrl, List[HttpUrl], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('asin', 'https://schema.org/asin'),serialization_alias='https://schema.org/asin')
     @field_serializer('asin')
     def asin2str(self, val) -> str | List[str]:

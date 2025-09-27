@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.civic_structure import CivicStructure
 
@@ -8,4 +8,5 @@ class EducationalOrganization(CivicStructure):
     """
 An educational organization.
     """
+    type_: Literal['https://schema.org/EducationalOrganization'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/EducationalOrganization'),serialization_alias='class') # type: ignore
     alumni: Optional[Union[Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('alumni', 'https://schema.org/alumni'),serialization_alias='https://schema.org/alumni')

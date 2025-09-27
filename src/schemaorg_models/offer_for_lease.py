@@ -1,3 +1,5 @@
+from typing import Literal
+from pydantic import AliasChoices, Field
 from schemaorg_models.offer import Offer
 
 
@@ -8,3 +10,4 @@ An [[OfferForLease]] in Schema.org represents an [[Offer]] to lease out somethin
   background on the underlying concepts.
   
     """
+    type_: Literal['https://schema.org/OfferForLease'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/OfferForLease'),serialization_alias='class') # type: ignore

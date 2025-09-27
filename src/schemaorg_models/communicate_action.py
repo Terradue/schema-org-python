@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.interact_action import InteractAction
 
@@ -13,6 +13,7 @@ class CommunicateAction(InteractAction):
     """
 The act of conveying information to another person via a communication medium (instrument) such as speech, email, or telephone conversation.
     """
+    type_: Literal['https://schema.org/CommunicateAction'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/CommunicateAction'),serialization_alias='class') # type: ignore
     inLanguage: Optional[Union[str, List[str], Language, List[Language]]] = Field(default=None,validation_alias=AliasChoices('inLanguage', 'https://schema.org/inLanguage'),serialization_alias='https://schema.org/inLanguage')
     about: Optional[Union[Thing, List[Thing]]] = Field(default=None,validation_alias=AliasChoices('about', 'https://schema.org/about'),serialization_alias='https://schema.org/about')
     recipient: Optional[Union[Organization, List[Organization], Audience, List[Audience], ContactPoint, List[ContactPoint], Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('recipient', 'https://schema.org/recipient'),serialization_alias='https://schema.org/recipient')

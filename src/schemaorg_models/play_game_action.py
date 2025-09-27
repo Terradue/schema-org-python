@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.consume_action import ConsumeAction
 
@@ -8,4 +8,5 @@ class PlayGameAction(ConsumeAction):
     """
 The act of playing a video game.
     """
+    type_: Literal['https://schema.org/PlayGameAction'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/PlayGameAction'),serialization_alias='class') # type: ignore
     gameAvailabilityType: Optional[Union[str, List[str], GameAvailabilityEnumeration, List[GameAvailabilityEnumeration]]] = Field(default=None,validation_alias=AliasChoices('gameAvailabilityType', 'https://schema.org/gameAvailabilityType'),serialization_alias='https://schema.org/gameAvailabilityType')

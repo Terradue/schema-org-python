@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.structured_value import StructuredValue
 
@@ -21,6 +21,7 @@ PostalCode Set: { [94000-94585], [97000, 97999], [13000, 13599]}
 Region = state, canton, prefecture, autonomous community...
 
     """
+    type_: Literal['https://schema.org/DefinedRegion'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/DefinedRegion'),serialization_alias='class') # type: ignore
     postalCodeRange: Optional[Union["PostalCodeRangeSpecification", List["PostalCodeRangeSpecification"]]] = Field(default=None,validation_alias=AliasChoices('postalCodeRange', 'https://schema.org/postalCodeRange'),serialization_alias='https://schema.org/postalCodeRange')
     addressRegion: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('addressRegion', 'https://schema.org/addressRegion'),serialization_alias='https://schema.org/addressRegion')
     postalCode: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('postalCode', 'https://schema.org/postalCode'),serialization_alias='https://schema.org/postalCode')

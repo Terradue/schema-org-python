@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.intangible import Intangible
 
@@ -9,6 +9,7 @@ An intangible item that describes an alignment between a learning resource and a
 
 Should not be used where the nature of the alignment can be described using a simple property, for example to express that a resource [[teaches]] or [[assesses]] a competency.
     """
+    type_: Literal['https://schema.org/AlignmentObject'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/AlignmentObject'),serialization_alias='class') # type: ignore
     alignmentType: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('alignmentType', 'https://schema.org/alignmentType'),serialization_alias='https://schema.org/alignmentType')
     targetName: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('targetName', 'https://schema.org/targetName'),serialization_alias='https://schema.org/targetName')
     educationalFramework: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('educationalFramework', 'https://schema.org/educationalFramework'),serialization_alias='https://schema.org/educationalFramework')

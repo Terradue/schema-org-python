@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.structured_value import StructuredValue
 
@@ -8,6 +8,7 @@ class QuantitativeValueDistribution(StructuredValue):
     """
 A statistical distribution of values.
     """
+    type_: Literal['https://schema.org/QuantitativeValueDistribution'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/QuantitativeValueDistribution'),serialization_alias='class') # type: ignore
     median: Optional[Union[float, List[float]]] = Field(default=None,validation_alias=AliasChoices('median', 'https://schema.org/median'),serialization_alias='https://schema.org/median')
     percentile75: Optional[Union[float, List[float]]] = Field(default=None,validation_alias=AliasChoices('percentile75', 'https://schema.org/percentile75'),serialization_alias='https://schema.org/percentile75')
     percentile25: Optional[Union[float, List[float]]] = Field(default=None,validation_alias=AliasChoices('percentile25', 'https://schema.org/percentile25'),serialization_alias='https://schema.org/percentile25')

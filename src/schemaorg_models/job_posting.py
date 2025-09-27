@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from datetime import date, datetime
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.intangible import Intangible
@@ -13,6 +13,7 @@ class JobPosting(Intangible):
     """
 A listing that describes a job opening in a certain organization.
     """
+    type_: Literal['https://schema.org/JobPosting'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/JobPosting'),serialization_alias='class') # type: ignore
     estimatedSalary: Optional[Union["MonetaryAmountDistribution", List["MonetaryAmountDistribution"], float, List[float], "MonetaryAmount", List["MonetaryAmount"]]] = Field(default=None,validation_alias=AliasChoices('estimatedSalary', 'https://schema.org/estimatedSalary'),serialization_alias='https://schema.org/estimatedSalary')
     directApply: Optional[Union[bool, List[bool]]] = Field(default=None,validation_alias=AliasChoices('directApply', 'https://schema.org/directApply'),serialization_alias='https://schema.org/directApply')
     totalJobOpenings: Optional[Union[int, List[int]]] = Field(default=None,validation_alias=AliasChoices('totalJobOpenings', 'https://schema.org/totalJobOpenings'),serialization_alias='https://schema.org/totalJobOpenings')

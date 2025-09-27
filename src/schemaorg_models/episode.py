@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.creative_work import CreativeWork
 
@@ -10,6 +10,7 @@ class Episode(CreativeWork):
     """
 An episode of a TV, radio or game media within a series or season.
     """
+    type_: Literal['https://schema.org/Episode'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/Episode'),serialization_alias='class') # type: ignore
     partOfSeries: Optional[Union["CreativeWorkSeries", List["CreativeWorkSeries"]]] = Field(default=None,validation_alias=AliasChoices('partOfSeries', 'https://schema.org/partOfSeries'),serialization_alias='https://schema.org/partOfSeries')
     episodeNumber: Optional[Union[str, List[str], int, List[int]]] = Field(default=None,validation_alias=AliasChoices('episodeNumber', 'https://schema.org/episodeNumber'),serialization_alias='https://schema.org/episodeNumber')
     partOfSeason: Optional[Union[CreativeWorkSeason, List[CreativeWorkSeason]]] = Field(default=None,validation_alias=AliasChoices('partOfSeason', 'https://schema.org/partOfSeason'),serialization_alias='https://schema.org/partOfSeason')

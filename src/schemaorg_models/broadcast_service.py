@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.service import Service
 
@@ -12,6 +12,7 @@ class BroadcastService(Service):
     """
 A delivery service through which content is provided via broadcast over the air or online.
     """
+    type_: Literal['https://schema.org/BroadcastService'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/BroadcastService'),serialization_alias='class') # type: ignore
     callSign: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('callSign', 'https://schema.org/callSign'),serialization_alias='https://schema.org/callSign')
     broadcastAffiliateOf: Optional[Union[Organization, List[Organization]]] = Field(default=None,validation_alias=AliasChoices('broadcastAffiliateOf', 'https://schema.org/broadcastAffiliateOf'),serialization_alias='https://schema.org/broadcastAffiliateOf')
     broadcaster: Optional[Union[Organization, List[Organization]]] = Field(default=None,validation_alias=AliasChoices('broadcaster', 'https://schema.org/broadcaster'),serialization_alias='https://schema.org/broadcaster')

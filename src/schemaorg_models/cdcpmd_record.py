@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from datetime import date, datetime
 from pydantic import AliasChoices, Field
 from schemaorg_models.structured_value import StructuredValue
@@ -11,6 +11,7 @@ A CDCPMDRecord is a data structure representing a record in a CDC tabular data f
       definitions used as the source here.
       
     """
+    type_: Literal['https://schema.org/CDCPMDRecord'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/CDCPMDRecord'),serialization_alias='class') # type: ignore
     cvdNumICUBedsOcc: Optional[Union[float, List[float]]] = Field(default=None,validation_alias=AliasChoices('cvdNumICUBedsOcc', 'https://schema.org/cvdNumICUBedsOcc'),serialization_alias='https://schema.org/cvdNumICUBedsOcc')
     cvdNumVent: Optional[Union[float, List[float]]] = Field(default=None,validation_alias=AliasChoices('cvdNumVent', 'https://schema.org/cvdNumVent'),serialization_alias='https://schema.org/cvdNumVent')
     cvdNumICUBeds: Optional[Union[float, List[float]]] = Field(default=None,validation_alias=AliasChoices('cvdNumICUBeds', 'https://schema.org/cvdNumICUBeds'),serialization_alias='https://schema.org/cvdNumICUBeds')

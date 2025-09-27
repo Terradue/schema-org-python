@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.structured_value import StructuredValue
 
@@ -8,6 +8,7 @@ class ShippingRateSettings(StructuredValue):
     """
 A ShippingRateSettings represents re-usable pieces of shipping information. It is designed for publication on an URL that may be referenced via the [[shippingSettingsLink]] property of an [[OfferShippingDetails]]. Several occurrences can be published, distinguished and matched (i.e. identified/referenced) by their different values for [[shippingLabel]].
     """
+    type_: Literal['https://schema.org/ShippingRateSettings'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/ShippingRateSettings'),serialization_alias='class') # type: ignore
     weightPercentage: Optional[Union[float, List[float]]] = Field(default=None,validation_alias=AliasChoices('weightPercentage', 'https://schema.org/weightPercentage'),serialization_alias='https://schema.org/weightPercentage')
     doesNotShip: Optional[Union[bool, List[bool]]] = Field(default=None,validation_alias=AliasChoices('doesNotShip', 'https://schema.org/doesNotShip'),serialization_alias='https://schema.org/doesNotShip')
     freeShippingThreshold: Optional[Union["DeliveryChargeSpecification", List["DeliveryChargeSpecification"], "MonetaryAmount", List["MonetaryAmount"]]] = Field(default=None,validation_alias=AliasChoices('freeShippingThreshold', 'https://schema.org/freeShippingThreshold'),serialization_alias='https://schema.org/freeShippingThreshold')

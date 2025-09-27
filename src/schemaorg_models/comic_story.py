@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.creative_work import CreativeWork
 
@@ -10,6 +10,7 @@ The term "story" is any indivisible, re-printable
     	unit of a comic, including the interior stories, covers, and backmatter. Most
     	comics have at least two stories: a cover (ComicCoverArt) and an interior story.
     """
+    type_: Literal['https://schema.org/ComicStory'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/ComicStory'),serialization_alias='class') # type: ignore
     penciler: Optional[Union[Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('penciler', 'https://schema.org/penciler'),serialization_alias='https://schema.org/penciler')
     inker: Optional[Union[Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('inker', 'https://schema.org/inker'),serialization_alias='https://schema.org/inker')
     letterer: Optional[Union[Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('letterer', 'https://schema.org/letterer'),serialization_alias='https://schema.org/letterer')

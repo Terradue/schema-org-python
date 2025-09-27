@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.intangible import Intangible
 
@@ -20,4 +20,5 @@ A payment method is a standardized procedure for transferring the monetary amoun
 \
 Structured values are recommended for newer payment methods.
     """
+    type_: Literal['https://schema.org/PaymentMethod'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/PaymentMethod'),serialization_alias='class') # type: ignore
     paymentMethodType: Optional[Union["PaymentMethodType", List["PaymentMethodType"]]] = Field(default=None,validation_alias=AliasChoices('paymentMethodType', 'https://schema.org/paymentMethodType'),serialization_alias='https://schema.org/paymentMethodType')

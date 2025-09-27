@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.creative_work import CreativeWork
 
@@ -9,6 +9,7 @@ class SoftwareSourceCode(CreativeWork):
     """
 Computer programming source code. Example: Full (compile ready) solutions, code snippet samples, scripts, templates.
     """
+    type_: Literal['https://schema.org/SoftwareSourceCode'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/SoftwareSourceCode'),serialization_alias='class') # type: ignore
     sampleType: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('sampleType', 'https://schema.org/sampleType'),serialization_alias='https://schema.org/sampleType')
     runtimePlatform: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('runtimePlatform', 'https://schema.org/runtimePlatform'),serialization_alias='https://schema.org/runtimePlatform')
     codeRepository: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('codeRepository', 'https://schema.org/codeRepository'),serialization_alias='https://schema.org/codeRepository')

@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from datetime import datetime
 from pydantic import AliasChoices, Field
 from schemaorg_models.trip import Trip
@@ -13,6 +13,7 @@ class Flight(Trip):
     """
 An airline flight.
     """
+    type_: Literal['https://schema.org/Flight'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/Flight'),serialization_alias='class') # type: ignore
     boardingPolicy: Optional[Union[BoardingPolicyType, List[BoardingPolicyType]]] = Field(default=None,validation_alias=AliasChoices('boardingPolicy', 'https://schema.org/boardingPolicy'),serialization_alias='https://schema.org/boardingPolicy')
     estimatedFlightDuration: Optional[Union[str, List[str], "Duration", List["Duration"]]] = Field(default=None,validation_alias=AliasChoices('estimatedFlightDuration', 'https://schema.org/estimatedFlightDuration'),serialization_alias='https://schema.org/estimatedFlightDuration')
     departureAirport: Optional[Union[Airport, List[Airport]]] = Field(default=None,validation_alias=AliasChoices('departureAirport', 'https://schema.org/departureAirport'),serialization_alias='https://schema.org/departureAirport')

@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.intangible import Intangible
 
@@ -8,5 +8,6 @@ class SpeakableSpecification(Intangible):
     """
 A SpeakableSpecification indicates (typically via [[xpath]] or [[cssSelector]]) sections of a document that are highlighted as particularly [[speakable]]. Instances of this type are expected to be used primarily as values of the [[speakable]] property.
     """
+    type_: Literal['https://schema.org/SpeakableSpecification'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/SpeakableSpecification'),serialization_alias='class') # type: ignore
     cssSelector: Optional[Union[CssSelectorType, List[CssSelectorType]]] = Field(default=None,validation_alias=AliasChoices('cssSelector', 'https://schema.org/cssSelector'),serialization_alias='https://schema.org/cssSelector')
     xpath: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('xpath', 'https://schema.org/xpath'),serialization_alias='https://schema.org/xpath')

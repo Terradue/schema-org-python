@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.event import Event
 
@@ -8,6 +8,7 @@ class CourseInstance(Event):
     """
 An instance of a [[Course]] which is distinct from other instances because it is offered at a different time or location or through different media or modes of study or to a specific section of students.
     """
+    type_: Literal['https://schema.org/CourseInstance'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/CourseInstance'),serialization_alias='class') # type: ignore
     instructor: Optional[Union[Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('instructor', 'https://schema.org/instructor'),serialization_alias='https://schema.org/instructor')
     courseWorkload: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('courseWorkload', 'https://schema.org/courseWorkload'),serialization_alias='https://schema.org/courseWorkload')
     courseSchedule: Optional[Union["Schedule", List["Schedule"]]] = Field(default=None,validation_alias=AliasChoices('courseSchedule', 'https://schema.org/courseSchedule'),serialization_alias='https://schema.org/courseSchedule')

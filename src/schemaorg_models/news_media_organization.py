@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.organization import Organization
 
@@ -9,6 +9,7 @@ class NewsMediaOrganization(Organization):
     """
 A News/Media organization such as a newspaper or TV station.
     """
+    type_: Literal['https://schema.org/NewsMediaOrganization'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/NewsMediaOrganization'),serialization_alias='class') # type: ignore
     ownershipFundingInfo: Optional[Union[str, List[str], CreativeWork, List[CreativeWork], HttpUrl, List[HttpUrl], "AboutPage", List["AboutPage"]]] = Field(default=None,validation_alias=AliasChoices('ownershipFundingInfo', 'https://schema.org/ownershipFundingInfo'),serialization_alias='https://schema.org/ownershipFundingInfo')
     @field_serializer('ownershipFundingInfo')
     def ownershipFundingInfo2str(self, val) -> str | List[str]:

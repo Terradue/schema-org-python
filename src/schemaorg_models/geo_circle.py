@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.geo_shape import GeoShape
 
@@ -12,5 +12,6 @@ A GeoCircle is a GeoShape representing a circular geographic area. As it is a Ge
           The center of the circle can be indicated via the 'geoMidpoint' property, or more approximately using 'address', 'postalCode'.
        
     """
+    type_: Literal['https://schema.org/GeoCircle'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/GeoCircle'),serialization_alias='class') # type: ignore
     geoMidpoint: Optional[Union[GeoCoordinates, List[GeoCoordinates]]] = Field(default=None,validation_alias=AliasChoices('geoMidpoint', 'https://schema.org/geoMidpoint'),serialization_alias='https://schema.org/geoMidpoint')
     geoRadius: Optional[Union[float, List[float], Distance, List[Distance], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('geoRadius', 'https://schema.org/geoRadius'),serialization_alias='https://schema.org/geoRadius')

@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.creative_work import CreativeWork
 
@@ -8,6 +8,7 @@ class HowToDirection(CreativeWork):
     """
 A direction indicating a single action to do in the instructions for how to achieve a result.
     """
+    type_: Literal['https://schema.org/HowToDirection'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/HowToDirection'),serialization_alias='class') # type: ignore
     beforeMedia: Optional[Union[MediaObject, List[MediaObject], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('beforeMedia', 'https://schema.org/beforeMedia'),serialization_alias='https://schema.org/beforeMedia')
     @field_serializer('beforeMedia')
     def beforeMedia2str(self, val) -> str | List[str]:

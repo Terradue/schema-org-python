@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.comment import Comment
 
@@ -10,5 +10,6 @@ class Answer(Comment):
     """
 An answer offered to a question; perhaps correct, perhaps opinionated or wrong.
     """
+    type_: Literal['https://schema.org/Answer'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/Answer'),serialization_alias='class') # type: ignore
     parentItem: Optional[Union[CreativeWork, List[CreativeWork], Comment, List[Comment]]] = Field(default=None,validation_alias=AliasChoices('parentItem', 'https://schema.org/parentItem'),serialization_alias='https://schema.org/parentItem')
     answerExplanation: Optional[Union[Comment, List[Comment], WebContent, List[WebContent]]] = Field(default=None,validation_alias=AliasChoices('answerExplanation', 'https://schema.org/answerExplanation'),serialization_alias='https://schema.org/answerExplanation')

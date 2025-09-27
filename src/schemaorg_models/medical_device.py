@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.medical_entity import MedicalEntity
 
@@ -9,6 +9,7 @@ class MedicalDevice(MedicalEntity):
     """
 Any object used in a medical capacity, such as to diagnose or treat a patient.
     """
+    type_: Literal['https://schema.org/MedicalDevice'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/MedicalDevice'),serialization_alias='class') # type: ignore
     procedure: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('procedure', 'https://schema.org/procedure'),serialization_alias='https://schema.org/procedure')
     seriousAdverseOutcome: Optional[Union[MedicalEntity, List[MedicalEntity]]] = Field(default=None,validation_alias=AliasChoices('seriousAdverseOutcome', 'https://schema.org/seriousAdverseOutcome'),serialization_alias='https://schema.org/seriousAdverseOutcome')
     adverseOutcome: Optional[Union[MedicalEntity, List[MedicalEntity]]] = Field(default=None,validation_alias=AliasChoices('adverseOutcome', 'https://schema.org/adverseOutcome'),serialization_alias='https://schema.org/adverseOutcome')

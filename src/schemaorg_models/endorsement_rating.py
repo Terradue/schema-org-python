@@ -1,3 +1,5 @@
+from typing import Literal
+from pydantic import AliasChoices, Field
 from schemaorg_models.rating import Rating
 
 
@@ -11,3 +13,4 @@ An [[EndorsementRating]] may be part of a numeric scale or organized system, but
 endorsement rating is particularly useful in the absence of numeric scales as it helps consumers understand that the rating is broadly positive.
 
     """
+    type_: Literal['https://schema.org/EndorsementRating'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/EndorsementRating'),serialization_alias='class') # type: ignore

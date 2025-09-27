@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from datetime import datetime
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.intangible import Intangible
@@ -18,6 +18,7 @@ Observations can also encode a subset of simple RDF-like statements (its observa
 In the context of a quantitative knowledge graph, typical properties could include [[measuredProperty]], [[observationAbout]], [[observationDate]], [[value]], [[unitCode]], [[unitText]], [[measurementMethod]].
     
     """
+    type_: Literal['https://schema.org/Observation'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/Observation'),serialization_alias='class') # type: ignore
     measurementTechnique: Optional[Union[DefinedTerm, List[DefinedTerm], "MeasurementMethodEnum", List["MeasurementMethodEnum"], str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('measurementTechnique', 'https://schema.org/measurementTechnique'),serialization_alias='https://schema.org/measurementTechnique')
     @field_serializer('measurementTechnique')
     def measurementTechnique2str(self, val) -> str | List[str]:

@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from datetime import date, datetime, time
 from pydantic import AliasChoices, Field
 from schemaorg_models.structured_value import StructuredValue
@@ -9,6 +9,7 @@ class OpeningHoursSpecification(StructuredValue):
     """
 The opening hours of a certain place.
     """
+    type_: Literal['https://schema.org/OpeningHoursSpecification'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/OpeningHoursSpecification'),serialization_alias='class') # type: ignore
     dayOfWeek: Optional[Union[DayOfWeek, List[DayOfWeek]]] = Field(default=None,validation_alias=AliasChoices('dayOfWeek', 'https://schema.org/dayOfWeek'),serialization_alias='https://schema.org/dayOfWeek')
     validFrom: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(default=None,validation_alias=AliasChoices('validFrom', 'https://schema.org/validFrom'),serialization_alias='https://schema.org/validFrom')
     closes: Optional[Union[time, List[time]]] = Field(default=None,validation_alias=AliasChoices('closes', 'https://schema.org/closes'),serialization_alias='https://schema.org/closes')

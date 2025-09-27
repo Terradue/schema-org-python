@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.audience import Audience
 
@@ -8,6 +8,7 @@ class PeopleAudience(Audience):
     """
 A set of characteristics belonging to people, e.g. who compose an item's target audience.
     """
+    type_: Literal['https://schema.org/PeopleAudience'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/PeopleAudience'),serialization_alias='class') # type: ignore
     suggestedGender: Optional[Union["GenderType", List["GenderType"], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('suggestedGender', 'https://schema.org/suggestedGender'),serialization_alias='https://schema.org/suggestedGender')
     requiredMaxAge: Optional[Union[int, List[int]]] = Field(default=None,validation_alias=AliasChoices('requiredMaxAge', 'https://schema.org/requiredMaxAge'),serialization_alias='https://schema.org/requiredMaxAge')
     suggestedAge: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(default=None,validation_alias=AliasChoices('suggestedAge', 'https://schema.org/suggestedAge'),serialization_alias='https://schema.org/suggestedAge')

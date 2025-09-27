@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.intangible import Intangible
 
@@ -8,6 +8,7 @@ class BroadcastChannel(Intangible):
     """
 A unique instance of a BroadcastService on a CableOrSatelliteService lineup.
     """
+    type_: Literal['https://schema.org/BroadcastChannel'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/BroadcastChannel'),serialization_alias='class') # type: ignore
     inBroadcastLineup: Optional[Union["CableOrSatelliteService", List["CableOrSatelliteService"]]] = Field(default=None,validation_alias=AliasChoices('inBroadcastLineup', 'https://schema.org/inBroadcastLineup'),serialization_alias='https://schema.org/inBroadcastLineup')
     broadcastChannelId: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('broadcastChannelId', 'https://schema.org/broadcastChannelId'),serialization_alias='https://schema.org/broadcastChannelId')
     providesBroadcastService: Optional[Union["BroadcastService", List["BroadcastService"]]] = Field(default=None,validation_alias=AliasChoices('providesBroadcastService', 'https://schema.org/providesBroadcastService'),serialization_alias='https://schema.org/providesBroadcastService')

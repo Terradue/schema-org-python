@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.list_item import ListItem
 
@@ -8,4 +8,5 @@ class HowToItem(ListItem):
     """
 An item used as either a tool or supply when performing the instructions for how to achieve a result.
     """
+    type_: Literal['https://schema.org/HowToItem'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/HowToItem'),serialization_alias='class') # type: ignore
     requiredQuantity: Optional[Union[str, List[str], float, List[float], QuantitativeValue, List[QuantitativeValue]]] = Field(default=None,validation_alias=AliasChoices('requiredQuantity', 'https://schema.org/requiredQuantity'),serialization_alias='https://schema.org/requiredQuantity')

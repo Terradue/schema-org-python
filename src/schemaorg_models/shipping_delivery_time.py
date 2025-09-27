@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from datetime import time
 from pydantic import AliasChoices, Field
 from schemaorg_models.structured_value import StructuredValue
@@ -11,6 +11,7 @@ class ShippingDeliveryTime(StructuredValue):
     """
 ShippingDeliveryTime provides various pieces of information about delivery times for shipping.
     """
+    type_: Literal['https://schema.org/ShippingDeliveryTime'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/ShippingDeliveryTime'),serialization_alias='class') # type: ignore
     businessDays: Optional[Union["OpeningHoursSpecification", List["OpeningHoursSpecification"], DayOfWeek, List[DayOfWeek]]] = Field(default=None,validation_alias=AliasChoices('businessDays', 'https://schema.org/businessDays'),serialization_alias='https://schema.org/businessDays')
     transitTime: Optional[Union[ServicePeriod, List[ServicePeriod], QuantitativeValue, List[QuantitativeValue]]] = Field(default=None,validation_alias=AliasChoices('transitTime', 'https://schema.org/transitTime'),serialization_alias='https://schema.org/transitTime')
     handlingTime: Optional[Union[ServicePeriod, List[ServicePeriod], QuantitativeValue, List[QuantitativeValue]]] = Field(default=None,validation_alias=AliasChoices('handlingTime', 'https://schema.org/handlingTime'),serialization_alias='https://schema.org/handlingTime')

@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.creative_work_series import CreativeWorkSeries
 
@@ -10,6 +10,7 @@ class PodcastSeries(CreativeWorkSeries):
     """
 A podcast is an episodic series of digital audio or video files which a user can download and listen to.
     """
+    type_: Literal['https://schema.org/PodcastSeries'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/PodcastSeries'),serialization_alias='class') # type: ignore
     webFeed: Optional[Union[DataFeed, List[DataFeed], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('webFeed', 'https://schema.org/webFeed'),serialization_alias='https://schema.org/webFeed')
     @field_serializer('webFeed')
     def webFeed2str(self, val) -> str | List[str]:

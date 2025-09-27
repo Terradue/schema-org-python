@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from datetime import date, datetime
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.thing import Thing
@@ -12,6 +12,7 @@ class CreativeWork(Thing):
     """
 The most generic kind of creative work, including books, movies, photographs, software programs, etc.
     """
+    type_: Literal['https://schema.org/CreativeWork'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/CreativeWork'),serialization_alias='class') # type: ignore
     educationalUse: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('educationalUse', 'https://schema.org/educationalUse'),serialization_alias='https://schema.org/educationalUse')
     accessMode: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('accessMode', 'https://schema.org/accessMode'),serialization_alias='https://schema.org/accessMode')
     sdLicense: Optional[Union["CreativeWork", List["CreativeWork"], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('sdLicense', 'https://schema.org/sdLicense'),serialization_alias='https://schema.org/sdLicense')

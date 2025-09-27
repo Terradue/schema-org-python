@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.creative_work import CreativeWork
 
@@ -9,6 +9,7 @@ class HowTo(CreativeWork):
     """
 Instructions that explain how to achieve a result by performing a sequence of steps.
     """
+    type_: Literal['https://schema.org/HowTo'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/HowTo'),serialization_alias='class') # type: ignore
     prepTime: Optional[Union["Duration", List["Duration"]]] = Field(default=None,validation_alias=AliasChoices('prepTime', 'https://schema.org/prepTime'),serialization_alias='https://schema.org/prepTime')
     performTime: Optional[Union["Duration", List["Duration"]]] = Field(default=None,validation_alias=AliasChoices('performTime', 'https://schema.org/performTime'),serialization_alias='https://schema.org/performTime')
     supply: Optional[Union["HowToSupply", List["HowToSupply"], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('supply', 'https://schema.org/supply'),serialization_alias='https://schema.org/supply')

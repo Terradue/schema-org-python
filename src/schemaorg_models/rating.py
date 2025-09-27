@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.intangible import Intangible
 
@@ -9,6 +9,7 @@ class Rating(Intangible):
     """
 A rating is an evaluation on a numeric scale, such as 1 to 5 stars.
     """
+    type_: Literal['https://schema.org/Rating'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/Rating'),serialization_alias='class') # type: ignore
     bestRating: Optional[Union[str, List[str], float, List[float]]] = Field(default=None,validation_alias=AliasChoices('bestRating', 'https://schema.org/bestRating'),serialization_alias='https://schema.org/bestRating')
     reviewAspect: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('reviewAspect', 'https://schema.org/reviewAspect'),serialization_alias='https://schema.org/reviewAspect')
     author: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(default=None,validation_alias=AliasChoices('author', 'https://schema.org/author'),serialization_alias='https://schema.org/author')

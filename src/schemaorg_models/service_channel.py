@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.intangible import Intangible
 
@@ -10,6 +10,7 @@ class ServiceChannel(Intangible):
     """
 A means for accessing a service, e.g. a government office location, web site, or phone number.
     """
+    type_: Literal['https://schema.org/ServiceChannel'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/ServiceChannel'),serialization_alias='class') # type: ignore
     processingTime: Optional[Union["Duration", List["Duration"]]] = Field(default=None,validation_alias=AliasChoices('processingTime', 'https://schema.org/processingTime'),serialization_alias='https://schema.org/processingTime')
     availableLanguage: Optional[Union[str, List[str], Language, List[Language]]] = Field(default=None,validation_alias=AliasChoices('availableLanguage', 'https://schema.org/availableLanguage'),serialization_alias='https://schema.org/availableLanguage')
     servicePostalAddress: Optional[Union["PostalAddress", List["PostalAddress"]]] = Field(default=None,validation_alias=AliasChoices('servicePostalAddress', 'https://schema.org/servicePostalAddress'),serialization_alias='https://schema.org/servicePostalAddress')

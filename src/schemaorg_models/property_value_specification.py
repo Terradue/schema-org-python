@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.intangible import Intangible
 
@@ -8,6 +8,7 @@ class PropertyValueSpecification(Intangible):
     """
 A Property value specification.
     """
+    type_: Literal['https://schema.org/PropertyValueSpecification'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/PropertyValueSpecification'),serialization_alias='class') # type: ignore
     valuePattern: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('valuePattern', 'https://schema.org/valuePattern'),serialization_alias='https://schema.org/valuePattern')
     minValue: Optional[Union[float, List[float]]] = Field(default=None,validation_alias=AliasChoices('minValue', 'https://schema.org/minValue'),serialization_alias='https://schema.org/minValue')
     stepValue: Optional[Union[float, List[float]]] = Field(default=None,validation_alias=AliasChoices('stepValue', 'https://schema.org/stepValue'),serialization_alias='https://schema.org/stepValue')

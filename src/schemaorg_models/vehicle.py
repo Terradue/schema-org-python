@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from datetime import date
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.product import Product
@@ -8,6 +8,7 @@ class Vehicle(Product):
     """
 A vehicle is a device that is designed or used to transport people or cargo over land, water, air, or through space.
     """
+    type_: Literal['https://schema.org/Vehicle'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/Vehicle'),serialization_alias='class') # type: ignore
     vehicleIdentificationNumber: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('vehicleIdentificationNumber', 'https://schema.org/vehicleIdentificationNumber'),serialization_alias='https://schema.org/vehicleIdentificationNumber')
     dateVehicleFirstRegistered: Optional[Union[date, List[date]]] = Field(default=None,validation_alias=AliasChoices('dateVehicleFirstRegistered', 'https://schema.org/dateVehicleFirstRegistered'),serialization_alias='https://schema.org/dateVehicleFirstRegistered')
     callSign: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('callSign', 'https://schema.org/callSign'),serialization_alias='https://schema.org/callSign')

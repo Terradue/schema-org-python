@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.choose_action import ChooseAction
 
@@ -8,4 +8,5 @@ class VoteAction(ChooseAction):
     """
 The act of expressing a preference from a fixed/finite/structured set of choices/options.
     """
+    type_: Literal['https://schema.org/VoteAction'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/VoteAction'),serialization_alias='class') # type: ignore
     candidate: Optional[Union[Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('candidate', 'https://schema.org/candidate'),serialization_alias='https://schema.org/candidate')

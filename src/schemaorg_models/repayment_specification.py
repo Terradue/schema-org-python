@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.structured_value import StructuredValue
 
@@ -7,6 +7,7 @@ class RepaymentSpecification(StructuredValue):
     """
 A structured value representing repayment.
     """
+    type_: Literal['https://schema.org/RepaymentSpecification'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/RepaymentSpecification'),serialization_alias='class') # type: ignore
     numberOfLoanPayments: Optional[Union[float, List[float]]] = Field(default=None,validation_alias=AliasChoices('numberOfLoanPayments', 'https://schema.org/numberOfLoanPayments'),serialization_alias='https://schema.org/numberOfLoanPayments')
     loanPaymentAmount: Optional[Union["MonetaryAmount", List["MonetaryAmount"]]] = Field(default=None,validation_alias=AliasChoices('loanPaymentAmount', 'https://schema.org/loanPaymentAmount'),serialization_alias='https://schema.org/loanPaymentAmount')
     earlyPrepaymentPenalty: Optional[Union["MonetaryAmount", List["MonetaryAmount"]]] = Field(default=None,validation_alias=AliasChoices('earlyPrepaymentPenalty', 'https://schema.org/earlyPrepaymentPenalty'),serialization_alias='https://schema.org/earlyPrepaymentPenalty')

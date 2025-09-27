@@ -143,7 +143,7 @@ def generate_models(graph: Graph):
         filename = f"src/schemaorg_models/{camel_to_snake(class_name)}.py"
         with open(filename, "w") as f:
             # Imports
-            f.write("from typing import Union, List, Optional\n")
+            f.write("from typing import List, Literal, Optional, Union\n")
             f.write("from datetime import date, datetime, time\n")
             f.write(
                 "from pydantic import field_serializer, field_validator, AliasChoices, ConfigDict, Field, HttpUrl\n"
@@ -183,6 +183,9 @@ def generate_models(graph: Graph):
                 f.write(f'    """\n{docstring}\n    """\n')
 
             # f.write("    model_config = ConfigDict(arbitrary_types_allowed=True)\n\n")
+
+            # type class
+            f.write(f"    type_: Literal['https://schema.org/{class_name}'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/{class_name}'),serialization_alias='class') # type: ignore\n")
 
             # Properties
             if not class_info["properties"]:

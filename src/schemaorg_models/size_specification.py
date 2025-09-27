@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.qualitative_value import QualitativeValue
 
@@ -11,6 +11,7 @@ class SizeSpecification(QualitativeValue):
     """
 Size related properties of a product, typically a size code ([[name]]) and optionally a [[sizeSystem]], [[sizeGroup]], and product measurements ([[hasMeasurement]]). In addition, the intended audience can be defined through [[suggestedAge]], [[suggestedGender]], and suggested body measurements ([[suggestedMeasurement]]).
     """
+    type_: Literal['https://schema.org/SizeSpecification'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/SizeSpecification'),serialization_alias='class') # type: ignore
     suggestedMeasurement: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(default=None,validation_alias=AliasChoices('suggestedMeasurement', 'https://schema.org/suggestedMeasurement'),serialization_alias='https://schema.org/suggestedMeasurement')
     sizeSystem: Optional[Union[str, List[str], SizeSystemEnumeration, List[SizeSystemEnumeration]]] = Field(default=None,validation_alias=AliasChoices('sizeSystem', 'https://schema.org/sizeSystem'),serialization_alias='https://schema.org/sizeSystem')
     suggestedAge: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(default=None,validation_alias=AliasChoices('suggestedAge', 'https://schema.org/suggestedAge'),serialization_alias='https://schema.org/suggestedAge')

@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.contact_point import ContactPoint
 
@@ -8,6 +8,7 @@ class PostalAddress(ContactPoint):
     """
 The mailing address.
     """
+    type_: Literal['https://schema.org/PostalAddress'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/PostalAddress'),serialization_alias='class') # type: ignore
     addressRegion: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('addressRegion', 'https://schema.org/addressRegion'),serialization_alias='https://schema.org/addressRegion')
     postalCode: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('postalCode', 'https://schema.org/postalCode'),serialization_alias='https://schema.org/postalCode')
     streetAddress: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('streetAddress', 'https://schema.org/streetAddress'),serialization_alias='https://schema.org/streetAddress')

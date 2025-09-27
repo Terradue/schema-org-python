@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.creative_work import CreativeWork
 
@@ -8,6 +8,7 @@ class Clip(CreativeWork):
     """
 A short TV or radio program or a segment/part of a program.
     """
+    type_: Literal['https://schema.org/Clip'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/Clip'),serialization_alias='class') # type: ignore
     clipNumber: Optional[Union[int, List[int], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('clipNumber', 'https://schema.org/clipNumber'),serialization_alias='https://schema.org/clipNumber')
     director: Optional[Union[Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('director', 'https://schema.org/director'),serialization_alias='https://schema.org/director')
     partOfEpisode: Optional[Union["Episode", List["Episode"]]] = Field(default=None,validation_alias=AliasChoices('partOfEpisode', 'https://schema.org/partOfEpisode'),serialization_alias='https://schema.org/partOfEpisode')

@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from datetime import datetime, time
 from pydantic import AliasChoices, Field
 from schemaorg_models.intangible import Intangible
@@ -14,6 +14,7 @@ class Trip(Intangible):
     """
 A trip or journey. An itinerary of visits to one or more places.
     """
+    type_: Literal['https://schema.org/Trip'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/Trip'),serialization_alias='class') # type: ignore
     subTrip: Optional[Union["Trip", List["Trip"]]] = Field(default=None,validation_alias=AliasChoices('subTrip', 'https://schema.org/subTrip'),serialization_alias='https://schema.org/subTrip')
     provider: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(default=None,validation_alias=AliasChoices('provider', 'https://schema.org/provider'),serialization_alias='https://schema.org/provider')
     partOfTrip: Optional[Union["Trip", List["Trip"]]] = Field(default=None,validation_alias=AliasChoices('partOfTrip', 'https://schema.org/partOfTrip'),serialization_alias='https://schema.org/partOfTrip')

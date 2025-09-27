@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.structured_value import StructuredValue
 
@@ -7,6 +7,7 @@ class NutritionInformation(StructuredValue):
     """
 Nutritional information about the recipe.
     """
+    type_: Literal['https://schema.org/NutritionInformation'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/NutritionInformation'),serialization_alias='class') # type: ignore
     unsaturatedFatContent: Optional[Union["Mass", List["Mass"]]] = Field(default=None,validation_alias=AliasChoices('unsaturatedFatContent', 'https://schema.org/unsaturatedFatContent'),serialization_alias='https://schema.org/unsaturatedFatContent')
     cholesterolContent: Optional[Union["Mass", List["Mass"]]] = Field(default=None,validation_alias=AliasChoices('cholesterolContent', 'https://schema.org/cholesterolContent'),serialization_alias='https://schema.org/cholesterolContent')
     calories: Optional[Union["Energy", List["Energy"]]] = Field(default=None,validation_alias=AliasChoices('calories', 'https://schema.org/calories'),serialization_alias='https://schema.org/calories')

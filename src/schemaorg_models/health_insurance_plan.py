@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.intangible import Intangible
 
@@ -7,6 +7,7 @@ class HealthInsurancePlan(Intangible):
     """
 A US-style health insurance plan, including PPOs, EPOs, and HMOs.
     """
+    type_: Literal['https://schema.org/HealthInsurancePlan'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/HealthInsurancePlan'),serialization_alias='class') # type: ignore
     benefitsSummaryUrl: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('benefitsSummaryUrl', 'https://schema.org/benefitsSummaryUrl'),serialization_alias='https://schema.org/benefitsSummaryUrl')
     @field_serializer('benefitsSummaryUrl')
     def benefitsSummaryUrl2str(self, val) -> str | List[str]:

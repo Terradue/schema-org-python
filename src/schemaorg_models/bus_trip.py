@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.trip import Trip
 
@@ -9,6 +9,7 @@ class BusTrip(Trip):
     """
 A trip on a commercial bus line.
     """
+    type_: Literal['https://schema.org/BusTrip'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/BusTrip'),serialization_alias='class') # type: ignore
     busNumber: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('busNumber', 'https://schema.org/busNumber'),serialization_alias='https://schema.org/busNumber')
     arrivalBusStop: Optional[Union[BusStation, List[BusStation], BusStop, List[BusStop]]] = Field(default=None,validation_alias=AliasChoices('arrivalBusStop', 'https://schema.org/arrivalBusStop'),serialization_alias='https://schema.org/arrivalBusStop')
     departureBusStop: Optional[Union[BusStop, List[BusStop], BusStation, List[BusStation]]] = Field(default=None,validation_alias=AliasChoices('departureBusStop', 'https://schema.org/departureBusStop'),serialization_alias='https://schema.org/departureBusStop')

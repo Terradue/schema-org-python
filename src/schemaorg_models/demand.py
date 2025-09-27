@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from datetime import date, datetime, time
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.intangible import Intangible
@@ -17,6 +17,7 @@ class Demand(Intangible):
     """
 A demand entity represents the public, not necessarily binding, not necessarily exclusive, announcement by an organization or person to seek a certain type of goods or services. For describing demand using this type, the very same properties used for Offer apply.
     """
+    type_: Literal['https://schema.org/Demand'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/Demand'),serialization_alias='class') # type: ignore
     availabilityEnds: Optional[Union[date, List[date], time, List[time], datetime, List[datetime]]] = Field(default=None,validation_alias=AliasChoices('availabilityEnds', 'https://schema.org/availabilityEnds'),serialization_alias='https://schema.org/availabilityEnds')
     sku: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('sku', 'https://schema.org/sku'),serialization_alias='https://schema.org/sku')
     eligibleTransactionVolume: Optional[Union["PriceSpecification", List["PriceSpecification"]]] = Field(default=None,validation_alias=AliasChoices('eligibleTransactionVolume', 'https://schema.org/eligibleTransactionVolume'),serialization_alias='https://schema.org/eligibleTransactionVolume')

@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.creative_work import CreativeWork
 
@@ -9,6 +9,7 @@ class Game(CreativeWork):
     """
 The Game type represents things which are games. These are typically rule-governed recreational activities, e.g. role-playing games in which players assume the role of characters in a fictional setting.
     """
+    type_: Literal['https://schema.org/Game'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/Game'),serialization_alias='class') # type: ignore
     quest: Optional[Union[Thing, List[Thing]]] = Field(default=None,validation_alias=AliasChoices('quest', 'https://schema.org/quest'),serialization_alias='https://schema.org/quest')
     characterAttribute: Optional[Union[Thing, List[Thing]]] = Field(default=None,validation_alias=AliasChoices('characterAttribute', 'https://schema.org/characterAttribute'),serialization_alias='https://schema.org/characterAttribute')
     gameItem: Optional[Union[Thing, List[Thing]]] = Field(default=None,validation_alias=AliasChoices('gameItem', 'https://schema.org/gameItem'),serialization_alias='https://schema.org/gameItem')

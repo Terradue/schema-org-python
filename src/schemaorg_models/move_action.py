@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.action import Action
 
@@ -12,5 +12,6 @@ Related actions:\
 \
 * [[TransferAction]]: Unlike TransferAction, the subject of the move is a living Person or Organization rather than an inanimate object.
     """
+    type_: Literal['https://schema.org/MoveAction'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/MoveAction'),serialization_alias='class') # type: ignore
     toLocation: Optional[Union[Place, List[Place]]] = Field(default=None,validation_alias=AliasChoices('toLocation', 'https://schema.org/toLocation'),serialization_alias='https://schema.org/toLocation')
     fromLocation: Optional[Union[Place, List[Place]]] = Field(default=None,validation_alias=AliasChoices('fromLocation', 'https://schema.org/fromLocation'),serialization_alias='https://schema.org/fromLocation')

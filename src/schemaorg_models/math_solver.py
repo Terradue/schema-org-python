@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.creative_work import CreativeWork
 
@@ -7,4 +7,5 @@ class MathSolver(CreativeWork):
     """
 A math solver which is capable of solving a subset of mathematical problems.
     """
+    type_: Literal['https://schema.org/MathSolver'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/MathSolver'),serialization_alias='class') # type: ignore
     mathExpression: Optional[Union["SolveMathAction", List["SolveMathAction"], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('mathExpression', 'https://schema.org/mathExpression'),serialization_alias='https://schema.org/mathExpression')

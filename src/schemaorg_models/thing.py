@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 
 
@@ -7,6 +7,7 @@ class Thing(BaseModel):
     """
 The most generic type of item.
     """
+    type_: Literal['https://schema.org/Thing'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/Thing'),serialization_alias='class') # type: ignore
     additionalType: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('additionalType', 'https://schema.org/additionalType'),serialization_alias='https://schema.org/additionalType')
     @field_serializer('additionalType')
     def additionalType2str(self, val) -> str | List[str]:

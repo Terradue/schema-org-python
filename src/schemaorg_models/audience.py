@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.intangible import Intangible
 
@@ -8,5 +8,6 @@ class Audience(Intangible):
     """
 Intended audience for an item, i.e. the group for whom the item was created.
     """
+    type_: Literal['https://schema.org/Audience'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/Audience'),serialization_alias='class') # type: ignore
     geographicArea: Optional[Union[AdministrativeArea, List[AdministrativeArea]]] = Field(default=None,validation_alias=AliasChoices('geographicArea', 'https://schema.org/geographicArea'),serialization_alias='https://schema.org/geographicArea')
     audienceType: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('audienceType', 'https://schema.org/audienceType'),serialization_alias='https://schema.org/audienceType')

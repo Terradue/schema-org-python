@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.price_specification import PriceSpecification
 
@@ -11,6 +11,7 @@ class UnitPriceSpecification(PriceSpecification):
     """
 The price asked for a given offer by the respective organization or person.
     """
+    type_: Literal['https://schema.org/UnitPriceSpecification'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/UnitPriceSpecification'),serialization_alias='class') # type: ignore
     unitText: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('unitText', 'https://schema.org/unitText'),serialization_alias='https://schema.org/unitText')
     billingDuration: Optional[Union[Duration, List[Duration], float, List[float], QuantitativeValue, List[QuantitativeValue]]] = Field(default=None,validation_alias=AliasChoices('billingDuration', 'https://schema.org/billingDuration'),serialization_alias='https://schema.org/billingDuration')
     unitCode: Optional[Union[HttpUrl, List[HttpUrl], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('unitCode', 'https://schema.org/unitCode'),serialization_alias='https://schema.org/unitCode')

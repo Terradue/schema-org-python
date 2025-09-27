@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.creative_work_series import CreativeWorkSeries
 
@@ -13,6 +13,7 @@ class RadioSeries(CreativeWorkSeries):
     """
 CreativeWorkSeries dedicated to radio broadcast and associated online delivery.
     """
+    type_: Literal['https://schema.org/RadioSeries'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/RadioSeries'),serialization_alias='class') # type: ignore
     episode: Optional[Union[Episode, List[Episode]]] = Field(default=None,validation_alias=AliasChoices('episode', 'https://schema.org/episode'),serialization_alias='https://schema.org/episode')
     numberOfEpisodes: Optional[Union[int, List[int]]] = Field(default=None,validation_alias=AliasChoices('numberOfEpisodes', 'https://schema.org/numberOfEpisodes'),serialization_alias='https://schema.org/numberOfEpisodes')
     actor: Optional[Union[Person, List[Person], PerformingGroup, List[PerformingGroup]]] = Field(default=None,validation_alias=AliasChoices('actor', 'https://schema.org/actor'),serialization_alias='https://schema.org/actor')

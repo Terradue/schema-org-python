@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.creative_work import CreativeWork
 
@@ -12,6 +12,7 @@ class Review(CreativeWork):
     """
 A review of the item.
     """
+    type_: Literal['https://schema.org/Review'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/Review'),serialization_alias='class') # type: ignore
     itemReviewed: Optional[Union[Thing, List[Thing]]] = Field(default=None,validation_alias=AliasChoices('itemReviewed', 'https://schema.org/itemReviewed'),serialization_alias='https://schema.org/itemReviewed')
     positiveNotes: Optional[Union[WebContent, List[WebContent], ItemList, List[ItemList], str, List[str], ListItem, List[ListItem]]] = Field(default=None,validation_alias=AliasChoices('positiveNotes', 'https://schema.org/positiveNotes'),serialization_alias='https://schema.org/positiveNotes')
     reviewAspect: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('reviewAspect', 'https://schema.org/reviewAspect'),serialization_alias='https://schema.org/reviewAspect')

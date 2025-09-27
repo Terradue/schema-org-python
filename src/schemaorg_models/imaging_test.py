@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.medical_test import MedicalTest
 
@@ -7,4 +7,5 @@ class ImagingTest(MedicalTest):
     """
 Any medical imaging modality typically used for diagnostic purposes.
     """
+    type_: Literal['https://schema.org/ImagingTest'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/ImagingTest'),serialization_alias='class') # type: ignore
     imagingTechnique: Optional[Union["MedicalImagingTechnique", List["MedicalImagingTechnique"]]] = Field(default=None,validation_alias=AliasChoices('imagingTechnique', 'https://schema.org/imagingTechnique'),serialization_alias='https://schema.org/imagingTechnique')

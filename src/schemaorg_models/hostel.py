@@ -1,3 +1,5 @@
+from typing import Literal
+from pydantic import AliasChoices, Field
 from schemaorg_models.lodging_business import LodgingBusiness
 
 
@@ -8,3 +10,4 @@ A hostel - cheap accommodation, often in shared dormitories.
 See also the <a href="/docs/hotels.html">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>.
 
     """
+    type_: Literal['https://schema.org/Hostel'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/Hostel'),serialization_alias='class') # type: ignore

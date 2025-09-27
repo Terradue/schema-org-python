@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.trade_action import TradeAction
 
@@ -10,5 +10,6 @@ class RentAction(TradeAction):
     """
 The act of giving money in return for temporary use, but not ownership, of an object such as a vehicle or property. For example, an agent rents a property from a landlord in exchange for a periodic payment.
     """
+    type_: Literal['https://schema.org/RentAction'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/RentAction'),serialization_alias='class') # type: ignore
     realEstateAgent: Optional[Union[RealEstateAgent, List[RealEstateAgent]]] = Field(default=None,validation_alias=AliasChoices('realEstateAgent', 'https://schema.org/realEstateAgent'),serialization_alias='https://schema.org/realEstateAgent')
     landlord: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('landlord', 'https://schema.org/landlord'),serialization_alias='https://schema.org/landlord')

@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.local_business import LocalBusiness
 
@@ -7,6 +7,7 @@ class FinancialService(LocalBusiness):
     """
 Financial services business.
     """
+    type_: Literal['https://schema.org/FinancialService'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/FinancialService'),serialization_alias='class') # type: ignore
     feesAndCommissionsSpecification: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('feesAndCommissionsSpecification', 'https://schema.org/feesAndCommissionsSpecification'),serialization_alias='https://schema.org/feesAndCommissionsSpecification')
     @field_serializer('feesAndCommissionsSpecification')
     def feesAndCommissionsSpecification2str(self, val) -> str | List[str]:

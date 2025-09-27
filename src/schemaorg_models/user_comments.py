@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from datetime import date, datetime
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.user_interaction import UserInteraction
@@ -11,6 +11,7 @@ class UserComments(UserInteraction):
     """
 UserInteraction and its subtypes is an old way of talking about users interacting with pages. It is generally better to use [[Action]]-based vocabulary, alongside types such as [[Comment]].
     """
+    type_: Literal['https://schema.org/UserComments'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/UserComments'),serialization_alias='class') # type: ignore
     commentTime: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(default=None,validation_alias=AliasChoices('commentTime', 'https://schema.org/commentTime'),serialization_alias='https://schema.org/commentTime')
     replyToUrl: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('replyToUrl', 'https://schema.org/replyToUrl'),serialization_alias='https://schema.org/replyToUrl')
     @field_serializer('replyToUrl')

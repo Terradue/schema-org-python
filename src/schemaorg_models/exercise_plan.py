@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.creative_work import CreativeWork
 
@@ -7,6 +7,7 @@ class ExercisePlan(CreativeWork):
     """
 Fitness-related activity designed for a specific health-related purpose, including defined exercise routines as well as activity prescribed by a clinician.
     """
+    type_: Literal['https://schema.org/ExercisePlan'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/ExercisePlan'),serialization_alias='class') # type: ignore
     additionalVariable: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('additionalVariable', 'https://schema.org/additionalVariable'),serialization_alias='https://schema.org/additionalVariable')
     activityDuration: Optional[Union["QuantitativeValue", List["QuantitativeValue"], "Duration", List["Duration"]]] = Field(default=None,validation_alias=AliasChoices('activityDuration', 'https://schema.org/activityDuration'),serialization_alias='https://schema.org/activityDuration')
     intensity: Optional[Union[str, List[str], "QuantitativeValue", List["QuantitativeValue"]]] = Field(default=None,validation_alias=AliasChoices('intensity', 'https://schema.org/intensity'),serialization_alias='https://schema.org/intensity')

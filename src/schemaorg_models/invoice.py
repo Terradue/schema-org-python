@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from datetime import date, datetime
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.intangible import Intangible
@@ -11,6 +11,7 @@ class Invoice(Intangible):
     """
 A statement of the money due for goods or services; a bill.
     """
+    type_: Literal['https://schema.org/Invoice'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/Invoice'),serialization_alias='class') # type: ignore
     referencesOrder: Optional[Union["Order", List["Order"]]] = Field(default=None,validation_alias=AliasChoices('referencesOrder', 'https://schema.org/referencesOrder'),serialization_alias='https://schema.org/referencesOrder')
     paymentDueDate: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(default=None,validation_alias=AliasChoices('paymentDueDate', 'https://schema.org/paymentDueDate'),serialization_alias='https://schema.org/paymentDueDate')
     paymentDue: Optional[Union[datetime, List[datetime]]] = Field(default=None,validation_alias=AliasChoices('paymentDue', 'https://schema.org/paymentDue'),serialization_alias='https://schema.org/paymentDue')

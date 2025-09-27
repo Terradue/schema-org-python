@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.intangible import Intangible
 
@@ -10,5 +10,6 @@ class DigitalDocumentPermission(Intangible):
     """
 A permission for a particular person or group to access a particular file.
     """
+    type_: Literal['https://schema.org/DigitalDocumentPermission'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/DigitalDocumentPermission'),serialization_alias='class') # type: ignore
     permissionType: Optional[Union["DigitalDocumentPermissionType", List["DigitalDocumentPermissionType"]]] = Field(default=None,validation_alias=AliasChoices('permissionType', 'https://schema.org/permissionType'),serialization_alias='https://schema.org/permissionType')
     grantee: Optional[Union[Organization, List[Organization], Audience, List[Audience], Person, List[Person], "ContactPoint", List["ContactPoint"]]] = Field(default=None,validation_alias=AliasChoices('grantee', 'https://schema.org/grantee'),serialization_alias='https://schema.org/grantee')

@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.structured_value import StructuredValue
 
@@ -8,6 +8,7 @@ class EngineSpecification(StructuredValue):
     """
 Information about the engine of the vehicle. A vehicle can have multiple engines represented by multiple engine specification entities.
     """
+    type_: Literal['https://schema.org/EngineSpecification'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/EngineSpecification'),serialization_alias='class') # type: ignore
     fuelType: Optional[Union[str, List[str], QualitativeValue, List[QualitativeValue], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('fuelType', 'https://schema.org/fuelType'),serialization_alias='https://schema.org/fuelType')
     @field_serializer('fuelType')
     def fuelType2str(self, val) -> str | List[str]:

@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.text import Text
 
@@ -7,6 +7,7 @@ class PronounceableText(Text):
     """
 Data type: PronounceableText.
     """
+    type_: Literal['https://schema.org/PronounceableText'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/PronounceableText'),serialization_alias='class') # type: ignore
     speechToTextMarkup: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('speechToTextMarkup', 'https://schema.org/speechToTextMarkup'),serialization_alias='https://schema.org/speechToTextMarkup')
     inLanguage: Optional[Union[str, List[str], "Language", List["Language"]]] = Field(default=None,validation_alias=AliasChoices('inLanguage', 'https://schema.org/inLanguage'),serialization_alias='https://schema.org/inLanguage')
     phoneticText: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('phoneticText', 'https://schema.org/phoneticText'),serialization_alias='https://schema.org/phoneticText')

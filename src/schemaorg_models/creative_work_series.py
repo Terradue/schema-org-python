@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from datetime import date, datetime
 from pydantic import AliasChoices, Field
 from schemaorg_models.creative_work import CreativeWork
@@ -13,6 +13,7 @@ Specific subtypes are available for describing [[TVSeries]], [[RadioSeries]], [[
 It is common for properties applicable to an item from the series to be usefully applied to the containing group. Schema.org attempts to anticipate some of these cases, but publishers should be free to apply properties of the series parts to the series as a whole wherever they seem appropriate.
     
     """
+    type_: Literal['https://schema.org/CreativeWorkSeries'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/CreativeWorkSeries'),serialization_alias='class') # type: ignore
     endDate: Optional[Union[datetime, List[datetime], date, List[date]]] = Field(default=None,validation_alias=AliasChoices('endDate', 'https://schema.org/endDate'),serialization_alias='https://schema.org/endDate')
     startDate: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(default=None,validation_alias=AliasChoices('startDate', 'https://schema.org/startDate'),serialization_alias='https://schema.org/startDate')
     issn: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('issn', 'https://schema.org/issn'),serialization_alias='https://schema.org/issn')

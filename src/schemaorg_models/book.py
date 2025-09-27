@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.creative_work import CreativeWork
 
@@ -8,6 +8,7 @@ class Book(CreativeWork):
     """
 A book.
     """
+    type_: Literal['https://schema.org/Book'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/Book'),serialization_alias='class') # type: ignore
     abridged: Optional[Union[bool, List[bool]]] = Field(default=None,validation_alias=AliasChoices('abridged', 'https://schema.org/abridged'),serialization_alias='https://schema.org/abridged')
     bookFormat: Optional[Union["BookFormatType", List["BookFormatType"]]] = Field(default=None,validation_alias=AliasChoices('bookFormat', 'https://schema.org/bookFormat'),serialization_alias='https://schema.org/bookFormat')
     isbn: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('isbn', 'https://schema.org/isbn'),serialization_alias='https://schema.org/isbn')

@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from datetime import datetime
 from pydantic import AliasChoices, Field
 from schemaorg_models.reservation import Reservation
@@ -11,6 +11,7 @@ A reservation for a rental car.\
 \
 Note: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations.
     """
+    type_: Literal['https://schema.org/RentalCarReservation'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/RentalCarReservation'),serialization_alias='class') # type: ignore
     pickupTime: Optional[Union[datetime, List[datetime]]] = Field(default=None,validation_alias=AliasChoices('pickupTime', 'https://schema.org/pickupTime'),serialization_alias='https://schema.org/pickupTime')
     dropoffTime: Optional[Union[datetime, List[datetime]]] = Field(default=None,validation_alias=AliasChoices('dropoffTime', 'https://schema.org/dropoffTime'),serialization_alias='https://schema.org/dropoffTime')
     dropoffLocation: Optional[Union[Place, List[Place]]] = Field(default=None,validation_alias=AliasChoices('dropoffLocation', 'https://schema.org/dropoffLocation'),serialization_alias='https://schema.org/dropoffLocation')

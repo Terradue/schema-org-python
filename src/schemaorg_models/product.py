@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from datetime import date
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.thing import Thing
@@ -9,6 +9,7 @@ class Product(Thing):
     """
 Any offered product or service. For example: a pair of shoes; a concert ticket; the rental of a car; a haircut; or an episode of a TV show streamed online.
     """
+    type_: Literal['https://schema.org/Product'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/Product'),serialization_alias='class') # type: ignore
     reviews: Optional[Union["Review", List["Review"]]] = Field(default=None,validation_alias=AliasChoices('reviews', 'https://schema.org/reviews'),serialization_alias='https://schema.org/reviews')
     inProductGroupWithID: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('inProductGroupWithID', 'https://schema.org/inProductGroupWithID'),serialization_alias='https://schema.org/inProductGroupWithID')
     gtin: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('gtin', 'https://schema.org/gtin'),serialization_alias='https://schema.org/gtin')

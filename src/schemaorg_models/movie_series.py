@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.creative_work_series import CreativeWorkSeries
 
@@ -11,6 +11,7 @@ class MovieSeries(CreativeWorkSeries):
     """
 A series of movies. Included movies can be indicated with the hasPart property.
     """
+    type_: Literal['https://schema.org/MovieSeries'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/MovieSeries'),serialization_alias='class') # type: ignore
     musicBy: Optional[Union["MusicGroup", List["MusicGroup"], Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('musicBy', 'https://schema.org/musicBy'),serialization_alias='https://schema.org/musicBy')
     director: Optional[Union[Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('director', 'https://schema.org/director'),serialization_alias='https://schema.org/director')
     directors: Optional[Union[Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('directors', 'https://schema.org/directors'),serialization_alias='https://schema.org/directors')

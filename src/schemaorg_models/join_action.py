@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.interact_action import InteractAction
 
@@ -14,4 +14,5 @@ Related actions:\
 * [[SubscribeAction]]: Unlike SubscribeAction, JoinAction does not imply that you'll be receiving updates.\
 * [[FollowAction]]: Unlike FollowAction, JoinAction does not imply that you'll be polling for updates.
     """
+    type_: Literal['https://schema.org/JoinAction'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/JoinAction'),serialization_alias='class') # type: ignore
     event: Optional[Union[Event, List[Event]]] = Field(default=None,validation_alias=AliasChoices('event', 'https://schema.org/event'),serialization_alias='https://schema.org/event')

@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.thing import Thing
 
@@ -7,6 +7,7 @@ class Taxon(Thing):
     """
 A set of organisms asserted to represent a natural cohesive biological unit.
     """
+    type_: Literal['https://schema.org/Taxon'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/Taxon'),serialization_alias='class') # type: ignore
     hasDefinedTerm: Optional[Union["DefinedTerm", List["DefinedTerm"]]] = Field(default=None,validation_alias=AliasChoices('hasDefinedTerm', 'https://schema.org/hasDefinedTerm'),serialization_alias='https://schema.org/hasDefinedTerm')
     taxonRank: Optional[Union[str, List[str], "PropertyValue", List["PropertyValue"], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('taxonRank', 'https://schema.org/taxonRank'),serialization_alias='https://schema.org/taxonRank')
     @field_serializer('taxonRank')

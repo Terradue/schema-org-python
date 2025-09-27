@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.intangible import Intangible
 
@@ -15,6 +15,7 @@ class Service(Intangible):
     """
 A service provided by an organization, e.g. delivery service, print services, etc.
     """
+    type_: Literal['https://schema.org/Service'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/Service'),serialization_alias='class') # type: ignore
     slogan: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('slogan', 'https://schema.org/slogan'),serialization_alias='https://schema.org/slogan')
     logo: Optional[Union[HttpUrl, List[HttpUrl], "ImageObject", List["ImageObject"]]] = Field(default=None,validation_alias=AliasChoices('logo', 'https://schema.org/logo'),serialization_alias='https://schema.org/logo')
     @field_serializer('logo')

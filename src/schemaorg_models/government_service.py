@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.service import Service
 
@@ -9,5 +9,6 @@ class GovernmentService(Service):
     """
 A service provided by a government organization, e.g. food stamps, veterans benefits, etc.
     """
+    type_: Literal['https://schema.org/GovernmentService'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/GovernmentService'),serialization_alias='class') # type: ignore
     jurisdiction: Optional[Union[str, List[str], AdministrativeArea, List[AdministrativeArea]]] = Field(default=None,validation_alias=AliasChoices('jurisdiction', 'https://schema.org/jurisdiction'),serialization_alias='https://schema.org/jurisdiction')
     serviceOperator: Optional[Union[Organization, List[Organization]]] = Field(default=None,validation_alias=AliasChoices('serviceOperator', 'https://schema.org/serviceOperator'),serialization_alias='https://schema.org/serviceOperator')

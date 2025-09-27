@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from datetime import date
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.thing import Thing
@@ -9,6 +9,7 @@ class Person(Thing):
     """
 A person (alive, dead, undead, or fictional).
     """
+    type_: Literal['https://schema.org/Person'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/Person'),serialization_alias='class') # type: ignore
     knowsLanguage: Optional[Union[str, List[str], "Language", List["Language"]]] = Field(default=None,validation_alias=AliasChoices('knowsLanguage', 'https://schema.org/knowsLanguage'),serialization_alias='https://schema.org/knowsLanguage')
     gender: Optional[Union["GenderType", List["GenderType"], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('gender', 'https://schema.org/gender'),serialization_alias='https://schema.org/gender')
     faxNumber: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('faxNumber', 'https://schema.org/faxNumber'),serialization_alias='https://schema.org/faxNumber')

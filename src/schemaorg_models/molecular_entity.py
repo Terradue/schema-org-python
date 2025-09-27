@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.bio_chem_entity import BioChemEntity
 
@@ -8,6 +8,7 @@ class MolecularEntity(BioChemEntity):
     """
 Any constitutionally or isotopically distinct atom, molecule, ion, ion pair, radical, radical ion, complex, conformer etc., identifiable as a separately distinguishable entity.
     """
+    type_: Literal['https://schema.org/MolecularEntity'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/MolecularEntity'),serialization_alias='class') # type: ignore
     chemicalRole: Optional[Union[DefinedTerm, List[DefinedTerm]]] = Field(default=None,validation_alias=AliasChoices('chemicalRole', 'https://schema.org/chemicalRole'),serialization_alias='https://schema.org/chemicalRole')
     inChI: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('inChI', 'https://schema.org/inChI'),serialization_alias='https://schema.org/inChI')
     smiles: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('smiles', 'https://schema.org/smiles'),serialization_alias='https://schema.org/smiles')

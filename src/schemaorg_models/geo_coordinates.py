@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.structured_value import StructuredValue
 
@@ -8,6 +8,7 @@ class GeoCoordinates(StructuredValue):
     """
 The geographic coordinates of a place or event.
     """
+    type_: Literal['https://schema.org/GeoCoordinates'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/GeoCoordinates'),serialization_alias='class') # type: ignore
     longitude: Optional[Union[float, List[float], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('longitude', 'https://schema.org/longitude'),serialization_alias='https://schema.org/longitude')
     latitude: Optional[Union[str, List[str], float, List[float]]] = Field(default=None,validation_alias=AliasChoices('latitude', 'https://schema.org/latitude'),serialization_alias='https://schema.org/latitude')
     address: Optional[Union[str, List[str], "PostalAddress", List["PostalAddress"]]] = Field(default=None,validation_alias=AliasChoices('address', 'https://schema.org/address'),serialization_alias='https://schema.org/address')

@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.intangible import Intangible
 
@@ -10,6 +10,7 @@ class OrderItem(Intangible):
     """
 An order item is a line of an order. It includes the quantity and shipping details of a bought offer.
     """
+    type_: Literal['https://schema.org/OrderItem'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/OrderItem'),serialization_alias='class') # type: ignore
     orderQuantity: Optional[Union[float, List[float], "QuantitativeValue", List["QuantitativeValue"]]] = Field(default=None,validation_alias=AliasChoices('orderQuantity', 'https://schema.org/orderQuantity'),serialization_alias='https://schema.org/orderQuantity')
     orderItemStatus: Optional[Union["OrderStatus", List["OrderStatus"]]] = Field(default=None,validation_alias=AliasChoices('orderItemStatus', 'https://schema.org/orderItemStatus'),serialization_alias='https://schema.org/orderItemStatus')
     orderItemNumber: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('orderItemNumber', 'https://schema.org/orderItemNumber'),serialization_alias='https://schema.org/orderItemNumber')

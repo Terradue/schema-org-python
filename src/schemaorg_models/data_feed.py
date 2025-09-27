@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.dataset import Dataset
 
@@ -9,4 +9,5 @@ class DataFeed(Dataset):
     """
 A single feed providing structured information about one or more entities or topics.
     """
+    type_: Literal['https://schema.org/DataFeed'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/DataFeed'),serialization_alias='class') # type: ignore
     dataFeedElement: Optional[Union[DataFeedItem, List[DataFeedItem], str, List[str], Thing, List[Thing]]] = Field(default=None,validation_alias=AliasChoices('dataFeedElement', 'https://schema.org/dataFeedElement'),serialization_alias='https://schema.org/dataFeedElement')

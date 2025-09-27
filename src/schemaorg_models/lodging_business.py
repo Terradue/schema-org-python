@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from datetime import datetime, time
 from pydantic import AliasChoices, Field
 from schemaorg_models.local_business import LocalBusiness
@@ -11,6 +11,7 @@ class LodgingBusiness(LocalBusiness):
     """
 A lodging business, such as a motel, hotel, or inn.
     """
+    type_: Literal['https://schema.org/LodgingBusiness'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/LodgingBusiness'),serialization_alias='class') # type: ignore
     amenityFeature: Optional[Union["LocationFeatureSpecification", List["LocationFeatureSpecification"]]] = Field(default=None,validation_alias=AliasChoices('amenityFeature', 'https://schema.org/amenityFeature'),serialization_alias='https://schema.org/amenityFeature')
     audience: Optional[Union[Audience, List[Audience]]] = Field(default=None,validation_alias=AliasChoices('audience', 'https://schema.org/audience'),serialization_alias='https://schema.org/audience')
     checkoutTime: Optional[Union[datetime, List[datetime], time, List[time]]] = Field(default=None,validation_alias=AliasChoices('checkoutTime', 'https://schema.org/checkoutTime'),serialization_alias='https://schema.org/checkoutTime')

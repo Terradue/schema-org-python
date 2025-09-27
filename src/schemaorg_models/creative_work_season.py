@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from datetime import date, datetime
 from pydantic import AliasChoices, Field
 from schemaorg_models.creative_work import CreativeWork
@@ -10,6 +10,7 @@ class CreativeWorkSeason(CreativeWork):
     """
 A media season, e.g. TV, radio, video game etc.
     """
+    type_: Literal['https://schema.org/CreativeWorkSeason'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/CreativeWorkSeason'),serialization_alias='class') # type: ignore
     director: Optional[Union[Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('director', 'https://schema.org/director'),serialization_alias='https://schema.org/director')
     actor: Optional[Union[Person, List[Person], "PerformingGroup", List["PerformingGroup"]]] = Field(default=None,validation_alias=AliasChoices('actor', 'https://schema.org/actor'),serialization_alias='https://schema.org/actor')
     partOfSeries: Optional[Union["CreativeWorkSeries", List["CreativeWorkSeries"]]] = Field(default=None,validation_alias=AliasChoices('partOfSeries', 'https://schema.org/partOfSeries'),serialization_alias='https://schema.org/partOfSeries')

@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from datetime import date
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.creative_work import CreativeWork
@@ -11,6 +11,7 @@ class Legislation(CreativeWork):
     """
 A legal document such as an act, decree, bill, etc. (enforceable or not) or a component of a legal act (like an article).
     """
+    type_: Literal['https://schema.org/Legislation'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/Legislation'),serialization_alias='class') # type: ignore
     legislationApplies: Optional[Union["Legislation", List["Legislation"]]] = Field(default=None,validation_alias=AliasChoices('legislationApplies', 'https://schema.org/legislationApplies'),serialization_alias='https://schema.org/legislationApplies')
     legislationCountersignedBy: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(default=None,validation_alias=AliasChoices('legislationCountersignedBy', 'https://schema.org/legislationCountersignedBy'),serialization_alias='https://schema.org/legislationCountersignedBy')
     legislationChanges: Optional[Union["Legislation", List["Legislation"]]] = Field(default=None,validation_alias=AliasChoices('legislationChanges', 'https://schema.org/legislationChanges'),serialization_alias='https://schema.org/legislationChanges')

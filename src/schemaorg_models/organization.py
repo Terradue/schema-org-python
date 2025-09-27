@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from datetime import date
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.thing import Thing
@@ -14,6 +14,7 @@ class Organization(Thing):
     """
 An organization such as a school, NGO, corporation, club, etc.
     """
+    type_: Literal['https://schema.org/Organization'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/Organization'),serialization_alias='class') # type: ignore
     knowsAbout: Optional[Union[str, List[str], Thing, List[Thing], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('knowsAbout', 'https://schema.org/knowsAbout'),serialization_alias='https://schema.org/knowsAbout')
     @field_serializer('knowsAbout')
     def knowsAbout2str(self, val) -> str | List[str]:

@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.creative_work import CreativeWork
 
@@ -15,6 +15,7 @@ A [[Claim]] in Schema.org represents a specific, factually-oriented claim that c
   At this time, Schema.org does not define any types of relationship between claims. This is a natural area for future exploration.
   
     """
+    type_: Literal['https://schema.org/Claim'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/Claim'),serialization_alias='class') # type: ignore
     claimInterpreter: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('claimInterpreter', 'https://schema.org/claimInterpreter'),serialization_alias='https://schema.org/claimInterpreter')
     firstAppearance: Optional[Union[CreativeWork, List[CreativeWork]]] = Field(default=None,validation_alias=AliasChoices('firstAppearance', 'https://schema.org/firstAppearance'),serialization_alias='https://schema.org/firstAppearance')
     appearance: Optional[Union[CreativeWork, List[CreativeWork]]] = Field(default=None,validation_alias=AliasChoices('appearance', 'https://schema.org/appearance'),serialization_alias='https://schema.org/appearance')

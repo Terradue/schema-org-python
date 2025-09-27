@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.creative_work_series import CreativeWorkSeries
 
@@ -18,6 +18,7 @@ class VideoGameSeries(CreativeWorkSeries):
     """
 A video game series.
     """
+    type_: Literal['https://schema.org/VideoGameSeries'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/VideoGameSeries'),serialization_alias='class') # type: ignore
     gameItem: Optional[Union[Thing, List[Thing]]] = Field(default=None,validation_alias=AliasChoices('gameItem', 'https://schema.org/gameItem'),serialization_alias='https://schema.org/gameItem')
     episode: Optional[Union[Episode, List[Episode]]] = Field(default=None,validation_alias=AliasChoices('episode', 'https://schema.org/episode'),serialization_alias='https://schema.org/episode')
     numberOfEpisodes: Optional[Union[int, List[int]]] = Field(default=None,validation_alias=AliasChoices('numberOfEpisodes', 'https://schema.org/numberOfEpisodes'),serialization_alias='https://schema.org/numberOfEpisodes')

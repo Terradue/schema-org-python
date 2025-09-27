@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from datetime import date, datetime
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.intangible import Intangible
@@ -10,6 +10,7 @@ Represents additional information about a relationship or property. For example 
 \
 See also [blog post](https://blog.schema.org/2014/06/16/introducing-role/).
     """
+    type_: Literal['https://schema.org/Role'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/Role'),serialization_alias='class') # type: ignore
     roleName: Optional[Union[HttpUrl, List[HttpUrl], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('roleName', 'https://schema.org/roleName'),serialization_alias='https://schema.org/roleName')
     @field_serializer('roleName')
     def roleName2str(self, val) -> str | List[str]:

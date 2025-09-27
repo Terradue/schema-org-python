@@ -1,3 +1,5 @@
+from typing import Literal
+from pydantic import AliasChoices, Field
 from schemaorg_models.interact_action import InteractAction
 
 
@@ -11,3 +13,4 @@ Related actions:\
 * [[FollowAction]]: Unlike FollowAction, RegisterAction doesn't imply that the agent is expecting to poll for updates from the object.\
 * [[SubscribeAction]]: Unlike SubscribeAction, RegisterAction doesn't imply that the agent is expecting updates from the object.
     """
+    type_: Literal['https://schema.org/RegisterAction'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/RegisterAction'),serialization_alias='class') # type: ignore

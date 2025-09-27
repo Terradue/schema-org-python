@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.structured_value import StructuredValue
 
@@ -10,6 +10,7 @@ class TypeAndQuantityNode(StructuredValue):
     """
 A structured value indicating the quantity, unit of measurement, and business function of goods included in a bundle offer.
     """
+    type_: Literal['https://schema.org/TypeAndQuantityNode'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/TypeAndQuantityNode'),serialization_alias='class') # type: ignore
     amountOfThisGood: Optional[Union[float, List[float]]] = Field(default=None,validation_alias=AliasChoices('amountOfThisGood', 'https://schema.org/amountOfThisGood'),serialization_alias='https://schema.org/amountOfThisGood')
     unitText: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('unitText', 'https://schema.org/unitText'),serialization_alias='https://schema.org/unitText')
     businessFunction: Optional[Union[BusinessFunction, List[BusinessFunction]]] = Field(default=None,validation_alias=AliasChoices('businessFunction', 'https://schema.org/businessFunction'),serialization_alias='https://schema.org/businessFunction')

@@ -1,3 +1,5 @@
+from typing import Literal
+from pydantic import AliasChoices, Field
 from schemaorg_models.enumeration import Enumeration
 
 
@@ -13,3 +15,4 @@ Commonly used values:\
 * http://purl.org/goodrelations/v1#Reseller
     
     """
+    type_: Literal['https://schema.org/BusinessEntityType'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/BusinessEntityType'),serialization_alias='class') # type: ignore

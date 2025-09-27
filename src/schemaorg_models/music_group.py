@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.performing_group import PerformingGroup
 
@@ -11,6 +11,7 @@ class MusicGroup(PerformingGroup):
     """
 A musical group, such as a band, an orchestra, or a choir. Can also be a solo musician.
     """
+    type_: Literal['https://schema.org/MusicGroup'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/MusicGroup'),serialization_alias='class') # type: ignore
     albums: Optional[Union[MusicAlbum, List[MusicAlbum]]] = Field(default=None,validation_alias=AliasChoices('albums', 'https://schema.org/albums'),serialization_alias='https://schema.org/albums')
     album: Optional[Union[MusicAlbum, List[MusicAlbum]]] = Field(default=None,validation_alias=AliasChoices('album', 'https://schema.org/album'),serialization_alias='https://schema.org/album')
     musicGroupMember: Optional[Union[Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('musicGroupMember', 'https://schema.org/musicGroupMember'),serialization_alias='https://schema.org/musicGroupMember')

@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.trade_action import TradeAction
 
@@ -10,6 +10,7 @@ class BuyAction(TradeAction):
     """
 The act of giving money to a seller in exchange for goods or services rendered. An agent buys an object, product, or service from a seller for a price. Reciprocal of SellAction.
     """
+    type_: Literal['https://schema.org/BuyAction'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/BuyAction'),serialization_alias='class') # type: ignore
     seller: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('seller', 'https://schema.org/seller'),serialization_alias='https://schema.org/seller')
     vendor: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(default=None,validation_alias=AliasChoices('vendor', 'https://schema.org/vendor'),serialization_alias='https://schema.org/vendor')
     warrantyPromise: Optional[Union[WarrantyPromise, List[WarrantyPromise]]] = Field(default=None,validation_alias=AliasChoices('warrantyPromise', 'https://schema.org/warrantyPromise'),serialization_alias='https://schema.org/warrantyPromise')

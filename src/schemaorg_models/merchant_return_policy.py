@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from datetime import date, datetime
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.intangible import Intangible
@@ -10,6 +10,7 @@ class MerchantReturnPolicy(Intangible):
     """
 A MerchantReturnPolicy provides information about product return policies associated with an [[Organization]], [[Product]], or [[Offer]].
     """
+    type_: Literal['https://schema.org/MerchantReturnPolicy'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/MerchantReturnPolicy'),serialization_alias='class') # type: ignore
     additionalProperty: Optional[Union["PropertyValue", List["PropertyValue"]]] = Field(default=None,validation_alias=AliasChoices('additionalProperty', 'https://schema.org/additionalProperty'),serialization_alias='https://schema.org/additionalProperty')
     customerRemorseReturnShippingFeesAmount: Optional[Union["MonetaryAmount", List["MonetaryAmount"]]] = Field(default=None,validation_alias=AliasChoices('customerRemorseReturnShippingFeesAmount', 'https://schema.org/customerRemorseReturnShippingFeesAmount'),serialization_alias='https://schema.org/customerRemorseReturnShippingFeesAmount')
     merchantReturnLink: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('merchantReturnLink', 'https://schema.org/merchantReturnLink'),serialization_alias='https://schema.org/merchantReturnLink')

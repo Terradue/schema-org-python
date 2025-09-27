@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.intangible import Intangible
 
@@ -8,4 +8,5 @@ class Enumeration(Intangible):
     """
 Lists or enumerations—for example, a list of cuisines or music genres, etc.
     """
+    type_: Literal['https://schema.org/Enumeration'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/Enumeration'),serialization_alias='class') # type: ignore
     supersededBy: Optional[Union["Enumeration", List["Enumeration"], "_Class", List["_Class"], Property, List[Property]]] = Field(default=None,validation_alias=AliasChoices('supersededBy', 'https://schema.org/supersededBy'),serialization_alias='https://schema.org/supersededBy')

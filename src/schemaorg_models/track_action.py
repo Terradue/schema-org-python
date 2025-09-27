@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.find_action import FindAction
 
@@ -13,4 +13,5 @@ Related actions:\
 * [[FollowAction]]: Unlike FollowAction, TrackAction refers to the interest on the location of innanimates objects.\
 * [[SubscribeAction]]: Unlike SubscribeAction, TrackAction refers to  the interest on the location of innanimate objects.
     """
+    type_: Literal['https://schema.org/TrackAction'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/TrackAction'),serialization_alias='class') # type: ignore
     deliveryMethod: Optional[Union[DeliveryMethod, List[DeliveryMethod]]] = Field(default=None,validation_alias=AliasChoices('deliveryMethod', 'https://schema.org/deliveryMethod'),serialization_alias='https://schema.org/deliveryMethod')

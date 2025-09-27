@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.local_business import LocalBusiness
 
@@ -9,6 +9,7 @@ class FoodEstablishment(LocalBusiness):
     """
 A sub property of location. The specific food establishment where the action occurred.
     """
+    type_: Literal['https://schema.org/FoodEstablishment'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/FoodEstablishment'),serialization_alias='class') # type: ignore
     menu: Optional[Union[Menu, List[Menu], str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('menu', 'https://schema.org/menu'),serialization_alias='https://schema.org/menu')
     @field_serializer('menu')
     def menu2str(self, val) -> str | List[str]:

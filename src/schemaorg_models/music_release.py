@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.music_playlist import MusicPlaylist
 
@@ -13,6 +13,7 @@ class MusicRelease(MusicPlaylist):
     """
 A MusicRelease is a specific release of a music album.
     """
+    type_: Literal['https://schema.org/MusicRelease'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/MusicRelease'),serialization_alias='class') # type: ignore
     recordLabel: Optional[Union[Organization, List[Organization]]] = Field(default=None,validation_alias=AliasChoices('recordLabel', 'https://schema.org/recordLabel'),serialization_alias='https://schema.org/recordLabel')
     musicReleaseFormat: Optional[Union[MusicReleaseFormatType, List[MusicReleaseFormatType]]] = Field(default=None,validation_alias=AliasChoices('musicReleaseFormat', 'https://schema.org/musicReleaseFormat'),serialization_alias='https://schema.org/musicReleaseFormat')
     catalogNumber: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('catalogNumber', 'https://schema.org/catalogNumber'),serialization_alias='https://schema.org/catalogNumber')

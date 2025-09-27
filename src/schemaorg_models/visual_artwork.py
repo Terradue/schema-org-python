@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.creative_work import CreativeWork
 
@@ -8,6 +8,7 @@ class VisualArtwork(CreativeWork):
     """
 A work of art that is primarily visual in character.
     """
+    type_: Literal['https://schema.org/VisualArtwork'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/VisualArtwork'),serialization_alias='class') # type: ignore
     weight: Optional[Union["QuantitativeValue", List["QuantitativeValue"], "Mass", List["Mass"]]] = Field(default=None,validation_alias=AliasChoices('weight', 'https://schema.org/weight'),serialization_alias='https://schema.org/weight')
     artworkSurface: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('artworkSurface', 'https://schema.org/artworkSurface'),serialization_alias='https://schema.org/artworkSurface')
     @field_serializer('artworkSurface')

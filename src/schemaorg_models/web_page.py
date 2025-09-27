@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from datetime import date
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.creative_work import CreativeWork
@@ -12,6 +12,7 @@ class WebPage(CreativeWork):
     """
 A web page. Every web page is implicitly assumed to be declared to be of type WebPage, so the various properties about that webpage, such as <code>breadcrumb</code> may be used. We recommend explicit declaration if these properties are specified, but if they are found outside of an itemscope, they will be assumed to be about the page.
     """
+    type_: Literal['https://schema.org/WebPage'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/WebPage'),serialization_alias='class') # type: ignore
     mainContentOfPage: Optional[Union[WebPageElement, List[WebPageElement]]] = Field(default=None,validation_alias=AliasChoices('mainContentOfPage', 'https://schema.org/mainContentOfPage'),serialization_alias='https://schema.org/mainContentOfPage')
     significantLink: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('significantLink', 'https://schema.org/significantLink'),serialization_alias='https://schema.org/significantLink')
     @field_serializer('significantLink')

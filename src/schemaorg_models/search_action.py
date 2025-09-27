@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.action import Action
 
@@ -11,4 +11,5 @@ Related actions:\
 \
 * [[FindAction]]: SearchAction generally leads to a FindAction, but not necessarily.
     """
+    type_: Literal['https://schema.org/SearchAction'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/SearchAction'),serialization_alias='class') # type: ignore
     query: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('query', 'https://schema.org/query'),serialization_alias='https://schema.org/query')

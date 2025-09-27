@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.intangible import Intangible
 
@@ -20,6 +20,7 @@ Grants support  activities directed towards some agreed collective goals, often 
 The amount of a [[Grant]] is represented using [[amount]] as a [[MonetaryAmount]].
     
     """
+    type_: Literal['https://schema.org/Grant'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/Grant'),serialization_alias='class') # type: ignore
     sponsor: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('sponsor', 'https://schema.org/sponsor'),serialization_alias='https://schema.org/sponsor')
     funder: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('funder', 'https://schema.org/funder'),serialization_alias='https://schema.org/funder')
     fundedItem: Optional[Union[Event, List[Event], MedicalEntity, List[MedicalEntity], BioChemEntity, List[BioChemEntity], Product, List[Product], CreativeWork, List[CreativeWork], Person, List[Person], Organization, List[Organization]]] = Field(default=None,validation_alias=AliasChoices('fundedItem', 'https://schema.org/fundedItem'),serialization_alias='https://schema.org/fundedItem')

@@ -1,3 +1,5 @@
+from typing import Literal
+from pydantic import AliasChoices, Field
 from schemaorg_models.communicate_action import CommunicateAction
 
 
@@ -11,3 +13,4 @@ Related actions:\
 * [[ArriveAction]]: Unlike ArriveAction, CheckInAction implies that the agent is informing/confirming the start of a previously reserved service.\
 * [[ConfirmAction]]: Unlike ConfirmAction, CheckInAction implies that the agent is informing/confirming the *start* of a previously reserved service rather than its validity/existence.
     """
+    type_: Literal['https://schema.org/CheckInAction'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/CheckInAction'),serialization_alias='class') # type: ignore

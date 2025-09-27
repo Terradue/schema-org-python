@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from datetime import datetime
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.creative_work import CreativeWork
@@ -11,6 +11,7 @@ class Dataset(CreativeWork):
     """
 A dataset contained in this catalog.
     """
+    type_: Literal['https://schema.org/Dataset'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/Dataset'),serialization_alias='class') # type: ignore
     issn: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('issn', 'https://schema.org/issn'),serialization_alias='https://schema.org/issn')
     variableMeasured: Optional[Union[Property, List[Property], "StatisticalVariable", List["StatisticalVariable"], str, List[str], "PropertyValue", List["PropertyValue"]]] = Field(default=None,validation_alias=AliasChoices('variableMeasured', 'https://schema.org/variableMeasured'),serialization_alias='https://schema.org/variableMeasured')
     includedDataCatalog: Optional[Union[DataCatalog, List[DataCatalog]]] = Field(default=None,validation_alias=AliasChoices('includedDataCatalog', 'https://schema.org/includedDataCatalog'),serialization_alias='https://schema.org/includedDataCatalog')

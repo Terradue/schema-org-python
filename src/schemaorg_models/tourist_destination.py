@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.place import Place
 
@@ -8,5 +8,6 @@ class TouristDestination(Place):
 A tourist destination. In principle any [[Place]] can be a [[TouristDestination]] from a [[City]], Region or [[Country]] to an [[AmusementPark]] or [[Hotel]]. This Type can be used on its own to describe a general [[TouristDestination]], or be used as an [[additionalType]] to add tourist relevant properties to any other [[Place]].  A [[TouristDestination]] is defined as a [[Place]] that contains, or is colocated with, one or more [[TouristAttraction]]s, often linked by a similar theme or interest to a particular [[touristType]]. The [UNWTO](http://www2.unwto.org/) defines Destination (main destination of a tourism trip) as the place visited that is central to the decision to take the trip.
   (See examples below.)
     """
+    type_: Literal['https://schema.org/TouristDestination'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/TouristDestination'),serialization_alias='class') # type: ignore
     touristType: Optional[Union["Audience", List["Audience"], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('touristType', 'https://schema.org/touristType'),serialization_alias='https://schema.org/touristType')
     includesAttraction: Optional[Union["TouristAttraction", List["TouristAttraction"]]] = Field(default=None,validation_alias=AliasChoices('includesAttraction', 'https://schema.org/includesAttraction'),serialization_alias='https://schema.org/includesAttraction')

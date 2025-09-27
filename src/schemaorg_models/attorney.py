@@ -1,3 +1,5 @@
+from typing import Literal
+from pydantic import AliasChoices, Field
 from schemaorg_models.legal_service import LegalService
 
 
@@ -7,3 +9,4 @@ Professional service: Attorney. \
 \
 This type is deprecated - [[LegalService]] is more inclusive and less ambiguous.
     """
+    type_: Literal['https://schema.org/Attorney'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/Attorney'),serialization_alias='class') # type: ignore

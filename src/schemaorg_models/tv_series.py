@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.creative_work import CreativeWork
 
@@ -9,6 +9,7 @@ class TVSeries(CreativeWork):
     """
 CreativeWorkSeries dedicated to TV broadcast and associated online delivery.
     """
+    type_: Literal['https://schema.org/TVSeries'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/TVSeries'),serialization_alias='class') # type: ignore
     season: Optional[Union["CreativeWorkSeason", List["CreativeWorkSeason"], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('season', 'https://schema.org/season'),serialization_alias='https://schema.org/season')
     @field_serializer('season')
     def season2str(self, val) -> str | List[str]:

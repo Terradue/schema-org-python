@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.residence import Residence
 
@@ -7,6 +7,7 @@ class ApartmentComplex(Residence):
     """
 Residence type: Apartment complex.
     """
+    type_: Literal['https://schema.org/ApartmentComplex'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/ApartmentComplex'),serialization_alias='class') # type: ignore
     tourBookingPage: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('tourBookingPage', 'https://schema.org/tourBookingPage'),serialization_alias='https://schema.org/tourBookingPage')
     @field_serializer('tourBookingPage')
     def tourBookingPage2str(self, val) -> str | List[str]:

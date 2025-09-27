@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.creative_work import CreativeWork
 
@@ -8,4 +8,5 @@ class MediaReviewItem(CreativeWork):
     """
 Represents an item or group of closely related items treated as a unit for the sake of evaluation in a [[MediaReview]]. Authorship etc. apply to the items rather than to the curation/grouping or reviewing party.
     """
+    type_: Literal['https://schema.org/MediaReviewItem'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/MediaReviewItem'),serialization_alias='class') # type: ignore
     mediaItemAppearance: Optional[Union[MediaObject, List[MediaObject]]] = Field(default=None,validation_alias=AliasChoices('mediaItemAppearance', 'https://schema.org/mediaItemAppearance'),serialization_alias='https://schema.org/mediaItemAppearance')

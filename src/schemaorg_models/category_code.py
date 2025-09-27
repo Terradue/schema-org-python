@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.defined_term import DefinedTerm
 
@@ -7,6 +7,7 @@ class CategoryCode(DefinedTerm):
     """
 A Category Code.
     """
+    type_: Literal['https://schema.org/CategoryCode'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/CategoryCode'),serialization_alias='class') # type: ignore
     inCodeSet: Optional[Union[HttpUrl, List[HttpUrl], "CategoryCodeSet", List["CategoryCodeSet"]]] = Field(default=None,validation_alias=AliasChoices('inCodeSet', 'https://schema.org/inCodeSet'),serialization_alias='https://schema.org/inCodeSet')
     @field_serializer('inCodeSet')
     def inCodeSet2str(self, val) -> str | List[str]:

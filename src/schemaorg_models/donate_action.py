@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.transfer_action import TransferAction
 
@@ -12,6 +12,7 @@ class DonateAction(TransferAction):
     """
 The act of providing goods, services, or money without compensation, often for philanthropic reasons.
     """
+    type_: Literal['https://schema.org/DonateAction'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/DonateAction'),serialization_alias='class') # type: ignore
     price: Optional[Union[str, List[str], float, List[float]]] = Field(default=None,validation_alias=AliasChoices('price', 'https://schema.org/price'),serialization_alias='https://schema.org/price')
     priceCurrency: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('priceCurrency', 'https://schema.org/priceCurrency'),serialization_alias='https://schema.org/priceCurrency')
     priceSpecification: Optional[Union[PriceSpecification, List[PriceSpecification]]] = Field(default=None,validation_alias=AliasChoices('priceSpecification', 'https://schema.org/priceSpecification'),serialization_alias='https://schema.org/priceSpecification')

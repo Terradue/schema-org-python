@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.trade_action import TradeAction
 
@@ -11,4 +11,5 @@ class TipAction(TradeAction):
     """
 The act of giving money voluntarily to a beneficiary in recognition of services rendered.
     """
+    type_: Literal['https://schema.org/TipAction'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/TipAction'),serialization_alias='class') # type: ignore
     recipient: Optional[Union[Organization, List[Organization], Audience, List[Audience], ContactPoint, List[ContactPoint], Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('recipient', 'https://schema.org/recipient'),serialization_alias='https://schema.org/recipient')

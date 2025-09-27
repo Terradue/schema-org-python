@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.substance import Substance
 
@@ -10,6 +10,7 @@ class Drug(Substance):
     """
 Specifying a drug or medicine used in a medication procedure.
     """
+    type_: Literal['https://schema.org/Drug'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/Drug'),serialization_alias='class') # type: ignore
     alcoholWarning: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('alcoholWarning', 'https://schema.org/alcoholWarning'),serialization_alias='https://schema.org/alcoholWarning')
     legalStatus: Optional[Union["DrugLegalStatus", List["DrugLegalStatus"], MedicalEnumeration, List[MedicalEnumeration], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('legalStatus', 'https://schema.org/legalStatus'),serialization_alias='https://schema.org/legalStatus')
     proprietaryName: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('proprietaryName', 'https://schema.org/proprietaryName'),serialization_alias='https://schema.org/proprietaryName')

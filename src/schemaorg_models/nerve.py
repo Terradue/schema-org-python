@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.anatomical_structure import AnatomicalStructure
 
@@ -11,6 +11,7 @@ class Nerve(AnatomicalStructure):
     """
 The underlying innervation associated with the muscle.
     """
+    type_: Literal['https://schema.org/Nerve'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/Nerve'),serialization_alias='class') # type: ignore
     sensoryUnit: Optional[Union[SuperficialAnatomy, List[SuperficialAnatomy], AnatomicalStructure, List[AnatomicalStructure]]] = Field(default=None,validation_alias=AliasChoices('sensoryUnit', 'https://schema.org/sensoryUnit'),serialization_alias='https://schema.org/sensoryUnit')
     branch: Optional[Union[AnatomicalStructure, List[AnatomicalStructure]]] = Field(default=None,validation_alias=AliasChoices('branch', 'https://schema.org/branch'),serialization_alias='https://schema.org/branch')
     nerveMotor: Optional[Union[Muscle, List[Muscle]]] = Field(default=None,validation_alias=AliasChoices('nerveMotor', 'https://schema.org/nerveMotor'),serialization_alias='https://schema.org/nerveMotor')

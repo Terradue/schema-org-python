@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.creative_work import CreativeWork
 
@@ -11,6 +11,7 @@ An article, such as a news article or piece of investigative report. Newspapers 
 \
 See also [blog post](https://blog.schema.org/2014/09/02/schema-org-support-for-bibliographic-relationships-and-periodicals/).
     """
+    type_: Literal['https://schema.org/Article'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/Article'),serialization_alias='class') # type: ignore
     pagination: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('pagination', 'https://schema.org/pagination'),serialization_alias='https://schema.org/pagination')
     articleBody: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('articleBody', 'https://schema.org/articleBody'),serialization_alias='https://schema.org/articleBody')
     pageEnd: Optional[Union[str, List[str], int, List[int]]] = Field(default=None,validation_alias=AliasChoices('pageEnd', 'https://schema.org/pageEnd'),serialization_alias='https://schema.org/pageEnd')

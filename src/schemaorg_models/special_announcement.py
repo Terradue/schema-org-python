@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from datetime import date, datetime
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.creative_work import CreativeWork
@@ -48,6 +48,7 @@ with the [[webFeed]] property. This can be a simple URL, or an inline [[DataFeed
 media type information, e.g. "application/rss+xml" or "application/atom+xml".
 
     """
+    type_: Literal['https://schema.org/SpecialAnnouncement'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/SpecialAnnouncement'),serialization_alias='class') # type: ignore
     travelBans: Optional[Union[HttpUrl, List[HttpUrl], WebContent, List[WebContent]]] = Field(default=None,validation_alias=AliasChoices('travelBans', 'https://schema.org/travelBans'),serialization_alias='https://schema.org/travelBans')
     @field_serializer('travelBans')
     def travelBans2str(self, val) -> str | List[str]:

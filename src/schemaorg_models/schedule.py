@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from datetime import date, datetime, time
 from pydantic import AliasChoices, Field
 from schemaorg_models.intangible import Intangible
@@ -10,6 +10,7 @@ A schedule defines a repeating time period used to describe a regularly occurrin
       This includes identifying the day(s) of the week or month when the recurring event will take place, in addition to its start and end time. Schedules may also
       have start and end dates to indicate when they are active, e.g. to define a limited calendar of events.
     """
+    type_: Literal['https://schema.org/Schedule'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/Schedule'),serialization_alias='class') # type: ignore
     scheduleTimezone: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('scheduleTimezone', 'https://schema.org/scheduleTimezone'),serialization_alias='https://schema.org/scheduleTimezone')
     repeatFrequency: Optional[Union[str, List[str], "Duration", List["Duration"]]] = Field(default=None,validation_alias=AliasChoices('repeatFrequency', 'https://schema.org/repeatFrequency'),serialization_alias='https://schema.org/repeatFrequency')
     endDate: Optional[Union[datetime, List[datetime], date, List[date]]] = Field(default=None,validation_alias=AliasChoices('endDate', 'https://schema.org/endDate'),serialization_alias='https://schema.org/endDate')

@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.episode import Episode
 
@@ -10,6 +10,7 @@ class TVEpisode(Episode):
     """
 A TV episode which can be part of a series or season.
     """
+    type_: Literal['https://schema.org/TVEpisode'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/TVEpisode'),serialization_alias='class') # type: ignore
     partOfTVSeries: Optional[Union[TVSeries, List[TVSeries]]] = Field(default=None,validation_alias=AliasChoices('partOfTVSeries', 'https://schema.org/partOfTVSeries'),serialization_alias='https://schema.org/partOfTVSeries')
     subtitleLanguage: Optional[Union[Language, List[Language], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('subtitleLanguage', 'https://schema.org/subtitleLanguage'),serialization_alias='https://schema.org/subtitleLanguage')
     titleEIDR: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('titleEIDR', 'https://schema.org/titleEIDR'),serialization_alias='https://schema.org/titleEIDR')

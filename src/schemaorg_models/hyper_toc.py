@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.creative_work import CreativeWork
 
@@ -9,5 +9,6 @@ class HyperToc(CreativeWork):
     """
 A HyperToc represents a hypertext table of contents for complex media objects, such as [[VideoObject]], [[AudioObject]]. Items in the table of contents are indicated using the [[tocEntry]] property, and typed [[HyperTocEntry]]. For cases where the same larger work is split into multiple files, [[associatedMedia]] can be used on individual [[HyperTocEntry]] items.
     """
+    type_: Literal['https://schema.org/HyperToc'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/HyperToc'),serialization_alias='class') # type: ignore
     tocEntry: Optional[Union[HyperTocEntry, List[HyperTocEntry]]] = Field(default=None,validation_alias=AliasChoices('tocEntry', 'https://schema.org/tocEntry'),serialization_alias='https://schema.org/tocEntry')
     associatedMedia: Optional[Union[MediaObject, List[MediaObject]]] = Field(default=None,validation_alias=AliasChoices('associatedMedia', 'https://schema.org/associatedMedia'),serialization_alias='https://schema.org/associatedMedia')

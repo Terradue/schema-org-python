@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.media_object import MediaObject
 
@@ -9,6 +9,7 @@ class DataDownload(MediaObject):
     """
 All or part of a [[Dataset]] in downloadable form. 
     """
+    type_: Literal['https://schema.org/DataDownload'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/DataDownload'),serialization_alias='class') # type: ignore
     measurementMethod: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str], MeasurementMethodEnum, List[MeasurementMethodEnum], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('measurementMethod', 'https://schema.org/measurementMethod'),serialization_alias='https://schema.org/measurementMethod')
     @field_serializer('measurementMethod')
     def measurementMethod2str(self, val) -> str | List[str]:

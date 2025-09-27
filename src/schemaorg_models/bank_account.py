@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.financial_product import FinancialProduct
 
@@ -8,6 +8,7 @@ class BankAccount(FinancialProduct):
     """
 A product or service offered by a bank whereby one may deposit, withdraw or transfer money and in some cases be paid interest.
     """
+    type_: Literal['https://schema.org/BankAccount'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/BankAccount'),serialization_alias='class') # type: ignore
     bankAccountType: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('bankAccountType', 'https://schema.org/bankAccountType'),serialization_alias='https://schema.org/bankAccountType')
     @field_serializer('bankAccountType')
     def bankAccountType2str(self, val) -> str | List[str]:

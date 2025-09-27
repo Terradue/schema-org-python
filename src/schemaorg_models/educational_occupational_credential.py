@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.creative_work import CreativeWork
 
@@ -10,6 +10,7 @@ class EducationalOccupationalCredential(CreativeWork):
     """
 An educational or occupational credential. A diploma, academic degree, certification, qualification, badge, etc., that may be awarded to a person or other entity that meets the requirements defined by the credentialer.
     """
+    type_: Literal['https://schema.org/EducationalOccupationalCredential'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/EducationalOccupationalCredential'),serialization_alias='class') # type: ignore
     recognizedBy: Optional[Union[Organization, List[Organization]]] = Field(default=None,validation_alias=AliasChoices('recognizedBy', 'https://schema.org/recognizedBy'),serialization_alias='https://schema.org/recognizedBy')
     validFor: Optional[Union["Duration", List["Duration"]]] = Field(default=None,validation_alias=AliasChoices('validFor', 'https://schema.org/validFor'),serialization_alias='https://schema.org/validFor')
     validIn: Optional[Union[AdministrativeArea, List[AdministrativeArea]]] = Field(default=None,validation_alias=AliasChoices('validIn', 'https://schema.org/validIn'),serialization_alias='https://schema.org/validIn')

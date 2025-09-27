@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.lifestyle_modification import LifestyleModification
 
@@ -9,6 +9,7 @@ class Diet(LifestyleModification):
     """
 A strategy of regulating the intake of food to achieve or maintain a specific health-related goal.
     """
+    type_: Literal['https://schema.org/Diet'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/Diet'),serialization_alias='class') # type: ignore
     risks: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('risks', 'https://schema.org/risks'),serialization_alias='https://schema.org/risks')
     physiologicalBenefits: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('physiologicalBenefits', 'https://schema.org/physiologicalBenefits'),serialization_alias='https://schema.org/physiologicalBenefits')
     dietFeatures: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('dietFeatures', 'https://schema.org/dietFeatures'),serialization_alias='https://schema.org/dietFeatures')

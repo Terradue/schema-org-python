@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.medical_entity import MedicalEntity
 
@@ -9,6 +9,7 @@ class MedicalCondition(MedicalEntity):
     """
 Any condition of the human body that affects the normal functioning of a person, whether physically or mentally. Includes diseases, injuries, disabilities, disorders, syndromes, etc.
     """
+    type_: Literal['https://schema.org/MedicalCondition'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/MedicalCondition'),serialization_alias='class') # type: ignore
     associatedAnatomy: Optional[Union["AnatomicalSystem", List["AnatomicalSystem"], "SuperficialAnatomy", List["SuperficialAnatomy"], "AnatomicalStructure", List["AnatomicalStructure"]]] = Field(default=None,validation_alias=AliasChoices('associatedAnatomy', 'https://schema.org/associatedAnatomy'),serialization_alias='https://schema.org/associatedAnatomy')
     signOrSymptom: Optional[Union["MedicalSignOrSymptom", List["MedicalSignOrSymptom"]]] = Field(default=None,validation_alias=AliasChoices('signOrSymptom', 'https://schema.org/signOrSymptom'),serialization_alias='https://schema.org/signOrSymptom')
     possibleTreatment: Optional[Union["MedicalTherapy", List["MedicalTherapy"]]] = Field(default=None,validation_alias=AliasChoices('possibleTreatment', 'https://schema.org/possibleTreatment'),serialization_alias='https://schema.org/possibleTreatment')

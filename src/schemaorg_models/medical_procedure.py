@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.medical_entity import MedicalEntity
 
@@ -8,6 +8,7 @@ class MedicalProcedure(MedicalEntity):
     """
 A process of care used in either a diagnostic, therapeutic, preventive or palliative capacity that relies on invasive (surgical), non-invasive, or other techniques.
     """
+    type_: Literal['https://schema.org/MedicalProcedure'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/MedicalProcedure'),serialization_alias='class') # type: ignore
     bodyLocation: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('bodyLocation', 'https://schema.org/bodyLocation'),serialization_alias='https://schema.org/bodyLocation')
     preparation: Optional[Union[MedicalEntity, List[MedicalEntity], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('preparation', 'https://schema.org/preparation'),serialization_alias='https://schema.org/preparation')
     status: Optional[Union["EventStatusType", List["EventStatusType"], "MedicalStudyStatus", List["MedicalStudyStatus"], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('status', 'https://schema.org/status'),serialization_alias='https://schema.org/status')

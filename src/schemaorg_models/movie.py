@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.creative_work import CreativeWork
 
@@ -10,6 +10,7 @@ class Movie(CreativeWork):
     """
 A movie.
     """
+    type_: Literal['https://schema.org/Movie'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/Movie'),serialization_alias='class') # type: ignore
     titleEIDR: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('titleEIDR', 'https://schema.org/titleEIDR'),serialization_alias='https://schema.org/titleEIDR')
     @field_serializer('titleEIDR')
     def titleEIDR2str(self, val) -> str | List[str]:

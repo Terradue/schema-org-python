@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.physician import Physician
 
@@ -9,4 +9,5 @@ class IndividualPhysician(Physician):
 An individual medical practitioner. For their official address use [[address]], for affiliations to hospitals use [[hospitalAffiliation]]. 
 The [[practicesAt]] property can be used to indicate [[MedicalOrganization]] hospitals, clinics, pharmacies etc. where this physician practices.
     """
+    type_: Literal['https://schema.org/IndividualPhysician'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/IndividualPhysician'),serialization_alias='class') # type: ignore
     practicesAt: Optional[Union[MedicalOrganization, List[MedicalOrganization]]] = Field(default=None,validation_alias=AliasChoices('practicesAt', 'https://schema.org/practicesAt'),serialization_alias='https://schema.org/practicesAt')

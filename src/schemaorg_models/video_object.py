@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.media_object import MediaObject
 
@@ -10,6 +10,7 @@ class VideoObject(MediaObject):
     """
 A video file.
     """
+    type_: Literal['https://schema.org/VideoObject'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/VideoObject'),serialization_alias='class') # type: ignore
     directors: Optional[Union[Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('directors', 'https://schema.org/directors'),serialization_alias='https://schema.org/directors')
     director: Optional[Union[Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('director', 'https://schema.org/director'),serialization_alias='https://schema.org/director')
     videoFrameSize: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('videoFrameSize', 'https://schema.org/videoFrameSize'),serialization_alias='https://schema.org/videoFrameSize')

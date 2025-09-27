@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.game import Game
 
@@ -13,6 +13,7 @@ class VideoGame(Game):
     """
 A video game is an electronic game that involves human interaction with a user interface to generate visual feedback on a video device.
     """
+    type_: Literal['https://schema.org/VideoGame'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/VideoGame'),serialization_alias='class') # type: ignore
     gameTip: Optional[Union[CreativeWork, List[CreativeWork]]] = Field(default=None,validation_alias=AliasChoices('gameTip', 'https://schema.org/gameTip'),serialization_alias='https://schema.org/gameTip')
     musicBy: Optional[Union["MusicGroup", List["MusicGroup"], Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('musicBy', 'https://schema.org/musicBy'),serialization_alias='https://schema.org/musicBy')
     gamePlatform: Optional[Union[HttpUrl, List[HttpUrl], str, List[str], Thing, List[Thing]]] = Field(default=None,validation_alias=AliasChoices('gamePlatform', 'https://schema.org/gamePlatform'),serialization_alias='https://schema.org/gamePlatform')

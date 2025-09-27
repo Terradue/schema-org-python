@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.vehicle import Vehicle
 
@@ -8,5 +8,6 @@ class BusOrCoach(Vehicle):
     """
 A bus (also omnibus or autobus) is a road vehicle designed to carry passengers. Coaches are luxury buses, usually in service for long distance travel.
     """
+    type_: Literal['https://schema.org/BusOrCoach'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/BusOrCoach'),serialization_alias='class') # type: ignore
     roofLoad: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(default=None,validation_alias=AliasChoices('roofLoad', 'https://schema.org/roofLoad'),serialization_alias='https://schema.org/roofLoad')
     acrissCode: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('acrissCode', 'https://schema.org/acrissCode'),serialization_alias='https://schema.org/acrissCode')

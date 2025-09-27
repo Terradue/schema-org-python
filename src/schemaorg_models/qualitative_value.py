@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.enumeration import Enumeration
 
@@ -10,6 +10,7 @@ class QualitativeValue(Enumeration):
     """
 A predefined value for a product characteristic, e.g. the power cord plug type 'US' or the garment sizes 'S', 'M', 'L', and 'XL'.
     """
+    type_: Literal['https://schema.org/QualitativeValue'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/QualitativeValue'),serialization_alias='class') # type: ignore
     greaterOrEqual: Optional[Union["QualitativeValue", List["QualitativeValue"]]] = Field(default=None,validation_alias=AliasChoices('greaterOrEqual', 'https://schema.org/greaterOrEqual'),serialization_alias='https://schema.org/greaterOrEqual')
     equal: Optional[Union["QualitativeValue", List["QualitativeValue"]]] = Field(default=None,validation_alias=AliasChoices('equal', 'https://schema.org/equal'),serialization_alias='https://schema.org/equal')
     lesserOrEqual: Optional[Union["QualitativeValue", List["QualitativeValue"]]] = Field(default=None,validation_alias=AliasChoices('lesserOrEqual', 'https://schema.org/lesserOrEqual'),serialization_alias='https://schema.org/lesserOrEqual')

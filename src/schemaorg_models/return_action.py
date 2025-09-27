@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import AliasChoices, Field
 from schemaorg_models.transfer_action import TransferAction
 
@@ -11,4 +11,5 @@ class ReturnAction(TransferAction):
     """
 The act of returning to the origin that which was previously received (concrete objects) or taken (ownership).
     """
+    type_: Literal['https://schema.org/ReturnAction'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/ReturnAction'),serialization_alias='class') # type: ignore
     recipient: Optional[Union[Organization, List[Organization], Audience, List[Audience], ContactPoint, List[ContactPoint], Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('recipient', 'https://schema.org/recipient'),serialization_alias='https://schema.org/recipient')

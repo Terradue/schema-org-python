@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from datetime import date, datetime, time
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.intangible import Intangible
@@ -11,6 +11,7 @@ class ActionAccessSpecification(Intangible):
     """
 A set of requirements that must be fulfilled in order to perform an Action.
     """
+    type_: Literal['https://schema.org/ActionAccessSpecification'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/ActionAccessSpecification'),serialization_alias='class') # type: ignore
     requiresSubscription: Optional[Union[bool, List[bool], MediaSubscription, List[MediaSubscription]]] = Field(default=None,validation_alias=AliasChoices('requiresSubscription', 'https://schema.org/requiresSubscription'),serialization_alias='https://schema.org/requiresSubscription')
     expectsAcceptanceOf: Optional[Union["Offer", List["Offer"]]] = Field(default=None,validation_alias=AliasChoices('expectsAcceptanceOf', 'https://schema.org/expectsAcceptanceOf'),serialization_alias='https://schema.org/expectsAcceptanceOf')
     eligibleRegion: Optional[Union["GeoShape", List["GeoShape"], str, List[str], Place, List[Place]]] = Field(default=None,validation_alias=AliasChoices('eligibleRegion', 'https://schema.org/eligibleRegion'),serialization_alias='https://schema.org/eligibleRegion')

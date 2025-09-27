@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from datetime import datetime, time
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.thing import Thing
@@ -13,6 +13,7 @@ An action performed by a direct agent and indirect participants upon a direct ob
 \
 See also [blog post](https://blog.schema.org/2014/04/16/announcing-schema-org-actions/) and [Actions overview document](https://schema.org/docs/actions.html).
     """
+    type_: Literal['https://schema.org/Action'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/Action'),serialization_alias='class') # type: ignore
     actionStatus: Optional[Union["ActionStatusType", List["ActionStatusType"]]] = Field(default=None,validation_alias=AliasChoices('actionStatus', 'https://schema.org/actionStatus'),serialization_alias='https://schema.org/actionStatus')
     target: Optional[Union[HttpUrl, List[HttpUrl], "EntryPoint", List["EntryPoint"]]] = Field(default=None,validation_alias=AliasChoices('target', 'https://schema.org/target'),serialization_alias='https://schema.org/target')
     @field_serializer('target')

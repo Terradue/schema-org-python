@@ -1,3 +1,5 @@
+from typing import Literal
+from pydantic import AliasChoices, Field
 from schemaorg_models.lodging_business import LodgingBusiness
 
 
@@ -13,3 +15,4 @@ In British English a campsite is an area, usually divided into a number of pitch
 See also the dedicated [document on the use of schema.org for marking up hotels and other forms of accommodations](/docs/hotels.html).
 
     """
+    type_: Literal['https://schema.org/Campground'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/Campground'),serialization_alias='class') # type: ignore

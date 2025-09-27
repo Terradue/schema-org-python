@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.structured_value import StructuredValue
 
@@ -12,6 +12,7 @@ class QuantitativeValue(StructuredValue):
     """
  A point value or interval for product characteristics and other purposes.
     """
+    type_: Literal['https://schema.org/QuantitativeValue'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/QuantitativeValue'),serialization_alias='class') # type: ignore
     unitText: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('unitText', 'https://schema.org/unitText'),serialization_alias='https://schema.org/unitText')
     minValue: Optional[Union[float, List[float]]] = Field(default=None,validation_alias=AliasChoices('minValue', 'https://schema.org/minValue'),serialization_alias='https://schema.org/minValue')
     value: Optional[Union[float, List[float], StructuredValue, List[StructuredValue], bool, List[bool], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('value', 'https://schema.org/value'),serialization_alias='https://schema.org/value')

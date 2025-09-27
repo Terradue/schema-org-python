@@ -1,4 +1,4 @@
-from typing import Union, List, Optional
+from typing import List, Literal, Optional, Union
 from datetime import date, datetime
 from pydantic import field_serializer, AliasChoices, Field, HttpUrl
 from schemaorg_models.intangible import Intangible
@@ -10,6 +10,7 @@ class Ticket(Intangible):
     """
 Used to describe a ticket to an event, a flight, a bus ride, etc.
     """
+    type_: Literal['https://schema.org/Ticket'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/Ticket'),serialization_alias='class') # type: ignore
     underName: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(default=None,validation_alias=AliasChoices('underName', 'https://schema.org/underName'),serialization_alias='https://schema.org/underName')
     priceCurrency: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('priceCurrency', 'https://schema.org/priceCurrency'),serialization_alias='https://schema.org/priceCurrency')
     ticketedSeat: Optional[Union["Seat", List["Seat"]]] = Field(default=None,validation_alias=AliasChoices('ticketedSeat', 'https://schema.org/ticketedSeat'),serialization_alias='https://schema.org/ticketedSeat')
