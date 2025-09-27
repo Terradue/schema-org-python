@@ -12,5 +12,5 @@ Related actions:\
 \
 * [[ReplyAction]]: Appears generally as a response to AskAction.
     """
-    class_: Literal['https://schema.org/AskAction'] = Field(default='https://schema.org/AskAction', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/AskAction'] = Field(default='https://schema.org/AskAction', alias='@type', serialization_alias='@type') # type: ignore
     question: Optional[Union[Question, List[Question]]] = Field(default=None, validation_alias=AliasChoices('question', 'https://schema.org/question'), serialization_alias='https://schema.org/question')

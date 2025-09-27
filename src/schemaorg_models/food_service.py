@@ -7,4 +7,4 @@ class FoodService(Service):
     """
 A food service, like breakfast, lunch, or dinner.
     """
-    class_: Literal['https://schema.org/FoodService'] = Field(default='https://schema.org/FoodService', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/FoodService'] = Field(default='https://schema.org/FoodService', alias='@type', serialization_alias='@type') # type: ignore

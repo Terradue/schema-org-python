@@ -7,4 +7,4 @@ class PrependAction(InsertAction):
     """
 The act of inserting at the beginning if an ordered collection.
     """
-    class_: Literal['https://schema.org/PrependAction'] = Field(default='https://schema.org/PrependAction', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/PrependAction'] = Field(default='https://schema.org/PrependAction', alias='@type', serialization_alias='@type') # type: ignore

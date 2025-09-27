@@ -7,4 +7,4 @@ class WPHeader(WebPageElement):
     """
 The header section of the page.
     """
-    class_: Literal['https://schema.org/WPHeader'] = Field(default='https://schema.org/WPHeader', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/WPHeader'] = Field(default='https://schema.org/WPHeader', alias='@type', serialization_alias='@type') # type: ignore

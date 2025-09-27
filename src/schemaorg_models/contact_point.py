@@ -13,7 +13,7 @@ class ContactPoint(StructuredValue):
     """
 A contact point for a person or organization.
     """
-    class_: Literal['https://schema.org/ContactPoint'] = Field(default='https://schema.org/ContactPoint', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/ContactPoint'] = Field(default='https://schema.org/ContactPoint', alias='@type', serialization_alias='@type') # type: ignore
     serviceArea: Optional[Union[AdministrativeArea, List[AdministrativeArea], GeoShape, List[GeoShape], Place, List[Place]]] = Field(default=None, validation_alias=AliasChoices('serviceArea', 'https://schema.org/serviceArea'), serialization_alias='https://schema.org/serviceArea')
     email: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('email', 'https://schema.org/email'), serialization_alias='https://schema.org/email')
     hoursAvailable: Optional[Union["OpeningHoursSpecification", List["OpeningHoursSpecification"]]] = Field(default=None, validation_alias=AliasChoices('hoursAvailable', 'https://schema.org/hoursAvailable'), serialization_alias='https://schema.org/hoursAvailable')

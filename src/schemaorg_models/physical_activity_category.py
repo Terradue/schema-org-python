@@ -7,4 +7,4 @@ class PhysicalActivityCategory(Enumeration):
     """
 Categories of physical activity, organized by physiologic classification.
     """
-    class_: Literal['https://schema.org/PhysicalActivityCategory'] = Field(default='https://schema.org/PhysicalActivityCategory', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/PhysicalActivityCategory'] = Field(default='https://schema.org/PhysicalActivityCategory', alias='@type', serialization_alias='@type') # type: ignore

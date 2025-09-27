@@ -7,7 +7,7 @@ class ExercisePlan(CreativeWork):
     """
 Fitness-related activity designed for a specific health-related purpose, including defined exercise routines as well as activity prescribed by a clinician.
     """
-    class_: Literal['https://schema.org/ExercisePlan'] = Field(default='https://schema.org/ExercisePlan', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/ExercisePlan'] = Field(default='https://schema.org/ExercisePlan', alias='@type', serialization_alias='@type') # type: ignore
     additionalVariable: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('additionalVariable', 'https://schema.org/additionalVariable'), serialization_alias='https://schema.org/additionalVariable')
     activityDuration: Optional[Union["QuantitativeValue", List["QuantitativeValue"], "Duration", List["Duration"]]] = Field(default=None, validation_alias=AliasChoices('activityDuration', 'https://schema.org/activityDuration'), serialization_alias='https://schema.org/activityDuration')
     intensity: Optional[Union[str, List[str], "QuantitativeValue", List["QuantitativeValue"]]] = Field(default=None, validation_alias=AliasChoices('intensity', 'https://schema.org/intensity'), serialization_alias='https://schema.org/intensity')

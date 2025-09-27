@@ -8,7 +8,7 @@ class EngineSpecification(StructuredValue):
     """
 Information about the engine of the vehicle. A vehicle can have multiple engines represented by multiple engine specification entities.
     """
-    class_: Literal['https://schema.org/EngineSpecification'] = Field(default='https://schema.org/EngineSpecification', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/EngineSpecification'] = Field(default='https://schema.org/EngineSpecification', alias='@type', serialization_alias='@type') # type: ignore
     fuelType: Optional[Union[str, List[str], QualitativeValue, List[QualitativeValue], HttpUrl, List[HttpUrl]]] = Field(default=None, validation_alias=AliasChoices('fuelType', 'https://schema.org/fuelType'), serialization_alias='https://schema.org/fuelType')
     @field_serializer('fuelType')
     def fuelType2str(self, val) -> str | List[str]:

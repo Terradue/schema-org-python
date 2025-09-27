@@ -7,4 +7,4 @@ class DiscussionForumPosting(SocialMediaPosting):
     """
 A posting to a discussion forum.
     """
-    class_: Literal['https://schema.org/DiscussionForumPosting'] = Field(default='https://schema.org/DiscussionForumPosting', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/DiscussionForumPosting'] = Field(default='https://schema.org/DiscussionForumPosting', alias='@type', serialization_alias='@type') # type: ignore

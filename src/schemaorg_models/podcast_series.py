@@ -10,7 +10,7 @@ class PodcastSeries(CreativeWorkSeries):
     """
 A podcast is an episodic series of digital audio or video files which a user can download and listen to.
     """
-    class_: Literal['https://schema.org/PodcastSeries'] = Field(default='https://schema.org/PodcastSeries', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/PodcastSeries'] = Field(default='https://schema.org/PodcastSeries', alias='@type', serialization_alias='@type') # type: ignore
     webFeed: Optional[Union[DataFeed, List[DataFeed], HttpUrl, List[HttpUrl]]] = Field(default=None, validation_alias=AliasChoices('webFeed', 'https://schema.org/webFeed'), serialization_alias='https://schema.org/webFeed')
     @field_serializer('webFeed')
     def webFeed2str(self, val) -> str | List[str]:

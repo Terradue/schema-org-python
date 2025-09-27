@@ -8,5 +8,5 @@ class DiagnosticLab(MedicalOrganization):
     """
 A medical laboratory that offers on-site or off-site diagnostic services.
     """
-    class_: Literal['https://schema.org/DiagnosticLab'] = Field(default='https://schema.org/DiagnosticLab', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/DiagnosticLab'] = Field(default='https://schema.org/DiagnosticLab', alias='@type', serialization_alias='@type') # type: ignore
     availableTest: Optional[Union[MedicalTest, List[MedicalTest]]] = Field(default=None, validation_alias=AliasChoices('availableTest', 'https://schema.org/availableTest'), serialization_alias='https://schema.org/availableTest')

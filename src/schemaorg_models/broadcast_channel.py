@@ -8,7 +8,7 @@ class BroadcastChannel(Intangible):
     """
 A unique instance of a BroadcastService on a CableOrSatelliteService lineup.
     """
-    class_: Literal['https://schema.org/BroadcastChannel'] = Field(default='https://schema.org/BroadcastChannel', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/BroadcastChannel'] = Field(default='https://schema.org/BroadcastChannel', alias='@type', serialization_alias='@type') # type: ignore
     inBroadcastLineup: Optional[Union["CableOrSatelliteService", List["CableOrSatelliteService"]]] = Field(default=None, validation_alias=AliasChoices('inBroadcastLineup', 'https://schema.org/inBroadcastLineup'), serialization_alias='https://schema.org/inBroadcastLineup')
     broadcastChannelId: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('broadcastChannelId', 'https://schema.org/broadcastChannelId'), serialization_alias='https://schema.org/broadcastChannelId')
     providesBroadcastService: Optional[Union["BroadcastService", List["BroadcastService"]]] = Field(default=None, validation_alias=AliasChoices('providesBroadcastService', 'https://schema.org/providesBroadcastService'), serialization_alias='https://schema.org/providesBroadcastService')

@@ -7,4 +7,4 @@ class PhysiciansOffice(Physician):
     """
 A doctor's office or clinic.
     """
-    class_: Literal['https://schema.org/PhysiciansOffice'] = Field(default='https://schema.org/PhysiciansOffice', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/PhysiciansOffice'] = Field(default='https://schema.org/PhysiciansOffice', alias='@type', serialization_alias='@type') # type: ignore

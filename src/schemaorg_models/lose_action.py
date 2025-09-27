@@ -8,5 +8,5 @@ class LoseAction(AchieveAction):
     """
 The act of being defeated in a competitive activity.
     """
-    class_: Literal['https://schema.org/LoseAction'] = Field(default='https://schema.org/LoseAction', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/LoseAction'] = Field(default='https://schema.org/LoseAction', alias='@type', serialization_alias='@type') # type: ignore
     winner: Optional[Union[Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('winner', 'https://schema.org/winner'), serialization_alias='https://schema.org/winner')

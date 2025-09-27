@@ -19,7 +19,7 @@ class FinancialIncentive(Intangible):
 <p>Optionally contains criteria on whether the incentive is limited based on [[purchaseType]], [[purchasePriceLimit]], [[incomeLimit]], and the [[qualifiedExpense]].
     
     """
-    class_: Literal['https://schema.org/FinancialIncentive'] = Field(default='https://schema.org/FinancialIncentive', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/FinancialIncentive'] = Field(default='https://schema.org/FinancialIncentive', alias='@type', serialization_alias='@type') # type: ignore
     incomeLimit: Optional[Union[str, List[str], "MonetaryAmount", List["MonetaryAmount"]]] = Field(default=None, validation_alias=AliasChoices('incomeLimit', 'https://schema.org/incomeLimit'), serialization_alias='https://schema.org/incomeLimit')
     qualifiedExpense: Optional[Union["IncentiveQualifiedExpenseType", List["IncentiveQualifiedExpenseType"]]] = Field(default=None, validation_alias=AliasChoices('qualifiedExpense', 'https://schema.org/qualifiedExpense'), serialization_alias='https://schema.org/qualifiedExpense')
     provider: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(default=None, validation_alias=AliasChoices('provider', 'https://schema.org/provider'), serialization_alias='https://schema.org/provider')

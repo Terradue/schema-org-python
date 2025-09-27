@@ -10,7 +10,7 @@ class ServiceChannel(Intangible):
     """
 A means for accessing a service, e.g. a government office location, web site, or phone number.
     """
-    class_: Literal['https://schema.org/ServiceChannel'] = Field(default='https://schema.org/ServiceChannel', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/ServiceChannel'] = Field(default='https://schema.org/ServiceChannel', alias='@type', serialization_alias='@type') # type: ignore
     processingTime: Optional[Union["Duration", List["Duration"]]] = Field(default=None, validation_alias=AliasChoices('processingTime', 'https://schema.org/processingTime'), serialization_alias='https://schema.org/processingTime')
     availableLanguage: Optional[Union[str, List[str], Language, List[Language]]] = Field(default=None, validation_alias=AliasChoices('availableLanguage', 'https://schema.org/availableLanguage'), serialization_alias='https://schema.org/availableLanguage')
     servicePostalAddress: Optional[Union["PostalAddress", List["PostalAddress"]]] = Field(default=None, validation_alias=AliasChoices('servicePostalAddress', 'https://schema.org/servicePostalAddress'), serialization_alias='https://schema.org/servicePostalAddress')

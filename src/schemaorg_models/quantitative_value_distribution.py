@@ -8,7 +8,7 @@ class QuantitativeValueDistribution(StructuredValue):
     """
 A statistical distribution of values.
     """
-    class_: Literal['https://schema.org/QuantitativeValueDistribution'] = Field(default='https://schema.org/QuantitativeValueDistribution', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/QuantitativeValueDistribution'] = Field(default='https://schema.org/QuantitativeValueDistribution', alias='@type', serialization_alias='@type') # type: ignore
     median: Optional[Union[float, List[float]]] = Field(default=None, validation_alias=AliasChoices('median', 'https://schema.org/median'), serialization_alias='https://schema.org/median')
     percentile75: Optional[Union[float, List[float]]] = Field(default=None, validation_alias=AliasChoices('percentile75', 'https://schema.org/percentile75'), serialization_alias='https://schema.org/percentile75')
     percentile25: Optional[Union[float, List[float]]] = Field(default=None, validation_alias=AliasChoices('percentile25', 'https://schema.org/percentile25'), serialization_alias='https://schema.org/percentile25')

@@ -17,7 +17,7 @@ class Demand(Intangible):
     """
 A demand entity represents the public, not necessarily binding, not necessarily exclusive, announcement by an organization or person to seek a certain type of goods or services. For describing demand using this type, the very same properties used for Offer apply.
     """
-    class_: Literal['https://schema.org/Demand'] = Field(default='https://schema.org/Demand', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/Demand'] = Field(default='https://schema.org/Demand', alias='@type', serialization_alias='@type') # type: ignore
     availabilityEnds: Optional[Union[date, List[date], time, List[time], datetime, List[datetime]]] = Field(default=None, validation_alias=AliasChoices('availabilityEnds', 'https://schema.org/availabilityEnds'), serialization_alias='https://schema.org/availabilityEnds')
     sku: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('sku', 'https://schema.org/sku'), serialization_alias='https://schema.org/sku')
     eligibleTransactionVolume: Optional[Union["PriceSpecification", List["PriceSpecification"]]] = Field(default=None, validation_alias=AliasChoices('eligibleTransactionVolume', 'https://schema.org/eligibleTransactionVolume'), serialization_alias='https://schema.org/eligibleTransactionVolume')

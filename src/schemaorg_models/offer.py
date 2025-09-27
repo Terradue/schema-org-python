@@ -25,7 +25,7 @@ Note: As the [[businessFunction]] property, which identifies the form of offer (
 \
 For [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, see [Check Digit calculator](http://www.gs1.org/barcodes/support/check_digit_calculator) and [validation guide](http://www.gs1us.org/resources/standards/gtin-validation-guide) from [GS1](http://www.gs1.org/).
     """
-    class_: Literal['https://schema.org/Offer'] = Field(default='https://schema.org/Offer', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/Offer'] = Field(default='https://schema.org/Offer', alias='@type', serialization_alias='@type') # type: ignore
     asin: Optional[Union[HttpUrl, List[HttpUrl], str, List[str]]] = Field(default=None, validation_alias=AliasChoices('asin', 'https://schema.org/asin'), serialization_alias='https://schema.org/asin')
     @field_serializer('asin')
     def asin2str(self, val) -> str | List[str]:

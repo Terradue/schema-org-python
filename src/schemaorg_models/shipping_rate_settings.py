@@ -8,7 +8,7 @@ class ShippingRateSettings(StructuredValue):
     """
 A ShippingRateSettings represents re-usable pieces of shipping information. It is designed for publication on an URL that may be referenced via the [[shippingSettingsLink]] property of an [[OfferShippingDetails]]. Several occurrences can be published, distinguished and matched (i.e. identified/referenced) by their different values for [[shippingLabel]].
     """
-    class_: Literal['https://schema.org/ShippingRateSettings'] = Field(default='https://schema.org/ShippingRateSettings', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/ShippingRateSettings'] = Field(default='https://schema.org/ShippingRateSettings', alias='@type', serialization_alias='@type') # type: ignore
     weightPercentage: Optional[Union[float, List[float]]] = Field(default=None, validation_alias=AliasChoices('weightPercentage', 'https://schema.org/weightPercentage'), serialization_alias='https://schema.org/weightPercentage')
     doesNotShip: Optional[Union[bool, List[bool]]] = Field(default=None, validation_alias=AliasChoices('doesNotShip', 'https://schema.org/doesNotShip'), serialization_alias='https://schema.org/doesNotShip')
     freeShippingThreshold: Optional[Union["DeliveryChargeSpecification", List["DeliveryChargeSpecification"], "MonetaryAmount", List["MonetaryAmount"]]] = Field(default=None, validation_alias=AliasChoices('freeShippingThreshold', 'https://schema.org/freeShippingThreshold'), serialization_alias='https://schema.org/freeShippingThreshold')

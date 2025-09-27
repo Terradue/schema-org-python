@@ -20,7 +20,7 @@ Grants support  activities directed towards some agreed collective goals, often 
 The amount of a [[Grant]] is represented using [[amount]] as a [[MonetaryAmount]].
     
     """
-    class_: Literal['https://schema.org/Grant'] = Field(default='https://schema.org/Grant', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/Grant'] = Field(default='https://schema.org/Grant', alias='@type', serialization_alias='@type') # type: ignore
     sponsor: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('sponsor', 'https://schema.org/sponsor'), serialization_alias='https://schema.org/sponsor')
     funder: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('funder', 'https://schema.org/funder'), serialization_alias='https://schema.org/funder')
     fundedItem: Optional[Union[Event, List[Event], MedicalEntity, List[MedicalEntity], BioChemEntity, List[BioChemEntity], Product, List[Product], CreativeWork, List[CreativeWork], Person, List[Person], Organization, List[Organization]]] = Field(default=None, validation_alias=AliasChoices('fundedItem', 'https://schema.org/fundedItem'), serialization_alias='https://schema.org/fundedItem')

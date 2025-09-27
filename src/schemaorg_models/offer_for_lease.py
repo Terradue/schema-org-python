@@ -10,4 +10,4 @@ An [[OfferForLease]] in Schema.org represents an [[Offer]] to lease out somethin
   background on the underlying concepts.
   
     """
-    class_: Literal['https://schema.org/OfferForLease'] = Field(default='https://schema.org/OfferForLease', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/OfferForLease'] = Field(default='https://schema.org/OfferForLease', alias='@type', serialization_alias='@type') # type: ignore

@@ -10,7 +10,7 @@ class BuyAction(TradeAction):
     """
 The act of giving money to a seller in exchange for goods or services rendered. An agent buys an object, product, or service from a seller for a price. Reciprocal of SellAction.
     """
-    class_: Literal['https://schema.org/BuyAction'] = Field(default='https://schema.org/BuyAction', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/BuyAction'] = Field(default='https://schema.org/BuyAction', alias='@type', serialization_alias='@type') # type: ignore
     seller: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('seller', 'https://schema.org/seller'), serialization_alias='https://schema.org/seller')
     vendor: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(default=None, validation_alias=AliasChoices('vendor', 'https://schema.org/vendor'), serialization_alias='https://schema.org/vendor')
     warrantyPromise: Optional[Union[WarrantyPromise, List[WarrantyPromise]]] = Field(default=None, validation_alias=AliasChoices('warrantyPromise', 'https://schema.org/warrantyPromise'), serialization_alias='https://schema.org/warrantyPromise')

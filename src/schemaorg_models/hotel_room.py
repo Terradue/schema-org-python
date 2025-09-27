@@ -12,6 +12,6 @@ A hotel room is a single room in a hotel.
 See also the <a href="/docs/hotels.html">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>.
 
     """
-    class_: Literal['https://schema.org/HotelRoom'] = Field(default='https://schema.org/HotelRoom', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/HotelRoom'] = Field(default='https://schema.org/HotelRoom', alias='@type', serialization_alias='@type') # type: ignore
     occupancy: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(default=None, validation_alias=AliasChoices('occupancy', 'https://schema.org/occupancy'), serialization_alias='https://schema.org/occupancy')
     bed: Optional[Union["BedType", List["BedType"], str, List[str], BedDetails, List[BedDetails]]] = Field(default=None, validation_alias=AliasChoices('bed', 'https://schema.org/bed'), serialization_alias='https://schema.org/bed')

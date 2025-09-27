@@ -13,7 +13,7 @@ class MusicRelease(MusicPlaylist):
     """
 A MusicRelease is a specific release of a music album.
     """
-    class_: Literal['https://schema.org/MusicRelease'] = Field(default='https://schema.org/MusicRelease', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/MusicRelease'] = Field(default='https://schema.org/MusicRelease', alias='@type', serialization_alias='@type') # type: ignore
     recordLabel: Optional[Union[Organization, List[Organization]]] = Field(default=None, validation_alias=AliasChoices('recordLabel', 'https://schema.org/recordLabel'), serialization_alias='https://schema.org/recordLabel')
     musicReleaseFormat: Optional[Union[MusicReleaseFormatType, List[MusicReleaseFormatType]]] = Field(default=None, validation_alias=AliasChoices('musicReleaseFormat', 'https://schema.org/musicReleaseFormat'), serialization_alias='https://schema.org/musicReleaseFormat')
     catalogNumber: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('catalogNumber', 'https://schema.org/catalogNumber'), serialization_alias='https://schema.org/catalogNumber')

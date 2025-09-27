@@ -10,7 +10,7 @@ class CreativeWorkSeason(CreativeWork):
     """
 A media season, e.g. TV, radio, video game etc.
     """
-    class_: Literal['https://schema.org/CreativeWorkSeason'] = Field(default='https://schema.org/CreativeWorkSeason', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/CreativeWorkSeason'] = Field(default='https://schema.org/CreativeWorkSeason', alias='@type', serialization_alias='@type') # type: ignore
     director: Optional[Union[Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('director', 'https://schema.org/director'), serialization_alias='https://schema.org/director')
     actor: Optional[Union[Person, List[Person], "PerformingGroup", List["PerformingGroup"]]] = Field(default=None, validation_alias=AliasChoices('actor', 'https://schema.org/actor'), serialization_alias='https://schema.org/actor')
     partOfSeries: Optional[Union["CreativeWorkSeries", List["CreativeWorkSeries"]]] = Field(default=None, validation_alias=AliasChoices('partOfSeries', 'https://schema.org/partOfSeries'), serialization_alias='https://schema.org/partOfSeries')

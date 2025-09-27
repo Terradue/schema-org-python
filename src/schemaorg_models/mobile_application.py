@@ -7,5 +7,5 @@ class MobileApplication(SoftwareApplication):
     """
 A software application designed specifically to work well on a mobile device such as a telephone.
     """
-    class_: Literal['https://schema.org/MobileApplication'] = Field(default='https://schema.org/MobileApplication', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/MobileApplication'] = Field(default='https://schema.org/MobileApplication', alias='@type', serialization_alias='@type') # type: ignore
     carrierRequirements: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('carrierRequirements', 'https://schema.org/carrierRequirements'), serialization_alias='https://schema.org/carrierRequirements')

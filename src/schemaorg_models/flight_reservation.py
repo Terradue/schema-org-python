@@ -10,7 +10,7 @@ A reservation for air travel.\
 \
 Note: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations. For offers of tickets, use [[Offer]].
     """
-    class_: Literal['https://schema.org/FlightReservation'] = Field(default='https://schema.org/FlightReservation', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/FlightReservation'] = Field(default='https://schema.org/FlightReservation', alias='@type', serialization_alias='@type') # type: ignore
     boardingGroup: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('boardingGroup', 'https://schema.org/boardingGroup'), serialization_alias='https://schema.org/boardingGroup')
     passengerPriorityStatus: Optional[Union[str, List[str], QualitativeValue, List[QualitativeValue]]] = Field(default=None, validation_alias=AliasChoices('passengerPriorityStatus', 'https://schema.org/passengerPriorityStatus'), serialization_alias='https://schema.org/passengerPriorityStatus')
     passengerSequenceNumber: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('passengerSequenceNumber', 'https://schema.org/passengerSequenceNumber'), serialization_alias='https://schema.org/passengerSequenceNumber')

@@ -8,7 +8,7 @@ class Occupation(Intangible):
     """
 A profession, may involve prolonged training and/or a formal qualification.
     """
-    class_: Literal['https://schema.org/Occupation'] = Field(default='https://schema.org/Occupation', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/Occupation'] = Field(default='https://schema.org/Occupation', alias='@type', serialization_alias='@type') # type: ignore
     occupationalCategory: Optional[Union["CategoryCode", List["CategoryCode"], str, List[str]]] = Field(default=None, validation_alias=AliasChoices('occupationalCategory', 'https://schema.org/occupationalCategory'), serialization_alias='https://schema.org/occupationalCategory')
     occupationLocation: Optional[Union[AdministrativeArea, List[AdministrativeArea]]] = Field(default=None, validation_alias=AliasChoices('occupationLocation', 'https://schema.org/occupationLocation'), serialization_alias='https://schema.org/occupationLocation')
     experienceRequirements: Optional[Union["OccupationalExperienceRequirements", List["OccupationalExperienceRequirements"], str, List[str]]] = Field(default=None, validation_alias=AliasChoices('experienceRequirements', 'https://schema.org/experienceRequirements'), serialization_alias='https://schema.org/experienceRequirements')

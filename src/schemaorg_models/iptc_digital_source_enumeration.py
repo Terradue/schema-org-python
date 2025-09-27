@@ -9,4 +9,4 @@ class IPTCDigitalSourceEnumeration(MediaEnumeration):
 In general these codes are not declared here to be mutually exclusive, although some combinations would be contradictory if applied simultaneously, or might be considered mutually incompatible by upstream maintainers of the definitions. See the IPTC <a href="https://www.iptc.org/std/photometadata/documentation/userguide/">documentation</a>
  for <a href="https://cv.iptc.org/newscodes/digitalsourcetype/">detailed definitions</a> of all terms.
     """
-    class_: Literal['https://schema.org/IPTCDigitalSourceEnumeration'] = Field(default='https://schema.org/IPTCDigitalSourceEnumeration', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/IPTCDigitalSourceEnumeration'] = Field(default='https://schema.org/IPTCDigitalSourceEnumeration', alias='@type', serialization_alias='@type') # type: ignore

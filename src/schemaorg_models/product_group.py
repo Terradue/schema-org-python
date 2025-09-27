@@ -11,7 +11,7 @@ A ProductGroup represents a group of [[Product]]s that vary only in certain well
 
 While a ProductGroup itself is not directly offered for sale, the various varying products that it represents can be. The ProductGroup serves as a prototype or template, standing in for all of the products who have an [[isVariantOf]] relationship to it. As such, properties (including additional types) can be applied to the ProductGroup to represent characteristics shared by each of the (possibly very many) variants. Properties that reference a ProductGroup are not included in this mechanism; neither are the following specific properties [[variesBy]], [[hasVariant]], [[url]]. 
     """
-    class_: Literal['https://schema.org/ProductGroup'] = Field(default='https://schema.org/ProductGroup', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/ProductGroup'] = Field(default='https://schema.org/ProductGroup', alias='@type', serialization_alias='@type') # type: ignore
     variesBy: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str]]] = Field(default=None, validation_alias=AliasChoices('variesBy', 'https://schema.org/variesBy'), serialization_alias='https://schema.org/variesBy')
     hasVariant: Optional[Union[Product, List[Product]]] = Field(default=None, validation_alias=AliasChoices('hasVariant', 'https://schema.org/hasVariant'), serialization_alias='https://schema.org/hasVariant')
     productGroupID: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('productGroupID', 'https://schema.org/productGroupID'), serialization_alias='https://schema.org/productGroupID')

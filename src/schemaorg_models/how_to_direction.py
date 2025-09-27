@@ -8,7 +8,7 @@ class HowToDirection(CreativeWork):
     """
 A direction indicating a single action to do in the instructions for how to achieve a result.
     """
-    class_: Literal['https://schema.org/HowToDirection'] = Field(default='https://schema.org/HowToDirection', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/HowToDirection'] = Field(default='https://schema.org/HowToDirection', alias='@type', serialization_alias='@type') # type: ignore
     beforeMedia: Optional[Union[MediaObject, List[MediaObject], HttpUrl, List[HttpUrl]]] = Field(default=None, validation_alias=AliasChoices('beforeMedia', 'https://schema.org/beforeMedia'), serialization_alias='https://schema.org/beforeMedia')
     @field_serializer('beforeMedia')
     def beforeMedia2str(self, val) -> str | List[str]:

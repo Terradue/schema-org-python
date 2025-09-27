@@ -7,4 +7,4 @@ class EmployerReview(Review):
     """
 An [[EmployerReview]] is a review of an [[Organization]] regarding its role as an employer, written by a current or former employee of that organization.
     """
-    class_: Literal['https://schema.org/EmployerReview'] = Field(default='https://schema.org/EmployerReview', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/EmployerReview'] = Field(default='https://schema.org/EmployerReview', alias='@type', serialization_alias='@type') # type: ignore

@@ -8,5 +8,5 @@ class Enumeration(Intangible):
     """
 Lists or enumerations—for example, a list of cuisines or music genres, etc.
     """
-    class_: Literal['https://schema.org/Enumeration'] = Field(default='https://schema.org/Enumeration', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/Enumeration'] = Field(default='https://schema.org/Enumeration', alias='@type', serialization_alias='@type') # type: ignore
     supersededBy: Optional[Union["Enumeration", List["Enumeration"], "_Class", List["_Class"], Property, List[Property]]] = Field(default=None, validation_alias=AliasChoices('supersededBy', 'https://schema.org/supersededBy'), serialization_alias='https://schema.org/supersededBy')

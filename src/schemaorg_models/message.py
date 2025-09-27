@@ -12,7 +12,7 @@ class Message(CreativeWork):
     """
 A single message from a sender to one or more organizations or people.
     """
-    class_: Literal['https://schema.org/Message'] = Field(default='https://schema.org/Message', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/Message'] = Field(default='https://schema.org/Message', alias='@type', serialization_alias='@type') # type: ignore
     dateReceived: Optional[Union[datetime, List[datetime]]] = Field(default=None, validation_alias=AliasChoices('dateReceived', 'https://schema.org/dateReceived'), serialization_alias='https://schema.org/dateReceived')
     dateRead: Optional[Union[datetime, List[datetime], date, List[date]]] = Field(default=None, validation_alias=AliasChoices('dateRead', 'https://schema.org/dateRead'), serialization_alias='https://schema.org/dateRead')
     dateSent: Optional[Union[datetime, List[datetime]]] = Field(default=None, validation_alias=AliasChoices('dateSent', 'https://schema.org/dateSent'), serialization_alias='https://schema.org/dateSent')

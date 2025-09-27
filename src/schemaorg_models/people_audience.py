@@ -8,7 +8,7 @@ class PeopleAudience(Audience):
     """
 A set of characteristics belonging to people, e.g. who compose an item's target audience.
     """
-    class_: Literal['https://schema.org/PeopleAudience'] = Field(default='https://schema.org/PeopleAudience', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/PeopleAudience'] = Field(default='https://schema.org/PeopleAudience', alias='@type', serialization_alias='@type') # type: ignore
     suggestedGender: Optional[Union["GenderType", List["GenderType"], str, List[str]]] = Field(default=None, validation_alias=AliasChoices('suggestedGender', 'https://schema.org/suggestedGender'), serialization_alias='https://schema.org/suggestedGender')
     requiredMaxAge: Optional[Union[int, List[int]]] = Field(default=None, validation_alias=AliasChoices('requiredMaxAge', 'https://schema.org/requiredMaxAge'), serialization_alias='https://schema.org/requiredMaxAge')
     suggestedAge: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(default=None, validation_alias=AliasChoices('suggestedAge', 'https://schema.org/suggestedAge'), serialization_alias='https://schema.org/suggestedAge')

@@ -9,7 +9,7 @@ class OpeningHoursSpecification(StructuredValue):
     """
 The opening hours of a certain place.
     """
-    class_: Literal['https://schema.org/OpeningHoursSpecification'] = Field(default='https://schema.org/OpeningHoursSpecification', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/OpeningHoursSpecification'] = Field(default='https://schema.org/OpeningHoursSpecification', alias='@type', serialization_alias='@type') # type: ignore
     dayOfWeek: Optional[Union[DayOfWeek, List[DayOfWeek]]] = Field(default=None, validation_alias=AliasChoices('dayOfWeek', 'https://schema.org/dayOfWeek'), serialization_alias='https://schema.org/dayOfWeek')
     validFrom: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(default=None, validation_alias=AliasChoices('validFrom', 'https://schema.org/validFrom'), serialization_alias='https://schema.org/validFrom')
     closes: Optional[Union[time, List[time]]] = Field(default=None, validation_alias=AliasChoices('closes', 'https://schema.org/closes'), serialization_alias='https://schema.org/closes')

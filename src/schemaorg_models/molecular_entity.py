@@ -8,7 +8,7 @@ class MolecularEntity(BioChemEntity):
     """
 Any constitutionally or isotopically distinct atom, molecule, ion, ion pair, radical, radical ion, complex, conformer etc., identifiable as a separately distinguishable entity.
     """
-    class_: Literal['https://schema.org/MolecularEntity'] = Field(default='https://schema.org/MolecularEntity', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/MolecularEntity'] = Field(default='https://schema.org/MolecularEntity', alias='@type', serialization_alias='@type') # type: ignore
     chemicalRole: Optional[Union[DefinedTerm, List[DefinedTerm]]] = Field(default=None, validation_alias=AliasChoices('chemicalRole', 'https://schema.org/chemicalRole'), serialization_alias='https://schema.org/chemicalRole')
     inChI: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('inChI', 'https://schema.org/inChI'), serialization_alias='https://schema.org/inChI')
     smiles: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('smiles', 'https://schema.org/smiles'), serialization_alias='https://schema.org/smiles')

@@ -7,4 +7,4 @@ class AgreeAction(ReactAction):
     """
 The act of expressing a consistency of opinion with the object. An agent agrees to/about an object (a proposition, topic or theme) with participants.
     """
-    class_: Literal['https://schema.org/AgreeAction'] = Field(default='https://schema.org/AgreeAction', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/AgreeAction'] = Field(default='https://schema.org/AgreeAction', alias='@type', serialization_alias='@type') # type: ignore

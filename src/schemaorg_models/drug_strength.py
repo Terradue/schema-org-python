@@ -8,7 +8,7 @@ class DrugStrength(MedicalIntangible):
     """
 A specific strength in which a medical drug is available in a specific country.
     """
-    class_: Literal['https://schema.org/DrugStrength'] = Field(default='https://schema.org/DrugStrength', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/DrugStrength'] = Field(default='https://schema.org/DrugStrength', alias='@type', serialization_alias='@type') # type: ignore
     strengthUnit: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('strengthUnit', 'https://schema.org/strengthUnit'), serialization_alias='https://schema.org/strengthUnit')
     maximumIntake: Optional[Union["MaximumDoseSchedule", List["MaximumDoseSchedule"]]] = Field(default=None, validation_alias=AliasChoices('maximumIntake', 'https://schema.org/maximumIntake'), serialization_alias='https://schema.org/maximumIntake')
     availableIn: Optional[Union[AdministrativeArea, List[AdministrativeArea]]] = Field(default=None, validation_alias=AliasChoices('availableIn', 'https://schema.org/availableIn'), serialization_alias='https://schema.org/availableIn')

@@ -9,7 +9,7 @@ An intangible item that describes an alignment between a learning resource and a
 
 Should not be used where the nature of the alignment can be described using a simple property, for example to express that a resource [[teaches]] or [[assesses]] a competency.
     """
-    class_: Literal['https://schema.org/AlignmentObject'] = Field(default='https://schema.org/AlignmentObject', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/AlignmentObject'] = Field(default='https://schema.org/AlignmentObject', alias='@type', serialization_alias='@type') # type: ignore
     alignmentType: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('alignmentType', 'https://schema.org/alignmentType'), serialization_alias='https://schema.org/alignmentType')
     targetName: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('targetName', 'https://schema.org/targetName'), serialization_alias='https://schema.org/targetName')
     educationalFramework: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('educationalFramework', 'https://schema.org/educationalFramework'), serialization_alias='https://schema.org/educationalFramework')

@@ -9,7 +9,7 @@ class SoftwareSourceCode(CreativeWork):
     """
 Computer programming source code. Example: Full (compile ready) solutions, code snippet samples, scripts, templates.
     """
-    class_: Literal['https://schema.org/SoftwareSourceCode'] = Field(default='https://schema.org/SoftwareSourceCode', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/SoftwareSourceCode'] = Field(default='https://schema.org/SoftwareSourceCode', alias='@type', serialization_alias='@type') # type: ignore
     sampleType: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('sampleType', 'https://schema.org/sampleType'), serialization_alias='https://schema.org/sampleType')
     runtimePlatform: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('runtimePlatform', 'https://schema.org/runtimePlatform'), serialization_alias='https://schema.org/runtimePlatform')
     codeRepository: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(default=None, validation_alias=AliasChoices('codeRepository', 'https://schema.org/codeRepository'), serialization_alias='https://schema.org/codeRepository')

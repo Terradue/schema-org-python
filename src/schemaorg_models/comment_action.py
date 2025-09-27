@@ -8,5 +8,5 @@ class CommentAction(CommunicateAction):
     """
 The act of generating a comment about a subject.
     """
-    class_: Literal['https://schema.org/CommentAction'] = Field(default='https://schema.org/CommentAction', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/CommentAction'] = Field(default='https://schema.org/CommentAction', alias='@type', serialization_alias='@type') # type: ignore
     resultComment: Optional[Union[Comment, List[Comment]]] = Field(default=None, validation_alias=AliasChoices('resultComment', 'https://schema.org/resultComment'), serialization_alias='https://schema.org/resultComment')

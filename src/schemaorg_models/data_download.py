@@ -9,7 +9,7 @@ class DataDownload(MediaObject):
     """
 All or part of a [[Dataset]] in downloadable form. 
     """
-    class_: Literal['https://schema.org/DataDownload'] = Field(default='https://schema.org/DataDownload', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/DataDownload'] = Field(default='https://schema.org/DataDownload', alias='@type', serialization_alias='@type') # type: ignore
     measurementMethod: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str], MeasurementMethodEnum, List[MeasurementMethodEnum], HttpUrl, List[HttpUrl]]] = Field(default=None, validation_alias=AliasChoices('measurementMethod', 'https://schema.org/measurementMethod'), serialization_alias='https://schema.org/measurementMethod')
     @field_serializer('measurementMethod')
     def measurementMethod2str(self, val) -> str | List[str]:

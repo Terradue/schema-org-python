@@ -7,5 +7,5 @@ class MedicalObservationalStudy(MedicalStudy):
     """
 An observational study is a type of medical study that attempts to infer the possible effect of a treatment through observation of a cohort of subjects over a period of time. In an observational study, the assignment of subjects into treatment groups versus control groups is outside the control of the investigator. This is in contrast with controlled studies, such as the randomized controlled trials represented by MedicalTrial, where each subject is randomly assigned to a treatment group or a control group before the start of the treatment.
     """
-    class_: Literal['https://schema.org/MedicalObservationalStudy'] = Field(default='https://schema.org/MedicalObservationalStudy', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/MedicalObservationalStudy'] = Field(default='https://schema.org/MedicalObservationalStudy', alias='@type', serialization_alias='@type') # type: ignore
     studyDesign: Optional[Union["MedicalObservationalStudyDesign", List["MedicalObservationalStudyDesign"]]] = Field(default=None, validation_alias=AliasChoices('studyDesign', 'https://schema.org/studyDesign'), serialization_alias='https://schema.org/studyDesign')

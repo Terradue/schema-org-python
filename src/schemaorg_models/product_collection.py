@@ -7,5 +7,5 @@ class ProductCollection(Product):
     """
 A set of products (either [[ProductGroup]]s or specific variants) that are listed together e.g. in an [[Offer]].
     """
-    class_: Literal['https://schema.org/ProductCollection'] = Field(default='https://schema.org/ProductCollection', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/ProductCollection'] = Field(default='https://schema.org/ProductCollection', alias='@type', serialization_alias='@type') # type: ignore
     includesObject: Optional[Union["TypeAndQuantityNode", List["TypeAndQuantityNode"]]] = Field(default=None, validation_alias=AliasChoices('includesObject', 'https://schema.org/includesObject'), serialization_alias='https://schema.org/includesObject')

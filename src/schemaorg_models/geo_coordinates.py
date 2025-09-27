@@ -8,7 +8,7 @@ class GeoCoordinates(StructuredValue):
     """
 The geographic coordinates of a place or event.
     """
-    class_: Literal['https://schema.org/GeoCoordinates'] = Field(default='https://schema.org/GeoCoordinates', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/GeoCoordinates'] = Field(default='https://schema.org/GeoCoordinates', alias='@type', serialization_alias='@type') # type: ignore
     longitude: Optional[Union[float, List[float], str, List[str]]] = Field(default=None, validation_alias=AliasChoices('longitude', 'https://schema.org/longitude'), serialization_alias='https://schema.org/longitude')
     latitude: Optional[Union[str, List[str], float, List[float]]] = Field(default=None, validation_alias=AliasChoices('latitude', 'https://schema.org/latitude'), serialization_alias='https://schema.org/latitude')
     address: Optional[Union[str, List[str], "PostalAddress", List["PostalAddress"]]] = Field(default=None, validation_alias=AliasChoices('address', 'https://schema.org/address'), serialization_alias='https://schema.org/address')

@@ -7,4 +7,4 @@ class Florist(Store):
     """
 A florist.
     """
-    class_: Literal['https://schema.org/Florist'] = Field(default='https://schema.org/Florist', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/Florist'] = Field(default='https://schema.org/Florist', alias='@type', serialization_alias='@type') # type: ignore

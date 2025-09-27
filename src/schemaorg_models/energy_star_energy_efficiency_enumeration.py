@@ -7,4 +7,4 @@ class EnergyStarEnergyEfficiencyEnumeration(EnergyEfficiencyEnumeration):
     """
 Used to indicate whether a product is EnergyStar certified.
     """
-    class_: Literal['https://schema.org/EnergyStarEnergyEfficiencyEnumeration'] = Field(default='https://schema.org/EnergyStarEnergyEfficiencyEnumeration', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/EnergyStarEnergyEfficiencyEnumeration'] = Field(default='https://schema.org/EnergyStarEnergyEfficiencyEnumeration', alias='@type', serialization_alias='@type') # type: ignore

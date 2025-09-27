@@ -9,7 +9,7 @@ class PublicationEvent(Event):
     """
 A PublicationEvent corresponds indifferently to the event of publication for a CreativeWork of any type, e.g. a broadcast event, an on-demand event, a book/journal publication via a variety of delivery media.
     """
-    class_: Literal['https://schema.org/PublicationEvent'] = Field(default='https://schema.org/PublicationEvent', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/PublicationEvent'] = Field(default='https://schema.org/PublicationEvent', alias='@type', serialization_alias='@type') # type: ignore
     publishedBy: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('publishedBy', 'https://schema.org/publishedBy'), serialization_alias='https://schema.org/publishedBy')
     publishedOn: Optional[Union["BroadcastService", List["BroadcastService"]]] = Field(default=None, validation_alias=AliasChoices('publishedOn', 'https://schema.org/publishedOn'), serialization_alias='https://schema.org/publishedOn')
     free: Optional[Union[bool, List[bool]]] = Field(default=None, validation_alias=AliasChoices('free', 'https://schema.org/free'), serialization_alias='https://schema.org/free')

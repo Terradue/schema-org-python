@@ -10,7 +10,7 @@ class Ticket(Intangible):
     """
 Used to describe a ticket to an event, a flight, a bus ride, etc.
     """
-    class_: Literal['https://schema.org/Ticket'] = Field(default='https://schema.org/Ticket', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/Ticket'] = Field(default='https://schema.org/Ticket', alias='@type', serialization_alias='@type') # type: ignore
     underName: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(default=None, validation_alias=AliasChoices('underName', 'https://schema.org/underName'), serialization_alias='https://schema.org/underName')
     priceCurrency: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('priceCurrency', 'https://schema.org/priceCurrency'), serialization_alias='https://schema.org/priceCurrency')
     ticketedSeat: Optional[Union["Seat", List["Seat"]]] = Field(default=None, validation_alias=AliasChoices('ticketedSeat', 'https://schema.org/ticketedSeat'), serialization_alias='https://schema.org/ticketedSeat')

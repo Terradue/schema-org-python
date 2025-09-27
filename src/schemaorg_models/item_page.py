@@ -7,4 +7,4 @@ class ItemPage(WebPage):
     """
 A page devoted to a single item, such as a particular product or hotel.
     """
-    class_: Literal['https://schema.org/ItemPage'] = Field(default='https://schema.org/ItemPage', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/ItemPage'] = Field(default='https://schema.org/ItemPage', alias='@type', serialization_alias='@type') # type: ignore

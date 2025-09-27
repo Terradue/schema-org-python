@@ -7,4 +7,4 @@ class TextDigitalDocument(DigitalDocument):
     """
 A file composed primarily of text.
     """
-    class_: Literal['https://schema.org/TextDigitalDocument'] = Field(default='https://schema.org/TextDigitalDocument', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/TextDigitalDocument'] = Field(default='https://schema.org/TextDigitalDocument', alias='@type', serialization_alias='@type') # type: ignore

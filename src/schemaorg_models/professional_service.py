@@ -11,4 +11,4 @@ The general [[ProfessionalService]] type for local businesses was deprecated due
         [[AccountingService]], [[Attorney]], [[Notary]], as well as types for several kinds of [[HomeAndConstructionBusiness]]: [[Electrician]], [[GeneralContractor]],
         [[HousePainter]], [[Locksmith]], [[Plumber]], [[RoofingContractor]]. [[LegalService]] was introduced as a more inclusive supertype of [[Attorney]].
     """
-    class_: Literal['https://schema.org/ProfessionalService'] = Field(default='https://schema.org/ProfessionalService', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/ProfessionalService'] = Field(default='https://schema.org/ProfessionalService', alias='@type', serialization_alias='@type') # type: ignore

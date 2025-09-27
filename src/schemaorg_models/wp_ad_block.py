@@ -7,4 +7,4 @@ class WPAdBlock(WebPageElement):
     """
 An advertising section of the page.
     """
-    class_: Literal['https://schema.org/WPAdBlock'] = Field(default='https://schema.org/WPAdBlock', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/WPAdBlock'] = Field(default='https://schema.org/WPAdBlock', alias='@type', serialization_alias='@type') # type: ignore

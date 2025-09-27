@@ -9,7 +9,7 @@ class ConstraintNode(Intangible):
 The ConstraintNode type is provided to support usecases in which a node in a structured data graph is described with properties which appear to describe a single entity, but are being used in a situation where they serve a more abstract purpose. A [[ConstraintNode]] can be described using [[constraintProperty]] and [[numConstraints]]. These constraint properties can serve a
     variety of purposes, and their values may sometimes be understood to indicate sets of possible values rather than single, exact and specific values.
     """
-    class_: Literal['https://schema.org/ConstraintNode'] = Field(default='https://schema.org/ConstraintNode', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/ConstraintNode'] = Field(default='https://schema.org/ConstraintNode', alias='@type', serialization_alias='@type') # type: ignore
     numConstraints: Optional[Union[int, List[int]]] = Field(default=None, validation_alias=AliasChoices('numConstraints', 'https://schema.org/numConstraints'), serialization_alias='https://schema.org/numConstraints')
     constraintProperty: Optional[Union[HttpUrl, List[HttpUrl], Property, List[Property]]] = Field(default=None, validation_alias=AliasChoices('constraintProperty', 'https://schema.org/constraintProperty'), serialization_alias='https://schema.org/constraintProperty')
     @field_serializer('constraintProperty')

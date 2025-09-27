@@ -11,4 +11,4 @@ A CovidTestingFacility is a [[MedicalClinic]] where testing for the COVID-19 Cor
       about that place, e.g. contact info, address, opening hours. Note that in an emergency, such information may not always be reliable.
       
     """
-    class_: Literal['https://schema.org/CovidTestingFacility'] = Field(default='https://schema.org/CovidTestingFacility', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/CovidTestingFacility'] = Field(default='https://schema.org/CovidTestingFacility', alias='@type', serialization_alias='@type') # type: ignore

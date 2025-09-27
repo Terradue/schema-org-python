@@ -8,5 +8,5 @@ class PerformAction(PlayAction):
     """
 The act of participating in performance arts.
     """
-    class_: Literal['https://schema.org/PerformAction'] = Field(default='https://schema.org/PerformAction', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/PerformAction'] = Field(default='https://schema.org/PerformAction', alias='@type', serialization_alias='@type') # type: ignore
     entertainmentBusiness: Optional[Union[EntertainmentBusiness, List[EntertainmentBusiness]]] = Field(default=None, validation_alias=AliasChoices('entertainmentBusiness', 'https://schema.org/entertainmentBusiness'), serialization_alias='https://schema.org/entertainmentBusiness')

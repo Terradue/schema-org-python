@@ -9,7 +9,7 @@ class FoodEstablishment(LocalBusiness):
     """
 A sub property of location. The specific food establishment where the action occurred.
     """
-    class_: Literal['https://schema.org/FoodEstablishment'] = Field(default='https://schema.org/FoodEstablishment', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/FoodEstablishment'] = Field(default='https://schema.org/FoodEstablishment', alias='@type', serialization_alias='@type') # type: ignore
     menu: Optional[Union[Menu, List[Menu], str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None, validation_alias=AliasChoices('menu', 'https://schema.org/menu'), serialization_alias='https://schema.org/menu')
     @field_serializer('menu')
     def menu2str(self, val) -> str | List[str]:

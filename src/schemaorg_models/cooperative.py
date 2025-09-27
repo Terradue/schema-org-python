@@ -7,4 +7,4 @@ class Cooperative(Organization):
     """
 An organization that is a joint project of multiple organizations or persons.
     """
-    class_: Literal['https://schema.org/Cooperative'] = Field(default='https://schema.org/Cooperative', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/Cooperative'] = Field(default='https://schema.org/Cooperative', alias='@type', serialization_alias='@type') # type: ignore

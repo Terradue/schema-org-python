@@ -10,7 +10,7 @@ class TypeAndQuantityNode(StructuredValue):
     """
 A structured value indicating the quantity, unit of measurement, and business function of goods included in a bundle offer.
     """
-    class_: Literal['https://schema.org/TypeAndQuantityNode'] = Field(default='https://schema.org/TypeAndQuantityNode', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
+    class_: Literal['https://schema.org/TypeAndQuantityNode'] = Field(default='https://schema.org/TypeAndQuantityNode', alias='@type', serialization_alias='@type') # type: ignore
     amountOfThisGood: Optional[Union[float, List[float]]] = Field(default=None, validation_alias=AliasChoices('amountOfThisGood', 'https://schema.org/amountOfThisGood'), serialization_alias='https://schema.org/amountOfThisGood')
     unitText: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('unitText', 'https://schema.org/unitText'), serialization_alias='https://schema.org/unitText')
     businessFunction: Optional[Union[BusinessFunction, List[BusinessFunction]]] = Field(default=None, validation_alias=AliasChoices('businessFunction', 'https://schema.org/businessFunction'), serialization_alias='https://schema.org/businessFunction')
