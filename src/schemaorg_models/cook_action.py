@@ -11,7 +11,7 @@ class CookAction(CreateAction):
     """
 The act of producing/preparing food.
     """
-    type_: Literal['https://schema.org/CookAction'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/CookAction'),serialization_alias='class') # type: ignore
-    foodEvent: Optional[Union[FoodEvent, List[FoodEvent]]] = Field(default=None,validation_alias=AliasChoices('foodEvent', 'https://schema.org/foodEvent'),serialization_alias='https://schema.org/foodEvent')
-    recipe: Optional[Union[Recipe, List[Recipe]]] = Field(default=None,validation_alias=AliasChoices('recipe', 'https://schema.org/recipe'),serialization_alias='https://schema.org/recipe')
-    foodEstablishment: Optional[Union[Place, List[Place], FoodEstablishment, List[FoodEstablishment]]] = Field(default=None,validation_alias=AliasChoices('foodEstablishment', 'https://schema.org/foodEstablishment'),serialization_alias='https://schema.org/foodEstablishment')
+    class_: Literal['https://schema.org/CookAction'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    foodEvent: Optional[Union[FoodEvent, List[FoodEvent]]] = Field(default=None,validation_alias=AliasChoices('foodEvent', 'https://schema.org/foodEvent'), serialization_alias='https://schema.org/foodEvent')
+    recipe: Optional[Union[Recipe, List[Recipe]]] = Field(default=None,validation_alias=AliasChoices('recipe', 'https://schema.org/recipe'), serialization_alias='https://schema.org/recipe')
+    foodEstablishment: Optional[Union[Place, List[Place], FoodEstablishment, List[FoodEstablishment]]] = Field(default=None,validation_alias=AliasChoices('foodEstablishment', 'https://schema.org/foodEstablishment'), serialization_alias='https://schema.org/foodEstablishment')

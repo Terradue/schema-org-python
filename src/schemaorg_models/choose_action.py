@@ -8,6 +8,6 @@ class ChooseAction(AssessAction):
     """
 The act of expressing a preference from a set of options or a large or unbounded set of choices/options.
     """
-    type_: Literal['https://schema.org/ChooseAction'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/ChooseAction'),serialization_alias='class') # type: ignore
-    option: Optional[Union[str, List[str], Thing, List[Thing]]] = Field(default=None,validation_alias=AliasChoices('option', 'https://schema.org/option'),serialization_alias='https://schema.org/option')
-    actionOption: Optional[Union[str, List[str], Thing, List[Thing]]] = Field(default=None,validation_alias=AliasChoices('actionOption', 'https://schema.org/actionOption'),serialization_alias='https://schema.org/actionOption')
+    class_: Literal['https://schema.org/ChooseAction'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    option: Optional[Union[str, List[str], Thing, List[Thing]]] = Field(default=None,validation_alias=AliasChoices('option', 'https://schema.org/option'), serialization_alias='https://schema.org/option')
+    actionOption: Optional[Union[str, List[str], Thing, List[Thing]]] = Field(default=None,validation_alias=AliasChoices('actionOption', 'https://schema.org/actionOption'), serialization_alias='https://schema.org/actionOption')

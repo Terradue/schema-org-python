@@ -12,5 +12,5 @@ Related actions:\
 \
 * [[AskAction]]: Appears generally as an origin of a ReplyAction.
     """
-    type_: Literal['https://schema.org/ReplyAction'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/ReplyAction'),serialization_alias='class') # type: ignore
-    resultComment: Optional[Union[Comment, List[Comment]]] = Field(default=None,validation_alias=AliasChoices('resultComment', 'https://schema.org/resultComment'),serialization_alias='https://schema.org/resultComment')
+    class_: Literal['https://schema.org/ReplyAction'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    resultComment: Optional[Union[Comment, List[Comment]]] = Field(default=None,validation_alias=AliasChoices('resultComment', 'https://schema.org/resultComment'), serialization_alias='https://schema.org/resultComment')

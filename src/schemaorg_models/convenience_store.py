@@ -1,5 +1,5 @@
 from typing import Literal
-from pydantic import AliasChoices, Field
+from pydantic import Field
 from schemaorg_models.store import Store
 
 
@@ -7,4 +7,4 @@ class ConvenienceStore(Store):
     """
 A convenience store.
     """
-    type_: Literal['https://schema.org/ConvenienceStore'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/ConvenienceStore'),serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/ConvenienceStore'] = Field('class', alias='class', serialization_alias='class') # type: ignore

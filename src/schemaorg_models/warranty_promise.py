@@ -9,6 +9,6 @@ class WarrantyPromise(StructuredValue):
     """
 A structured value representing the duration and scope of services that will be provided to a customer free of charge in case of a defect or malfunction of a product.
     """
-    type_: Literal['https://schema.org/WarrantyPromise'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/WarrantyPromise'),serialization_alias='class') # type: ignore
-    warrantyScope: Optional[Union[WarrantyScope, List[WarrantyScope]]] = Field(default=None,validation_alias=AliasChoices('warrantyScope', 'https://schema.org/warrantyScope'),serialization_alias='https://schema.org/warrantyScope')
-    durationOfWarranty: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(default=None,validation_alias=AliasChoices('durationOfWarranty', 'https://schema.org/durationOfWarranty'),serialization_alias='https://schema.org/durationOfWarranty')
+    class_: Literal['https://schema.org/WarrantyPromise'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    warrantyScope: Optional[Union[WarrantyScope, List[WarrantyScope]]] = Field(default=None,validation_alias=AliasChoices('warrantyScope', 'https://schema.org/warrantyScope'), serialization_alias='https://schema.org/warrantyScope')
+    durationOfWarranty: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(default=None,validation_alias=AliasChoices('durationOfWarranty', 'https://schema.org/durationOfWarranty'), serialization_alias='https://schema.org/durationOfWarranty')

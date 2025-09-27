@@ -1,5 +1,5 @@
 from typing import Literal
-from pydantic import AliasChoices, Field
+from pydantic import Field
 from schemaorg_models.series import Series
 
 
@@ -20,4 +20,4 @@ may seem more Event-like when the period of time is compact and when aspects suc
 it may also sometimes prove useful to describe a longer-term series as an Event.
    
     """
-    type_: Literal['https://schema.org/EventSeries'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/EventSeries'),serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/EventSeries'] = Field('class', alias='class', serialization_alias='class') # type: ignore

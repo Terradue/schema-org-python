@@ -185,7 +185,7 @@ def generate_models(graph: Graph):
             # f.write("    model_config = ConfigDict(arbitrary_types_allowed=True)\n\n")
 
             # type class
-            f.write(f"    type_: Literal['https://schema.org/{class_name}'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/{class_name}'),serialization_alias='class') # type: ignore\n")
+            f.write(f"    class_: Literal['https://schema.org/{class_name}'] = Field('class', alias='class', serialization_alias='class') # type: ignore\n")
 
             # Properties
             if not class_info["properties"]:
@@ -206,7 +206,7 @@ def generate_models(graph: Graph):
 
                 variable_name = f"{prop_name}_" if prop_name[0].isdigit() or prop_name.lower() in kwlist else prop_name
                 	
-                f.write(f"    {variable_name}: Optional[Union[{prop_types}]] = Field(default=None,validation_alias=AliasChoices('{prop_name}', 'https://schema.org/{prop_name}'),serialization_alias='https://schema.org/{prop_name}')\n")
+                f.write(f"    {variable_name}: Optional[Union[{prop_types}]] = Field(default=None,validation_alias=AliasChoices('{prop_name}', 'https://schema.org/{prop_name}'), serialization_alias='https://schema.org/{prop_name}')\n")
                 
                 if 'HttpUrl' in prop_type_list:
                     f.write(f"    @field_serializer('{variable_name}')\n")

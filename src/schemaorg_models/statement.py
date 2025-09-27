@@ -1,5 +1,5 @@
 from typing import Literal
-from pydantic import AliasChoices, Field
+from pydantic import Field
 from schemaorg_models.creative_work import CreativeWork
 
 
@@ -7,4 +7,4 @@ class Statement(CreativeWork):
     """
 A statement about something, for example a fun or interesting fact. If known, the main entity this statement is about can be indicated using mainEntity. For more formal claims (e.g. in Fact Checking), consider using [[Claim]] instead. Use the [[text]] property to capture the text of the statement.
     """
-    type_: Literal['https://schema.org/Statement'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/Statement'),serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/Statement'] = Field('class', alias='class', serialization_alias='class') # type: ignore

@@ -9,6 +9,6 @@ class MedicalRiskEstimator(MedicalEntity):
     """
 Any rule set or interactive tool for estimating the risk of developing a complication or condition.
     """
-    type_: Literal['https://schema.org/MedicalRiskEstimator'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/MedicalRiskEstimator'),serialization_alias='class') # type: ignore
-    estimatesRiskOf: Optional[Union[MedicalEntity, List[MedicalEntity]]] = Field(default=None,validation_alias=AliasChoices('estimatesRiskOf', 'https://schema.org/estimatesRiskOf'),serialization_alias='https://schema.org/estimatesRiskOf')
-    includedRiskFactor: Optional[Union[MedicalRiskFactor, List[MedicalRiskFactor]]] = Field(default=None,validation_alias=AliasChoices('includedRiskFactor', 'https://schema.org/includedRiskFactor'),serialization_alias='https://schema.org/includedRiskFactor')
+    class_: Literal['https://schema.org/MedicalRiskEstimator'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    estimatesRiskOf: Optional[Union[MedicalEntity, List[MedicalEntity]]] = Field(default=None,validation_alias=AliasChoices('estimatesRiskOf', 'https://schema.org/estimatesRiskOf'), serialization_alias='https://schema.org/estimatesRiskOf')
+    includedRiskFactor: Optional[Union[MedicalRiskFactor, List[MedicalRiskFactor]]] = Field(default=None,validation_alias=AliasChoices('includedRiskFactor', 'https://schema.org/includedRiskFactor'), serialization_alias='https://schema.org/includedRiskFactor')

@@ -7,8 +7,8 @@ class SportsOrganization(Organization):
     """
 Represents the collection of all sports organizations, including sports teams, governing bodies, and sports associations.
     """
-    type_: Literal['https://schema.org/SportsOrganization'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/SportsOrganization'),serialization_alias='class') # type: ignore
-    sport: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('sport', 'https://schema.org/sport'),serialization_alias='https://schema.org/sport')
+    class_: Literal['https://schema.org/SportsOrganization'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    sport: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('sport', 'https://schema.org/sport'), serialization_alias='https://schema.org/sport')
     @field_serializer('sport')
     def sport2str(self, val) -> str | List[str]:
         def _to_str(value):

@@ -7,5 +7,5 @@ class EducationalAudience(Audience):
     """
 An EducationalAudience.
     """
-    type_: Literal['https://schema.org/EducationalAudience'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/EducationalAudience'),serialization_alias='class') # type: ignore
-    educationalRole: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('educationalRole', 'https://schema.org/educationalRole'),serialization_alias='https://schema.org/educationalRole')
+    class_: Literal['https://schema.org/EducationalAudience'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    educationalRole: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('educationalRole', 'https://schema.org/educationalRole'), serialization_alias='https://schema.org/educationalRole')

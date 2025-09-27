@@ -7,9 +7,9 @@ class RepaymentSpecification(StructuredValue):
     """
 A structured value representing repayment.
     """
-    type_: Literal['https://schema.org/RepaymentSpecification'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/RepaymentSpecification'),serialization_alias='class') # type: ignore
-    numberOfLoanPayments: Optional[Union[float, List[float]]] = Field(default=None,validation_alias=AliasChoices('numberOfLoanPayments', 'https://schema.org/numberOfLoanPayments'),serialization_alias='https://schema.org/numberOfLoanPayments')
-    loanPaymentAmount: Optional[Union["MonetaryAmount", List["MonetaryAmount"]]] = Field(default=None,validation_alias=AliasChoices('loanPaymentAmount', 'https://schema.org/loanPaymentAmount'),serialization_alias='https://schema.org/loanPaymentAmount')
-    earlyPrepaymentPenalty: Optional[Union["MonetaryAmount", List["MonetaryAmount"]]] = Field(default=None,validation_alias=AliasChoices('earlyPrepaymentPenalty', 'https://schema.org/earlyPrepaymentPenalty'),serialization_alias='https://schema.org/earlyPrepaymentPenalty')
-    downPayment: Optional[Union[float, List[float], "MonetaryAmount", List["MonetaryAmount"]]] = Field(default=None,validation_alias=AliasChoices('downPayment', 'https://schema.org/downPayment'),serialization_alias='https://schema.org/downPayment')
-    loanPaymentFrequency: Optional[Union[float, List[float]]] = Field(default=None,validation_alias=AliasChoices('loanPaymentFrequency', 'https://schema.org/loanPaymentFrequency'),serialization_alias='https://schema.org/loanPaymentFrequency')
+    class_: Literal['https://schema.org/RepaymentSpecification'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    numberOfLoanPayments: Optional[Union[float, List[float]]] = Field(default=None,validation_alias=AliasChoices('numberOfLoanPayments', 'https://schema.org/numberOfLoanPayments'), serialization_alias='https://schema.org/numberOfLoanPayments')
+    loanPaymentAmount: Optional[Union["MonetaryAmount", List["MonetaryAmount"]]] = Field(default=None,validation_alias=AliasChoices('loanPaymentAmount', 'https://schema.org/loanPaymentAmount'), serialization_alias='https://schema.org/loanPaymentAmount')
+    earlyPrepaymentPenalty: Optional[Union["MonetaryAmount", List["MonetaryAmount"]]] = Field(default=None,validation_alias=AliasChoices('earlyPrepaymentPenalty', 'https://schema.org/earlyPrepaymentPenalty'), serialization_alias='https://schema.org/earlyPrepaymentPenalty')
+    downPayment: Optional[Union[float, List[float], "MonetaryAmount", List["MonetaryAmount"]]] = Field(default=None,validation_alias=AliasChoices('downPayment', 'https://schema.org/downPayment'), serialization_alias='https://schema.org/downPayment')
+    loanPaymentFrequency: Optional[Union[float, List[float]]] = Field(default=None,validation_alias=AliasChoices('loanPaymentFrequency', 'https://schema.org/loanPaymentFrequency'), serialization_alias='https://schema.org/loanPaymentFrequency')

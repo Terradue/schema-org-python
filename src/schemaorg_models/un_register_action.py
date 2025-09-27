@@ -1,5 +1,5 @@
 from typing import Literal
-from pydantic import AliasChoices, Field
+from pydantic import Field
 from schemaorg_models.interact_action import InteractAction
 
 
@@ -12,4 +12,4 @@ Related actions:\
 * [[RegisterAction]]: antonym of UnRegisterAction.\
 * [[LeaveAction]]: Unlike LeaveAction, UnRegisterAction implies that you are unregistering from a service you were previously registered, rather than leaving a team/group of people.
     """
-    type_: Literal['https://schema.org/UnRegisterAction'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/UnRegisterAction'),serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/UnRegisterAction'] = Field('class', alias='class', serialization_alias='class') # type: ignore

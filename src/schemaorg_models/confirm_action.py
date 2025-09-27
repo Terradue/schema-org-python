@@ -1,5 +1,5 @@
 from typing import Literal
-from pydantic import AliasChoices, Field
+from pydantic import Field
 from schemaorg_models.inform_action import InformAction
 
 
@@ -11,4 +11,4 @@ Related actions:\
 \
 * [[CancelAction]]: The antonym of ConfirmAction.
     """
-    type_: Literal['https://schema.org/ConfirmAction'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/ConfirmAction'),serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/ConfirmAction'] = Field('class', alias='class', serialization_alias='class') # type: ignore

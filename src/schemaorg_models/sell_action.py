@@ -10,6 +10,6 @@ class SellAction(TradeAction):
     """
 The act of taking money from a buyer in exchange for goods or services rendered. An agent sells an object, product, or service to a buyer for a price. Reciprocal of BuyAction.
     """
-    type_: Literal['https://schema.org/SellAction'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/SellAction'),serialization_alias='class') # type: ignore
-    buyer: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(default=None,validation_alias=AliasChoices('buyer', 'https://schema.org/buyer'),serialization_alias='https://schema.org/buyer')
-    warrantyPromise: Optional[Union[WarrantyPromise, List[WarrantyPromise]]] = Field(default=None,validation_alias=AliasChoices('warrantyPromise', 'https://schema.org/warrantyPromise'),serialization_alias='https://schema.org/warrantyPromise')
+    class_: Literal['https://schema.org/SellAction'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    buyer: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(default=None,validation_alias=AliasChoices('buyer', 'https://schema.org/buyer'), serialization_alias='https://schema.org/buyer')
+    warrantyPromise: Optional[Union[WarrantyPromise, List[WarrantyPromise]]] = Field(default=None,validation_alias=AliasChoices('warrantyPromise', 'https://schema.org/warrantyPromise'), serialization_alias='https://schema.org/warrantyPromise')

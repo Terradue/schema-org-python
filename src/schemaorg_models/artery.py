@@ -8,6 +8,6 @@ class Artery(Vessel):
     """
 A type of blood vessel that specifically carries blood away from the heart.
     """
-    type_: Literal['https://schema.org/Artery'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/Artery'),serialization_alias='class') # type: ignore
-    arterialBranch: Optional[Union[AnatomicalStructure, List[AnatomicalStructure]]] = Field(default=None,validation_alias=AliasChoices('arterialBranch', 'https://schema.org/arterialBranch'),serialization_alias='https://schema.org/arterialBranch')
-    supplyTo: Optional[Union[AnatomicalStructure, List[AnatomicalStructure]]] = Field(default=None,validation_alias=AliasChoices('supplyTo', 'https://schema.org/supplyTo'),serialization_alias='https://schema.org/supplyTo')
+    class_: Literal['https://schema.org/Artery'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    arterialBranch: Optional[Union[AnatomicalStructure, List[AnatomicalStructure]]] = Field(default=None,validation_alias=AliasChoices('arterialBranch', 'https://schema.org/arterialBranch'), serialization_alias='https://schema.org/arterialBranch')
+    supplyTo: Optional[Union[AnatomicalStructure, List[AnatomicalStructure]]] = Field(default=None,validation_alias=AliasChoices('supplyTo', 'https://schema.org/supplyTo'), serialization_alias='https://schema.org/supplyTo')

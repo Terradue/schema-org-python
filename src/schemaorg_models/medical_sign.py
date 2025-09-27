@@ -9,6 +9,6 @@ class MedicalSign(MedicalSignOrSymptom):
     """
 Any physical manifestation of a person's medical condition discoverable by objective diagnostic tests or physical examination.
     """
-    type_: Literal['https://schema.org/MedicalSign'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/MedicalSign'),serialization_alias='class') # type: ignore
-    identifyingTest: Optional[Union[MedicalTest, List[MedicalTest]]] = Field(default=None,validation_alias=AliasChoices('identifyingTest', 'https://schema.org/identifyingTest'),serialization_alias='https://schema.org/identifyingTest')
-    identifyingExam: Optional[Union[PhysicalExam, List[PhysicalExam]]] = Field(default=None,validation_alias=AliasChoices('identifyingExam', 'https://schema.org/identifyingExam'),serialization_alias='https://schema.org/identifyingExam')
+    class_: Literal['https://schema.org/MedicalSign'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    identifyingTest: Optional[Union[MedicalTest, List[MedicalTest]]] = Field(default=None,validation_alias=AliasChoices('identifyingTest', 'https://schema.org/identifyingTest'), serialization_alias='https://schema.org/identifyingTest')
+    identifyingExam: Optional[Union[PhysicalExam, List[PhysicalExam]]] = Field(default=None,validation_alias=AliasChoices('identifyingExam', 'https://schema.org/identifyingExam'), serialization_alias='https://schema.org/identifyingExam')

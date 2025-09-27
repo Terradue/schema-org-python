@@ -1,5 +1,5 @@
 from typing import Literal
-from pydantic import AliasChoices, Field
+from pydantic import Field
 from schemaorg_models.media_enumeration import MediaEnumeration
 
 
@@ -9,4 +9,4 @@ class IPTCDigitalSourceEnumeration(MediaEnumeration):
 In general these codes are not declared here to be mutually exclusive, although some combinations would be contradictory if applied simultaneously, or might be considered mutually incompatible by upstream maintainers of the definitions. See the IPTC <a href="https://www.iptc.org/std/photometadata/documentation/userguide/">documentation</a>
  for <a href="https://cv.iptc.org/newscodes/digitalsourcetype/">detailed definitions</a> of all terms.
     """
-    type_: Literal['https://schema.org/IPTCDigitalSourceEnumeration'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/IPTCDigitalSourceEnumeration'),serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/IPTCDigitalSourceEnumeration'] = Field('class', alias='class', serialization_alias='class') # type: ignore

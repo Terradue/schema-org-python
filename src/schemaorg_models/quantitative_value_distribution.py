@@ -8,10 +8,10 @@ class QuantitativeValueDistribution(StructuredValue):
     """
 A statistical distribution of values.
     """
-    type_: Literal['https://schema.org/QuantitativeValueDistribution'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/QuantitativeValueDistribution'),serialization_alias='class') # type: ignore
-    median: Optional[Union[float, List[float]]] = Field(default=None,validation_alias=AliasChoices('median', 'https://schema.org/median'),serialization_alias='https://schema.org/median')
-    percentile75: Optional[Union[float, List[float]]] = Field(default=None,validation_alias=AliasChoices('percentile75', 'https://schema.org/percentile75'),serialization_alias='https://schema.org/percentile75')
-    percentile25: Optional[Union[float, List[float]]] = Field(default=None,validation_alias=AliasChoices('percentile25', 'https://schema.org/percentile25'),serialization_alias='https://schema.org/percentile25')
-    percentile90: Optional[Union[float, List[float]]] = Field(default=None,validation_alias=AliasChoices('percentile90', 'https://schema.org/percentile90'),serialization_alias='https://schema.org/percentile90')
-    percentile10: Optional[Union[float, List[float]]] = Field(default=None,validation_alias=AliasChoices('percentile10', 'https://schema.org/percentile10'),serialization_alias='https://schema.org/percentile10')
-    duration: Optional[Union["Duration", List["Duration"], QuantitativeValue, List[QuantitativeValue]]] = Field(default=None,validation_alias=AliasChoices('duration', 'https://schema.org/duration'),serialization_alias='https://schema.org/duration')
+    class_: Literal['https://schema.org/QuantitativeValueDistribution'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    median: Optional[Union[float, List[float]]] = Field(default=None,validation_alias=AliasChoices('median', 'https://schema.org/median'), serialization_alias='https://schema.org/median')
+    percentile75: Optional[Union[float, List[float]]] = Field(default=None,validation_alias=AliasChoices('percentile75', 'https://schema.org/percentile75'), serialization_alias='https://schema.org/percentile75')
+    percentile25: Optional[Union[float, List[float]]] = Field(default=None,validation_alias=AliasChoices('percentile25', 'https://schema.org/percentile25'), serialization_alias='https://schema.org/percentile25')
+    percentile90: Optional[Union[float, List[float]]] = Field(default=None,validation_alias=AliasChoices('percentile90', 'https://schema.org/percentile90'), serialization_alias='https://schema.org/percentile90')
+    percentile10: Optional[Union[float, List[float]]] = Field(default=None,validation_alias=AliasChoices('percentile10', 'https://schema.org/percentile10'), serialization_alias='https://schema.org/percentile10')
+    duration: Optional[Union["Duration", List["Duration"], QuantitativeValue, List[QuantitativeValue]]] = Field(default=None,validation_alias=AliasChoices('duration', 'https://schema.org/duration'), serialization_alias='https://schema.org/duration')

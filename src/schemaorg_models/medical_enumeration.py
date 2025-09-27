@@ -1,5 +1,5 @@
 from typing import Literal
-from pydantic import AliasChoices, Field
+from pydantic import Field
 from schemaorg_models.enumeration import Enumeration
 
 
@@ -7,4 +7,4 @@ class MedicalEnumeration(Enumeration):
     """
 Enumerations related to health and the practice of medicine: A concept that is used to attribute a quality to another concept, as a qualifier, a collection of items or a listing of all of the elements of a set in medicine practice.
     """
-    type_: Literal['https://schema.org/MedicalEnumeration'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/MedicalEnumeration'),serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/MedicalEnumeration'] = Field('class', alias='class', serialization_alias='class') # type: ignore

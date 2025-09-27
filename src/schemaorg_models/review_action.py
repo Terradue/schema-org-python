@@ -8,5 +8,5 @@ class ReviewAction(AssessAction):
     """
 The act of producing a balanced opinion about the object for an audience. An agent reviews an object with participants resulting in a review.
     """
-    type_: Literal['https://schema.org/ReviewAction'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/ReviewAction'),serialization_alias='class') # type: ignore
-    resultReview: Optional[Union[Review, List[Review]]] = Field(default=None,validation_alias=AliasChoices('resultReview', 'https://schema.org/resultReview'),serialization_alias='https://schema.org/resultReview')
+    class_: Literal['https://schema.org/ReviewAction'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    resultReview: Optional[Union[Review, List[Review]]] = Field(default=None,validation_alias=AliasChoices('resultReview', 'https://schema.org/resultReview'), serialization_alias='https://schema.org/resultReview')

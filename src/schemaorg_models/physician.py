@@ -11,9 +11,9 @@ class Physician(MedicalBusiness):
     """
 An individual physician or a physician's office considered as a [[MedicalOrganization]].
     """
-    type_: Literal['https://schema.org/Physician'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/Physician'),serialization_alias='class') # type: ignore
-    hospitalAffiliation: Optional[Union[Hospital, List[Hospital]]] = Field(default=None,validation_alias=AliasChoices('hospitalAffiliation', 'https://schema.org/hospitalAffiliation'),serialization_alias='https://schema.org/hospitalAffiliation')
-    availableService: Optional[Union[MedicalProcedure, List[MedicalProcedure], "MedicalTherapy", List["MedicalTherapy"], MedicalTest, List[MedicalTest]]] = Field(default=None,validation_alias=AliasChoices('availableService', 'https://schema.org/availableService'),serialization_alias='https://schema.org/availableService')
-    usNPI: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('usNPI', 'https://schema.org/usNPI'),serialization_alias='https://schema.org/usNPI')
-    occupationalCategory: Optional[Union[CategoryCode, List[CategoryCode], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('occupationalCategory', 'https://schema.org/occupationalCategory'),serialization_alias='https://schema.org/occupationalCategory')
-    medicalSpecialty: Optional[Union["MedicalSpecialty", List["MedicalSpecialty"]]] = Field(default=None,validation_alias=AliasChoices('medicalSpecialty', 'https://schema.org/medicalSpecialty'),serialization_alias='https://schema.org/medicalSpecialty')
+    class_: Literal['https://schema.org/Physician'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    hospitalAffiliation: Optional[Union[Hospital, List[Hospital]]] = Field(default=None,validation_alias=AliasChoices('hospitalAffiliation', 'https://schema.org/hospitalAffiliation'), serialization_alias='https://schema.org/hospitalAffiliation')
+    availableService: Optional[Union[MedicalProcedure, List[MedicalProcedure], "MedicalTherapy", List["MedicalTherapy"], MedicalTest, List[MedicalTest]]] = Field(default=None,validation_alias=AliasChoices('availableService', 'https://schema.org/availableService'), serialization_alias='https://schema.org/availableService')
+    usNPI: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('usNPI', 'https://schema.org/usNPI'), serialization_alias='https://schema.org/usNPI')
+    occupationalCategory: Optional[Union[CategoryCode, List[CategoryCode], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('occupationalCategory', 'https://schema.org/occupationalCategory'), serialization_alias='https://schema.org/occupationalCategory')
+    medicalSpecialty: Optional[Union["MedicalSpecialty", List["MedicalSpecialty"]]] = Field(default=None,validation_alias=AliasChoices('medicalSpecialty', 'https://schema.org/medicalSpecialty'), serialization_alias='https://schema.org/medicalSpecialty')

@@ -7,9 +7,9 @@ class MedicalTest(MedicalEntity):
     """
 Any medical test, typically performed for diagnostic purposes.
     """
-    type_: Literal['https://schema.org/MedicalTest'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/MedicalTest'),serialization_alias='class') # type: ignore
-    affectedBy: Optional[Union["Drug", List["Drug"]]] = Field(default=None,validation_alias=AliasChoices('affectedBy', 'https://schema.org/affectedBy'),serialization_alias='https://schema.org/affectedBy')
-    signDetected: Optional[Union["MedicalSign", List["MedicalSign"]]] = Field(default=None,validation_alias=AliasChoices('signDetected', 'https://schema.org/signDetected'),serialization_alias='https://schema.org/signDetected')
-    usesDevice: Optional[Union["MedicalDevice", List["MedicalDevice"]]] = Field(default=None,validation_alias=AliasChoices('usesDevice', 'https://schema.org/usesDevice'),serialization_alias='https://schema.org/usesDevice')
-    usedToDiagnose: Optional[Union["MedicalCondition", List["MedicalCondition"]]] = Field(default=None,validation_alias=AliasChoices('usedToDiagnose', 'https://schema.org/usedToDiagnose'),serialization_alias='https://schema.org/usedToDiagnose')
-    normalRange: Optional[Union["MedicalEnumeration", List["MedicalEnumeration"], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('normalRange', 'https://schema.org/normalRange'),serialization_alias='https://schema.org/normalRange')
+    class_: Literal['https://schema.org/MedicalTest'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    affectedBy: Optional[Union["Drug", List["Drug"]]] = Field(default=None,validation_alias=AliasChoices('affectedBy', 'https://schema.org/affectedBy'), serialization_alias='https://schema.org/affectedBy')
+    signDetected: Optional[Union["MedicalSign", List["MedicalSign"]]] = Field(default=None,validation_alias=AliasChoices('signDetected', 'https://schema.org/signDetected'), serialization_alias='https://schema.org/signDetected')
+    usesDevice: Optional[Union["MedicalDevice", List["MedicalDevice"]]] = Field(default=None,validation_alias=AliasChoices('usesDevice', 'https://schema.org/usesDevice'), serialization_alias='https://schema.org/usesDevice')
+    usedToDiagnose: Optional[Union["MedicalCondition", List["MedicalCondition"]]] = Field(default=None,validation_alias=AliasChoices('usedToDiagnose', 'https://schema.org/usedToDiagnose'), serialization_alias='https://schema.org/usedToDiagnose')
+    normalRange: Optional[Union["MedicalEnumeration", List["MedicalEnumeration"], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('normalRange', 'https://schema.org/normalRange'), serialization_alias='https://schema.org/normalRange')

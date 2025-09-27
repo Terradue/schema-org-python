@@ -10,8 +10,8 @@ class MusicAlbum(MusicPlaylist):
     """
 A collection of music tracks.
     """
-    type_: Literal['https://schema.org/MusicAlbum'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/MusicAlbum'),serialization_alias='class') # type: ignore
-    albumRelease: Optional[Union["MusicRelease", List["MusicRelease"]]] = Field(default=None,validation_alias=AliasChoices('albumRelease', 'https://schema.org/albumRelease'),serialization_alias='https://schema.org/albumRelease')
-    byArtist: Optional[Union["MusicGroup", List["MusicGroup"], Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('byArtist', 'https://schema.org/byArtist'),serialization_alias='https://schema.org/byArtist')
-    albumProductionType: Optional[Union[MusicAlbumProductionType, List[MusicAlbumProductionType]]] = Field(default=None,validation_alias=AliasChoices('albumProductionType', 'https://schema.org/albumProductionType'),serialization_alias='https://schema.org/albumProductionType')
-    albumReleaseType: Optional[Union[MusicAlbumReleaseType, List[MusicAlbumReleaseType]]] = Field(default=None,validation_alias=AliasChoices('albumReleaseType', 'https://schema.org/albumReleaseType'),serialization_alias='https://schema.org/albumReleaseType')
+    class_: Literal['https://schema.org/MusicAlbum'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    albumRelease: Optional[Union["MusicRelease", List["MusicRelease"]]] = Field(default=None,validation_alias=AliasChoices('albumRelease', 'https://schema.org/albumRelease'), serialization_alias='https://schema.org/albumRelease')
+    byArtist: Optional[Union["MusicGroup", List["MusicGroup"], Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('byArtist', 'https://schema.org/byArtist'), serialization_alias='https://schema.org/byArtist')
+    albumProductionType: Optional[Union[MusicAlbumProductionType, List[MusicAlbumProductionType]]] = Field(default=None,validation_alias=AliasChoices('albumProductionType', 'https://schema.org/albumProductionType'), serialization_alias='https://schema.org/albumProductionType')
+    albumReleaseType: Optional[Union[MusicAlbumReleaseType, List[MusicAlbumReleaseType]]] = Field(default=None,validation_alias=AliasChoices('albumReleaseType', 'https://schema.org/albumReleaseType'), serialization_alias='https://schema.org/albumReleaseType')

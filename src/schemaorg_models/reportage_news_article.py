@@ -1,5 +1,5 @@
 from typing import Literal
-from pydantic import AliasChoices, Field
+from pydantic import Field
 from schemaorg_models.news_article import NewsArticle
 
 
@@ -15,4 +15,4 @@ The [[ReportageNewsArticle]] type is based on a stricter ideal for "news" as a w
 A [[ReportageNewsArticle]] which goes deeper into analysis can also be marked with an additional type of [[AnalysisNewsArticle]].
 
     """
-    type_: Literal['https://schema.org/ReportageNewsArticle'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/ReportageNewsArticle'),serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/ReportageNewsArticle'] = Field('class', alias='class', serialization_alias='class') # type: ignore

@@ -1,5 +1,5 @@
 from typing import Literal
-from pydantic import AliasChoices, Field
+from pydantic import Field
 from schemaorg_models.interact_action import InteractAction
 
 
@@ -13,4 +13,4 @@ Related actions:\
 * [[RegisterAction]]: Unlike RegisterAction, SubscribeAction implies that the agent is interested in continuing receiving updates from the object.\
 * [[JoinAction]]: Unlike JoinAction, SubscribeAction implies that the agent is interested in continuing receiving updates from the object.
     """
-    type_: Literal['https://schema.org/SubscribeAction'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/SubscribeAction'),serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/SubscribeAction'] = Field('class', alias='class', serialization_alias='class') # type: ignore

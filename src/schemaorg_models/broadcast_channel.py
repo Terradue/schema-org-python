@@ -8,13 +8,13 @@ class BroadcastChannel(Intangible):
     """
 A unique instance of a BroadcastService on a CableOrSatelliteService lineup.
     """
-    type_: Literal['https://schema.org/BroadcastChannel'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/BroadcastChannel'),serialization_alias='class') # type: ignore
-    inBroadcastLineup: Optional[Union["CableOrSatelliteService", List["CableOrSatelliteService"]]] = Field(default=None,validation_alias=AliasChoices('inBroadcastLineup', 'https://schema.org/inBroadcastLineup'),serialization_alias='https://schema.org/inBroadcastLineup')
-    broadcastChannelId: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('broadcastChannelId', 'https://schema.org/broadcastChannelId'),serialization_alias='https://schema.org/broadcastChannelId')
-    providesBroadcastService: Optional[Union["BroadcastService", List["BroadcastService"]]] = Field(default=None,validation_alias=AliasChoices('providesBroadcastService', 'https://schema.org/providesBroadcastService'),serialization_alias='https://schema.org/providesBroadcastService')
-    broadcastFrequency: Optional[Union[str, List[str], BroadcastFrequencySpecification, List[BroadcastFrequencySpecification]]] = Field(default=None,validation_alias=AliasChoices('broadcastFrequency', 'https://schema.org/broadcastFrequency'),serialization_alias='https://schema.org/broadcastFrequency')
-    broadcastServiceTier: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('broadcastServiceTier', 'https://schema.org/broadcastServiceTier'),serialization_alias='https://schema.org/broadcastServiceTier')
-    genre: Optional[Union[HttpUrl, List[HttpUrl], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('genre', 'https://schema.org/genre'),serialization_alias='https://schema.org/genre')
+    class_: Literal['https://schema.org/BroadcastChannel'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    inBroadcastLineup: Optional[Union["CableOrSatelliteService", List["CableOrSatelliteService"]]] = Field(default=None,validation_alias=AliasChoices('inBroadcastLineup', 'https://schema.org/inBroadcastLineup'), serialization_alias='https://schema.org/inBroadcastLineup')
+    broadcastChannelId: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('broadcastChannelId', 'https://schema.org/broadcastChannelId'), serialization_alias='https://schema.org/broadcastChannelId')
+    providesBroadcastService: Optional[Union["BroadcastService", List["BroadcastService"]]] = Field(default=None,validation_alias=AliasChoices('providesBroadcastService', 'https://schema.org/providesBroadcastService'), serialization_alias='https://schema.org/providesBroadcastService')
+    broadcastFrequency: Optional[Union[str, List[str], BroadcastFrequencySpecification, List[BroadcastFrequencySpecification]]] = Field(default=None,validation_alias=AliasChoices('broadcastFrequency', 'https://schema.org/broadcastFrequency'), serialization_alias='https://schema.org/broadcastFrequency')
+    broadcastServiceTier: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('broadcastServiceTier', 'https://schema.org/broadcastServiceTier'), serialization_alias='https://schema.org/broadcastServiceTier')
+    genre: Optional[Union[HttpUrl, List[HttpUrl], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('genre', 'https://schema.org/genre'), serialization_alias='https://schema.org/genre')
     @field_serializer('genre')
     def genre2str(self, val) -> str | List[str]:
         def _to_str(value):

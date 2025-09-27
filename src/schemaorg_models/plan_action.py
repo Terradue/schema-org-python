@@ -8,5 +8,5 @@ class PlanAction(OrganizeAction):
     """
 The act of planning the execution of an event/task/action/reservation/plan to a future date.
     """
-    type_: Literal['https://schema.org/PlanAction'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/PlanAction'),serialization_alias='class') # type: ignore
-    scheduledTime: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(default=None,validation_alias=AliasChoices('scheduledTime', 'https://schema.org/scheduledTime'),serialization_alias='https://schema.org/scheduledTime')
+    class_: Literal['https://schema.org/PlanAction'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    scheduledTime: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(default=None,validation_alias=AliasChoices('scheduledTime', 'https://schema.org/scheduledTime'), serialization_alias='https://schema.org/scheduledTime')

@@ -1,5 +1,5 @@
 from typing import Literal
-from pydantic import AliasChoices, Field
+from pydantic import Field
 from schemaorg_models.creative_work_series import CreativeWorkSeries
 
 
@@ -9,4 +9,4 @@ A publication in any medium issued in successive parts bearing numerical or chro
 \
 See also [blog post](https://blog.schema.org/2014/09/02/schema-org-support-for-bibliographic-relationships-and-periodicals/).
     """
-    type_: Literal['https://schema.org/Periodical'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/Periodical'),serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/Periodical'] = Field('class', alias='class', serialization_alias='class') # type: ignore

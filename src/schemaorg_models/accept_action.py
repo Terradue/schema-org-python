@@ -1,5 +1,5 @@
 from typing import Literal
-from pydantic import AliasChoices, Field
+from pydantic import Field
 from schemaorg_models.allocate_action import AllocateAction
 
 
@@ -11,4 +11,4 @@ Related actions:\
 \
 * [[RejectAction]]: The antonym of AcceptAction.
     """
-    type_: Literal['https://schema.org/AcceptAction'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/AcceptAction'),serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/AcceptAction'] = Field('class', alias='class', serialization_alias='class') # type: ignore

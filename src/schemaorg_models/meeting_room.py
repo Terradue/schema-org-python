@@ -1,5 +1,5 @@
 from typing import Literal
-from pydantic import AliasChoices, Field
+from pydantic import Field
 from schemaorg_models.room import Room
 
 
@@ -10,4 +10,4 @@ A meeting room, conference room, or conference hall is a room provided for singu
 See also the <a href="/docs/hotels.html">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>.
 
     """
-    type_: Literal['https://schema.org/MeetingRoom'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/MeetingRoom'),serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/MeetingRoom'] = Field('class', alias='class', serialization_alias='class') # type: ignore

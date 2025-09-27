@@ -7,5 +7,5 @@ class StupidType(Thing):
     """
 A StupidType for testing.
     """
-    type_: Literal['https://schema.org/StupidType'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/StupidType'),serialization_alias='class') # type: ignore
-    stupidProperty: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(default=None,validation_alias=AliasChoices('stupidProperty', 'https://schema.org/stupidProperty'),serialization_alias='https://schema.org/stupidProperty')
+    class_: Literal['https://schema.org/StupidType'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    stupidProperty: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(default=None,validation_alias=AliasChoices('stupidProperty', 'https://schema.org/stupidProperty'), serialization_alias='https://schema.org/stupidProperty')

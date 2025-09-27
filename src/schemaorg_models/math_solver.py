@@ -7,5 +7,5 @@ class MathSolver(CreativeWork):
     """
 A math solver which is capable of solving a subset of mathematical problems.
     """
-    type_: Literal['https://schema.org/MathSolver'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/MathSolver'),serialization_alias='class') # type: ignore
-    mathExpression: Optional[Union["SolveMathAction", List["SolveMathAction"], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('mathExpression', 'https://schema.org/mathExpression'),serialization_alias='https://schema.org/mathExpression')
+    class_: Literal['https://schema.org/MathSolver'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    mathExpression: Optional[Union["SolveMathAction", List["SolveMathAction"], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('mathExpression', 'https://schema.org/mathExpression'), serialization_alias='https://schema.org/mathExpression')

@@ -7,9 +7,9 @@ class Taxon(Thing):
     """
 A set of organisms asserted to represent a natural cohesive biological unit.
     """
-    type_: Literal['https://schema.org/Taxon'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/Taxon'),serialization_alias='class') # type: ignore
-    hasDefinedTerm: Optional[Union["DefinedTerm", List["DefinedTerm"]]] = Field(default=None,validation_alias=AliasChoices('hasDefinedTerm', 'https://schema.org/hasDefinedTerm'),serialization_alias='https://schema.org/hasDefinedTerm')
-    taxonRank: Optional[Union[str, List[str], "PropertyValue", List["PropertyValue"], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('taxonRank', 'https://schema.org/taxonRank'),serialization_alias='https://schema.org/taxonRank')
+    class_: Literal['https://schema.org/Taxon'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    hasDefinedTerm: Optional[Union["DefinedTerm", List["DefinedTerm"]]] = Field(default=None,validation_alias=AliasChoices('hasDefinedTerm', 'https://schema.org/hasDefinedTerm'), serialization_alias='https://schema.org/hasDefinedTerm')
+    taxonRank: Optional[Union[str, List[str], "PropertyValue", List["PropertyValue"], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('taxonRank', 'https://schema.org/taxonRank'), serialization_alias='https://schema.org/taxonRank')
     @field_serializer('taxonRank')
     def taxonRank2str(self, val) -> str | List[str]:
         def _to_str(value):
@@ -21,7 +21,7 @@ A set of organisms asserted to represent a natural cohesive biological unit.
             return [_to_str(i) for i in val]
         return _to_str(val)
 
-    parentTaxon: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], "Taxon", List["Taxon"]]] = Field(default=None,validation_alias=AliasChoices('parentTaxon', 'https://schema.org/parentTaxon'),serialization_alias='https://schema.org/parentTaxon')
+    parentTaxon: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], "Taxon", List["Taxon"]]] = Field(default=None,validation_alias=AliasChoices('parentTaxon', 'https://schema.org/parentTaxon'), serialization_alias='https://schema.org/parentTaxon')
     @field_serializer('parentTaxon')
     def parentTaxon2str(self, val) -> str | List[str]:
         def _to_str(value):
@@ -33,7 +33,7 @@ A set of organisms asserted to represent a natural cohesive biological unit.
             return [_to_str(i) for i in val]
         return _to_str(val)
 
-    childTaxon: Optional[Union["Taxon", List["Taxon"], str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('childTaxon', 'https://schema.org/childTaxon'),serialization_alias='https://schema.org/childTaxon')
+    childTaxon: Optional[Union["Taxon", List["Taxon"], str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('childTaxon', 'https://schema.org/childTaxon'), serialization_alias='https://schema.org/childTaxon')
     @field_serializer('childTaxon')
     def childTaxon2str(self, val) -> str | List[str]:
         def _to_str(value):

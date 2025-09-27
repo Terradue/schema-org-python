@@ -7,5 +7,5 @@ class ClaimReview(Review):
     """
 A fact-checking review of claims made (or reported) in some creative work (referenced via itemReviewed).
     """
-    type_: Literal['https://schema.org/ClaimReview'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/ClaimReview'),serialization_alias='class') # type: ignore
-    claimReviewed: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('claimReviewed', 'https://schema.org/claimReviewed'),serialization_alias='https://schema.org/claimReviewed')
+    class_: Literal['https://schema.org/ClaimReview'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    claimReviewed: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('claimReviewed', 'https://schema.org/claimReviewed'), serialization_alias='https://schema.org/claimReviewed')

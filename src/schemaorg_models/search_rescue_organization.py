@@ -1,5 +1,5 @@
 from typing import Literal
-from pydantic import AliasChoices, Field
+from pydantic import Field
 from schemaorg_models.organization import Organization
 
 
@@ -7,4 +7,4 @@ class SearchRescueOrganization(Organization):
     """
 A Search and Rescue organization of some kind.
     """
-    type_: Literal['https://schema.org/SearchRescueOrganization'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/SearchRescueOrganization'),serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/SearchRescueOrganization'] = Field('class', alias='class', serialization_alias='class') # type: ignore

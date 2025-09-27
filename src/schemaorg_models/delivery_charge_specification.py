@@ -11,8 +11,8 @@ class DeliveryChargeSpecification(PriceSpecification):
     """
 The price for the delivery of an offer using a particular delivery method.
     """
-    type_: Literal['https://schema.org/DeliveryChargeSpecification'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/DeliveryChargeSpecification'),serialization_alias='class') # type: ignore
-    areaServed: Optional[Union[GeoShape, List[GeoShape], str, List[str], AdministrativeArea, List[AdministrativeArea], Place, List[Place]]] = Field(default=None,validation_alias=AliasChoices('areaServed', 'https://schema.org/areaServed'),serialization_alias='https://schema.org/areaServed')
-    eligibleRegion: Optional[Union[GeoShape, List[GeoShape], str, List[str], Place, List[Place]]] = Field(default=None,validation_alias=AliasChoices('eligibleRegion', 'https://schema.org/eligibleRegion'),serialization_alias='https://schema.org/eligibleRegion')
-    appliesToDeliveryMethod: Optional[Union[DeliveryMethod, List[DeliveryMethod]]] = Field(default=None,validation_alias=AliasChoices('appliesToDeliveryMethod', 'https://schema.org/appliesToDeliveryMethod'),serialization_alias='https://schema.org/appliesToDeliveryMethod')
-    ineligibleRegion: Optional[Union[str, List[str], Place, List[Place], GeoShape, List[GeoShape]]] = Field(default=None,validation_alias=AliasChoices('ineligibleRegion', 'https://schema.org/ineligibleRegion'),serialization_alias='https://schema.org/ineligibleRegion')
+    class_: Literal['https://schema.org/DeliveryChargeSpecification'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    areaServed: Optional[Union[GeoShape, List[GeoShape], str, List[str], AdministrativeArea, List[AdministrativeArea], Place, List[Place]]] = Field(default=None,validation_alias=AliasChoices('areaServed', 'https://schema.org/areaServed'), serialization_alias='https://schema.org/areaServed')
+    eligibleRegion: Optional[Union[GeoShape, List[GeoShape], str, List[str], Place, List[Place]]] = Field(default=None,validation_alias=AliasChoices('eligibleRegion', 'https://schema.org/eligibleRegion'), serialization_alias='https://schema.org/eligibleRegion')
+    appliesToDeliveryMethod: Optional[Union[DeliveryMethod, List[DeliveryMethod]]] = Field(default=None,validation_alias=AliasChoices('appliesToDeliveryMethod', 'https://schema.org/appliesToDeliveryMethod'), serialization_alias='https://schema.org/appliesToDeliveryMethod')
+    ineligibleRegion: Optional[Union[str, List[str], Place, List[Place], GeoShape, List[GeoShape]]] = Field(default=None,validation_alias=AliasChoices('ineligibleRegion', 'https://schema.org/ineligibleRegion'), serialization_alias='https://schema.org/ineligibleRegion')

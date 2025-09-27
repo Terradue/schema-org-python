@@ -7,5 +7,5 @@ class PerformanceRole(Role):
     """
 A PerformanceRole is a Role that some entity places with regard to a theatrical performance, e.g. in a Movie, TVSeries etc.
     """
-    type_: Literal['https://schema.org/PerformanceRole'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/PerformanceRole'),serialization_alias='class') # type: ignore
-    characterName: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('characterName', 'https://schema.org/characterName'),serialization_alias='https://schema.org/characterName')
+    class_: Literal['https://schema.org/PerformanceRole'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    characterName: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('characterName', 'https://schema.org/characterName'), serialization_alias='https://schema.org/characterName')

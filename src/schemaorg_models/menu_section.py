@@ -8,6 +8,6 @@ class MenuSection(CreativeWork):
     """
 A sub-grouping of food or drink items in a menu. E.g. courses (such as 'Dinner', 'Breakfast', etc.), specific type of dishes (such as 'Meat', 'Vegan', 'Drinks', etc.), or some other classification made by the menu provider.
     """
-    type_: Literal['https://schema.org/MenuSection'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/MenuSection'),serialization_alias='class') # type: ignore
-    hasMenuItem: Optional[Union[MenuItem, List[MenuItem]]] = Field(default=None,validation_alias=AliasChoices('hasMenuItem', 'https://schema.org/hasMenuItem'),serialization_alias='https://schema.org/hasMenuItem')
-    hasMenuSection: Optional[Union["MenuSection", List["MenuSection"]]] = Field(default=None,validation_alias=AliasChoices('hasMenuSection', 'https://schema.org/hasMenuSection'),serialization_alias='https://schema.org/hasMenuSection')
+    class_: Literal['https://schema.org/MenuSection'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    hasMenuItem: Optional[Union[MenuItem, List[MenuItem]]] = Field(default=None,validation_alias=AliasChoices('hasMenuItem', 'https://schema.org/hasMenuItem'), serialization_alias='https://schema.org/hasMenuItem')
+    hasMenuSection: Optional[Union["MenuSection", List["MenuSection"]]] = Field(default=None,validation_alias=AliasChoices('hasMenuSection', 'https://schema.org/hasMenuSection'), serialization_alias='https://schema.org/hasMenuSection')

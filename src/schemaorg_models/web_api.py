@@ -8,8 +8,8 @@ class WebAPI(Service):
     """
 An application programming interface accessible over Web/Internet technologies.
     """
-    type_: Literal['https://schema.org/WebAPI'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/WebAPI'),serialization_alias='class') # type: ignore
-    documentation: Optional[Union[HttpUrl, List[HttpUrl], CreativeWork, List[CreativeWork]]] = Field(default=None,validation_alias=AliasChoices('documentation', 'https://schema.org/documentation'),serialization_alias='https://schema.org/documentation')
+    class_: Literal['https://schema.org/WebAPI'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    documentation: Optional[Union[HttpUrl, List[HttpUrl], CreativeWork, List[CreativeWork]]] = Field(default=None,validation_alias=AliasChoices('documentation', 'https://schema.org/documentation'), serialization_alias='https://schema.org/documentation')
     @field_serializer('documentation')
     def documentation2str(self, val) -> str | List[str]:
         def _to_str(value):

@@ -8,5 +8,5 @@ class InvestmentOrDeposit(FinancialProduct):
     """
 A type of financial product that typically requires the client to transfer funds to a financial service in return for potential beneficial financial return.
     """
-    type_: Literal['https://schema.org/InvestmentOrDeposit'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/InvestmentOrDeposit'),serialization_alias='class') # type: ignore
-    amount: Optional[Union[MonetaryAmount, List[MonetaryAmount], float, List[float]]] = Field(default=None,validation_alias=AliasChoices('amount', 'https://schema.org/amount'),serialization_alias='https://schema.org/amount')
+    class_: Literal['https://schema.org/InvestmentOrDeposit'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    amount: Optional[Union[MonetaryAmount, List[MonetaryAmount], float, List[float]]] = Field(default=None,validation_alias=AliasChoices('amount', 'https://schema.org/amount'), serialization_alias='https://schema.org/amount')

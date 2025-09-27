@@ -1,5 +1,5 @@
 from typing import Literal
-from pydantic import AliasChoices, Field
+from pydantic import Field
 from schemaorg_models.medical_clinic import MedicalClinic
 
 
@@ -11,4 +11,4 @@ A CovidTestingFacility is a [[MedicalClinic]] where testing for the COVID-19 Cor
       about that place, e.g. contact info, address, opening hours. Note that in an emergency, such information may not always be reliable.
       
     """
-    type_: Literal['https://schema.org/CovidTestingFacility'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/CovidTestingFacility'),serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/CovidTestingFacility'] = Field('class', alias='class', serialization_alias='class') # type: ignore

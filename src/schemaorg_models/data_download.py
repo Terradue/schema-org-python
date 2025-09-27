@@ -9,8 +9,8 @@ class DataDownload(MediaObject):
     """
 All or part of a [[Dataset]] in downloadable form. 
     """
-    type_: Literal['https://schema.org/DataDownload'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/DataDownload'),serialization_alias='class') # type: ignore
-    measurementMethod: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str], MeasurementMethodEnum, List[MeasurementMethodEnum], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('measurementMethod', 'https://schema.org/measurementMethod'),serialization_alias='https://schema.org/measurementMethod')
+    class_: Literal['https://schema.org/DataDownload'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    measurementMethod: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str], MeasurementMethodEnum, List[MeasurementMethodEnum], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('measurementMethod', 'https://schema.org/measurementMethod'), serialization_alias='https://schema.org/measurementMethod')
     @field_serializer('measurementMethod')
     def measurementMethod2str(self, val) -> str | List[str]:
         def _to_str(value):
@@ -22,7 +22,7 @@ All or part of a [[Dataset]] in downloadable form.
             return [_to_str(i) for i in val]
         return _to_str(val)
 
-    measurementTechnique: Optional[Union[DefinedTerm, List[DefinedTerm], MeasurementMethodEnum, List[MeasurementMethodEnum], str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('measurementTechnique', 'https://schema.org/measurementTechnique'),serialization_alias='https://schema.org/measurementTechnique')
+    measurementTechnique: Optional[Union[DefinedTerm, List[DefinedTerm], MeasurementMethodEnum, List[MeasurementMethodEnum], str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('measurementTechnique', 'https://schema.org/measurementTechnique'), serialization_alias='https://schema.org/measurementTechnique')
     @field_serializer('measurementTechnique')
     def measurementTechnique2str(self, val) -> str | List[str]:
         def _to_str(value):

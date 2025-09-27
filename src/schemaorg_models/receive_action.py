@@ -16,6 +16,6 @@ Related actions:\
 * [[SendAction]]: The reciprocal of ReceiveAction.\
 * [[TakeAction]]: Unlike TakeAction, ReceiveAction does not imply that the ownership has been transferred (e.g. I can receive a package, but it does not mean the package is now mine).
     """
-    type_: Literal['https://schema.org/ReceiveAction'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/ReceiveAction'),serialization_alias='class') # type: ignore
-    sender: Optional[Union[Organization, List[Organization], Audience, List[Audience], Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('sender', 'https://schema.org/sender'),serialization_alias='https://schema.org/sender')
-    deliveryMethod: Optional[Union[DeliveryMethod, List[DeliveryMethod]]] = Field(default=None,validation_alias=AliasChoices('deliveryMethod', 'https://schema.org/deliveryMethod'),serialization_alias='https://schema.org/deliveryMethod')
+    class_: Literal['https://schema.org/ReceiveAction'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    sender: Optional[Union[Organization, List[Organization], Audience, List[Audience], Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('sender', 'https://schema.org/sender'), serialization_alias='https://schema.org/sender')
+    deliveryMethod: Optional[Union[DeliveryMethod, List[DeliveryMethod]]] = Field(default=None,validation_alias=AliasChoices('deliveryMethod', 'https://schema.org/deliveryMethod'), serialization_alias='https://schema.org/deliveryMethod')

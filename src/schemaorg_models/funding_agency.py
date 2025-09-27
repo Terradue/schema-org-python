@@ -1,5 +1,5 @@
 from typing import Literal
-from pydantic import AliasChoices, Field
+from pydantic import Field
 from schemaorg_models.project import Project
 
 
@@ -12,4 +12,4 @@ A FundingAgency is an organization that implements one or more [[FundingScheme]]
 Examples of funding agencies include ERC, REA, NIH, Bill and Melinda Gates Foundation, ...
     
     """
-    type_: Literal['https://schema.org/FundingAgency'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/FundingAgency'),serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/FundingAgency'] = Field('class', alias='class', serialization_alias='class') # type: ignore

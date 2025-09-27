@@ -9,5 +9,5 @@ class TouristTrip(Trip):
 A tourist trip. A created itinerary of visits to one or more places of interest ([[TouristAttraction]]/[[TouristDestination]]) often linked by a similar theme, geographic area, or interest to a particular [[touristType]]. The [UNWTO](http://www2.unwto.org/) defines tourism trip as the Trip taken by visitors.
   (See examples below.)
     """
-    type_: Literal['https://schema.org/TouristTrip'] = Field('class', alias=AliasChoices('@type', 'https://schema.org/TouristTrip'),serialization_alias='class') # type: ignore
-    touristType: Optional[Union[Audience, List[Audience], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('touristType', 'https://schema.org/touristType'),serialization_alias='https://schema.org/touristType')
+    class_: Literal['https://schema.org/TouristTrip'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    touristType: Optional[Union[Audience, List[Audience], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('touristType', 'https://schema.org/touristType'), serialization_alias='https://schema.org/touristType')
