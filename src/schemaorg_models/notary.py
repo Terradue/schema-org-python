@@ -7,4 +7,4 @@ class Notary(LegalService):
     """
 A notary.
     """
-    class_: Literal['https://schema.org/Notary'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/Notary'] = Field(default='https://schema.org/Notary', alias='class', serialization_alias='class') # type: ignore

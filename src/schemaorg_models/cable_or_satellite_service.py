@@ -7,4 +7,4 @@ class CableOrSatelliteService(Service):
     """
 A service which provides access to media programming like TV or radio. Access may be via cable or satellite.
     """
-    class_: Literal['https://schema.org/CableOrSatelliteService'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/CableOrSatelliteService'] = Field(default='https://schema.org/CableOrSatelliteService', alias='class', serialization_alias='class') # type: ignore

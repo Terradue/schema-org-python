@@ -7,4 +7,4 @@ class CoverArt(VisualArtwork):
     """
 The artwork on the outer surface of a CreativeWork.
     """
-    class_: Literal['https://schema.org/CoverArt'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/CoverArt'] = Field(default='https://schema.org/CoverArt', alias='class', serialization_alias='class') # type: ignore

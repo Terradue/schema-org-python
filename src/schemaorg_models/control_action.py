@@ -7,4 +7,4 @@ class ControlAction(Action):
     """
 An agent controls a device or application.
     """
-    class_: Literal['https://schema.org/ControlAction'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/ControlAction'] = Field(default='https://schema.org/ControlAction', alias='class', serialization_alias='class') # type: ignore

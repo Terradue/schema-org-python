@@ -8,5 +8,5 @@ class CategoryCodeSet(DefinedTermSet):
     """
 A set of Category Code values.
     """
-    class_: Literal['https://schema.org/CategoryCodeSet'] = Field('class', alias='class', serialization_alias='class') # type: ignore
-    hasCategoryCode: Optional[Union[CategoryCode, List[CategoryCode]]] = Field(default=None,validation_alias=AliasChoices('hasCategoryCode', 'https://schema.org/hasCategoryCode'), serialization_alias='https://schema.org/hasCategoryCode')
+    class_: Literal['https://schema.org/CategoryCodeSet'] = Field(default='https://schema.org/CategoryCodeSet', alias='class', serialization_alias='class') # type: ignore
+    hasCategoryCode: Optional[Union[CategoryCode, List[CategoryCode]]] = Field(default=None, validation_alias=AliasChoices('hasCategoryCode', 'https://schema.org/hasCategoryCode'), serialization_alias='https://schema.org/hasCategoryCode')

@@ -7,4 +7,4 @@ class FoodEvent(Event):
     """
 A sub property of location. The specific food event where the action occurred.
     """
-    class_: Literal['https://schema.org/FoodEvent'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/FoodEvent'] = Field(default='https://schema.org/FoodEvent', alias='class', serialization_alias='class') # type: ignore

@@ -7,4 +7,4 @@ class GovernmentBenefitsType(Enumeration):
     """
 GovernmentBenefitsType enumerates several kinds of government benefits to support the COVID-19 situation. Note that this structure may not capture all benefits offered.
     """
-    class_: Literal['https://schema.org/GovernmentBenefitsType'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/GovernmentBenefitsType'] = Field(default='https://schema.org/GovernmentBenefitsType', alias='class', serialization_alias='class') # type: ignore

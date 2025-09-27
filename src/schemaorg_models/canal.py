@@ -7,4 +7,4 @@ class Canal(BodyOfWater):
     """
 A canal, like the Panama Canal.
     """
-    class_: Literal['https://schema.org/Canal'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/Canal'] = Field(default='https://schema.org/Canal', alias='class', serialization_alias='class') # type: ignore

@@ -7,4 +7,4 @@ class UserInteraction(Event):
     """
 UserInteraction and its subtypes is an old way of talking about users interacting with pages. It is generally better to use [[Action]]-based vocabulary, alongside types such as [[Comment]].
     """
-    class_: Literal['https://schema.org/UserInteraction'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/UserInteraction'] = Field(default='https://schema.org/UserInteraction', alias='class', serialization_alias='class') # type: ignore

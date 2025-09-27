@@ -7,4 +7,4 @@ class HairSalon(HealthAndBeautyBusiness):
     """
 A hair salon.
     """
-    class_: Literal['https://schema.org/HairSalon'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/HairSalon'] = Field(default='https://schema.org/HairSalon', alias='class', serialization_alias='class') # type: ignore

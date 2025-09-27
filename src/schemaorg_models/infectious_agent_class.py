@@ -7,4 +7,4 @@ class InfectiousAgentClass(MedicalEnumeration):
     """
 Classes of agents or pathogens that transmit infectious diseases. Enumerated type.
     """
-    class_: Literal['https://schema.org/InfectiousAgentClass'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/InfectiousAgentClass'] = Field(default='https://schema.org/InfectiousAgentClass', alias='class', serialization_alias='class') # type: ignore

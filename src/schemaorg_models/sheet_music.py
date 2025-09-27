@@ -7,4 +7,4 @@ class SheetMusic(CreativeWork):
     """
 Printed music, as opposed to performed or recorded music.
     """
-    class_: Literal['https://schema.org/SheetMusic'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/SheetMusic'] = Field(default='https://schema.org/SheetMusic', alias='class', serialization_alias='class') # type: ignore

@@ -9,6 +9,6 @@ class ConsumeAction(Action):
     """
 The act of ingesting information/resources/food.
     """
-    class_: Literal['https://schema.org/ConsumeAction'] = Field('class', alias='class', serialization_alias='class') # type: ignore
-    actionAccessibilityRequirement: Optional[Union[ActionAccessSpecification, List[ActionAccessSpecification]]] = Field(default=None,validation_alias=AliasChoices('actionAccessibilityRequirement', 'https://schema.org/actionAccessibilityRequirement'), serialization_alias='https://schema.org/actionAccessibilityRequirement')
-    expectsAcceptanceOf: Optional[Union[Offer, List[Offer]]] = Field(default=None,validation_alias=AliasChoices('expectsAcceptanceOf', 'https://schema.org/expectsAcceptanceOf'), serialization_alias='https://schema.org/expectsAcceptanceOf')
+    class_: Literal['https://schema.org/ConsumeAction'] = Field(default='https://schema.org/ConsumeAction', alias='class', serialization_alias='class') # type: ignore
+    actionAccessibilityRequirement: Optional[Union[ActionAccessSpecification, List[ActionAccessSpecification]]] = Field(default=None, validation_alias=AliasChoices('actionAccessibilityRequirement', 'https://schema.org/actionAccessibilityRequirement'), serialization_alias='https://schema.org/actionAccessibilityRequirement')
+    expectsAcceptanceOf: Optional[Union[Offer, List[Offer]]] = Field(default=None, validation_alias=AliasChoices('expectsAcceptanceOf', 'https://schema.org/expectsAcceptanceOf'), serialization_alias='https://schema.org/expectsAcceptanceOf')

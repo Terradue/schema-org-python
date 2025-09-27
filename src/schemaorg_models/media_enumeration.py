@@ -7,4 +7,4 @@ class MediaEnumeration(Enumeration):
     """
 MediaEnumeration enumerations are lists of codes, labels etc. useful for describing media objects. They may be reflections of externally developed lists, or created at schema.org, or a combination.
     """
-    class_: Literal['https://schema.org/MediaEnumeration'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/MediaEnumeration'] = Field(default='https://schema.org/MediaEnumeration', alias='class', serialization_alias='class') # type: ignore

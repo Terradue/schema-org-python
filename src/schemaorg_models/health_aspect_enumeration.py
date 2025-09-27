@@ -7,4 +7,4 @@ class HealthAspectEnumeration(Enumeration):
     """
 HealthAspectEnumeration enumerates several aspects of health content online, each of which might be described using [[hasHealthAspect]] and [[HealthTopicContent]].
     """
-    class_: Literal['https://schema.org/HealthAspectEnumeration'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/HealthAspectEnumeration'] = Field(default='https://schema.org/HealthAspectEnumeration', alias='class', serialization_alias='class') # type: ignore

@@ -7,4 +7,4 @@ class Specialty(Enumeration):
     """
 One of the domain specialities to which this web page's content applies.
     """
-    class_: Literal['https://schema.org/Specialty'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/Specialty'] = Field(default='https://schema.org/Specialty', alias='class', serialization_alias='class') # type: ignore

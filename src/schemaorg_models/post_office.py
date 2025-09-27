@@ -7,4 +7,4 @@ class PostOffice(GovernmentOffice):
     """
 A post office.
     """
-    class_: Literal['https://schema.org/PostOffice'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/PostOffice'] = Field(default='https://schema.org/PostOffice', alias='class', serialization_alias='class') # type: ignore

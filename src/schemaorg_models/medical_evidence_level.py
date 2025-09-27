@@ -7,4 +7,4 @@ class MedicalEvidenceLevel(MedicalEnumeration):
     """
 Level of evidence for a medical guideline. Enumerated type.
     """
-    class_: Literal['https://schema.org/MedicalEvidenceLevel'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/MedicalEvidenceLevel'] = Field(default='https://schema.org/MedicalEvidenceLevel', alias='class', serialization_alias='class') # type: ignore

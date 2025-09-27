@@ -7,4 +7,4 @@ class VitalSign(MedicalSign):
     """
 Vital signs are measures of various physiological functions in order to assess the most basic body functions.
     """
-    class_: Literal['https://schema.org/VitalSign'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/VitalSign'] = Field(default='https://schema.org/VitalSign', alias='class', serialization_alias='class') # type: ignore

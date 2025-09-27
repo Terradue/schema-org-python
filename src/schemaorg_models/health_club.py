@@ -7,4 +7,4 @@ class HealthClub(HealthAndBeautyBusiness):
     """
 A health club.
     """
-    class_: Literal['https://schema.org/HealthClub'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/HealthClub'] = Field(default='https://schema.org/HealthClub', alias='class', serialization_alias='class') # type: ignore

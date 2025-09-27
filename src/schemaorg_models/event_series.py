@@ -20,4 +20,4 @@ may seem more Event-like when the period of time is compact and when aspects suc
 it may also sometimes prove useful to describe a longer-term series as an Event.
    
     """
-    class_: Literal['https://schema.org/EventSeries'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/EventSeries'] = Field(default='https://schema.org/EventSeries', alias='class', serialization_alias='class') # type: ignore

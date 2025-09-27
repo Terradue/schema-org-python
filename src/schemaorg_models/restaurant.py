@@ -7,4 +7,4 @@ class Restaurant(FoodEstablishment):
     """
 A restaurant.
     """
-    class_: Literal['https://schema.org/Restaurant'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/Restaurant'] = Field(default='https://schema.org/Restaurant', alias='class', serialization_alias='class') # type: ignore

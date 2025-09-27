@@ -7,4 +7,4 @@ class CollegeOrUniversity(EducationalOrganization):
     """
 A college, university, or other third-level educational institution.
     """
-    class_: Literal['https://schema.org/CollegeOrUniversity'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/CollegeOrUniversity'] = Field(default='https://schema.org/CollegeOrUniversity', alias='class', serialization_alias='class') # type: ignore

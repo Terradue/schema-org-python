@@ -7,4 +7,4 @@ class WearableMeasurementTypeEnumeration(MeasurementTypeEnumeration):
     """
 Enumerates common types of measurement for wearables products.
     """
-    class_: Literal['https://schema.org/WearableMeasurementTypeEnumeration'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/WearableMeasurementTypeEnumeration'] = Field(default='https://schema.org/WearableMeasurementTypeEnumeration', alias='class', serialization_alias='class') # type: ignore

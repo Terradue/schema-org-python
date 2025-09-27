@@ -7,4 +7,4 @@ class NLNonprofitType(NonprofitType):
     """
 NLNonprofitType: Non-profit organization type originating from the Netherlands.
     """
-    class_: Literal['https://schema.org/NLNonprofitType'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/NLNonprofitType'] = Field(default='https://schema.org/NLNonprofitType', alias='class', serialization_alias='class') # type: ignore

@@ -7,4 +7,4 @@ class WorkersUnion(Organization):
     """
 A Workers Union (also known as a Labor Union, Labour Union, or Trade Union) is an organization that promotes the interests of its worker members by collectively bargaining with management, organizing, and political lobbying.
     """
-    class_: Literal['https://schema.org/WorkersUnion'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/WorkersUnion'] = Field(default='https://schema.org/WorkersUnion', alias='class', serialization_alias='class') # type: ignore

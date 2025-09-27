@@ -7,4 +7,4 @@ class ReturnLabelSourceEnumeration(Enumeration):
     """
 Enumerates several types of return labels for product returns.
     """
-    class_: Literal['https://schema.org/ReturnLabelSourceEnumeration'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/ReturnLabelSourceEnumeration'] = Field(default='https://schema.org/ReturnLabelSourceEnumeration', alias='class', serialization_alias='class') # type: ignore

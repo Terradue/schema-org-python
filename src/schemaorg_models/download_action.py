@@ -7,4 +7,4 @@ class DownloadAction(TransferAction):
     """
 The act of downloading an object.
     """
-    class_: Literal['https://schema.org/DownloadAction'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/DownloadAction'] = Field(default='https://schema.org/DownloadAction', alias='class', serialization_alias='class') # type: ignore

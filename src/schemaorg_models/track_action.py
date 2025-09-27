@@ -13,5 +13,5 @@ Related actions:\
 * [[FollowAction]]: Unlike FollowAction, TrackAction refers to the interest on the location of innanimates objects.\
 * [[SubscribeAction]]: Unlike SubscribeAction, TrackAction refers to  the interest on the location of innanimate objects.
     """
-    class_: Literal['https://schema.org/TrackAction'] = Field('class', alias='class', serialization_alias='class') # type: ignore
-    deliveryMethod: Optional[Union[DeliveryMethod, List[DeliveryMethod]]] = Field(default=None,validation_alias=AliasChoices('deliveryMethod', 'https://schema.org/deliveryMethod'), serialization_alias='https://schema.org/deliveryMethod')
+    class_: Literal['https://schema.org/TrackAction'] = Field(default='https://schema.org/TrackAction', alias='class', serialization_alias='class') # type: ignore
+    deliveryMethod: Optional[Union[DeliveryMethod, List[DeliveryMethod]]] = Field(default=None, validation_alias=AliasChoices('deliveryMethod', 'https://schema.org/deliveryMethod'), serialization_alias='https://schema.org/deliveryMethod')

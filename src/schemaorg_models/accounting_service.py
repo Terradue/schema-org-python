@@ -10,4 +10,4 @@ Accountancy business.\
 As a [[LocalBusiness]] it can be described as a [[provider]] of one or more [[Service]]\\(s).
       
     """
-    class_: Literal['https://schema.org/AccountingService'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/AccountingService'] = Field(default='https://schema.org/AccountingService', alias='class', serialization_alias='class') # type: ignore

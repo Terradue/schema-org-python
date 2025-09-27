@@ -7,4 +7,4 @@ class Pond(BodyOfWater):
     """
 A pond.
     """
-    class_: Literal['https://schema.org/Pond'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/Pond'] = Field(default='https://schema.org/Pond', alias='class', serialization_alias='class') # type: ignore

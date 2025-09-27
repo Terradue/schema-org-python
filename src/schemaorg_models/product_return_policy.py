@@ -7,9 +7,9 @@ class ProductReturnPolicy(Intangible):
     """
 A ProductReturnPolicy provides information about product return policies associated with an [[Organization]] or [[Product]].
     """
-    class_: Literal['https://schema.org/ProductReturnPolicy'] = Field('class', alias='class', serialization_alias='class') # type: ignore
-    productReturnDays: Optional[Union[int, List[int]]] = Field(default=None,validation_alias=AliasChoices('productReturnDays', 'https://schema.org/productReturnDays'), serialization_alias='https://schema.org/productReturnDays')
-    productReturnLink: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(default=None,validation_alias=AliasChoices('productReturnLink', 'https://schema.org/productReturnLink'), serialization_alias='https://schema.org/productReturnLink')
+    class_: Literal['https://schema.org/ProductReturnPolicy'] = Field(default='https://schema.org/ProductReturnPolicy', alias='class', serialization_alias='class') # type: ignore
+    productReturnDays: Optional[Union[int, List[int]]] = Field(default=None, validation_alias=AliasChoices('productReturnDays', 'https://schema.org/productReturnDays'), serialization_alias='https://schema.org/productReturnDays')
+    productReturnLink: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(default=None, validation_alias=AliasChoices('productReturnLink', 'https://schema.org/productReturnLink'), serialization_alias='https://schema.org/productReturnLink')
     @field_serializer('productReturnLink')
     def productReturnLink2str(self, val) -> str | List[str]:
         def _to_str(value):

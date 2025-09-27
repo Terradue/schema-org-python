@@ -9,5 +9,5 @@ class HowToSection(CreativeWork):
     """
 A sub-grouping of steps in the instructions for how to achieve a result (e.g. steps for making a pie crust within a pie recipe).
     """
-    class_: Literal['https://schema.org/HowToSection'] = Field('class', alias='class', serialization_alias='class') # type: ignore
-    steps: Optional[Union[str, List[str], CreativeWork, List[CreativeWork], ItemList, List[ItemList]]] = Field(default=None,validation_alias=AliasChoices('steps', 'https://schema.org/steps'), serialization_alias='https://schema.org/steps')
+    class_: Literal['https://schema.org/HowToSection'] = Field(default='https://schema.org/HowToSection', alias='class', serialization_alias='class') # type: ignore
+    steps: Optional[Union[str, List[str], CreativeWork, List[CreativeWork], ItemList, List[ItemList]]] = Field(default=None, validation_alias=AliasChoices('steps', 'https://schema.org/steps'), serialization_alias='https://schema.org/steps')

@@ -7,4 +7,4 @@ class Consortium(Organization):
     """
 A Consortium is a membership [[Organization]] whose members are typically Organizations.
     """
-    class_: Literal['https://schema.org/Consortium'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/Consortium'] = Field(default='https://schema.org/Consortium', alias='class', serialization_alias='class') # type: ignore

@@ -7,4 +7,4 @@ class Bone(AnatomicalStructure):
     """
 Rigid connective tissue that comprises up the skeletal structure of the human body.
     """
-    class_: Literal['https://schema.org/Bone'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/Bone'] = Field(default='https://schema.org/Bone', alias='class', serialization_alias='class') # type: ignore

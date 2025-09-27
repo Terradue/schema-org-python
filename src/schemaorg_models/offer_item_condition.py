@@ -7,4 +7,4 @@ class OfferItemCondition(Enumeration):
     """
 A list of possible conditions for the item.
     """
-    class_: Literal['https://schema.org/OfferItemCondition'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/OfferItemCondition'] = Field(default='https://schema.org/OfferItemCondition', alias='class', serialization_alias='class') # type: ignore

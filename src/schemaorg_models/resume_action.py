@@ -7,4 +7,4 @@ class ResumeAction(ControlAction):
     """
 The act of resuming a device or application which was formerly paused (e.g. resume music playback or resume a timer).
     """
-    class_: Literal['https://schema.org/ResumeAction'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/ResumeAction'] = Field(default='https://schema.org/ResumeAction', alias='class', serialization_alias='class') # type: ignore

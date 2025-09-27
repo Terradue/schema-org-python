@@ -7,4 +7,4 @@ class Taxi(Service):
     """
 A taxi.
     """
-    class_: Literal['https://schema.org/Taxi'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/Taxi'] = Field(default='https://schema.org/Taxi', alias='class', serialization_alias='class') # type: ignore

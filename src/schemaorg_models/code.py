@@ -7,4 +7,4 @@ class Code(CreativeWork):
     """
 Computer programming source code. Example: Full (compile ready) solutions, code snippet samples, scripts, templates.
     """
-    class_: Literal['https://schema.org/Code'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/Code'] = Field(default='https://schema.org/Code', alias='class', serialization_alias='class') # type: ignore

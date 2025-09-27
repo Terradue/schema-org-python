@@ -12,6 +12,6 @@ A GeoCircle is a GeoShape representing a circular geographic area. As it is a Ge
           The center of the circle can be indicated via the 'geoMidpoint' property, or more approximately using 'address', 'postalCode'.
        
     """
-    class_: Literal['https://schema.org/GeoCircle'] = Field('class', alias='class', serialization_alias='class') # type: ignore
-    geoMidpoint: Optional[Union[GeoCoordinates, List[GeoCoordinates]]] = Field(default=None,validation_alias=AliasChoices('geoMidpoint', 'https://schema.org/geoMidpoint'), serialization_alias='https://schema.org/geoMidpoint')
-    geoRadius: Optional[Union[float, List[float], Distance, List[Distance], str, List[str]]] = Field(default=None,validation_alias=AliasChoices('geoRadius', 'https://schema.org/geoRadius'), serialization_alias='https://schema.org/geoRadius')
+    class_: Literal['https://schema.org/GeoCircle'] = Field(default='https://schema.org/GeoCircle', alias='class', serialization_alias='class') # type: ignore
+    geoMidpoint: Optional[Union[GeoCoordinates, List[GeoCoordinates]]] = Field(default=None, validation_alias=AliasChoices('geoMidpoint', 'https://schema.org/geoMidpoint'), serialization_alias='https://schema.org/geoMidpoint')
+    geoRadius: Optional[Union[float, List[float], Distance, List[Distance], str, List[str]]] = Field(default=None, validation_alias=AliasChoices('geoRadius', 'https://schema.org/geoRadius'), serialization_alias='https://schema.org/geoRadius')

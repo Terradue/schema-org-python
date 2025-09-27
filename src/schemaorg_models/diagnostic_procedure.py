@@ -7,4 +7,4 @@ class DiagnosticProcedure(MedicalProcedure):
     """
 A medical procedure intended primarily for diagnostic, as opposed to therapeutic, purposes.
     """
-    class_: Literal['https://schema.org/DiagnosticProcedure'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/DiagnosticProcedure'] = Field(default='https://schema.org/DiagnosticProcedure', alias='class', serialization_alias='class') # type: ignore

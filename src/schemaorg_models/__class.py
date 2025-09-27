@@ -7,4 +7,4 @@ class _Class(Intangible):
     """
 A class, also often called a 'Type'; equivalent to rdfs:Class.
     """
-    class_: Literal['https://schema.org/_Class'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/_Class'] = Field(default='https://schema.org/_Class', alias='class', serialization_alias='class') # type: ignore

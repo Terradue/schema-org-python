@@ -7,4 +7,4 @@ class MedicalAudience(Audience):
     """
 Medical audience for page.
     """
-    class_: Literal['https://schema.org/MedicalAudience'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/MedicalAudience'] = Field(default='https://schema.org/MedicalAudience', alias='class', serialization_alias='class') # type: ignore

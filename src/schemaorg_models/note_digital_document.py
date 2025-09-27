@@ -7,4 +7,4 @@ class NoteDigitalDocument(DigitalDocument):
     """
 A file containing a note, primarily for the author.
     """
-    class_: Literal['https://schema.org/NoteDigitalDocument'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/NoteDigitalDocument'] = Field(default='https://schema.org/NoteDigitalDocument', alias='class', serialization_alias='class') # type: ignore

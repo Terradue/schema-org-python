@@ -7,4 +7,4 @@ class PlaceOfWorship(CivicStructure):
     """
 Place of worship, such as a church, synagogue, or mosque.
     """
-    class_: Literal['https://schema.org/PlaceOfWorship'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/PlaceOfWorship'] = Field(default='https://schema.org/PlaceOfWorship', alias='class', serialization_alias='class') # type: ignore

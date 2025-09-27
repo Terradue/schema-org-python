@@ -7,4 +7,4 @@ class FilmAction(CreateAction):
     """
 The act of capturing sound and moving images on film, video, or digitally.
     """
-    class_: Literal['https://schema.org/FilmAction'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/FilmAction'] = Field(default='https://schema.org/FilmAction', alias='class', serialization_alias='class') # type: ignore

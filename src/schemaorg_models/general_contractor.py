@@ -7,4 +7,4 @@ class GeneralContractor(HomeAndConstructionBusiness):
     """
 A general contractor.
     """
-    class_: Literal['https://schema.org/GeneralContractor'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/GeneralContractor'] = Field(default='https://schema.org/GeneralContractor', alias='class', serialization_alias='class') # type: ignore

@@ -8,5 +8,5 @@ class EducationalOrganization(CivicStructure):
     """
 An educational organization.
     """
-    class_: Literal['https://schema.org/EducationalOrganization'] = Field('class', alias='class', serialization_alias='class') # type: ignore
-    alumni: Optional[Union[Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('alumni', 'https://schema.org/alumni'), serialization_alias='https://schema.org/alumni')
+    class_: Literal['https://schema.org/EducationalOrganization'] = Field(default='https://schema.org/EducationalOrganization', alias='class', serialization_alias='class') # type: ignore
+    alumni: Optional[Union[Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('alumni', 'https://schema.org/alumni'), serialization_alias='https://schema.org/alumni')

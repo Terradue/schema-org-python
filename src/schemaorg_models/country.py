@@ -7,4 +7,4 @@ class Country(AdministrativeArea):
     """
 A country.
     """
-    class_: Literal['https://schema.org/Country'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/Country'] = Field(default='https://schema.org/Country', alias='class', serialization_alias='class') # type: ignore

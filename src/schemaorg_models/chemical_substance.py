@@ -8,7 +8,7 @@ class ChemicalSubstance(BioChemEntity):
     """
 A chemical substance is 'a portion of matter of constant composition, composed of molecular entities of the same type or of different types' (source: [ChEBI:59999](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=59999)).
     """
-    class_: Literal['https://schema.org/ChemicalSubstance'] = Field('class', alias='class', serialization_alias='class') # type: ignore
-    chemicalComposition: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('chemicalComposition', 'https://schema.org/chemicalComposition'), serialization_alias='https://schema.org/chemicalComposition')
-    chemicalRole: Optional[Union[DefinedTerm, List[DefinedTerm]]] = Field(default=None,validation_alias=AliasChoices('chemicalRole', 'https://schema.org/chemicalRole'), serialization_alias='https://schema.org/chemicalRole')
-    potentialUse: Optional[Union[DefinedTerm, List[DefinedTerm]]] = Field(default=None,validation_alias=AliasChoices('potentialUse', 'https://schema.org/potentialUse'), serialization_alias='https://schema.org/potentialUse')
+    class_: Literal['https://schema.org/ChemicalSubstance'] = Field(default='https://schema.org/ChemicalSubstance', alias='class', serialization_alias='class') # type: ignore
+    chemicalComposition: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('chemicalComposition', 'https://schema.org/chemicalComposition'), serialization_alias='https://schema.org/chemicalComposition')
+    chemicalRole: Optional[Union[DefinedTerm, List[DefinedTerm]]] = Field(default=None, validation_alias=AliasChoices('chemicalRole', 'https://schema.org/chemicalRole'), serialization_alias='https://schema.org/chemicalRole')
+    potentialUse: Optional[Union[DefinedTerm, List[DefinedTerm]]] = Field(default=None, validation_alias=AliasChoices('potentialUse', 'https://schema.org/potentialUse'), serialization_alias='https://schema.org/potentialUse')

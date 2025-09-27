@@ -7,5 +7,5 @@ class MovieTheater(CivicStructure):
     """
 A movie theater.
     """
-    class_: Literal['https://schema.org/MovieTheater'] = Field('class', alias='class', serialization_alias='class') # type: ignore
-    screenCount: Optional[Union[float, List[float]]] = Field(default=None,validation_alias=AliasChoices('screenCount', 'https://schema.org/screenCount'), serialization_alias='https://schema.org/screenCount')
+    class_: Literal['https://schema.org/MovieTheater'] = Field(default='https://schema.org/MovieTheater', alias='class', serialization_alias='class') # type: ignore
+    screenCount: Optional[Union[float, List[float]]] = Field(default=None, validation_alias=AliasChoices('screenCount', 'https://schema.org/screenCount'), serialization_alias='https://schema.org/screenCount')

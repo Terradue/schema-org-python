@@ -7,4 +7,4 @@ class NailSalon(HealthAndBeautyBusiness):
     """
 A nail salon.
     """
-    class_: Literal['https://schema.org/NailSalon'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/NailSalon'] = Field(default='https://schema.org/NailSalon', alias='class', serialization_alias='class') # type: ignore

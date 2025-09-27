@@ -7,4 +7,4 @@ class Energy(Quantity):
     """
 Properties that take Energy as values are of the form '&lt;Number&gt; &lt;Energy unit of measure&gt;'.
     """
-    class_: Literal['https://schema.org/Energy'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/Energy'] = Field(default='https://schema.org/Energy', alias='class', serialization_alias='class') # type: ignore

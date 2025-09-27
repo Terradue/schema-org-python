@@ -15,4 +15,4 @@ The [[ReportageNewsArticle]] type is based on a stricter ideal for "news" as a w
 A [[ReportageNewsArticle]] which goes deeper into analysis can also be marked with an additional type of [[AnalysisNewsArticle]].
 
     """
-    class_: Literal['https://schema.org/ReportageNewsArticle'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/ReportageNewsArticle'] = Field(default='https://schema.org/ReportageNewsArticle', alias='class', serialization_alias='class') # type: ignore

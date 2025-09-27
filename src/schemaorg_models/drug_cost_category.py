@@ -7,4 +7,4 @@ class DrugCostCategory(MedicalEnumeration):
     """
 Enumerated categories of medical drug costs.
     """
-    class_: Literal['https://schema.org/DrugCostCategory'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/DrugCostCategory'] = Field(default='https://schema.org/DrugCostCategory', alias='class', serialization_alias='class') # type: ignore

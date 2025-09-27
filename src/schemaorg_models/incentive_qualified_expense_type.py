@@ -7,4 +7,4 @@ class IncentiveQualifiedExpenseType(Enumeration):
     """
 The types of expenses that are covered by the incentive. For example some incentives are only for the goods (tangible items) but the services (labor) are excluded.
     """
-    class_: Literal['https://schema.org/IncentiveQualifiedExpenseType'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/IncentiveQualifiedExpenseType'] = Field(default='https://schema.org/IncentiveQualifiedExpenseType', alias='class', serialization_alias='class') # type: ignore

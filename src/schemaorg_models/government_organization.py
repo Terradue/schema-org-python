@@ -7,4 +7,4 @@ class GovernmentOrganization(Organization):
     """
 A governmental organization or agency.
     """
-    class_: Literal['https://schema.org/GovernmentOrganization'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/GovernmentOrganization'] = Field(default='https://schema.org/GovernmentOrganization', alias='class', serialization_alias='class') # type: ignore

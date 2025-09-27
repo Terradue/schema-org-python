@@ -7,4 +7,4 @@ class UKNonprofitType(NonprofitType):
     """
 UKNonprofitType: Non-profit organization type originating from the United Kingdom.
     """
-    class_: Literal['https://schema.org/UKNonprofitType'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/UKNonprofitType'] = Field(default='https://schema.org/UKNonprofitType', alias='class', serialization_alias='class') # type: ignore

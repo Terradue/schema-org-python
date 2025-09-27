@@ -7,4 +7,4 @@ class PresentationDigitalDocument(DigitalDocument):
     """
 A file containing slides or used for a presentation.
     """
-    class_: Literal['https://schema.org/PresentationDigitalDocument'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/PresentationDigitalDocument'] = Field(default='https://schema.org/PresentationDigitalDocument', alias='class', serialization_alias='class') # type: ignore

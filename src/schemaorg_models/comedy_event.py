@@ -7,4 +7,4 @@ class ComedyEvent(Event):
     """
 Event type: Comedy event.
     """
-    class_: Literal['https://schema.org/ComedyEvent'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/ComedyEvent'] = Field(default='https://schema.org/ComedyEvent', alias='class', serialization_alias='class') # type: ignore

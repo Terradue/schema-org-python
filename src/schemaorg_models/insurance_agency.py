@@ -7,4 +7,4 @@ class InsuranceAgency(FinancialService):
     """
 An Insurance agency.
     """
-    class_: Literal['https://schema.org/InsuranceAgency'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/InsuranceAgency'] = Field(default='https://schema.org/InsuranceAgency', alias='class', serialization_alias='class') # type: ignore

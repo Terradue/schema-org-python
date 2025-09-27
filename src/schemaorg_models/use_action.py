@@ -7,4 +7,4 @@ class UseAction(ConsumeAction):
     """
 The act of applying an object to its intended purpose.
     """
-    class_: Literal['https://schema.org/UseAction'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/UseAction'] = Field(default='https://schema.org/UseAction', alias='class', serialization_alias='class') # type: ignore

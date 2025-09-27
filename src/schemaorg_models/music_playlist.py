@@ -8,7 +8,7 @@ class MusicPlaylist(CreativeWork):
     """
 A collection of music tracks in playlist form.
     """
-    class_: Literal['https://schema.org/MusicPlaylist'] = Field('class', alias='class', serialization_alias='class') # type: ignore
-    tracks: Optional[Union["MusicRecording", List["MusicRecording"]]] = Field(default=None,validation_alias=AliasChoices('tracks', 'https://schema.org/tracks'), serialization_alias='https://schema.org/tracks')
-    track: Optional[Union[ItemList, List[ItemList], "MusicRecording", List["MusicRecording"]]] = Field(default=None,validation_alias=AliasChoices('track', 'https://schema.org/track'), serialization_alias='https://schema.org/track')
-    numTracks: Optional[Union[int, List[int]]] = Field(default=None,validation_alias=AliasChoices('numTracks', 'https://schema.org/numTracks'), serialization_alias='https://schema.org/numTracks')
+    class_: Literal['https://schema.org/MusicPlaylist'] = Field(default='https://schema.org/MusicPlaylist', alias='class', serialization_alias='class') # type: ignore
+    tracks: Optional[Union["MusicRecording", List["MusicRecording"]]] = Field(default=None, validation_alias=AliasChoices('tracks', 'https://schema.org/tracks'), serialization_alias='https://schema.org/tracks')
+    track: Optional[Union[ItemList, List[ItemList], "MusicRecording", List["MusicRecording"]]] = Field(default=None, validation_alias=AliasChoices('track', 'https://schema.org/track'), serialization_alias='https://schema.org/track')
+    numTracks: Optional[Union[int, List[int]]] = Field(default=None, validation_alias=AliasChoices('numTracks', 'https://schema.org/numTracks'), serialization_alias='https://schema.org/numTracks')

@@ -7,4 +7,4 @@ class Casino(EntertainmentBusiness):
     """
 A casino.
     """
-    class_: Literal['https://schema.org/Casino'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/Casino'] = Field(default='https://schema.org/Casino', alias='class', serialization_alias='class') # type: ignore

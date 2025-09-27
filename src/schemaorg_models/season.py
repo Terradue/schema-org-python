@@ -7,4 +7,4 @@ class Season(CreativeWork):
     """
 A season in a media series.
     """
-    class_: Literal['https://schema.org/Season'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/Season'] = Field(default='https://schema.org/Season', alias='class', serialization_alias='class') # type: ignore

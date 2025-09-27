@@ -7,4 +7,4 @@ class Researcher(Audience):
     """
 Researchers.
     """
-    class_: Literal['https://schema.org/Researcher'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/Researcher'] = Field(default='https://schema.org/Researcher', alias='class', serialization_alias='class') # type: ignore

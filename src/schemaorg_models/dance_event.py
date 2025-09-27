@@ -7,4 +7,4 @@ class DanceEvent(Event):
     """
 Event type: A social dance.
     """
-    class_: Literal['https://schema.org/DanceEvent'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/DanceEvent'] = Field(default='https://schema.org/DanceEvent', alias='class', serialization_alias='class') # type: ignore

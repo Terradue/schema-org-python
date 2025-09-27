@@ -11,4 +11,4 @@ Related actions:\
 \
 * [[RegisterAction]]: Unlike RegisterAction, ApplyAction has no guarantees that the application will be accepted.
     """
-    class_: Literal['https://schema.org/ApplyAction'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/ApplyAction'] = Field(default='https://schema.org/ApplyAction', alias='class', serialization_alias='class') # type: ignore

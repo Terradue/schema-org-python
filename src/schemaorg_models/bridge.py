@@ -7,4 +7,4 @@ class Bridge(CivicStructure):
     """
 A bridge.
     """
-    class_: Literal['https://schema.org/Bridge'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/Bridge'] = Field(default='https://schema.org/Bridge', alias='class', serialization_alias='class') # type: ignore

@@ -7,4 +7,4 @@ class Language(Intangible):
     """
 A sub property of instrument. The language used on this action.
     """
-    class_: Literal['https://schema.org/Language'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/Language'] = Field(default='https://schema.org/Language', alias='class', serialization_alias='class') # type: ignore

@@ -7,4 +7,4 @@ class NGO(Organization):
     """
 Organization: Non-governmental Organization.
     """
-    class_: Literal['https://schema.org/NGO'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/NGO'] = Field(default='https://schema.org/NGO', alias='class', serialization_alias='class') # type: ignore

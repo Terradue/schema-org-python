@@ -11,5 +11,5 @@ class ReturnAction(TransferAction):
     """
 The act of returning to the origin that which was previously received (concrete objects) or taken (ownership).
     """
-    class_: Literal['https://schema.org/ReturnAction'] = Field('class', alias='class', serialization_alias='class') # type: ignore
-    recipient: Optional[Union[Organization, List[Organization], Audience, List[Audience], ContactPoint, List[ContactPoint], Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('recipient', 'https://schema.org/recipient'), serialization_alias='https://schema.org/recipient')
+    class_: Literal['https://schema.org/ReturnAction'] = Field(default='https://schema.org/ReturnAction', alias='class', serialization_alias='class') # type: ignore
+    recipient: Optional[Union[Organization, List[Organization], Audience, List[Audience], ContactPoint, List[ContactPoint], Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('recipient', 'https://schema.org/recipient'), serialization_alias='https://schema.org/recipient')

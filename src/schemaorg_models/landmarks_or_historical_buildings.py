@@ -7,4 +7,4 @@ class LandmarksOrHistoricalBuildings(Place):
     """
 An historical landmark or building.
     """
-    class_: Literal['https://schema.org/LandmarksOrHistoricalBuildings'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/LandmarksOrHistoricalBuildings'] = Field(default='https://schema.org/LandmarksOrHistoricalBuildings', alias='class', serialization_alias='class') # type: ignore

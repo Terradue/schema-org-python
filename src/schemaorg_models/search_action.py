@@ -11,5 +11,5 @@ Related actions:\
 \
 * [[FindAction]]: SearchAction generally leads to a FindAction, but not necessarily.
     """
-    class_: Literal['https://schema.org/SearchAction'] = Field('class', alias='class', serialization_alias='class') # type: ignore
-    query: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('query', 'https://schema.org/query'), serialization_alias='https://schema.org/query')
+    class_: Literal['https://schema.org/SearchAction'] = Field(default='https://schema.org/SearchAction', alias='class', serialization_alias='class') # type: ignore
+    query: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('query', 'https://schema.org/query'), serialization_alias='https://schema.org/query')

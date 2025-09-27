@@ -7,5 +7,5 @@ class MobileApplication(SoftwareApplication):
     """
 A software application designed specifically to work well on a mobile device such as a telephone.
     """
-    class_: Literal['https://schema.org/MobileApplication'] = Field('class', alias='class', serialization_alias='class') # type: ignore
-    carrierRequirements: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('carrierRequirements', 'https://schema.org/carrierRequirements'), serialization_alias='https://schema.org/carrierRequirements')
+    class_: Literal['https://schema.org/MobileApplication'] = Field(default='https://schema.org/MobileApplication', alias='class', serialization_alias='class') # type: ignore
+    carrierRequirements: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('carrierRequirements', 'https://schema.org/carrierRequirements'), serialization_alias='https://schema.org/carrierRequirements')

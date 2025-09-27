@@ -7,4 +7,4 @@ class Table(WebPageElement):
     """
 A table on a Web page.
     """
-    class_: Literal['https://schema.org/Table'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/Table'] = Field(default='https://schema.org/Table', alias='class', serialization_alias='class') # type: ignore

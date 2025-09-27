@@ -7,4 +7,4 @@ class MensClothingStore(Store):
     """
 A men's clothing store.
     """
-    class_: Literal['https://schema.org/MensClothingStore'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/MensClothingStore'] = Field(default='https://schema.org/MensClothingStore', alias='class', serialization_alias='class') # type: ignore

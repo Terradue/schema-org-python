@@ -7,4 +7,4 @@ class HousePainter(HomeAndConstructionBusiness):
     """
 A house painting service.
     """
-    class_: Literal['https://schema.org/HousePainter'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/HousePainter'] = Field(default='https://schema.org/HousePainter', alias='class', serialization_alias='class') # type: ignore

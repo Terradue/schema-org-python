@@ -7,4 +7,4 @@ class TierBenefitEnumeration(Enumeration):
     """
 An enumeration of possible benefits as part of a loyalty (members) program.
     """
-    class_: Literal['https://schema.org/TierBenefitEnumeration'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/TierBenefitEnumeration'] = Field(default='https://schema.org/TierBenefitEnumeration', alias='class', serialization_alias='class') # type: ignore

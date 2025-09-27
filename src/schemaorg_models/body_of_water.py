@@ -7,4 +7,4 @@ class BodyOfWater(Landform):
     """
 A body of water, such as a sea, ocean, or lake.
     """
-    class_: Literal['https://schema.org/BodyOfWater'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/BodyOfWater'] = Field(default='https://schema.org/BodyOfWater', alias='class', serialization_alias='class') # type: ignore

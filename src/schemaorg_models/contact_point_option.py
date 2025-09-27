@@ -7,4 +7,4 @@ class ContactPointOption(Enumeration):
     """
 Enumerated options related to a ContactPoint.
     """
-    class_: Literal['https://schema.org/ContactPointOption'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/ContactPointOption'] = Field(default='https://schema.org/ContactPointOption', alias='class', serialization_alias='class') # type: ignore

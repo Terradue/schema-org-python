@@ -11,5 +11,5 @@ class TipAction(TradeAction):
     """
 The act of giving money voluntarily to a beneficiary in recognition of services rendered.
     """
-    class_: Literal['https://schema.org/TipAction'] = Field('class', alias='class', serialization_alias='class') # type: ignore
-    recipient: Optional[Union[Organization, List[Organization], Audience, List[Audience], ContactPoint, List[ContactPoint], Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('recipient', 'https://schema.org/recipient'), serialization_alias='https://schema.org/recipient')
+    class_: Literal['https://schema.org/TipAction'] = Field(default='https://schema.org/TipAction', alias='class', serialization_alias='class') # type: ignore
+    recipient: Optional[Union[Organization, List[Organization], Audience, List[Audience], ContactPoint, List[ContactPoint], Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('recipient', 'https://schema.org/recipient'), serialization_alias='https://schema.org/recipient')

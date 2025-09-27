@@ -7,4 +7,4 @@ class CurrencyConversionService(FinancialProduct):
     """
 A service to convert funds from one currency to another currency.
     """
-    class_: Literal['https://schema.org/CurrencyConversionService'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/CurrencyConversionService'] = Field(default='https://schema.org/CurrencyConversionService', alias='class', serialization_alias='class') # type: ignore

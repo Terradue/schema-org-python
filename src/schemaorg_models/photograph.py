@@ -7,4 +7,4 @@ class Photograph(CreativeWork):
     """
 A photograph.
     """
-    class_: Literal['https://schema.org/Photograph'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/Photograph'] = Field(default='https://schema.org/Photograph', alias='class', serialization_alias='class') # type: ignore

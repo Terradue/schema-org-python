@@ -7,4 +7,4 @@ class OceanBodyOfWater(BodyOfWater):
     """
 An ocean (for example, the Pacific).
     """
-    class_: Literal['https://schema.org/OceanBodyOfWater'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/OceanBodyOfWater'] = Field(default='https://schema.org/OceanBodyOfWater', alias='class', serialization_alias='class') # type: ignore

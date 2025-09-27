@@ -11,4 +11,4 @@ Related actions:\
 \
 * [[ConfirmAction]]: The antonym of CancelAction.
     """
-    class_: Literal['https://schema.org/CancelAction'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/CancelAction'] = Field(default='https://schema.org/CancelAction', alias='class', serialization_alias='class') # type: ignore

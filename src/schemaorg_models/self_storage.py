@@ -7,4 +7,4 @@ class SelfStorage(LocalBusiness):
     """
 A self-storage facility.
     """
-    class_: Literal['https://schema.org/SelfStorage'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/SelfStorage'] = Field(default='https://schema.org/SelfStorage', alias='class', serialization_alias='class') # type: ignore

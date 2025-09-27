@@ -7,4 +7,4 @@ class Waterfall(BodyOfWater):
     """
 A waterfall, like Niagara.
     """
-    class_: Literal['https://schema.org/Waterfall'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/Waterfall'] = Field(default='https://schema.org/Waterfall', alias='class', serialization_alias='class') # type: ignore

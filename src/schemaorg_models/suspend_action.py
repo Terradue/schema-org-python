@@ -7,4 +7,4 @@ class SuspendAction(ControlAction):
     """
 The act of momentarily pausing a device or application (e.g. pause music playback or pause a timer).
     """
-    class_: Literal['https://schema.org/SuspendAction'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/SuspendAction'] = Field(default='https://schema.org/SuspendAction', alias='class', serialization_alias='class') # type: ignore

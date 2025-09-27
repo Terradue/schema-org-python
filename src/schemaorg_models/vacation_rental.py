@@ -7,4 +7,4 @@ class VacationRental(LodgingBusiness):
     """
 A kind of lodging business that focuses on renting single properties for limited time.
     """
-    class_: Literal['https://schema.org/VacationRental'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/VacationRental'] = Field(default='https://schema.org/VacationRental', alias='class', serialization_alias='class') # type: ignore

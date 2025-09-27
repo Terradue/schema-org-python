@@ -7,4 +7,4 @@ class ChildCare(LocalBusiness):
     """
 A Childcare center.
     """
-    class_: Literal['https://schema.org/ChildCare'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/ChildCare'] = Field(default='https://schema.org/ChildCare', alias='class', serialization_alias='class') # type: ignore

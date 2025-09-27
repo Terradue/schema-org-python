@@ -7,4 +7,4 @@ class PawnShop(Store):
     """
 A shop that will buy, or lend money against the security of, personal possessions.
     """
-    class_: Literal['https://schema.org/PawnShop'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/PawnShop'] = Field(default='https://schema.org/PawnShop', alias='class', serialization_alias='class') # type: ignore

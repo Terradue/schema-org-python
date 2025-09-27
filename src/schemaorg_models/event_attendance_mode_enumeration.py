@@ -7,4 +7,4 @@ class EventAttendanceModeEnumeration(Enumeration):
     """
 An EventAttendanceModeEnumeration value is one of potentially several modes of organising an event, relating to whether it is online or offline.
     """
-    class_: Literal['https://schema.org/EventAttendanceModeEnumeration'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/EventAttendanceModeEnumeration'] = Field(default='https://schema.org/EventAttendanceModeEnumeration', alias='class', serialization_alias='class') # type: ignore

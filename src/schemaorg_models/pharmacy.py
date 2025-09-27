@@ -7,4 +7,4 @@ class Pharmacy(MedicalOrganization):
     """
 A pharmacy or drugstore.
     """
-    class_: Literal['https://schema.org/Pharmacy'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/Pharmacy'] = Field(default='https://schema.org/Pharmacy', alias='class', serialization_alias='class') # type: ignore

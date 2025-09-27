@@ -7,4 +7,4 @@ class USNonprofitType(NonprofitType):
     """
 USNonprofitType: Non-profit organization type originating from the United States.
     """
-    class_: Literal['https://schema.org/USNonprofitType'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/USNonprofitType'] = Field(default='https://schema.org/USNonprofitType', alias='class', serialization_alias='class') # type: ignore

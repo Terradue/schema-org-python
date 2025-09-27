@@ -11,4 +11,4 @@ Related actions:\
 \
 * [[AcceptAction]]: The antonym of RejectAction.
     """
-    class_: Literal['https://schema.org/RejectAction'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/RejectAction'] = Field(default='https://schema.org/RejectAction', alias='class', serialization_alias='class') # type: ignore

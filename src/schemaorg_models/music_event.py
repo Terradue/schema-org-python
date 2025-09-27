@@ -7,4 +7,4 @@ class MusicEvent(Event):
     """
 Event type: Music event.
     """
-    class_: Literal['https://schema.org/MusicEvent'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/MusicEvent'] = Field(default='https://schema.org/MusicEvent', alias='class', serialization_alias='class') # type: ignore

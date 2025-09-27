@@ -7,4 +7,4 @@ class EUEnergyEfficiencyEnumeration(EnergyEfficiencyEnumeration):
     """
 Enumerates the EU energy efficiency classes A-G as well as A+, A++, and A+++ as defined in EU directive 2017/1369.
     """
-    class_: Literal['https://schema.org/EUEnergyEfficiencyEnumeration'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/EUEnergyEfficiencyEnumeration'] = Field(default='https://schema.org/EUEnergyEfficiencyEnumeration', alias='class', serialization_alias='class') # type: ignore

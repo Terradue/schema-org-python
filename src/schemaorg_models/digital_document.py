@@ -8,5 +8,5 @@ class DigitalDocument(CreativeWork):
     """
 An electronic file or document.
     """
-    class_: Literal['https://schema.org/DigitalDocument'] = Field('class', alias='class', serialization_alias='class') # type: ignore
-    hasDigitalDocumentPermission: Optional[Union[DigitalDocumentPermission, List[DigitalDocumentPermission]]] = Field(default=None,validation_alias=AliasChoices('hasDigitalDocumentPermission', 'https://schema.org/hasDigitalDocumentPermission'), serialization_alias='https://schema.org/hasDigitalDocumentPermission')
+    class_: Literal['https://schema.org/DigitalDocument'] = Field(default='https://schema.org/DigitalDocument', alias='class', serialization_alias='class') # type: ignore
+    hasDigitalDocumentPermission: Optional[Union[DigitalDocumentPermission, List[DigitalDocumentPermission]]] = Field(default=None, validation_alias=AliasChoices('hasDigitalDocumentPermission', 'https://schema.org/hasDigitalDocumentPermission'), serialization_alias='https://schema.org/hasDigitalDocumentPermission')

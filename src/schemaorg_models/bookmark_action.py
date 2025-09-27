@@ -7,4 +7,4 @@ class BookmarkAction(OrganizeAction):
     """
 An agent bookmarks/flags/labels/tags/marks an object.
     """
-    class_: Literal['https://schema.org/BookmarkAction'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/BookmarkAction'] = Field(default='https://schema.org/BookmarkAction', alias='class', serialization_alias='class') # type: ignore

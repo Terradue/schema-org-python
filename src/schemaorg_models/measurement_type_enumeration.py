@@ -7,4 +7,4 @@ class MeasurementTypeEnumeration(Enumeration):
     """
 Enumeration of common measurement types (or dimensions), for example "chest" for a person, "inseam" for pants, "gauge" for screws, or "wheel" for bicycles.
     """
-    class_: Literal['https://schema.org/MeasurementTypeEnumeration'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/MeasurementTypeEnumeration'] = Field(default='https://schema.org/MeasurementTypeEnumeration', alias='class', serialization_alias='class') # type: ignore

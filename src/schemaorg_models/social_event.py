@@ -7,4 +7,4 @@ class SocialEvent(Event):
     """
 Event type: Social event.
     """
-    class_: Literal['https://schema.org/SocialEvent'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/SocialEvent'] = Field(default='https://schema.org/SocialEvent', alias='class', serialization_alias='class') # type: ignore

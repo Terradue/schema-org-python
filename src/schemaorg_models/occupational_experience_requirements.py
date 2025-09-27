@@ -7,5 +7,5 @@ class OccupationalExperienceRequirements(Intangible):
     """
 Indicates employment-related experience requirements, e.g. [[monthsOfExperience]].
     """
-    class_: Literal['https://schema.org/OccupationalExperienceRequirements'] = Field('class', alias='class', serialization_alias='class') # type: ignore
-    monthsOfExperience: Optional[Union[float, List[float]]] = Field(default=None,validation_alias=AliasChoices('monthsOfExperience', 'https://schema.org/monthsOfExperience'), serialization_alias='https://schema.org/monthsOfExperience')
+    class_: Literal['https://schema.org/OccupationalExperienceRequirements'] = Field(default='https://schema.org/OccupationalExperienceRequirements', alias='class', serialization_alias='class') # type: ignore
+    monthsOfExperience: Optional[Union[float, List[float]]] = Field(default=None, validation_alias=AliasChoices('monthsOfExperience', 'https://schema.org/monthsOfExperience'), serialization_alias='https://schema.org/monthsOfExperience')

@@ -7,4 +7,4 @@ class BuddhistTemple(PlaceOfWorship):
     """
 A Buddhist temple.
     """
-    class_: Literal['https://schema.org/BuddhistTemple'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/BuddhistTemple'] = Field(default='https://schema.org/BuddhistTemple', alias='class', serialization_alias='class') # type: ignore

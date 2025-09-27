@@ -7,4 +7,4 @@ class TelevisionChannel(BroadcastChannel):
     """
 A unique instance of a television BroadcastService on a CableOrSatelliteService lineup.
     """
-    class_: Literal['https://schema.org/TelevisionChannel'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/TelevisionChannel'] = Field(default='https://schema.org/TelevisionChannel', alias='class', serialization_alias='class') # type: ignore

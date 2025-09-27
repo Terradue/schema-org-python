@@ -7,4 +7,4 @@ class Dentist(MedicalBusiness):
     """
 A dentist.
     """
-    class_: Literal['https://schema.org/Dentist'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/Dentist'] = Field(default='https://schema.org/Dentist', alias='class', serialization_alias='class') # type: ignore

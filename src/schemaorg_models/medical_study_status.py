@@ -7,4 +7,4 @@ class MedicalStudyStatus(MedicalEnumeration):
     """
 The status of a medical study. Enumerated type.
     """
-    class_: Literal['https://schema.org/MedicalStudyStatus'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/MedicalStudyStatus'] = Field(default='https://schema.org/MedicalStudyStatus', alias='class', serialization_alias='class') # type: ignore

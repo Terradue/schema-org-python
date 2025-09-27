@@ -7,4 +7,4 @@ class SubwayStation(CivicStructure):
     """
 A subway station.
     """
-    class_: Literal['https://schema.org/SubwayStation'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/SubwayStation'] = Field(default='https://schema.org/SubwayStation', alias='class', serialization_alias='class') # type: ignore

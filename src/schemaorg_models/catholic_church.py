@@ -7,4 +7,4 @@ class CatholicChurch(Church):
     """
 A Catholic church.
     """
-    class_: Literal['https://schema.org/CatholicChurch'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/CatholicChurch'] = Field(default='https://schema.org/CatholicChurch', alias='class', serialization_alias='class') # type: ignore

@@ -7,4 +7,4 @@ class Beach(CivicStructure):
     """
 Beach.
     """
-    class_: Literal['https://schema.org/Beach'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/Beach'] = Field(default='https://schema.org/Beach', alias='class', serialization_alias='class') # type: ignore

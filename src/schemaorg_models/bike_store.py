@@ -7,4 +7,4 @@ class BikeStore(Store):
     """
 A bike store.
     """
-    class_: Literal['https://schema.org/BikeStore'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/BikeStore'] = Field(default='https://schema.org/BikeStore', alias='class', serialization_alias='class') # type: ignore

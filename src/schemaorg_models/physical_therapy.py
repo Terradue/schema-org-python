@@ -7,4 +7,4 @@ class PhysicalTherapy(MedicalTherapy):
     """
 A process of progressive physical care and rehabilitation aimed at improving a health condition.
     """
-    class_: Literal['https://schema.org/PhysicalTherapy'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/PhysicalTherapy'] = Field(default='https://schema.org/PhysicalTherapy', alias='class', serialization_alias='class') # type: ignore

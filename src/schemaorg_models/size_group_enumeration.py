@@ -7,4 +7,4 @@ class SizeGroupEnumeration(Enumeration):
     """
 Enumerates common size groups for various product categories.
     """
-    class_: Literal['https://schema.org/SizeGroupEnumeration'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/SizeGroupEnumeration'] = Field(default='https://schema.org/SizeGroupEnumeration', alias='class', serialization_alias='class') # type: ignore

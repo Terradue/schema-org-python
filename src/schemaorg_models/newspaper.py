@@ -7,4 +7,4 @@ class Newspaper(Periodical):
     """
 A publication containing information about varied topics that are pertinent to general information, a geographic area, or a specific subject matter (i.e. business, culture, education). Often published daily.
     """
-    class_: Literal['https://schema.org/Newspaper'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/Newspaper'] = Field(default='https://schema.org/Newspaper', alias='class', serialization_alias='class') # type: ignore

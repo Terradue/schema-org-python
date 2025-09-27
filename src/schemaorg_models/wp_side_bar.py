@@ -7,4 +7,4 @@ class WPSideBar(WebPageElement):
     """
 A sidebar section of the page.
     """
-    class_: Literal['https://schema.org/WPSideBar'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/WPSideBar'] = Field(default='https://schema.org/WPSideBar', alias='class', serialization_alias='class') # type: ignore

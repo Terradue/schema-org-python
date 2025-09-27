@@ -7,4 +7,4 @@ class TaxiStand(CivicStructure):
     """
 A taxi stand.
     """
-    class_: Literal['https://schema.org/TaxiStand'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/TaxiStand'] = Field(default='https://schema.org/TaxiStand', alias='class', serialization_alias='class') # type: ignore

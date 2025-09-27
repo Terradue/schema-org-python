@@ -7,4 +7,4 @@ class Park(CivicStructure):
     """
 A park.
     """
-    class_: Literal['https://schema.org/Park'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/Park'] = Field(default='https://schema.org/Park', alias='class', serialization_alias='class') # type: ignore

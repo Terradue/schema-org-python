@@ -10,4 +10,4 @@ Bed and breakfast.
 See also the <a href="/docs/hotels.html">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>.
 
     """
-    class_: Literal['https://schema.org/BedAndBreakfast'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/BedAndBreakfast'] = Field(default='https://schema.org/BedAndBreakfast', alias='class', serialization_alias='class') # type: ignore

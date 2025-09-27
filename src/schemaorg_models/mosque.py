@@ -7,4 +7,4 @@ class Mosque(PlaceOfWorship):
     """
 A mosque.
     """
-    class_: Literal['https://schema.org/Mosque'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/Mosque'] = Field(default='https://schema.org/Mosque', alias='class', serialization_alias='class') # type: ignore

@@ -7,4 +7,4 @@ class BloodTest(MedicalTest):
     """
 A medical test performed on a sample of a patient's blood.
     """
-    class_: Literal['https://schema.org/BloodTest'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/BloodTest'] = Field(default='https://schema.org/BloodTest', alias='class', serialization_alias='class') # type: ignore

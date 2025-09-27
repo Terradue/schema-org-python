@@ -7,4 +7,4 @@ class GovernmentBuilding(CivicStructure):
     """
 A government building.
     """
-    class_: Literal['https://schema.org/GovernmentBuilding'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/GovernmentBuilding'] = Field(default='https://schema.org/GovernmentBuilding', alias='class', serialization_alias='class') # type: ignore

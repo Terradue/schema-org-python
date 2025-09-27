@@ -7,4 +7,4 @@ class ShortStory(CreativeWork):
     """
 Short story or tale. A brief work of literature, usually written in narrative prose.
     """
-    class_: Literal['https://schema.org/ShortStory'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/ShortStory'] = Field(default='https://schema.org/ShortStory', alias='class', serialization_alias='class') # type: ignore

@@ -8,6 +8,6 @@ class Car(Vehicle):
     """
 A car is a wheeled, self-powered motor vehicle used for transportation.
     """
-    class_: Literal['https://schema.org/Car'] = Field('class', alias='class', serialization_alias='class') # type: ignore
-    roofLoad: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(default=None,validation_alias=AliasChoices('roofLoad', 'https://schema.org/roofLoad'), serialization_alias='https://schema.org/roofLoad')
-    acrissCode: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('acrissCode', 'https://schema.org/acrissCode'), serialization_alias='https://schema.org/acrissCode')
+    class_: Literal['https://schema.org/Car'] = Field(default='https://schema.org/Car', alias='class', serialization_alias='class') # type: ignore
+    roofLoad: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(default=None, validation_alias=AliasChoices('roofLoad', 'https://schema.org/roofLoad'), serialization_alias='https://schema.org/roofLoad')
+    acrissCode: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('acrissCode', 'https://schema.org/acrissCode'), serialization_alias='https://schema.org/acrissCode')

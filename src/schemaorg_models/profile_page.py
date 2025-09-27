@@ -7,4 +7,4 @@ class ProfilePage(WebPage):
     """
 Web page type: Profile page.
     """
-    class_: Literal['https://schema.org/ProfilePage'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/ProfilePage'] = Field(default='https://schema.org/ProfilePage', alias='class', serialization_alias='class') # type: ignore

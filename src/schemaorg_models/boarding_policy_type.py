@@ -7,4 +7,4 @@ class BoardingPolicyType(Enumeration):
     """
 A type of boarding policy used by an airline.
     """
-    class_: Literal['https://schema.org/BoardingPolicyType'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/BoardingPolicyType'] = Field(default='https://schema.org/BoardingPolicyType', alias='class', serialization_alias='class') # type: ignore

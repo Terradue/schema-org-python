@@ -12,6 +12,6 @@ A [[RealEstateListing]] is a listing that describes one or more real-estate [[Of
   The [[RealEstateListing]] type itself represents the overall listing, as manifested in some [[WebPage]].
   
     """
-    class_: Literal['https://schema.org/RealEstateListing'] = Field('class', alias='class', serialization_alias='class') # type: ignore
-    leaseLength: Optional[Union[QuantitativeValue, List[QuantitativeValue], Duration, List[Duration]]] = Field(default=None,validation_alias=AliasChoices('leaseLength', 'https://schema.org/leaseLength'), serialization_alias='https://schema.org/leaseLength')
-    datePosted: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(default=None,validation_alias=AliasChoices('datePosted', 'https://schema.org/datePosted'), serialization_alias='https://schema.org/datePosted')
+    class_: Literal['https://schema.org/RealEstateListing'] = Field(default='https://schema.org/RealEstateListing', alias='class', serialization_alias='class') # type: ignore
+    leaseLength: Optional[Union[QuantitativeValue, List[QuantitativeValue], Duration, List[Duration]]] = Field(default=None, validation_alias=AliasChoices('leaseLength', 'https://schema.org/leaseLength'), serialization_alias='https://schema.org/leaseLength')
+    datePosted: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(default=None, validation_alias=AliasChoices('datePosted', 'https://schema.org/datePosted'), serialization_alias='https://schema.org/datePosted')

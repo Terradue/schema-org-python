@@ -7,4 +7,4 @@ class PhysicalActivityCategory(Enumeration):
     """
 Categories of physical activity, organized by physiologic classification.
     """
-    class_: Literal['https://schema.org/PhysicalActivityCategory'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/PhysicalActivityCategory'] = Field(default='https://schema.org/PhysicalActivityCategory', alias='class', serialization_alias='class') # type: ignore

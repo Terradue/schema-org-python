@@ -7,4 +7,4 @@ class StructuredValue(Intangible):
     """
 Structured values are used when the value of a property has a more complex structure than simply being a textual value or a reference to another thing.
     """
-    class_: Literal['https://schema.org/StructuredValue'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/StructuredValue'] = Field(default='https://schema.org/StructuredValue', alias='class', serialization_alias='class') # type: ignore

@@ -7,4 +7,4 @@ class Volcano(Landform):
     """
 A volcano, like Fujisan.
     """
-    class_: Literal['https://schema.org/Volcano'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/Volcano'] = Field(default='https://schema.org/Volcano', alias='class', serialization_alias='class') # type: ignore

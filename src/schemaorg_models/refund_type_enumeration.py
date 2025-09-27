@@ -7,4 +7,4 @@ class RefundTypeEnumeration(Enumeration):
     """
 Enumerates several kinds of product return refund types.
     """
-    class_: Literal['https://schema.org/RefundTypeEnumeration'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/RefundTypeEnumeration'] = Field(default='https://schema.org/RefundTypeEnumeration', alias='class', serialization_alias='class') # type: ignore

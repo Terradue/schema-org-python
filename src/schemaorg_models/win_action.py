@@ -8,5 +8,5 @@ class WinAction(AchieveAction):
     """
 The act of achieving victory in a competitive activity.
     """
-    class_: Literal['https://schema.org/WinAction'] = Field('class', alias='class', serialization_alias='class') # type: ignore
-    loser: Optional[Union[Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('loser', 'https://schema.org/loser'), serialization_alias='https://schema.org/loser')
+    class_: Literal['https://schema.org/WinAction'] = Field(default='https://schema.org/WinAction', alias='class', serialization_alias='class') # type: ignore
+    loser: Optional[Union[Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('loser', 'https://schema.org/loser'), serialization_alias='https://schema.org/loser')

@@ -7,4 +7,4 @@ class WearAction(UseAction):
     """
 The act of dressing oneself in clothing.
     """
-    class_: Literal['https://schema.org/WearAction'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/WearAction'] = Field(default='https://schema.org/WearAction', alias='class', serialization_alias='class') # type: ignore

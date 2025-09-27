@@ -11,5 +11,5 @@ class PayAction(TradeAction):
     """
 An agent pays a price to a participant.
     """
-    class_: Literal['https://schema.org/PayAction'] = Field('class', alias='class', serialization_alias='class') # type: ignore
-    recipient: Optional[Union[Organization, List[Organization], Audience, List[Audience], ContactPoint, List[ContactPoint], Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('recipient', 'https://schema.org/recipient'), serialization_alias='https://schema.org/recipient')
+    class_: Literal['https://schema.org/PayAction'] = Field(default='https://schema.org/PayAction', alias='class', serialization_alias='class') # type: ignore
+    recipient: Optional[Union[Organization, List[Organization], Audience, List[Audience], ContactPoint, List[ContactPoint], Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('recipient', 'https://schema.org/recipient'), serialization_alias='https://schema.org/recipient')

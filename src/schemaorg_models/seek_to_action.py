@@ -8,5 +8,5 @@ class SeekToAction(Action):
     """
 This is the [[Action]] of navigating to a specific [[startOffset]] timestamp within a [[VideoObject]], typically represented with a URL template structure.
     """
-    class_: Literal['https://schema.org/SeekToAction'] = Field('class', alias='class', serialization_alias='class') # type: ignore
-    startOffset: Optional[Union[float, List[float], HyperTocEntry, List[HyperTocEntry]]] = Field(default=None,validation_alias=AliasChoices('startOffset', 'https://schema.org/startOffset'), serialization_alias='https://schema.org/startOffset')
+    class_: Literal['https://schema.org/SeekToAction'] = Field(default='https://schema.org/SeekToAction', alias='class', serialization_alias='class') # type: ignore
+    startOffset: Optional[Union[float, List[float], HyperTocEntry, List[HyperTocEntry]]] = Field(default=None, validation_alias=AliasChoices('startOffset', 'https://schema.org/startOffset'), serialization_alias='https://schema.org/startOffset')

@@ -7,4 +7,4 @@ class ReservationStatusType(StatusEnumeration):
     """
 Enumerated status values for Reservation.
     """
-    class_: Literal['https://schema.org/ReservationStatusType'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/ReservationStatusType'] = Field(default='https://schema.org/ReservationStatusType', alias='class', serialization_alias='class') # type: ignore

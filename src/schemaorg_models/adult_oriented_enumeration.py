@@ -7,4 +7,4 @@ class AdultOrientedEnumeration(Enumeration):
     """
 Enumeration of considerations that make a product relevant or potentially restricted for adults only.
     """
-    class_: Literal['https://schema.org/AdultOrientedEnumeration'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/AdultOrientedEnumeration'] = Field(default='https://schema.org/AdultOrientedEnumeration', alias='class', serialization_alias='class') # type: ignore

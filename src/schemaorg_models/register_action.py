@@ -13,4 +13,4 @@ Related actions:\
 * [[FollowAction]]: Unlike FollowAction, RegisterAction doesn't imply that the agent is expecting to poll for updates from the object.\
 * [[SubscribeAction]]: Unlike SubscribeAction, RegisterAction doesn't imply that the agent is expecting updates from the object.
     """
-    class_: Literal['https://schema.org/RegisterAction'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/RegisterAction'] = Field(default='https://schema.org/RegisterAction', alias='class', serialization_alias='class') # type: ignore

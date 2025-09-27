@@ -13,4 +13,4 @@ Related actions:\
 * [[DepartAction]]: Unlike DepartAction, CheckOutAction implies that the agent is informing/confirming the end of a previously reserved service.\
 * [[CancelAction]]: Unlike CancelAction, CheckOutAction implies that the agent is informing/confirming the end of a previously reserved service.
     """
-    class_: Literal['https://schema.org/CheckOutAction'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/CheckOutAction'] = Field(default='https://schema.org/CheckOutAction', alias='class', serialization_alias='class') # type: ignore

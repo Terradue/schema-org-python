@@ -15,7 +15,7 @@ A [[Claim]] in Schema.org represents a specific, factually-oriented claim that c
   At this time, Schema.org does not define any types of relationship between claims. This is a natural area for future exploration.
   
     """
-    class_: Literal['https://schema.org/Claim'] = Field('class', alias='class', serialization_alias='class') # type: ignore
-    claimInterpreter: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('claimInterpreter', 'https://schema.org/claimInterpreter'), serialization_alias='https://schema.org/claimInterpreter')
-    firstAppearance: Optional[Union[CreativeWork, List[CreativeWork]]] = Field(default=None,validation_alias=AliasChoices('firstAppearance', 'https://schema.org/firstAppearance'), serialization_alias='https://schema.org/firstAppearance')
-    appearance: Optional[Union[CreativeWork, List[CreativeWork]]] = Field(default=None,validation_alias=AliasChoices('appearance', 'https://schema.org/appearance'), serialization_alias='https://schema.org/appearance')
+    class_: Literal['https://schema.org/Claim'] = Field(default='https://schema.org/Claim', alias='class', serialization_alias='class') # type: ignore
+    claimInterpreter: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('claimInterpreter', 'https://schema.org/claimInterpreter'), serialization_alias='https://schema.org/claimInterpreter')
+    firstAppearance: Optional[Union[CreativeWork, List[CreativeWork]]] = Field(default=None, validation_alias=AliasChoices('firstAppearance', 'https://schema.org/firstAppearance'), serialization_alias='https://schema.org/firstAppearance')
+    appearance: Optional[Union[CreativeWork, List[CreativeWork]]] = Field(default=None, validation_alias=AliasChoices('appearance', 'https://schema.org/appearance'), serialization_alias='https://schema.org/appearance')

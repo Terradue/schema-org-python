@@ -7,4 +7,4 @@ class Florist(Store):
     """
 A florist.
     """
-    class_: Literal['https://schema.org/Florist'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/Florist'] = Field(default='https://schema.org/Florist', alias='class', serialization_alias='class') # type: ignore

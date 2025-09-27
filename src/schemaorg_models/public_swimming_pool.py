@@ -7,4 +7,4 @@ class PublicSwimmingPool(SportsActivityLocation):
     """
 A public swimming pool.
     """
-    class_: Literal['https://schema.org/PublicSwimmingPool'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/PublicSwimmingPool'] = Field(default='https://schema.org/PublicSwimmingPool', alias='class', serialization_alias='class') # type: ignore

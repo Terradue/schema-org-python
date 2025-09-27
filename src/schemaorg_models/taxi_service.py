@@ -7,4 +7,4 @@ class TaxiService(Service):
     """
 A service for a vehicle for hire with a driver for local travel. Fares are usually calculated based on distance traveled.
     """
-    class_: Literal['https://schema.org/TaxiService'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/TaxiService'] = Field(default='https://schema.org/TaxiService', alias='class', serialization_alias='class') # type: ignore

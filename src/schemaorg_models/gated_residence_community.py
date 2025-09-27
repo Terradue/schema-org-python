@@ -7,4 +7,4 @@ class GatedResidenceCommunity(Residence):
     """
 Residence type: Gated community.
     """
-    class_: Literal['https://schema.org/GatedResidenceCommunity'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/GatedResidenceCommunity'] = Field(default='https://schema.org/GatedResidenceCommunity', alias='class', serialization_alias='class') # type: ignore

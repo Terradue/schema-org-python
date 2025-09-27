@@ -10,6 +10,6 @@ class Answer(Comment):
     """
 An answer offered to a question; perhaps correct, perhaps opinionated or wrong.
     """
-    class_: Literal['https://schema.org/Answer'] = Field('class', alias='class', serialization_alias='class') # type: ignore
-    parentItem: Optional[Union[CreativeWork, List[CreativeWork], Comment, List[Comment]]] = Field(default=None,validation_alias=AliasChoices('parentItem', 'https://schema.org/parentItem'), serialization_alias='https://schema.org/parentItem')
-    answerExplanation: Optional[Union[Comment, List[Comment], WebContent, List[WebContent]]] = Field(default=None,validation_alias=AliasChoices('answerExplanation', 'https://schema.org/answerExplanation'), serialization_alias='https://schema.org/answerExplanation')
+    class_: Literal['https://schema.org/Answer'] = Field(default='https://schema.org/Answer', alias='class', serialization_alias='class') # type: ignore
+    parentItem: Optional[Union[CreativeWork, List[CreativeWork], Comment, List[Comment]]] = Field(default=None, validation_alias=AliasChoices('parentItem', 'https://schema.org/parentItem'), serialization_alias='https://schema.org/parentItem')
+    answerExplanation: Optional[Union[Comment, List[Comment], WebContent, List[WebContent]]] = Field(default=None, validation_alias=AliasChoices('answerExplanation', 'https://schema.org/answerExplanation'), serialization_alias='https://schema.org/answerExplanation')

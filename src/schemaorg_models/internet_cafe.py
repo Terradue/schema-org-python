@@ -7,4 +7,4 @@ class InternetCafe(LocalBusiness):
     """
 An internet cafe.
     """
-    class_: Literal['https://schema.org/InternetCafe'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/InternetCafe'] = Field(default='https://schema.org/InternetCafe', alias='class', serialization_alias='class') # type: ignore

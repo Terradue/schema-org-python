@@ -7,4 +7,4 @@ class Series(Intangible):
     """
 A Series in schema.org is a group of related items, typically but not necessarily of the same kind. See also [[CreativeWorkSeries]], [[EventSeries]].
     """
-    class_: Literal['https://schema.org/Series'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/Series'] = Field(default='https://schema.org/Series', alias='class', serialization_alias='class') # type: ignore

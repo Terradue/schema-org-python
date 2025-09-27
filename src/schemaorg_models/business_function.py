@@ -19,4 +19,4 @@ Commonly used values:\
 * http://purl.org/goodrelations/v1#Buy
         
     """
-    class_: Literal['https://schema.org/BusinessFunction'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/BusinessFunction'] = Field(default='https://schema.org/BusinessFunction', alias='class', serialization_alias='class') # type: ignore

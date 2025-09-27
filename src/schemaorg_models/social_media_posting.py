@@ -8,5 +8,5 @@ class SocialMediaPosting(Article):
     """
 A post to a social media platform, including blog posts, tweets, Facebook posts, etc.
     """
-    class_: Literal['https://schema.org/SocialMediaPosting'] = Field('class', alias='class', serialization_alias='class') # type: ignore
-    sharedContent: Optional[Union[CreativeWork, List[CreativeWork]]] = Field(default=None,validation_alias=AliasChoices('sharedContent', 'https://schema.org/sharedContent'), serialization_alias='https://schema.org/sharedContent')
+    class_: Literal['https://schema.org/SocialMediaPosting'] = Field(default='https://schema.org/SocialMediaPosting', alias='class', serialization_alias='class') # type: ignore
+    sharedContent: Optional[Union[CreativeWork, List[CreativeWork]]] = Field(default=None, validation_alias=AliasChoices('sharedContent', 'https://schema.org/sharedContent'), serialization_alias='https://schema.org/sharedContent')

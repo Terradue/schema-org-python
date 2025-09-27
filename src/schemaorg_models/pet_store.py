@@ -7,4 +7,4 @@ class PetStore(Store):
     """
 A pet store.
     """
-    class_: Literal['https://schema.org/PetStore'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/PetStore'] = Field(default='https://schema.org/PetStore', alias='class', serialization_alias='class') # type: ignore

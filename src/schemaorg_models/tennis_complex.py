@@ -7,4 +7,4 @@ class TennisComplex(SportsActivityLocation):
     """
 A tennis complex.
     """
-    class_: Literal['https://schema.org/TennisComplex'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/TennisComplex'] = Field(default='https://schema.org/TennisComplex', alias='class', serialization_alias='class') # type: ignore

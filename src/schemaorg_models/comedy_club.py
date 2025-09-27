@@ -7,4 +7,4 @@ class ComedyClub(EntertainmentBusiness):
     """
 A comedy club.
     """
-    class_: Literal['https://schema.org/ComedyClub'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/ComedyClub'] = Field(default='https://schema.org/ComedyClub', alias='class', serialization_alias='class') # type: ignore

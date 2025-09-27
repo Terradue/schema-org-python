@@ -7,4 +7,4 @@ class DaySpa(HealthAndBeautyBusiness):
     """
 A day spa.
     """
-    class_: Literal['https://schema.org/DaySpa'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/DaySpa'] = Field(default='https://schema.org/DaySpa', alias='class', serialization_alias='class') # type: ignore

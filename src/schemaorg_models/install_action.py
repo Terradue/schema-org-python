@@ -7,4 +7,4 @@ class InstallAction(ConsumeAction):
     """
 The act of installing an application.
     """
-    class_: Literal['https://schema.org/InstallAction'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/InstallAction'] = Field(default='https://schema.org/InstallAction', alias='class', serialization_alias='class') # type: ignore

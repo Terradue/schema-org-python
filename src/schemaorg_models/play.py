@@ -7,4 +7,4 @@ class Play(CreativeWork):
     """
 A play is a form of literature, usually consisting of dialogue between characters, intended for theatrical performance rather than just reading. Note: A performance of a Play would be a [[TheaterEvent]] or [[BroadcastEvent]] - the *Play* being the [[workPerformed]].
     """
-    class_: Literal['https://schema.org/Play'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/Play'] = Field(default='https://schema.org/Play', alias='class', serialization_alias='class') # type: ignore

@@ -12,4 +12,4 @@ Related actions:\
 * [[GiveAction]]: The reciprocal of TakeAction.\
 * [[ReceiveAction]]: Unlike ReceiveAction, TakeAction implies that ownership has been transferred.
     """
-    class_: Literal['https://schema.org/TakeAction'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/TakeAction'] = Field(default='https://schema.org/TakeAction', alias='class', serialization_alias='class') # type: ignore

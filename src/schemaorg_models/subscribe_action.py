@@ -13,4 +13,4 @@ Related actions:\
 * [[RegisterAction]]: Unlike RegisterAction, SubscribeAction implies that the agent is interested in continuing receiving updates from the object.\
 * [[JoinAction]]: Unlike JoinAction, SubscribeAction implies that the agent is interested in continuing receiving updates from the object.
     """
-    class_: Literal['https://schema.org/SubscribeAction'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/SubscribeAction'] = Field(default='https://schema.org/SubscribeAction', alias='class', serialization_alias='class') # type: ignore

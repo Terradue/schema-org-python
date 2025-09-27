@@ -7,4 +7,4 @@ class TelevisionStation(LocalBusiness):
     """
 A television station.
     """
-    class_: Literal['https://schema.org/TelevisionStation'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/TelevisionStation'] = Field(default='https://schema.org/TelevisionStation', alias='class', serialization_alias='class') # type: ignore

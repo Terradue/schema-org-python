@@ -7,4 +7,4 @@ class MusicReleaseFormatType(Enumeration):
     """
 Format of this release (the type of recording media used, i.e. compact disc, digital media, LP, etc.).
     """
-    class_: Literal['https://schema.org/MusicReleaseFormatType'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/MusicReleaseFormatType'] = Field(default='https://schema.org/MusicReleaseFormatType', alias='class', serialization_alias='class') # type: ignore

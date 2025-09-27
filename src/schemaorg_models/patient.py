@@ -9,7 +9,7 @@ class Patient(MedicalAudience):
     """
 A patient is any person recipient of health care services.
     """
-    class_: Literal['https://schema.org/Patient'] = Field('class', alias='class', serialization_alias='class') # type: ignore
-    healthCondition: Optional[Union[MedicalCondition, List[MedicalCondition]]] = Field(default=None,validation_alias=AliasChoices('healthCondition', 'https://schema.org/healthCondition'), serialization_alias='https://schema.org/healthCondition')
-    diagnosis: Optional[Union[MedicalCondition, List[MedicalCondition]]] = Field(default=None,validation_alias=AliasChoices('diagnosis', 'https://schema.org/diagnosis'), serialization_alias='https://schema.org/diagnosis')
-    drug: Optional[Union[Drug, List[Drug]]] = Field(default=None,validation_alias=AliasChoices('drug', 'https://schema.org/drug'), serialization_alias='https://schema.org/drug')
+    class_: Literal['https://schema.org/Patient'] = Field(default='https://schema.org/Patient', alias='class', serialization_alias='class') # type: ignore
+    healthCondition: Optional[Union[MedicalCondition, List[MedicalCondition]]] = Field(default=None, validation_alias=AliasChoices('healthCondition', 'https://schema.org/healthCondition'), serialization_alias='https://schema.org/healthCondition')
+    diagnosis: Optional[Union[MedicalCondition, List[MedicalCondition]]] = Field(default=None, validation_alias=AliasChoices('diagnosis', 'https://schema.org/diagnosis'), serialization_alias='https://schema.org/diagnosis')
+    drug: Optional[Union[Drug, List[Drug]]] = Field(default=None, validation_alias=AliasChoices('drug', 'https://schema.org/drug'), serialization_alias='https://schema.org/drug')

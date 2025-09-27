@@ -7,4 +7,4 @@ class Aquarium(CivicStructure):
     """
 Aquarium.
     """
-    class_: Literal['https://schema.org/Aquarium'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/Aquarium'] = Field(default='https://schema.org/Aquarium', alias='class', serialization_alias='class') # type: ignore

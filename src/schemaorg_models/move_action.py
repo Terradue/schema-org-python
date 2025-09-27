@@ -12,6 +12,6 @@ Related actions:\
 \
 * [[TransferAction]]: Unlike TransferAction, the subject of the move is a living Person or Organization rather than an inanimate object.
     """
-    class_: Literal['https://schema.org/MoveAction'] = Field('class', alias='class', serialization_alias='class') # type: ignore
-    toLocation: Optional[Union[Place, List[Place]]] = Field(default=None,validation_alias=AliasChoices('toLocation', 'https://schema.org/toLocation'), serialization_alias='https://schema.org/toLocation')
-    fromLocation: Optional[Union[Place, List[Place]]] = Field(default=None,validation_alias=AliasChoices('fromLocation', 'https://schema.org/fromLocation'), serialization_alias='https://schema.org/fromLocation')
+    class_: Literal['https://schema.org/MoveAction'] = Field(default='https://schema.org/MoveAction', alias='class', serialization_alias='class') # type: ignore
+    toLocation: Optional[Union[Place, List[Place]]] = Field(default=None, validation_alias=AliasChoices('toLocation', 'https://schema.org/toLocation'), serialization_alias='https://schema.org/toLocation')
+    fromLocation: Optional[Union[Place, List[Place]]] = Field(default=None, validation_alias=AliasChoices('fromLocation', 'https://schema.org/fromLocation'), serialization_alias='https://schema.org/fromLocation')

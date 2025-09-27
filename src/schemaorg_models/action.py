@@ -13,9 +13,9 @@ An action performed by a direct agent and indirect participants upon a direct ob
 \
 See also [blog post](https://blog.schema.org/2014/04/16/announcing-schema-org-actions/) and [Actions overview document](https://schema.org/docs/actions.html).
     """
-    class_: Literal['https://schema.org/Action'] = Field('class', alias='class', serialization_alias='class') # type: ignore
-    actionStatus: Optional[Union["ActionStatusType", List["ActionStatusType"]]] = Field(default=None,validation_alias=AliasChoices('actionStatus', 'https://schema.org/actionStatus'), serialization_alias='https://schema.org/actionStatus')
-    target: Optional[Union[HttpUrl, List[HttpUrl], "EntryPoint", List["EntryPoint"]]] = Field(default=None,validation_alias=AliasChoices('target', 'https://schema.org/target'), serialization_alias='https://schema.org/target')
+    class_: Literal['https://schema.org/Action'] = Field(default='https://schema.org/Action', alias='class', serialization_alias='class') # type: ignore
+    actionStatus: Optional[Union["ActionStatusType", List["ActionStatusType"]]] = Field(default=None, validation_alias=AliasChoices('actionStatus', 'https://schema.org/actionStatus'), serialization_alias='https://schema.org/actionStatus')
+    target: Optional[Union[HttpUrl, List[HttpUrl], "EntryPoint", List["EntryPoint"]]] = Field(default=None, validation_alias=AliasChoices('target', 'https://schema.org/target'), serialization_alias='https://schema.org/target')
     @field_serializer('target')
     def target2str(self, val) -> str | List[str]:
         def _to_str(value):
@@ -27,14 +27,14 @@ See also [blog post](https://blog.schema.org/2014/04/16/announcing-schema-org-ac
             return [_to_str(i) for i in val]
         return _to_str(val)
 
-    instrument: Optional[Union[Thing, List[Thing]]] = Field(default=None,validation_alias=AliasChoices('instrument', 'https://schema.org/instrument'), serialization_alias='https://schema.org/instrument')
-    provider: Optional[Union[Person, List[Person], "Organization", List["Organization"]]] = Field(default=None,validation_alias=AliasChoices('provider', 'https://schema.org/provider'), serialization_alias='https://schema.org/provider')
-    actionProcess: Optional[Union["HowTo", List["HowTo"]]] = Field(default=None,validation_alias=AliasChoices('actionProcess', 'https://schema.org/actionProcess'), serialization_alias='https://schema.org/actionProcess')
-    agent: Optional[Union[Person, List[Person], "Organization", List["Organization"]]] = Field(default=None,validation_alias=AliasChoices('agent', 'https://schema.org/agent'), serialization_alias='https://schema.org/agent')
-    participant: Optional[Union["Organization", List["Organization"], Person, List[Person]]] = Field(default=None,validation_alias=AliasChoices('participant', 'https://schema.org/participant'), serialization_alias='https://schema.org/participant')
-    endTime: Optional[Union[time, List[time], datetime, List[datetime]]] = Field(default=None,validation_alias=AliasChoices('endTime', 'https://schema.org/endTime'), serialization_alias='https://schema.org/endTime')
-    error: Optional[Union[Thing, List[Thing]]] = Field(default=None,validation_alias=AliasChoices('error', 'https://schema.org/error'), serialization_alias='https://schema.org/error')
-    result: Optional[Union[Thing, List[Thing]]] = Field(default=None,validation_alias=AliasChoices('result', 'https://schema.org/result'), serialization_alias='https://schema.org/result')
-    object: Optional[Union[Thing, List[Thing]]] = Field(default=None,validation_alias=AliasChoices('object', 'https://schema.org/object'), serialization_alias='https://schema.org/object')
-    location: Optional[Union["VirtualLocation", List["VirtualLocation"], "PostalAddress", List["PostalAddress"], str, List[str], Place, List[Place]]] = Field(default=None,validation_alias=AliasChoices('location', 'https://schema.org/location'), serialization_alias='https://schema.org/location')
-    startTime: Optional[Union[time, List[time], datetime, List[datetime]]] = Field(default=None,validation_alias=AliasChoices('startTime', 'https://schema.org/startTime'), serialization_alias='https://schema.org/startTime')
+    instrument: Optional[Union[Thing, List[Thing]]] = Field(default=None, validation_alias=AliasChoices('instrument', 'https://schema.org/instrument'), serialization_alias='https://schema.org/instrument')
+    provider: Optional[Union[Person, List[Person], "Organization", List["Organization"]]] = Field(default=None, validation_alias=AliasChoices('provider', 'https://schema.org/provider'), serialization_alias='https://schema.org/provider')
+    actionProcess: Optional[Union["HowTo", List["HowTo"]]] = Field(default=None, validation_alias=AliasChoices('actionProcess', 'https://schema.org/actionProcess'), serialization_alias='https://schema.org/actionProcess')
+    agent: Optional[Union[Person, List[Person], "Organization", List["Organization"]]] = Field(default=None, validation_alias=AliasChoices('agent', 'https://schema.org/agent'), serialization_alias='https://schema.org/agent')
+    participant: Optional[Union["Organization", List["Organization"], Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('participant', 'https://schema.org/participant'), serialization_alias='https://schema.org/participant')
+    endTime: Optional[Union[time, List[time], datetime, List[datetime]]] = Field(default=None, validation_alias=AliasChoices('endTime', 'https://schema.org/endTime'), serialization_alias='https://schema.org/endTime')
+    error: Optional[Union[Thing, List[Thing]]] = Field(default=None, validation_alias=AliasChoices('error', 'https://schema.org/error'), serialization_alias='https://schema.org/error')
+    result: Optional[Union[Thing, List[Thing]]] = Field(default=None, validation_alias=AliasChoices('result', 'https://schema.org/result'), serialization_alias='https://schema.org/result')
+    object: Optional[Union[Thing, List[Thing]]] = Field(default=None, validation_alias=AliasChoices('object', 'https://schema.org/object'), serialization_alias='https://schema.org/object')
+    location: Optional[Union["VirtualLocation", List["VirtualLocation"], "PostalAddress", List["PostalAddress"], str, List[str], Place, List[Place]]] = Field(default=None, validation_alias=AliasChoices('location', 'https://schema.org/location'), serialization_alias='https://schema.org/location')
+    startTime: Optional[Union[time, List[time], datetime, List[datetime]]] = Field(default=None, validation_alias=AliasChoices('startTime', 'https://schema.org/startTime'), serialization_alias='https://schema.org/startTime')

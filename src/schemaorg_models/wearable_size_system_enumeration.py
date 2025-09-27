@@ -7,4 +7,4 @@ class WearableSizeSystemEnumeration(SizeSystemEnumeration):
     """
 Enumerates common size systems specific for wearable products.
     """
-    class_: Literal['https://schema.org/WearableSizeSystemEnumeration'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/WearableSizeSystemEnumeration'] = Field(default='https://schema.org/WearableSizeSystemEnumeration', alias='class', serialization_alias='class') # type: ignore

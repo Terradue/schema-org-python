@@ -7,4 +7,4 @@ class MusicVideoObject(MediaObject):
     """
 A music video file.
     """
-    class_: Literal['https://schema.org/MusicVideoObject'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/MusicVideoObject'] = Field(default='https://schema.org/MusicVideoObject', alias='class', serialization_alias='class') # type: ignore

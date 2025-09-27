@@ -7,4 +7,4 @@ class VideoGallery(MediaGallery):
     """
 Web page type: Video gallery page.
     """
-    class_: Literal['https://schema.org/VideoGallery'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/VideoGallery'] = Field(default='https://schema.org/VideoGallery', alias='class', serialization_alias='class') # type: ignore

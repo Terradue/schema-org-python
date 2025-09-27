@@ -7,4 +7,4 @@ class Duration(Quantity):
     """
 The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).
     """
-    class_: Literal['https://schema.org/Duration'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/Duration'] = Field(default='https://schema.org/Duration', alias='class', serialization_alias='class') # type: ignore

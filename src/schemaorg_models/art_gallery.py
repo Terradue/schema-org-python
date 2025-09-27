@@ -7,4 +7,4 @@ class ArtGallery(EntertainmentBusiness):
     """
 An art gallery.
     """
-    class_: Literal['https://schema.org/ArtGallery'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/ArtGallery'] = Field(default='https://schema.org/ArtGallery', alias='class', serialization_alias='class') # type: ignore

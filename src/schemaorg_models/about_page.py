@@ -7,4 +7,4 @@ class AboutPage(WebPage):
     """
 Web page type: About page.
     """
-    class_: Literal['https://schema.org/AboutPage'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/AboutPage'] = Field(default='https://schema.org/AboutPage', alias='class', serialization_alias='class') # type: ignore

@@ -7,5 +7,5 @@ class Collection(CreativeWork):
     """
 A collection of items, e.g. creative works or products.
     """
-    class_: Literal['https://schema.org/Collection'] = Field('class', alias='class', serialization_alias='class') # type: ignore
-    collectionSize: Optional[Union[int, List[int]]] = Field(default=None,validation_alias=AliasChoices('collectionSize', 'https://schema.org/collectionSize'), serialization_alias='https://schema.org/collectionSize')
+    class_: Literal['https://schema.org/Collection'] = Field(default='https://schema.org/Collection', alias='class', serialization_alias='class') # type: ignore
+    collectionSize: Optional[Union[int, List[int]]] = Field(default=None, validation_alias=AliasChoices('collectionSize', 'https://schema.org/collectionSize'), serialization_alias='https://schema.org/collectionSize')

@@ -15,4 +15,4 @@ Commonly used values:\
 * http://purl.org/goodrelations/v1#Reseller
     
     """
-    class_: Literal['https://schema.org/BusinessEntityType'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/BusinessEntityType'] = Field(default='https://schema.org/BusinessEntityType', alias='class', serialization_alias='class') # type: ignore

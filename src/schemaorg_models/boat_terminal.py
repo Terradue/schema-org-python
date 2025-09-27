@@ -7,4 +7,4 @@ class BoatTerminal(CivicStructure):
     """
 A terminal for boats, ships, and other water vessels.
     """
-    class_: Literal['https://schema.org/BoatTerminal'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/BoatTerminal'] = Field(default='https://schema.org/BoatTerminal', alias='class', serialization_alias='class') # type: ignore

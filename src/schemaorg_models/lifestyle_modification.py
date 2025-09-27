@@ -7,4 +7,4 @@ class LifestyleModification(MedicalEntity):
     """
 A process of care involving exercise, changes to diet, fitness routines, and other lifestyle changes aimed at improving a health condition.
     """
-    class_: Literal['https://schema.org/LifestyleModification'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/LifestyleModification'] = Field(default='https://schema.org/LifestyleModification', alias='class', serialization_alias='class') # type: ignore

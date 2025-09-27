@@ -7,4 +7,4 @@ class ParkingFacility(CivicStructure):
     """
 A parking lot or other parking facility.
     """
-    class_: Literal['https://schema.org/ParkingFacility'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/ParkingFacility'] = Field(default='https://schema.org/ParkingFacility', alias='class', serialization_alias='class') # type: ignore

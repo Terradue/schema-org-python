@@ -7,4 +7,4 @@ class DeliveryMethod(Enumeration):
     """
 A sub property of instrument. The method of delivery.
     """
-    class_: Literal['https://schema.org/DeliveryMethod'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/DeliveryMethod'] = Field(default='https://schema.org/DeliveryMethod', alias='class', serialization_alias='class') # type: ignore

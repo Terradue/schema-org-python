@@ -7,4 +7,4 @@ class PaintAction(CreateAction):
     """
 The act of producing a painting, typically with paint and canvas as instruments.
     """
-    class_: Literal['https://schema.org/PaintAction'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/PaintAction'] = Field(default='https://schema.org/PaintAction', alias='class', serialization_alias='class') # type: ignore

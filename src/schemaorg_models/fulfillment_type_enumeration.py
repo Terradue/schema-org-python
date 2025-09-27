@@ -7,4 +7,4 @@ class FulfillmentTypeEnumeration(Enumeration):
     """
 A type of product fulfillment.
     """
-    class_: Literal['https://schema.org/FulfillmentTypeEnumeration'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/FulfillmentTypeEnumeration'] = Field(default='https://schema.org/FulfillmentTypeEnumeration', alias='class', serialization_alias='class') # type: ignore

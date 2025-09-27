@@ -7,4 +7,4 @@ class MedicalGuidelineContraindication(MedicalGuideline):
     """
 A guideline contraindication that designates a process as harmful and where quality of the data supporting the contraindication is sound.
     """
-    class_: Literal['https://schema.org/MedicalGuidelineContraindication'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/MedicalGuidelineContraindication'] = Field(default='https://schema.org/MedicalGuidelineContraindication', alias='class', serialization_alias='class') # type: ignore

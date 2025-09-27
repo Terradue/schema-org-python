@@ -8,6 +8,6 @@ class WriteAction(CreateAction):
     """
 The act of authoring written creative content.
     """
-    class_: Literal['https://schema.org/WriteAction'] = Field('class', alias='class', serialization_alias='class') # type: ignore
-    language: Optional[Union[Language, List[Language]]] = Field(default=None,validation_alias=AliasChoices('language', 'https://schema.org/language'), serialization_alias='https://schema.org/language')
-    inLanguage: Optional[Union[str, List[str], Language, List[Language]]] = Field(default=None,validation_alias=AliasChoices('inLanguage', 'https://schema.org/inLanguage'), serialization_alias='https://schema.org/inLanguage')
+    class_: Literal['https://schema.org/WriteAction'] = Field(default='https://schema.org/WriteAction', alias='class', serialization_alias='class') # type: ignore
+    language: Optional[Union[Language, List[Language]]] = Field(default=None, validation_alias=AliasChoices('language', 'https://schema.org/language'), serialization_alias='https://schema.org/language')
+    inLanguage: Optional[Union[str, List[str], Language, List[Language]]] = Field(default=None, validation_alias=AliasChoices('inLanguage', 'https://schema.org/inLanguage'), serialization_alias='https://schema.org/inLanguage')

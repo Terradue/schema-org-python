@@ -7,4 +7,4 @@ class DepositAccount(InvestmentOrDeposit):
     """
 A type of Bank Account with a main purpose of depositing funds to gain interest or other benefits.
     """
-    class_: Literal['https://schema.org/DepositAccount'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/DepositAccount'] = Field(default='https://schema.org/DepositAccount', alias='class', serialization_alias='class') # type: ignore

@@ -7,4 +7,4 @@ class Sculpture(CreativeWork):
     """
 A piece of sculpture.
     """
-    class_: Literal['https://schema.org/Sculpture'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/Sculpture'] = Field(default='https://schema.org/Sculpture', alias='class', serialization_alias='class') # type: ignore

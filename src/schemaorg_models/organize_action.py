@@ -7,4 +7,4 @@ class OrganizeAction(Action):
     """
 The act of manipulating/administering/supervising/controlling one or more objects.
     """
-    class_: Literal['https://schema.org/OrganizeAction'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/OrganizeAction'] = Field(default='https://schema.org/OrganizeAction', alias='class', serialization_alias='class') # type: ignore

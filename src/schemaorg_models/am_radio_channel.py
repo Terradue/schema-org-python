@@ -7,4 +7,4 @@ class AMRadioChannel(RadioChannel):
     """
 A radio channel that uses AM.
     """
-    class_: Literal['https://schema.org/AMRadioChannel'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/AMRadioChannel'] = Field(default='https://schema.org/AMRadioChannel', alias='class', serialization_alias='class') # type: ignore

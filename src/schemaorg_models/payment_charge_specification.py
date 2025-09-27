@@ -9,6 +9,6 @@ class PaymentChargeSpecification(PriceSpecification):
     """
 The costs of settling the payment using a particular payment method.
     """
-    class_: Literal['https://schema.org/PaymentChargeSpecification'] = Field('class', alias='class', serialization_alias='class') # type: ignore
-    appliesToDeliveryMethod: Optional[Union[DeliveryMethod, List[DeliveryMethod]]] = Field(default=None,validation_alias=AliasChoices('appliesToDeliveryMethod', 'https://schema.org/appliesToDeliveryMethod'), serialization_alias='https://schema.org/appliesToDeliveryMethod')
-    appliesToPaymentMethod: Optional[Union[PaymentMethod, List[PaymentMethod]]] = Field(default=None,validation_alias=AliasChoices('appliesToPaymentMethod', 'https://schema.org/appliesToPaymentMethod'), serialization_alias='https://schema.org/appliesToPaymentMethod')
+    class_: Literal['https://schema.org/PaymentChargeSpecification'] = Field(default='https://schema.org/PaymentChargeSpecification', alias='class', serialization_alias='class') # type: ignore
+    appliesToDeliveryMethod: Optional[Union[DeliveryMethod, List[DeliveryMethod]]] = Field(default=None, validation_alias=AliasChoices('appliesToDeliveryMethod', 'https://schema.org/appliesToDeliveryMethod'), serialization_alias='https://schema.org/appliesToDeliveryMethod')
+    appliesToPaymentMethod: Optional[Union[PaymentMethod, List[PaymentMethod]]] = Field(default=None, validation_alias=AliasChoices('appliesToPaymentMethod', 'https://schema.org/appliesToPaymentMethod'), serialization_alias='https://schema.org/appliesToPaymentMethod')

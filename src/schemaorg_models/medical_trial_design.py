@@ -7,4 +7,4 @@ class MedicalTrialDesign(MedicalEnumeration):
     """
 Design models for medical trials. Enumerated type.
     """
-    class_: Literal['https://schema.org/MedicalTrialDesign'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/MedicalTrialDesign'] = Field(default='https://schema.org/MedicalTrialDesign', alias='class', serialization_alias='class') # type: ignore

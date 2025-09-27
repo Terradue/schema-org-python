@@ -7,4 +7,4 @@ class MarryAction(InteractAction):
     """
 The act of marrying a person.
     """
-    class_: Literal['https://schema.org/MarryAction'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/MarryAction'] = Field(default='https://schema.org/MarryAction', alias='class', serialization_alias='class') # type: ignore

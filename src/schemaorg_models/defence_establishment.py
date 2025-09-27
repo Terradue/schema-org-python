@@ -7,4 +7,4 @@ class DefenceEstablishment(GovernmentBuilding):
     """
 A defence establishment, such as an army or navy base.
     """
-    class_: Literal['https://schema.org/DefenceEstablishment'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/DefenceEstablishment'] = Field(default='https://schema.org/DefenceEstablishment', alias='class', serialization_alias='class') # type: ignore

@@ -11,4 +11,4 @@ Related actions:\
 \
 * [[SearchAction]]: FindAction is generally lead by a SearchAction, but not necessarily.
     """
-    class_: Literal['https://schema.org/FindAction'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/FindAction'] = Field(default='https://schema.org/FindAction', alias='class', serialization_alias='class') # type: ignore

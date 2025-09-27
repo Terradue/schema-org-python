@@ -7,4 +7,4 @@ class AmpStory(MediaObject):
     """
 A creative work with a visual storytelling format intended to be viewed online, particularly on mobile devices.
     """
-    class_: Literal['https://schema.org/AmpStory'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/AmpStory'] = Field(default='https://schema.org/AmpStory', alias='class', serialization_alias='class') # type: ignore

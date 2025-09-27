@@ -7,4 +7,4 @@ class CorrectionComment(Comment):
     """
 A [[comment]] that corrects [[CreativeWork]].
     """
-    class_: Literal['https://schema.org/CorrectionComment'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/CorrectionComment'] = Field(default='https://schema.org/CorrectionComment', alias='class', serialization_alias='class') # type: ignore

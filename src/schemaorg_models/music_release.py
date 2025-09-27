@@ -13,10 +13,10 @@ class MusicRelease(MusicPlaylist):
     """
 A MusicRelease is a specific release of a music album.
     """
-    class_: Literal['https://schema.org/MusicRelease'] = Field('class', alias='class', serialization_alias='class') # type: ignore
-    recordLabel: Optional[Union[Organization, List[Organization]]] = Field(default=None,validation_alias=AliasChoices('recordLabel', 'https://schema.org/recordLabel'), serialization_alias='https://schema.org/recordLabel')
-    musicReleaseFormat: Optional[Union[MusicReleaseFormatType, List[MusicReleaseFormatType]]] = Field(default=None,validation_alias=AliasChoices('musicReleaseFormat', 'https://schema.org/musicReleaseFormat'), serialization_alias='https://schema.org/musicReleaseFormat')
-    catalogNumber: Optional[Union[str, List[str]]] = Field(default=None,validation_alias=AliasChoices('catalogNumber', 'https://schema.org/catalogNumber'), serialization_alias='https://schema.org/catalogNumber')
-    releaseOf: Optional[Union[MusicAlbum, List[MusicAlbum]]] = Field(default=None,validation_alias=AliasChoices('releaseOf', 'https://schema.org/releaseOf'), serialization_alias='https://schema.org/releaseOf')
-    duration: Optional[Union[Duration, List[Duration], QuantitativeValue, List[QuantitativeValue]]] = Field(default=None,validation_alias=AliasChoices('duration', 'https://schema.org/duration'), serialization_alias='https://schema.org/duration')
-    creditedTo: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(default=None,validation_alias=AliasChoices('creditedTo', 'https://schema.org/creditedTo'), serialization_alias='https://schema.org/creditedTo')
+    class_: Literal['https://schema.org/MusicRelease'] = Field(default='https://schema.org/MusicRelease', alias='class', serialization_alias='class') # type: ignore
+    recordLabel: Optional[Union[Organization, List[Organization]]] = Field(default=None, validation_alias=AliasChoices('recordLabel', 'https://schema.org/recordLabel'), serialization_alias='https://schema.org/recordLabel')
+    musicReleaseFormat: Optional[Union[MusicReleaseFormatType, List[MusicReleaseFormatType]]] = Field(default=None, validation_alias=AliasChoices('musicReleaseFormat', 'https://schema.org/musicReleaseFormat'), serialization_alias='https://schema.org/musicReleaseFormat')
+    catalogNumber: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('catalogNumber', 'https://schema.org/catalogNumber'), serialization_alias='https://schema.org/catalogNumber')
+    releaseOf: Optional[Union[MusicAlbum, List[MusicAlbum]]] = Field(default=None, validation_alias=AliasChoices('releaseOf', 'https://schema.org/releaseOf'), serialization_alias='https://schema.org/releaseOf')
+    duration: Optional[Union[Duration, List[Duration], QuantitativeValue, List[QuantitativeValue]]] = Field(default=None, validation_alias=AliasChoices('duration', 'https://schema.org/duration'), serialization_alias='https://schema.org/duration')
+    creditedTo: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(default=None, validation_alias=AliasChoices('creditedTo', 'https://schema.org/creditedTo'), serialization_alias='https://schema.org/creditedTo')

@@ -7,4 +7,4 @@ class MotorizedBicycle(Vehicle):
     """
 A motorized bicycle is a bicycle with an attached motor used to power the vehicle, or to assist with pedaling.
     """
-    class_: Literal['https://schema.org/MotorizedBicycle'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/MotorizedBicycle'] = Field(default='https://schema.org/MotorizedBicycle', alias='class', serialization_alias='class') # type: ignore

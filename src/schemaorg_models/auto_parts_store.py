@@ -7,4 +7,4 @@ class AutoPartsStore(Store):
     """
 An auto parts store.
     """
-    class_: Literal['https://schema.org/AutoPartsStore'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/AutoPartsStore'] = Field(default='https://schema.org/AutoPartsStore', alias='class', serialization_alias='class') # type: ignore

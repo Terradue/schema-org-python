@@ -7,4 +7,4 @@ class BusStop(CivicStructure):
     """
 A bus stop.
     """
-    class_: Literal['https://schema.org/BusStop'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/BusStop'] = Field(default='https://schema.org/BusStop', alias='class', serialization_alias='class') # type: ignore

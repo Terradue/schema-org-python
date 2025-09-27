@@ -7,4 +7,4 @@ class CssSelectorType(Text):
     """
 Text representing a CSS selector.
     """
-    class_: Literal['https://schema.org/CssSelectorType'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/CssSelectorType'] = Field(default='https://schema.org/CssSelectorType', alias='class', serialization_alias='class') # type: ignore

@@ -7,4 +7,4 @@ class ScholarlyArticle(Article):
     """
 A scholarly article.
     """
-    class_: Literal['https://schema.org/ScholarlyArticle'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/ScholarlyArticle'] = Field(default='https://schema.org/ScholarlyArticle', alias='class', serialization_alias='class') # type: ignore

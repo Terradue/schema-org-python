@@ -7,4 +7,4 @@ class WatchAction(ConsumeAction):
     """
 The act of consuming dynamic/moving visual content.
     """
-    class_: Literal['https://schema.org/WatchAction'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/WatchAction'] = Field(default='https://schema.org/WatchAction', alias='class', serialization_alias='class') # type: ignore

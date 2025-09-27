@@ -7,4 +7,4 @@ class AutoRepair(AutomotiveBusiness):
     """
 Car repair business.
     """
-    class_: Literal['https://schema.org/AutoRepair'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/AutoRepair'] = Field(default='https://schema.org/AutoRepair', alias='class', serialization_alias='class') # type: ignore

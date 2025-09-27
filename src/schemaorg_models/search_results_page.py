@@ -7,4 +7,4 @@ class SearchResultsPage(WebPage):
     """
 Web page type: Search results page.
     """
-    class_: Literal['https://schema.org/SearchResultsPage'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/SearchResultsPage'] = Field(default='https://schema.org/SearchResultsPage', alias='class', serialization_alias='class') # type: ignore

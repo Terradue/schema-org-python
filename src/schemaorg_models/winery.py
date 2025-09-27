@@ -7,4 +7,4 @@ class Winery(FoodEstablishment):
     """
 A winery.
     """
-    class_: Literal['https://schema.org/Winery'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/Winery'] = Field(default='https://schema.org/Winery', alias='class', serialization_alias='class') # type: ignore

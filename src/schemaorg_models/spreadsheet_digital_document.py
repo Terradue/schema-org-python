@@ -7,4 +7,4 @@ class SpreadsheetDigitalDocument(DigitalDocument):
     """
 A spreadsheet file.
     """
-    class_: Literal['https://schema.org/SpreadsheetDigitalDocument'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/SpreadsheetDigitalDocument'] = Field(default='https://schema.org/SpreadsheetDigitalDocument', alias='class', serialization_alias='class') # type: ignore

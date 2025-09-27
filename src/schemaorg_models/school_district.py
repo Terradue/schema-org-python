@@ -7,4 +7,4 @@ class SchoolDistrict(AdministrativeArea):
     """
 A School District is an administrative area for the administration of schools.
     """
-    class_: Literal['https://schema.org/SchoolDistrict'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/SchoolDistrict'] = Field(default='https://schema.org/SchoolDistrict', alias='class', serialization_alias='class') # type: ignore

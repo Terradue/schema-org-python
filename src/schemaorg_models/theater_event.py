@@ -7,4 +7,4 @@ class TheaterEvent(Event):
     """
 Event type: Theater performance.
     """
-    class_: Literal['https://schema.org/TheaterEvent'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/TheaterEvent'] = Field(default='https://schema.org/TheaterEvent', alias='class', serialization_alias='class') # type: ignore

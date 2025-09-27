@@ -7,4 +7,4 @@ class ResearchProject(Project):
     """
 A Research project.
     """
-    class_: Literal['https://schema.org/ResearchProject'] = Field('class', alias='class', serialization_alias='class') # type: ignore
+    class_: Literal['https://schema.org/ResearchProject'] = Field(default='https://schema.org/ResearchProject', alias='class', serialization_alias='class') # type: ignore
