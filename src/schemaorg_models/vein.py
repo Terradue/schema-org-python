@@ -10,7 +10,7 @@ class Vein(Vessel):
     """
 A type of blood vessel that specifically carries blood to the heart.
     """
-    type_: Literal['https://schema.org/Vein'] = Field(default='https://schema.org/Vein', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/Vein'] = Field(default='https://schema.org/Vein', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
     regionDrained: Optional[Union[AnatomicalStructure, List[AnatomicalStructure], AnatomicalSystem, List[AnatomicalSystem]]] = Field(default=None, validation_alias=AliasChoices('regionDrained', 'https://schema.org/regionDrained'), serialization_alias='https://schema.org/regionDrained')
     drainsTo: Optional[Union[Vessel, List[Vessel]]] = Field(default=None, validation_alias=AliasChoices('drainsTo', 'https://schema.org/drainsTo'), serialization_alias='https://schema.org/drainsTo')
     tributary: Optional[Union[AnatomicalStructure, List[AnatomicalStructure]]] = Field(default=None, validation_alias=AliasChoices('tributary', 'https://schema.org/tributary'), serialization_alias='https://schema.org/tributary')

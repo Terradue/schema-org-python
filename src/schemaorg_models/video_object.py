@@ -10,7 +10,7 @@ class VideoObject(MediaObject):
     """
 A video file.
     """
-    type_: Literal['https://schema.org/VideoObject'] = Field(default='https://schema.org/VideoObject', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/VideoObject'] = Field(default='https://schema.org/VideoObject', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
     directors: Optional[Union[Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('directors', 'https://schema.org/directors'), serialization_alias='https://schema.org/directors')
     director: Optional[Union[Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('director', 'https://schema.org/director'), serialization_alias='https://schema.org/director')
     videoFrameSize: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('videoFrameSize', 'https://schema.org/videoFrameSize'), serialization_alias='https://schema.org/videoFrameSize')

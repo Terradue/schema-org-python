@@ -8,5 +8,5 @@ class MedicalTestPanel(MedicalTest):
     """
 Any collection of tests commonly ordered together.
     """
-    type_: Literal['https://schema.org/MedicalTestPanel'] = Field(default='https://schema.org/MedicalTestPanel', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/MedicalTestPanel'] = Field(default='https://schema.org/MedicalTestPanel', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
     subTest: Optional[Union[MedicalTest, List[MedicalTest]]] = Field(default=None, validation_alias=AliasChoices('subTest', 'https://schema.org/subTest'), serialization_alias='https://schema.org/subTest')

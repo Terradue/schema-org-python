@@ -12,7 +12,7 @@ class DonateAction(TransferAction):
     """
 The act of providing goods, services, or money without compensation, often for philanthropic reasons.
     """
-    type_: Literal['https://schema.org/DonateAction'] = Field(default='https://schema.org/DonateAction', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/DonateAction'] = Field(default='https://schema.org/DonateAction', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
     price: Optional[Union[str, List[str], float, List[float]]] = Field(default=None, validation_alias=AliasChoices('price', 'https://schema.org/price'), serialization_alias='https://schema.org/price')
     priceCurrency: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('priceCurrency', 'https://schema.org/priceCurrency'), serialization_alias='https://schema.org/priceCurrency')
     priceSpecification: Optional[Union[PriceSpecification, List[PriceSpecification]]] = Field(default=None, validation_alias=AliasChoices('priceSpecification', 'https://schema.org/priceSpecification'), serialization_alias='https://schema.org/priceSpecification')

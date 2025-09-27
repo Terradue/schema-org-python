@@ -8,7 +8,7 @@ class TherapeuticProcedure(MedicalProcedure):
     """
 A medical procedure intended primarily for therapeutic purposes, aimed at improving a health condition.
     """
-    type_: Literal['https://schema.org/TherapeuticProcedure'] = Field(default='https://schema.org/TherapeuticProcedure', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/TherapeuticProcedure'] = Field(default='https://schema.org/TherapeuticProcedure', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
     drug: Optional[Union["Drug", List["Drug"]]] = Field(default=None, validation_alias=AliasChoices('drug', 'https://schema.org/drug'), serialization_alias='https://schema.org/drug')
     adverseOutcome: Optional[Union[MedicalEntity, List[MedicalEntity]]] = Field(default=None, validation_alias=AliasChoices('adverseOutcome', 'https://schema.org/adverseOutcome'), serialization_alias='https://schema.org/adverseOutcome')
     doseSchedule: Optional[Union["DoseSchedule", List["DoseSchedule"]]] = Field(default=None, validation_alias=AliasChoices('doseSchedule', 'https://schema.org/doseSchedule'), serialization_alias='https://schema.org/doseSchedule')

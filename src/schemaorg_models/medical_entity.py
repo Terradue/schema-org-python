@@ -7,7 +7,7 @@ class MedicalEntity(Thing):
     """
 The most generic type of entity related to health and the practice of medicine.
     """
-    type_: Literal['https://schema.org/MedicalEntity'] = Field(default='https://schema.org/MedicalEntity', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/MedicalEntity'] = Field(default='https://schema.org/MedicalEntity', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
     code: Optional[Union["MedicalCode", List["MedicalCode"]]] = Field(default=None, validation_alias=AliasChoices('code', 'https://schema.org/code'), serialization_alias='https://schema.org/code')
     guideline: Optional[Union["MedicalGuideline", List["MedicalGuideline"]]] = Field(default=None, validation_alias=AliasChoices('guideline', 'https://schema.org/guideline'), serialization_alias='https://schema.org/guideline')
     legalStatus: Optional[Union["DrugLegalStatus", List["DrugLegalStatus"], "MedicalEnumeration", List["MedicalEnumeration"], str, List[str]]] = Field(default=None, validation_alias=AliasChoices('legalStatus', 'https://schema.org/legalStatus'), serialization_alias='https://schema.org/legalStatus')

@@ -7,4 +7,4 @@ class AppendAction(InsertAction):
     """
 The act of inserting at the end if an ordered collection.
     """
-    type_: Literal['https://schema.org/AppendAction'] = Field(default='https://schema.org/AppendAction', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/AppendAction'] = Field(default='https://schema.org/AppendAction', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore

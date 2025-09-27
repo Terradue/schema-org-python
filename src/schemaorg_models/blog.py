@@ -7,7 +7,7 @@ class Blog(CreativeWork):
     """
 A [blog](https://en.wikipedia.org/wiki/Blog), sometimes known as a "weblog". Note that the individual posts ([[BlogPosting]]s) in a [[Blog]] are often colloquially referred to by the same term.
     """
-    type_: Literal['https://schema.org/Blog'] = Field(default='https://schema.org/Blog', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/Blog'] = Field(default='https://schema.org/Blog', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
     issn: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('issn', 'https://schema.org/issn'), serialization_alias='https://schema.org/issn')
     blogPost: Optional[Union["BlogPosting", List["BlogPosting"]]] = Field(default=None, validation_alias=AliasChoices('blogPost', 'https://schema.org/blogPost'), serialization_alias='https://schema.org/blogPost')
     blogPosts: Optional[Union["BlogPosting", List["BlogPosting"]]] = Field(default=None, validation_alias=AliasChoices('blogPosts', 'https://schema.org/blogPosts'), serialization_alias='https://schema.org/blogPosts')

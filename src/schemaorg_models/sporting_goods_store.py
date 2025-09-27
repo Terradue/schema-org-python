@@ -7,4 +7,4 @@ class SportingGoodsStore(Store):
     """
 A sporting goods store.
     """
-    type_: Literal['https://schema.org/SportingGoodsStore'] = Field(default='https://schema.org/SportingGoodsStore', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/SportingGoodsStore'] = Field(default='https://schema.org/SportingGoodsStore', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore

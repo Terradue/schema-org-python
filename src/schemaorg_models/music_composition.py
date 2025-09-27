@@ -11,7 +11,7 @@ class MusicComposition(CreativeWork):
     """
 A musical composition.
     """
-    type_: Literal['https://schema.org/MusicComposition'] = Field(default='https://schema.org/MusicComposition', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/MusicComposition'] = Field(default='https://schema.org/MusicComposition', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
     recordedAs: Optional[Union["MusicRecording", List["MusicRecording"]]] = Field(default=None, validation_alias=AliasChoices('recordedAs', 'https://schema.org/recordedAs'), serialization_alias='https://schema.org/recordedAs')
     composer: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('composer', 'https://schema.org/composer'), serialization_alias='https://schema.org/composer')
     musicArrangement: Optional[Union["MusicComposition", List["MusicComposition"]]] = Field(default=None, validation_alias=AliasChoices('musicArrangement', 'https://schema.org/musicArrangement'), serialization_alias='https://schema.org/musicArrangement')

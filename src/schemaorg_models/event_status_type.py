@@ -7,4 +7,4 @@ class EventStatusType(StatusEnumeration):
     """
 EventStatusType is an enumeration type whose instances represent several states that an Event may be in.
     """
-    type_: Literal['https://schema.org/EventStatusType'] = Field(default='https://schema.org/EventStatusType', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/EventStatusType'] = Field(default='https://schema.org/EventStatusType', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore

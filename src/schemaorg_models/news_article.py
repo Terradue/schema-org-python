@@ -10,7 +10,7 @@ A NewsArticle is an article whose content reports news, or provides background c
 A more detailed overview of [schema.org News markup](/docs/news.html) is also available.
 
     """
-    type_: Literal['https://schema.org/NewsArticle'] = Field(default='https://schema.org/NewsArticle', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/NewsArticle'] = Field(default='https://schema.org/NewsArticle', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
     printColumn: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('printColumn', 'https://schema.org/printColumn'), serialization_alias='https://schema.org/printColumn')
     dateline: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('dateline', 'https://schema.org/dateline'), serialization_alias='https://schema.org/dateline')
     printEdition: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('printEdition', 'https://schema.org/printEdition'), serialization_alias='https://schema.org/printEdition')

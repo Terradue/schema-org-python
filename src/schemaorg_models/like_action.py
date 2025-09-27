@@ -7,4 +7,4 @@ class LikeAction(ReactAction):
     """
 The act of expressing a positive sentiment about the object. An agent likes an object (a proposition, topic or theme) with participants.
     """
-    type_: Literal['https://schema.org/LikeAction'] = Field(default='https://schema.org/LikeAction', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/LikeAction'] = Field(default='https://schema.org/LikeAction', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore

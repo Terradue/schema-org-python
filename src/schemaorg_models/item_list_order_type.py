@@ -7,4 +7,4 @@ class ItemListOrderType(Enumeration):
     """
 Enumerated for values for itemListOrder for indicating how an ordered ItemList is organized.
     """
-    type_: Literal['https://schema.org/ItemListOrderType'] = Field(default='https://schema.org/ItemListOrderType', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/ItemListOrderType'] = Field(default='https://schema.org/ItemListOrderType', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore

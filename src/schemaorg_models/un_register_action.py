@@ -12,4 +12,4 @@ Related actions:\
 * [[RegisterAction]]: antonym of UnRegisterAction.\
 * [[LeaveAction]]: Unlike LeaveAction, UnRegisterAction implies that you are unregistering from a service you were previously registered, rather than leaving a team/group of people.
     """
-    type_: Literal['https://schema.org/UnRegisterAction'] = Field(default='https://schema.org/UnRegisterAction', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/UnRegisterAction'] = Field(default='https://schema.org/UnRegisterAction', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore

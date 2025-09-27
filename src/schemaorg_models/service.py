@@ -15,7 +15,7 @@ class Service(Intangible):
     """
 A service provided by an organization, e.g. delivery service, print services, etc.
     """
-    type_: Literal['https://schema.org/Service'] = Field(default='https://schema.org/Service', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/Service'] = Field(default='https://schema.org/Service', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
     slogan: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('slogan', 'https://schema.org/slogan'), serialization_alias='https://schema.org/slogan')
     logo: Optional[Union[HttpUrl, List[HttpUrl], "ImageObject", List["ImageObject"]]] = Field(default=None, validation_alias=AliasChoices('logo', 'https://schema.org/logo'), serialization_alias='https://schema.org/logo')
     @field_serializer('logo')

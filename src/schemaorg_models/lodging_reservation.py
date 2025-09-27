@@ -12,7 +12,7 @@ A reservation for lodging at a hotel, motel, inn, etc.\
 \
 Note: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations.
     """
-    type_: Literal['https://schema.org/LodgingReservation'] = Field(default='https://schema.org/LodgingReservation', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/LodgingReservation'] = Field(default='https://schema.org/LodgingReservation', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
     checkoutTime: Optional[Union[datetime, List[datetime], time, List[time]]] = Field(default=None, validation_alias=AliasChoices('checkoutTime', 'https://schema.org/checkoutTime'), serialization_alias='https://schema.org/checkoutTime')
     numAdults: Optional[Union[QuantitativeValue, List[QuantitativeValue], int, List[int]]] = Field(default=None, validation_alias=AliasChoices('numAdults', 'https://schema.org/numAdults'), serialization_alias='https://schema.org/numAdults')
     checkinTime: Optional[Union[time, List[time], datetime, List[datetime]]] = Field(default=None, validation_alias=AliasChoices('checkinTime', 'https://schema.org/checkinTime'), serialization_alias='https://schema.org/checkinTime')

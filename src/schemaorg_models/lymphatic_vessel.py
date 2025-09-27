@@ -10,7 +10,7 @@ class LymphaticVessel(Vessel):
     """
 A type of blood vessel that specifically carries lymph fluid unidirectionally toward the heart.
     """
-    type_: Literal['https://schema.org/LymphaticVessel'] = Field(default='https://schema.org/LymphaticVessel', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/LymphaticVessel'] = Field(default='https://schema.org/LymphaticVessel', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
     regionDrained: Optional[Union[AnatomicalStructure, List[AnatomicalStructure], AnatomicalSystem, List[AnatomicalSystem]]] = Field(default=None, validation_alias=AliasChoices('regionDrained', 'https://schema.org/regionDrained'), serialization_alias='https://schema.org/regionDrained')
     runsTo: Optional[Union[Vessel, List[Vessel]]] = Field(default=None, validation_alias=AliasChoices('runsTo', 'https://schema.org/runsTo'), serialization_alias='https://schema.org/runsTo')
     originatesFrom: Optional[Union[Vessel, List[Vessel]]] = Field(default=None, validation_alias=AliasChoices('originatesFrom', 'https://schema.org/originatesFrom'), serialization_alias='https://schema.org/originatesFrom')

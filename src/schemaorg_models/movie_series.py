@@ -11,7 +11,7 @@ class MovieSeries(CreativeWorkSeries):
     """
 A series of movies. Included movies can be indicated with the hasPart property.
     """
-    type_: Literal['https://schema.org/MovieSeries'] = Field(default='https://schema.org/MovieSeries', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/MovieSeries'] = Field(default='https://schema.org/MovieSeries', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
     musicBy: Optional[Union["MusicGroup", List["MusicGroup"], Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('musicBy', 'https://schema.org/musicBy'), serialization_alias='https://schema.org/musicBy')
     director: Optional[Union[Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('director', 'https://schema.org/director'), serialization_alias='https://schema.org/director')
     directors: Optional[Union[Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('directors', 'https://schema.org/directors'), serialization_alias='https://schema.org/directors')

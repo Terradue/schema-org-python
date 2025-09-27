@@ -11,7 +11,7 @@ class Legislation(CreativeWork):
     """
 A legal document such as an act, decree, bill, etc. (enforceable or not) or a component of a legal act (like an article).
     """
-    type_: Literal['https://schema.org/Legislation'] = Field(default='https://schema.org/Legislation', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/Legislation'] = Field(default='https://schema.org/Legislation', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
     legislationApplies: Optional[Union["Legislation", List["Legislation"]]] = Field(default=None, validation_alias=AliasChoices('legislationApplies', 'https://schema.org/legislationApplies'), serialization_alias='https://schema.org/legislationApplies')
     legislationCountersignedBy: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(default=None, validation_alias=AliasChoices('legislationCountersignedBy', 'https://schema.org/legislationCountersignedBy'), serialization_alias='https://schema.org/legislationCountersignedBy')
     legislationChanges: Optional[Union["Legislation", List["Legislation"]]] = Field(default=None, validation_alias=AliasChoices('legislationChanges', 'https://schema.org/legislationChanges'), serialization_alias='https://schema.org/legislationChanges')

@@ -7,4 +7,4 @@ class ResearchOrganization(Organization):
     """
 A Research Organization (e.g. scientific institute, research company).
     """
-    type_: Literal['https://schema.org/ResearchOrganization'] = Field(default='https://schema.org/ResearchOrganization', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/ResearchOrganization'] = Field(default='https://schema.org/ResearchOrganization', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore

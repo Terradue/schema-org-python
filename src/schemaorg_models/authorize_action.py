@@ -11,5 +11,5 @@ class AuthorizeAction(AllocateAction):
     """
 The act of granting permission to an object.
     """
-    type_: Literal['https://schema.org/AuthorizeAction'] = Field(default='https://schema.org/AuthorizeAction', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/AuthorizeAction'] = Field(default='https://schema.org/AuthorizeAction', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
     recipient: Optional[Union[Organization, List[Organization], Audience, List[Audience], ContactPoint, List[ContactPoint], Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('recipient', 'https://schema.org/recipient'), serialization_alias='https://schema.org/recipient')

@@ -7,4 +7,4 @@ class AutoWash(AutomotiveBusiness):
     """
 A car wash business.
     """
-    type_: Literal['https://schema.org/AutoWash'] = Field(default='https://schema.org/AutoWash', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/AutoWash'] = Field(default='https://schema.org/AutoWash', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore

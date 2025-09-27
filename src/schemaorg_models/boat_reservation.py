@@ -9,4 +9,4 @@ A reservation for boat travel.
 
 Note: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations. For offers of tickets, use [[Offer]].
     """
-    type_: Literal['https://schema.org/BoatReservation'] = Field(default='https://schema.org/BoatReservation', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/BoatReservation'] = Field(default='https://schema.org/BoatReservation', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore

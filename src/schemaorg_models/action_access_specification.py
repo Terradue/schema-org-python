@@ -11,7 +11,7 @@ class ActionAccessSpecification(Intangible):
     """
 A set of requirements that must be fulfilled in order to perform an Action.
     """
-    type_: Literal['https://schema.org/ActionAccessSpecification'] = Field(default='https://schema.org/ActionAccessSpecification', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/ActionAccessSpecification'] = Field(default='https://schema.org/ActionAccessSpecification', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
     requiresSubscription: Optional[Union[bool, List[bool], MediaSubscription, List[MediaSubscription]]] = Field(default=None, validation_alias=AliasChoices('requiresSubscription', 'https://schema.org/requiresSubscription'), serialization_alias='https://schema.org/requiresSubscription')
     expectsAcceptanceOf: Optional[Union["Offer", List["Offer"]]] = Field(default=None, validation_alias=AliasChoices('expectsAcceptanceOf', 'https://schema.org/expectsAcceptanceOf'), serialization_alias='https://schema.org/expectsAcceptanceOf')
     eligibleRegion: Optional[Union["GeoShape", List["GeoShape"], str, List[str], Place, List[Place]]] = Field(default=None, validation_alias=AliasChoices('eligibleRegion', 'https://schema.org/eligibleRegion'), serialization_alias='https://schema.org/eligibleRegion')

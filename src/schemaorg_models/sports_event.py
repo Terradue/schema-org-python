@@ -8,7 +8,7 @@ class SportsEvent(Event):
     """
 A sub property of location. The sports event where this action occurred.
     """
-    type_: Literal['https://schema.org/SportsEvent'] = Field(default='https://schema.org/SportsEvent', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/SportsEvent'] = Field(default='https://schema.org/SportsEvent', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
     homeTeam: Optional[Union[Person, List[Person], "SportsTeam", List["SportsTeam"]]] = Field(default=None, validation_alias=AliasChoices('homeTeam', 'https://schema.org/homeTeam'), serialization_alias='https://schema.org/homeTeam')
     awayTeam: Optional[Union["SportsTeam", List["SportsTeam"], Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('awayTeam', 'https://schema.org/awayTeam'), serialization_alias='https://schema.org/awayTeam')
     referee: Optional[Union[Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('referee', 'https://schema.org/referee'), serialization_alias='https://schema.org/referee')

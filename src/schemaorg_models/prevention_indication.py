@@ -7,4 +7,4 @@ class PreventionIndication(MedicalIndication):
     """
 An indication for preventing an underlying condition, symptom, etc.
     """
-    type_: Literal['https://schema.org/PreventionIndication'] = Field(default='https://schema.org/PreventionIndication', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/PreventionIndication'] = Field(default='https://schema.org/PreventionIndication', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore

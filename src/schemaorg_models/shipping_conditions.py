@@ -12,7 +12,7 @@ class ShippingConditions(StructuredValue):
     """
 The conditions (constraints, price) applicable to the [[ShippingService]].
     """
-    type_: Literal['https://schema.org/ShippingConditions'] = Field(default='https://schema.org/ShippingConditions', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/ShippingConditions'] = Field(default='https://schema.org/ShippingConditions', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
     weight: Optional[Union[QuantitativeValue, List[QuantitativeValue], "Mass", List["Mass"]]] = Field(default=None, validation_alias=AliasChoices('weight', 'https://schema.org/weight'), serialization_alias='https://schema.org/weight')
     shippingOrigin: Optional[Union[DefinedRegion, List[DefinedRegion]]] = Field(default=None, validation_alias=AliasChoices('shippingOrigin', 'https://schema.org/shippingOrigin'), serialization_alias='https://schema.org/shippingOrigin')
     shippingDestination: Optional[Union[DefinedRegion, List[DefinedRegion]]] = Field(default=None, validation_alias=AliasChoices('shippingDestination', 'https://schema.org/shippingDestination'), serialization_alias='https://schema.org/shippingDestination')

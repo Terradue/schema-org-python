@@ -10,7 +10,7 @@ class TVEpisode(Episode):
     """
 A TV episode which can be part of a series or season.
     """
-    type_: Literal['https://schema.org/TVEpisode'] = Field(default='https://schema.org/TVEpisode', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/TVEpisode'] = Field(default='https://schema.org/TVEpisode', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
     partOfTVSeries: Optional[Union[TVSeries, List[TVSeries]]] = Field(default=None, validation_alias=AliasChoices('partOfTVSeries', 'https://schema.org/partOfTVSeries'), serialization_alias='https://schema.org/partOfTVSeries')
     subtitleLanguage: Optional[Union[Language, List[Language], str, List[str]]] = Field(default=None, validation_alias=AliasChoices('subtitleLanguage', 'https://schema.org/subtitleLanguage'), serialization_alias='https://schema.org/subtitleLanguage')
     titleEIDR: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None, validation_alias=AliasChoices('titleEIDR', 'https://schema.org/titleEIDR'), serialization_alias='https://schema.org/titleEIDR')

@@ -7,4 +7,4 @@ class Researcher(Audience):
     """
 Researchers.
     """
-    type_: Literal['https://schema.org/Researcher'] = Field(default='https://schema.org/Researcher', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/Researcher'] = Field(default='https://schema.org/Researcher', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore

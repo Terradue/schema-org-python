@@ -9,7 +9,7 @@ class AnatomicalSystem(MedicalEntity):
     """
 An anatomical system is a group of anatomical structures that work together to perform a certain task. Anatomical systems, such as organ systems, are one organizing principle of anatomy, and can include circulatory, digestive, endocrine, integumentary, immune, lymphatic, muscular, nervous, reproductive, respiratory, skeletal, urinary, vestibular, and other systems.
     """
-    type_: Literal['https://schema.org/AnatomicalSystem'] = Field(default='https://schema.org/AnatomicalSystem', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/AnatomicalSystem'] = Field(default='https://schema.org/AnatomicalSystem', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
     associatedPathophysiology: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('associatedPathophysiology', 'https://schema.org/associatedPathophysiology'), serialization_alias='https://schema.org/associatedPathophysiology')
     comprisedOf: Optional[Union[AnatomicalStructure, List[AnatomicalStructure], "AnatomicalSystem", List["AnatomicalSystem"]]] = Field(default=None, validation_alias=AliasChoices('comprisedOf', 'https://schema.org/comprisedOf'), serialization_alias='https://schema.org/comprisedOf')
     relatedStructure: Optional[Union[AnatomicalStructure, List[AnatomicalStructure]]] = Field(default=None, validation_alias=AliasChoices('relatedStructure', 'https://schema.org/relatedStructure'), serialization_alias='https://schema.org/relatedStructure')

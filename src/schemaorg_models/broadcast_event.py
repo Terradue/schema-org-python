@@ -9,7 +9,7 @@ class BroadcastEvent(PublicationEvent):
     """
 An over the air or online broadcast event.
     """
-    type_: Literal['https://schema.org/BroadcastEvent'] = Field(default='https://schema.org/BroadcastEvent', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/BroadcastEvent'] = Field(default='https://schema.org/BroadcastEvent', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
     videoFormat: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('videoFormat', 'https://schema.org/videoFormat'), serialization_alias='https://schema.org/videoFormat')
     broadcastOfEvent: Optional[Union[Event, List[Event]]] = Field(default=None, validation_alias=AliasChoices('broadcastOfEvent', 'https://schema.org/broadcastOfEvent'), serialization_alias='https://schema.org/broadcastOfEvent')
     subtitleLanguage: Optional[Union[Language, List[Language], str, List[str]]] = Field(default=None, validation_alias=AliasChoices('subtitleLanguage', 'https://schema.org/subtitleLanguage'), serialization_alias='https://schema.org/subtitleLanguage')

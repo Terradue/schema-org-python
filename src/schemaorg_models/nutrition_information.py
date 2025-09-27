@@ -7,7 +7,7 @@ class NutritionInformation(StructuredValue):
     """
 Nutritional information about the recipe.
     """
-    type_: Literal['https://schema.org/NutritionInformation'] = Field(default='https://schema.org/NutritionInformation', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/NutritionInformation'] = Field(default='https://schema.org/NutritionInformation', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
     unsaturatedFatContent: Optional[Union["Mass", List["Mass"]]] = Field(default=None, validation_alias=AliasChoices('unsaturatedFatContent', 'https://schema.org/unsaturatedFatContent'), serialization_alias='https://schema.org/unsaturatedFatContent')
     cholesterolContent: Optional[Union["Mass", List["Mass"]]] = Field(default=None, validation_alias=AliasChoices('cholesterolContent', 'https://schema.org/cholesterolContent'), serialization_alias='https://schema.org/cholesterolContent')
     calories: Optional[Union["Energy", List["Energy"]]] = Field(default=None, validation_alias=AliasChoices('calories', 'https://schema.org/calories'), serialization_alias='https://schema.org/calories')

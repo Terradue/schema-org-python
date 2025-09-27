@@ -7,7 +7,7 @@ class Thing(BaseModel):
     """
 The most generic type of item.
     """
-    type_: Literal['https://schema.org/Thing'] = Field(default='https://schema.org/Thing', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/Thing'] = Field(default='https://schema.org/Thing', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
     additionalType: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(default=None, validation_alias=AliasChoices('additionalType', 'https://schema.org/additionalType'), serialization_alias='https://schema.org/additionalType')
     @field_serializer('additionalType')
     def additionalType2str(self, val) -> str | List[str]:

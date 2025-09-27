@@ -7,4 +7,4 @@ class CertificationStatusEnumeration(Enumeration):
     """
 Enumerates the different statuses of a Certification (Active and Inactive).
     """
-    type_: Literal['https://schema.org/CertificationStatusEnumeration'] = Field(default='https://schema.org/CertificationStatusEnumeration', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/CertificationStatusEnumeration'] = Field(default='https://schema.org/CertificationStatusEnumeration', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore

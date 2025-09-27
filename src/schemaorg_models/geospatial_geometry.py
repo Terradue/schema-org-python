@@ -8,7 +8,7 @@ class GeospatialGeometry(Intangible):
     """
 (Eventually to be defined as) a supertype of GeoShape designed to accommodate definitions from Geo-Spatial best practices.
     """
-    type_: Literal['https://schema.org/GeospatialGeometry'] = Field(default='https://schema.org/GeospatialGeometry', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/GeospatialGeometry'] = Field(default='https://schema.org/GeospatialGeometry', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
     geoCoveredBy: Optional[Union["GeospatialGeometry", List["GeospatialGeometry"], Place, List[Place]]] = Field(default=None, validation_alias=AliasChoices('geoCoveredBy', 'https://schema.org/geoCoveredBy'), serialization_alias='https://schema.org/geoCoveredBy')
     geoEquals: Optional[Union[Place, List[Place], "GeospatialGeometry", List["GeospatialGeometry"]]] = Field(default=None, validation_alias=AliasChoices('geoEquals', 'https://schema.org/geoEquals'), serialization_alias='https://schema.org/geoEquals')
     geoCovers: Optional[Union[Place, List[Place], "GeospatialGeometry", List["GeospatialGeometry"]]] = Field(default=None, validation_alias=AliasChoices('geoCovers', 'https://schema.org/geoCovers'), serialization_alias='https://schema.org/geoCovers')

@@ -7,4 +7,4 @@ class AddAction(UpdateAction):
     """
 The act of editing by adding an object to a collection.
     """
-    type_: Literal['https://schema.org/AddAction'] = Field(default='https://schema.org/AddAction', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/AddAction'] = Field(default='https://schema.org/AddAction', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore

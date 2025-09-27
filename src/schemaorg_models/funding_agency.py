@@ -12,4 +12,4 @@ A FundingAgency is an organization that implements one or more [[FundingScheme]]
 Examples of funding agencies include ERC, REA, NIH, Bill and Melinda Gates Foundation, ...
     
     """
-    type_: Literal['https://schema.org/FundingAgency'] = Field(default='https://schema.org/FundingAgency', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/FundingAgency'] = Field(default='https://schema.org/FundingAgency', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore

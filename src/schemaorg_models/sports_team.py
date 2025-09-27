@@ -9,7 +9,7 @@ class SportsTeam(SportsOrganization):
     """
 Organization: Sports team.
     """
-    type_: Literal['https://schema.org/SportsTeam'] = Field(default='https://schema.org/SportsTeam', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/SportsTeam'] = Field(default='https://schema.org/SportsTeam', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
     athlete: Optional[Union[Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('athlete', 'https://schema.org/athlete'), serialization_alias='https://schema.org/athlete')
     coach: Optional[Union[Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('coach', 'https://schema.org/coach'), serialization_alias='https://schema.org/coach')
     gender: Optional[Union[GenderType, List[GenderType], str, List[str]]] = Field(default=None, validation_alias=AliasChoices('gender', 'https://schema.org/gender'), serialization_alias='https://schema.org/gender')

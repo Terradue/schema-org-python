@@ -20,5 +20,5 @@ A payment method is a standardized procedure for transferring the monetary amoun
 \
 Structured values are recommended for newer payment methods.
     """
-    type_: Literal['https://schema.org/PaymentMethod'] = Field(default='https://schema.org/PaymentMethod', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/PaymentMethod'] = Field(default='https://schema.org/PaymentMethod', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
     paymentMethodType: Optional[Union["PaymentMethodType", List["PaymentMethodType"]]] = Field(default=None, validation_alias=AliasChoices('paymentMethodType', 'https://schema.org/paymentMethodType'), serialization_alias='https://schema.org/paymentMethodType')

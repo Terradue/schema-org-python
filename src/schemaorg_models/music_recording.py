@@ -10,7 +10,7 @@ class MusicRecording(CreativeWork):
     """
 A music recording (track), usually a single song.
     """
-    type_: Literal['https://schema.org/MusicRecording'] = Field(default='https://schema.org/MusicRecording', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/MusicRecording'] = Field(default='https://schema.org/MusicRecording', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
     inPlaylist: Optional[Union[MusicPlaylist, List[MusicPlaylist]]] = Field(default=None, validation_alias=AliasChoices('inPlaylist', 'https://schema.org/inPlaylist'), serialization_alias='https://schema.org/inPlaylist')
     inAlbum: Optional[Union["MusicAlbum", List["MusicAlbum"]]] = Field(default=None, validation_alias=AliasChoices('inAlbum', 'https://schema.org/inAlbum'), serialization_alias='https://schema.org/inAlbum')
     recordingOf: Optional[Union[MusicComposition, List[MusicComposition]]] = Field(default=None, validation_alias=AliasChoices('recordingOf', 'https://schema.org/recordingOf'), serialization_alias='https://schema.org/recordingOf')

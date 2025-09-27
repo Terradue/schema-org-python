@@ -8,5 +8,5 @@ class DefinedTermSet(CreativeWork):
     """
 A set of defined terms, for example a set of categories or a classification scheme, a glossary, dictionary or enumeration.
     """
-    type_: Literal['https://schema.org/DefinedTermSet'] = Field(default='https://schema.org/DefinedTermSet', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/DefinedTermSet'] = Field(default='https://schema.org/DefinedTermSet', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
     hasDefinedTerm: Optional[Union[DefinedTerm, List[DefinedTerm]]] = Field(default=None, validation_alias=AliasChoices('hasDefinedTerm', 'https://schema.org/hasDefinedTerm'), serialization_alias='https://schema.org/hasDefinedTerm')

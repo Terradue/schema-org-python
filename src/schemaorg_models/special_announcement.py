@@ -48,7 +48,7 @@ with the [[webFeed]] property. This can be a simple URL, or an inline [[DataFeed
 media type information, e.g. "application/rss+xml" or "application/atom+xml".
 
     """
-    type_: Literal['https://schema.org/SpecialAnnouncement'] = Field(default='https://schema.org/SpecialAnnouncement', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/SpecialAnnouncement'] = Field(default='https://schema.org/SpecialAnnouncement', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
     travelBans: Optional[Union[HttpUrl, List[HttpUrl], WebContent, List[WebContent]]] = Field(default=None, validation_alias=AliasChoices('travelBans', 'https://schema.org/travelBans'), serialization_alias='https://schema.org/travelBans')
     @field_serializer('travelBans')
     def travelBans2str(self, val) -> str | List[str]:

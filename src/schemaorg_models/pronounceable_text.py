@@ -7,7 +7,7 @@ class PronounceableText(Text):
     """
 Data type: PronounceableText.
     """
-    type_: Literal['https://schema.org/PronounceableText'] = Field(default='https://schema.org/PronounceableText', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/PronounceableText'] = Field(default='https://schema.org/PronounceableText', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
     speechToTextMarkup: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('speechToTextMarkup', 'https://schema.org/speechToTextMarkup'), serialization_alias='https://schema.org/speechToTextMarkup')
     inLanguage: Optional[Union[str, List[str], "Language", List["Language"]]] = Field(default=None, validation_alias=AliasChoices('inLanguage', 'https://schema.org/inLanguage'), serialization_alias='https://schema.org/inLanguage')
     phoneticText: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('phoneticText', 'https://schema.org/phoneticText'), serialization_alias='https://schema.org/phoneticText')

@@ -7,4 +7,4 @@ class RsvpResponseType(Enumeration):
     """
 RsvpResponseType is an enumeration type whose instances represent responding to an RSVP request.
     """
-    type_: Literal['https://schema.org/RsvpResponseType'] = Field(default='https://schema.org/RsvpResponseType', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/RsvpResponseType'] = Field(default='https://schema.org/RsvpResponseType', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore

@@ -13,7 +13,7 @@ class PhysicalActivity(LifestyleModification):
     """
 Any bodily activity that enhances or maintains physical fitness and overall health and wellness. Includes activity that is part of daily living and routine, structured exercise, and exercise prescribed as part of a medical treatment or recovery plan.
     """
-    type_: Literal['https://schema.org/PhysicalActivity'] = Field(default='https://schema.org/PhysicalActivity', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/PhysicalActivity'] = Field(default='https://schema.org/PhysicalActivity', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
     pathophysiology: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('pathophysiology', 'https://schema.org/pathophysiology'), serialization_alias='https://schema.org/pathophysiology')
     category: Optional[Union[PhysicalActivityCategory, List[PhysicalActivityCategory], CategoryCode, List[CategoryCode], str, List[str], Thing, List[Thing], HttpUrl, List[HttpUrl]]] = Field(default=None, validation_alias=AliasChoices('category', 'https://schema.org/category'), serialization_alias='https://schema.org/category')
     @field_serializer('category')

@@ -10,7 +10,7 @@ class Permit(Intangible):
     """
 A permit issued by an organization, e.g. a parking pass.
     """
-    type_: Literal['https://schema.org/Permit'] = Field(default='https://schema.org/Permit', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/Permit'] = Field(default='https://schema.org/Permit', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
     validFor: Optional[Union["Duration", List["Duration"]]] = Field(default=None, validation_alias=AliasChoices('validFor', 'https://schema.org/validFor'), serialization_alias='https://schema.org/validFor')
     validIn: Optional[Union[AdministrativeArea, List[AdministrativeArea]]] = Field(default=None, validation_alias=AliasChoices('validIn', 'https://schema.org/validIn'), serialization_alias='https://schema.org/validIn')
     validFrom: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(default=None, validation_alias=AliasChoices('validFrom', 'https://schema.org/validFrom'), serialization_alias='https://schema.org/validFrom')

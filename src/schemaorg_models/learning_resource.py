@@ -13,7 +13,7 @@ The LearningResource type can be used to indicate [[CreativeWork]]s (whether phy
 
 [[EducationEvent]] serves a similar purpose for event-like things (e.g. a [[Trip]]). A [[LearningResource]] may be created as a result of an [[EducationEvent]], for example by recording one.
     """
-    type_: Literal['https://schema.org/LearningResource'] = Field(default='https://schema.org/LearningResource', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/LearningResource'] = Field(default='https://schema.org/LearningResource', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
     educationalLevel: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], DefinedTerm, List[DefinedTerm]]] = Field(default=None, validation_alias=AliasChoices('educationalLevel', 'https://schema.org/educationalLevel'), serialization_alias='https://schema.org/educationalLevel')
     @field_serializer('educationalLevel')
     def educationalLevel2str(self, val) -> str | List[str]:

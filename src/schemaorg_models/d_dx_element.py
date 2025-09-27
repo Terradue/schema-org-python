@@ -9,6 +9,6 @@ class DDxElement(MedicalIntangible):
     """
 An alternative, closely-related condition typically considered later in the differential diagnosis process along with the signs that are used to distinguish it.
     """
-    type_: Literal['https://schema.org/DDxElement'] = Field(default='https://schema.org/DDxElement', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/DDxElement'] = Field(default='https://schema.org/DDxElement', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
     distinguishingSign: Optional[Union[MedicalSignOrSymptom, List[MedicalSignOrSymptom]]] = Field(default=None, validation_alias=AliasChoices('distinguishingSign', 'https://schema.org/distinguishingSign'), serialization_alias='https://schema.org/distinguishingSign')
     diagnosis: Optional[Union[MedicalCondition, List[MedicalCondition]]] = Field(default=None, validation_alias=AliasChoices('diagnosis', 'https://schema.org/diagnosis'), serialization_alias='https://schema.org/diagnosis')

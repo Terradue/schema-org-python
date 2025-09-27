@@ -8,6 +8,6 @@ class ArchiveComponent(CreativeWork):
     """
 An intangible type to be applied to any archive content, carrying with it a set of properties required to describe archival items and collections.
     """
-    type_: Literal['https://schema.org/ArchiveComponent'] = Field(default='https://schema.org/ArchiveComponent', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/ArchiveComponent'] = Field(default='https://schema.org/ArchiveComponent', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
     holdingArchive: Optional[Union["ArchiveOrganization", List["ArchiveOrganization"]]] = Field(default=None, validation_alias=AliasChoices('holdingArchive', 'https://schema.org/holdingArchive'), serialization_alias='https://schema.org/holdingArchive')
     itemLocation: Optional[Union["PostalAddress", List["PostalAddress"], str, List[str], Place, List[Place]]] = Field(default=None, validation_alias=AliasChoices('itemLocation', 'https://schema.org/itemLocation'), serialization_alias='https://schema.org/itemLocation')

@@ -7,4 +7,4 @@ class SeaBodyOfWater(BodyOfWater):
     """
 A sea (for example, the Caspian sea).
     """
-    type_: Literal['https://schema.org/SeaBodyOfWater'] = Field(default='https://schema.org/SeaBodyOfWater', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/SeaBodyOfWater'] = Field(default='https://schema.org/SeaBodyOfWater', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore

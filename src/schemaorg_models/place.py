@@ -7,7 +7,7 @@ class Place(Thing):
     """
 Entities that have a somewhat fixed, physical extension.
     """
-    type_: Literal['https://schema.org/Place'] = Field(default='https://schema.org/Place', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/Place'] = Field(default='https://schema.org/Place', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
     faxNumber: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('faxNumber', 'https://schema.org/faxNumber'), serialization_alias='https://schema.org/faxNumber')
     globalLocationNumber: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('globalLocationNumber', 'https://schema.org/globalLocationNumber'), serialization_alias='https://schema.org/globalLocationNumber')
     event: Optional[Union["Event", List["Event"]]] = Field(default=None, validation_alias=AliasChoices('event', 'https://schema.org/event'), serialization_alias='https://schema.org/event')

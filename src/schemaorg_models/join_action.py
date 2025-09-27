@@ -14,5 +14,5 @@ Related actions:\
 * [[SubscribeAction]]: Unlike SubscribeAction, JoinAction does not imply that you'll be receiving updates.\
 * [[FollowAction]]: Unlike FollowAction, JoinAction does not imply that you'll be polling for updates.
     """
-    type_: Literal['https://schema.org/JoinAction'] = Field(default='https://schema.org/JoinAction', alias='@type', serialization_alias='http://www.w3.org/2000/01/rdf-schema#/Class') # type: ignore
+    class_: Literal['https://schema.org/JoinAction'] = Field(default='https://schema.org/JoinAction', alias='http://www.w3.org/2000/01/rdf-schema#Class', serialization_alias='http://www.w3.org/2000/01/rdf-schema#Class') # type: ignore
     event: Optional[Union[Event, List[Event]]] = Field(default=None, validation_alias=AliasChoices('event', 'https://schema.org/event'), serialization_alias='https://schema.org/event')
