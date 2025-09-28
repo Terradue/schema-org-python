@@ -1,7 +1,16 @@
-from typing import Literal
-from pydantic import Field
-from schemaorg_models.rating import Rating
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.rating import Rating
+
+from pydantic import (
+    Field
+)
+from typing import (
+    Literal
+)
 
 class EndorsementRating(Rating):
     """
@@ -13,4 +22,8 @@ An [[EndorsementRating]] may be part of a numeric scale or organized system, but
 endorsement rating is particularly useful in the absence of numeric scales as it helps consumers understand that the rating is broadly positive.
 
     """
-    class_: Literal['https://schema.org/EndorsementRating'] = Field(default='https://schema.org/EndorsementRating', alias='@type', serialization_alias='@type') # type: ignore
+    class_: Literal['https://schema.org/EndorsementRating'] = Field( # type: ignore
+        default='https://schema.org/EndorsementRating',
+        alias='@type',
+        serialization_alias='@type'
+    )

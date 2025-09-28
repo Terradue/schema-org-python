@@ -1,10 +1,23 @@
-from typing import Literal
-from pydantic import Field
-from schemaorg_models.financial_product import FinancialProduct
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.financial_product import FinancialProduct
+
+from pydantic import (
+    Field
+)
+from typing import (
+    Literal
+)
 
 class CurrencyConversionService(FinancialProduct):
     """
 A service to convert funds from one currency to another currency.
     """
-    class_: Literal['https://schema.org/CurrencyConversionService'] = Field(default='https://schema.org/CurrencyConversionService', alias='@type', serialization_alias='@type') # type: ignore
+    class_: Literal['https://schema.org/CurrencyConversionService'] = Field( # type: ignore
+        default='https://schema.org/CurrencyConversionService',
+        alias='@type',
+        serialization_alias='@type'
+    )

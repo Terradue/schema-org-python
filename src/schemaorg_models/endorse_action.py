@@ -1,7 +1,20 @@
-from typing import List, Literal, Optional, Union
-from pydantic import AliasChoices, Field
-from schemaorg_models.react_action import ReactAction
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.react_action import ReactAction
+
+from pydantic import (
+    AliasChoices,
+    Field
+)
+from typing import (
+    List,
+    Literal,
+    Optional,
+    Union
+)
 from schemaorg_models.person import Person
 from schemaorg_models.organization import Organization
 
@@ -9,5 +22,16 @@ class EndorseAction(ReactAction):
     """
 An agent approves/certifies/likes/supports/sanctions an object.
     """
-    class_: Literal['https://schema.org/EndorseAction'] = Field(default='https://schema.org/EndorseAction', alias='@type', serialization_alias='@type') # type: ignore
-    endorsee: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(default=None, validation_alias=AliasChoices('endorsee', 'https://schema.org/endorsee'), serialization_alias='https://schema.org/endorsee')
+    class_: Literal['https://schema.org/EndorseAction'] = Field( # type: ignore
+        default='https://schema.org/EndorseAction',
+        alias='@type',
+        serialization_alias='@type'
+    )
+    endorsee: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'endorsee',
+            'https://schema.org/endorsee'
+        ),
+        serialization_alias='https://schema.org/endorsee'
+    )

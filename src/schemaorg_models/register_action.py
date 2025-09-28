@@ -1,7 +1,16 @@
-from typing import Literal
-from pydantic import Field
-from schemaorg_models.interact_action import InteractAction
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.interact_action import InteractAction
+
+from pydantic import (
+    Field
+)
+from typing import (
+    Literal
+)
 
 class RegisterAction(InteractAction):
     """
@@ -13,4 +22,8 @@ Related actions:\
 * [[FollowAction]]: Unlike FollowAction, RegisterAction doesn't imply that the agent is expecting to poll for updates from the object.\
 * [[SubscribeAction]]: Unlike SubscribeAction, RegisterAction doesn't imply that the agent is expecting updates from the object.
     """
-    class_: Literal['https://schema.org/RegisterAction'] = Field(default='https://schema.org/RegisterAction', alias='@type', serialization_alias='@type') # type: ignore
+    class_: Literal['https://schema.org/RegisterAction'] = Field( # type: ignore
+        default='https://schema.org/RegisterAction',
+        alias='@type',
+        serialization_alias='@type'
+    )

@@ -1,10 +1,23 @@
-from typing import Literal
-from pydantic import Field
-from schemaorg_models.investment_or_deposit import InvestmentOrDeposit
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.investment_or_deposit import InvestmentOrDeposit
+
+from pydantic import (
+    Field
+)
+from typing import (
+    Literal
+)
 
 class DepositAccount(InvestmentOrDeposit):
     """
 A type of Bank Account with a main purpose of depositing funds to gain interest or other benefits.
     """
-    class_: Literal['https://schema.org/DepositAccount'] = Field(default='https://schema.org/DepositAccount', alias='@type', serialization_alias='@type') # type: ignore
+    class_: Literal['https://schema.org/DepositAccount'] = Field( # type: ignore
+        default='https://schema.org/DepositAccount',
+        alias='@type',
+        serialization_alias='@type'
+    )

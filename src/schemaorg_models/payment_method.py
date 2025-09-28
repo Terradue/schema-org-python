@@ -1,7 +1,20 @@
-from typing import List, Literal, Optional, Union
-from pydantic import AliasChoices, Field
-from schemaorg_models.intangible import Intangible
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.intangible import Intangible
+
+from pydantic import (
+    AliasChoices,
+    Field
+)
+from typing import (
+    List,
+    Literal,
+    Optional,
+    Union
+)
 
 class PaymentMethod(Intangible):
     """
@@ -20,5 +33,16 @@ A payment method is a standardized procedure for transferring the monetary amoun
 \
 Structured values are recommended for newer payment methods.
     """
-    class_: Literal['https://schema.org/PaymentMethod'] = Field(default='https://schema.org/PaymentMethod', alias='@type', serialization_alias='@type') # type: ignore
-    paymentMethodType: Optional[Union["PaymentMethodType", List["PaymentMethodType"]]] = Field(default=None, validation_alias=AliasChoices('paymentMethodType', 'https://schema.org/paymentMethodType'), serialization_alias='https://schema.org/paymentMethodType')
+    class_: Literal['https://schema.org/PaymentMethod'] = Field( # type: ignore
+        default='https://schema.org/PaymentMethod',
+        alias='@type',
+        serialization_alias='@type'
+    )
+    paymentMethodType: Optional[Union["PaymentMethodType", List["PaymentMethodType"]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'paymentMethodType',
+            'https://schema.org/paymentMethodType'
+        ),
+        serialization_alias='https://schema.org/paymentMethodType'
+    )

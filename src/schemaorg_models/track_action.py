@@ -1,7 +1,20 @@
-from typing import List, Literal, Optional, Union
-from pydantic import AliasChoices, Field
-from schemaorg_models.find_action import FindAction
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.find_action import FindAction
+
+from pydantic import (
+    AliasChoices,
+    Field
+)
+from typing import (
+    List,
+    Literal,
+    Optional,
+    Union
+)
 from schemaorg_models.delivery_method import DeliveryMethod
 
 class TrackAction(FindAction):
@@ -13,5 +26,16 @@ Related actions:\
 * [[FollowAction]]: Unlike FollowAction, TrackAction refers to the interest on the location of innanimates objects.\
 * [[SubscribeAction]]: Unlike SubscribeAction, TrackAction refers to  the interest on the location of innanimate objects.
     """
-    class_: Literal['https://schema.org/TrackAction'] = Field(default='https://schema.org/TrackAction', alias='@type', serialization_alias='@type') # type: ignore
-    deliveryMethod: Optional[Union[DeliveryMethod, List[DeliveryMethod]]] = Field(default=None, validation_alias=AliasChoices('deliveryMethod', 'https://schema.org/deliveryMethod'), serialization_alias='https://schema.org/deliveryMethod')
+    class_: Literal['https://schema.org/TrackAction'] = Field( # type: ignore
+        default='https://schema.org/TrackAction',
+        alias='@type',
+        serialization_alias='@type'
+    )
+    deliveryMethod: Optional[Union[DeliveryMethod, List[DeliveryMethod]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'deliveryMethod',
+            'https://schema.org/deliveryMethod'
+        ),
+        serialization_alias='https://schema.org/deliveryMethod'
+    )

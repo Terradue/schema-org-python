@@ -1,10 +1,23 @@
-from typing import Literal
-from pydantic import Field
-from schemaorg_models.creative_work_season import CreativeWorkSeason
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.creative_work_season import CreativeWorkSeason
+
+from pydantic import (
+    Field
+)
+from typing import (
+    Literal
+)
 
 class PodcastSeason(CreativeWorkSeason):
     """
 A single season of a podcast. Many podcasts do not break down into separate seasons. In that case, PodcastSeries should be used.
     """
-    class_: Literal['https://schema.org/PodcastSeason'] = Field(default='https://schema.org/PodcastSeason', alias='@type', serialization_alias='@type') # type: ignore
+    class_: Literal['https://schema.org/PodcastSeason'] = Field( # type: ignore
+        default='https://schema.org/PodcastSeason',
+        alias='@type',
+        serialization_alias='@type'
+    )

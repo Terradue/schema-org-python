@@ -1,10 +1,23 @@
-from typing import Literal
-from pydantic import Field
-from schemaorg_models.move_action import MoveAction
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.move_action import MoveAction
+
+from pydantic import (
+    Field
+)
+from typing import (
+    Literal
+)
 
 class ArriveAction(MoveAction):
     """
 The act of arriving at a place. An agent arrives at a destination from a fromLocation, optionally with participants.
     """
-    class_: Literal['https://schema.org/ArriveAction'] = Field(default='https://schema.org/ArriveAction', alias='@type', serialization_alias='@type') # type: ignore
+    class_: Literal['https://schema.org/ArriveAction'] = Field( # type: ignore
+        default='https://schema.org/ArriveAction',
+        alias='@type',
+        serialization_alias='@type'
+    )

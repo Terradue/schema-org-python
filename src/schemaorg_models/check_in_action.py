@@ -1,7 +1,16 @@
-from typing import Literal
-from pydantic import Field
-from schemaorg_models.communicate_action import CommunicateAction
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.communicate_action import CommunicateAction
+
+from pydantic import (
+    Field
+)
+from typing import (
+    Literal
+)
 
 class CheckInAction(CommunicateAction):
     """
@@ -13,4 +22,8 @@ Related actions:\
 * [[ArriveAction]]: Unlike ArriveAction, CheckInAction implies that the agent is informing/confirming the start of a previously reserved service.\
 * [[ConfirmAction]]: Unlike ConfirmAction, CheckInAction implies that the agent is informing/confirming the *start* of a previously reserved service rather than its validity/existence.
     """
-    class_: Literal['https://schema.org/CheckInAction'] = Field(default='https://schema.org/CheckInAction', alias='@type', serialization_alias='@type') # type: ignore
+    class_: Literal['https://schema.org/CheckInAction'] = Field( # type: ignore
+        default='https://schema.org/CheckInAction',
+        alias='@type',
+        serialization_alias='@type'
+    )

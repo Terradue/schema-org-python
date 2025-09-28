@@ -1,7 +1,16 @@
-from typing import Literal
-from pydantic import Field
-from schemaorg_models.interact_action import InteractAction
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.interact_action import InteractAction
+
+from pydantic import (
+    Field
+)
+from typing import (
+    Literal
+)
 
 class BefriendAction(InteractAction):
     """
@@ -11,4 +20,8 @@ Related actions:\
 \
 * [[FollowAction]]: Unlike FollowAction, BefriendAction implies that the connection is reciprocal.
     """
-    class_: Literal['https://schema.org/BefriendAction'] = Field(default='https://schema.org/BefriendAction', alias='@type', serialization_alias='@type') # type: ignore
+    class_: Literal['https://schema.org/BefriendAction'] = Field( # type: ignore
+        default='https://schema.org/BefriendAction',
+        alias='@type',
+        serialization_alias='@type'
+    )

@@ -1,7 +1,16 @@
-from typing import Literal
-from pydantic import Field
-from schemaorg_models.item_list import ItemList
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.item_list import ItemList
+
+from pydantic import (
+    Field
+)
+from typing import (
+    Literal
+)
 
 class BreadcrumbList(ItemList):
     """
@@ -10,4 +19,8 @@ A BreadcrumbList is an ItemList consisting of a chain of linked Web pages, typic
 The [[position]] property is used to reconstruct the order of the items in a BreadcrumbList. The convention is that a breadcrumb list has an [[itemListOrder]] of [[ItemListOrderAscending]] (lower values listed first), and that the first items in this list correspond to the "top" or beginning of the breadcrumb trail, e.g. with a site or section homepage. The specific values of 'position' are not assigned meaning for a BreadcrumbList, but they should be integers, e.g. beginning with '1' for the first item in the list.
       
     """
-    class_: Literal['https://schema.org/BreadcrumbList'] = Field(default='https://schema.org/BreadcrumbList', alias='@type', serialization_alias='@type') # type: ignore
+    class_: Literal['https://schema.org/BreadcrumbList'] = Field( # type: ignore
+        default='https://schema.org/BreadcrumbList',
+        alias='@type',
+        serialization_alias='@type'
+    )

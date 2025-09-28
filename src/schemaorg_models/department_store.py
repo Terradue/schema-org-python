@@ -1,10 +1,23 @@
-from typing import Literal
-from pydantic import Field
-from schemaorg_models.store import Store
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.store import Store
+
+from pydantic import (
+    Field
+)
+from typing import (
+    Literal
+)
 
 class DepartmentStore(Store):
     """
 A department store.
     """
-    class_: Literal['https://schema.org/DepartmentStore'] = Field(default='https://schema.org/DepartmentStore', alias='@type', serialization_alias='@type') # type: ignore
+    class_: Literal['https://schema.org/DepartmentStore'] = Field( # type: ignore
+        default='https://schema.org/DepartmentStore',
+        alias='@type',
+        serialization_alias='@type'
+    )

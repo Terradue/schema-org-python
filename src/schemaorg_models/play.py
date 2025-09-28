@@ -1,10 +1,23 @@
-from typing import Literal
-from pydantic import Field
-from schemaorg_models.creative_work import CreativeWork
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.creative_work import CreativeWork
+
+from pydantic import (
+    Field
+)
+from typing import (
+    Literal
+)
 
 class Play(CreativeWork):
     """
 A play is a form of literature, usually consisting of dialogue between characters, intended for theatrical performance rather than just reading. Note: A performance of a Play would be a [[TheaterEvent]] or [[BroadcastEvent]] - the *Play* being the [[workPerformed]].
     """
-    class_: Literal['https://schema.org/Play'] = Field(default='https://schema.org/Play', alias='@type', serialization_alias='@type') # type: ignore
+    class_: Literal['https://schema.org/Play'] = Field( # type: ignore
+        default='https://schema.org/Play',
+        alias='@type',
+        serialization_alias='@type'
+    )

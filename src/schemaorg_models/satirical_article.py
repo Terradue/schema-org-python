@@ -1,10 +1,23 @@
-from typing import Literal
-from pydantic import Field
-from schemaorg_models.article import Article
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.article import Article
+
+from pydantic import (
+    Field
+)
+from typing import (
+    Literal
+)
 
 class SatiricalArticle(Article):
     """
 An [[Article]] whose content is primarily [[satirical]](https://en.wikipedia.org/wiki/Satire) in nature, i.e. unlikely to be literally true. A satirical article is sometimes but not necessarily also a [[NewsArticle]]. [[ScholarlyArticle]]s are also sometimes satirized.
     """
-    class_: Literal['https://schema.org/SatiricalArticle'] = Field(default='https://schema.org/SatiricalArticle', alias='@type', serialization_alias='@type') # type: ignore
+    class_: Literal['https://schema.org/SatiricalArticle'] = Field( # type: ignore
+        default='https://schema.org/SatiricalArticle',
+        alias='@type',
+        serialization_alias='@type'
+    )

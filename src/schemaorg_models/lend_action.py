@@ -1,7 +1,20 @@
-from typing import List, Literal, Optional, Union
-from pydantic import AliasChoices, Field
-from schemaorg_models.transfer_action import TransferAction
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.transfer_action import TransferAction
+
+from pydantic import (
+    AliasChoices,
+    Field
+)
+from typing import (
+    List,
+    Literal,
+    Optional,
+    Union
+)
 from schemaorg_models.person import Person
 
 class LendAction(TransferAction):
@@ -12,5 +25,16 @@ Related actions:\
 \
 * [[BorrowAction]]: Reciprocal of LendAction.
     """
-    class_: Literal['https://schema.org/LendAction'] = Field(default='https://schema.org/LendAction', alias='@type', serialization_alias='@type') # type: ignore
-    borrower: Optional[Union[Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('borrower', 'https://schema.org/borrower'), serialization_alias='https://schema.org/borrower')
+    class_: Literal['https://schema.org/LendAction'] = Field( # type: ignore
+        default='https://schema.org/LendAction',
+        alias='@type',
+        serialization_alias='@type'
+    )
+    borrower: Optional[Union[Person, List[Person]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'borrower',
+            'https://schema.org/borrower'
+        ),
+        serialization_alias='https://schema.org/borrower'
+    )

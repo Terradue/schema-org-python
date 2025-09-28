@@ -1,7 +1,16 @@
-from typing import Literal
-from pydantic import Field
-from schemaorg_models.lodging_business import LodgingBusiness
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.lodging_business import LodgingBusiness
+
+from pydantic import (
+    Field
+)
+from typing import (
+    Literal
+)
 
 class Campground(LodgingBusiness):
     """
@@ -15,4 +24,8 @@ In British English a campsite is an area, usually divided into a number of pitch
 See also the dedicated [document on the use of schema.org for marking up hotels and other forms of accommodations](/docs/hotels.html).
 
     """
-    class_: Literal['https://schema.org/Campground'] = Field(default='https://schema.org/Campground', alias='@type', serialization_alias='@type') # type: ignore
+    class_: Literal['https://schema.org/Campground'] = Field( # type: ignore
+        default='https://schema.org/Campground',
+        alias='@type',
+        serialization_alias='@type'
+    )

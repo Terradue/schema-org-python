@@ -1,12 +1,36 @@
-from typing import List, Literal, Optional, Union
-from pydantic import AliasChoices, Field
-from schemaorg_models.choose_action import ChooseAction
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.choose_action import ChooseAction
+
+from pydantic import (
+    AliasChoices,
+    Field
+)
+from typing import (
+    List,
+    Literal,
+    Optional,
+    Union
+)
 from schemaorg_models.person import Person
 
 class VoteAction(ChooseAction):
     """
 The act of expressing a preference from a fixed/finite/structured set of choices/options.
     """
-    class_: Literal['https://schema.org/VoteAction'] = Field(default='https://schema.org/VoteAction', alias='@type', serialization_alias='@type') # type: ignore
-    candidate: Optional[Union[Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('candidate', 'https://schema.org/candidate'), serialization_alias='https://schema.org/candidate')
+    class_: Literal['https://schema.org/VoteAction'] = Field( # type: ignore
+        default='https://schema.org/VoteAction',
+        alias='@type',
+        serialization_alias='@type'
+    )
+    candidate: Optional[Union[Person, List[Person]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'candidate',
+            'https://schema.org/candidate'
+        ),
+        serialization_alias='https://schema.org/candidate'
+    )

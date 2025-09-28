@@ -1,7 +1,16 @@
-from typing import Literal
-from pydantic import Field
-from schemaorg_models.organization import Organization
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.organization import Organization
+
+from pydantic import (
+    Field
+)
+from typing import (
+    Literal
+)
 
 class FundingScheme(Organization):
     """
@@ -9,4 +18,8 @@ A FundingScheme combines organizational, project and policy aspects of grant-bas
     that sets guidelines, principles and mechanisms to support other kinds of projects and activities.
     Funding is typically organized via [[Grant]] funding. Examples of funding schemes: Swiss Priority Programmes (SPPs); EU Framework 7 (FP7); Horizon 2020; the NIH-R01 Grant Program; Wellcome institutional strategic support fund. For large scale public sector funding, the management and administration of grant awards is often handled by other, dedicated, organizations - [[FundingAgency]]s such as ERC, REA, ...
     """
-    class_: Literal['https://schema.org/FundingScheme'] = Field(default='https://schema.org/FundingScheme', alias='@type', serialization_alias='@type') # type: ignore
+    class_: Literal['https://schema.org/FundingScheme'] = Field( # type: ignore
+        default='https://schema.org/FundingScheme',
+        alias='@type',
+        serialization_alias='@type'
+    )

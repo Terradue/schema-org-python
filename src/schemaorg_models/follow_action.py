@@ -1,7 +1,20 @@
-from typing import List, Literal, Optional, Union
-from pydantic import AliasChoices, Field
-from schemaorg_models.interact_action import InteractAction
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.interact_action import InteractAction
+
+from pydantic import (
+    AliasChoices,
+    Field
+)
+from typing import (
+    List,
+    Literal,
+    Optional,
+    Union
+)
 from schemaorg_models.person import Person
 from schemaorg_models.organization import Organization
 
@@ -17,5 +30,16 @@ Related actions:\
 * [[JoinAction]]: Unlike JoinAction, FollowAction implies that the agent is interested in getting updates from the object.\
 * [[TrackAction]]: Unlike TrackAction, FollowAction refers to the polling of updates of all aspects of animate objects rather than the location of inanimate objects (e.g. you track a package, but you don't follow it).
     """
-    class_: Literal['https://schema.org/FollowAction'] = Field(default='https://schema.org/FollowAction', alias='@type', serialization_alias='@type') # type: ignore
-    followee: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(default=None, validation_alias=AliasChoices('followee', 'https://schema.org/followee'), serialization_alias='https://schema.org/followee')
+    class_: Literal['https://schema.org/FollowAction'] = Field( # type: ignore
+        default='https://schema.org/FollowAction',
+        alias='@type',
+        serialization_alias='@type'
+    )
+    followee: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'followee',
+            'https://schema.org/followee'
+        ),
+        serialization_alias='https://schema.org/followee'
+    )

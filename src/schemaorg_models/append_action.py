@@ -1,10 +1,23 @@
-from typing import Literal
-from pydantic import Field
-from schemaorg_models.insert_action import InsertAction
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.insert_action import InsertAction
+
+from pydantic import (
+    Field
+)
+from typing import (
+    Literal
+)
 
 class AppendAction(InsertAction):
     """
 The act of inserting at the end if an ordered collection.
     """
-    class_: Literal['https://schema.org/AppendAction'] = Field(default='https://schema.org/AppendAction', alias='@type', serialization_alias='@type') # type: ignore
+    class_: Literal['https://schema.org/AppendAction'] = Field( # type: ignore
+        default='https://schema.org/AppendAction',
+        alias='@type',
+        serialization_alias='@type'
+    )

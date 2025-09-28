@@ -1,7 +1,16 @@
-from typing import Literal
-from pydantic import Field
-from schemaorg_models.local_business import LocalBusiness
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.local_business import LocalBusiness
+
+from pydantic import (
+    Field
+)
+from typing import (
+    Literal
+)
 
 class ProfessionalService(LocalBusiness):
     """
@@ -11,4 +20,8 @@ The general [[ProfessionalService]] type for local businesses was deprecated due
         [[AccountingService]], [[Attorney]], [[Notary]], as well as types for several kinds of [[HomeAndConstructionBusiness]]: [[Electrician]], [[GeneralContractor]],
         [[HousePainter]], [[Locksmith]], [[Plumber]], [[RoofingContractor]]. [[LegalService]] was introduced as a more inclusive supertype of [[Attorney]].
     """
-    class_: Literal['https://schema.org/ProfessionalService'] = Field(default='https://schema.org/ProfessionalService', alias='@type', serialization_alias='@type') # type: ignore
+    class_: Literal['https://schema.org/ProfessionalService'] = Field( # type: ignore
+        default='https://schema.org/ProfessionalService',
+        alias='@type',
+        serialization_alias='@type'
+    )

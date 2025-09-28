@@ -100,21 +100,28 @@ def generate_models(graph: Graph):
 
     # Write init file
     with open("src/schemaorg_models/__init__.py", "w") as f:
-        f.write("from typing import Union, List, Optional\n")
-        f.write("from datetime import date, datetime, time\n")
-        f.write("from pydantic import field_validator, AliasChoices, ConfigDict, Field, HttpUrl\n\n")
+        nl = '\n'
+        cnl = ',\n    '
+        f.write(f"""from __future__ import annotations
+import importlib
+from typing import TYPE_CHECKING
 
-        for class_name in ts_sorted:
-            if class_name is not None:
-                class_filename = camel_to_snake(class_name)
-                f.write(f"from schemaorg_models.{class_filename} import {class_name}\n")
+__all__ = [
+    {cnl.join(repr(class_name) for class_name in ts_sorted)}
+]
 
-        f.write("\n\n")
+_lazy_map = {{
+{nl.join(f"    {class_name!r}: '.{camel_to_snake(class_name)}'" for class_name in ts_sorted)}
+}}
 
-        for class_name in ts_sorted:
-            if class_name is not None:
-                f.write(f"{class_name}.model_rebuild()\n")
+def __getattr__(name): 
+    mod = importlib.import_module(_lazy_map[name], __name__)
+    return getattr(mod, name)
 
+if TYPE_CHECKING:
+    for _n, _m in _lazy_map.items():
+        globals()[_n] = getattr(importlib.import_module(_m, __name__), _n)
+        """)
     # Second pass: collect properties
     for class_name, class_info in classes.items():
         class_uri = SCHEMA[class_name]
@@ -142,21 +149,41 @@ def generate_models(graph: Graph):
     for class_name, class_info in classes.items():
         filename = f"src/schemaorg_models/{camel_to_snake(class_name)}.py"
         with open(filename, "w") as f:
-            # Imports
-            f.write("from typing import List, Literal, Optional, Union\n")
-            f.write("from datetime import date, datetime, time\n")
-            f.write(
-                "from pydantic import field_serializer, field_validator, AliasChoices, ConfigDict, Field, HttpUrl\n"
-            )
+            f.write("from __future__ import annotations\n")
 
             # Import parent class if exists
             if class_info["parent"]:
                 parent = camel_to_snake(class_info["parent"])
-                f.write(
-                    f"from schemaorg_models.{parent} import {class_info['parent']}\n\n"
-                )
-            else:
-                f.write("\n")
+                f.write(f"""
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.{parent} import {class_info['parent']}
+
+""")
+
+            # Imports
+            f.write("""from datetime import (
+    date,
+    datetime,
+    time
+)
+from pydantic import (
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
+)
+from typing import (
+    List,
+    Literal,
+    Optional,
+    Union
+)
+""")
 
             # Import other classes
             other_classes = {}
@@ -167,7 +194,7 @@ def generate_models(graph: Graph):
 
             for prop_type, forward_def in other_classes.items():
                 other_snake = camel_to_snake(prop_type)
-                if not forward_def:
+                if not forward_def and prop_type != class_info.get('parent', None):
                     f.write(f"from schemaorg_models.{other_snake} import {prop_type}\n")
             f.write("\n")
 
@@ -175,18 +202,31 @@ def generate_models(graph: Graph):
             if class_info["parent"]:
                 f.write(f"class {class_name}({class_info['parent']}):\n")
             else:
-                if class_name == "Thing":
-                    f.write("from pydantic import BaseModel\n")
+                #if class_name == "Thing":
+                #    f.write("from pydantic import BaseModel\n")
                 f.write(f"class {class_name}(BaseModel):\n")
+
             docstring = class_info.get("docstring", None)
             if docstring is not None:
                 f.write(f'    """\n{docstring}\n    """\n')
 
+            if not class_info["parent"]:
+                f.write("""    # global serializer for HttpUrl
+    @field_serializer(HttpUrl, mode="plain")
+    def serialize_httpurl(self, value: HttpUrl) -> str:
+        return str(value)
+
+""")
+
             # f.write("    model_config = ConfigDict(arbitrary_types_allowed=True)\n\n")
 
             # type class
-            f.write(f"    class_: Literal['https://schema.org/{class_name}'] = Field(default='https://schema.org/{class_name}', alias='@type', serialization_alias='@type') # type: ignore\n")
-
+            f.write(f"""    class_: Literal['https://schema.org/{class_name}'] = Field( # type: ignore
+        default='https://schema.org/{class_name}',
+        alias='@type',
+        serialization_alias='@type'
+    )
+""")
             # Properties
             if not class_info["properties"]:
                 f.write("    pass\n")
@@ -206,26 +246,15 @@ def generate_models(graph: Graph):
 
                 variable_name = f"{prop_name}_" if prop_name[0].isdigit() or prop_name.lower() in kwlist else prop_name
                 	
-                f.write(f"    {variable_name}: Optional[Union[{prop_types}]] = Field(default=None, validation_alias=AliasChoices('{prop_name}', 'https://schema.org/{prop_name}'), serialization_alias='https://schema.org/{prop_name}')\n")
-                
-                if 'HttpUrl' in prop_type_list:
-                    f.write(f"    @field_serializer('{variable_name}')\n")
-                    f.write(f"    def {variable_name}2str(self, val) -> str | List[str]:\n")
-                    f.write('        def _to_str(value):\n')
-                    f.write('            if isinstance(value, HttpUrl):\n')
-                    f.write('                return str(value)\n')
-                    f.write('            return value\n\n')
-                    f.write('        if isinstance(val, list):\n')
-                    f.write('            return [_to_str(i) for i in val]\n')
-                    f.write('        return _to_str(val)\n\n')
-
-    for s in BASE_TYPES_STR:
-        class_name = safe_name(s.split("/")[-1])
-        filename = f"src/schemaorg_models/{camel_to_snake(class_name)}.py"
-        with open(filename, "w") as f:
-            f.write("from pydantic import BaseModel\n\n")
-            f.write(f"class {class_name}(BaseModel):\n")
-            f.write("    pass\n")
+                f.write(f"""    {variable_name}: Optional[Union[{prop_types}]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            '{prop_name}',
+            'https://schema.org/{prop_name}'
+        ),
+        serialization_alias='https://schema.org/{prop_name}'
+    )
+""")
     return classes
 
 def main():

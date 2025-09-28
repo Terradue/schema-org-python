@@ -1,7 +1,16 @@
-from typing import Literal
-from pydantic import Field
-from schemaorg_models.lodging_business import LodgingBusiness
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.lodging_business import LodgingBusiness
+
+from pydantic import (
+    Field
+)
+from typing import (
+    Literal
+)
 
 class Hotel(LodgingBusiness):
     """
@@ -10,4 +19,8 @@ A hotel is an establishment that provides lodging paid on a short-term basis (so
 See also the <a href="/docs/hotels.html">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>.
 
     """
-    class_: Literal['https://schema.org/Hotel'] = Field(default='https://schema.org/Hotel', alias='@type', serialization_alias='@type') # type: ignore
+    class_: Literal['https://schema.org/Hotel'] = Field( # type: ignore
+        default='https://schema.org/Hotel',
+        alias='@type',
+        serialization_alias='@type'
+    )

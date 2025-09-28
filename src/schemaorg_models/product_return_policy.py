@@ -1,23 +1,44 @@
-from typing import List, Literal, Optional, Union
-from pydantic import field_serializer, AliasChoices, Field, HttpUrl
-from schemaorg_models.intangible import Intangible
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.intangible import Intangible
+
+from pydantic import (
+    AliasChoices,
+    Field,
+    HttpUrl
+)
+from typing import (
+    List,
+    Literal,
+    Optional,
+    Union
+)
 
 class ProductReturnPolicy(Intangible):
     """
 A ProductReturnPolicy provides information about product return policies associated with an [[Organization]] or [[Product]].
     """
-    class_: Literal['https://schema.org/ProductReturnPolicy'] = Field(default='https://schema.org/ProductReturnPolicy', alias='@type', serialization_alias='@type') # type: ignore
-    productReturnDays: Optional[Union[int, List[int]]] = Field(default=None, validation_alias=AliasChoices('productReturnDays', 'https://schema.org/productReturnDays'), serialization_alias='https://schema.org/productReturnDays')
-    productReturnLink: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(default=None, validation_alias=AliasChoices('productReturnLink', 'https://schema.org/productReturnLink'), serialization_alias='https://schema.org/productReturnLink')
-    @field_serializer('productReturnLink')
-    def productReturnLink2str(self, val) -> str | List[str]:
-        def _to_str(value):
-            if isinstance(value, HttpUrl):
-                return str(value)
-            return value
-
-        if isinstance(val, list):
-            return [_to_str(i) for i in val]
-        return _to_str(val)
-
+    class_: Literal['https://schema.org/ProductReturnPolicy'] = Field( # type: ignore
+        default='https://schema.org/ProductReturnPolicy',
+        alias='@type',
+        serialization_alias='@type'
+    )
+    productReturnDays: Optional[Union[int, List[int]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'productReturnDays',
+            'https://schema.org/productReturnDays'
+        ),
+        serialization_alias='https://schema.org/productReturnDays'
+    )
+    productReturnLink: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'productReturnLink',
+            'https://schema.org/productReturnLink'
+        ),
+        serialization_alias='https://schema.org/productReturnLink'
+    )

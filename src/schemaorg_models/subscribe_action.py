@@ -1,7 +1,16 @@
-from typing import Literal
-from pydantic import Field
-from schemaorg_models.interact_action import InteractAction
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.interact_action import InteractAction
+
+from pydantic import (
+    Field
+)
+from typing import (
+    Literal
+)
 
 class SubscribeAction(InteractAction):
     """
@@ -13,4 +22,8 @@ Related actions:\
 * [[RegisterAction]]: Unlike RegisterAction, SubscribeAction implies that the agent is interested in continuing receiving updates from the object.\
 * [[JoinAction]]: Unlike JoinAction, SubscribeAction implies that the agent is interested in continuing receiving updates from the object.
     """
-    class_: Literal['https://schema.org/SubscribeAction'] = Field(default='https://schema.org/SubscribeAction', alias='@type', serialization_alias='@type') # type: ignore
+    class_: Literal['https://schema.org/SubscribeAction'] = Field( # type: ignore
+        default='https://schema.org/SubscribeAction',
+        alias='@type',
+        serialization_alias='@type'
+    )

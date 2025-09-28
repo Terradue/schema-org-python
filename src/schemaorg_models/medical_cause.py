@@ -1,12 +1,35 @@
-from typing import List, Literal, Optional, Union
-from pydantic import AliasChoices, Field
-from schemaorg_models.medical_entity import MedicalEntity
+from __future__ import annotations
 
-from schemaorg_models.medical_entity import MedicalEntity
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.medical_entity import MedicalEntity
+
+from pydantic import (
+    AliasChoices,
+    Field
+)
+from typing import (
+    List,
+    Literal,
+    Optional,
+    Union
+)
 
 class MedicalCause(MedicalEntity):
     """
 The causative agent(s) that are responsible for the pathophysiologic process that eventually results in a medical condition, symptom or sign. In this schema, unless otherwise specified this is meant to be the proximate cause of the medical condition, symptom or sign. The proximate cause is defined as the causative agent that most directly results in the medical condition, symptom or sign. For example, the HIV virus could be considered a cause of AIDS. Or in a diagnostic context, if a patient fell and sustained a hip fracture and two days later sustained a pulmonary embolism which eventuated in a cardiac arrest, the cause of the cardiac arrest (the proximate cause) would be the pulmonary embolism and not the fall. Medical causes can include cardiovascular, chemical, dermatologic, endocrine, environmental, gastroenterologic, genetic, hematologic, gynecologic, iatrogenic, infectious, musculoskeletal, neurologic, nutritional, obstetric, oncologic, otolaryngologic, pharmacologic, psychiatric, pulmonary, renal, rheumatologic, toxic, traumatic, or urologic causes; medical conditions can be causes as well.
     """
-    class_: Literal['https://schema.org/MedicalCause'] = Field(default='https://schema.org/MedicalCause', alias='@type', serialization_alias='@type') # type: ignore
-    causeOf: Optional[Union[MedicalEntity, List[MedicalEntity]]] = Field(default=None, validation_alias=AliasChoices('causeOf', 'https://schema.org/causeOf'), serialization_alias='https://schema.org/causeOf')
+    class_: Literal['https://schema.org/MedicalCause'] = Field( # type: ignore
+        default='https://schema.org/MedicalCause',
+        alias='@type',
+        serialization_alias='@type'
+    )
+    causeOf: Optional[Union[MedicalEntity, List[MedicalEntity]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'causeOf',
+            'https://schema.org/causeOf'
+        ),
+        serialization_alias='https://schema.org/causeOf'
+    )

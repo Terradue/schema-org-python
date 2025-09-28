@@ -1,8 +1,24 @@
-from typing import List, Literal, Optional, Union
-from datetime import date, datetime
-from pydantic import AliasChoices, Field
-from schemaorg_models.creative_work import CreativeWork
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.creative_work import CreativeWork
+
+from datetime import (
+    date,
+    datetime
+)
+from pydantic import (
+    AliasChoices,
+    Field
+)
+from typing import (
+    List,
+    Literal,
+    Optional,
+    Union
+)
 
 class CreativeWorkSeries(CreativeWork):
     """
@@ -13,7 +29,32 @@ Specific subtypes are available for describing [[TVSeries]], [[RadioSeries]], [[
 It is common for properties applicable to an item from the series to be usefully applied to the containing group. Schema.org attempts to anticipate some of these cases, but publishers should be free to apply properties of the series parts to the series as a whole wherever they seem appropriate.
     
     """
-    class_: Literal['https://schema.org/CreativeWorkSeries'] = Field(default='https://schema.org/CreativeWorkSeries', alias='@type', serialization_alias='@type') # type: ignore
-    endDate: Optional[Union[datetime, List[datetime], date, List[date]]] = Field(default=None, validation_alias=AliasChoices('endDate', 'https://schema.org/endDate'), serialization_alias='https://schema.org/endDate')
-    startDate: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(default=None, validation_alias=AliasChoices('startDate', 'https://schema.org/startDate'), serialization_alias='https://schema.org/startDate')
-    issn: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('issn', 'https://schema.org/issn'), serialization_alias='https://schema.org/issn')
+    class_: Literal['https://schema.org/CreativeWorkSeries'] = Field( # type: ignore
+        default='https://schema.org/CreativeWorkSeries',
+        alias='@type',
+        serialization_alias='@type'
+    )
+    endDate: Optional[Union[datetime, List[datetime], date, List[date]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'endDate',
+            'https://schema.org/endDate'
+        ),
+        serialization_alias='https://schema.org/endDate'
+    )
+    startDate: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'startDate',
+            'https://schema.org/startDate'
+        ),
+        serialization_alias='https://schema.org/startDate'
+    )
+    issn: Optional[Union[str, List[str]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'issn',
+            'https://schema.org/issn'
+        ),
+        serialization_alias='https://schema.org/issn'
+    )

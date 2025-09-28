@@ -1,14 +1,59 @@
-from typing import List, Literal, Optional, Union
-from pydantic import AliasChoices, Field
-from schemaorg_models.text import Text
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.text import Text
+
+from pydantic import (
+    AliasChoices,
+    Field
+)
+from typing import (
+    List,
+    Literal,
+    Optional,
+    Union
+)
 
 class PronounceableText(Text):
     """
 Data type: PronounceableText.
     """
-    class_: Literal['https://schema.org/PronounceableText'] = Field(default='https://schema.org/PronounceableText', alias='@type', serialization_alias='@type') # type: ignore
-    speechToTextMarkup: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('speechToTextMarkup', 'https://schema.org/speechToTextMarkup'), serialization_alias='https://schema.org/speechToTextMarkup')
-    inLanguage: Optional[Union[str, List[str], "Language", List["Language"]]] = Field(default=None, validation_alias=AliasChoices('inLanguage', 'https://schema.org/inLanguage'), serialization_alias='https://schema.org/inLanguage')
-    phoneticText: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('phoneticText', 'https://schema.org/phoneticText'), serialization_alias='https://schema.org/phoneticText')
-    textValue: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('textValue', 'https://schema.org/textValue'), serialization_alias='https://schema.org/textValue')
+    class_: Literal['https://schema.org/PronounceableText'] = Field( # type: ignore
+        default='https://schema.org/PronounceableText',
+        alias='@type',
+        serialization_alias='@type'
+    )
+    speechToTextMarkup: Optional[Union[str, List[str]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'speechToTextMarkup',
+            'https://schema.org/speechToTextMarkup'
+        ),
+        serialization_alias='https://schema.org/speechToTextMarkup'
+    )
+    inLanguage: Optional[Union[str, List[str], "Language", List["Language"]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'inLanguage',
+            'https://schema.org/inLanguage'
+        ),
+        serialization_alias='https://schema.org/inLanguage'
+    )
+    phoneticText: Optional[Union[str, List[str]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'phoneticText',
+            'https://schema.org/phoneticText'
+        ),
+        serialization_alias='https://schema.org/phoneticText'
+    )
+    textValue: Optional[Union[str, List[str]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'textValue',
+            'https://schema.org/textValue'
+        ),
+        serialization_alias='https://schema.org/textValue'
+    )

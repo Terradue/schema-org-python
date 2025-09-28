@@ -1,21 +1,93 @@
-from typing import List, Literal, Optional, Union
-from pydantic import AliasChoices, Field
-from schemaorg_models.enumeration import Enumeration
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.enumeration import Enumeration
+
+from pydantic import (
+    AliasChoices,
+    Field
+)
+from typing import (
+    List,
+    Literal,
+    Optional,
+    Union
+)
 from schemaorg_models.defined_term import DefinedTerm
-from schemaorg_models.enumeration import Enumeration
 from schemaorg_models.structured_value import StructuredValue
 
 class QualitativeValue(Enumeration):
     """
 A predefined value for a product characteristic, e.g. the power cord plug type 'US' or the garment sizes 'S', 'M', 'L', and 'XL'.
     """
-    class_: Literal['https://schema.org/QualitativeValue'] = Field(default='https://schema.org/QualitativeValue', alias='@type', serialization_alias='@type') # type: ignore
-    greaterOrEqual: Optional[Union["QualitativeValue", List["QualitativeValue"]]] = Field(default=None, validation_alias=AliasChoices('greaterOrEqual', 'https://schema.org/greaterOrEqual'), serialization_alias='https://schema.org/greaterOrEqual')
-    equal: Optional[Union["QualitativeValue", List["QualitativeValue"]]] = Field(default=None, validation_alias=AliasChoices('equal', 'https://schema.org/equal'), serialization_alias='https://schema.org/equal')
-    lesserOrEqual: Optional[Union["QualitativeValue", List["QualitativeValue"]]] = Field(default=None, validation_alias=AliasChoices('lesserOrEqual', 'https://schema.org/lesserOrEqual'), serialization_alias='https://schema.org/lesserOrEqual')
-    greater: Optional[Union["QualitativeValue", List["QualitativeValue"]]] = Field(default=None, validation_alias=AliasChoices('greater', 'https://schema.org/greater'), serialization_alias='https://schema.org/greater')
-    lesser: Optional[Union["QualitativeValue", List["QualitativeValue"]]] = Field(default=None, validation_alias=AliasChoices('lesser', 'https://schema.org/lesser'), serialization_alias='https://schema.org/lesser')
-    additionalProperty: Optional[Union["PropertyValue", List["PropertyValue"]]] = Field(default=None, validation_alias=AliasChoices('additionalProperty', 'https://schema.org/additionalProperty'), serialization_alias='https://schema.org/additionalProperty')
-    valueReference: Optional[Union[DefinedTerm, List[DefinedTerm], "MeasurementTypeEnumeration", List["MeasurementTypeEnumeration"], str, List[str], Enumeration, List[Enumeration], "QualitativeValue", List["QualitativeValue"], "QuantitativeValue", List["QuantitativeValue"], "PropertyValue", List["PropertyValue"], StructuredValue, List[StructuredValue]]] = Field(default=None, validation_alias=AliasChoices('valueReference', 'https://schema.org/valueReference'), serialization_alias='https://schema.org/valueReference')
-    nonEqual: Optional[Union["QualitativeValue", List["QualitativeValue"]]] = Field(default=None, validation_alias=AliasChoices('nonEqual', 'https://schema.org/nonEqual'), serialization_alias='https://schema.org/nonEqual')
+    class_: Literal['https://schema.org/QualitativeValue'] = Field( # type: ignore
+        default='https://schema.org/QualitativeValue',
+        alias='@type',
+        serialization_alias='@type'
+    )
+    greaterOrEqual: Optional[Union["QualitativeValue", List["QualitativeValue"]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'greaterOrEqual',
+            'https://schema.org/greaterOrEqual'
+        ),
+        serialization_alias='https://schema.org/greaterOrEqual'
+    )
+    equal: Optional[Union["QualitativeValue", List["QualitativeValue"]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'equal',
+            'https://schema.org/equal'
+        ),
+        serialization_alias='https://schema.org/equal'
+    )
+    lesserOrEqual: Optional[Union["QualitativeValue", List["QualitativeValue"]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'lesserOrEqual',
+            'https://schema.org/lesserOrEqual'
+        ),
+        serialization_alias='https://schema.org/lesserOrEqual'
+    )
+    greater: Optional[Union["QualitativeValue", List["QualitativeValue"]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'greater',
+            'https://schema.org/greater'
+        ),
+        serialization_alias='https://schema.org/greater'
+    )
+    lesser: Optional[Union["QualitativeValue", List["QualitativeValue"]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'lesser',
+            'https://schema.org/lesser'
+        ),
+        serialization_alias='https://schema.org/lesser'
+    )
+    additionalProperty: Optional[Union["PropertyValue", List["PropertyValue"]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'additionalProperty',
+            'https://schema.org/additionalProperty'
+        ),
+        serialization_alias='https://schema.org/additionalProperty'
+    )
+    valueReference: Optional[Union[DefinedTerm, List[DefinedTerm], "MeasurementTypeEnumeration", List["MeasurementTypeEnumeration"], str, List[str], Enumeration, List[Enumeration], "QualitativeValue", List["QualitativeValue"], "QuantitativeValue", List["QuantitativeValue"], "PropertyValue", List["PropertyValue"], StructuredValue, List[StructuredValue]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'valueReference',
+            'https://schema.org/valueReference'
+        ),
+        serialization_alias='https://schema.org/valueReference'
+    )
+    nonEqual: Optional[Union["QualitativeValue", List["QualitativeValue"]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'nonEqual',
+            'https://schema.org/nonEqual'
+        ),
+        serialization_alias='https://schema.org/nonEqual'
+    )

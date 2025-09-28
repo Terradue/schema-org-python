@@ -1,7 +1,16 @@
-from typing import Literal
-from pydantic import Field
-from schemaorg_models.news_article import NewsArticle
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.news_article import NewsArticle
+
+from pydantic import (
+    Field
+)
+from typing import (
+    Literal
+)
 
 class ReportageNewsArticle(NewsArticle):
     """
@@ -15,4 +24,8 @@ The [[ReportageNewsArticle]] type is based on a stricter ideal for "news" as a w
 A [[ReportageNewsArticle]] which goes deeper into analysis can also be marked with an additional type of [[AnalysisNewsArticle]].
 
     """
-    class_: Literal['https://schema.org/ReportageNewsArticle'] = Field(default='https://schema.org/ReportageNewsArticle', alias='@type', serialization_alias='@type') # type: ignore
+    class_: Literal['https://schema.org/ReportageNewsArticle'] = Field( # type: ignore
+        default='https://schema.org/ReportageNewsArticle',
+        alias='@type',
+        serialization_alias='@type'
+    )

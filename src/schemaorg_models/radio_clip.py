@@ -1,10 +1,23 @@
-from typing import Literal
-from pydantic import Field
-from schemaorg_models.clip import Clip
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.clip import Clip
+
+from pydantic import (
+    Field
+)
+from typing import (
+    Literal
+)
 
 class RadioClip(Clip):
     """
 A short radio program or a segment/part of a radio program.
     """
-    class_: Literal['https://schema.org/RadioClip'] = Field(default='https://schema.org/RadioClip', alias='@type', serialization_alias='@type') # type: ignore
+    class_: Literal['https://schema.org/RadioClip'] = Field( # type: ignore
+        default='https://schema.org/RadioClip',
+        alias='@type',
+        serialization_alias='@type'
+    )

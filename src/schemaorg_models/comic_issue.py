@@ -1,7 +1,20 @@
-from typing import List, Literal, Optional, Union
-from pydantic import AliasChoices, Field
-from schemaorg_models.publication_issue import PublicationIssue
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.publication_issue import PublicationIssue
+
+from pydantic import (
+    AliasChoices,
+    Field
+)
+from typing import (
+    List,
+    Literal,
+    Optional,
+    Union
+)
 from schemaorg_models.person import Person
 
 class ComicIssue(PublicationIssue):
@@ -13,10 +26,56 @@ Individual comic issues are serially published as
     	series to which the issue belongs; the issue number; and the variant
     	description of the issue (if any).
     """
-    class_: Literal['https://schema.org/ComicIssue'] = Field(default='https://schema.org/ComicIssue', alias='@type', serialization_alias='@type') # type: ignore
-    variantCover: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('variantCover', 'https://schema.org/variantCover'), serialization_alias='https://schema.org/variantCover')
-    colorist: Optional[Union[Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('colorist', 'https://schema.org/colorist'), serialization_alias='https://schema.org/colorist')
-    artist: Optional[Union[Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('artist', 'https://schema.org/artist'), serialization_alias='https://schema.org/artist')
-    penciler: Optional[Union[Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('penciler', 'https://schema.org/penciler'), serialization_alias='https://schema.org/penciler')
-    inker: Optional[Union[Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('inker', 'https://schema.org/inker'), serialization_alias='https://schema.org/inker')
-    letterer: Optional[Union[Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('letterer', 'https://schema.org/letterer'), serialization_alias='https://schema.org/letterer')
+    class_: Literal['https://schema.org/ComicIssue'] = Field( # type: ignore
+        default='https://schema.org/ComicIssue',
+        alias='@type',
+        serialization_alias='@type'
+    )
+    variantCover: Optional[Union[str, List[str]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'variantCover',
+            'https://schema.org/variantCover'
+        ),
+        serialization_alias='https://schema.org/variantCover'
+    )
+    colorist: Optional[Union[Person, List[Person]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'colorist',
+            'https://schema.org/colorist'
+        ),
+        serialization_alias='https://schema.org/colorist'
+    )
+    artist: Optional[Union[Person, List[Person]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'artist',
+            'https://schema.org/artist'
+        ),
+        serialization_alias='https://schema.org/artist'
+    )
+    penciler: Optional[Union[Person, List[Person]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'penciler',
+            'https://schema.org/penciler'
+        ),
+        serialization_alias='https://schema.org/penciler'
+    )
+    inker: Optional[Union[Person, List[Person]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'inker',
+            'https://schema.org/inker'
+        ),
+        serialization_alias='https://schema.org/inker'
+    )
+    letterer: Optional[Union[Person, List[Person]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'letterer',
+            'https://schema.org/letterer'
+        ),
+        serialization_alias='https://schema.org/letterer'
+    )

@@ -1,7 +1,20 @@
-from typing import List, Literal, Optional, Union
-from pydantic import AliasChoices, Field
-from schemaorg_models.trip import Trip
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.trip import Trip
+
+from pydantic import (
+    AliasChoices,
+    Field
+)
+from typing import (
+    List,
+    Literal,
+    Optional,
+    Union
+)
 from schemaorg_models.audience import Audience
 
 class TouristTrip(Trip):
@@ -9,5 +22,16 @@ class TouristTrip(Trip):
 A tourist trip. A created itinerary of visits to one or more places of interest ([[TouristAttraction]]/[[TouristDestination]]) often linked by a similar theme, geographic area, or interest to a particular [[touristType]]. The [UNWTO](http://www2.unwto.org/) defines tourism trip as the Trip taken by visitors.
   (See examples below.)
     """
-    class_: Literal['https://schema.org/TouristTrip'] = Field(default='https://schema.org/TouristTrip', alias='@type', serialization_alias='@type') # type: ignore
-    touristType: Optional[Union[Audience, List[Audience], str, List[str]]] = Field(default=None, validation_alias=AliasChoices('touristType', 'https://schema.org/touristType'), serialization_alias='https://schema.org/touristType')
+    class_: Literal['https://schema.org/TouristTrip'] = Field( # type: ignore
+        default='https://schema.org/TouristTrip',
+        alias='@type',
+        serialization_alias='@type'
+    )
+    touristType: Optional[Union[Audience, List[Audience], str, List[str]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'touristType',
+            'https://schema.org/touristType'
+        ),
+        serialization_alias='https://schema.org/touristType'
+    )

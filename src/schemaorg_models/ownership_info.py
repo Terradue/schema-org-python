@@ -1,8 +1,23 @@
-from typing import List, Literal, Optional, Union
-from datetime import datetime
-from pydantic import AliasChoices, Field
-from schemaorg_models.structured_value import StructuredValue
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.structured_value import StructuredValue
+
+from datetime import (
+    datetime
+)
+from pydantic import (
+    AliasChoices,
+    Field
+)
+from typing import (
+    List,
+    Literal,
+    Optional,
+    Union
+)
 from schemaorg_models.organization import Organization
 from schemaorg_models.person import Person
 from schemaorg_models.product import Product
@@ -12,8 +27,40 @@ class OwnershipInfo(StructuredValue):
     """
 A structured value providing information about when a certain organization or person owned a certain product.
     """
-    class_: Literal['https://schema.org/OwnershipInfo'] = Field(default='https://schema.org/OwnershipInfo', alias='@type', serialization_alias='@type') # type: ignore
-    ownedFrom: Optional[Union[datetime, List[datetime]]] = Field(default=None, validation_alias=AliasChoices('ownedFrom', 'https://schema.org/ownedFrom'), serialization_alias='https://schema.org/ownedFrom')
-    acquiredFrom: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('acquiredFrom', 'https://schema.org/acquiredFrom'), serialization_alias='https://schema.org/acquiredFrom')
-    typeOfGood: Optional[Union[Product, List[Product], Service, List[Service]]] = Field(default=None, validation_alias=AliasChoices('typeOfGood', 'https://schema.org/typeOfGood'), serialization_alias='https://schema.org/typeOfGood')
-    ownedThrough: Optional[Union[datetime, List[datetime]]] = Field(default=None, validation_alias=AliasChoices('ownedThrough', 'https://schema.org/ownedThrough'), serialization_alias='https://schema.org/ownedThrough')
+    class_: Literal['https://schema.org/OwnershipInfo'] = Field( # type: ignore
+        default='https://schema.org/OwnershipInfo',
+        alias='@type',
+        serialization_alias='@type'
+    )
+    ownedFrom: Optional[Union[datetime, List[datetime]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'ownedFrom',
+            'https://schema.org/ownedFrom'
+        ),
+        serialization_alias='https://schema.org/ownedFrom'
+    )
+    acquiredFrom: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'acquiredFrom',
+            'https://schema.org/acquiredFrom'
+        ),
+        serialization_alias='https://schema.org/acquiredFrom'
+    )
+    typeOfGood: Optional[Union[Product, List[Product], Service, List[Service]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'typeOfGood',
+            'https://schema.org/typeOfGood'
+        ),
+        serialization_alias='https://schema.org/typeOfGood'
+    )
+    ownedThrough: Optional[Union[datetime, List[datetime]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'ownedThrough',
+            'https://schema.org/ownedThrough'
+        ),
+        serialization_alias='https://schema.org/ownedThrough'
+    )

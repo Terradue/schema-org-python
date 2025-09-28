@@ -1,12 +1,43 @@
-from typing import List, Literal, Optional, Union
-from pydantic import AliasChoices, Field
-from schemaorg_models.educational_occupational_program import EducationalOccupationalProgram
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.educational_occupational_program import EducationalOccupationalProgram
+
+from pydantic import (
+    AliasChoices,
+    Field
+)
+from typing import (
+    List,
+    Literal,
+    Optional,
+    Union
+)
 
 class WorkBasedProgram(EducationalOccupationalProgram):
     """
 A program with both an educational and employment component. Typically based at a workplace and structured around work-based learning, with the aim of instilling competencies related to an occupation. WorkBasedProgram is used to distinguish programs such as apprenticeships from school, college or other classroom based educational programs.
     """
-    class_: Literal['https://schema.org/WorkBasedProgram'] = Field(default='https://schema.org/WorkBasedProgram', alias='@type', serialization_alias='@type') # type: ignore
-    trainingSalary: Optional[Union["MonetaryAmountDistribution", List["MonetaryAmountDistribution"]]] = Field(default=None, validation_alias=AliasChoices('trainingSalary', 'https://schema.org/trainingSalary'), serialization_alias='https://schema.org/trainingSalary')
-    occupationalCategory: Optional[Union["CategoryCode", List["CategoryCode"], str, List[str]]] = Field(default=None, validation_alias=AliasChoices('occupationalCategory', 'https://schema.org/occupationalCategory'), serialization_alias='https://schema.org/occupationalCategory')
+    class_: Literal['https://schema.org/WorkBasedProgram'] = Field( # type: ignore
+        default='https://schema.org/WorkBasedProgram',
+        alias='@type',
+        serialization_alias='@type'
+    )
+    trainingSalary: Optional[Union["MonetaryAmountDistribution", List["MonetaryAmountDistribution"]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'trainingSalary',
+            'https://schema.org/trainingSalary'
+        ),
+        serialization_alias='https://schema.org/trainingSalary'
+    )
+    occupationalCategory: Optional[Union["CategoryCode", List["CategoryCode"], str, List[str]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'occupationalCategory',
+            'https://schema.org/occupationalCategory'
+        ),
+        serialization_alias='https://schema.org/occupationalCategory'
+    )

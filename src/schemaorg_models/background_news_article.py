@@ -1,10 +1,23 @@
-from typing import Literal
-from pydantic import Field
-from schemaorg_models.news_article import NewsArticle
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.news_article import NewsArticle
+
+from pydantic import (
+    Field
+)
+from typing import (
+    Literal
+)
 
 class BackgroundNewsArticle(NewsArticle):
     """
 A [[NewsArticle]] providing historical context, definition and detail on a specific topic (aka "explainer" or "backgrounder"). For example, an in-depth article or frequently-asked-questions ([FAQ](https://en.wikipedia.org/wiki/FAQ)) document on topics such as Climate Change or the European Union. Other kinds of background material from a non-news setting are often described using [[Book]] or [[Article]], in particular [[ScholarlyArticle]]. See also [[NewsArticle]] for related vocabulary from a learning/education perspective.
     """
-    class_: Literal['https://schema.org/BackgroundNewsArticle'] = Field(default='https://schema.org/BackgroundNewsArticle', alias='@type', serialization_alias='@type') # type: ignore
+    class_: Literal['https://schema.org/BackgroundNewsArticle'] = Field( # type: ignore
+        default='https://schema.org/BackgroundNewsArticle',
+        alias='@type',
+        serialization_alias='@type'
+    )

@@ -1,7 +1,20 @@
-from typing import List, Literal, Optional, Union
-from pydantic import AliasChoices, Field
-from schemaorg_models.action import Action
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.action import Action
+
+from pydantic import (
+    AliasChoices,
+    Field
+)
+from typing import (
+    List,
+    Literal,
+    Optional,
+    Union
+)
 from schemaorg_models.audience import Audience
 from schemaorg_models.event import Event
 
@@ -14,6 +27,24 @@ Related actions:\
 * [[ListenAction]]: Unlike ListenAction (which is under ConsumeAction), PlayAction refers to performing for an audience or at an event, rather than consuming music.\
 * [[WatchAction]]: Unlike WatchAction (which is under ConsumeAction), PlayAction refers to showing/displaying for an audience or at an event, rather than consuming visual content.
     """
-    class_: Literal['https://schema.org/PlayAction'] = Field(default='https://schema.org/PlayAction', alias='@type', serialization_alias='@type') # type: ignore
-    audience: Optional[Union[Audience, List[Audience]]] = Field(default=None, validation_alias=AliasChoices('audience', 'https://schema.org/audience'), serialization_alias='https://schema.org/audience')
-    event: Optional[Union[Event, List[Event]]] = Field(default=None, validation_alias=AliasChoices('event', 'https://schema.org/event'), serialization_alias='https://schema.org/event')
+    class_: Literal['https://schema.org/PlayAction'] = Field( # type: ignore
+        default='https://schema.org/PlayAction',
+        alias='@type',
+        serialization_alias='@type'
+    )
+    audience: Optional[Union[Audience, List[Audience]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'audience',
+            'https://schema.org/audience'
+        ),
+        serialization_alias='https://schema.org/audience'
+    )
+    event: Optional[Union[Event, List[Event]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'event',
+            'https://schema.org/event'
+        ),
+        serialization_alias='https://schema.org/event'
+    )

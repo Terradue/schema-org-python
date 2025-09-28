@@ -1,10 +1,23 @@
-from typing import Literal
-from pydantic import Field
-from schemaorg_models.periodical import Periodical
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.periodical import Periodical
+
+from pydantic import (
+    Field
+)
+from typing import (
+    Literal
+)
 
 class Newspaper(Periodical):
     """
 A publication containing information about varied topics that are pertinent to general information, a geographic area, or a specific subject matter (i.e. business, culture, education). Often published daily.
     """
-    class_: Literal['https://schema.org/Newspaper'] = Field(default='https://schema.org/Newspaper', alias='@type', serialization_alias='@type') # type: ignore
+    class_: Literal['https://schema.org/Newspaper'] = Field( # type: ignore
+        default='https://schema.org/Newspaper',
+        alias='@type',
+        serialization_alias='@type'
+    )

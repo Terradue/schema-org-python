@@ -1,7 +1,16 @@
-from typing import Literal
-from pydantic import Field
-from schemaorg_models.project import Project
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.project import Project
+
+from pydantic import (
+    Field
+)
+from typing import (
+    Literal
+)
 
 class FundingAgency(Project):
     """
@@ -12,4 +21,8 @@ A FundingAgency is an organization that implements one or more [[FundingScheme]]
 Examples of funding agencies include ERC, REA, NIH, Bill and Melinda Gates Foundation, ...
     
     """
-    class_: Literal['https://schema.org/FundingAgency'] = Field(default='https://schema.org/FundingAgency', alias='@type', serialization_alias='@type') # type: ignore
+    class_: Literal['https://schema.org/FundingAgency'] = Field( # type: ignore
+        default='https://schema.org/FundingAgency',
+        alias='@type',
+        serialization_alias='@type'
+    )

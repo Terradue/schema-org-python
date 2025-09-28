@@ -1,8 +1,25 @@
-from typing import List, Literal, Optional, Union
-from datetime import date, datetime
-from pydantic import field_serializer, AliasChoices, Field, HttpUrl
-from schemaorg_models.creative_work import CreativeWork
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.creative_work import CreativeWork
+
+from datetime import (
+    date,
+    datetime
+)
+from pydantic import (
+    AliasChoices,
+    Field,
+    HttpUrl
+)
+from typing import (
+    List,
+    Literal,
+    Optional,
+    Union
+)
 from schemaorg_models.web_content import WebContent
 from schemaorg_models.thing import Thing
 from schemaorg_models.observation import Observation
@@ -48,127 +65,112 @@ with the [[webFeed]] property. This can be a simple URL, or an inline [[DataFeed
 media type information, e.g. "application/rss+xml" or "application/atom+xml".
 
     """
-    class_: Literal['https://schema.org/SpecialAnnouncement'] = Field(default='https://schema.org/SpecialAnnouncement', alias='@type', serialization_alias='@type') # type: ignore
-    travelBans: Optional[Union[HttpUrl, List[HttpUrl], WebContent, List[WebContent]]] = Field(default=None, validation_alias=AliasChoices('travelBans', 'https://schema.org/travelBans'), serialization_alias='https://schema.org/travelBans')
-    @field_serializer('travelBans')
-    def travelBans2str(self, val) -> str | List[str]:
-        def _to_str(value):
-            if isinstance(value, HttpUrl):
-                return str(value)
-            return value
-
-        if isinstance(val, list):
-            return [_to_str(i) for i in val]
-        return _to_str(val)
-
-    quarantineGuidelines: Optional[Union[HttpUrl, List[HttpUrl], WebContent, List[WebContent]]] = Field(default=None, validation_alias=AliasChoices('quarantineGuidelines', 'https://schema.org/quarantineGuidelines'), serialization_alias='https://schema.org/quarantineGuidelines')
-    @field_serializer('quarantineGuidelines')
-    def quarantineGuidelines2str(self, val) -> str | List[str]:
-        def _to_str(value):
-            if isinstance(value, HttpUrl):
-                return str(value)
-            return value
-
-        if isinstance(val, list):
-            return [_to_str(i) for i in val]
-        return _to_str(val)
-
-    datePosted: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(default=None, validation_alias=AliasChoices('datePosted', 'https://schema.org/datePosted'), serialization_alias='https://schema.org/datePosted')
-    newsUpdatesAndGuidelines: Optional[Union[HttpUrl, List[HttpUrl], WebContent, List[WebContent]]] = Field(default=None, validation_alias=AliasChoices('newsUpdatesAndGuidelines', 'https://schema.org/newsUpdatesAndGuidelines'), serialization_alias='https://schema.org/newsUpdatesAndGuidelines')
-    @field_serializer('newsUpdatesAndGuidelines')
-    def newsUpdatesAndGuidelines2str(self, val) -> str | List[str]:
-        def _to_str(value):
-            if isinstance(value, HttpUrl):
-                return str(value)
-            return value
-
-        if isinstance(val, list):
-            return [_to_str(i) for i in val]
-        return _to_str(val)
-
-    publicTransportClosuresInfo: Optional[Union[HttpUrl, List[HttpUrl], WebContent, List[WebContent]]] = Field(default=None, validation_alias=AliasChoices('publicTransportClosuresInfo', 'https://schema.org/publicTransportClosuresInfo'), serialization_alias='https://schema.org/publicTransportClosuresInfo')
-    @field_serializer('publicTransportClosuresInfo')
-    def publicTransportClosuresInfo2str(self, val) -> str | List[str]:
-        def _to_str(value):
-            if isinstance(value, HttpUrl):
-                return str(value)
-            return value
-
-        if isinstance(val, list):
-            return [_to_str(i) for i in val]
-        return _to_str(val)
-
-    governmentBenefitsInfo: Optional[Union["GovernmentService", List["GovernmentService"]]] = Field(default=None, validation_alias=AliasChoices('governmentBenefitsInfo', 'https://schema.org/governmentBenefitsInfo'), serialization_alias='https://schema.org/governmentBenefitsInfo')
-    gettingTestedInfo: Optional[Union[HttpUrl, List[HttpUrl], WebContent, List[WebContent]]] = Field(default=None, validation_alias=AliasChoices('gettingTestedInfo', 'https://schema.org/gettingTestedInfo'), serialization_alias='https://schema.org/gettingTestedInfo')
-    @field_serializer('gettingTestedInfo')
-    def gettingTestedInfo2str(self, val) -> str | List[str]:
-        def _to_str(value):
-            if isinstance(value, HttpUrl):
-                return str(value)
-            return value
-
-        if isinstance(val, list):
-            return [_to_str(i) for i in val]
-        return _to_str(val)
-
-    diseasePreventionInfo: Optional[Union[HttpUrl, List[HttpUrl], WebContent, List[WebContent]]] = Field(default=None, validation_alias=AliasChoices('diseasePreventionInfo', 'https://schema.org/diseasePreventionInfo'), serialization_alias='https://schema.org/diseasePreventionInfo')
-    @field_serializer('diseasePreventionInfo')
-    def diseasePreventionInfo2str(self, val) -> str | List[str]:
-        def _to_str(value):
-            if isinstance(value, HttpUrl):
-                return str(value)
-            return value
-
-        if isinstance(val, list):
-            return [_to_str(i) for i in val]
-        return _to_str(val)
-
-    category: Optional[Union["PhysicalActivityCategory", List["PhysicalActivityCategory"], "CategoryCode", List["CategoryCode"], str, List[str], Thing, List[Thing], HttpUrl, List[HttpUrl]]] = Field(default=None, validation_alias=AliasChoices('category', 'https://schema.org/category'), serialization_alias='https://schema.org/category')
-    @field_serializer('category')
-    def category2str(self, val) -> str | List[str]:
-        def _to_str(value):
-            if isinstance(value, HttpUrl):
-                return str(value)
-            return value
-
-        if isinstance(val, list):
-            return [_to_str(i) for i in val]
-        return _to_str(val)
-
-    schoolClosuresInfo: Optional[Union[HttpUrl, List[HttpUrl], WebContent, List[WebContent]]] = Field(default=None, validation_alias=AliasChoices('schoolClosuresInfo', 'https://schema.org/schoolClosuresInfo'), serialization_alias='https://schema.org/schoolClosuresInfo')
-    @field_serializer('schoolClosuresInfo')
-    def schoolClosuresInfo2str(self, val) -> str | List[str]:
-        def _to_str(value):
-            if isinstance(value, HttpUrl):
-                return str(value)
-            return value
-
-        if isinstance(val, list):
-            return [_to_str(i) for i in val]
-        return _to_str(val)
-
-    diseaseSpreadStatistics: Optional[Union[Observation, List[Observation], HttpUrl, List[HttpUrl], "Dataset", List["Dataset"], WebContent, List[WebContent]]] = Field(default=None, validation_alias=AliasChoices('diseaseSpreadStatistics', 'https://schema.org/diseaseSpreadStatistics'), serialization_alias='https://schema.org/diseaseSpreadStatistics')
-    @field_serializer('diseaseSpreadStatistics')
-    def diseaseSpreadStatistics2str(self, val) -> str | List[str]:
-        def _to_str(value):
-            if isinstance(value, HttpUrl):
-                return str(value)
-            return value
-
-        if isinstance(val, list):
-            return [_to_str(i) for i in val]
-        return _to_str(val)
-
-    announcementLocation: Optional[Union[LocalBusiness, List[LocalBusiness], CivicStructure, List[CivicStructure]]] = Field(default=None, validation_alias=AliasChoices('announcementLocation', 'https://schema.org/announcementLocation'), serialization_alias='https://schema.org/announcementLocation')
-    webFeed: Optional[Union["DataFeed", List["DataFeed"], HttpUrl, List[HttpUrl]]] = Field(default=None, validation_alias=AliasChoices('webFeed', 'https://schema.org/webFeed'), serialization_alias='https://schema.org/webFeed')
-    @field_serializer('webFeed')
-    def webFeed2str(self, val) -> str | List[str]:
-        def _to_str(value):
-            if isinstance(value, HttpUrl):
-                return str(value)
-            return value
-
-        if isinstance(val, list):
-            return [_to_str(i) for i in val]
-        return _to_str(val)
-
+    class_: Literal['https://schema.org/SpecialAnnouncement'] = Field( # type: ignore
+        default='https://schema.org/SpecialAnnouncement',
+        alias='@type',
+        serialization_alias='@type'
+    )
+    travelBans: Optional[Union[HttpUrl, List[HttpUrl], WebContent, List[WebContent]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'travelBans',
+            'https://schema.org/travelBans'
+        ),
+        serialization_alias='https://schema.org/travelBans'
+    )
+    quarantineGuidelines: Optional[Union[HttpUrl, List[HttpUrl], WebContent, List[WebContent]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'quarantineGuidelines',
+            'https://schema.org/quarantineGuidelines'
+        ),
+        serialization_alias='https://schema.org/quarantineGuidelines'
+    )
+    datePosted: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'datePosted',
+            'https://schema.org/datePosted'
+        ),
+        serialization_alias='https://schema.org/datePosted'
+    )
+    newsUpdatesAndGuidelines: Optional[Union[HttpUrl, List[HttpUrl], WebContent, List[WebContent]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'newsUpdatesAndGuidelines',
+            'https://schema.org/newsUpdatesAndGuidelines'
+        ),
+        serialization_alias='https://schema.org/newsUpdatesAndGuidelines'
+    )
+    publicTransportClosuresInfo: Optional[Union[HttpUrl, List[HttpUrl], WebContent, List[WebContent]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'publicTransportClosuresInfo',
+            'https://schema.org/publicTransportClosuresInfo'
+        ),
+        serialization_alias='https://schema.org/publicTransportClosuresInfo'
+    )
+    governmentBenefitsInfo: Optional[Union["GovernmentService", List["GovernmentService"]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'governmentBenefitsInfo',
+            'https://schema.org/governmentBenefitsInfo'
+        ),
+        serialization_alias='https://schema.org/governmentBenefitsInfo'
+    )
+    gettingTestedInfo: Optional[Union[HttpUrl, List[HttpUrl], WebContent, List[WebContent]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'gettingTestedInfo',
+            'https://schema.org/gettingTestedInfo'
+        ),
+        serialization_alias='https://schema.org/gettingTestedInfo'
+    )
+    diseasePreventionInfo: Optional[Union[HttpUrl, List[HttpUrl], WebContent, List[WebContent]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'diseasePreventionInfo',
+            'https://schema.org/diseasePreventionInfo'
+        ),
+        serialization_alias='https://schema.org/diseasePreventionInfo'
+    )
+    category: Optional[Union["PhysicalActivityCategory", List["PhysicalActivityCategory"], "CategoryCode", List["CategoryCode"], str, List[str], Thing, List[Thing], HttpUrl, List[HttpUrl]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'category',
+            'https://schema.org/category'
+        ),
+        serialization_alias='https://schema.org/category'
+    )
+    schoolClosuresInfo: Optional[Union[HttpUrl, List[HttpUrl], WebContent, List[WebContent]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'schoolClosuresInfo',
+            'https://schema.org/schoolClosuresInfo'
+        ),
+        serialization_alias='https://schema.org/schoolClosuresInfo'
+    )
+    diseaseSpreadStatistics: Optional[Union[Observation, List[Observation], HttpUrl, List[HttpUrl], "Dataset", List["Dataset"], WebContent, List[WebContent]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'diseaseSpreadStatistics',
+            'https://schema.org/diseaseSpreadStatistics'
+        ),
+        serialization_alias='https://schema.org/diseaseSpreadStatistics'
+    )
+    announcementLocation: Optional[Union[LocalBusiness, List[LocalBusiness], CivicStructure, List[CivicStructure]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'announcementLocation',
+            'https://schema.org/announcementLocation'
+        ),
+        serialization_alias='https://schema.org/announcementLocation'
+    )
+    webFeed: Optional[Union["DataFeed", List["DataFeed"], HttpUrl, List[HttpUrl]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'webFeed',
+            'https://schema.org/webFeed'
+        ),
+        serialization_alias='https://schema.org/webFeed'
+    )

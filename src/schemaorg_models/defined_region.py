@@ -1,7 +1,20 @@
-from typing import List, Literal, Optional, Union
-from pydantic import AliasChoices, Field
-from schemaorg_models.structured_value import StructuredValue
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.structured_value import StructuredValue
+
+from pydantic import (
+    AliasChoices,
+    Field
+)
+from typing import (
+    List,
+    Literal,
+    Optional,
+    Union
+)
 from schemaorg_models.country import Country
 
 class DefinedRegion(StructuredValue):
@@ -21,9 +34,48 @@ PostalCode Set: { [94000-94585], [97000, 97999], [13000, 13599]}
 Region = state, canton, prefecture, autonomous community...
 
     """
-    class_: Literal['https://schema.org/DefinedRegion'] = Field(default='https://schema.org/DefinedRegion', alias='@type', serialization_alias='@type') # type: ignore
-    postalCodeRange: Optional[Union["PostalCodeRangeSpecification", List["PostalCodeRangeSpecification"]]] = Field(default=None, validation_alias=AliasChoices('postalCodeRange', 'https://schema.org/postalCodeRange'), serialization_alias='https://schema.org/postalCodeRange')
-    addressRegion: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('addressRegion', 'https://schema.org/addressRegion'), serialization_alias='https://schema.org/addressRegion')
-    postalCode: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('postalCode', 'https://schema.org/postalCode'), serialization_alias='https://schema.org/postalCode')
-    addressCountry: Optional[Union[str, List[str], Country, List[Country]]] = Field(default=None, validation_alias=AliasChoices('addressCountry', 'https://schema.org/addressCountry'), serialization_alias='https://schema.org/addressCountry')
-    postalCodePrefix: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('postalCodePrefix', 'https://schema.org/postalCodePrefix'), serialization_alias='https://schema.org/postalCodePrefix')
+    class_: Literal['https://schema.org/DefinedRegion'] = Field( # type: ignore
+        default='https://schema.org/DefinedRegion',
+        alias='@type',
+        serialization_alias='@type'
+    )
+    postalCodeRange: Optional[Union["PostalCodeRangeSpecification", List["PostalCodeRangeSpecification"]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'postalCodeRange',
+            'https://schema.org/postalCodeRange'
+        ),
+        serialization_alias='https://schema.org/postalCodeRange'
+    )
+    addressRegion: Optional[Union[str, List[str]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'addressRegion',
+            'https://schema.org/addressRegion'
+        ),
+        serialization_alias='https://schema.org/addressRegion'
+    )
+    postalCode: Optional[Union[str, List[str]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'postalCode',
+            'https://schema.org/postalCode'
+        ),
+        serialization_alias='https://schema.org/postalCode'
+    )
+    addressCountry: Optional[Union[str, List[str], Country, List[Country]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'addressCountry',
+            'https://schema.org/addressCountry'
+        ),
+        serialization_alias='https://schema.org/addressCountry'
+    )
+    postalCodePrefix: Optional[Union[str, List[str]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'postalCodePrefix',
+            'https://schema.org/postalCodePrefix'
+        ),
+        serialization_alias='https://schema.org/postalCodePrefix'
+    )

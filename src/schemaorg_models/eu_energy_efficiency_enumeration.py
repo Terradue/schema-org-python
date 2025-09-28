@@ -1,10 +1,23 @@
-from typing import Literal
-from pydantic import Field
-from schemaorg_models.energy_efficiency_enumeration import EnergyEfficiencyEnumeration
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.energy_efficiency_enumeration import EnergyEfficiencyEnumeration
+
+from pydantic import (
+    Field
+)
+from typing import (
+    Literal
+)
 
 class EUEnergyEfficiencyEnumeration(EnergyEfficiencyEnumeration):
     """
 Enumerates the EU energy efficiency classes A-G as well as A+, A++, and A+++ as defined in EU directive 2017/1369.
     """
-    class_: Literal['https://schema.org/EUEnergyEfficiencyEnumeration'] = Field(default='https://schema.org/EUEnergyEfficiencyEnumeration', alias='@type', serialization_alias='@type') # type: ignore
+    class_: Literal['https://schema.org/EUEnergyEfficiencyEnumeration'] = Field( # type: ignore
+        default='https://schema.org/EUEnergyEfficiencyEnumeration',
+        alias='@type',
+        serialization_alias='@type'
+    )

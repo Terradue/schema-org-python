@@ -1,10 +1,22 @@
-from typing import List, Literal, Optional, Union
-from pydantic import AliasChoices, Field
-from schemaorg_models.creative_work import CreativeWork
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.creative_work import CreativeWork
+
+from pydantic import (
+    AliasChoices,
+    Field
+)
+from typing import (
+    List,
+    Literal,
+    Optional,
+    Union
+)
 from schemaorg_models.organization import Organization
 from schemaorg_models.person import Person
-from schemaorg_models.creative_work import CreativeWork
 
 class Claim(CreativeWork):
     """
@@ -15,7 +27,32 @@ A [[Claim]] in Schema.org represents a specific, factually-oriented claim that c
   At this time, Schema.org does not define any types of relationship between claims. This is a natural area for future exploration.
   
     """
-    class_: Literal['https://schema.org/Claim'] = Field(default='https://schema.org/Claim', alias='@type', serialization_alias='@type') # type: ignore
-    claimInterpreter: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(default=None, validation_alias=AliasChoices('claimInterpreter', 'https://schema.org/claimInterpreter'), serialization_alias='https://schema.org/claimInterpreter')
-    firstAppearance: Optional[Union[CreativeWork, List[CreativeWork]]] = Field(default=None, validation_alias=AliasChoices('firstAppearance', 'https://schema.org/firstAppearance'), serialization_alias='https://schema.org/firstAppearance')
-    appearance: Optional[Union[CreativeWork, List[CreativeWork]]] = Field(default=None, validation_alias=AliasChoices('appearance', 'https://schema.org/appearance'), serialization_alias='https://schema.org/appearance')
+    class_: Literal['https://schema.org/Claim'] = Field( # type: ignore
+        default='https://schema.org/Claim',
+        alias='@type',
+        serialization_alias='@type'
+    )
+    claimInterpreter: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'claimInterpreter',
+            'https://schema.org/claimInterpreter'
+        ),
+        serialization_alias='https://schema.org/claimInterpreter'
+    )
+    firstAppearance: Optional[Union[CreativeWork, List[CreativeWork]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'firstAppearance',
+            'https://schema.org/firstAppearance'
+        ),
+        serialization_alias='https://schema.org/firstAppearance'
+    )
+    appearance: Optional[Union[CreativeWork, List[CreativeWork]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'appearance',
+            'https://schema.org/appearance'
+        ),
+        serialization_alias='https://schema.org/appearance'
+    )

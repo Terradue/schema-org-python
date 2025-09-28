@@ -1,1829 +1,1844 @@
+from __future__ import annotations
+import importlib
+from typing import TYPE_CHECKING
 
-from schemaorg_models.pronounceable_text import PronounceableText
-from schemaorg_models.css_selector_type import CssSelectorType
-from schemaorg_models.thing import Thing
-from schemaorg_models.person import Person
-from schemaorg_models.place import Place
-from schemaorg_models.event import Event
-from schemaorg_models.intangible import Intangible
-from schemaorg_models.creative_work import CreativeWork
-from schemaorg_models.action import Action
-from schemaorg_models.product import Product
-from schemaorg_models.medical_entity import MedicalEntity
-from schemaorg_models.stupid_type import StupidType
-from schemaorg_models.taxon import Taxon
-from schemaorg_models.organization import Organization
-from schemaorg_models.bio_chem_entity import BioChemEntity
-from schemaorg_models.residence import Residence
-from schemaorg_models.tourist_destination import TouristDestination
-from schemaorg_models.administrative_area import AdministrativeArea
-from schemaorg_models.landform import Landform
-from schemaorg_models.local_business import LocalBusiness
-from schemaorg_models.civic_structure import CivicStructure
-from schemaorg_models.tourist_attraction import TouristAttraction
-from schemaorg_models.accommodation import Accommodation
-from schemaorg_models.landmarks_or_historical_buildings import LandmarksOrHistoricalBuildings
-from schemaorg_models.theater_event import TheaterEvent
-from schemaorg_models.food_event import FoodEvent
-from schemaorg_models.education_event import EducationEvent
-from schemaorg_models.festival import Festival
-from schemaorg_models.social_event import SocialEvent
-from schemaorg_models.music_event import MusicEvent
-from schemaorg_models.screening_event import ScreeningEvent
-from schemaorg_models.visual_arts_event import VisualArtsEvent
-from schemaorg_models.literary_event import LiteraryEvent
-from schemaorg_models.user_interaction import UserInteraction
-from schemaorg_models.delivery_event import DeliveryEvent
-from schemaorg_models.sports_event import SportsEvent
-from schemaorg_models.publication_event import PublicationEvent
-from schemaorg_models.comedy_event import ComedyEvent
-from schemaorg_models.course_instance import CourseInstance
-from schemaorg_models.childrens_event import ChildrensEvent
-from schemaorg_models.dance_event import DanceEvent
-from schemaorg_models.business_event import BusinessEvent
-from schemaorg_models.hackathon import Hackathon
-from schemaorg_models.sale_event import SaleEvent
-from schemaorg_models.exhibition_event import ExhibitionEvent
-from schemaorg_models.media_subscription import MediaSubscription
-from schemaorg_models.virtual_location import VirtualLocation
-from schemaorg_models.ticket import Ticket
-from schemaorg_models.data_feed_item import DataFeedItem
-from schemaorg_models.series import Series
-from schemaorg_models.role import Role
-from schemaorg_models.floor_plan import FloorPlan
-from schemaorg_models.permit import Permit
-from schemaorg_models.member_program_tier import MemberProgramTier
-from schemaorg_models.educational_occupational_program import EducationalOccupationalProgram
-from schemaorg_models.geospatial_geometry import GeospatialGeometry
-from schemaorg_models.audience import Audience
-from schemaorg_models.brand import Brand
-from schemaorg_models.occupation import Occupation
-from schemaorg_models.program_membership import ProgramMembership
-from schemaorg_models.service import Service
-from schemaorg_models.health_plan_cost_sharing_specification import HealthPlanCostSharingSpecification
-from schemaorg_models.invoice import Invoice
-from schemaorg_models.health_insurance_plan import HealthInsurancePlan
-from schemaorg_models.property import Property
-from schemaorg_models.alignment_object import AlignmentObject
-from schemaorg_models.merchant_return_policy_seasonal_override import MerchantReturnPolicySeasonalOverride
-from schemaorg_models.energy_consumption_details import EnergyConsumptionDetails
-from schemaorg_models.schedule import Schedule
-from schemaorg_models.enumeration import Enumeration
-from schemaorg_models.speakable_specification import SpeakableSpecification
-from schemaorg_models.health_plan_formulary import HealthPlanFormulary
-from schemaorg_models.language import Language
-from schemaorg_models.structured_value import StructuredValue
-from schemaorg_models.member_program import MemberProgram
-from schemaorg_models.property_value_specification import PropertyValueSpecification
-from schemaorg_models.rating import Rating
-from schemaorg_models.digital_document_permission import DigitalDocumentPermission
-from schemaorg_models.computer_language import ComputerLanguage
-from schemaorg_models.product_return_policy import ProductReturnPolicy
-from schemaorg_models.payment_method import PaymentMethod
-from schemaorg_models.parcel_delivery import ParcelDelivery
-from schemaorg_models.merchant_return_policy import MerchantReturnPolicy
-from schemaorg_models.reservation import Reservation
-from schemaorg_models.job_posting import JobPosting
-from schemaorg_models.broadcast_frequency_specification import BroadcastFrequencySpecification
-from schemaorg_models.occupational_experience_requirements import OccupationalExperienceRequirements
-from schemaorg_models.bed_details import BedDetails
-from schemaorg_models.game_server import GameServer
-from schemaorg_models.service_channel import ServiceChannel
-from schemaorg_models.demand import Demand
-from schemaorg_models.defined_term import DefinedTerm
-from schemaorg_models.action_access_specification import ActionAccessSpecification
-from schemaorg_models.financial_incentive import FinancialIncentive
-from schemaorg_models.menu_item import MenuItem
-from schemaorg_models.list_item import ListItem
-from schemaorg_models.order_item import OrderItem
-from schemaorg_models.item_list import ItemList
-from schemaorg_models.health_plan_network import HealthPlanNetwork
-from schemaorg_models.grant import Grant
-from schemaorg_models.statistical_population import StatisticalPopulation
-from schemaorg_models.order import Order
-from schemaorg_models.constraint_node import ConstraintNode
-from schemaorg_models.offer import Offer
-from schemaorg_models.trip import Trip
-from schemaorg_models.observation import Observation
-from schemaorg_models.entry_point import EntryPoint
-from schemaorg_models.quantity import Quantity
-from schemaorg_models.seat import Seat
-from schemaorg_models.broadcast_channel import BroadcastChannel
-from schemaorg_models.__class import _Class
-from schemaorg_models.chapter import Chapter
-from schemaorg_models.tv_series import TVSeries
-from schemaorg_models.web_site import WebSite
-from schemaorg_models.comic_story import ComicStory
-from schemaorg_models.how_to import HowTo
-from schemaorg_models.web_content import WebContent
-from schemaorg_models.game import Game
-from schemaorg_models.guide import Guide
-from schemaorg_models.media_object import MediaObject
-from schemaorg_models.data_catalog import DataCatalog
-from schemaorg_models.clip import Clip
-from schemaorg_models.review import Review
-from schemaorg_models.certification import Certification
-from schemaorg_models.play import Play
-from schemaorg_models.special_announcement import SpecialAnnouncement
-from schemaorg_models.short_story import ShortStory
-from schemaorg_models.photograph import Photograph
-from schemaorg_models.claim import Claim
-from schemaorg_models.blog import Blog
-from schemaorg_models.quotation import Quotation
-from schemaorg_models.digital_document import DigitalDocument
-from schemaorg_models.dataset import Dataset
-from schemaorg_models.creative_work_season import CreativeWorkSeason
-from schemaorg_models.learning_resource import LearningResource
-from schemaorg_models.music_playlist import MusicPlaylist
-from schemaorg_models.menu import Menu
-from schemaorg_models.sculpture import Sculpture
-from schemaorg_models.painting import Painting
-from schemaorg_models.web_page_element import WebPageElement
-from schemaorg_models.code import Code
-from schemaorg_models.movie import Movie
-from schemaorg_models.poster import Poster
-from schemaorg_models.how_to_tip import HowToTip
-from schemaorg_models.how_to_section import HowToSection
-from schemaorg_models.media_review_item import MediaReviewItem
-from schemaorg_models.book import Book
-from schemaorg_models.statement import Statement
-from schemaorg_models.season import Season
-from schemaorg_models.article import Article
-from schemaorg_models.atlas import Atlas
-from schemaorg_models.how_to_direction import HowToDirection
-from schemaorg_models.publication_issue import PublicationIssue
-from schemaorg_models.thesis import Thesis
-from schemaorg_models.software_application import SoftwareApplication
-from schemaorg_models.publication_volume import PublicationVolume
-from schemaorg_models.comment import Comment
-from schemaorg_models.music_composition import MusicComposition
-from schemaorg_models.exercise_plan import ExercisePlan
-from schemaorg_models.message import Message
-from schemaorg_models.conversation import Conversation
-from schemaorg_models.drawing import Drawing
-from schemaorg_models.map import Map
-from schemaorg_models.music_recording import MusicRecording
-from schemaorg_models.legislation import Legislation
-from schemaorg_models.defined_term_set import DefinedTermSet
-from schemaorg_models.software_source_code import SoftwareSourceCode
-from schemaorg_models.hyper_toc_entry import HyperTocEntry
-from schemaorg_models.visual_artwork import VisualArtwork
-from schemaorg_models.sheet_music import SheetMusic
-from schemaorg_models.collection import Collection
-from schemaorg_models.educational_occupational_credential import EducationalOccupationalCredential
-from schemaorg_models.web_page import WebPage
-from schemaorg_models.menu_section import MenuSection
-from schemaorg_models.episode import Episode
-from schemaorg_models.manuscript import Manuscript
-from schemaorg_models.creative_work_series import CreativeWorkSeries
-from schemaorg_models.math_solver import MathSolver
-from schemaorg_models.hyper_toc import HyperToc
-from schemaorg_models.archive_component import ArchiveComponent
-from schemaorg_models.control_action import ControlAction
-from schemaorg_models.trade_action import TradeAction
-from schemaorg_models.assess_action import AssessAction
-from schemaorg_models.move_action import MoveAction
-from schemaorg_models.achieve_action import AchieveAction
-from schemaorg_models.find_action import FindAction
-from schemaorg_models.transfer_action import TransferAction
-from schemaorg_models.organize_action import OrganizeAction
-from schemaorg_models.update_action import UpdateAction
-from schemaorg_models.create_action import CreateAction
-from schemaorg_models.play_action import PlayAction
-from schemaorg_models.seek_to_action import SeekToAction
-from schemaorg_models.solve_math_action import SolveMathAction
-from schemaorg_models.consume_action import ConsumeAction
-from schemaorg_models.interact_action import InteractAction
-from schemaorg_models.search_action import SearchAction
-from schemaorg_models.product_model import ProductModel
-from schemaorg_models.some_products import SomeProducts
-from schemaorg_models.product_group import ProductGroup
-from schemaorg_models.product_collection import ProductCollection
-from schemaorg_models.vehicle import Vehicle
-from schemaorg_models.individual_product import IndividualProduct
-from schemaorg_models.medical_procedure import MedicalProcedure
-from schemaorg_models.medical_risk_factor import MedicalRiskFactor
-from schemaorg_models.medical_indication import MedicalIndication
-from schemaorg_models.medical_test import MedicalTest
-from schemaorg_models.medical_risk_estimator import MedicalRiskEstimator
-from schemaorg_models.lifestyle_modification import LifestyleModification
-from schemaorg_models.substance import Substance
-from schemaorg_models.medical_contraindication import MedicalContraindication
-from schemaorg_models.medical_study import MedicalStudy
-from schemaorg_models.medical_condition import MedicalCondition
-from schemaorg_models.medical_guideline import MedicalGuideline
-from schemaorg_models.medical_cause import MedicalCause
-from schemaorg_models.drug_class import DrugClass
-from schemaorg_models.medical_device import MedicalDevice
-from schemaorg_models.superficial_anatomy import SuperficialAnatomy
-from schemaorg_models.drug_cost import DrugCost
-from schemaorg_models.anatomical_structure import AnatomicalStructure
-from schemaorg_models.anatomical_system import AnatomicalSystem
-from schemaorg_models.medical_intangible import MedicalIntangible
-from schemaorg_models.news_media_organization import NewsMediaOrganization
-from schemaorg_models.ngo import NGO
-from schemaorg_models.cooperative import Cooperative
-from schemaorg_models.sports_organization import SportsOrganization
-from schemaorg_models.performing_group import PerformingGroup
-from schemaorg_models.funding_scheme import FundingScheme
-from schemaorg_models.search_rescue_organization import SearchRescueOrganization
-from schemaorg_models.library_system import LibrarySystem
-from schemaorg_models.medical_organization import MedicalOrganization
-from schemaorg_models.online_business import OnlineBusiness
-from schemaorg_models.consortium import Consortium
-from schemaorg_models.workers_union import WorkersUnion
-from schemaorg_models.government_organization import GovernmentOrganization
-from schemaorg_models.project import Project
-from schemaorg_models.research_organization import ResearchOrganization
-from schemaorg_models.airline import Airline
-from schemaorg_models.corporation import Corporation
-from schemaorg_models.political_party import PoliticalParty
-from schemaorg_models.protein import Protein
-from schemaorg_models.gene import Gene
-from schemaorg_models.molecular_entity import MolecularEntity
-from schemaorg_models.chemical_substance import ChemicalSubstance
-from schemaorg_models.gated_residence_community import GatedResidenceCommunity
-from schemaorg_models.apartment_complex import ApartmentComplex
-from schemaorg_models.country import Country
-from schemaorg_models.city import City
-from schemaorg_models.state import State
-from schemaorg_models.school_district import SchoolDistrict
-from schemaorg_models.continent import Continent
-from schemaorg_models.body_of_water import BodyOfWater
-from schemaorg_models.mountain import Mountain
-from schemaorg_models.volcano import Volcano
-from schemaorg_models.radio_station import RadioStation
-from schemaorg_models.internet_cafe import InternetCafe
-from schemaorg_models.medical_business import MedicalBusiness
-from schemaorg_models.employment_agency import EmploymentAgency
-from schemaorg_models.food_establishment import FoodEstablishment
-from schemaorg_models.entertainment_business import EntertainmentBusiness
-from schemaorg_models.sports_activity_location import SportsActivityLocation
-from schemaorg_models.shopping_center import ShoppingCenter
-from schemaorg_models.financial_service import FinancialService
-from schemaorg_models.child_care import ChildCare
-from schemaorg_models.home_and_construction_business import HomeAndConstructionBusiness
-from schemaorg_models.automotive_business import AutomotiveBusiness
-from schemaorg_models.lodging_business import LodgingBusiness
-from schemaorg_models.store import Store
-from schemaorg_models.legal_service import LegalService
-from schemaorg_models.animal_shelter import AnimalShelter
-from schemaorg_models.television_station import TelevisionStation
-from schemaorg_models.emergency_service import EmergencyService
-from schemaorg_models.dry_cleaning_or_laundry import DryCleaningOrLaundry
-from schemaorg_models.archive_organization import ArchiveOrganization
-from schemaorg_models.real_estate_agent import RealEstateAgent
-from schemaorg_models.library import Library
-from schemaorg_models.recycling_center import RecyclingCenter
-from schemaorg_models.government_office import GovernmentOffice
-from schemaorg_models.travel_agency import TravelAgency
-from schemaorg_models.tourist_information_center import TouristInformationCenter
-from schemaorg_models.health_and_beauty_business import HealthAndBeautyBusiness
-from schemaorg_models.professional_service import ProfessionalService
-from schemaorg_models.self_storage import SelfStorage
-from schemaorg_models.playground import Playground
-from schemaorg_models.music_venue import MusicVenue
-from schemaorg_models.crematorium import Crematorium
-from schemaorg_models.police_station import PoliceStation
-from schemaorg_models.place_of_worship import PlaceOfWorship
-from schemaorg_models.public_toilet import PublicToilet
-from schemaorg_models.taxi_stand import TaxiStand
-from schemaorg_models.train_station import TrainStation
-from schemaorg_models.subway_station import SubwayStation
-from schemaorg_models.bridge import Bridge
-from schemaorg_models.event_venue import EventVenue
-from schemaorg_models.bus_stop import BusStop
-from schemaorg_models.educational_organization import EducationalOrganization
-from schemaorg_models.bus_station import BusStation
-from schemaorg_models.cemetery import Cemetery
-from schemaorg_models.government_building import GovernmentBuilding
-from schemaorg_models.airport import Airport
-from schemaorg_models.stadium_or_arena import StadiumOrArena
-from schemaorg_models.beach import Beach
-from schemaorg_models.park import Park
-from schemaorg_models.rv_park import RVPark
-from schemaorg_models.performing_arts_theater import PerformingArtsTheater
-from schemaorg_models.boat_terminal import BoatTerminal
-from schemaorg_models.hospital import Hospital
-from schemaorg_models.aquarium import Aquarium
-from schemaorg_models.zoo import Zoo
-from schemaorg_models.parking_facility import ParkingFacility
-from schemaorg_models.museum import Museum
-from schemaorg_models.movie_theater import MovieTheater
-from schemaorg_models.fire_station import FireStation
-from schemaorg_models.apartment import Apartment
-from schemaorg_models.room import Room
-from schemaorg_models.suite import Suite
-from schemaorg_models.house import House
-from schemaorg_models.camping_pitch import CampingPitch
-from schemaorg_models.user_checkins import UserCheckins
-from schemaorg_models.user_blocks import UserBlocks
-from schemaorg_models.user_comments import UserComments
-from schemaorg_models.user_tweets import UserTweets
-from schemaorg_models.user_likes import UserLikes
-from schemaorg_models.user_plays import UserPlays
-from schemaorg_models.user_page_visits import UserPageVisits
-from schemaorg_models.user_plus_ones import UserPlusOnes
-from schemaorg_models.user_downloads import UserDownloads
-from schemaorg_models.on_demand_event import OnDemandEvent
-from schemaorg_models.broadcast_event import BroadcastEvent
-from schemaorg_models.event_series import EventSeries
-from schemaorg_models.link_role import LinkRole
-from schemaorg_models.performance_role import PerformanceRole
-from schemaorg_models.organization_role import OrganizationRole
-from schemaorg_models.government_permit import GovernmentPermit
-from schemaorg_models.work_based_program import WorkBasedProgram
-from schemaorg_models.researcher import Researcher
-from schemaorg_models.business_audience import BusinessAudience
-from schemaorg_models.educational_audience import EducationalAudience
-from schemaorg_models.people_audience import PeopleAudience
-from schemaorg_models.medical_audience import MedicalAudience
-from schemaorg_models.cable_or_satellite_service import CableOrSatelliteService
-from schemaorg_models.web_api import WebAPI
-from schemaorg_models.financial_product import FinancialProduct
-from schemaorg_models.taxi import Taxi
-from schemaorg_models.food_service import FoodService
-from schemaorg_models.broadcast_service import BroadcastService
-from schemaorg_models.government_service import GovernmentService
-from schemaorg_models.taxi_service import TaxiService
-from schemaorg_models.size_group_enumeration import SizeGroupEnumeration
-from schemaorg_models.return_label_source_enumeration import ReturnLabelSourceEnumeration
-from schemaorg_models.physical_activity_category import PhysicalActivityCategory
-from schemaorg_models.contact_point_option import ContactPointOption
-from schemaorg_models.price_component_type_enumeration import PriceComponentTypeEnumeration
-from schemaorg_models.map_category_type import MapCategoryType
-from schemaorg_models.restricted_diet import RestrictedDiet
-from schemaorg_models.digital_platform_enumeration import DigitalPlatformEnumeration
-from schemaorg_models.payment_method_type import PaymentMethodType
-from schemaorg_models.incentive_qualified_expense_type import IncentiveQualifiedExpenseType
-from schemaorg_models.certification_status_enumeration import CertificationStatusEnumeration
-from schemaorg_models.government_benefits_type import GovernmentBenefitsType
-from schemaorg_models.status_enumeration import StatusEnumeration
-from schemaorg_models.car_usage_type import CarUsageType
-from schemaorg_models.fulfillment_type_enumeration import FulfillmentTypeEnumeration
-from schemaorg_models.size_system_enumeration import SizeSystemEnumeration
-from schemaorg_models.specialty import Specialty
-from schemaorg_models.gender_type import GenderType
-from schemaorg_models.health_aspect_enumeration import HealthAspectEnumeration
-from schemaorg_models.media_manipulation_rating_enumeration import MediaManipulationRatingEnumeration
-from schemaorg_models.media_enumeration import MediaEnumeration
-from schemaorg_models.warranty_scope import WarrantyScope
-from schemaorg_models.music_album_release_type import MusicAlbumReleaseType
-from schemaorg_models.medical_enumeration import MedicalEnumeration
-from schemaorg_models.digital_document_permission_type import DigitalDocumentPermissionType
-from schemaorg_models.offer_item_condition import OfferItemCondition
-from schemaorg_models.measurement_method_enum import MeasurementMethodEnum
-from schemaorg_models.legal_value_level import LegalValueLevel
-from schemaorg_models.energy_efficiency_enumeration import EnergyEfficiencyEnumeration
-from schemaorg_models.book_format_type import BookFormatType
-from schemaorg_models.business_entity_type import BusinessEntityType
-from schemaorg_models.product_return_enumeration import ProductReturnEnumeration
-from schemaorg_models.price_type_enumeration import PriceTypeEnumeration
-from schemaorg_models.item_availability import ItemAvailability
-from schemaorg_models.item_list_order_type import ItemListOrderType
-from schemaorg_models.refund_type_enumeration import RefundTypeEnumeration
-from schemaorg_models.tier_benefit_enumeration import TierBenefitEnumeration
-from schemaorg_models.game_availability_enumeration import GameAvailabilityEnumeration
-from schemaorg_models.boarding_policy_type import BoardingPolicyType
-from schemaorg_models.business_function import BusinessFunction
-from schemaorg_models.delivery_method import DeliveryMethod
-from schemaorg_models.incentive_status import IncentiveStatus
-from schemaorg_models.purchase_type import PurchaseType
-from schemaorg_models.qualitative_value import QualitativeValue
-from schemaorg_models.return_fees_enumeration import ReturnFeesEnumeration
-from schemaorg_models.incentive_type import IncentiveType
-from schemaorg_models.adult_oriented_enumeration import AdultOrientedEnumeration
-from schemaorg_models.nonprofit_type import NonprofitType
-from schemaorg_models.rsvp_response_type import RsvpResponseType
-from schemaorg_models.return_method_enumeration import ReturnMethodEnumeration
-from schemaorg_models.merchant_return_enumeration import MerchantReturnEnumeration
-from schemaorg_models.day_of_week import DayOfWeek
-from schemaorg_models.measurement_type_enumeration import MeasurementTypeEnumeration
-from schemaorg_models.music_release_format_type import MusicReleaseFormatType
-from schemaorg_models.event_attendance_mode_enumeration import EventAttendanceModeEnumeration
-from schemaorg_models.music_album_production_type import MusicAlbumProductionType
-from schemaorg_models.game_play_mode import GamePlayMode
-from schemaorg_models.defined_region import DefinedRegion
-from schemaorg_models.engine_specification import EngineSpecification
-from schemaorg_models.shipping_service import ShippingService
-from schemaorg_models.quantitative_value import QuantitativeValue
-from schemaorg_models.repayment_specification import RepaymentSpecification
-from schemaorg_models.service_period import ServicePeriod
-from schemaorg_models.warranty_promise import WarrantyPromise
-from schemaorg_models.delivery_time_settings import DeliveryTimeSettings
-from schemaorg_models.shipping_rate_settings import ShippingRateSettings
-from schemaorg_models.price_specification import PriceSpecification
-from schemaorg_models.quantitative_value_distribution import QuantitativeValueDistribution
-from schemaorg_models.shipping_delivery_time import ShippingDeliveryTime
-from schemaorg_models.postal_code_range_specification import PostalCodeRangeSpecification
-from schemaorg_models.monetary_amount import MonetaryAmount
-from schemaorg_models.shipping_conditions import ShippingConditions
-from schemaorg_models.property_value import PropertyValue
-from schemaorg_models.ownership_info import OwnershipInfo
-from schemaorg_models.interaction_counter import InteractionCounter
-from schemaorg_models.exchange_rate_specification import ExchangeRateSpecification
-from schemaorg_models.geo_shape import GeoShape
-from schemaorg_models.cdcpmd_record import CDCPMDRecord
-from schemaorg_models.type_and_quantity_node import TypeAndQuantityNode
-from schemaorg_models.offer_shipping_details import OfferShippingDetails
-from schemaorg_models.dated_money_specification import DatedMoneySpecification
-from schemaorg_models.contact_point import ContactPoint
-from schemaorg_models.nutrition_information import NutritionInformation
-from schemaorg_models.geo_coordinates import GeoCoordinates
-from schemaorg_models.opening_hours_specification import OpeningHoursSpecification
-from schemaorg_models.endorsement_rating import EndorsementRating
-from schemaorg_models.aggregate_rating import AggregateRating
-from schemaorg_models.rental_car_reservation import RentalCarReservation
-from schemaorg_models.lodging_reservation import LodgingReservation
-from schemaorg_models.train_reservation import TrainReservation
-from schemaorg_models.boat_reservation import BoatReservation
-from schemaorg_models.event_reservation import EventReservation
-from schemaorg_models.flight_reservation import FlightReservation
-from schemaorg_models.bus_reservation import BusReservation
-from schemaorg_models.taxi_reservation import TaxiReservation
-from schemaorg_models.reservation_package import ReservationPackage
-from schemaorg_models.food_establishment_reservation import FoodEstablishmentReservation
-from schemaorg_models.category_code import CategoryCode
-from schemaorg_models.how_to_item import HowToItem
-from schemaorg_models.breadcrumb_list import BreadcrumbList
-from schemaorg_models.how_to_step import HowToStep
-from schemaorg_models.offer_catalog import OfferCatalog
-from schemaorg_models.monetary_grant import MonetaryGrant
-from schemaorg_models.statistical_variable import StatisticalVariable
-from schemaorg_models.aggregate_offer import AggregateOffer
-from schemaorg_models.offer_for_purchase import OfferForPurchase
-from schemaorg_models.offer_for_lease import OfferForLease
-from schemaorg_models.train_trip import TrainTrip
-from schemaorg_models.bus_trip import BusTrip
-from schemaorg_models.tourist_trip import TouristTrip
-from schemaorg_models.flight import Flight
-from schemaorg_models.boat_trip import BoatTrip
-from schemaorg_models.energy import Energy
-from schemaorg_models.distance import Distance
-from schemaorg_models.mass import Mass
-from schemaorg_models.duration import Duration
-from schemaorg_models.radio_channel import RadioChannel
-from schemaorg_models.television_channel import TelevisionChannel
-from schemaorg_models.comic_cover_art import ComicCoverArt
-from schemaorg_models.recipe import Recipe
-from schemaorg_models.health_topic_content import HealthTopicContent
-from schemaorg_models.video_game import VideoGame
-from schemaorg_models.video_object import VideoObject
-from schemaorg_models.audio_object import AudioObject
-from schemaorg_models.music_video_object import MusicVideoObject
-from schemaorg_models.amp_story import AmpStory
-from schemaorg_models.data_download import DataDownload
-from schemaorg_models.text_object import TextObject
-from schemaorg_models.image_object import ImageObject
-from schemaorg_models._3_d_model import _3DModel
-from schemaorg_models.radio_clip import RadioClip
-from schemaorg_models.tv_clip import TVClip
-from schemaorg_models.movie_clip import MovieClip
-from schemaorg_models.video_game_clip import VideoGameClip
-from schemaorg_models.claim_review import ClaimReview
-from schemaorg_models.media_review import MediaReview
-from schemaorg_models.user_review import UserReview
-from schemaorg_models.employer_review import EmployerReview
-from schemaorg_models.recommendation import Recommendation
-from schemaorg_models.critic_review import CriticReview
-from schemaorg_models.note_digital_document import NoteDigitalDocument
-from schemaorg_models.spreadsheet_digital_document import SpreadsheetDigitalDocument
-from schemaorg_models.text_digital_document import TextDigitalDocument
-from schemaorg_models.presentation_digital_document import PresentationDigitalDocument
-from schemaorg_models.data_feed import DataFeed
-from schemaorg_models.tv_season import TVSeason
-from schemaorg_models.radio_season import RadioSeason
-from schemaorg_models.podcast_season import PodcastSeason
-from schemaorg_models.quiz import Quiz
-from schemaorg_models.course import Course
-from schemaorg_models.syllabus import Syllabus
-from schemaorg_models.music_album import MusicAlbum
-from schemaorg_models.music_release import MusicRelease
-from schemaorg_models.table import Table
-from schemaorg_models.wp_footer import WPFooter
-from schemaorg_models.wp_side_bar import WPSideBar
-from schemaorg_models.wp_ad_block import WPAdBlock
-from schemaorg_models.wp_header import WPHeader
-from schemaorg_models.site_navigation_element import SiteNavigationElement
-from schemaorg_models.news_article import NewsArticle
-from schemaorg_models.satirical_article import SatiricalArticle
-from schemaorg_models.advertiser_content_article import AdvertiserContentArticle
-from schemaorg_models.social_media_posting import SocialMediaPosting
-from schemaorg_models.report import Report
-from schemaorg_models.scholarly_article import ScholarlyArticle
-from schemaorg_models.tech_article import TechArticle
-from schemaorg_models.comic_issue import ComicIssue
-from schemaorg_models.web_application import WebApplication
-from schemaorg_models.mobile_application import MobileApplication
-from schemaorg_models.correction_comment import CorrectionComment
-from schemaorg_models.question import Question
-from schemaorg_models.answer import Answer
-from schemaorg_models.email_message import EmailMessage
-from schemaorg_models.legislation_object import LegislationObject
-from schemaorg_models.category_code_set import CategoryCodeSet
-from schemaorg_models.cover_art import CoverArt
-from schemaorg_models.real_estate_listing import RealEstateListing
-from schemaorg_models.profile_page import ProfilePage
-from schemaorg_models.medical_web_page import MedicalWebPage
-from schemaorg_models.search_results_page import SearchResultsPage
-from schemaorg_models.checkout_page import CheckoutPage
-from schemaorg_models.contact_page import ContactPage
-from schemaorg_models.item_page import ItemPage
-from schemaorg_models.collection_page import CollectionPage
-from schemaorg_models.about_page import AboutPage
-from schemaorg_models.qa_page import QAPage
-from schemaorg_models.faq_page import FAQPage
-from schemaorg_models.radio_episode import RadioEpisode
-from schemaorg_models.podcast_episode import PodcastEpisode
-from schemaorg_models.tv_episode import TVEpisode
-from schemaorg_models.radio_series import RadioSeries
-from schemaorg_models.periodical import Periodical
-from schemaorg_models.podcast_series import PodcastSeries
-from schemaorg_models.book_series import BookSeries
-from schemaorg_models.movie_series import MovieSeries
-from schemaorg_models.video_game_series import VideoGameSeries
-from schemaorg_models.resume_action import ResumeAction
-from schemaorg_models.suspend_action import SuspendAction
-from schemaorg_models.activate_action import ActivateAction
-from schemaorg_models.deactivate_action import DeactivateAction
-from schemaorg_models.rent_action import RentAction
-from schemaorg_models.order_action import OrderAction
-from schemaorg_models.pre_order_action import PreOrderAction
-from schemaorg_models.buy_action import BuyAction
-from schemaorg_models.tip_action import TipAction
-from schemaorg_models.sell_action import SellAction
-from schemaorg_models.pay_action import PayAction
-from schemaorg_models.quote_action import QuoteAction
-from schemaorg_models.ignore_action import IgnoreAction
-from schemaorg_models.review_action import ReviewAction
-from schemaorg_models.react_action import ReactAction
-from schemaorg_models.choose_action import ChooseAction
-from schemaorg_models.travel_action import TravelAction
-from schemaorg_models.depart_action import DepartAction
-from schemaorg_models.arrive_action import ArriveAction
-from schemaorg_models.tie_action import TieAction
-from schemaorg_models.lose_action import LoseAction
-from schemaorg_models.win_action import WinAction
-from schemaorg_models.track_action import TrackAction
-from schemaorg_models.discover_action import DiscoverAction
-from schemaorg_models.check_action import CheckAction
-from schemaorg_models.lend_action import LendAction
-from schemaorg_models.send_action import SendAction
-from schemaorg_models.money_transfer import MoneyTransfer
-from schemaorg_models.return_action import ReturnAction
-from schemaorg_models.take_action import TakeAction
-from schemaorg_models.give_action import GiveAction
-from schemaorg_models.borrow_action import BorrowAction
-from schemaorg_models.donate_action import DonateAction
-from schemaorg_models.receive_action import ReceiveAction
-from schemaorg_models.download_action import DownloadAction
-from schemaorg_models.bookmark_action import BookmarkAction
-from schemaorg_models.plan_action import PlanAction
-from schemaorg_models.allocate_action import AllocateAction
-from schemaorg_models.apply_action import ApplyAction
-from schemaorg_models.delete_action import DeleteAction
-from schemaorg_models.add_action import AddAction
-from schemaorg_models.replace_action import ReplaceAction
-from schemaorg_models.draw_action import DrawAction
-from schemaorg_models.photograph_action import PhotographAction
-from schemaorg_models.cook_action import CookAction
-from schemaorg_models.paint_action import PaintAction
-from schemaorg_models.film_action import FilmAction
-from schemaorg_models.write_action import WriteAction
-from schemaorg_models.perform_action import PerformAction
-from schemaorg_models.exercise_action import ExerciseAction
-from schemaorg_models.install_action import InstallAction
-from schemaorg_models.read_action import ReadAction
-from schemaorg_models.view_action import ViewAction
-from schemaorg_models.drink_action import DrinkAction
-from schemaorg_models.use_action import UseAction
-from schemaorg_models.eat_action import EatAction
-from schemaorg_models.listen_action import ListenAction
-from schemaorg_models.play_game_action import PlayGameAction
-from schemaorg_models.watch_action import WatchAction
-from schemaorg_models.marry_action import MarryAction
-from schemaorg_models.follow_action import FollowAction
-from schemaorg_models.join_action import JoinAction
-from schemaorg_models.leave_action import LeaveAction
-from schemaorg_models.subscribe_action import SubscribeAction
-from schemaorg_models.register_action import RegisterAction
-from schemaorg_models.communicate_action import CommunicateAction
-from schemaorg_models.un_register_action import UnRegisterAction
-from schemaorg_models.befriend_action import BefriendAction
-from schemaorg_models.car import Car
-from schemaorg_models.motorcycle import Motorcycle
-from schemaorg_models.bus_or_coach import BusOrCoach
-from schemaorg_models.motorized_bicycle import MotorizedBicycle
-from schemaorg_models.diagnostic_procedure import DiagnosticProcedure
-from schemaorg_models.surgical_procedure import SurgicalProcedure
-from schemaorg_models.therapeutic_procedure import TherapeuticProcedure
-from schemaorg_models.treatment_indication import TreatmentIndication
-from schemaorg_models.approved_indication import ApprovedIndication
-from schemaorg_models.prevention_indication import PreventionIndication
-from schemaorg_models.pathology_test import PathologyTest
-from schemaorg_models.blood_test import BloodTest
-from schemaorg_models.imaging_test import ImagingTest
-from schemaorg_models.medical_test_panel import MedicalTestPanel
-from schemaorg_models.medical_risk_calculator import MedicalRiskCalculator
-from schemaorg_models.medical_risk_score import MedicalRiskScore
-from schemaorg_models.physical_activity import PhysicalActivity
-from schemaorg_models.diet import Diet
-from schemaorg_models.drug import Drug
-from schemaorg_models.dietary_supplement import DietarySupplement
-from schemaorg_models.medical_trial import MedicalTrial
-from schemaorg_models.medical_observational_study import MedicalObservationalStudy
-from schemaorg_models.infectious_disease import InfectiousDisease
-from schemaorg_models.medical_sign_or_symptom import MedicalSignOrSymptom
-from schemaorg_models.medical_guideline_recommendation import MedicalGuidelineRecommendation
-from schemaorg_models.medical_guideline_contraindication import MedicalGuidelineContraindication
-from schemaorg_models.vessel import Vessel
-from schemaorg_models.ligament import Ligament
-from schemaorg_models.bone import Bone
-from schemaorg_models.brain_structure import BrainStructure
-from schemaorg_models.joint import Joint
-from schemaorg_models.muscle import Muscle
-from schemaorg_models.nerve import Nerve
-from schemaorg_models.dose_schedule import DoseSchedule
-from schemaorg_models.medical_condition_stage import MedicalConditionStage
-from schemaorg_models.drug_strength import DrugStrength
-from schemaorg_models.d_dx_element import DDxElement
-from schemaorg_models.medical_code import MedicalCode
-from schemaorg_models.drug_legal_status import DrugLegalStatus
-from schemaorg_models.sports_team import SportsTeam
-from schemaorg_models.dance_group import DanceGroup
-from schemaorg_models.music_group import MusicGroup
-from schemaorg_models.theater_group import TheaterGroup
-from schemaorg_models.veterinary_care import VeterinaryCare
-from schemaorg_models.diagnostic_lab import DiagnosticLab
-from schemaorg_models.medical_clinic import MedicalClinic
-from schemaorg_models.pharmacy import Pharmacy
-from schemaorg_models.online_store import OnlineStore
-from schemaorg_models.funding_agency import FundingAgency
-from schemaorg_models.research_project import ResearchProject
-from schemaorg_models.lake_body_of_water import LakeBodyOfWater
-from schemaorg_models.reservoir import Reservoir
-from schemaorg_models.pond import Pond
-from schemaorg_models.river_body_of_water import RiverBodyOfWater
-from schemaorg_models.sea_body_of_water import SeaBodyOfWater
-from schemaorg_models.ocean_body_of_water import OceanBodyOfWater
-from schemaorg_models.waterfall import Waterfall
-from schemaorg_models.canal import Canal
-from schemaorg_models.dentist import Dentist
-from schemaorg_models.physician import Physician
-from schemaorg_models.optician import Optician
-from schemaorg_models.winery import Winery
-from schemaorg_models.ice_cream_shop import IceCreamShop
-from schemaorg_models.bar_or_pub import BarOrPub
-from schemaorg_models.restaurant import Restaurant
-from schemaorg_models.bakery import Bakery
-from schemaorg_models.cafe_or_coffee_shop import CafeOrCoffeeShop
-from schemaorg_models.fast_food_restaurant import FastFoodRestaurant
-from schemaorg_models.distillery import Distillery
-from schemaorg_models.brewery import Brewery
-from schemaorg_models.comedy_club import ComedyClub
-from schemaorg_models.amusement_park import AmusementPark
-from schemaorg_models.casino import Casino
-from schemaorg_models.art_gallery import ArtGallery
-from schemaorg_models.adult_entertainment import AdultEntertainment
-from schemaorg_models.night_club import NightClub
-from schemaorg_models.public_swimming_pool import PublicSwimmingPool
-from schemaorg_models.bowling_alley import BowlingAlley
-from schemaorg_models.tennis_complex import TennisComplex
-from schemaorg_models.golf_course import GolfCourse
-from schemaorg_models.exercise_gym import ExerciseGym
-from schemaorg_models.sports_club import SportsClub
-from schemaorg_models.insurance_agency import InsuranceAgency
-from schemaorg_models.bank_or_credit_union import BankOrCreditUnion
-from schemaorg_models.automated_teller import AutomatedTeller
-from schemaorg_models.accounting_service import AccountingService
-from schemaorg_models.moving_company import MovingCompany
-from schemaorg_models.locksmith import Locksmith
-from schemaorg_models.general_contractor import GeneralContractor
-from schemaorg_models.plumber import Plumber
-from schemaorg_models.roofing_contractor import RoofingContractor
-from schemaorg_models.hvac_business import HVACBusiness
-from schemaorg_models.electrician import Electrician
-from schemaorg_models.house_painter import HousePainter
-from schemaorg_models.auto_dealer import AutoDealer
-from schemaorg_models.auto_body_shop import AutoBodyShop
-from schemaorg_models.gas_station import GasStation
-from schemaorg_models.motorcycle_dealer import MotorcycleDealer
-from schemaorg_models.auto_rental import AutoRental
-from schemaorg_models.auto_repair import AutoRepair
-from schemaorg_models.auto_wash import AutoWash
-from schemaorg_models.motorcycle_repair import MotorcycleRepair
-from schemaorg_models.bed_and_breakfast import BedAndBreakfast
-from schemaorg_models.vacation_rental import VacationRental
-from schemaorg_models.campground import Campground
-from schemaorg_models.resort import Resort
-from schemaorg_models.hotel import Hotel
-from schemaorg_models.motel import Motel
-from schemaorg_models.hostel import Hostel
-from schemaorg_models.hobby_shop import HobbyShop
-from schemaorg_models.liquor_store import LiquorStore
-from schemaorg_models.pawn_shop import PawnShop
-from schemaorg_models.electronics_store import ElectronicsStore
-from schemaorg_models.book_store import BookStore
-from schemaorg_models.florist import Florist
-from schemaorg_models.jewelry_store import JewelryStore
-from schemaorg_models.hardware_store import HardwareStore
-from schemaorg_models.computer_store import ComputerStore
-from schemaorg_models.pet_store import PetStore
-from schemaorg_models.garden_store import GardenStore
-from schemaorg_models.outlet_store import OutletStore
-from schemaorg_models.home_goods_store import HomeGoodsStore
-from schemaorg_models.department_store import DepartmentStore
-from schemaorg_models.office_equipment_store import OfficeEquipmentStore
-from schemaorg_models.shoe_store import ShoeStore
-from schemaorg_models.mobile_phone_store import MobilePhoneStore
-from schemaorg_models.music_store import MusicStore
-from schemaorg_models.bike_store import BikeStore
-from schemaorg_models.auto_parts_store import AutoPartsStore
-from schemaorg_models.furniture_store import FurnitureStore
-from schemaorg_models.grocery_store import GroceryStore
-from schemaorg_models.mens_clothing_store import MensClothingStore
-from schemaorg_models.convenience_store import ConvenienceStore
-from schemaorg_models.tire_shop import TireShop
-from schemaorg_models.movie_rental_store import MovieRentalStore
-from schemaorg_models.sporting_goods_store import SportingGoodsStore
-from schemaorg_models.wholesale_store import WholesaleStore
-from schemaorg_models.clothing_store import ClothingStore
-from schemaorg_models.toy_store import ToyStore
-from schemaorg_models.attorney import Attorney
-from schemaorg_models.notary import Notary
-from schemaorg_models.post_office import PostOffice
-from schemaorg_models.day_spa import DaySpa
-from schemaorg_models.beauty_salon import BeautySalon
-from schemaorg_models.health_club import HealthClub
-from schemaorg_models.hair_salon import HairSalon
-from schemaorg_models.nail_salon import NailSalon
-from schemaorg_models.tattoo_parlor import TattooParlor
-from schemaorg_models.hindu_temple import HinduTemple
-from schemaorg_models.buddhist_temple import BuddhistTemple
-from schemaorg_models.mosque import Mosque
-from schemaorg_models.church import Church
-from schemaorg_models.synagogue import Synagogue
-from schemaorg_models.college_or_university import CollegeOrUniversity
-from schemaorg_models.elementary_school import ElementarySchool
-from schemaorg_models.school import School
-from schemaorg_models.middle_school import MiddleSchool
-from schemaorg_models.high_school import HighSchool
-from schemaorg_models.preschool import Preschool
-from schemaorg_models.embassy import Embassy
-from schemaorg_models.courthouse import Courthouse
-from schemaorg_models.defence_establishment import DefenceEstablishment
-from schemaorg_models.legislative_building import LegislativeBuilding
-from schemaorg_models.city_hall import CityHall
-from schemaorg_models.meeting_room import MeetingRoom
-from schemaorg_models.hotel_room import HotelRoom
-from schemaorg_models.single_family_residence import SingleFamilyResidence
-from schemaorg_models.employee_role import EmployeeRole
-from schemaorg_models.parent_audience import ParentAudience
-from schemaorg_models.patient import Patient
-from schemaorg_models.investment_or_deposit import InvestmentOrDeposit
-from schemaorg_models.payment_service import PaymentService
-from schemaorg_models.loan_or_credit import LoanOrCredit
-from schemaorg_models.bank_account import BankAccount
-from schemaorg_models.currency_conversion_service import CurrencyConversionService
-from schemaorg_models.payment_card import PaymentCard
-from schemaorg_models.radio_broadcast_service import RadioBroadcastService
-from schemaorg_models.wearable_size_group_enumeration import WearableSizeGroupEnumeration
-from schemaorg_models.payment_status_type import PaymentStatusType
-from schemaorg_models.reservation_status_type import ReservationStatusType
-from schemaorg_models.game_server_status import GameServerStatus
-from schemaorg_models.event_status_type import EventStatusType
-from schemaorg_models.action_status_type import ActionStatusType
-from schemaorg_models.order_status import OrderStatus
-from schemaorg_models.legal_force_status import LegalForceStatus
-from schemaorg_models.wearable_size_system_enumeration import WearableSizeSystemEnumeration
-from schemaorg_models.medical_specialty import MedicalSpecialty
-from schemaorg_models.iptc_digital_source_enumeration import IPTCDigitalSourceEnumeration
-from schemaorg_models.drug_prescription_status import DrugPrescriptionStatus
-from schemaorg_models.medical_device_purpose import MedicalDevicePurpose
-from schemaorg_models.medical_trial_design import MedicalTrialDesign
-from schemaorg_models.drug_cost_category import DrugCostCategory
-from schemaorg_models.medical_procedure_type import MedicalProcedureType
-from schemaorg_models.drug_pregnancy_category import DrugPregnancyCategory
-from schemaorg_models.physical_exam import PhysicalExam
-from schemaorg_models.medical_observational_study_design import MedicalObservationalStudyDesign
-from schemaorg_models.medical_evidence_level import MedicalEvidenceLevel
-from schemaorg_models.medical_study_status import MedicalStudyStatus
-from schemaorg_models.medical_imaging_technique import MedicalImagingTechnique
-from schemaorg_models.medicine_system import MedicineSystem
-from schemaorg_models.infectious_agent_class import InfectiousAgentClass
-from schemaorg_models.medical_audience_type import MedicalAudienceType
-from schemaorg_models.eu_energy_efficiency_enumeration import EUEnergyEfficiencyEnumeration
-from schemaorg_models.energy_star_energy_efficiency_enumeration import EnergyStarEnergyEfficiencyEnumeration
-from schemaorg_models.bed_type import BedType
-from schemaorg_models.steering_position_value import SteeringPositionValue
-from schemaorg_models.size_specification import SizeSpecification
-from schemaorg_models.drive_wheel_configuration_value import DriveWheelConfigurationValue
-from schemaorg_models.us_nonprofit_type import USNonprofitType
-from schemaorg_models.nl_nonprofit_type import NLNonprofitType
-from schemaorg_models.uk_nonprofit_type import UKNonprofitType
-from schemaorg_models.wearable_measurement_type_enumeration import WearableMeasurementTypeEnumeration
-from schemaorg_models.body_measurement_type_enumeration import BodyMeasurementTypeEnumeration
-from schemaorg_models.compound_price_specification import CompoundPriceSpecification
-from schemaorg_models.unit_price_specification import UnitPriceSpecification
-from schemaorg_models.payment_charge_specification import PaymentChargeSpecification
-from schemaorg_models.delivery_charge_specification import DeliveryChargeSpecification
-from schemaorg_models.monetary_amount_distribution import MonetaryAmountDistribution
-from schemaorg_models.location_feature_specification import LocationFeatureSpecification
-from schemaorg_models.geo_circle import GeoCircle
-from schemaorg_models.postal_address import PostalAddress
-from schemaorg_models.employer_aggregate_rating import EmployerAggregateRating
-from schemaorg_models.how_to_supply import HowToSupply
-from schemaorg_models.how_to_tool import HowToTool
-from schemaorg_models.am_radio_channel import AMRadioChannel
-from schemaorg_models.fm_radio_channel import FMRadioChannel
-from schemaorg_models.video_object_snapshot import VideoObjectSnapshot
-from schemaorg_models.audio_object_snapshot import AudioObjectSnapshot
-from schemaorg_models.audiobook import Audiobook
-from schemaorg_models.image_object_snapshot import ImageObjectSnapshot
-from schemaorg_models.barcode import Barcode
-from schemaorg_models.complete_data_feed import CompleteDataFeed
-from schemaorg_models.opinion_news_article import OpinionNewsArticle
-from schemaorg_models.review_news_article import ReviewNewsArticle
-from schemaorg_models.reportage_news_article import ReportageNewsArticle
-from schemaorg_models.background_news_article import BackgroundNewsArticle
-from schemaorg_models.analysis_news_article import AnalysisNewsArticle
-from schemaorg_models.ask_public_news_article import AskPublicNewsArticle
-from schemaorg_models.discussion_forum_posting import DiscussionForumPosting
-from schemaorg_models.blog_posting import BlogPosting
-from schemaorg_models.medical_scholarly_article import MedicalScholarlyArticle
-from schemaorg_models.api_reference import APIReference
-from schemaorg_models.media_gallery import MediaGallery
-from schemaorg_models.newspaper import Newspaper
-from schemaorg_models.comic_series import ComicSeries
-from schemaorg_models.disagree_action import DisagreeAction
-from schemaorg_models.dislike_action import DislikeAction
-from schemaorg_models.want_action import WantAction
-from schemaorg_models.endorse_action import EndorseAction
-from schemaorg_models.like_action import LikeAction
-from schemaorg_models.agree_action import AgreeAction
-from schemaorg_models.vote_action import VoteAction
-from schemaorg_models.schedule_action import ScheduleAction
-from schemaorg_models.cancel_action import CancelAction
-from schemaorg_models.reserve_action import ReserveAction
-from schemaorg_models.reject_action import RejectAction
-from schemaorg_models.authorize_action import AuthorizeAction
-from schemaorg_models.accept_action import AcceptAction
-from schemaorg_models.assign_action import AssignAction
-from schemaorg_models.insert_action import InsertAction
-from schemaorg_models.wear_action import WearAction
-from schemaorg_models.comment_action import CommentAction
-from schemaorg_models.reply_action import ReplyAction
-from schemaorg_models.check_out_action import CheckOutAction
-from schemaorg_models.invite_action import InviteAction
-from schemaorg_models.check_in_action import CheckInAction
-from schemaorg_models.ask_action import AskAction
-from schemaorg_models.inform_action import InformAction
-from schemaorg_models.share_action import ShareAction
-from schemaorg_models.psychological_treatment import PsychologicalTreatment
-from schemaorg_models.medical_therapy import MedicalTherapy
-from schemaorg_models.medical_symptom import MedicalSymptom
-from schemaorg_models.medical_sign import MedicalSign
-from schemaorg_models.vein import Vein
-from schemaorg_models.lymphatic_vessel import LymphaticVessel
-from schemaorg_models.artery import Artery
-from schemaorg_models.maximum_dose_schedule import MaximumDoseSchedule
-from schemaorg_models.reported_dose_schedule import ReportedDoseSchedule
-from schemaorg_models.recommended_dose_schedule import RecommendedDoseSchedule
-from schemaorg_models.covid_testing_facility import CovidTestingFacility
-from schemaorg_models.online_marketplace import OnlineMarketplace
-from schemaorg_models.physicians_office import PhysiciansOffice
-from schemaorg_models.individual_physician import IndividualPhysician
-from schemaorg_models.ski_resort import SkiResort
-from schemaorg_models.catholic_church import CatholicChurch
-from schemaorg_models.brokerage_account import BrokerageAccount
-from schemaorg_models.deposit_account import DepositAccount
-from schemaorg_models.investment_fund import InvestmentFund
-from schemaorg_models.mortgage_loan import MortgageLoan
-from schemaorg_models.credit_card import CreditCard
-from schemaorg_models.live_blog_posting import LiveBlogPosting
-from schemaorg_models.video_gallery import VideoGallery
-from schemaorg_models.image_gallery import ImageGallery
-from schemaorg_models.append_action import AppendAction
-from schemaorg_models.prepend_action import PrependAction
-from schemaorg_models.confirm_action import ConfirmAction
-from schemaorg_models.rsvp_action import RsvpAction
-from schemaorg_models.occupational_therapy import OccupationalTherapy
-from schemaorg_models.palliative_procedure import PalliativeProcedure
-from schemaorg_models.physical_therapy import PhysicalTherapy
-from schemaorg_models.radiation_therapy import RadiationTherapy
-from schemaorg_models.vital_sign import VitalSign
+__all__ = [
+    'PronounceableText',
+    'CssSelectorType',
+    'Thing',
+    'Person',
+    'Place',
+    'Event',
+    'Intangible',
+    'CreativeWork',
+    'Action',
+    'Product',
+    'MedicalEntity',
+    'StupidType',
+    'Taxon',
+    'Organization',
+    'BioChemEntity',
+    'Residence',
+    'TouristDestination',
+    'AdministrativeArea',
+    'Landform',
+    'LocalBusiness',
+    'CivicStructure',
+    'TouristAttraction',
+    'Accommodation',
+    'LandmarksOrHistoricalBuildings',
+    'TheaterEvent',
+    'FoodEvent',
+    'EducationEvent',
+    'Festival',
+    'SocialEvent',
+    'MusicEvent',
+    'ScreeningEvent',
+    'VisualArtsEvent',
+    'LiteraryEvent',
+    'UserInteraction',
+    'DeliveryEvent',
+    'SportsEvent',
+    'PublicationEvent',
+    'ComedyEvent',
+    'CourseInstance',
+    'ChildrensEvent',
+    'DanceEvent',
+    'BusinessEvent',
+    'Hackathon',
+    'SaleEvent',
+    'ExhibitionEvent',
+    'MediaSubscription',
+    'VirtualLocation',
+    'Ticket',
+    'DataFeedItem',
+    'Series',
+    'Role',
+    'FloorPlan',
+    'Permit',
+    'MemberProgramTier',
+    'EducationalOccupationalProgram',
+    'GeospatialGeometry',
+    'Audience',
+    'Brand',
+    'Occupation',
+    'ProgramMembership',
+    'Service',
+    'HealthPlanCostSharingSpecification',
+    'Invoice',
+    'HealthInsurancePlan',
+    'Property',
+    'AlignmentObject',
+    'MerchantReturnPolicySeasonalOverride',
+    'EnergyConsumptionDetails',
+    'Schedule',
+    'Enumeration',
+    'SpeakableSpecification',
+    'HealthPlanFormulary',
+    'Language',
+    'StructuredValue',
+    'MemberProgram',
+    'PropertyValueSpecification',
+    'Rating',
+    'DigitalDocumentPermission',
+    'ComputerLanguage',
+    'ProductReturnPolicy',
+    'PaymentMethod',
+    'ParcelDelivery',
+    'MerchantReturnPolicy',
+    'Reservation',
+    'JobPosting',
+    'BroadcastFrequencySpecification',
+    'OccupationalExperienceRequirements',
+    'BedDetails',
+    'GameServer',
+    'ServiceChannel',
+    'Demand',
+    'DefinedTerm',
+    'ActionAccessSpecification',
+    'FinancialIncentive',
+    'MenuItem',
+    'ListItem',
+    'OrderItem',
+    'ItemList',
+    'HealthPlanNetwork',
+    'Grant',
+    'StatisticalPopulation',
+    'Order',
+    'ConstraintNode',
+    'Offer',
+    'Trip',
+    'Observation',
+    'EntryPoint',
+    'Quantity',
+    'Seat',
+    'BroadcastChannel',
+    '_Class',
+    'Chapter',
+    'TVSeries',
+    'WebSite',
+    'ComicStory',
+    'HowTo',
+    'WebContent',
+    'Game',
+    'Guide',
+    'MediaObject',
+    'DataCatalog',
+    'Clip',
+    'Review',
+    'Certification',
+    'Play',
+    'SpecialAnnouncement',
+    'ShortStory',
+    'Photograph',
+    'Claim',
+    'Blog',
+    'Quotation',
+    'DigitalDocument',
+    'Dataset',
+    'CreativeWorkSeason',
+    'LearningResource',
+    'MusicPlaylist',
+    'Menu',
+    'Sculpture',
+    'Painting',
+    'WebPageElement',
+    'Code',
+    'Movie',
+    'Poster',
+    'HowToTip',
+    'HowToSection',
+    'MediaReviewItem',
+    'Book',
+    'Statement',
+    'Season',
+    'Article',
+    'Atlas',
+    'HowToDirection',
+    'PublicationIssue',
+    'Thesis',
+    'SoftwareApplication',
+    'PublicationVolume',
+    'Comment',
+    'MusicComposition',
+    'ExercisePlan',
+    'Message',
+    'Conversation',
+    'Drawing',
+    'Map',
+    'MusicRecording',
+    'Legislation',
+    'DefinedTermSet',
+    'SoftwareSourceCode',
+    'HyperTocEntry',
+    'VisualArtwork',
+    'SheetMusic',
+    'Collection',
+    'EducationalOccupationalCredential',
+    'WebPage',
+    'MenuSection',
+    'Episode',
+    'Manuscript',
+    'CreativeWorkSeries',
+    'MathSolver',
+    'HyperToc',
+    'ArchiveComponent',
+    'ControlAction',
+    'TradeAction',
+    'AssessAction',
+    'MoveAction',
+    'AchieveAction',
+    'FindAction',
+    'TransferAction',
+    'OrganizeAction',
+    'UpdateAction',
+    'CreateAction',
+    'PlayAction',
+    'SeekToAction',
+    'SolveMathAction',
+    'ConsumeAction',
+    'InteractAction',
+    'SearchAction',
+    'ProductModel',
+    'SomeProducts',
+    'ProductGroup',
+    'ProductCollection',
+    'Vehicle',
+    'IndividualProduct',
+    'MedicalProcedure',
+    'MedicalRiskFactor',
+    'MedicalIndication',
+    'MedicalTest',
+    'MedicalRiskEstimator',
+    'LifestyleModification',
+    'Substance',
+    'MedicalContraindication',
+    'MedicalStudy',
+    'MedicalCondition',
+    'MedicalGuideline',
+    'MedicalCause',
+    'DrugClass',
+    'MedicalDevice',
+    'SuperficialAnatomy',
+    'DrugCost',
+    'AnatomicalStructure',
+    'AnatomicalSystem',
+    'MedicalIntangible',
+    'NewsMediaOrganization',
+    'NGO',
+    'Cooperative',
+    'SportsOrganization',
+    'PerformingGroup',
+    'FundingScheme',
+    'SearchRescueOrganization',
+    'LibrarySystem',
+    'MedicalOrganization',
+    'OnlineBusiness',
+    'Consortium',
+    'WorkersUnion',
+    'GovernmentOrganization',
+    'Project',
+    'ResearchOrganization',
+    'Airline',
+    'Corporation',
+    'PoliticalParty',
+    'Protein',
+    'Gene',
+    'MolecularEntity',
+    'ChemicalSubstance',
+    'GatedResidenceCommunity',
+    'ApartmentComplex',
+    'Country',
+    'City',
+    'State',
+    'SchoolDistrict',
+    'Continent',
+    'BodyOfWater',
+    'Mountain',
+    'Volcano',
+    'RadioStation',
+    'InternetCafe',
+    'MedicalBusiness',
+    'EmploymentAgency',
+    'FoodEstablishment',
+    'EntertainmentBusiness',
+    'SportsActivityLocation',
+    'ShoppingCenter',
+    'FinancialService',
+    'ChildCare',
+    'HomeAndConstructionBusiness',
+    'AutomotiveBusiness',
+    'LodgingBusiness',
+    'Store',
+    'LegalService',
+    'AnimalShelter',
+    'TelevisionStation',
+    'EmergencyService',
+    'DryCleaningOrLaundry',
+    'ArchiveOrganization',
+    'RealEstateAgent',
+    'Library',
+    'RecyclingCenter',
+    'GovernmentOffice',
+    'TravelAgency',
+    'TouristInformationCenter',
+    'HealthAndBeautyBusiness',
+    'ProfessionalService',
+    'SelfStorage',
+    'Playground',
+    'MusicVenue',
+    'Crematorium',
+    'PoliceStation',
+    'PlaceOfWorship',
+    'PublicToilet',
+    'TaxiStand',
+    'TrainStation',
+    'SubwayStation',
+    'Bridge',
+    'EventVenue',
+    'BusStop',
+    'EducationalOrganization',
+    'BusStation',
+    'Cemetery',
+    'GovernmentBuilding',
+    'Airport',
+    'StadiumOrArena',
+    'Beach',
+    'Park',
+    'RVPark',
+    'PerformingArtsTheater',
+    'BoatTerminal',
+    'Hospital',
+    'Aquarium',
+    'Zoo',
+    'ParkingFacility',
+    'Museum',
+    'MovieTheater',
+    'FireStation',
+    'Apartment',
+    'Room',
+    'Suite',
+    'House',
+    'CampingPitch',
+    'UserCheckins',
+    'UserBlocks',
+    'UserComments',
+    'UserTweets',
+    'UserLikes',
+    'UserPlays',
+    'UserPageVisits',
+    'UserPlusOnes',
+    'UserDownloads',
+    'OnDemandEvent',
+    'BroadcastEvent',
+    'EventSeries',
+    'LinkRole',
+    'PerformanceRole',
+    'OrganizationRole',
+    'GovernmentPermit',
+    'WorkBasedProgram',
+    'Researcher',
+    'BusinessAudience',
+    'EducationalAudience',
+    'PeopleAudience',
+    'MedicalAudience',
+    'CableOrSatelliteService',
+    'WebAPI',
+    'FinancialProduct',
+    'Taxi',
+    'FoodService',
+    'BroadcastService',
+    'GovernmentService',
+    'TaxiService',
+    'SizeGroupEnumeration',
+    'ReturnLabelSourceEnumeration',
+    'PhysicalActivityCategory',
+    'ContactPointOption',
+    'PriceComponentTypeEnumeration',
+    'MapCategoryType',
+    'RestrictedDiet',
+    'DigitalPlatformEnumeration',
+    'PaymentMethodType',
+    'IncentiveQualifiedExpenseType',
+    'CertificationStatusEnumeration',
+    'GovernmentBenefitsType',
+    'StatusEnumeration',
+    'CarUsageType',
+    'FulfillmentTypeEnumeration',
+    'SizeSystemEnumeration',
+    'Specialty',
+    'GenderType',
+    'HealthAspectEnumeration',
+    'MediaManipulationRatingEnumeration',
+    'MediaEnumeration',
+    'WarrantyScope',
+    'MusicAlbumReleaseType',
+    'MedicalEnumeration',
+    'DigitalDocumentPermissionType',
+    'OfferItemCondition',
+    'MeasurementMethodEnum',
+    'LegalValueLevel',
+    'EnergyEfficiencyEnumeration',
+    'BookFormatType',
+    'BusinessEntityType',
+    'ProductReturnEnumeration',
+    'PriceTypeEnumeration',
+    'ItemAvailability',
+    'ItemListOrderType',
+    'RefundTypeEnumeration',
+    'TierBenefitEnumeration',
+    'GameAvailabilityEnumeration',
+    'BoardingPolicyType',
+    'BusinessFunction',
+    'DeliveryMethod',
+    'IncentiveStatus',
+    'PurchaseType',
+    'QualitativeValue',
+    'ReturnFeesEnumeration',
+    'IncentiveType',
+    'AdultOrientedEnumeration',
+    'NonprofitType',
+    'RsvpResponseType',
+    'ReturnMethodEnumeration',
+    'MerchantReturnEnumeration',
+    'DayOfWeek',
+    'MeasurementTypeEnumeration',
+    'MusicReleaseFormatType',
+    'EventAttendanceModeEnumeration',
+    'MusicAlbumProductionType',
+    'GamePlayMode',
+    'DefinedRegion',
+    'EngineSpecification',
+    'ShippingService',
+    'QuantitativeValue',
+    'RepaymentSpecification',
+    'ServicePeriod',
+    'WarrantyPromise',
+    'DeliveryTimeSettings',
+    'ShippingRateSettings',
+    'PriceSpecification',
+    'QuantitativeValueDistribution',
+    'ShippingDeliveryTime',
+    'PostalCodeRangeSpecification',
+    'MonetaryAmount',
+    'ShippingConditions',
+    'PropertyValue',
+    'OwnershipInfo',
+    'InteractionCounter',
+    'ExchangeRateSpecification',
+    'GeoShape',
+    'CDCPMDRecord',
+    'TypeAndQuantityNode',
+    'OfferShippingDetails',
+    'DatedMoneySpecification',
+    'ContactPoint',
+    'NutritionInformation',
+    'GeoCoordinates',
+    'OpeningHoursSpecification',
+    'EndorsementRating',
+    'AggregateRating',
+    'RentalCarReservation',
+    'LodgingReservation',
+    'TrainReservation',
+    'BoatReservation',
+    'EventReservation',
+    'FlightReservation',
+    'BusReservation',
+    'TaxiReservation',
+    'ReservationPackage',
+    'FoodEstablishmentReservation',
+    'CategoryCode',
+    'HowToItem',
+    'BreadcrumbList',
+    'HowToStep',
+    'OfferCatalog',
+    'MonetaryGrant',
+    'StatisticalVariable',
+    'AggregateOffer',
+    'OfferForPurchase',
+    'OfferForLease',
+    'TrainTrip',
+    'BusTrip',
+    'TouristTrip',
+    'Flight',
+    'BoatTrip',
+    'Energy',
+    'Distance',
+    'Mass',
+    'Duration',
+    'RadioChannel',
+    'TelevisionChannel',
+    'ComicCoverArt',
+    'Recipe',
+    'HealthTopicContent',
+    'VideoGame',
+    'VideoObject',
+    'AudioObject',
+    'MusicVideoObject',
+    'AmpStory',
+    'DataDownload',
+    'TextObject',
+    'ImageObject',
+    '_3DModel',
+    'RadioClip',
+    'TVClip',
+    'MovieClip',
+    'VideoGameClip',
+    'ClaimReview',
+    'MediaReview',
+    'UserReview',
+    'EmployerReview',
+    'Recommendation',
+    'CriticReview',
+    'NoteDigitalDocument',
+    'SpreadsheetDigitalDocument',
+    'TextDigitalDocument',
+    'PresentationDigitalDocument',
+    'DataFeed',
+    'TVSeason',
+    'RadioSeason',
+    'PodcastSeason',
+    'Quiz',
+    'Course',
+    'Syllabus',
+    'MusicAlbum',
+    'MusicRelease',
+    'Table',
+    'WPFooter',
+    'WPSideBar',
+    'WPAdBlock',
+    'WPHeader',
+    'SiteNavigationElement',
+    'NewsArticle',
+    'SatiricalArticle',
+    'AdvertiserContentArticle',
+    'SocialMediaPosting',
+    'Report',
+    'ScholarlyArticle',
+    'TechArticle',
+    'ComicIssue',
+    'WebApplication',
+    'MobileApplication',
+    'CorrectionComment',
+    'Question',
+    'Answer',
+    'EmailMessage',
+    'LegislationObject',
+    'CategoryCodeSet',
+    'CoverArt',
+    'RealEstateListing',
+    'ProfilePage',
+    'MedicalWebPage',
+    'SearchResultsPage',
+    'CheckoutPage',
+    'ContactPage',
+    'ItemPage',
+    'CollectionPage',
+    'AboutPage',
+    'QAPage',
+    'FAQPage',
+    'RadioEpisode',
+    'PodcastEpisode',
+    'TVEpisode',
+    'RadioSeries',
+    'Periodical',
+    'PodcastSeries',
+    'BookSeries',
+    'MovieSeries',
+    'VideoGameSeries',
+    'ResumeAction',
+    'SuspendAction',
+    'ActivateAction',
+    'DeactivateAction',
+    'RentAction',
+    'OrderAction',
+    'PreOrderAction',
+    'BuyAction',
+    'TipAction',
+    'SellAction',
+    'PayAction',
+    'QuoteAction',
+    'IgnoreAction',
+    'ReviewAction',
+    'ReactAction',
+    'ChooseAction',
+    'TravelAction',
+    'DepartAction',
+    'ArriveAction',
+    'TieAction',
+    'LoseAction',
+    'WinAction',
+    'TrackAction',
+    'DiscoverAction',
+    'CheckAction',
+    'LendAction',
+    'SendAction',
+    'MoneyTransfer',
+    'ReturnAction',
+    'TakeAction',
+    'GiveAction',
+    'BorrowAction',
+    'DonateAction',
+    'ReceiveAction',
+    'DownloadAction',
+    'BookmarkAction',
+    'PlanAction',
+    'AllocateAction',
+    'ApplyAction',
+    'DeleteAction',
+    'AddAction',
+    'ReplaceAction',
+    'DrawAction',
+    'PhotographAction',
+    'CookAction',
+    'PaintAction',
+    'FilmAction',
+    'WriteAction',
+    'PerformAction',
+    'ExerciseAction',
+    'InstallAction',
+    'ReadAction',
+    'ViewAction',
+    'DrinkAction',
+    'UseAction',
+    'EatAction',
+    'ListenAction',
+    'PlayGameAction',
+    'WatchAction',
+    'MarryAction',
+    'FollowAction',
+    'JoinAction',
+    'LeaveAction',
+    'SubscribeAction',
+    'RegisterAction',
+    'CommunicateAction',
+    'UnRegisterAction',
+    'BefriendAction',
+    'Car',
+    'Motorcycle',
+    'BusOrCoach',
+    'MotorizedBicycle',
+    'DiagnosticProcedure',
+    'SurgicalProcedure',
+    'TherapeuticProcedure',
+    'TreatmentIndication',
+    'ApprovedIndication',
+    'PreventionIndication',
+    'PathologyTest',
+    'BloodTest',
+    'ImagingTest',
+    'MedicalTestPanel',
+    'MedicalRiskCalculator',
+    'MedicalRiskScore',
+    'PhysicalActivity',
+    'Diet',
+    'Drug',
+    'DietarySupplement',
+    'MedicalTrial',
+    'MedicalObservationalStudy',
+    'InfectiousDisease',
+    'MedicalSignOrSymptom',
+    'MedicalGuidelineRecommendation',
+    'MedicalGuidelineContraindication',
+    'Vessel',
+    'Ligament',
+    'Bone',
+    'BrainStructure',
+    'Joint',
+    'Muscle',
+    'Nerve',
+    'DoseSchedule',
+    'MedicalConditionStage',
+    'DrugStrength',
+    'DDxElement',
+    'MedicalCode',
+    'DrugLegalStatus',
+    'SportsTeam',
+    'DanceGroup',
+    'MusicGroup',
+    'TheaterGroup',
+    'VeterinaryCare',
+    'DiagnosticLab',
+    'MedicalClinic',
+    'Pharmacy',
+    'OnlineStore',
+    'FundingAgency',
+    'ResearchProject',
+    'LakeBodyOfWater',
+    'Reservoir',
+    'Pond',
+    'RiverBodyOfWater',
+    'SeaBodyOfWater',
+    'OceanBodyOfWater',
+    'Waterfall',
+    'Canal',
+    'Dentist',
+    'Physician',
+    'Optician',
+    'Winery',
+    'IceCreamShop',
+    'BarOrPub',
+    'Restaurant',
+    'Bakery',
+    'CafeOrCoffeeShop',
+    'FastFoodRestaurant',
+    'Distillery',
+    'Brewery',
+    'ComedyClub',
+    'AmusementPark',
+    'Casino',
+    'ArtGallery',
+    'AdultEntertainment',
+    'NightClub',
+    'PublicSwimmingPool',
+    'BowlingAlley',
+    'TennisComplex',
+    'GolfCourse',
+    'ExerciseGym',
+    'SportsClub',
+    'InsuranceAgency',
+    'BankOrCreditUnion',
+    'AutomatedTeller',
+    'AccountingService',
+    'MovingCompany',
+    'Locksmith',
+    'GeneralContractor',
+    'Plumber',
+    'RoofingContractor',
+    'HVACBusiness',
+    'Electrician',
+    'HousePainter',
+    'AutoDealer',
+    'AutoBodyShop',
+    'GasStation',
+    'MotorcycleDealer',
+    'AutoRental',
+    'AutoRepair',
+    'AutoWash',
+    'MotorcycleRepair',
+    'BedAndBreakfast',
+    'VacationRental',
+    'Campground',
+    'Resort',
+    'Hotel',
+    'Motel',
+    'Hostel',
+    'HobbyShop',
+    'LiquorStore',
+    'PawnShop',
+    'ElectronicsStore',
+    'BookStore',
+    'Florist',
+    'JewelryStore',
+    'HardwareStore',
+    'ComputerStore',
+    'PetStore',
+    'GardenStore',
+    'OutletStore',
+    'HomeGoodsStore',
+    'DepartmentStore',
+    'OfficeEquipmentStore',
+    'ShoeStore',
+    'MobilePhoneStore',
+    'MusicStore',
+    'BikeStore',
+    'AutoPartsStore',
+    'FurnitureStore',
+    'GroceryStore',
+    'MensClothingStore',
+    'ConvenienceStore',
+    'TireShop',
+    'MovieRentalStore',
+    'SportingGoodsStore',
+    'WholesaleStore',
+    'ClothingStore',
+    'ToyStore',
+    'Attorney',
+    'Notary',
+    'PostOffice',
+    'DaySpa',
+    'BeautySalon',
+    'HealthClub',
+    'HairSalon',
+    'NailSalon',
+    'TattooParlor',
+    'HinduTemple',
+    'BuddhistTemple',
+    'Mosque',
+    'Church',
+    'Synagogue',
+    'CollegeOrUniversity',
+    'ElementarySchool',
+    'School',
+    'MiddleSchool',
+    'HighSchool',
+    'Preschool',
+    'Embassy',
+    'Courthouse',
+    'DefenceEstablishment',
+    'LegislativeBuilding',
+    'CityHall',
+    'MeetingRoom',
+    'HotelRoom',
+    'SingleFamilyResidence',
+    'EmployeeRole',
+    'ParentAudience',
+    'Patient',
+    'InvestmentOrDeposit',
+    'PaymentService',
+    'LoanOrCredit',
+    'BankAccount',
+    'CurrencyConversionService',
+    'PaymentCard',
+    'RadioBroadcastService',
+    'WearableSizeGroupEnumeration',
+    'PaymentStatusType',
+    'ReservationStatusType',
+    'GameServerStatus',
+    'EventStatusType',
+    'ActionStatusType',
+    'OrderStatus',
+    'LegalForceStatus',
+    'WearableSizeSystemEnumeration',
+    'MedicalSpecialty',
+    'IPTCDigitalSourceEnumeration',
+    'DrugPrescriptionStatus',
+    'MedicalDevicePurpose',
+    'MedicalTrialDesign',
+    'DrugCostCategory',
+    'MedicalProcedureType',
+    'DrugPregnancyCategory',
+    'PhysicalExam',
+    'MedicalObservationalStudyDesign',
+    'MedicalEvidenceLevel',
+    'MedicalStudyStatus',
+    'MedicalImagingTechnique',
+    'MedicineSystem',
+    'InfectiousAgentClass',
+    'MedicalAudienceType',
+    'EUEnergyEfficiencyEnumeration',
+    'EnergyStarEnergyEfficiencyEnumeration',
+    'BedType',
+    'SteeringPositionValue',
+    'SizeSpecification',
+    'DriveWheelConfigurationValue',
+    'USNonprofitType',
+    'NLNonprofitType',
+    'UKNonprofitType',
+    'WearableMeasurementTypeEnumeration',
+    'BodyMeasurementTypeEnumeration',
+    'CompoundPriceSpecification',
+    'UnitPriceSpecification',
+    'PaymentChargeSpecification',
+    'DeliveryChargeSpecification',
+    'MonetaryAmountDistribution',
+    'LocationFeatureSpecification',
+    'GeoCircle',
+    'PostalAddress',
+    'EmployerAggregateRating',
+    'HowToSupply',
+    'HowToTool',
+    'AMRadioChannel',
+    'FMRadioChannel',
+    'VideoObjectSnapshot',
+    'AudioObjectSnapshot',
+    'Audiobook',
+    'ImageObjectSnapshot',
+    'Barcode',
+    'CompleteDataFeed',
+    'OpinionNewsArticle',
+    'ReviewNewsArticle',
+    'ReportageNewsArticle',
+    'BackgroundNewsArticle',
+    'AnalysisNewsArticle',
+    'AskPublicNewsArticle',
+    'DiscussionForumPosting',
+    'BlogPosting',
+    'MedicalScholarlyArticle',
+    'APIReference',
+    'MediaGallery',
+    'Newspaper',
+    'ComicSeries',
+    'DisagreeAction',
+    'DislikeAction',
+    'WantAction',
+    'EndorseAction',
+    'LikeAction',
+    'AgreeAction',
+    'VoteAction',
+    'ScheduleAction',
+    'CancelAction',
+    'ReserveAction',
+    'RejectAction',
+    'AuthorizeAction',
+    'AcceptAction',
+    'AssignAction',
+    'InsertAction',
+    'WearAction',
+    'CommentAction',
+    'ReplyAction',
+    'CheckOutAction',
+    'InviteAction',
+    'CheckInAction',
+    'AskAction',
+    'InformAction',
+    'ShareAction',
+    'PsychologicalTreatment',
+    'MedicalTherapy',
+    'MedicalSymptom',
+    'MedicalSign',
+    'Vein',
+    'LymphaticVessel',
+    'Artery',
+    'MaximumDoseSchedule',
+    'ReportedDoseSchedule',
+    'RecommendedDoseSchedule',
+    'CovidTestingFacility',
+    'OnlineMarketplace',
+    'PhysiciansOffice',
+    'IndividualPhysician',
+    'SkiResort',
+    'CatholicChurch',
+    'BrokerageAccount',
+    'DepositAccount',
+    'InvestmentFund',
+    'MortgageLoan',
+    'CreditCard',
+    'LiveBlogPosting',
+    'VideoGallery',
+    'ImageGallery',
+    'AppendAction',
+    'PrependAction',
+    'ConfirmAction',
+    'RsvpAction',
+    'OccupationalTherapy',
+    'PalliativeProcedure',
+    'PhysicalTherapy',
+    'RadiationTherapy',
+    'VitalSign'
+]
 
+_lazy_map = {
+    'PronounceableText': '.pronounceable_text'
+    'CssSelectorType': '.css_selector_type'
+    'Thing': '.thing'
+    'Person': '.person'
+    'Place': '.place'
+    'Event': '.event'
+    'Intangible': '.intangible'
+    'CreativeWork': '.creative_work'
+    'Action': '.action'
+    'Product': '.product'
+    'MedicalEntity': '.medical_entity'
+    'StupidType': '.stupid_type'
+    'Taxon': '.taxon'
+    'Organization': '.organization'
+    'BioChemEntity': '.bio_chem_entity'
+    'Residence': '.residence'
+    'TouristDestination': '.tourist_destination'
+    'AdministrativeArea': '.administrative_area'
+    'Landform': '.landform'
+    'LocalBusiness': '.local_business'
+    'CivicStructure': '.civic_structure'
+    'TouristAttraction': '.tourist_attraction'
+    'Accommodation': '.accommodation'
+    'LandmarksOrHistoricalBuildings': '.landmarks_or_historical_buildings'
+    'TheaterEvent': '.theater_event'
+    'FoodEvent': '.food_event'
+    'EducationEvent': '.education_event'
+    'Festival': '.festival'
+    'SocialEvent': '.social_event'
+    'MusicEvent': '.music_event'
+    'ScreeningEvent': '.screening_event'
+    'VisualArtsEvent': '.visual_arts_event'
+    'LiteraryEvent': '.literary_event'
+    'UserInteraction': '.user_interaction'
+    'DeliveryEvent': '.delivery_event'
+    'SportsEvent': '.sports_event'
+    'PublicationEvent': '.publication_event'
+    'ComedyEvent': '.comedy_event'
+    'CourseInstance': '.course_instance'
+    'ChildrensEvent': '.childrens_event'
+    'DanceEvent': '.dance_event'
+    'BusinessEvent': '.business_event'
+    'Hackathon': '.hackathon'
+    'SaleEvent': '.sale_event'
+    'ExhibitionEvent': '.exhibition_event'
+    'MediaSubscription': '.media_subscription'
+    'VirtualLocation': '.virtual_location'
+    'Ticket': '.ticket'
+    'DataFeedItem': '.data_feed_item'
+    'Series': '.series'
+    'Role': '.role'
+    'FloorPlan': '.floor_plan'
+    'Permit': '.permit'
+    'MemberProgramTier': '.member_program_tier'
+    'EducationalOccupationalProgram': '.educational_occupational_program'
+    'GeospatialGeometry': '.geospatial_geometry'
+    'Audience': '.audience'
+    'Brand': '.brand'
+    'Occupation': '.occupation'
+    'ProgramMembership': '.program_membership'
+    'Service': '.service'
+    'HealthPlanCostSharingSpecification': '.health_plan_cost_sharing_specification'
+    'Invoice': '.invoice'
+    'HealthInsurancePlan': '.health_insurance_plan'
+    'Property': '.property'
+    'AlignmentObject': '.alignment_object'
+    'MerchantReturnPolicySeasonalOverride': '.merchant_return_policy_seasonal_override'
+    'EnergyConsumptionDetails': '.energy_consumption_details'
+    'Schedule': '.schedule'
+    'Enumeration': '.enumeration'
+    'SpeakableSpecification': '.speakable_specification'
+    'HealthPlanFormulary': '.health_plan_formulary'
+    'Language': '.language'
+    'StructuredValue': '.structured_value'
+    'MemberProgram': '.member_program'
+    'PropertyValueSpecification': '.property_value_specification'
+    'Rating': '.rating'
+    'DigitalDocumentPermission': '.digital_document_permission'
+    'ComputerLanguage': '.computer_language'
+    'ProductReturnPolicy': '.product_return_policy'
+    'PaymentMethod': '.payment_method'
+    'ParcelDelivery': '.parcel_delivery'
+    'MerchantReturnPolicy': '.merchant_return_policy'
+    'Reservation': '.reservation'
+    'JobPosting': '.job_posting'
+    'BroadcastFrequencySpecification': '.broadcast_frequency_specification'
+    'OccupationalExperienceRequirements': '.occupational_experience_requirements'
+    'BedDetails': '.bed_details'
+    'GameServer': '.game_server'
+    'ServiceChannel': '.service_channel'
+    'Demand': '.demand'
+    'DefinedTerm': '.defined_term'
+    'ActionAccessSpecification': '.action_access_specification'
+    'FinancialIncentive': '.financial_incentive'
+    'MenuItem': '.menu_item'
+    'ListItem': '.list_item'
+    'OrderItem': '.order_item'
+    'ItemList': '.item_list'
+    'HealthPlanNetwork': '.health_plan_network'
+    'Grant': '.grant'
+    'StatisticalPopulation': '.statistical_population'
+    'Order': '.order'
+    'ConstraintNode': '.constraint_node'
+    'Offer': '.offer'
+    'Trip': '.trip'
+    'Observation': '.observation'
+    'EntryPoint': '.entry_point'
+    'Quantity': '.quantity'
+    'Seat': '.seat'
+    'BroadcastChannel': '.broadcast_channel'
+    '_Class': '.__class'
+    'Chapter': '.chapter'
+    'TVSeries': '.tv_series'
+    'WebSite': '.web_site'
+    'ComicStory': '.comic_story'
+    'HowTo': '.how_to'
+    'WebContent': '.web_content'
+    'Game': '.game'
+    'Guide': '.guide'
+    'MediaObject': '.media_object'
+    'DataCatalog': '.data_catalog'
+    'Clip': '.clip'
+    'Review': '.review'
+    'Certification': '.certification'
+    'Play': '.play'
+    'SpecialAnnouncement': '.special_announcement'
+    'ShortStory': '.short_story'
+    'Photograph': '.photograph'
+    'Claim': '.claim'
+    'Blog': '.blog'
+    'Quotation': '.quotation'
+    'DigitalDocument': '.digital_document'
+    'Dataset': '.dataset'
+    'CreativeWorkSeason': '.creative_work_season'
+    'LearningResource': '.learning_resource'
+    'MusicPlaylist': '.music_playlist'
+    'Menu': '.menu'
+    'Sculpture': '.sculpture'
+    'Painting': '.painting'
+    'WebPageElement': '.web_page_element'
+    'Code': '.code'
+    'Movie': '.movie'
+    'Poster': '.poster'
+    'HowToTip': '.how_to_tip'
+    'HowToSection': '.how_to_section'
+    'MediaReviewItem': '.media_review_item'
+    'Book': '.book'
+    'Statement': '.statement'
+    'Season': '.season'
+    'Article': '.article'
+    'Atlas': '.atlas'
+    'HowToDirection': '.how_to_direction'
+    'PublicationIssue': '.publication_issue'
+    'Thesis': '.thesis'
+    'SoftwareApplication': '.software_application'
+    'PublicationVolume': '.publication_volume'
+    'Comment': '.comment'
+    'MusicComposition': '.music_composition'
+    'ExercisePlan': '.exercise_plan'
+    'Message': '.message'
+    'Conversation': '.conversation'
+    'Drawing': '.drawing'
+    'Map': '.map'
+    'MusicRecording': '.music_recording'
+    'Legislation': '.legislation'
+    'DefinedTermSet': '.defined_term_set'
+    'SoftwareSourceCode': '.software_source_code'
+    'HyperTocEntry': '.hyper_toc_entry'
+    'VisualArtwork': '.visual_artwork'
+    'SheetMusic': '.sheet_music'
+    'Collection': '.collection'
+    'EducationalOccupationalCredential': '.educational_occupational_credential'
+    'WebPage': '.web_page'
+    'MenuSection': '.menu_section'
+    'Episode': '.episode'
+    'Manuscript': '.manuscript'
+    'CreativeWorkSeries': '.creative_work_series'
+    'MathSolver': '.math_solver'
+    'HyperToc': '.hyper_toc'
+    'ArchiveComponent': '.archive_component'
+    'ControlAction': '.control_action'
+    'TradeAction': '.trade_action'
+    'AssessAction': '.assess_action'
+    'MoveAction': '.move_action'
+    'AchieveAction': '.achieve_action'
+    'FindAction': '.find_action'
+    'TransferAction': '.transfer_action'
+    'OrganizeAction': '.organize_action'
+    'UpdateAction': '.update_action'
+    'CreateAction': '.create_action'
+    'PlayAction': '.play_action'
+    'SeekToAction': '.seek_to_action'
+    'SolveMathAction': '.solve_math_action'
+    'ConsumeAction': '.consume_action'
+    'InteractAction': '.interact_action'
+    'SearchAction': '.search_action'
+    'ProductModel': '.product_model'
+    'SomeProducts': '.some_products'
+    'ProductGroup': '.product_group'
+    'ProductCollection': '.product_collection'
+    'Vehicle': '.vehicle'
+    'IndividualProduct': '.individual_product'
+    'MedicalProcedure': '.medical_procedure'
+    'MedicalRiskFactor': '.medical_risk_factor'
+    'MedicalIndication': '.medical_indication'
+    'MedicalTest': '.medical_test'
+    'MedicalRiskEstimator': '.medical_risk_estimator'
+    'LifestyleModification': '.lifestyle_modification'
+    'Substance': '.substance'
+    'MedicalContraindication': '.medical_contraindication'
+    'MedicalStudy': '.medical_study'
+    'MedicalCondition': '.medical_condition'
+    'MedicalGuideline': '.medical_guideline'
+    'MedicalCause': '.medical_cause'
+    'DrugClass': '.drug_class'
+    'MedicalDevice': '.medical_device'
+    'SuperficialAnatomy': '.superficial_anatomy'
+    'DrugCost': '.drug_cost'
+    'AnatomicalStructure': '.anatomical_structure'
+    'AnatomicalSystem': '.anatomical_system'
+    'MedicalIntangible': '.medical_intangible'
+    'NewsMediaOrganization': '.news_media_organization'
+    'NGO': '.ngo'
+    'Cooperative': '.cooperative'
+    'SportsOrganization': '.sports_organization'
+    'PerformingGroup': '.performing_group'
+    'FundingScheme': '.funding_scheme'
+    'SearchRescueOrganization': '.search_rescue_organization'
+    'LibrarySystem': '.library_system'
+    'MedicalOrganization': '.medical_organization'
+    'OnlineBusiness': '.online_business'
+    'Consortium': '.consortium'
+    'WorkersUnion': '.workers_union'
+    'GovernmentOrganization': '.government_organization'
+    'Project': '.project'
+    'ResearchOrganization': '.research_organization'
+    'Airline': '.airline'
+    'Corporation': '.corporation'
+    'PoliticalParty': '.political_party'
+    'Protein': '.protein'
+    'Gene': '.gene'
+    'MolecularEntity': '.molecular_entity'
+    'ChemicalSubstance': '.chemical_substance'
+    'GatedResidenceCommunity': '.gated_residence_community'
+    'ApartmentComplex': '.apartment_complex'
+    'Country': '.country'
+    'City': '.city'
+    'State': '.state'
+    'SchoolDistrict': '.school_district'
+    'Continent': '.continent'
+    'BodyOfWater': '.body_of_water'
+    'Mountain': '.mountain'
+    'Volcano': '.volcano'
+    'RadioStation': '.radio_station'
+    'InternetCafe': '.internet_cafe'
+    'MedicalBusiness': '.medical_business'
+    'EmploymentAgency': '.employment_agency'
+    'FoodEstablishment': '.food_establishment'
+    'EntertainmentBusiness': '.entertainment_business'
+    'SportsActivityLocation': '.sports_activity_location'
+    'ShoppingCenter': '.shopping_center'
+    'FinancialService': '.financial_service'
+    'ChildCare': '.child_care'
+    'HomeAndConstructionBusiness': '.home_and_construction_business'
+    'AutomotiveBusiness': '.automotive_business'
+    'LodgingBusiness': '.lodging_business'
+    'Store': '.store'
+    'LegalService': '.legal_service'
+    'AnimalShelter': '.animal_shelter'
+    'TelevisionStation': '.television_station'
+    'EmergencyService': '.emergency_service'
+    'DryCleaningOrLaundry': '.dry_cleaning_or_laundry'
+    'ArchiveOrganization': '.archive_organization'
+    'RealEstateAgent': '.real_estate_agent'
+    'Library': '.library'
+    'RecyclingCenter': '.recycling_center'
+    'GovernmentOffice': '.government_office'
+    'TravelAgency': '.travel_agency'
+    'TouristInformationCenter': '.tourist_information_center'
+    'HealthAndBeautyBusiness': '.health_and_beauty_business'
+    'ProfessionalService': '.professional_service'
+    'SelfStorage': '.self_storage'
+    'Playground': '.playground'
+    'MusicVenue': '.music_venue'
+    'Crematorium': '.crematorium'
+    'PoliceStation': '.police_station'
+    'PlaceOfWorship': '.place_of_worship'
+    'PublicToilet': '.public_toilet'
+    'TaxiStand': '.taxi_stand'
+    'TrainStation': '.train_station'
+    'SubwayStation': '.subway_station'
+    'Bridge': '.bridge'
+    'EventVenue': '.event_venue'
+    'BusStop': '.bus_stop'
+    'EducationalOrganization': '.educational_organization'
+    'BusStation': '.bus_station'
+    'Cemetery': '.cemetery'
+    'GovernmentBuilding': '.government_building'
+    'Airport': '.airport'
+    'StadiumOrArena': '.stadium_or_arena'
+    'Beach': '.beach'
+    'Park': '.park'
+    'RVPark': '.rv_park'
+    'PerformingArtsTheater': '.performing_arts_theater'
+    'BoatTerminal': '.boat_terminal'
+    'Hospital': '.hospital'
+    'Aquarium': '.aquarium'
+    'Zoo': '.zoo'
+    'ParkingFacility': '.parking_facility'
+    'Museum': '.museum'
+    'MovieTheater': '.movie_theater'
+    'FireStation': '.fire_station'
+    'Apartment': '.apartment'
+    'Room': '.room'
+    'Suite': '.suite'
+    'House': '.house'
+    'CampingPitch': '.camping_pitch'
+    'UserCheckins': '.user_checkins'
+    'UserBlocks': '.user_blocks'
+    'UserComments': '.user_comments'
+    'UserTweets': '.user_tweets'
+    'UserLikes': '.user_likes'
+    'UserPlays': '.user_plays'
+    'UserPageVisits': '.user_page_visits'
+    'UserPlusOnes': '.user_plus_ones'
+    'UserDownloads': '.user_downloads'
+    'OnDemandEvent': '.on_demand_event'
+    'BroadcastEvent': '.broadcast_event'
+    'EventSeries': '.event_series'
+    'LinkRole': '.link_role'
+    'PerformanceRole': '.performance_role'
+    'OrganizationRole': '.organization_role'
+    'GovernmentPermit': '.government_permit'
+    'WorkBasedProgram': '.work_based_program'
+    'Researcher': '.researcher'
+    'BusinessAudience': '.business_audience'
+    'EducationalAudience': '.educational_audience'
+    'PeopleAudience': '.people_audience'
+    'MedicalAudience': '.medical_audience'
+    'CableOrSatelliteService': '.cable_or_satellite_service'
+    'WebAPI': '.web_api'
+    'FinancialProduct': '.financial_product'
+    'Taxi': '.taxi'
+    'FoodService': '.food_service'
+    'BroadcastService': '.broadcast_service'
+    'GovernmentService': '.government_service'
+    'TaxiService': '.taxi_service'
+    'SizeGroupEnumeration': '.size_group_enumeration'
+    'ReturnLabelSourceEnumeration': '.return_label_source_enumeration'
+    'PhysicalActivityCategory': '.physical_activity_category'
+    'ContactPointOption': '.contact_point_option'
+    'PriceComponentTypeEnumeration': '.price_component_type_enumeration'
+    'MapCategoryType': '.map_category_type'
+    'RestrictedDiet': '.restricted_diet'
+    'DigitalPlatformEnumeration': '.digital_platform_enumeration'
+    'PaymentMethodType': '.payment_method_type'
+    'IncentiveQualifiedExpenseType': '.incentive_qualified_expense_type'
+    'CertificationStatusEnumeration': '.certification_status_enumeration'
+    'GovernmentBenefitsType': '.government_benefits_type'
+    'StatusEnumeration': '.status_enumeration'
+    'CarUsageType': '.car_usage_type'
+    'FulfillmentTypeEnumeration': '.fulfillment_type_enumeration'
+    'SizeSystemEnumeration': '.size_system_enumeration'
+    'Specialty': '.specialty'
+    'GenderType': '.gender_type'
+    'HealthAspectEnumeration': '.health_aspect_enumeration'
+    'MediaManipulationRatingEnumeration': '.media_manipulation_rating_enumeration'
+    'MediaEnumeration': '.media_enumeration'
+    'WarrantyScope': '.warranty_scope'
+    'MusicAlbumReleaseType': '.music_album_release_type'
+    'MedicalEnumeration': '.medical_enumeration'
+    'DigitalDocumentPermissionType': '.digital_document_permission_type'
+    'OfferItemCondition': '.offer_item_condition'
+    'MeasurementMethodEnum': '.measurement_method_enum'
+    'LegalValueLevel': '.legal_value_level'
+    'EnergyEfficiencyEnumeration': '.energy_efficiency_enumeration'
+    'BookFormatType': '.book_format_type'
+    'BusinessEntityType': '.business_entity_type'
+    'ProductReturnEnumeration': '.product_return_enumeration'
+    'PriceTypeEnumeration': '.price_type_enumeration'
+    'ItemAvailability': '.item_availability'
+    'ItemListOrderType': '.item_list_order_type'
+    'RefundTypeEnumeration': '.refund_type_enumeration'
+    'TierBenefitEnumeration': '.tier_benefit_enumeration'
+    'GameAvailabilityEnumeration': '.game_availability_enumeration'
+    'BoardingPolicyType': '.boarding_policy_type'
+    'BusinessFunction': '.business_function'
+    'DeliveryMethod': '.delivery_method'
+    'IncentiveStatus': '.incentive_status'
+    'PurchaseType': '.purchase_type'
+    'QualitativeValue': '.qualitative_value'
+    'ReturnFeesEnumeration': '.return_fees_enumeration'
+    'IncentiveType': '.incentive_type'
+    'AdultOrientedEnumeration': '.adult_oriented_enumeration'
+    'NonprofitType': '.nonprofit_type'
+    'RsvpResponseType': '.rsvp_response_type'
+    'ReturnMethodEnumeration': '.return_method_enumeration'
+    'MerchantReturnEnumeration': '.merchant_return_enumeration'
+    'DayOfWeek': '.day_of_week'
+    'MeasurementTypeEnumeration': '.measurement_type_enumeration'
+    'MusicReleaseFormatType': '.music_release_format_type'
+    'EventAttendanceModeEnumeration': '.event_attendance_mode_enumeration'
+    'MusicAlbumProductionType': '.music_album_production_type'
+    'GamePlayMode': '.game_play_mode'
+    'DefinedRegion': '.defined_region'
+    'EngineSpecification': '.engine_specification'
+    'ShippingService': '.shipping_service'
+    'QuantitativeValue': '.quantitative_value'
+    'RepaymentSpecification': '.repayment_specification'
+    'ServicePeriod': '.service_period'
+    'WarrantyPromise': '.warranty_promise'
+    'DeliveryTimeSettings': '.delivery_time_settings'
+    'ShippingRateSettings': '.shipping_rate_settings'
+    'PriceSpecification': '.price_specification'
+    'QuantitativeValueDistribution': '.quantitative_value_distribution'
+    'ShippingDeliveryTime': '.shipping_delivery_time'
+    'PostalCodeRangeSpecification': '.postal_code_range_specification'
+    'MonetaryAmount': '.monetary_amount'
+    'ShippingConditions': '.shipping_conditions'
+    'PropertyValue': '.property_value'
+    'OwnershipInfo': '.ownership_info'
+    'InteractionCounter': '.interaction_counter'
+    'ExchangeRateSpecification': '.exchange_rate_specification'
+    'GeoShape': '.geo_shape'
+    'CDCPMDRecord': '.cdcpmd_record'
+    'TypeAndQuantityNode': '.type_and_quantity_node'
+    'OfferShippingDetails': '.offer_shipping_details'
+    'DatedMoneySpecification': '.dated_money_specification'
+    'ContactPoint': '.contact_point'
+    'NutritionInformation': '.nutrition_information'
+    'GeoCoordinates': '.geo_coordinates'
+    'OpeningHoursSpecification': '.opening_hours_specification'
+    'EndorsementRating': '.endorsement_rating'
+    'AggregateRating': '.aggregate_rating'
+    'RentalCarReservation': '.rental_car_reservation'
+    'LodgingReservation': '.lodging_reservation'
+    'TrainReservation': '.train_reservation'
+    'BoatReservation': '.boat_reservation'
+    'EventReservation': '.event_reservation'
+    'FlightReservation': '.flight_reservation'
+    'BusReservation': '.bus_reservation'
+    'TaxiReservation': '.taxi_reservation'
+    'ReservationPackage': '.reservation_package'
+    'FoodEstablishmentReservation': '.food_establishment_reservation'
+    'CategoryCode': '.category_code'
+    'HowToItem': '.how_to_item'
+    'BreadcrumbList': '.breadcrumb_list'
+    'HowToStep': '.how_to_step'
+    'OfferCatalog': '.offer_catalog'
+    'MonetaryGrant': '.monetary_grant'
+    'StatisticalVariable': '.statistical_variable'
+    'AggregateOffer': '.aggregate_offer'
+    'OfferForPurchase': '.offer_for_purchase'
+    'OfferForLease': '.offer_for_lease'
+    'TrainTrip': '.train_trip'
+    'BusTrip': '.bus_trip'
+    'TouristTrip': '.tourist_trip'
+    'Flight': '.flight'
+    'BoatTrip': '.boat_trip'
+    'Energy': '.energy'
+    'Distance': '.distance'
+    'Mass': '.mass'
+    'Duration': '.duration'
+    'RadioChannel': '.radio_channel'
+    'TelevisionChannel': '.television_channel'
+    'ComicCoverArt': '.comic_cover_art'
+    'Recipe': '.recipe'
+    'HealthTopicContent': '.health_topic_content'
+    'VideoGame': '.video_game'
+    'VideoObject': '.video_object'
+    'AudioObject': '.audio_object'
+    'MusicVideoObject': '.music_video_object'
+    'AmpStory': '.amp_story'
+    'DataDownload': '.data_download'
+    'TextObject': '.text_object'
+    'ImageObject': '.image_object'
+    '_3DModel': '._3_d_model'
+    'RadioClip': '.radio_clip'
+    'TVClip': '.tv_clip'
+    'MovieClip': '.movie_clip'
+    'VideoGameClip': '.video_game_clip'
+    'ClaimReview': '.claim_review'
+    'MediaReview': '.media_review'
+    'UserReview': '.user_review'
+    'EmployerReview': '.employer_review'
+    'Recommendation': '.recommendation'
+    'CriticReview': '.critic_review'
+    'NoteDigitalDocument': '.note_digital_document'
+    'SpreadsheetDigitalDocument': '.spreadsheet_digital_document'
+    'TextDigitalDocument': '.text_digital_document'
+    'PresentationDigitalDocument': '.presentation_digital_document'
+    'DataFeed': '.data_feed'
+    'TVSeason': '.tv_season'
+    'RadioSeason': '.radio_season'
+    'PodcastSeason': '.podcast_season'
+    'Quiz': '.quiz'
+    'Course': '.course'
+    'Syllabus': '.syllabus'
+    'MusicAlbum': '.music_album'
+    'MusicRelease': '.music_release'
+    'Table': '.table'
+    'WPFooter': '.wp_footer'
+    'WPSideBar': '.wp_side_bar'
+    'WPAdBlock': '.wp_ad_block'
+    'WPHeader': '.wp_header'
+    'SiteNavigationElement': '.site_navigation_element'
+    'NewsArticle': '.news_article'
+    'SatiricalArticle': '.satirical_article'
+    'AdvertiserContentArticle': '.advertiser_content_article'
+    'SocialMediaPosting': '.social_media_posting'
+    'Report': '.report'
+    'ScholarlyArticle': '.scholarly_article'
+    'TechArticle': '.tech_article'
+    'ComicIssue': '.comic_issue'
+    'WebApplication': '.web_application'
+    'MobileApplication': '.mobile_application'
+    'CorrectionComment': '.correction_comment'
+    'Question': '.question'
+    'Answer': '.answer'
+    'EmailMessage': '.email_message'
+    'LegislationObject': '.legislation_object'
+    'CategoryCodeSet': '.category_code_set'
+    'CoverArt': '.cover_art'
+    'RealEstateListing': '.real_estate_listing'
+    'ProfilePage': '.profile_page'
+    'MedicalWebPage': '.medical_web_page'
+    'SearchResultsPage': '.search_results_page'
+    'CheckoutPage': '.checkout_page'
+    'ContactPage': '.contact_page'
+    'ItemPage': '.item_page'
+    'CollectionPage': '.collection_page'
+    'AboutPage': '.about_page'
+    'QAPage': '.qa_page'
+    'FAQPage': '.faq_page'
+    'RadioEpisode': '.radio_episode'
+    'PodcastEpisode': '.podcast_episode'
+    'TVEpisode': '.tv_episode'
+    'RadioSeries': '.radio_series'
+    'Periodical': '.periodical'
+    'PodcastSeries': '.podcast_series'
+    'BookSeries': '.book_series'
+    'MovieSeries': '.movie_series'
+    'VideoGameSeries': '.video_game_series'
+    'ResumeAction': '.resume_action'
+    'SuspendAction': '.suspend_action'
+    'ActivateAction': '.activate_action'
+    'DeactivateAction': '.deactivate_action'
+    'RentAction': '.rent_action'
+    'OrderAction': '.order_action'
+    'PreOrderAction': '.pre_order_action'
+    'BuyAction': '.buy_action'
+    'TipAction': '.tip_action'
+    'SellAction': '.sell_action'
+    'PayAction': '.pay_action'
+    'QuoteAction': '.quote_action'
+    'IgnoreAction': '.ignore_action'
+    'ReviewAction': '.review_action'
+    'ReactAction': '.react_action'
+    'ChooseAction': '.choose_action'
+    'TravelAction': '.travel_action'
+    'DepartAction': '.depart_action'
+    'ArriveAction': '.arrive_action'
+    'TieAction': '.tie_action'
+    'LoseAction': '.lose_action'
+    'WinAction': '.win_action'
+    'TrackAction': '.track_action'
+    'DiscoverAction': '.discover_action'
+    'CheckAction': '.check_action'
+    'LendAction': '.lend_action'
+    'SendAction': '.send_action'
+    'MoneyTransfer': '.money_transfer'
+    'ReturnAction': '.return_action'
+    'TakeAction': '.take_action'
+    'GiveAction': '.give_action'
+    'BorrowAction': '.borrow_action'
+    'DonateAction': '.donate_action'
+    'ReceiveAction': '.receive_action'
+    'DownloadAction': '.download_action'
+    'BookmarkAction': '.bookmark_action'
+    'PlanAction': '.plan_action'
+    'AllocateAction': '.allocate_action'
+    'ApplyAction': '.apply_action'
+    'DeleteAction': '.delete_action'
+    'AddAction': '.add_action'
+    'ReplaceAction': '.replace_action'
+    'DrawAction': '.draw_action'
+    'PhotographAction': '.photograph_action'
+    'CookAction': '.cook_action'
+    'PaintAction': '.paint_action'
+    'FilmAction': '.film_action'
+    'WriteAction': '.write_action'
+    'PerformAction': '.perform_action'
+    'ExerciseAction': '.exercise_action'
+    'InstallAction': '.install_action'
+    'ReadAction': '.read_action'
+    'ViewAction': '.view_action'
+    'DrinkAction': '.drink_action'
+    'UseAction': '.use_action'
+    'EatAction': '.eat_action'
+    'ListenAction': '.listen_action'
+    'PlayGameAction': '.play_game_action'
+    'WatchAction': '.watch_action'
+    'MarryAction': '.marry_action'
+    'FollowAction': '.follow_action'
+    'JoinAction': '.join_action'
+    'LeaveAction': '.leave_action'
+    'SubscribeAction': '.subscribe_action'
+    'RegisterAction': '.register_action'
+    'CommunicateAction': '.communicate_action'
+    'UnRegisterAction': '.un_register_action'
+    'BefriendAction': '.befriend_action'
+    'Car': '.car'
+    'Motorcycle': '.motorcycle'
+    'BusOrCoach': '.bus_or_coach'
+    'MotorizedBicycle': '.motorized_bicycle'
+    'DiagnosticProcedure': '.diagnostic_procedure'
+    'SurgicalProcedure': '.surgical_procedure'
+    'TherapeuticProcedure': '.therapeutic_procedure'
+    'TreatmentIndication': '.treatment_indication'
+    'ApprovedIndication': '.approved_indication'
+    'PreventionIndication': '.prevention_indication'
+    'PathologyTest': '.pathology_test'
+    'BloodTest': '.blood_test'
+    'ImagingTest': '.imaging_test'
+    'MedicalTestPanel': '.medical_test_panel'
+    'MedicalRiskCalculator': '.medical_risk_calculator'
+    'MedicalRiskScore': '.medical_risk_score'
+    'PhysicalActivity': '.physical_activity'
+    'Diet': '.diet'
+    'Drug': '.drug'
+    'DietarySupplement': '.dietary_supplement'
+    'MedicalTrial': '.medical_trial'
+    'MedicalObservationalStudy': '.medical_observational_study'
+    'InfectiousDisease': '.infectious_disease'
+    'MedicalSignOrSymptom': '.medical_sign_or_symptom'
+    'MedicalGuidelineRecommendation': '.medical_guideline_recommendation'
+    'MedicalGuidelineContraindication': '.medical_guideline_contraindication'
+    'Vessel': '.vessel'
+    'Ligament': '.ligament'
+    'Bone': '.bone'
+    'BrainStructure': '.brain_structure'
+    'Joint': '.joint'
+    'Muscle': '.muscle'
+    'Nerve': '.nerve'
+    'DoseSchedule': '.dose_schedule'
+    'MedicalConditionStage': '.medical_condition_stage'
+    'DrugStrength': '.drug_strength'
+    'DDxElement': '.d_dx_element'
+    'MedicalCode': '.medical_code'
+    'DrugLegalStatus': '.drug_legal_status'
+    'SportsTeam': '.sports_team'
+    'DanceGroup': '.dance_group'
+    'MusicGroup': '.music_group'
+    'TheaterGroup': '.theater_group'
+    'VeterinaryCare': '.veterinary_care'
+    'DiagnosticLab': '.diagnostic_lab'
+    'MedicalClinic': '.medical_clinic'
+    'Pharmacy': '.pharmacy'
+    'OnlineStore': '.online_store'
+    'FundingAgency': '.funding_agency'
+    'ResearchProject': '.research_project'
+    'LakeBodyOfWater': '.lake_body_of_water'
+    'Reservoir': '.reservoir'
+    'Pond': '.pond'
+    'RiverBodyOfWater': '.river_body_of_water'
+    'SeaBodyOfWater': '.sea_body_of_water'
+    'OceanBodyOfWater': '.ocean_body_of_water'
+    'Waterfall': '.waterfall'
+    'Canal': '.canal'
+    'Dentist': '.dentist'
+    'Physician': '.physician'
+    'Optician': '.optician'
+    'Winery': '.winery'
+    'IceCreamShop': '.ice_cream_shop'
+    'BarOrPub': '.bar_or_pub'
+    'Restaurant': '.restaurant'
+    'Bakery': '.bakery'
+    'CafeOrCoffeeShop': '.cafe_or_coffee_shop'
+    'FastFoodRestaurant': '.fast_food_restaurant'
+    'Distillery': '.distillery'
+    'Brewery': '.brewery'
+    'ComedyClub': '.comedy_club'
+    'AmusementPark': '.amusement_park'
+    'Casino': '.casino'
+    'ArtGallery': '.art_gallery'
+    'AdultEntertainment': '.adult_entertainment'
+    'NightClub': '.night_club'
+    'PublicSwimmingPool': '.public_swimming_pool'
+    'BowlingAlley': '.bowling_alley'
+    'TennisComplex': '.tennis_complex'
+    'GolfCourse': '.golf_course'
+    'ExerciseGym': '.exercise_gym'
+    'SportsClub': '.sports_club'
+    'InsuranceAgency': '.insurance_agency'
+    'BankOrCreditUnion': '.bank_or_credit_union'
+    'AutomatedTeller': '.automated_teller'
+    'AccountingService': '.accounting_service'
+    'MovingCompany': '.moving_company'
+    'Locksmith': '.locksmith'
+    'GeneralContractor': '.general_contractor'
+    'Plumber': '.plumber'
+    'RoofingContractor': '.roofing_contractor'
+    'HVACBusiness': '.hvac_business'
+    'Electrician': '.electrician'
+    'HousePainter': '.house_painter'
+    'AutoDealer': '.auto_dealer'
+    'AutoBodyShop': '.auto_body_shop'
+    'GasStation': '.gas_station'
+    'MotorcycleDealer': '.motorcycle_dealer'
+    'AutoRental': '.auto_rental'
+    'AutoRepair': '.auto_repair'
+    'AutoWash': '.auto_wash'
+    'MotorcycleRepair': '.motorcycle_repair'
+    'BedAndBreakfast': '.bed_and_breakfast'
+    'VacationRental': '.vacation_rental'
+    'Campground': '.campground'
+    'Resort': '.resort'
+    'Hotel': '.hotel'
+    'Motel': '.motel'
+    'Hostel': '.hostel'
+    'HobbyShop': '.hobby_shop'
+    'LiquorStore': '.liquor_store'
+    'PawnShop': '.pawn_shop'
+    'ElectronicsStore': '.electronics_store'
+    'BookStore': '.book_store'
+    'Florist': '.florist'
+    'JewelryStore': '.jewelry_store'
+    'HardwareStore': '.hardware_store'
+    'ComputerStore': '.computer_store'
+    'PetStore': '.pet_store'
+    'GardenStore': '.garden_store'
+    'OutletStore': '.outlet_store'
+    'HomeGoodsStore': '.home_goods_store'
+    'DepartmentStore': '.department_store'
+    'OfficeEquipmentStore': '.office_equipment_store'
+    'ShoeStore': '.shoe_store'
+    'MobilePhoneStore': '.mobile_phone_store'
+    'MusicStore': '.music_store'
+    'BikeStore': '.bike_store'
+    'AutoPartsStore': '.auto_parts_store'
+    'FurnitureStore': '.furniture_store'
+    'GroceryStore': '.grocery_store'
+    'MensClothingStore': '.mens_clothing_store'
+    'ConvenienceStore': '.convenience_store'
+    'TireShop': '.tire_shop'
+    'MovieRentalStore': '.movie_rental_store'
+    'SportingGoodsStore': '.sporting_goods_store'
+    'WholesaleStore': '.wholesale_store'
+    'ClothingStore': '.clothing_store'
+    'ToyStore': '.toy_store'
+    'Attorney': '.attorney'
+    'Notary': '.notary'
+    'PostOffice': '.post_office'
+    'DaySpa': '.day_spa'
+    'BeautySalon': '.beauty_salon'
+    'HealthClub': '.health_club'
+    'HairSalon': '.hair_salon'
+    'NailSalon': '.nail_salon'
+    'TattooParlor': '.tattoo_parlor'
+    'HinduTemple': '.hindu_temple'
+    'BuddhistTemple': '.buddhist_temple'
+    'Mosque': '.mosque'
+    'Church': '.church'
+    'Synagogue': '.synagogue'
+    'CollegeOrUniversity': '.college_or_university'
+    'ElementarySchool': '.elementary_school'
+    'School': '.school'
+    'MiddleSchool': '.middle_school'
+    'HighSchool': '.high_school'
+    'Preschool': '.preschool'
+    'Embassy': '.embassy'
+    'Courthouse': '.courthouse'
+    'DefenceEstablishment': '.defence_establishment'
+    'LegislativeBuilding': '.legislative_building'
+    'CityHall': '.city_hall'
+    'MeetingRoom': '.meeting_room'
+    'HotelRoom': '.hotel_room'
+    'SingleFamilyResidence': '.single_family_residence'
+    'EmployeeRole': '.employee_role'
+    'ParentAudience': '.parent_audience'
+    'Patient': '.patient'
+    'InvestmentOrDeposit': '.investment_or_deposit'
+    'PaymentService': '.payment_service'
+    'LoanOrCredit': '.loan_or_credit'
+    'BankAccount': '.bank_account'
+    'CurrencyConversionService': '.currency_conversion_service'
+    'PaymentCard': '.payment_card'
+    'RadioBroadcastService': '.radio_broadcast_service'
+    'WearableSizeGroupEnumeration': '.wearable_size_group_enumeration'
+    'PaymentStatusType': '.payment_status_type'
+    'ReservationStatusType': '.reservation_status_type'
+    'GameServerStatus': '.game_server_status'
+    'EventStatusType': '.event_status_type'
+    'ActionStatusType': '.action_status_type'
+    'OrderStatus': '.order_status'
+    'LegalForceStatus': '.legal_force_status'
+    'WearableSizeSystemEnumeration': '.wearable_size_system_enumeration'
+    'MedicalSpecialty': '.medical_specialty'
+    'IPTCDigitalSourceEnumeration': '.iptc_digital_source_enumeration'
+    'DrugPrescriptionStatus': '.drug_prescription_status'
+    'MedicalDevicePurpose': '.medical_device_purpose'
+    'MedicalTrialDesign': '.medical_trial_design'
+    'DrugCostCategory': '.drug_cost_category'
+    'MedicalProcedureType': '.medical_procedure_type'
+    'DrugPregnancyCategory': '.drug_pregnancy_category'
+    'PhysicalExam': '.physical_exam'
+    'MedicalObservationalStudyDesign': '.medical_observational_study_design'
+    'MedicalEvidenceLevel': '.medical_evidence_level'
+    'MedicalStudyStatus': '.medical_study_status'
+    'MedicalImagingTechnique': '.medical_imaging_technique'
+    'MedicineSystem': '.medicine_system'
+    'InfectiousAgentClass': '.infectious_agent_class'
+    'MedicalAudienceType': '.medical_audience_type'
+    'EUEnergyEfficiencyEnumeration': '.eu_energy_efficiency_enumeration'
+    'EnergyStarEnergyEfficiencyEnumeration': '.energy_star_energy_efficiency_enumeration'
+    'BedType': '.bed_type'
+    'SteeringPositionValue': '.steering_position_value'
+    'SizeSpecification': '.size_specification'
+    'DriveWheelConfigurationValue': '.drive_wheel_configuration_value'
+    'USNonprofitType': '.us_nonprofit_type'
+    'NLNonprofitType': '.nl_nonprofit_type'
+    'UKNonprofitType': '.uk_nonprofit_type'
+    'WearableMeasurementTypeEnumeration': '.wearable_measurement_type_enumeration'
+    'BodyMeasurementTypeEnumeration': '.body_measurement_type_enumeration'
+    'CompoundPriceSpecification': '.compound_price_specification'
+    'UnitPriceSpecification': '.unit_price_specification'
+    'PaymentChargeSpecification': '.payment_charge_specification'
+    'DeliveryChargeSpecification': '.delivery_charge_specification'
+    'MonetaryAmountDistribution': '.monetary_amount_distribution'
+    'LocationFeatureSpecification': '.location_feature_specification'
+    'GeoCircle': '.geo_circle'
+    'PostalAddress': '.postal_address'
+    'EmployerAggregateRating': '.employer_aggregate_rating'
+    'HowToSupply': '.how_to_supply'
+    'HowToTool': '.how_to_tool'
+    'AMRadioChannel': '.am_radio_channel'
+    'FMRadioChannel': '.fm_radio_channel'
+    'VideoObjectSnapshot': '.video_object_snapshot'
+    'AudioObjectSnapshot': '.audio_object_snapshot'
+    'Audiobook': '.audiobook'
+    'ImageObjectSnapshot': '.image_object_snapshot'
+    'Barcode': '.barcode'
+    'CompleteDataFeed': '.complete_data_feed'
+    'OpinionNewsArticle': '.opinion_news_article'
+    'ReviewNewsArticle': '.review_news_article'
+    'ReportageNewsArticle': '.reportage_news_article'
+    'BackgroundNewsArticle': '.background_news_article'
+    'AnalysisNewsArticle': '.analysis_news_article'
+    'AskPublicNewsArticle': '.ask_public_news_article'
+    'DiscussionForumPosting': '.discussion_forum_posting'
+    'BlogPosting': '.blog_posting'
+    'MedicalScholarlyArticle': '.medical_scholarly_article'
+    'APIReference': '.api_reference'
+    'MediaGallery': '.media_gallery'
+    'Newspaper': '.newspaper'
+    'ComicSeries': '.comic_series'
+    'DisagreeAction': '.disagree_action'
+    'DislikeAction': '.dislike_action'
+    'WantAction': '.want_action'
+    'EndorseAction': '.endorse_action'
+    'LikeAction': '.like_action'
+    'AgreeAction': '.agree_action'
+    'VoteAction': '.vote_action'
+    'ScheduleAction': '.schedule_action'
+    'CancelAction': '.cancel_action'
+    'ReserveAction': '.reserve_action'
+    'RejectAction': '.reject_action'
+    'AuthorizeAction': '.authorize_action'
+    'AcceptAction': '.accept_action'
+    'AssignAction': '.assign_action'
+    'InsertAction': '.insert_action'
+    'WearAction': '.wear_action'
+    'CommentAction': '.comment_action'
+    'ReplyAction': '.reply_action'
+    'CheckOutAction': '.check_out_action'
+    'InviteAction': '.invite_action'
+    'CheckInAction': '.check_in_action'
+    'AskAction': '.ask_action'
+    'InformAction': '.inform_action'
+    'ShareAction': '.share_action'
+    'PsychologicalTreatment': '.psychological_treatment'
+    'MedicalTherapy': '.medical_therapy'
+    'MedicalSymptom': '.medical_symptom'
+    'MedicalSign': '.medical_sign'
+    'Vein': '.vein'
+    'LymphaticVessel': '.lymphatic_vessel'
+    'Artery': '.artery'
+    'MaximumDoseSchedule': '.maximum_dose_schedule'
+    'ReportedDoseSchedule': '.reported_dose_schedule'
+    'RecommendedDoseSchedule': '.recommended_dose_schedule'
+    'CovidTestingFacility': '.covid_testing_facility'
+    'OnlineMarketplace': '.online_marketplace'
+    'PhysiciansOffice': '.physicians_office'
+    'IndividualPhysician': '.individual_physician'
+    'SkiResort': '.ski_resort'
+    'CatholicChurch': '.catholic_church'
+    'BrokerageAccount': '.brokerage_account'
+    'DepositAccount': '.deposit_account'
+    'InvestmentFund': '.investment_fund'
+    'MortgageLoan': '.mortgage_loan'
+    'CreditCard': '.credit_card'
+    'LiveBlogPosting': '.live_blog_posting'
+    'VideoGallery': '.video_gallery'
+    'ImageGallery': '.image_gallery'
+    'AppendAction': '.append_action'
+    'PrependAction': '.prepend_action'
+    'ConfirmAction': '.confirm_action'
+    'RsvpAction': '.rsvp_action'
+    'OccupationalTherapy': '.occupational_therapy'
+    'PalliativeProcedure': '.palliative_procedure'
+    'PhysicalTherapy': '.physical_therapy'
+    'RadiationTherapy': '.radiation_therapy'
+    'VitalSign': '.vital_sign'
+}
 
-PronounceableText.model_rebuild()
-CssSelectorType.model_rebuild()
-Thing.model_rebuild()
-Person.model_rebuild()
-Place.model_rebuild()
-Event.model_rebuild()
-Intangible.model_rebuild()
-CreativeWork.model_rebuild()
-Action.model_rebuild()
-Product.model_rebuild()
-MedicalEntity.model_rebuild()
-StupidType.model_rebuild()
-Taxon.model_rebuild()
-Organization.model_rebuild()
-BioChemEntity.model_rebuild()
-Residence.model_rebuild()
-TouristDestination.model_rebuild()
-AdministrativeArea.model_rebuild()
-Landform.model_rebuild()
-LocalBusiness.model_rebuild()
-CivicStructure.model_rebuild()
-TouristAttraction.model_rebuild()
-Accommodation.model_rebuild()
-LandmarksOrHistoricalBuildings.model_rebuild()
-TheaterEvent.model_rebuild()
-FoodEvent.model_rebuild()
-EducationEvent.model_rebuild()
-Festival.model_rebuild()
-SocialEvent.model_rebuild()
-MusicEvent.model_rebuild()
-ScreeningEvent.model_rebuild()
-VisualArtsEvent.model_rebuild()
-LiteraryEvent.model_rebuild()
-UserInteraction.model_rebuild()
-DeliveryEvent.model_rebuild()
-SportsEvent.model_rebuild()
-PublicationEvent.model_rebuild()
-ComedyEvent.model_rebuild()
-CourseInstance.model_rebuild()
-ChildrensEvent.model_rebuild()
-DanceEvent.model_rebuild()
-BusinessEvent.model_rebuild()
-Hackathon.model_rebuild()
-SaleEvent.model_rebuild()
-ExhibitionEvent.model_rebuild()
-MediaSubscription.model_rebuild()
-VirtualLocation.model_rebuild()
-Ticket.model_rebuild()
-DataFeedItem.model_rebuild()
-Series.model_rebuild()
-Role.model_rebuild()
-FloorPlan.model_rebuild()
-Permit.model_rebuild()
-MemberProgramTier.model_rebuild()
-EducationalOccupationalProgram.model_rebuild()
-GeospatialGeometry.model_rebuild()
-Audience.model_rebuild()
-Brand.model_rebuild()
-Occupation.model_rebuild()
-ProgramMembership.model_rebuild()
-Service.model_rebuild()
-HealthPlanCostSharingSpecification.model_rebuild()
-Invoice.model_rebuild()
-HealthInsurancePlan.model_rebuild()
-Property.model_rebuild()
-AlignmentObject.model_rebuild()
-MerchantReturnPolicySeasonalOverride.model_rebuild()
-EnergyConsumptionDetails.model_rebuild()
-Schedule.model_rebuild()
-Enumeration.model_rebuild()
-SpeakableSpecification.model_rebuild()
-HealthPlanFormulary.model_rebuild()
-Language.model_rebuild()
-StructuredValue.model_rebuild()
-MemberProgram.model_rebuild()
-PropertyValueSpecification.model_rebuild()
-Rating.model_rebuild()
-DigitalDocumentPermission.model_rebuild()
-ComputerLanguage.model_rebuild()
-ProductReturnPolicy.model_rebuild()
-PaymentMethod.model_rebuild()
-ParcelDelivery.model_rebuild()
-MerchantReturnPolicy.model_rebuild()
-Reservation.model_rebuild()
-JobPosting.model_rebuild()
-BroadcastFrequencySpecification.model_rebuild()
-OccupationalExperienceRequirements.model_rebuild()
-BedDetails.model_rebuild()
-GameServer.model_rebuild()
-ServiceChannel.model_rebuild()
-Demand.model_rebuild()
-DefinedTerm.model_rebuild()
-ActionAccessSpecification.model_rebuild()
-FinancialIncentive.model_rebuild()
-MenuItem.model_rebuild()
-ListItem.model_rebuild()
-OrderItem.model_rebuild()
-ItemList.model_rebuild()
-HealthPlanNetwork.model_rebuild()
-Grant.model_rebuild()
-StatisticalPopulation.model_rebuild()
-Order.model_rebuild()
-ConstraintNode.model_rebuild()
-Offer.model_rebuild()
-Trip.model_rebuild()
-Observation.model_rebuild()
-EntryPoint.model_rebuild()
-Quantity.model_rebuild()
-Seat.model_rebuild()
-BroadcastChannel.model_rebuild()
-_Class.model_rebuild()
-Chapter.model_rebuild()
-TVSeries.model_rebuild()
-WebSite.model_rebuild()
-ComicStory.model_rebuild()
-HowTo.model_rebuild()
-WebContent.model_rebuild()
-Game.model_rebuild()
-Guide.model_rebuild()
-MediaObject.model_rebuild()
-DataCatalog.model_rebuild()
-Clip.model_rebuild()
-Review.model_rebuild()
-Certification.model_rebuild()
-Play.model_rebuild()
-SpecialAnnouncement.model_rebuild()
-ShortStory.model_rebuild()
-Photograph.model_rebuild()
-Claim.model_rebuild()
-Blog.model_rebuild()
-Quotation.model_rebuild()
-DigitalDocument.model_rebuild()
-Dataset.model_rebuild()
-CreativeWorkSeason.model_rebuild()
-LearningResource.model_rebuild()
-MusicPlaylist.model_rebuild()
-Menu.model_rebuild()
-Sculpture.model_rebuild()
-Painting.model_rebuild()
-WebPageElement.model_rebuild()
-Code.model_rebuild()
-Movie.model_rebuild()
-Poster.model_rebuild()
-HowToTip.model_rebuild()
-HowToSection.model_rebuild()
-MediaReviewItem.model_rebuild()
-Book.model_rebuild()
-Statement.model_rebuild()
-Season.model_rebuild()
-Article.model_rebuild()
-Atlas.model_rebuild()
-HowToDirection.model_rebuild()
-PublicationIssue.model_rebuild()
-Thesis.model_rebuild()
-SoftwareApplication.model_rebuild()
-PublicationVolume.model_rebuild()
-Comment.model_rebuild()
-MusicComposition.model_rebuild()
-ExercisePlan.model_rebuild()
-Message.model_rebuild()
-Conversation.model_rebuild()
-Drawing.model_rebuild()
-Map.model_rebuild()
-MusicRecording.model_rebuild()
-Legislation.model_rebuild()
-DefinedTermSet.model_rebuild()
-SoftwareSourceCode.model_rebuild()
-HyperTocEntry.model_rebuild()
-VisualArtwork.model_rebuild()
-SheetMusic.model_rebuild()
-Collection.model_rebuild()
-EducationalOccupationalCredential.model_rebuild()
-WebPage.model_rebuild()
-MenuSection.model_rebuild()
-Episode.model_rebuild()
-Manuscript.model_rebuild()
-CreativeWorkSeries.model_rebuild()
-MathSolver.model_rebuild()
-HyperToc.model_rebuild()
-ArchiveComponent.model_rebuild()
-ControlAction.model_rebuild()
-TradeAction.model_rebuild()
-AssessAction.model_rebuild()
-MoveAction.model_rebuild()
-AchieveAction.model_rebuild()
-FindAction.model_rebuild()
-TransferAction.model_rebuild()
-OrganizeAction.model_rebuild()
-UpdateAction.model_rebuild()
-CreateAction.model_rebuild()
-PlayAction.model_rebuild()
-SeekToAction.model_rebuild()
-SolveMathAction.model_rebuild()
-ConsumeAction.model_rebuild()
-InteractAction.model_rebuild()
-SearchAction.model_rebuild()
-ProductModel.model_rebuild()
-SomeProducts.model_rebuild()
-ProductGroup.model_rebuild()
-ProductCollection.model_rebuild()
-Vehicle.model_rebuild()
-IndividualProduct.model_rebuild()
-MedicalProcedure.model_rebuild()
-MedicalRiskFactor.model_rebuild()
-MedicalIndication.model_rebuild()
-MedicalTest.model_rebuild()
-MedicalRiskEstimator.model_rebuild()
-LifestyleModification.model_rebuild()
-Substance.model_rebuild()
-MedicalContraindication.model_rebuild()
-MedicalStudy.model_rebuild()
-MedicalCondition.model_rebuild()
-MedicalGuideline.model_rebuild()
-MedicalCause.model_rebuild()
-DrugClass.model_rebuild()
-MedicalDevice.model_rebuild()
-SuperficialAnatomy.model_rebuild()
-DrugCost.model_rebuild()
-AnatomicalStructure.model_rebuild()
-AnatomicalSystem.model_rebuild()
-MedicalIntangible.model_rebuild()
-NewsMediaOrganization.model_rebuild()
-NGO.model_rebuild()
-Cooperative.model_rebuild()
-SportsOrganization.model_rebuild()
-PerformingGroup.model_rebuild()
-FundingScheme.model_rebuild()
-SearchRescueOrganization.model_rebuild()
-LibrarySystem.model_rebuild()
-MedicalOrganization.model_rebuild()
-OnlineBusiness.model_rebuild()
-Consortium.model_rebuild()
-WorkersUnion.model_rebuild()
-GovernmentOrganization.model_rebuild()
-Project.model_rebuild()
-ResearchOrganization.model_rebuild()
-Airline.model_rebuild()
-Corporation.model_rebuild()
-PoliticalParty.model_rebuild()
-Protein.model_rebuild()
-Gene.model_rebuild()
-MolecularEntity.model_rebuild()
-ChemicalSubstance.model_rebuild()
-GatedResidenceCommunity.model_rebuild()
-ApartmentComplex.model_rebuild()
-Country.model_rebuild()
-City.model_rebuild()
-State.model_rebuild()
-SchoolDistrict.model_rebuild()
-Continent.model_rebuild()
-BodyOfWater.model_rebuild()
-Mountain.model_rebuild()
-Volcano.model_rebuild()
-RadioStation.model_rebuild()
-InternetCafe.model_rebuild()
-MedicalBusiness.model_rebuild()
-EmploymentAgency.model_rebuild()
-FoodEstablishment.model_rebuild()
-EntertainmentBusiness.model_rebuild()
-SportsActivityLocation.model_rebuild()
-ShoppingCenter.model_rebuild()
-FinancialService.model_rebuild()
-ChildCare.model_rebuild()
-HomeAndConstructionBusiness.model_rebuild()
-AutomotiveBusiness.model_rebuild()
-LodgingBusiness.model_rebuild()
-Store.model_rebuild()
-LegalService.model_rebuild()
-AnimalShelter.model_rebuild()
-TelevisionStation.model_rebuild()
-EmergencyService.model_rebuild()
-DryCleaningOrLaundry.model_rebuild()
-ArchiveOrganization.model_rebuild()
-RealEstateAgent.model_rebuild()
-Library.model_rebuild()
-RecyclingCenter.model_rebuild()
-GovernmentOffice.model_rebuild()
-TravelAgency.model_rebuild()
-TouristInformationCenter.model_rebuild()
-HealthAndBeautyBusiness.model_rebuild()
-ProfessionalService.model_rebuild()
-SelfStorage.model_rebuild()
-Playground.model_rebuild()
-MusicVenue.model_rebuild()
-Crematorium.model_rebuild()
-PoliceStation.model_rebuild()
-PlaceOfWorship.model_rebuild()
-PublicToilet.model_rebuild()
-TaxiStand.model_rebuild()
-TrainStation.model_rebuild()
-SubwayStation.model_rebuild()
-Bridge.model_rebuild()
-EventVenue.model_rebuild()
-BusStop.model_rebuild()
-EducationalOrganization.model_rebuild()
-BusStation.model_rebuild()
-Cemetery.model_rebuild()
-GovernmentBuilding.model_rebuild()
-Airport.model_rebuild()
-StadiumOrArena.model_rebuild()
-Beach.model_rebuild()
-Park.model_rebuild()
-RVPark.model_rebuild()
-PerformingArtsTheater.model_rebuild()
-BoatTerminal.model_rebuild()
-Hospital.model_rebuild()
-Aquarium.model_rebuild()
-Zoo.model_rebuild()
-ParkingFacility.model_rebuild()
-Museum.model_rebuild()
-MovieTheater.model_rebuild()
-FireStation.model_rebuild()
-Apartment.model_rebuild()
-Room.model_rebuild()
-Suite.model_rebuild()
-House.model_rebuild()
-CampingPitch.model_rebuild()
-UserCheckins.model_rebuild()
-UserBlocks.model_rebuild()
-UserComments.model_rebuild()
-UserTweets.model_rebuild()
-UserLikes.model_rebuild()
-UserPlays.model_rebuild()
-UserPageVisits.model_rebuild()
-UserPlusOnes.model_rebuild()
-UserDownloads.model_rebuild()
-OnDemandEvent.model_rebuild()
-BroadcastEvent.model_rebuild()
-EventSeries.model_rebuild()
-LinkRole.model_rebuild()
-PerformanceRole.model_rebuild()
-OrganizationRole.model_rebuild()
-GovernmentPermit.model_rebuild()
-WorkBasedProgram.model_rebuild()
-Researcher.model_rebuild()
-BusinessAudience.model_rebuild()
-EducationalAudience.model_rebuild()
-PeopleAudience.model_rebuild()
-MedicalAudience.model_rebuild()
-CableOrSatelliteService.model_rebuild()
-WebAPI.model_rebuild()
-FinancialProduct.model_rebuild()
-Taxi.model_rebuild()
-FoodService.model_rebuild()
-BroadcastService.model_rebuild()
-GovernmentService.model_rebuild()
-TaxiService.model_rebuild()
-SizeGroupEnumeration.model_rebuild()
-ReturnLabelSourceEnumeration.model_rebuild()
-PhysicalActivityCategory.model_rebuild()
-ContactPointOption.model_rebuild()
-PriceComponentTypeEnumeration.model_rebuild()
-MapCategoryType.model_rebuild()
-RestrictedDiet.model_rebuild()
-DigitalPlatformEnumeration.model_rebuild()
-PaymentMethodType.model_rebuild()
-IncentiveQualifiedExpenseType.model_rebuild()
-CertificationStatusEnumeration.model_rebuild()
-GovernmentBenefitsType.model_rebuild()
-StatusEnumeration.model_rebuild()
-CarUsageType.model_rebuild()
-FulfillmentTypeEnumeration.model_rebuild()
-SizeSystemEnumeration.model_rebuild()
-Specialty.model_rebuild()
-GenderType.model_rebuild()
-HealthAspectEnumeration.model_rebuild()
-MediaManipulationRatingEnumeration.model_rebuild()
-MediaEnumeration.model_rebuild()
-WarrantyScope.model_rebuild()
-MusicAlbumReleaseType.model_rebuild()
-MedicalEnumeration.model_rebuild()
-DigitalDocumentPermissionType.model_rebuild()
-OfferItemCondition.model_rebuild()
-MeasurementMethodEnum.model_rebuild()
-LegalValueLevel.model_rebuild()
-EnergyEfficiencyEnumeration.model_rebuild()
-BookFormatType.model_rebuild()
-BusinessEntityType.model_rebuild()
-ProductReturnEnumeration.model_rebuild()
-PriceTypeEnumeration.model_rebuild()
-ItemAvailability.model_rebuild()
-ItemListOrderType.model_rebuild()
-RefundTypeEnumeration.model_rebuild()
-TierBenefitEnumeration.model_rebuild()
-GameAvailabilityEnumeration.model_rebuild()
-BoardingPolicyType.model_rebuild()
-BusinessFunction.model_rebuild()
-DeliveryMethod.model_rebuild()
-IncentiveStatus.model_rebuild()
-PurchaseType.model_rebuild()
-QualitativeValue.model_rebuild()
-ReturnFeesEnumeration.model_rebuild()
-IncentiveType.model_rebuild()
-AdultOrientedEnumeration.model_rebuild()
-NonprofitType.model_rebuild()
-RsvpResponseType.model_rebuild()
-ReturnMethodEnumeration.model_rebuild()
-MerchantReturnEnumeration.model_rebuild()
-DayOfWeek.model_rebuild()
-MeasurementTypeEnumeration.model_rebuild()
-MusicReleaseFormatType.model_rebuild()
-EventAttendanceModeEnumeration.model_rebuild()
-MusicAlbumProductionType.model_rebuild()
-GamePlayMode.model_rebuild()
-DefinedRegion.model_rebuild()
-EngineSpecification.model_rebuild()
-ShippingService.model_rebuild()
-QuantitativeValue.model_rebuild()
-RepaymentSpecification.model_rebuild()
-ServicePeriod.model_rebuild()
-WarrantyPromise.model_rebuild()
-DeliveryTimeSettings.model_rebuild()
-ShippingRateSettings.model_rebuild()
-PriceSpecification.model_rebuild()
-QuantitativeValueDistribution.model_rebuild()
-ShippingDeliveryTime.model_rebuild()
-PostalCodeRangeSpecification.model_rebuild()
-MonetaryAmount.model_rebuild()
-ShippingConditions.model_rebuild()
-PropertyValue.model_rebuild()
-OwnershipInfo.model_rebuild()
-InteractionCounter.model_rebuild()
-ExchangeRateSpecification.model_rebuild()
-GeoShape.model_rebuild()
-CDCPMDRecord.model_rebuild()
-TypeAndQuantityNode.model_rebuild()
-OfferShippingDetails.model_rebuild()
-DatedMoneySpecification.model_rebuild()
-ContactPoint.model_rebuild()
-NutritionInformation.model_rebuild()
-GeoCoordinates.model_rebuild()
-OpeningHoursSpecification.model_rebuild()
-EndorsementRating.model_rebuild()
-AggregateRating.model_rebuild()
-RentalCarReservation.model_rebuild()
-LodgingReservation.model_rebuild()
-TrainReservation.model_rebuild()
-BoatReservation.model_rebuild()
-EventReservation.model_rebuild()
-FlightReservation.model_rebuild()
-BusReservation.model_rebuild()
-TaxiReservation.model_rebuild()
-ReservationPackage.model_rebuild()
-FoodEstablishmentReservation.model_rebuild()
-CategoryCode.model_rebuild()
-HowToItem.model_rebuild()
-BreadcrumbList.model_rebuild()
-HowToStep.model_rebuild()
-OfferCatalog.model_rebuild()
-MonetaryGrant.model_rebuild()
-StatisticalVariable.model_rebuild()
-AggregateOffer.model_rebuild()
-OfferForPurchase.model_rebuild()
-OfferForLease.model_rebuild()
-TrainTrip.model_rebuild()
-BusTrip.model_rebuild()
-TouristTrip.model_rebuild()
-Flight.model_rebuild()
-BoatTrip.model_rebuild()
-Energy.model_rebuild()
-Distance.model_rebuild()
-Mass.model_rebuild()
-Duration.model_rebuild()
-RadioChannel.model_rebuild()
-TelevisionChannel.model_rebuild()
-ComicCoverArt.model_rebuild()
-Recipe.model_rebuild()
-HealthTopicContent.model_rebuild()
-VideoGame.model_rebuild()
-VideoObject.model_rebuild()
-AudioObject.model_rebuild()
-MusicVideoObject.model_rebuild()
-AmpStory.model_rebuild()
-DataDownload.model_rebuild()
-TextObject.model_rebuild()
-ImageObject.model_rebuild()
-_3DModel.model_rebuild()
-RadioClip.model_rebuild()
-TVClip.model_rebuild()
-MovieClip.model_rebuild()
-VideoGameClip.model_rebuild()
-ClaimReview.model_rebuild()
-MediaReview.model_rebuild()
-UserReview.model_rebuild()
-EmployerReview.model_rebuild()
-Recommendation.model_rebuild()
-CriticReview.model_rebuild()
-NoteDigitalDocument.model_rebuild()
-SpreadsheetDigitalDocument.model_rebuild()
-TextDigitalDocument.model_rebuild()
-PresentationDigitalDocument.model_rebuild()
-DataFeed.model_rebuild()
-TVSeason.model_rebuild()
-RadioSeason.model_rebuild()
-PodcastSeason.model_rebuild()
-Quiz.model_rebuild()
-Course.model_rebuild()
-Syllabus.model_rebuild()
-MusicAlbum.model_rebuild()
-MusicRelease.model_rebuild()
-Table.model_rebuild()
-WPFooter.model_rebuild()
-WPSideBar.model_rebuild()
-WPAdBlock.model_rebuild()
-WPHeader.model_rebuild()
-SiteNavigationElement.model_rebuild()
-NewsArticle.model_rebuild()
-SatiricalArticle.model_rebuild()
-AdvertiserContentArticle.model_rebuild()
-SocialMediaPosting.model_rebuild()
-Report.model_rebuild()
-ScholarlyArticle.model_rebuild()
-TechArticle.model_rebuild()
-ComicIssue.model_rebuild()
-WebApplication.model_rebuild()
-MobileApplication.model_rebuild()
-CorrectionComment.model_rebuild()
-Question.model_rebuild()
-Answer.model_rebuild()
-EmailMessage.model_rebuild()
-LegislationObject.model_rebuild()
-CategoryCodeSet.model_rebuild()
-CoverArt.model_rebuild()
-RealEstateListing.model_rebuild()
-ProfilePage.model_rebuild()
-MedicalWebPage.model_rebuild()
-SearchResultsPage.model_rebuild()
-CheckoutPage.model_rebuild()
-ContactPage.model_rebuild()
-ItemPage.model_rebuild()
-CollectionPage.model_rebuild()
-AboutPage.model_rebuild()
-QAPage.model_rebuild()
-FAQPage.model_rebuild()
-RadioEpisode.model_rebuild()
-PodcastEpisode.model_rebuild()
-TVEpisode.model_rebuild()
-RadioSeries.model_rebuild()
-Periodical.model_rebuild()
-PodcastSeries.model_rebuild()
-BookSeries.model_rebuild()
-MovieSeries.model_rebuild()
-VideoGameSeries.model_rebuild()
-ResumeAction.model_rebuild()
-SuspendAction.model_rebuild()
-ActivateAction.model_rebuild()
-DeactivateAction.model_rebuild()
-RentAction.model_rebuild()
-OrderAction.model_rebuild()
-PreOrderAction.model_rebuild()
-BuyAction.model_rebuild()
-TipAction.model_rebuild()
-SellAction.model_rebuild()
-PayAction.model_rebuild()
-QuoteAction.model_rebuild()
-IgnoreAction.model_rebuild()
-ReviewAction.model_rebuild()
-ReactAction.model_rebuild()
-ChooseAction.model_rebuild()
-TravelAction.model_rebuild()
-DepartAction.model_rebuild()
-ArriveAction.model_rebuild()
-TieAction.model_rebuild()
-LoseAction.model_rebuild()
-WinAction.model_rebuild()
-TrackAction.model_rebuild()
-DiscoverAction.model_rebuild()
-CheckAction.model_rebuild()
-LendAction.model_rebuild()
-SendAction.model_rebuild()
-MoneyTransfer.model_rebuild()
-ReturnAction.model_rebuild()
-TakeAction.model_rebuild()
-GiveAction.model_rebuild()
-BorrowAction.model_rebuild()
-DonateAction.model_rebuild()
-ReceiveAction.model_rebuild()
-DownloadAction.model_rebuild()
-BookmarkAction.model_rebuild()
-PlanAction.model_rebuild()
-AllocateAction.model_rebuild()
-ApplyAction.model_rebuild()
-DeleteAction.model_rebuild()
-AddAction.model_rebuild()
-ReplaceAction.model_rebuild()
-DrawAction.model_rebuild()
-PhotographAction.model_rebuild()
-CookAction.model_rebuild()
-PaintAction.model_rebuild()
-FilmAction.model_rebuild()
-WriteAction.model_rebuild()
-PerformAction.model_rebuild()
-ExerciseAction.model_rebuild()
-InstallAction.model_rebuild()
-ReadAction.model_rebuild()
-ViewAction.model_rebuild()
-DrinkAction.model_rebuild()
-UseAction.model_rebuild()
-EatAction.model_rebuild()
-ListenAction.model_rebuild()
-PlayGameAction.model_rebuild()
-WatchAction.model_rebuild()
-MarryAction.model_rebuild()
-FollowAction.model_rebuild()
-JoinAction.model_rebuild()
-LeaveAction.model_rebuild()
-SubscribeAction.model_rebuild()
-RegisterAction.model_rebuild()
-CommunicateAction.model_rebuild()
-UnRegisterAction.model_rebuild()
-BefriendAction.model_rebuild()
-Car.model_rebuild()
-Motorcycle.model_rebuild()
-BusOrCoach.model_rebuild()
-MotorizedBicycle.model_rebuild()
-DiagnosticProcedure.model_rebuild()
-SurgicalProcedure.model_rebuild()
-TherapeuticProcedure.model_rebuild()
-TreatmentIndication.model_rebuild()
-ApprovedIndication.model_rebuild()
-PreventionIndication.model_rebuild()
-PathologyTest.model_rebuild()
-BloodTest.model_rebuild()
-ImagingTest.model_rebuild()
-MedicalTestPanel.model_rebuild()
-MedicalRiskCalculator.model_rebuild()
-MedicalRiskScore.model_rebuild()
-PhysicalActivity.model_rebuild()
-Diet.model_rebuild()
-Drug.model_rebuild()
-DietarySupplement.model_rebuild()
-MedicalTrial.model_rebuild()
-MedicalObservationalStudy.model_rebuild()
-InfectiousDisease.model_rebuild()
-MedicalSignOrSymptom.model_rebuild()
-MedicalGuidelineRecommendation.model_rebuild()
-MedicalGuidelineContraindication.model_rebuild()
-Vessel.model_rebuild()
-Ligament.model_rebuild()
-Bone.model_rebuild()
-BrainStructure.model_rebuild()
-Joint.model_rebuild()
-Muscle.model_rebuild()
-Nerve.model_rebuild()
-DoseSchedule.model_rebuild()
-MedicalConditionStage.model_rebuild()
-DrugStrength.model_rebuild()
-DDxElement.model_rebuild()
-MedicalCode.model_rebuild()
-DrugLegalStatus.model_rebuild()
-SportsTeam.model_rebuild()
-DanceGroup.model_rebuild()
-MusicGroup.model_rebuild()
-TheaterGroup.model_rebuild()
-VeterinaryCare.model_rebuild()
-DiagnosticLab.model_rebuild()
-MedicalClinic.model_rebuild()
-Pharmacy.model_rebuild()
-OnlineStore.model_rebuild()
-FundingAgency.model_rebuild()
-ResearchProject.model_rebuild()
-LakeBodyOfWater.model_rebuild()
-Reservoir.model_rebuild()
-Pond.model_rebuild()
-RiverBodyOfWater.model_rebuild()
-SeaBodyOfWater.model_rebuild()
-OceanBodyOfWater.model_rebuild()
-Waterfall.model_rebuild()
-Canal.model_rebuild()
-Dentist.model_rebuild()
-Physician.model_rebuild()
-Optician.model_rebuild()
-Winery.model_rebuild()
-IceCreamShop.model_rebuild()
-BarOrPub.model_rebuild()
-Restaurant.model_rebuild()
-Bakery.model_rebuild()
-CafeOrCoffeeShop.model_rebuild()
-FastFoodRestaurant.model_rebuild()
-Distillery.model_rebuild()
-Brewery.model_rebuild()
-ComedyClub.model_rebuild()
-AmusementPark.model_rebuild()
-Casino.model_rebuild()
-ArtGallery.model_rebuild()
-AdultEntertainment.model_rebuild()
-NightClub.model_rebuild()
-PublicSwimmingPool.model_rebuild()
-BowlingAlley.model_rebuild()
-TennisComplex.model_rebuild()
-GolfCourse.model_rebuild()
-ExerciseGym.model_rebuild()
-SportsClub.model_rebuild()
-InsuranceAgency.model_rebuild()
-BankOrCreditUnion.model_rebuild()
-AutomatedTeller.model_rebuild()
-AccountingService.model_rebuild()
-MovingCompany.model_rebuild()
-Locksmith.model_rebuild()
-GeneralContractor.model_rebuild()
-Plumber.model_rebuild()
-RoofingContractor.model_rebuild()
-HVACBusiness.model_rebuild()
-Electrician.model_rebuild()
-HousePainter.model_rebuild()
-AutoDealer.model_rebuild()
-AutoBodyShop.model_rebuild()
-GasStation.model_rebuild()
-MotorcycleDealer.model_rebuild()
-AutoRental.model_rebuild()
-AutoRepair.model_rebuild()
-AutoWash.model_rebuild()
-MotorcycleRepair.model_rebuild()
-BedAndBreakfast.model_rebuild()
-VacationRental.model_rebuild()
-Campground.model_rebuild()
-Resort.model_rebuild()
-Hotel.model_rebuild()
-Motel.model_rebuild()
-Hostel.model_rebuild()
-HobbyShop.model_rebuild()
-LiquorStore.model_rebuild()
-PawnShop.model_rebuild()
-ElectronicsStore.model_rebuild()
-BookStore.model_rebuild()
-Florist.model_rebuild()
-JewelryStore.model_rebuild()
-HardwareStore.model_rebuild()
-ComputerStore.model_rebuild()
-PetStore.model_rebuild()
-GardenStore.model_rebuild()
-OutletStore.model_rebuild()
-HomeGoodsStore.model_rebuild()
-DepartmentStore.model_rebuild()
-OfficeEquipmentStore.model_rebuild()
-ShoeStore.model_rebuild()
-MobilePhoneStore.model_rebuild()
-MusicStore.model_rebuild()
-BikeStore.model_rebuild()
-AutoPartsStore.model_rebuild()
-FurnitureStore.model_rebuild()
-GroceryStore.model_rebuild()
-MensClothingStore.model_rebuild()
-ConvenienceStore.model_rebuild()
-TireShop.model_rebuild()
-MovieRentalStore.model_rebuild()
-SportingGoodsStore.model_rebuild()
-WholesaleStore.model_rebuild()
-ClothingStore.model_rebuild()
-ToyStore.model_rebuild()
-Attorney.model_rebuild()
-Notary.model_rebuild()
-PostOffice.model_rebuild()
-DaySpa.model_rebuild()
-BeautySalon.model_rebuild()
-HealthClub.model_rebuild()
-HairSalon.model_rebuild()
-NailSalon.model_rebuild()
-TattooParlor.model_rebuild()
-HinduTemple.model_rebuild()
-BuddhistTemple.model_rebuild()
-Mosque.model_rebuild()
-Church.model_rebuild()
-Synagogue.model_rebuild()
-CollegeOrUniversity.model_rebuild()
-ElementarySchool.model_rebuild()
-School.model_rebuild()
-MiddleSchool.model_rebuild()
-HighSchool.model_rebuild()
-Preschool.model_rebuild()
-Embassy.model_rebuild()
-Courthouse.model_rebuild()
-DefenceEstablishment.model_rebuild()
-LegislativeBuilding.model_rebuild()
-CityHall.model_rebuild()
-MeetingRoom.model_rebuild()
-HotelRoom.model_rebuild()
-SingleFamilyResidence.model_rebuild()
-EmployeeRole.model_rebuild()
-ParentAudience.model_rebuild()
-Patient.model_rebuild()
-InvestmentOrDeposit.model_rebuild()
-PaymentService.model_rebuild()
-LoanOrCredit.model_rebuild()
-BankAccount.model_rebuild()
-CurrencyConversionService.model_rebuild()
-PaymentCard.model_rebuild()
-RadioBroadcastService.model_rebuild()
-WearableSizeGroupEnumeration.model_rebuild()
-PaymentStatusType.model_rebuild()
-ReservationStatusType.model_rebuild()
-GameServerStatus.model_rebuild()
-EventStatusType.model_rebuild()
-ActionStatusType.model_rebuild()
-OrderStatus.model_rebuild()
-LegalForceStatus.model_rebuild()
-WearableSizeSystemEnumeration.model_rebuild()
-MedicalSpecialty.model_rebuild()
-IPTCDigitalSourceEnumeration.model_rebuild()
-DrugPrescriptionStatus.model_rebuild()
-MedicalDevicePurpose.model_rebuild()
-MedicalTrialDesign.model_rebuild()
-DrugCostCategory.model_rebuild()
-MedicalProcedureType.model_rebuild()
-DrugPregnancyCategory.model_rebuild()
-PhysicalExam.model_rebuild()
-MedicalObservationalStudyDesign.model_rebuild()
-MedicalEvidenceLevel.model_rebuild()
-MedicalStudyStatus.model_rebuild()
-MedicalImagingTechnique.model_rebuild()
-MedicineSystem.model_rebuild()
-InfectiousAgentClass.model_rebuild()
-MedicalAudienceType.model_rebuild()
-EUEnergyEfficiencyEnumeration.model_rebuild()
-EnergyStarEnergyEfficiencyEnumeration.model_rebuild()
-BedType.model_rebuild()
-SteeringPositionValue.model_rebuild()
-SizeSpecification.model_rebuild()
-DriveWheelConfigurationValue.model_rebuild()
-USNonprofitType.model_rebuild()
-NLNonprofitType.model_rebuild()
-UKNonprofitType.model_rebuild()
-WearableMeasurementTypeEnumeration.model_rebuild()
-BodyMeasurementTypeEnumeration.model_rebuild()
-CompoundPriceSpecification.model_rebuild()
-UnitPriceSpecification.model_rebuild()
-PaymentChargeSpecification.model_rebuild()
-DeliveryChargeSpecification.model_rebuild()
-MonetaryAmountDistribution.model_rebuild()
-LocationFeatureSpecification.model_rebuild()
-GeoCircle.model_rebuild()
-PostalAddress.model_rebuild()
-EmployerAggregateRating.model_rebuild()
-HowToSupply.model_rebuild()
-HowToTool.model_rebuild()
-AMRadioChannel.model_rebuild()
-FMRadioChannel.model_rebuild()
-VideoObjectSnapshot.model_rebuild()
-AudioObjectSnapshot.model_rebuild()
-Audiobook.model_rebuild()
-ImageObjectSnapshot.model_rebuild()
-Barcode.model_rebuild()
-CompleteDataFeed.model_rebuild()
-OpinionNewsArticle.model_rebuild()
-ReviewNewsArticle.model_rebuild()
-ReportageNewsArticle.model_rebuild()
-BackgroundNewsArticle.model_rebuild()
-AnalysisNewsArticle.model_rebuild()
-AskPublicNewsArticle.model_rebuild()
-DiscussionForumPosting.model_rebuild()
-BlogPosting.model_rebuild()
-MedicalScholarlyArticle.model_rebuild()
-APIReference.model_rebuild()
-MediaGallery.model_rebuild()
-Newspaper.model_rebuild()
-ComicSeries.model_rebuild()
-DisagreeAction.model_rebuild()
-DislikeAction.model_rebuild()
-WantAction.model_rebuild()
-EndorseAction.model_rebuild()
-LikeAction.model_rebuild()
-AgreeAction.model_rebuild()
-VoteAction.model_rebuild()
-ScheduleAction.model_rebuild()
-CancelAction.model_rebuild()
-ReserveAction.model_rebuild()
-RejectAction.model_rebuild()
-AuthorizeAction.model_rebuild()
-AcceptAction.model_rebuild()
-AssignAction.model_rebuild()
-InsertAction.model_rebuild()
-WearAction.model_rebuild()
-CommentAction.model_rebuild()
-ReplyAction.model_rebuild()
-CheckOutAction.model_rebuild()
-InviteAction.model_rebuild()
-CheckInAction.model_rebuild()
-AskAction.model_rebuild()
-InformAction.model_rebuild()
-ShareAction.model_rebuild()
-PsychologicalTreatment.model_rebuild()
-MedicalTherapy.model_rebuild()
-MedicalSymptom.model_rebuild()
-MedicalSign.model_rebuild()
-Vein.model_rebuild()
-LymphaticVessel.model_rebuild()
-Artery.model_rebuild()
-MaximumDoseSchedule.model_rebuild()
-ReportedDoseSchedule.model_rebuild()
-RecommendedDoseSchedule.model_rebuild()
-CovidTestingFacility.model_rebuild()
-OnlineMarketplace.model_rebuild()
-PhysiciansOffice.model_rebuild()
-IndividualPhysician.model_rebuild()
-SkiResort.model_rebuild()
-CatholicChurch.model_rebuild()
-BrokerageAccount.model_rebuild()
-DepositAccount.model_rebuild()
-InvestmentFund.model_rebuild()
-MortgageLoan.model_rebuild()
-CreditCard.model_rebuild()
-LiveBlogPosting.model_rebuild()
-VideoGallery.model_rebuild()
-ImageGallery.model_rebuild()
-AppendAction.model_rebuild()
-PrependAction.model_rebuild()
-ConfirmAction.model_rebuild()
-RsvpAction.model_rebuild()
-OccupationalTherapy.model_rebuild()
-PalliativeProcedure.model_rebuild()
-PhysicalTherapy.model_rebuild()
-RadiationTherapy.model_rebuild()
-VitalSign.model_rebuild()
+def __getattr__(name): 
+    mod = importlib.import_module(_lazy_map[name], __name__)
+    return getattr(mod, name)
+
+if TYPE_CHECKING:
+    for _n, _m in _lazy_map.items():
+        globals()[_n] = getattr(importlib.import_module(_m, __name__), _n)
+        

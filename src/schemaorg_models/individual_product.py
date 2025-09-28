@@ -1,11 +1,35 @@
-from typing import List, Literal, Optional, Union
-from pydantic import AliasChoices, Field
-from schemaorg_models.product import Product
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.product import Product
+
+from pydantic import (
+    AliasChoices,
+    Field
+)
+from typing import (
+    List,
+    Literal,
+    Optional,
+    Union
+)
 
 class IndividualProduct(Product):
     """
 A single, identifiable product instance (e.g. a laptop with a particular serial number).
     """
-    class_: Literal['https://schema.org/IndividualProduct'] = Field(default='https://schema.org/IndividualProduct', alias='@type', serialization_alias='@type') # type: ignore
-    serialNumber: Optional[Union[str, List[str]]] = Field(default=None, validation_alias=AliasChoices('serialNumber', 'https://schema.org/serialNumber'), serialization_alias='https://schema.org/serialNumber')
+    class_: Literal['https://schema.org/IndividualProduct'] = Field( # type: ignore
+        default='https://schema.org/IndividualProduct',
+        alias='@type',
+        serialization_alias='@type'
+    )
+    serialNumber: Optional[Union[str, List[str]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'serialNumber',
+            'https://schema.org/serialNumber'
+        ),
+        serialization_alias='https://schema.org/serialNumber'
+    )

@@ -1,7 +1,20 @@
-from typing import List, Literal, Optional, Union
-from pydantic import AliasChoices, Field
-from schemaorg_models.interact_action import InteractAction
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.interact_action import InteractAction
+
+from pydantic import (
+    AliasChoices,
+    Field
+)
+from typing import (
+    List,
+    Literal,
+    Optional,
+    Union
+)
 from schemaorg_models.event import Event
 
 class JoinAction(InteractAction):
@@ -14,5 +27,16 @@ Related actions:\
 * [[SubscribeAction]]: Unlike SubscribeAction, JoinAction does not imply that you'll be receiving updates.\
 * [[FollowAction]]: Unlike FollowAction, JoinAction does not imply that you'll be polling for updates.
     """
-    class_: Literal['https://schema.org/JoinAction'] = Field(default='https://schema.org/JoinAction', alias='@type', serialization_alias='@type') # type: ignore
-    event: Optional[Union[Event, List[Event]]] = Field(default=None, validation_alias=AliasChoices('event', 'https://schema.org/event'), serialization_alias='https://schema.org/event')
+    class_: Literal['https://schema.org/JoinAction'] = Field( # type: ignore
+        default='https://schema.org/JoinAction',
+        alias='@type',
+        serialization_alias='@type'
+    )
+    event: Optional[Union[Event, List[Event]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'event',
+            'https://schema.org/event'
+        ),
+        serialization_alias='https://schema.org/event'
+    )

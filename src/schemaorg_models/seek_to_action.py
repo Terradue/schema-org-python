@@ -1,12 +1,36 @@
-from typing import List, Literal, Optional, Union
-from pydantic import AliasChoices, Field
-from schemaorg_models.action import Action
+from __future__ import annotations
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    # put heavy, hint-only imports here
+    from schemaorg_models.action import Action
+
+from pydantic import (
+    AliasChoices,
+    Field
+)
+from typing import (
+    List,
+    Literal,
+    Optional,
+    Union
+)
 from schemaorg_models.hyper_toc_entry import HyperTocEntry
 
 class SeekToAction(Action):
     """
 This is the [[Action]] of navigating to a specific [[startOffset]] timestamp within a [[VideoObject]], typically represented with a URL template structure.
     """
-    class_: Literal['https://schema.org/SeekToAction'] = Field(default='https://schema.org/SeekToAction', alias='@type', serialization_alias='@type') # type: ignore
-    startOffset: Optional[Union[float, List[float], HyperTocEntry, List[HyperTocEntry]]] = Field(default=None, validation_alias=AliasChoices('startOffset', 'https://schema.org/startOffset'), serialization_alias='https://schema.org/startOffset')
+    class_: Literal['https://schema.org/SeekToAction'] = Field( # type: ignore
+        default='https://schema.org/SeekToAction',
+        alias='@type',
+        serialization_alias='@type'
+    )
+    startOffset: Optional[Union[float, List[float], HyperTocEntry, List[HyperTocEntry]]] = Field(
+        default=None,
+        validation_alias=AliasChoices(
+            'startOffset',
+            'https://schema.org/startOffset'
+        ),
+        serialization_alias='https://schema.org/startOffset'
+    )
