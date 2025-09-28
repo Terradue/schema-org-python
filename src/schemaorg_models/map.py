@@ -23,7 +23,7 @@ A map.
         alias='@type',
         serialization_alias='@type'
     )
-    mapType: Optional[Union[MapCategoryType, List[MapCategoryType]]] = Field(
+    mapType: Optional[Union["MapCategoryType", List["MapCategoryType"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'mapType',

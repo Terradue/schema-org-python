@@ -23,7 +23,7 @@ An electronic file or document.
         alias='@type',
         serialization_alias='@type'
     )
-    hasDigitalDocumentPermission: Optional[Union[DigitalDocumentPermission, List[DigitalDocumentPermission]]] = Field(
+    hasDigitalDocumentPermission: Optional[Union["DigitalDocumentPermission", List["DigitalDocumentPermission"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasDigitalDocumentPermission',

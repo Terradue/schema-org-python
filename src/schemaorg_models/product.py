@@ -16,36 +16,36 @@ from typing import (
 from .thing import Thing
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .physical_activity_category import PhysicalActivityCategory
     from .merchant_return_policy import MerchantReturnPolicy
-    from .size_specification import SizeSpecification
-    from .demand import Demand
-    from .defined_term import DefinedTerm
-    from .certification import Certification
-    from .review import Review
-    from .product_group import ProductGroup
-    from .category_code import CategoryCode
-    from .organization import Organization
-    from .distance import Distance
-    from .product_return_policy import ProductReturnPolicy
-    from .image_object import ImageObject
-    from .energy_consumption_details import EnergyConsumptionDetails
-    from .audience import Audience
-    from .product_model import ProductModel
-    from .country import Country
-    from .quantitative_value import QuantitativeValue
-    from .offer_item_condition import OfferItemCondition
     from .web_content import WebContent
-    from .list_item import ListItem
-    from .item_list import ItemList
-    from .property_value import PropertyValue
+    from .audience import Audience
+    from .energy_consumption_details import EnergyConsumptionDetails
+    from .defined_term import DefinedTerm
+    from .product_model import ProductModel
     from .aggregate_rating import AggregateRating
-    from .service import Service
-    from .offer import Offer
-    from .mass import Mass
-    from .brand import Brand
-    from .grant import Grant
+    from .country import Country
     from .adult_oriented_enumeration import AdultOrientedEnumeration
+    from .review import Review
+    from .mass import Mass
+    from .size_specification import SizeSpecification
+    from .item_list import ItemList
+    from .category_code import CategoryCode
+    from .property_value import PropertyValue
+    from .image_object import ImageObject
+    from .organization import Organization
+    from .offer import Offer
+    from .certification import Certification
+    from .brand import Brand
+    from .physical_activity_category import PhysicalActivityCategory
+    from .product_group import ProductGroup
+    from .product_return_policy import ProductReturnPolicy
+    from .offer_item_condition import OfferItemCondition
+    from .service import Service
+    from .quantitative_value import QuantitativeValue
+    from .grant import Grant
+    from .list_item import ListItem
+    from .distance import Distance
+    from .demand import Demand
 
 class Product(Thing):
     """
@@ -56,7 +56,7 @@ Any offered product or service. For example: a pair of shoes; a concert ticket; 
         alias='@type',
         serialization_alias='@type'
     )
-    reviews: Optional[Union[Review, List[Review]]] = Field(
+    reviews: Optional[Union["Review", List["Review"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'reviews',
@@ -88,7 +88,7 @@ Any offered product or service. For example: a pair of shoes; a concert ticket; 
         ),
         serialization_alias='https://schema.org/gtin8'
     )
-    isRelatedTo: Optional[Union[Service, List[Service], Product, List[Product]]] = Field(
+    isRelatedTo: Optional[Union["Service", List["Service"], "Product", List["Product"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'isRelatedTo',
@@ -96,7 +96,7 @@ Any offered product or service. For example: a pair of shoes; a concert ticket; 
         ),
         serialization_alias='https://schema.org/isRelatedTo'
     )
-    colorSwatch: Optional[Union[ImageObject, List[ImageObject], HttpUrl, List[HttpUrl]]] = Field(
+    colorSwatch: Optional[Union["ImageObject", List["ImageObject"], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'colorSwatch',
@@ -112,7 +112,7 @@ Any offered product or service. For example: a pair of shoes; a concert ticket; 
         ),
         serialization_alias='https://schema.org/asin'
     )
-    pattern: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str]]] = Field(
+    pattern: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'pattern',
@@ -136,7 +136,7 @@ Any offered product or service. For example: a pair of shoes; a concert ticket; 
         ),
         serialization_alias='https://schema.org/productionDate'
     )
-    model: Optional[Union[ProductModel, List[ProductModel], str, List[str]]] = Field(
+    model: Optional[Union["ProductModel", List["ProductModel"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'model',
@@ -144,7 +144,7 @@ Any offered product or service. For example: a pair of shoes; a concert ticket; 
         ),
         serialization_alias='https://schema.org/model'
     )
-    hasCertification: Optional[Union[Certification, List[Certification]]] = Field(
+    hasCertification: Optional[Union["Certification", List["Certification"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasCertification',
@@ -152,7 +152,7 @@ Any offered product or service. For example: a pair of shoes; a concert ticket; 
         ),
         serialization_alias='https://schema.org/hasCertification'
     )
-    isVariantOf: Optional[Union[ProductModel, List[ProductModel], ProductGroup, List[ProductGroup]]] = Field(
+    isVariantOf: Optional[Union["ProductModel", List["ProductModel"], "ProductGroup", List["ProductGroup"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'isVariantOf',
@@ -168,7 +168,7 @@ Any offered product or service. For example: a pair of shoes; a concert ticket; 
         ),
         serialization_alias='https://schema.org/isFamilyFriendly'
     )
-    logo: Optional[Union[HttpUrl, List[HttpUrl], ImageObject, List[ImageObject]]] = Field(
+    logo: Optional[Union[HttpUrl, List[HttpUrl], "ImageObject", List["ImageObject"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'logo',
@@ -176,7 +176,7 @@ Any offered product or service. For example: a pair of shoes; a concert ticket; 
         ),
         serialization_alias='https://schema.org/logo'
     )
-    aggregateRating: Optional[Union[AggregateRating, List[AggregateRating]]] = Field(
+    aggregateRating: Optional[Union["AggregateRating", List["AggregateRating"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'aggregateRating',
@@ -192,7 +192,7 @@ Any offered product or service. For example: a pair of shoes; a concert ticket; 
         ),
         serialization_alias='https://schema.org/sku'
     )
-    negativeNotes: Optional[Union[ListItem, List[ListItem], WebContent, List[WebContent], ItemList, List[ItemList], str, List[str]]] = Field(
+    negativeNotes: Optional[Union["ListItem", List["ListItem"], "WebContent", List["WebContent"], "ItemList", List["ItemList"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'negativeNotes',
@@ -200,7 +200,7 @@ Any offered product or service. For example: a pair of shoes; a concert ticket; 
         ),
         serialization_alias='https://schema.org/negativeNotes'
     )
-    width: Optional[Union[QuantitativeValue, List[QuantitativeValue], Distance, List[Distance]]] = Field(
+    width: Optional[Union["QuantitativeValue", List["QuantitativeValue"], "Distance", List["Distance"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'width',
@@ -216,7 +216,7 @@ Any offered product or service. For example: a pair of shoes; a concert ticket; 
         ),
         serialization_alias='https://schema.org/color'
     )
-    hasAdultConsideration: Optional[Union[AdultOrientedEnumeration, List[AdultOrientedEnumeration]]] = Field(
+    hasAdultConsideration: Optional[Union["AdultOrientedEnumeration", List["AdultOrientedEnumeration"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasAdultConsideration',
@@ -256,7 +256,7 @@ Any offered product or service. For example: a pair of shoes; a concert ticket; 
         ),
         serialization_alias='https://schema.org/mobileUrl'
     )
-    keywords: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], DefinedTerm, List[DefinedTerm]]] = Field(
+    keywords: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], "DefinedTerm", List["DefinedTerm"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'keywords',
@@ -264,7 +264,7 @@ Any offered product or service. For example: a pair of shoes; a concert ticket; 
         ),
         serialization_alias='https://schema.org/keywords'
     )
-    hasProductReturnPolicy: Optional[Union[ProductReturnPolicy, List[ProductReturnPolicy]]] = Field(
+    hasProductReturnPolicy: Optional[Union["ProductReturnPolicy", List["ProductReturnPolicy"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasProductReturnPolicy',
@@ -280,7 +280,7 @@ Any offered product or service. For example: a pair of shoes; a concert ticket; 
         ),
         serialization_alias='https://schema.org/award'
     )
-    isSimilarTo: Optional[Union[Service, List[Service], Product, List[Product]]] = Field(
+    isSimilarTo: Optional[Union["Service", List["Service"], "Product", List["Product"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'isSimilarTo',
@@ -288,7 +288,7 @@ Any offered product or service. For example: a pair of shoes; a concert ticket; 
         ),
         serialization_alias='https://schema.org/isSimilarTo'
     )
-    additionalProperty: Optional[Union[PropertyValue, List[PropertyValue]]] = Field(
+    additionalProperty: Optional[Union["PropertyValue", List["PropertyValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'additionalProperty',
@@ -312,7 +312,7 @@ Any offered product or service. For example: a pair of shoes; a concert ticket; 
         ),
         serialization_alias='https://schema.org/gtin13'
     )
-    offers: Optional[Union[Demand, List[Demand], Offer, List[Offer]]] = Field(
+    offers: Optional[Union["Demand", List["Demand"], "Offer", List["Offer"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'offers',
@@ -320,7 +320,7 @@ Any offered product or service. For example: a pair of shoes; a concert ticket; 
         ),
         serialization_alias='https://schema.org/offers'
     )
-    audience: Optional[Union[Audience, List[Audience]]] = Field(
+    audience: Optional[Union["Audience", List["Audience"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'audience',
@@ -336,7 +336,7 @@ Any offered product or service. For example: a pair of shoes; a concert ticket; 
         ),
         serialization_alias='https://schema.org/hasGS1DigitalLink'
     )
-    isConsumableFor: Optional[Union[Product, List[Product]]] = Field(
+    isConsumableFor: Optional[Union["Product", List["Product"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'isConsumableFor',
@@ -344,7 +344,7 @@ Any offered product or service. For example: a pair of shoes; a concert ticket; 
         ),
         serialization_alias='https://schema.org/isConsumableFor'
     )
-    funding: Optional[Union[Grant, List[Grant]]] = Field(
+    funding: Optional[Union["Grant", List["Grant"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'funding',
@@ -352,7 +352,7 @@ Any offered product or service. For example: a pair of shoes; a concert ticket; 
         ),
         serialization_alias='https://schema.org/funding'
     )
-    hasMeasurement: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
+    hasMeasurement: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasMeasurement',
@@ -360,7 +360,7 @@ Any offered product or service. For example: a pair of shoes; a concert ticket; 
         ),
         serialization_alias='https://schema.org/hasMeasurement'
     )
-    hasEnergyConsumptionDetails: Optional[Union[EnergyConsumptionDetails, List[EnergyConsumptionDetails]]] = Field(
+    hasEnergyConsumptionDetails: Optional[Union["EnergyConsumptionDetails", List["EnergyConsumptionDetails"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasEnergyConsumptionDetails',
@@ -368,7 +368,7 @@ Any offered product or service. For example: a pair of shoes; a concert ticket; 
         ),
         serialization_alias='https://schema.org/hasEnergyConsumptionDetails'
     )
-    brand: Optional[Union[Organization, List[Organization], Brand, List[Brand]]] = Field(
+    brand: Optional[Union["Organization", List["Organization"], "Brand", List["Brand"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'brand',
@@ -384,7 +384,7 @@ Any offered product or service. For example: a pair of shoes; a concert ticket; 
         ),
         serialization_alias='https://schema.org/countryOfLastProcessing'
     )
-    itemCondition: Optional[Union[OfferItemCondition, List[OfferItemCondition]]] = Field(
+    itemCondition: Optional[Union["OfferItemCondition", List["OfferItemCondition"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'itemCondition',
@@ -392,7 +392,7 @@ Any offered product or service. For example: a pair of shoes; a concert ticket; 
         ),
         serialization_alias='https://schema.org/itemCondition'
     )
-    material: Optional[Union[str, List[str], Product, List[Product], HttpUrl, List[HttpUrl]]] = Field(
+    material: Optional[Union[str, List[str], "Product", List["Product"], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'material',
@@ -408,7 +408,7 @@ Any offered product or service. For example: a pair of shoes; a concert ticket; 
         ),
         serialization_alias='https://schema.org/mpn'
     )
-    height: Optional[Union[Distance, List[Distance], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    height: Optional[Union["Distance", List["Distance"], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'height',
@@ -424,7 +424,7 @@ Any offered product or service. For example: a pair of shoes; a concert ticket; 
         ),
         serialization_alias='https://schema.org/releaseDate'
     )
-    size: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str], SizeSpecification, List[SizeSpecification], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    size: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str], "SizeSpecification", List["SizeSpecification"], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'size',
@@ -432,7 +432,7 @@ Any offered product or service. For example: a pair of shoes; a concert ticket; 
         ),
         serialization_alias='https://schema.org/size'
     )
-    category: Optional[Union[PhysicalActivityCategory, List[PhysicalActivityCategory], CategoryCode, List[CategoryCode], str, List[str], Thing, List[Thing], HttpUrl, List[HttpUrl]]] = Field(
+    category: Optional[Union["PhysicalActivityCategory", List["PhysicalActivityCategory"], "CategoryCode", List["CategoryCode"], str, List[str], "Thing", List["Thing"], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'category',
@@ -440,7 +440,7 @@ Any offered product or service. For example: a pair of shoes; a concert ticket; 
         ),
         serialization_alias='https://schema.org/category'
     )
-    weight: Optional[Union[QuantitativeValue, List[QuantitativeValue], Mass, List[Mass]]] = Field(
+    weight: Optional[Union["QuantitativeValue", List["QuantitativeValue"], "Mass", List["Mass"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'weight',
@@ -448,7 +448,7 @@ Any offered product or service. For example: a pair of shoes; a concert ticket; 
         ),
         serialization_alias='https://schema.org/weight'
     )
-    hasMerchantReturnPolicy: Optional[Union[MerchantReturnPolicy, List[MerchantReturnPolicy]]] = Field(
+    hasMerchantReturnPolicy: Optional[Union["MerchantReturnPolicy", List["MerchantReturnPolicy"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasMerchantReturnPolicy',
@@ -480,7 +480,7 @@ Any offered product or service. For example: a pair of shoes; a concert ticket; 
         ),
         serialization_alias='https://schema.org/gtin12'
     )
-    manufacturer: Optional[Union[Organization, List[Organization]]] = Field(
+    manufacturer: Optional[Union["Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'manufacturer',
@@ -488,7 +488,7 @@ Any offered product or service. For example: a pair of shoes; a concert ticket; 
         ),
         serialization_alias='https://schema.org/manufacturer'
     )
-    review: Optional[Union[Review, List[Review]]] = Field(
+    review: Optional[Union["Review", List["Review"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'review',
@@ -496,7 +496,7 @@ Any offered product or service. For example: a pair of shoes; a concert ticket; 
         ),
         serialization_alias='https://schema.org/review'
     )
-    depth: Optional[Union[Distance, List[Distance], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    depth: Optional[Union["Distance", List["Distance"], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'depth',
@@ -504,7 +504,7 @@ Any offered product or service. For example: a pair of shoes; a concert ticket; 
         ),
         serialization_alias='https://schema.org/depth'
     )
-    positiveNotes: Optional[Union[WebContent, List[WebContent], ItemList, List[ItemList], str, List[str], ListItem, List[ListItem]]] = Field(
+    positiveNotes: Optional[Union["WebContent", List["WebContent"], "ItemList", List["ItemList"], str, List[str], "ListItem", List["ListItem"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'positiveNotes',
@@ -512,7 +512,7 @@ Any offered product or service. For example: a pair of shoes; a concert ticket; 
         ),
         serialization_alias='https://schema.org/positiveNotes'
     )
-    countryOfOrigin: Optional[Union[Country, List[Country]]] = Field(
+    countryOfOrigin: Optional[Union["Country", List["Country"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'countryOfOrigin',
@@ -520,7 +520,7 @@ Any offered product or service. For example: a pair of shoes; a concert ticket; 
         ),
         serialization_alias='https://schema.org/countryOfOrigin'
     )
-    isAccessoryOrSparePartFor: Optional[Union[Product, List[Product]]] = Field(
+    isAccessoryOrSparePartFor: Optional[Union["Product", List["Product"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'isAccessoryOrSparePartFor',

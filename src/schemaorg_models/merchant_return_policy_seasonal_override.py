@@ -16,11 +16,11 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .merchant_return_enumeration import MerchantReturnEnumeration
-    from .return_method_enumeration import ReturnMethodEnumeration
-    from .return_fees_enumeration import ReturnFeesEnumeration
-    from .refund_type_enumeration import RefundTypeEnumeration
     from .monetary_amount import MonetaryAmount
+    from .return_method_enumeration import ReturnMethodEnumeration
+    from .refund_type_enumeration import RefundTypeEnumeration
+    from .merchant_return_enumeration import MerchantReturnEnumeration
+    from .return_fees_enumeration import ReturnFeesEnumeration
 
 class MerchantReturnPolicySeasonalOverride(Intangible):
     """
@@ -39,7 +39,7 @@ A seasonal override of a return policy, for example used for holidays.
         ),
         serialization_alias='https://schema.org/startDate'
     )
-    returnFees: Optional[Union[ReturnFeesEnumeration, List[ReturnFeesEnumeration]]] = Field(
+    returnFees: Optional[Union["ReturnFeesEnumeration", List["ReturnFeesEnumeration"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'returnFees',
@@ -47,7 +47,7 @@ A seasonal override of a return policy, for example used for holidays.
         ),
         serialization_alias='https://schema.org/returnFees'
     )
-    returnShippingFeesAmount: Optional[Union[MonetaryAmount, List[MonetaryAmount]]] = Field(
+    returnShippingFeesAmount: Optional[Union["MonetaryAmount", List["MonetaryAmount"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'returnShippingFeesAmount',
@@ -55,7 +55,7 @@ A seasonal override of a return policy, for example used for holidays.
         ),
         serialization_alias='https://schema.org/returnShippingFeesAmount'
     )
-    returnPolicyCategory: Optional[Union[MerchantReturnEnumeration, List[MerchantReturnEnumeration]]] = Field(
+    returnPolicyCategory: Optional[Union["MerchantReturnEnumeration", List["MerchantReturnEnumeration"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'returnPolicyCategory',
@@ -63,7 +63,7 @@ A seasonal override of a return policy, for example used for holidays.
         ),
         serialization_alias='https://schema.org/returnPolicyCategory'
     )
-    restockingFee: Optional[Union[MonetaryAmount, List[MonetaryAmount], float, List[float]]] = Field(
+    restockingFee: Optional[Union["MonetaryAmount", List["MonetaryAmount"], float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'restockingFee',
@@ -79,7 +79,7 @@ A seasonal override of a return policy, for example used for holidays.
         ),
         serialization_alias='https://schema.org/merchantReturnDays'
     )
-    refundType: Optional[Union[RefundTypeEnumeration, List[RefundTypeEnumeration]]] = Field(
+    refundType: Optional[Union["RefundTypeEnumeration", List["RefundTypeEnumeration"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'refundType',
@@ -95,7 +95,7 @@ A seasonal override of a return policy, for example used for holidays.
         ),
         serialization_alias='https://schema.org/endDate'
     )
-    returnMethod: Optional[Union[ReturnMethodEnumeration, List[ReturnMethodEnumeration]]] = Field(
+    returnMethod: Optional[Union["ReturnMethodEnumeration", List["ReturnMethodEnumeration"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'returnMethod',

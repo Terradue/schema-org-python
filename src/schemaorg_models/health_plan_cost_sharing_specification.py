@@ -31,7 +31,7 @@ A description of costs to the patient under a given network or formulary.
         ),
         serialization_alias='https://schema.org/healthPlanCoinsuranceRate'
     )
-    healthPlanCopay: Optional[Union[PriceSpecification, List[PriceSpecification]]] = Field(
+    healthPlanCopay: Optional[Union["PriceSpecification", List["PriceSpecification"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'healthPlanCopay',

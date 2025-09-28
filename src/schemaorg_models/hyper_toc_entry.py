@@ -31,7 +31,7 @@ A HyperToEntry is an item within a [[HyperToc]], which represents a hypertext ta
         ),
         serialization_alias='https://schema.org/utterances'
     )
-    tocContinuation: Optional[Union[HyperTocEntry, List[HyperTocEntry]]] = Field(
+    tocContinuation: Optional[Union["HyperTocEntry", List["HyperTocEntry"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'tocContinuation',
@@ -39,7 +39,7 @@ A HyperToEntry is an item within a [[HyperToc]], which represents a hypertext ta
         ),
         serialization_alias='https://schema.org/tocContinuation'
     )
-    associatedMedia: Optional[Union[MediaObject, List[MediaObject]]] = Field(
+    associatedMedia: Optional[Union["MediaObject", List["MediaObject"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'associatedMedia',

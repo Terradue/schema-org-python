@@ -23,7 +23,7 @@ An organization with archival holdings. An organization which keeps and preserve
         alias='@type',
         serialization_alias='@type'
     )
-    archiveHeld: Optional[Union[ArchiveComponent, List[ArchiveComponent]]] = Field(
+    archiveHeld: Optional[Union["ArchiveComponent", List["ArchiveComponent"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'archiveHeld',

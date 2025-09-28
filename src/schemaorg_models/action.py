@@ -17,14 +17,14 @@ from typing import (
 from .thing import Thing
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .entry_point import EntryPoint
+    from .action_status_type import ActionStatusType
+    from .virtual_location import VirtualLocation
+    from .postal_address import PostalAddress
+    from .place import Place
+    from .person import Person
     from .organization import Organization
     from .how_to import HowTo
-    from .virtual_location import VirtualLocation
-    from .entry_point import EntryPoint
-    from .postal_address import PostalAddress
-    from .person import Person
-    from .place import Place
-    from .action_status_type import ActionStatusType
 
 class Action(Thing):
     """
@@ -37,7 +37,7 @@ See also [blog post](https://blog.schema.org/2014/04/16/announcing-schema-org-ac
         alias='@type',
         serialization_alias='@type'
     )
-    actionStatus: Optional[Union[ActionStatusType, List[ActionStatusType]]] = Field(
+    actionStatus: Optional[Union["ActionStatusType", List["ActionStatusType"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'actionStatus',
@@ -45,7 +45,7 @@ See also [blog post](https://blog.schema.org/2014/04/16/announcing-schema-org-ac
         ),
         serialization_alias='https://schema.org/actionStatus'
     )
-    target: Optional[Union[HttpUrl, List[HttpUrl], EntryPoint, List[EntryPoint]]] = Field(
+    target: Optional[Union[HttpUrl, List[HttpUrl], "EntryPoint", List["EntryPoint"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'target',
@@ -53,7 +53,7 @@ See also [blog post](https://blog.schema.org/2014/04/16/announcing-schema-org-ac
         ),
         serialization_alias='https://schema.org/target'
     )
-    instrument: Optional[Union[Thing, List[Thing]]] = Field(
+    instrument: Optional[Union["Thing", List["Thing"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'instrument',
@@ -61,7 +61,7 @@ See also [blog post](https://blog.schema.org/2014/04/16/announcing-schema-org-ac
         ),
         serialization_alias='https://schema.org/instrument'
     )
-    provider: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
+    provider: Optional[Union["Person", List["Person"], "Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'provider',
@@ -69,7 +69,7 @@ See also [blog post](https://blog.schema.org/2014/04/16/announcing-schema-org-ac
         ),
         serialization_alias='https://schema.org/provider'
     )
-    actionProcess: Optional[Union[HowTo, List[HowTo]]] = Field(
+    actionProcess: Optional[Union["HowTo", List["HowTo"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'actionProcess',
@@ -77,7 +77,7 @@ See also [blog post](https://blog.schema.org/2014/04/16/announcing-schema-org-ac
         ),
         serialization_alias='https://schema.org/actionProcess'
     )
-    agent: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
+    agent: Optional[Union["Person", List["Person"], "Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'agent',
@@ -85,7 +85,7 @@ See also [blog post](https://blog.schema.org/2014/04/16/announcing-schema-org-ac
         ),
         serialization_alias='https://schema.org/agent'
     )
-    participant: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(
+    participant: Optional[Union["Organization", List["Organization"], "Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'participant',
@@ -101,7 +101,7 @@ See also [blog post](https://blog.schema.org/2014/04/16/announcing-schema-org-ac
         ),
         serialization_alias='https://schema.org/endTime'
     )
-    error: Optional[Union[Thing, List[Thing]]] = Field(
+    error: Optional[Union["Thing", List["Thing"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'error',
@@ -109,7 +109,7 @@ See also [blog post](https://blog.schema.org/2014/04/16/announcing-schema-org-ac
         ),
         serialization_alias='https://schema.org/error'
     )
-    result: Optional[Union[Thing, List[Thing]]] = Field(
+    result: Optional[Union["Thing", List["Thing"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'result',
@@ -117,7 +117,7 @@ See also [blog post](https://blog.schema.org/2014/04/16/announcing-schema-org-ac
         ),
         serialization_alias='https://schema.org/result'
     )
-    object: Optional[Union[Thing, List[Thing]]] = Field(
+    object: Optional[Union["Thing", List["Thing"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'object',
@@ -125,7 +125,7 @@ See also [blog post](https://blog.schema.org/2014/04/16/announcing-schema-org-ac
         ),
         serialization_alias='https://schema.org/object'
     )
-    location: Optional[Union[VirtualLocation, List[VirtualLocation], PostalAddress, List[PostalAddress], str, List[str], Place, List[Place]]] = Field(
+    location: Optional[Union["VirtualLocation", List["VirtualLocation"], "PostalAddress", List["PostalAddress"], str, List[str], "Place", List["Place"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'location',

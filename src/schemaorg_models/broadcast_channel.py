@@ -13,9 +13,9 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .broadcast_frequency_specification import BroadcastFrequencySpecification
     from .broadcast_service import BroadcastService
     from .cable_or_satellite_service import CableOrSatelliteService
-    from .broadcast_frequency_specification import BroadcastFrequencySpecification
 
 class BroadcastChannel(Intangible):
     """
@@ -26,7 +26,7 @@ A unique instance of a BroadcastService on a CableOrSatelliteService lineup.
         alias='@type',
         serialization_alias='@type'
     )
-    inBroadcastLineup: Optional[Union[CableOrSatelliteService, List[CableOrSatelliteService]]] = Field(
+    inBroadcastLineup: Optional[Union["CableOrSatelliteService", List["CableOrSatelliteService"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'inBroadcastLineup',
@@ -42,7 +42,7 @@ A unique instance of a BroadcastService on a CableOrSatelliteService lineup.
         ),
         serialization_alias='https://schema.org/broadcastChannelId'
     )
-    providesBroadcastService: Optional[Union[BroadcastService, List[BroadcastService]]] = Field(
+    providesBroadcastService: Optional[Union["BroadcastService", List["BroadcastService"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'providesBroadcastService',
@@ -50,7 +50,7 @@ A unique instance of a BroadcastService on a CableOrSatelliteService lineup.
         ),
         serialization_alias='https://schema.org/providesBroadcastService'
     )
-    broadcastFrequency: Optional[Union[str, List[str], BroadcastFrequencySpecification, List[BroadcastFrequencySpecification]]] = Field(
+    broadcastFrequency: Optional[Union[str, List[str], "BroadcastFrequencySpecification", List["BroadcastFrequencySpecification"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'broadcastFrequency',

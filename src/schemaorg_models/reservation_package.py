@@ -20,7 +20,7 @@ A group of multiple reservations with common values for all sub-reservations.
         alias='@type',
         serialization_alias='@type'
     )
-    subReservation: Optional[Union[Reservation, List[Reservation]]] = Field(
+    subReservation: Optional[Union["Reservation", List["Reservation"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'subReservation',

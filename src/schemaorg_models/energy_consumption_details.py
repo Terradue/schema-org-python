@@ -12,8 +12,8 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .energy_efficiency_enumeration import EnergyEfficiencyEnumeration
     from .eu_energy_efficiency_enumeration import EUEnergyEfficiencyEnumeration
+    from .energy_efficiency_enumeration import EnergyEfficiencyEnumeration
 
 class EnergyConsumptionDetails(Intangible):
     """
@@ -24,7 +24,7 @@ EnergyConsumptionDetails represents information related to the energy efficiency
         alias='@type',
         serialization_alias='@type'
     )
-    hasEnergyEfficiencyCategory: Optional[Union[EnergyEfficiencyEnumeration, List[EnergyEfficiencyEnumeration]]] = Field(
+    hasEnergyEfficiencyCategory: Optional[Union["EnergyEfficiencyEnumeration", List["EnergyEfficiencyEnumeration"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasEnergyEfficiencyCategory',
@@ -32,7 +32,7 @@ EnergyConsumptionDetails represents information related to the energy efficiency
         ),
         serialization_alias='https://schema.org/hasEnergyEfficiencyCategory'
     )
-    energyEfficiencyScaleMax: Optional[Union[EUEnergyEfficiencyEnumeration, List[EUEnergyEfficiencyEnumeration]]] = Field(
+    energyEfficiencyScaleMax: Optional[Union["EUEnergyEfficiencyEnumeration", List["EUEnergyEfficiencyEnumeration"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'energyEfficiencyScaleMax',
@@ -40,7 +40,7 @@ EnergyConsumptionDetails represents information related to the energy efficiency
         ),
         serialization_alias='https://schema.org/energyEfficiencyScaleMax'
     )
-    energyEfficiencyScaleMin: Optional[Union[EUEnergyEfficiencyEnumeration, List[EUEnergyEfficiencyEnumeration]]] = Field(
+    energyEfficiencyScaleMin: Optional[Union["EUEnergyEfficiencyEnumeration", List["EUEnergyEfficiencyEnumeration"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'energyEfficiencyScaleMin',

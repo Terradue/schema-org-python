@@ -65,7 +65,7 @@ Computer programming source code. Example: Full (compile ready) solutions, code 
         ),
         serialization_alias='https://schema.org/runtime'
     )
-    targetProduct: Optional[Union[SoftwareApplication, List[SoftwareApplication]]] = Field(
+    targetProduct: Optional[Union["SoftwareApplication", List["SoftwareApplication"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'targetProduct',
@@ -73,7 +73,7 @@ Computer programming source code. Example: Full (compile ready) solutions, code 
         ),
         serialization_alias='https://schema.org/targetProduct'
     )
-    programmingLanguage: Optional[Union[str, List[str], ComputerLanguage, List[ComputerLanguage]]] = Field(
+    programmingLanguage: Optional[Union[str, List[str], "ComputerLanguage", List["ComputerLanguage"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'programmingLanguage',

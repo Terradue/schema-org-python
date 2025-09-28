@@ -23,7 +23,7 @@ The act of adding at a specific location in an ordered collection.
         alias='@type',
         serialization_alias='@type'
     )
-    toLocation: Optional[Union[Place, List[Place]]] = Field(
+    toLocation: Optional[Union["Place", List["Place"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'toLocation',

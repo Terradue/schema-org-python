@@ -27,7 +27,7 @@ The Game type represents things which are games. These are typically rule-govern
         alias='@type',
         serialization_alias='@type'
     )
-    quest: Optional[Union[Thing, List[Thing]]] = Field(
+    quest: Optional[Union["Thing", List["Thing"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'quest',
@@ -35,7 +35,7 @@ The Game type represents things which are games. These are typically rule-govern
         ),
         serialization_alias='https://schema.org/quest'
     )
-    characterAttribute: Optional[Union[Thing, List[Thing]]] = Field(
+    characterAttribute: Optional[Union["Thing", List["Thing"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'characterAttribute',
@@ -43,7 +43,7 @@ The Game type represents things which are games. These are typically rule-govern
         ),
         serialization_alias='https://schema.org/characterAttribute'
     )
-    gameItem: Optional[Union[Thing, List[Thing]]] = Field(
+    gameItem: Optional[Union["Thing", List["Thing"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'gameItem',
@@ -51,7 +51,7 @@ The Game type represents things which are games. These are typically rule-govern
         ),
         serialization_alias='https://schema.org/gameItem'
     )
-    numberOfPlayers: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
+    numberOfPlayers: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'numberOfPlayers',
@@ -59,7 +59,7 @@ The Game type represents things which are games. These are typically rule-govern
         ),
         serialization_alias='https://schema.org/numberOfPlayers'
     )
-    gameLocation: Optional[Union[Place, List[Place], HttpUrl, List[HttpUrl], PostalAddress, List[PostalAddress]]] = Field(
+    gameLocation: Optional[Union["Place", List["Place"], HttpUrl, List[HttpUrl], "PostalAddress", List["PostalAddress"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'gameLocation',

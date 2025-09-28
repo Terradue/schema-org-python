@@ -23,7 +23,7 @@ The act of expressing a preference from a set of options or a large or unbounded
         alias='@type',
         serialization_alias='@type'
     )
-    option: Optional[Union[str, List[str], Thing, List[Thing]]] = Field(
+    option: Optional[Union[str, List[str], "Thing", List["Thing"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'option',
@@ -31,7 +31,7 @@ The act of expressing a preference from a set of options or a large or unbounded
         ),
         serialization_alias='https://schema.org/option'
     )
-    actionOption: Optional[Union[str, List[str], Thing, List[Thing]]] = Field(
+    actionOption: Optional[Union[str, List[str], "Thing", List["Thing"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'actionOption',

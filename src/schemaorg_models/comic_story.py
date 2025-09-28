@@ -25,7 +25,7 @@ The term "story" is any indivisible, re-printable
         alias='@type',
         serialization_alias='@type'
     )
-    penciler: Optional[Union[Person, List[Person]]] = Field(
+    penciler: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'penciler',
@@ -33,7 +33,7 @@ The term "story" is any indivisible, re-printable
         ),
         serialization_alias='https://schema.org/penciler'
     )
-    inker: Optional[Union[Person, List[Person]]] = Field(
+    inker: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'inker',
@@ -41,7 +41,7 @@ The term "story" is any indivisible, re-printable
         ),
         serialization_alias='https://schema.org/inker'
     )
-    letterer: Optional[Union[Person, List[Person]]] = Field(
+    letterer: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'letterer',
@@ -49,7 +49,7 @@ The term "story" is any indivisible, re-printable
         ),
         serialization_alias='https://schema.org/letterer'
     )
-    colorist: Optional[Union[Person, List[Person]]] = Field(
+    colorist: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'colorist',
@@ -57,7 +57,7 @@ The term "story" is any indivisible, re-printable
         ),
         serialization_alias='https://schema.org/colorist'
     )
-    artist: Optional[Union[Person, List[Person]]] = Field(
+    artist: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'artist',

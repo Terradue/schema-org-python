@@ -13,13 +13,13 @@ from .play_action import PlayAction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .distance import Distance
-    from .sports_team import SportsTeam
-    from .diet import Diet
-    from .sports_activity_location import SportsActivityLocation
-    from .exercise_plan import ExercisePlan
     from .sports_event import SportsEvent
-    from .person import Person
+    from .sports_team import SportsTeam
+    from .sports_activity_location import SportsActivityLocation
     from .place import Place
+    from .person import Person
+    from .exercise_plan import ExercisePlan
+    from .diet import Diet
 
 class ExerciseAction(PlayAction):
     """
@@ -30,7 +30,7 @@ The act of participating in exertive activity for the purposes of improving heal
         alias='@type',
         serialization_alias='@type'
     )
-    diet: Optional[Union[Diet, List[Diet]]] = Field(
+    diet: Optional[Union["Diet", List["Diet"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'diet',
@@ -38,7 +38,7 @@ The act of participating in exertive activity for the purposes of improving heal
         ),
         serialization_alias='https://schema.org/diet'
     )
-    distance: Optional[Union[Distance, List[Distance]]] = Field(
+    distance: Optional[Union["Distance", List["Distance"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'distance',
@@ -46,7 +46,7 @@ The act of participating in exertive activity for the purposes of improving heal
         ),
         serialization_alias='https://schema.org/distance'
     )
-    exerciseRelatedDiet: Optional[Union[Diet, List[Diet]]] = Field(
+    exerciseRelatedDiet: Optional[Union["Diet", List["Diet"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'exerciseRelatedDiet',
@@ -54,7 +54,7 @@ The act of participating in exertive activity for the purposes of improving heal
         ),
         serialization_alias='https://schema.org/exerciseRelatedDiet'
     )
-    exerciseCourse: Optional[Union[Place, List[Place]]] = Field(
+    exerciseCourse: Optional[Union["Place", List["Place"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'exerciseCourse',
@@ -70,7 +70,7 @@ The act of participating in exertive activity for the purposes of improving heal
         ),
         serialization_alias='https://schema.org/exerciseType'
     )
-    exercisePlan: Optional[Union[ExercisePlan, List[ExercisePlan]]] = Field(
+    exercisePlan: Optional[Union["ExercisePlan", List["ExercisePlan"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'exercisePlan',
@@ -78,7 +78,7 @@ The act of participating in exertive activity for the purposes of improving heal
         ),
         serialization_alias='https://schema.org/exercisePlan'
     )
-    course: Optional[Union[Place, List[Place]]] = Field(
+    course: Optional[Union["Place", List["Place"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'course',
@@ -86,7 +86,7 @@ The act of participating in exertive activity for the purposes of improving heal
         ),
         serialization_alias='https://schema.org/course'
     )
-    sportsEvent: Optional[Union[SportsEvent, List[SportsEvent]]] = Field(
+    sportsEvent: Optional[Union["SportsEvent", List["SportsEvent"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'sportsEvent',
@@ -94,7 +94,7 @@ The act of participating in exertive activity for the purposes of improving heal
         ),
         serialization_alias='https://schema.org/sportsEvent'
     )
-    fromLocation: Optional[Union[Place, List[Place]]] = Field(
+    fromLocation: Optional[Union["Place", List["Place"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'fromLocation',
@@ -102,7 +102,7 @@ The act of participating in exertive activity for the purposes of improving heal
         ),
         serialization_alias='https://schema.org/fromLocation'
     )
-    sportsTeam: Optional[Union[SportsTeam, List[SportsTeam]]] = Field(
+    sportsTeam: Optional[Union["SportsTeam", List["SportsTeam"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'sportsTeam',
@@ -110,7 +110,7 @@ The act of participating in exertive activity for the purposes of improving heal
         ),
         serialization_alias='https://schema.org/sportsTeam'
     )
-    opponent: Optional[Union[Person, List[Person]]] = Field(
+    opponent: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'opponent',
@@ -118,7 +118,7 @@ The act of participating in exertive activity for the purposes of improving heal
         ),
         serialization_alias='https://schema.org/opponent'
     )
-    sportsActivityLocation: Optional[Union[SportsActivityLocation, List[SportsActivityLocation]]] = Field(
+    sportsActivityLocation: Optional[Union["SportsActivityLocation", List["SportsActivityLocation"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'sportsActivityLocation',
@@ -126,7 +126,7 @@ The act of participating in exertive activity for the purposes of improving heal
         ),
         serialization_alias='https://schema.org/sportsActivityLocation'
     )
-    toLocation: Optional[Union[Place, List[Place]]] = Field(
+    toLocation: Optional[Union["Place", List["Place"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'toLocation',

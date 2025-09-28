@@ -49,7 +49,7 @@ Note: AggregateOffers are normally expected to associate multiple offers that al
         ),
         serialization_alias='https://schema.org/offerCount'
     )
-    offers: Optional[Union[Demand, List[Demand], Offer, List[Offer]]] = Field(
+    offers: Optional[Union["Demand", List["Demand"], "Offer", List["Offer"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'offers',

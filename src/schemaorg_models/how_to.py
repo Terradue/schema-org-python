@@ -12,14 +12,14 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .how_to_supply import HowToSupply
-    from .quantitative_value import QuantitativeValue
-    from .how_to_tool import HowToTool
     from .how_to_step import HowToStep
+    from .monetary_amount import MonetaryAmount
     from .duration import Duration
     from .how_to_section import HowToSection
     from .item_list import ItemList
-    from .monetary_amount import MonetaryAmount
+    from .how_to_tool import HowToTool
+    from .how_to_supply import HowToSupply
+    from .quantitative_value import QuantitativeValue
 
 class HowTo(CreativeWork):
     """
@@ -30,7 +30,7 @@ Instructions that explain how to achieve a result by performing a sequence of st
         alias='@type',
         serialization_alias='@type'
     )
-    prepTime: Optional[Union[Duration, List[Duration]]] = Field(
+    prepTime: Optional[Union["Duration", List["Duration"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'prepTime',
@@ -38,7 +38,7 @@ Instructions that explain how to achieve a result by performing a sequence of st
         ),
         serialization_alias='https://schema.org/prepTime'
     )
-    performTime: Optional[Union[Duration, List[Duration]]] = Field(
+    performTime: Optional[Union["Duration", List["Duration"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'performTime',
@@ -46,7 +46,7 @@ Instructions that explain how to achieve a result by performing a sequence of st
         ),
         serialization_alias='https://schema.org/performTime'
     )
-    supply: Optional[Union[HowToSupply, List[HowToSupply], str, List[str]]] = Field(
+    supply: Optional[Union["HowToSupply", List["HowToSupply"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'supply',
@@ -54,7 +54,7 @@ Instructions that explain how to achieve a result by performing a sequence of st
         ),
         serialization_alias='https://schema.org/supply'
     )
-    totalTime: Optional[Union[Duration, List[Duration]]] = Field(
+    totalTime: Optional[Union["Duration", List["Duration"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'totalTime',
@@ -62,7 +62,7 @@ Instructions that explain how to achieve a result by performing a sequence of st
         ),
         serialization_alias='https://schema.org/totalTime'
     )
-    step: Optional[Union[str, List[str], HowToStep, List[HowToStep], CreativeWork, List[CreativeWork], HowToSection, List[HowToSection]]] = Field(
+    step: Optional[Union[str, List[str], "HowToStep", List["HowToStep"], "CreativeWork", List["CreativeWork"], "HowToSection", List["HowToSection"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'step',
@@ -70,7 +70,7 @@ Instructions that explain how to achieve a result by performing a sequence of st
         ),
         serialization_alias='https://schema.org/step'
     )
-    estimatedCost: Optional[Union[str, List[str], MonetaryAmount, List[MonetaryAmount]]] = Field(
+    estimatedCost: Optional[Union[str, List[str], "MonetaryAmount", List["MonetaryAmount"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'estimatedCost',
@@ -78,7 +78,7 @@ Instructions that explain how to achieve a result by performing a sequence of st
         ),
         serialization_alias='https://schema.org/estimatedCost'
     )
-    steps: Optional[Union[str, List[str], CreativeWork, List[CreativeWork], ItemList, List[ItemList]]] = Field(
+    steps: Optional[Union[str, List[str], "CreativeWork", List["CreativeWork"], "ItemList", List["ItemList"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'steps',
@@ -86,7 +86,7 @@ Instructions that explain how to achieve a result by performing a sequence of st
         ),
         serialization_alias='https://schema.org/steps'
     )
-    tool: Optional[Union[str, List[str], HowToTool, List[HowToTool]]] = Field(
+    tool: Optional[Union[str, List[str], "HowToTool", List["HowToTool"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'tool',
@@ -94,7 +94,7 @@ Instructions that explain how to achieve a result by performing a sequence of st
         ),
         serialization_alias='https://schema.org/tool'
     )
-    yield_: Optional[Union[str, List[str], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    yield_: Optional[Union[str, List[str], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'yield',

@@ -23,7 +23,7 @@ A trip on a commercial train line.
         alias='@type',
         serialization_alias='@type'
     )
-    arrivalStation: Optional[Union[TrainStation, List[TrainStation]]] = Field(
+    arrivalStation: Optional[Union["TrainStation", List["TrainStation"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'arrivalStation',
@@ -39,7 +39,7 @@ A trip on a commercial train line.
         ),
         serialization_alias='https://schema.org/trainName'
     )
-    departureStation: Optional[Union[TrainStation, List[TrainStation]]] = Field(
+    departureStation: Optional[Union["TrainStation", List["TrainStation"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'departureStation',

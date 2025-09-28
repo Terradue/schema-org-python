@@ -24,7 +24,7 @@ The [[practicesAt]] property can be used to indicate [[MedicalOrganization]] hos
         alias='@type',
         serialization_alias='@type'
     )
-    practicesAt: Optional[Union[MedicalOrganization, List[MedicalOrganization]]] = Field(
+    practicesAt: Optional[Union["MedicalOrganization", List["MedicalOrganization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'practicesAt',

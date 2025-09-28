@@ -16,13 +16,13 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .organization import Organization
     from .image_object import ImageObject
-    from .breadcrumb_list import BreadcrumbList
     from .specialty import Specialty
-    from .speakable_specification import SpeakableSpecification
-    from .web_page_element import WebPageElement
+    from .breadcrumb_list import BreadcrumbList
     from .person import Person
+    from .web_page_element import WebPageElement
+    from .organization import Organization
+    from .speakable_specification import SpeakableSpecification
 
 class WebPage(CreativeWork):
     """
@@ -33,7 +33,7 @@ A web page. Every web page is implicitly assumed to be declared to be of type We
         alias='@type',
         serialization_alias='@type'
     )
-    mainContentOfPage: Optional[Union[WebPageElement, List[WebPageElement]]] = Field(
+    mainContentOfPage: Optional[Union["WebPageElement", List["WebPageElement"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'mainContentOfPage',
@@ -49,7 +49,7 @@ A web page. Every web page is implicitly assumed to be declared to be of type We
         ),
         serialization_alias='https://schema.org/significantLink'
     )
-    speakable: Optional[Union[HttpUrl, List[HttpUrl], SpeakableSpecification, List[SpeakableSpecification]]] = Field(
+    speakable: Optional[Union[HttpUrl, List[HttpUrl], "SpeakableSpecification", List["SpeakableSpecification"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'speakable',
@@ -65,7 +65,7 @@ A web page. Every web page is implicitly assumed to be declared to be of type We
         ),
         serialization_alias='https://schema.org/lastReviewed'
     )
-    primaryImageOfPage: Optional[Union[ImageObject, List[ImageObject]]] = Field(
+    primaryImageOfPage: Optional[Union["ImageObject", List["ImageObject"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'primaryImageOfPage',
@@ -73,7 +73,7 @@ A web page. Every web page is implicitly assumed to be declared to be of type We
         ),
         serialization_alias='https://schema.org/primaryImageOfPage'
     )
-    reviewedBy: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
+    reviewedBy: Optional[Union["Person", List["Person"], "Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'reviewedBy',
@@ -97,7 +97,7 @@ A web page. Every web page is implicitly assumed to be declared to be of type We
         ),
         serialization_alias='https://schema.org/significantLinks'
     )
-    specialty: Optional[Union[Specialty, List[Specialty]]] = Field(
+    specialty: Optional[Union["Specialty", List["Specialty"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'specialty',
@@ -105,7 +105,7 @@ A web page. Every web page is implicitly assumed to be declared to be of type We
         ),
         serialization_alias='https://schema.org/specialty'
     )
-    breadcrumb: Optional[Union[str, List[str], BreadcrumbList, List[BreadcrumbList]]] = Field(
+    breadcrumb: Optional[Union[str, List[str], "BreadcrumbList", List["BreadcrumbList"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'breadcrumb',

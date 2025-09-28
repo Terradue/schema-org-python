@@ -24,7 +24,7 @@ An alternative, closely-related condition typically considered later in the diff
         alias='@type',
         serialization_alias='@type'
     )
-    distinguishingSign: Optional[Union[MedicalSignOrSymptom, List[MedicalSignOrSymptom]]] = Field(
+    distinguishingSign: Optional[Union["MedicalSignOrSymptom", List["MedicalSignOrSymptom"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'distinguishingSign',
@@ -32,7 +32,7 @@ An alternative, closely-related condition typically considered later in the diff
         ),
         serialization_alias='https://schema.org/distinguishingSign'
     )
-    diagnosis: Optional[Union[MedicalCondition, List[MedicalCondition]]] = Field(
+    diagnosis: Optional[Union["MedicalCondition", List["MedicalCondition"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'diagnosis',

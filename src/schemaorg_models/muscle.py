@@ -24,7 +24,7 @@ A muscle is an anatomical structure consisting of a contractile form of tissue t
         alias='@type',
         serialization_alias='@type'
     )
-    antagonist: Optional[Union[Muscle, List[Muscle]]] = Field(
+    antagonist: Optional[Union["Muscle", List["Muscle"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'antagonist',
@@ -32,7 +32,7 @@ A muscle is an anatomical structure consisting of a contractile form of tissue t
         ),
         serialization_alias='https://schema.org/antagonist'
     )
-    insertion: Optional[Union[AnatomicalStructure, List[AnatomicalStructure]]] = Field(
+    insertion: Optional[Union["AnatomicalStructure", List["AnatomicalStructure"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'insertion',
@@ -40,7 +40,7 @@ A muscle is an anatomical structure consisting of a contractile form of tissue t
         ),
         serialization_alias='https://schema.org/insertion'
     )
-    nerve: Optional[Union[Nerve, List[Nerve]]] = Field(
+    nerve: Optional[Union["Nerve", List["Nerve"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'nerve',
@@ -48,7 +48,7 @@ A muscle is an anatomical structure consisting of a contractile form of tissue t
         ),
         serialization_alias='https://schema.org/nerve'
     )
-    bloodSupply: Optional[Union[Vessel, List[Vessel]]] = Field(
+    bloodSupply: Optional[Union["Vessel", List["Vessel"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'bloodSupply',

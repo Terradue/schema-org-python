@@ -12,8 +12,8 @@ from typing import (
 from .vessel import Vessel
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .anatomical_structure import AnatomicalStructure
     from .anatomical_system import AnatomicalSystem
+    from .anatomical_structure import AnatomicalStructure
 
 class LymphaticVessel(Vessel):
     """
@@ -24,7 +24,7 @@ A type of blood vessel that specifically carries lymph fluid unidirectionally to
         alias='@type',
         serialization_alias='@type'
     )
-    regionDrained: Optional[Union[AnatomicalStructure, List[AnatomicalStructure], AnatomicalSystem, List[AnatomicalSystem]]] = Field(
+    regionDrained: Optional[Union["AnatomicalStructure", List["AnatomicalStructure"], "AnatomicalSystem", List["AnatomicalSystem"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'regionDrained',
@@ -32,7 +32,7 @@ A type of blood vessel that specifically carries lymph fluid unidirectionally to
         ),
         serialization_alias='https://schema.org/regionDrained'
     )
-    runsTo: Optional[Union[Vessel, List[Vessel]]] = Field(
+    runsTo: Optional[Union["Vessel", List["Vessel"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'runsTo',
@@ -40,7 +40,7 @@ A type of blood vessel that specifically carries lymph fluid unidirectionally to
         ),
         serialization_alias='https://schema.org/runsTo'
     )
-    originatesFrom: Optional[Union[Vessel, List[Vessel]]] = Field(
+    originatesFrom: Optional[Union["Vessel", List["Vessel"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'originatesFrom',

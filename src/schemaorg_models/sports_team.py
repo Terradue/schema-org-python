@@ -24,7 +24,7 @@ Organization: Sports team.
         alias='@type',
         serialization_alias='@type'
     )
-    athlete: Optional[Union[Person, List[Person]]] = Field(
+    athlete: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'athlete',
@@ -32,7 +32,7 @@ Organization: Sports team.
         ),
         serialization_alias='https://schema.org/athlete'
     )
-    coach: Optional[Union[Person, List[Person]]] = Field(
+    coach: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'coach',
@@ -40,7 +40,7 @@ Organization: Sports team.
         ),
         serialization_alias='https://schema.org/coach'
     )
-    gender: Optional[Union[GenderType, List[GenderType], str, List[str]]] = Field(
+    gender: Optional[Union["GenderType", List["GenderType"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'gender',

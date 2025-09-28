@@ -12,11 +12,11 @@ from typing import (
 from .creative_work_series import CreativeWorkSeries
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .organization import Organization
     from .video_object import VideoObject
-    from .music_group import MusicGroup
-    from .person import Person
     from .performing_group import PerformingGroup
+    from .person import Person
+    from .music_group import MusicGroup
+    from .organization import Organization
 
 class MovieSeries(CreativeWorkSeries):
     """
@@ -27,7 +27,7 @@ A series of movies. Included movies can be indicated with the hasPart property.
         alias='@type',
         serialization_alias='@type'
     )
-    musicBy: Optional[Union[MusicGroup, List[MusicGroup], Person, List[Person]]] = Field(
+    musicBy: Optional[Union["MusicGroup", List["MusicGroup"], "Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'musicBy',
@@ -35,7 +35,7 @@ A series of movies. Included movies can be indicated with the hasPart property.
         ),
         serialization_alias='https://schema.org/musicBy'
     )
-    director: Optional[Union[Person, List[Person]]] = Field(
+    director: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'director',
@@ -43,7 +43,7 @@ A series of movies. Included movies can be indicated with the hasPart property.
         ),
         serialization_alias='https://schema.org/director'
     )
-    directors: Optional[Union[Person, List[Person]]] = Field(
+    directors: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'directors',
@@ -51,7 +51,7 @@ A series of movies. Included movies can be indicated with the hasPart property.
         ),
         serialization_alias='https://schema.org/directors'
     )
-    actor: Optional[Union[Person, List[Person], PerformingGroup, List[PerformingGroup]]] = Field(
+    actor: Optional[Union["Person", List["Person"], "PerformingGroup", List["PerformingGroup"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'actor',
@@ -59,7 +59,7 @@ A series of movies. Included movies can be indicated with the hasPart property.
         ),
         serialization_alias='https://schema.org/actor'
     )
-    productionCompany: Optional[Union[Organization, List[Organization]]] = Field(
+    productionCompany: Optional[Union["Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'productionCompany',
@@ -67,7 +67,7 @@ A series of movies. Included movies can be indicated with the hasPart property.
         ),
         serialization_alias='https://schema.org/productionCompany'
     )
-    actors: Optional[Union[Person, List[Person]]] = Field(
+    actors: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'actors',
@@ -75,7 +75,7 @@ A series of movies. Included movies can be indicated with the hasPart property.
         ),
         serialization_alias='https://schema.org/actors'
     )
-    trailer: Optional[Union[VideoObject, List[VideoObject]]] = Field(
+    trailer: Optional[Union["VideoObject", List["VideoObject"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'trailer',

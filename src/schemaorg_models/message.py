@@ -16,8 +16,8 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .organization import Organization
     from .audience import Audience
+    from .organization import Organization
     from .contact_point import ContactPoint
     from .person import Person
 
@@ -54,7 +54,7 @@ A single message from a sender to one or more organizations or people.
         ),
         serialization_alias='https://schema.org/dateSent'
     )
-    sender: Optional[Union[Organization, List[Organization], Audience, List[Audience], Person, List[Person]]] = Field(
+    sender: Optional[Union["Organization", List["Organization"], "Audience", List["Audience"], "Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'sender',
@@ -62,7 +62,7 @@ A single message from a sender to one or more organizations or people.
         ),
         serialization_alias='https://schema.org/sender'
     )
-    bccRecipient: Optional[Union[Organization, List[Organization], ContactPoint, List[ContactPoint], Person, List[Person]]] = Field(
+    bccRecipient: Optional[Union["Organization", List["Organization"], "ContactPoint", List["ContactPoint"], "Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'bccRecipient',
@@ -70,7 +70,7 @@ A single message from a sender to one or more organizations or people.
         ),
         serialization_alias='https://schema.org/bccRecipient'
     )
-    recipient: Optional[Union[Organization, List[Organization], Audience, List[Audience], ContactPoint, List[ContactPoint], Person, List[Person]]] = Field(
+    recipient: Optional[Union["Organization", List["Organization"], "Audience", List["Audience"], "ContactPoint", List["ContactPoint"], "Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'recipient',
@@ -78,7 +78,7 @@ A single message from a sender to one or more organizations or people.
         ),
         serialization_alias='https://schema.org/recipient'
     )
-    messageAttachment: Optional[Union[CreativeWork, List[CreativeWork]]] = Field(
+    messageAttachment: Optional[Union["CreativeWork", List["CreativeWork"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'messageAttachment',
@@ -86,7 +86,7 @@ A single message from a sender to one or more organizations or people.
         ),
         serialization_alias='https://schema.org/messageAttachment'
     )
-    ccRecipient: Optional[Union[Person, List[Person], ContactPoint, List[ContactPoint], Organization, List[Organization]]] = Field(
+    ccRecipient: Optional[Union["Person", List["Person"], "ContactPoint", List["ContactPoint"], "Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'ccRecipient',
@@ -94,7 +94,7 @@ A single message from a sender to one or more organizations or people.
         ),
         serialization_alias='https://schema.org/ccRecipient'
     )
-    toRecipient: Optional[Union[Organization, List[Organization], Audience, List[Audience], Person, List[Person], ContactPoint, List[ContactPoint]]] = Field(
+    toRecipient: Optional[Union["Organization", List["Organization"], "Audience", List["Audience"], "Person", List["Person"], "ContactPoint", List["ContactPoint"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'toRecipient',

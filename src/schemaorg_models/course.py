@@ -13,13 +13,13 @@ from typing import (
 from .learning_resource import LearningResource
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .language import Language
-    from .alignment_object import AlignmentObject
-    from .educational_occupational_credential import EducationalOccupationalCredential
-    from .syllabus import Syllabus
     from .course_instance import CourseInstance
     from .structured_value import StructuredValue
+    from .syllabus import Syllabus
+    from .educational_occupational_credential import EducationalOccupationalCredential
     from .defined_term import DefinedTerm
+    from .language import Language
+    from .alignment_object import AlignmentObject
 
 class Course(LearningResource):
     """
@@ -30,7 +30,7 @@ A description of an educational course which may be offered as distinct instance
         alias='@type',
         serialization_alias='@type'
     )
-    availableLanguage: Optional[Union[str, List[str], Language, List[Language]]] = Field(
+    availableLanguage: Optional[Union[str, List[str], "Language", List["Language"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'availableLanguage',
@@ -46,7 +46,7 @@ A description of an educational course which may be offered as distinct instance
         ),
         serialization_alias='https://schema.org/courseCode'
     )
-    numberOfCredits: Optional[Union[int, List[int], StructuredValue, List[StructuredValue]]] = Field(
+    numberOfCredits: Optional[Union[int, List[int], "StructuredValue", List["StructuredValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'numberOfCredits',
@@ -54,7 +54,7 @@ A description of an educational course which may be offered as distinct instance
         ),
         serialization_alias='https://schema.org/numberOfCredits'
     )
-    syllabusSections: Optional[Union[Syllabus, List[Syllabus]]] = Field(
+    syllabusSections: Optional[Union["Syllabus", List["Syllabus"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'syllabusSections',
@@ -62,7 +62,7 @@ A description of an educational course which may be offered as distinct instance
         ),
         serialization_alias='https://schema.org/syllabusSections'
     )
-    educationalCredentialAwarded: Optional[Union[EducationalOccupationalCredential, List[EducationalOccupationalCredential], str, List[str], HttpUrl, List[HttpUrl]]] = Field(
+    educationalCredentialAwarded: Optional[Union["EducationalOccupationalCredential", List["EducationalOccupationalCredential"], str, List[str], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'educationalCredentialAwarded',
@@ -70,7 +70,7 @@ A description of an educational course which may be offered as distinct instance
         ),
         serialization_alias='https://schema.org/educationalCredentialAwarded'
     )
-    financialAidEligible: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str]]] = Field(
+    financialAidEligible: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'financialAidEligible',
@@ -78,7 +78,7 @@ A description of an educational course which may be offered as distinct instance
         ),
         serialization_alias='https://schema.org/financialAidEligible'
     )
-    coursePrerequisites: Optional[Union[Course, List[Course], AlignmentObject, List[AlignmentObject], str, List[str]]] = Field(
+    coursePrerequisites: Optional[Union["Course", List["Course"], "AlignmentObject", List["AlignmentObject"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'coursePrerequisites',
@@ -86,7 +86,7 @@ A description of an educational course which may be offered as distinct instance
         ),
         serialization_alias='https://schema.org/coursePrerequisites'
     )
-    occupationalCredentialAwarded: Optional[Union[HttpUrl, List[HttpUrl], EducationalOccupationalCredential, List[EducationalOccupationalCredential], str, List[str]]] = Field(
+    occupationalCredentialAwarded: Optional[Union[HttpUrl, List[HttpUrl], "EducationalOccupationalCredential", List["EducationalOccupationalCredential"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'occupationalCredentialAwarded',
@@ -102,7 +102,7 @@ A description of an educational course which may be offered as distinct instance
         ),
         serialization_alias='https://schema.org/totalHistoricalEnrollment'
     )
-    hasCourseInstance: Optional[Union[CourseInstance, List[CourseInstance]]] = Field(
+    hasCourseInstance: Optional[Union["CourseInstance", List["CourseInstance"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasCourseInstance',

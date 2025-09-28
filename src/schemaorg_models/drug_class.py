@@ -23,7 +23,7 @@ A class of medical drugs, e.g., statins. Classes can represent general pharmacol
         alias='@type',
         serialization_alias='@type'
     )
-    drug: Optional[Union[Drug, List[Drug]]] = Field(
+    drug: Optional[Union["Drug", List["Drug"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'drug',

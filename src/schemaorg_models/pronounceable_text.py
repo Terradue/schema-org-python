@@ -31,7 +31,7 @@ Data type: PronounceableText.
         ),
         serialization_alias='https://schema.org/speechToTextMarkup'
     )
-    inLanguage: Optional[Union[str, List[str], Language, List[Language]]] = Field(
+    inLanguage: Optional[Union[str, List[str], "Language", List["Language"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'inLanguage',

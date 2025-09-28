@@ -24,7 +24,7 @@ Any physical manifestation of a person's medical condition discoverable by objec
         alias='@type',
         serialization_alias='@type'
     )
-    identifyingTest: Optional[Union[MedicalTest, List[MedicalTest]]] = Field(
+    identifyingTest: Optional[Union["MedicalTest", List["MedicalTest"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'identifyingTest',
@@ -32,7 +32,7 @@ Any physical manifestation of a person's medical condition discoverable by objec
         ),
         serialization_alias='https://schema.org/identifyingTest'
     )
-    identifyingExam: Optional[Union[PhysicalExam, List[PhysicalExam]]] = Field(
+    identifyingExam: Optional[Union["PhysicalExam", List["PhysicalExam"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'identifyingExam',

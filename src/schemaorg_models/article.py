@@ -50,7 +50,7 @@ See also [blog post](https://blog.schema.org/2014/09/02/schema-org-support-for-b
         ),
         serialization_alias='https://schema.org/pageEnd'
     )
-    backstory: Optional[Union[str, List[str], CreativeWork, List[CreativeWork]]] = Field(
+    backstory: Optional[Union[str, List[str], "CreativeWork", List["CreativeWork"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'backstory',
@@ -74,7 +74,7 @@ See also [blog post](https://blog.schema.org/2014/09/02/schema-org-support-for-b
         ),
         serialization_alias='https://schema.org/articleSection'
     )
-    speakable: Optional[Union[HttpUrl, List[HttpUrl], SpeakableSpecification, List[SpeakableSpecification]]] = Field(
+    speakable: Optional[Union[HttpUrl, List[HttpUrl], "SpeakableSpecification", List["SpeakableSpecification"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'speakable',

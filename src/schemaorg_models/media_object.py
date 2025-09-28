@@ -18,15 +18,15 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .media_subscription import MediaSubscription
-    from .organization import Organization
-    from .quantitative_value import QuantitativeValue
-    from .news_article import NewsArticle
     from .distance import Distance
-    from .geo_shape import GeoShape
     from .duration import Duration
     from .claim import Claim
+    from .news_article import NewsArticle
+    from .media_subscription import MediaSubscription
     from .place import Place
+    from .quantitative_value import QuantitativeValue
+    from .organization import Organization
+    from .geo_shape import GeoShape
 
 class MediaObject(CreativeWork):
     """
@@ -37,7 +37,7 @@ A media object, such as an image, video, audio, or text object embedded in a web
         alias='@type',
         serialization_alias='@type'
     )
-    encodesCreativeWork: Optional[Union[CreativeWork, List[CreativeWork]]] = Field(
+    encodesCreativeWork: Optional[Union["CreativeWork", List["CreativeWork"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'encodesCreativeWork',
@@ -45,7 +45,7 @@ A media object, such as an image, video, audio, or text object embedded in a web
         ),
         serialization_alias='https://schema.org/encodesCreativeWork'
     )
-    height: Optional[Union[Distance, List[Distance], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    height: Optional[Union["Distance", List["Distance"], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'height',
@@ -53,7 +53,7 @@ A media object, such as an image, video, audio, or text object embedded in a web
         ),
         serialization_alias='https://schema.org/height'
     )
-    productionCompany: Optional[Union[Organization, List[Organization]]] = Field(
+    productionCompany: Optional[Union["Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'productionCompany',
@@ -61,7 +61,7 @@ A media object, such as an image, video, audio, or text object embedded in a web
         ),
         serialization_alias='https://schema.org/productionCompany'
     )
-    regionsAllowed: Optional[Union[Place, List[Place]]] = Field(
+    regionsAllowed: Optional[Union["Place", List["Place"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'regionsAllowed',
@@ -77,7 +77,7 @@ A media object, such as an image, video, audio, or text object embedded in a web
         ),
         serialization_alias='https://schema.org/contentSize'
     )
-    interpretedAsClaim: Optional[Union[Claim, List[Claim]]] = Field(
+    interpretedAsClaim: Optional[Union["Claim", List["Claim"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'interpretedAsClaim',
@@ -85,7 +85,7 @@ A media object, such as an image, video, audio, or text object embedded in a web
         ),
         serialization_alias='https://schema.org/interpretedAsClaim'
     )
-    requiresSubscription: Optional[Union[bool, List[bool], MediaSubscription, List[MediaSubscription]]] = Field(
+    requiresSubscription: Optional[Union[bool, List[bool], "MediaSubscription", List["MediaSubscription"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'requiresSubscription',
@@ -125,7 +125,7 @@ A media object, such as an image, video, audio, or text object embedded in a web
         ),
         serialization_alias='https://schema.org/contentUrl'
     )
-    associatedArticle: Optional[Union[NewsArticle, List[NewsArticle]]] = Field(
+    associatedArticle: Optional[Union["NewsArticle", List["NewsArticle"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'associatedArticle',
@@ -133,7 +133,7 @@ A media object, such as an image, video, audio, or text object embedded in a web
         ),
         serialization_alias='https://schema.org/associatedArticle'
     )
-    width: Optional[Union[QuantitativeValue, List[QuantitativeValue], Distance, List[Distance]]] = Field(
+    width: Optional[Union["QuantitativeValue", List["QuantitativeValue"], "Distance", List["Distance"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'width',
@@ -149,7 +149,7 @@ A media object, such as an image, video, audio, or text object embedded in a web
         ),
         serialization_alias='https://schema.org/playerType'
     )
-    duration: Optional[Union[Duration, List[Duration], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    duration: Optional[Union["Duration", List["Duration"], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'duration',
@@ -173,7 +173,7 @@ A media object, such as an image, video, audio, or text object embedded in a web
         ),
         serialization_alias='https://schema.org/startTime'
     )
-    ineligibleRegion: Optional[Union[str, List[str], Place, List[Place], GeoShape, List[GeoShape]]] = Field(
+    ineligibleRegion: Optional[Union[str, List[str], "Place", List["Place"], "GeoShape", List["GeoShape"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'ineligibleRegion',

@@ -23,7 +23,7 @@ Any matter of defined composition that has discrete existence, whose origin may 
         alias='@type',
         serialization_alias='@type'
     )
-    maximumIntake: Optional[Union[MaximumDoseSchedule, List[MaximumDoseSchedule]]] = Field(
+    maximumIntake: Optional[Union["MaximumDoseSchedule", List["MaximumDoseSchedule"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'maximumIntake',

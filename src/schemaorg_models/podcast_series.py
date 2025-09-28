@@ -13,9 +13,9 @@ from typing import (
 from .creative_work_series import CreativeWorkSeries
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .performing_group import PerformingGroup
     from .data_feed import DataFeed
     from .person import Person
-    from .performing_group import PerformingGroup
 
 class PodcastSeries(CreativeWorkSeries):
     """
@@ -26,7 +26,7 @@ A podcast is an episodic series of digital audio or video files which a user can
         alias='@type',
         serialization_alias='@type'
     )
-    webFeed: Optional[Union[DataFeed, List[DataFeed], HttpUrl, List[HttpUrl]]] = Field(
+    webFeed: Optional[Union["DataFeed", List["DataFeed"], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'webFeed',
@@ -34,7 +34,7 @@ A podcast is an episodic series of digital audio or video files which a user can
         ),
         serialization_alias='https://schema.org/webFeed'
     )
-    actor: Optional[Union[Person, List[Person], PerformingGroup, List[PerformingGroup]]] = Field(
+    actor: Optional[Union["Person", List["Person"], "PerformingGroup", List["PerformingGroup"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'actor',

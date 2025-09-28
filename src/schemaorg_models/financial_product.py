@@ -24,7 +24,7 @@ A product provided to consumers and businesses by financial institutions such as
         alias='@type',
         serialization_alias='@type'
     )
-    interestRate: Optional[Union[float, List[float], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    interestRate: Optional[Union[float, List[float], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'interestRate',
@@ -32,7 +32,7 @@ A product provided to consumers and businesses by financial institutions such as
         ),
         serialization_alias='https://schema.org/interestRate'
     )
-    annualPercentageRate: Optional[Union[QuantitativeValue, List[QuantitativeValue], float, List[float]]] = Field(
+    annualPercentageRate: Optional[Union["QuantitativeValue", List["QuantitativeValue"], float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'annualPercentageRate',

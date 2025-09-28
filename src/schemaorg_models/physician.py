@@ -12,12 +12,12 @@ from typing import (
 from .medical_business import MedicalBusiness
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .category_code import CategoryCode
-    from .hospital import Hospital
     from .medical_procedure import MedicalProcedure
     from .medical_therapy import MedicalTherapy
-    from .medical_specialty import MedicalSpecialty
+    from .hospital import Hospital
     from .medical_test import MedicalTest
+    from .category_code import CategoryCode
+    from .medical_specialty import MedicalSpecialty
 
 class Physician(MedicalBusiness):
     """
@@ -28,7 +28,7 @@ An individual physician or a physician's office considered as a [[MedicalOrganiz
         alias='@type',
         serialization_alias='@type'
     )
-    hospitalAffiliation: Optional[Union[Hospital, List[Hospital]]] = Field(
+    hospitalAffiliation: Optional[Union["Hospital", List["Hospital"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hospitalAffiliation',
@@ -36,7 +36,7 @@ An individual physician or a physician's office considered as a [[MedicalOrganiz
         ),
         serialization_alias='https://schema.org/hospitalAffiliation'
     )
-    availableService: Optional[Union[MedicalProcedure, List[MedicalProcedure], MedicalTherapy, List[MedicalTherapy], MedicalTest, List[MedicalTest]]] = Field(
+    availableService: Optional[Union["MedicalProcedure", List["MedicalProcedure"], "MedicalTherapy", List["MedicalTherapy"], "MedicalTest", List["MedicalTest"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'availableService',
@@ -52,7 +52,7 @@ An individual physician or a physician's office considered as a [[MedicalOrganiz
         ),
         serialization_alias='https://schema.org/usNPI'
     )
-    occupationalCategory: Optional[Union[CategoryCode, List[CategoryCode], str, List[str]]] = Field(
+    occupationalCategory: Optional[Union["CategoryCode", List["CategoryCode"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'occupationalCategory',
@@ -60,7 +60,7 @@ An individual physician or a physician's office considered as a [[MedicalOrganiz
         ),
         serialization_alias='https://schema.org/occupationalCategory'
     )
-    medicalSpecialty: Optional[Union[MedicalSpecialty, List[MedicalSpecialty]]] = Field(
+    medicalSpecialty: Optional[Union["MedicalSpecialty", List["MedicalSpecialty"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'medicalSpecialty',

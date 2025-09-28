@@ -23,7 +23,7 @@ A math solver which is capable of solving a subset of mathematical problems.
         alias='@type',
         serialization_alias='@type'
     )
-    mathExpression: Optional[Union[SolveMathAction, List[SolveMathAction], str, List[str]]] = Field(
+    mathExpression: Optional[Union["SolveMathAction", List["SolveMathAction"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'mathExpression',

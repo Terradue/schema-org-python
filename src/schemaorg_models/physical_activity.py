@@ -14,11 +14,11 @@ from .lifestyle_modification import LifestyleModification
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .physical_activity_category import PhysicalActivityCategory
-    from .thing import Thing
-    from .category_code import CategoryCode
     from .anatomical_system import AnatomicalSystem
-    from .anatomical_structure import AnatomicalStructure
     from .superficial_anatomy import SuperficialAnatomy
+    from .category_code import CategoryCode
+    from .thing import Thing
+    from .anatomical_structure import AnatomicalStructure
 
 class PhysicalActivity(LifestyleModification):
     """
@@ -37,7 +37,7 @@ Any bodily activity that enhances or maintains physical fitness and overall heal
         ),
         serialization_alias='https://schema.org/pathophysiology'
     )
-    category: Optional[Union[PhysicalActivityCategory, List[PhysicalActivityCategory], CategoryCode, List[CategoryCode], str, List[str], Thing, List[Thing], HttpUrl, List[HttpUrl]]] = Field(
+    category: Optional[Union["PhysicalActivityCategory", List["PhysicalActivityCategory"], "CategoryCode", List["CategoryCode"], str, List[str], "Thing", List["Thing"], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'category',
@@ -53,7 +53,7 @@ Any bodily activity that enhances or maintains physical fitness and overall heal
         ),
         serialization_alias='https://schema.org/epidemiology'
     )
-    associatedAnatomy: Optional[Union[AnatomicalSystem, List[AnatomicalSystem], SuperficialAnatomy, List[SuperficialAnatomy], AnatomicalStructure, List[AnatomicalStructure]]] = Field(
+    associatedAnatomy: Optional[Union["AnatomicalSystem", List["AnatomicalSystem"], "SuperficialAnatomy", List["SuperficialAnatomy"], "AnatomicalStructure", List["AnatomicalStructure"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'associatedAnatomy',

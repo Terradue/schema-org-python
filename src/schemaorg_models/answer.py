@@ -12,8 +12,8 @@ from typing import (
 from .comment import Comment
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .web_content import WebContent
     from .creative_work import CreativeWork
+    from .web_content import WebContent
 
 class Answer(Comment):
     """
@@ -24,7 +24,7 @@ An answer offered to a question; perhaps correct, perhaps opinionated or wrong.
         alias='@type',
         serialization_alias='@type'
     )
-    parentItem: Optional[Union[CreativeWork, List[CreativeWork], Comment, List[Comment]]] = Field(
+    parentItem: Optional[Union["CreativeWork", List["CreativeWork"], "Comment", List["Comment"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'parentItem',
@@ -32,7 +32,7 @@ An answer offered to a question; perhaps correct, perhaps opinionated or wrong.
         ),
         serialization_alias='https://schema.org/parentItem'
     )
-    answerExplanation: Optional[Union[Comment, List[Comment], WebContent, List[WebContent]]] = Field(
+    answerExplanation: Optional[Union["Comment", List["Comment"], "WebContent", List["WebContent"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'answerExplanation',

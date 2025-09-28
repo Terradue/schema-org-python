@@ -25,7 +25,7 @@ An instance of a [[Course]] which is distinct from other instances because it is
         alias='@type',
         serialization_alias='@type'
     )
-    instructor: Optional[Union[Person, List[Person]]] = Field(
+    instructor: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'instructor',
@@ -41,7 +41,7 @@ An instance of a [[Course]] which is distinct from other instances because it is
         ),
         serialization_alias='https://schema.org/courseWorkload'
     )
-    courseSchedule: Optional[Union[Schedule, List[Schedule]]] = Field(
+    courseSchedule: Optional[Union["Schedule", List["Schedule"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'courseSchedule',

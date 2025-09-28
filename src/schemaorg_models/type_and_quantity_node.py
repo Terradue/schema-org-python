@@ -42,7 +42,7 @@ A structured value indicating the quantity, unit of measurement, and business fu
         ),
         serialization_alias='https://schema.org/unitText'
     )
-    businessFunction: Optional[Union[BusinessFunction, List[BusinessFunction]]] = Field(
+    businessFunction: Optional[Union["BusinessFunction", List["BusinessFunction"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'businessFunction',
@@ -50,7 +50,7 @@ A structured value indicating the quantity, unit of measurement, and business fu
         ),
         serialization_alias='https://schema.org/businessFunction'
     )
-    typeOfGood: Optional[Union[Product, List[Product], Service, List[Service]]] = Field(
+    typeOfGood: Optional[Union["Product", List["Product"], "Service", List["Service"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'typeOfGood',

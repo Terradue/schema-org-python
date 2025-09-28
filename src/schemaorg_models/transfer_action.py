@@ -23,7 +23,7 @@ The act of transferring/moving (abstract or concrete) animate or inanimate objec
         alias='@type',
         serialization_alias='@type'
     )
-    fromLocation: Optional[Union[Place, List[Place]]] = Field(
+    fromLocation: Optional[Union["Place", List["Place"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'fromLocation',
@@ -31,7 +31,7 @@ The act of transferring/moving (abstract or concrete) animate or inanimate objec
         ),
         serialization_alias='https://schema.org/fromLocation'
     )
-    toLocation: Optional[Union[Place, List[Place]]] = Field(
+    toLocation: Optional[Union["Place", List["Place"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'toLocation',

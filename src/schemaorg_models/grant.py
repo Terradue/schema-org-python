@@ -12,13 +12,13 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .organization import Organization
-    from .event import Event
-    from .product import Product
-    from .medical_entity import MedicalEntity
-    from .creative_work import CreativeWork
     from .bio_chem_entity import BioChemEntity
+    from .creative_work import CreativeWork
+    from .product import Product
+    from .event import Event
+    from .medical_entity import MedicalEntity
     from .person import Person
+    from .organization import Organization
 
 class Grant(Intangible):
     """
@@ -35,7 +35,7 @@ The amount of a [[Grant]] is represented using [[amount]] as a [[MonetaryAmount]
         alias='@type',
         serialization_alias='@type'
     )
-    sponsor: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(
+    sponsor: Optional[Union["Organization", List["Organization"], "Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'sponsor',
@@ -43,7 +43,7 @@ The amount of a [[Grant]] is represented using [[amount]] as a [[MonetaryAmount]
         ),
         serialization_alias='https://schema.org/sponsor'
     )
-    funder: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(
+    funder: Optional[Union["Organization", List["Organization"], "Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'funder',
@@ -51,7 +51,7 @@ The amount of a [[Grant]] is represented using [[amount]] as a [[MonetaryAmount]
         ),
         serialization_alias='https://schema.org/funder'
     )
-    fundedItem: Optional[Union[Event, List[Event], MedicalEntity, List[MedicalEntity], BioChemEntity, List[BioChemEntity], Product, List[Product], CreativeWork, List[CreativeWork], Person, List[Person], Organization, List[Organization]]] = Field(
+    fundedItem: Optional[Union["Event", List["Event"], "MedicalEntity", List["MedicalEntity"], "BioChemEntity", List["BioChemEntity"], "Product", List["Product"], "CreativeWork", List["CreativeWork"], "Person", List["Person"], "Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'fundedItem',

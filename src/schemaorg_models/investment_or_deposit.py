@@ -23,7 +23,7 @@ A type of financial product that typically requires the client to transfer funds
         alias='@type',
         serialization_alias='@type'
     )
-    amount: Optional[Union[MonetaryAmount, List[MonetaryAmount], float, List[float]]] = Field(
+    amount: Optional[Union["MonetaryAmount", List["MonetaryAmount"], float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'amount',

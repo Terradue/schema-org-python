@@ -24,7 +24,7 @@ A structured representation of food or drink items available from a FoodEstablis
         alias='@type',
         serialization_alias='@type'
     )
-    hasMenuItem: Optional[Union[MenuItem, List[MenuItem]]] = Field(
+    hasMenuItem: Optional[Union["MenuItem", List["MenuItem"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasMenuItem',
@@ -32,7 +32,7 @@ A structured representation of food or drink items available from a FoodEstablis
         ),
         serialization_alias='https://schema.org/hasMenuItem'
     )
-    hasMenuSection: Optional[Union[MenuSection, List[MenuSection]]] = Field(
+    hasMenuSection: Optional[Union["MenuSection", List["MenuSection"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasMenuSection',

@@ -12,9 +12,9 @@ from typing import (
 from .anatomical_structure import AnatomicalStructure
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .muscle import Muscle
     from .brain_structure import BrainStructure
     from .superficial_anatomy import SuperficialAnatomy
-    from .muscle import Muscle
 
 class Nerve(AnatomicalStructure):
     """
@@ -25,7 +25,7 @@ The underlying innervation associated with the muscle.
         alias='@type',
         serialization_alias='@type'
     )
-    sensoryUnit: Optional[Union[SuperficialAnatomy, List[SuperficialAnatomy], AnatomicalStructure, List[AnatomicalStructure]]] = Field(
+    sensoryUnit: Optional[Union["SuperficialAnatomy", List["SuperficialAnatomy"], "AnatomicalStructure", List["AnatomicalStructure"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'sensoryUnit',
@@ -33,7 +33,7 @@ The underlying innervation associated with the muscle.
         ),
         serialization_alias='https://schema.org/sensoryUnit'
     )
-    branch: Optional[Union[AnatomicalStructure, List[AnatomicalStructure]]] = Field(
+    branch: Optional[Union["AnatomicalStructure", List["AnatomicalStructure"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'branch',
@@ -41,7 +41,7 @@ The underlying innervation associated with the muscle.
         ),
         serialization_alias='https://schema.org/branch'
     )
-    nerveMotor: Optional[Union[Muscle, List[Muscle]]] = Field(
+    nerveMotor: Optional[Union["Muscle", List["Muscle"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'nerveMotor',
@@ -49,7 +49,7 @@ The underlying innervation associated with the muscle.
         ),
         serialization_alias='https://schema.org/nerveMotor'
     )
-    sourcedFrom: Optional[Union[BrainStructure, List[BrainStructure]]] = Field(
+    sourcedFrom: Optional[Union["BrainStructure", List["BrainStructure"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'sourcedFrom',

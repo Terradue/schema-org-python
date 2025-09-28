@@ -13,9 +13,9 @@ from typing import (
 from .review import Review
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .physical_activity_category import PhysicalActivityCategory
-    from .thing import Thing
     from .category_code import CategoryCode
+    from .thing import Thing
+    from .physical_activity_category import PhysicalActivityCategory
 
 class Recommendation(Review):
     """
@@ -26,7 +26,7 @@ class Recommendation(Review):
         alias='@type',
         serialization_alias='@type'
     )
-    category: Optional[Union[PhysicalActivityCategory, List[PhysicalActivityCategory], CategoryCode, List[CategoryCode], str, List[str], Thing, List[Thing], HttpUrl, List[HttpUrl]]] = Field(
+    category: Optional[Union["PhysicalActivityCategory", List["PhysicalActivityCategory"], "CategoryCode", List["CategoryCode"], str, List[str], "Thing", List["Thing"], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'category',

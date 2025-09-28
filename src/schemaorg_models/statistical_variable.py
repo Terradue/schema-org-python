@@ -14,10 +14,10 @@ from .constraint_node import ConstraintNode
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .enumeration import Enumeration
-    from .measurement_method_enum import MeasurementMethodEnum
     from .__class import _Class
     from .defined_term import DefinedTerm
     from .property import Property
+    from .measurement_method_enum import MeasurementMethodEnum
 
 class StatisticalVariable(ConstraintNode):
     """
@@ -28,7 +28,7 @@ class StatisticalVariable(ConstraintNode):
         alias='@type',
         serialization_alias='@type'
     )
-    statType: Optional[Union[HttpUrl, List[HttpUrl], Property, List[Property], str, List[str]]] = Field(
+    statType: Optional[Union[HttpUrl, List[HttpUrl], "Property", List["Property"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'statType',
@@ -36,7 +36,7 @@ class StatisticalVariable(ConstraintNode):
         ),
         serialization_alias='https://schema.org/statType'
     )
-    measurementDenominator: Optional[Union[StatisticalVariable, List[StatisticalVariable]]] = Field(
+    measurementDenominator: Optional[Union["StatisticalVariable", List["StatisticalVariable"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'measurementDenominator',
@@ -44,7 +44,7 @@ class StatisticalVariable(ConstraintNode):
         ),
         serialization_alias='https://schema.org/measurementDenominator'
     )
-    populationType: Optional[Union[_Class, List[_Class]]] = Field(
+    populationType: Optional[Union["_Class", List["_Class"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'populationType',
@@ -52,7 +52,7 @@ class StatisticalVariable(ConstraintNode):
         ),
         serialization_alias='https://schema.org/populationType'
     )
-    measurementMethod: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str], MeasurementMethodEnum, List[MeasurementMethodEnum], HttpUrl, List[HttpUrl]]] = Field(
+    measurementMethod: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str], "MeasurementMethodEnum", List["MeasurementMethodEnum"], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'measurementMethod',
@@ -60,7 +60,7 @@ class StatisticalVariable(ConstraintNode):
         ),
         serialization_alias='https://schema.org/measurementMethod'
     )
-    measuredProperty: Optional[Union[Property, List[Property]]] = Field(
+    measuredProperty: Optional[Union["Property", List["Property"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'measuredProperty',
@@ -68,7 +68,7 @@ class StatisticalVariable(ConstraintNode):
         ),
         serialization_alias='https://schema.org/measuredProperty'
     )
-    measurementQualifier: Optional[Union[Enumeration, List[Enumeration]]] = Field(
+    measurementQualifier: Optional[Union["Enumeration", List["Enumeration"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'measurementQualifier',
@@ -76,7 +76,7 @@ class StatisticalVariable(ConstraintNode):
         ),
         serialization_alias='https://schema.org/measurementQualifier'
     )
-    measurementTechnique: Optional[Union[DefinedTerm, List[DefinedTerm], MeasurementMethodEnum, List[MeasurementMethodEnum], str, List[str], HttpUrl, List[HttpUrl]]] = Field(
+    measurementTechnique: Optional[Union["DefinedTerm", List["DefinedTerm"], "MeasurementMethodEnum", List["MeasurementMethodEnum"], str, List[str], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'measurementTechnique',

@@ -23,7 +23,7 @@ A Role that represents a Web link, e.g. as expressed via the 'url' property. Its
         alias='@type',
         serialization_alias='@type'
     )
-    inLanguage: Optional[Union[str, List[str], Language, List[Language]]] = Field(
+    inLanguage: Optional[Union[str, List[str], "Language", List["Language"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'inLanguage',

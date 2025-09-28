@@ -31,7 +31,7 @@ An image file.
         ),
         serialization_alias='https://schema.org/representativeOfPage'
     )
-    caption: Optional[Union[MediaObject, List[MediaObject], str, List[str]]] = Field(
+    caption: Optional[Union["MediaObject", List["MediaObject"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'caption',
@@ -47,7 +47,7 @@ An image file.
         ),
         serialization_alias='https://schema.org/embeddedTextCaption'
     )
-    exifData: Optional[Union[PropertyValue, List[PropertyValue], str, List[str]]] = Field(
+    exifData: Optional[Union["PropertyValue", List["PropertyValue"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'exifData',

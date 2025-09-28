@@ -32,7 +32,7 @@ Server that provides game interaction in a multiplayer game.
         ),
         serialization_alias='https://schema.org/playersOnline'
     )
-    serverStatus: Optional[Union[GameServerStatus, List[GameServerStatus]]] = Field(
+    serverStatus: Optional[Union["GameServerStatus", List["GameServerStatus"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'serverStatus',
@@ -40,7 +40,7 @@ Server that provides game interaction in a multiplayer game.
         ),
         serialization_alias='https://schema.org/serverStatus'
     )
-    game: Optional[Union[VideoGame, List[VideoGame]]] = Field(
+    game: Optional[Union["VideoGame", List["VideoGame"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'game',

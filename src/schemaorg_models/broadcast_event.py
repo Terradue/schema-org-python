@@ -32,7 +32,7 @@ An over the air or online broadcast event.
         ),
         serialization_alias='https://schema.org/videoFormat'
     )
-    broadcastOfEvent: Optional[Union[Event, List[Event]]] = Field(
+    broadcastOfEvent: Optional[Union["Event", List["Event"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'broadcastOfEvent',
@@ -40,7 +40,7 @@ An over the air or online broadcast event.
         ),
         serialization_alias='https://schema.org/broadcastOfEvent'
     )
-    subtitleLanguage: Optional[Union[Language, List[Language], str, List[str]]] = Field(
+    subtitleLanguage: Optional[Union["Language", List["Language"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'subtitleLanguage',

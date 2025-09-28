@@ -13,9 +13,9 @@ from typing import (
 from .price_specification import PriceSpecification
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .quantitative_value import QuantitativeValue
-    from .duration import Duration
     from .price_type_enumeration import PriceTypeEnumeration
+    from .duration import Duration
+    from .quantitative_value import QuantitativeValue
     from .price_component_type_enumeration import PriceComponentTypeEnumeration
 
 class UnitPriceSpecification(PriceSpecification):
@@ -35,7 +35,7 @@ The price asked for a given offer by the respective organization or person.
         ),
         serialization_alias='https://schema.org/unitText'
     )
-    billingDuration: Optional[Union[Duration, List[Duration], float, List[float], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    billingDuration: Optional[Union["Duration", List["Duration"], float, List[float], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'billingDuration',
@@ -51,7 +51,7 @@ The price asked for a given offer by the respective organization or person.
         ),
         serialization_alias='https://schema.org/unitCode'
     )
-    referenceQuantity: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
+    referenceQuantity: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'referenceQuantity',
@@ -59,7 +59,7 @@ The price asked for a given offer by the respective organization or person.
         ),
         serialization_alias='https://schema.org/referenceQuantity'
     )
-    priceComponentType: Optional[Union[PriceComponentTypeEnumeration, List[PriceComponentTypeEnumeration]]] = Field(
+    priceComponentType: Optional[Union["PriceComponentTypeEnumeration", List["PriceComponentTypeEnumeration"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'priceComponentType',
@@ -75,7 +75,7 @@ The price asked for a given offer by the respective organization or person.
         ),
         serialization_alias='https://schema.org/billingIncrement'
     )
-    priceType: Optional[Union[str, List[str], PriceTypeEnumeration, List[PriceTypeEnumeration]]] = Field(
+    priceType: Optional[Union[str, List[str], "PriceTypeEnumeration", List["PriceTypeEnumeration"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'priceType',

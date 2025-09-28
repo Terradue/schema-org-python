@@ -23,7 +23,7 @@ The place where a person lives.
         alias='@type',
         serialization_alias='@type'
     )
-    accommodationFloorPlan: Optional[Union[FloorPlan, List[FloorPlan]]] = Field(
+    accommodationFloorPlan: Optional[Union["FloorPlan", List["FloorPlan"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'accommodationFloorPlan',

@@ -12,10 +12,10 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .organization import Organization
     from .quantitative_value import QuantitativeValue
-    from .person import Person
     from .member_program import MemberProgram
+    from .organization import Organization
+    from .person import Person
 
 class ProgramMembership(Intangible):
     """
@@ -34,7 +34,7 @@ Used to describe membership in a loyalty programs (e.g. "StarAliance"), traveler
         ),
         serialization_alias='https://schema.org/programName'
     )
-    members: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(
+    members: Optional[Union["Organization", List["Organization"], "Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'members',
@@ -42,7 +42,7 @@ Used to describe membership in a loyalty programs (e.g. "StarAliance"), traveler
         ),
         serialization_alias='https://schema.org/members'
     )
-    program: Optional[Union[MemberProgram, List[MemberProgram]]] = Field(
+    program: Optional[Union["MemberProgram", List["MemberProgram"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'program',
@@ -50,7 +50,7 @@ Used to describe membership in a loyalty programs (e.g. "StarAliance"), traveler
         ),
         serialization_alias='https://schema.org/program'
     )
-    membershipPointsEarned: Optional[Union[QuantitativeValue, List[QuantitativeValue], float, List[float]]] = Field(
+    membershipPointsEarned: Optional[Union["QuantitativeValue", List["QuantitativeValue"], float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'membershipPointsEarned',
@@ -66,7 +66,7 @@ Used to describe membership in a loyalty programs (e.g. "StarAliance"), traveler
         ),
         serialization_alias='https://schema.org/membershipNumber'
     )
-    member: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
+    member: Optional[Union["Person", List["Person"], "Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'member',
@@ -74,7 +74,7 @@ Used to describe membership in a loyalty programs (e.g. "StarAliance"), traveler
         ),
         serialization_alias='https://schema.org/member'
     )
-    hostingOrganization: Optional[Union[Organization, List[Organization]]] = Field(
+    hostingOrganization: Optional[Union["Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hostingOrganization',

@@ -60,7 +60,7 @@ One or more detailed price specifications, indicating the unit price and deliver
         ),
         serialization_alias='https://schema.org/valueAddedTaxIncluded'
     )
-    eligibleQuantity: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
+    eligibleQuantity: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'eligibleQuantity',
@@ -76,7 +76,7 @@ One or more detailed price specifications, indicating the unit price and deliver
         ),
         serialization_alias='https://schema.org/validThrough'
     )
-    eligibleTransactionVolume: Optional[Union[PriceSpecification, List[PriceSpecification]]] = Field(
+    eligibleTransactionVolume: Optional[Union["PriceSpecification", List["PriceSpecification"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'eligibleTransactionVolume',
@@ -92,7 +92,7 @@ One or more detailed price specifications, indicating the unit price and deliver
         ),
         serialization_alias='https://schema.org/validFrom'
     )
-    validForMemberTier: Optional[Union[MemberProgramTier, List[MemberProgramTier]]] = Field(
+    validForMemberTier: Optional[Union["MemberProgramTier", List["MemberProgramTier"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'validForMemberTier',
@@ -100,7 +100,7 @@ One or more detailed price specifications, indicating the unit price and deliver
         ),
         serialization_alias='https://schema.org/validForMemberTier'
     )
-    membershipPointsEarned: Optional[Union[QuantitativeValue, List[QuantitativeValue], float, List[float]]] = Field(
+    membershipPointsEarned: Optional[Union["QuantitativeValue", List["QuantitativeValue"], float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'membershipPointsEarned',

@@ -32,7 +32,7 @@ Residence type: Apartment complex.
         ),
         serialization_alias='https://schema.org/tourBookingPage'
     )
-    numberOfAvailableAccommodationUnits: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
+    numberOfAvailableAccommodationUnits: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'numberOfAvailableAccommodationUnits',
@@ -40,7 +40,7 @@ Residence type: Apartment complex.
         ),
         serialization_alias='https://schema.org/numberOfAvailableAccommodationUnits'
     )
-    numberOfBedrooms: Optional[Union[float, List[float], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    numberOfBedrooms: Optional[Union[float, List[float], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'numberOfBedrooms',
@@ -56,7 +56,7 @@ Residence type: Apartment complex.
         ),
         serialization_alias='https://schema.org/petsAllowed'
     )
-    numberOfAccommodationUnits: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
+    numberOfAccommodationUnits: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'numberOfAccommodationUnits',

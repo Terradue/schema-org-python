@@ -23,7 +23,7 @@ A set of Category Code values.
         alias='@type',
         serialization_alias='@type'
     )
-    hasCategoryCode: Optional[Union[CategoryCode, List[CategoryCode]]] = Field(
+    hasCategoryCode: Optional[Union["CategoryCode", List["CategoryCode"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasCategoryCode',

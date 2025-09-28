@@ -12,8 +12,8 @@ from typing import (
 from .audio_object import AudioObject
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .quantitative_value import QuantitativeValue
     from .duration import Duration
+    from .quantitative_value import QuantitativeValue
     from .person import Person
 
 class Audiobook(AudioObject):
@@ -25,7 +25,7 @@ An audiobook.
         alias='@type',
         serialization_alias='@type'
     )
-    duration: Optional[Union[Duration, List[Duration], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    duration: Optional[Union["Duration", List["Duration"], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'duration',
@@ -33,7 +33,7 @@ An audiobook.
         ),
         serialization_alias='https://schema.org/duration'
     )
-    readBy: Optional[Union[Person, List[Person]]] = Field(
+    readBy: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'readBy',

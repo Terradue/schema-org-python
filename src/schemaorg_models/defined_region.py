@@ -12,8 +12,8 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .country import Country
     from .postal_code_range_specification import PostalCodeRangeSpecification
+    from .country import Country
 
 class DefinedRegion(StructuredValue):
     """
@@ -37,7 +37,7 @@ Region = state, canton, prefecture, autonomous community...
         alias='@type',
         serialization_alias='@type'
     )
-    postalCodeRange: Optional[Union[PostalCodeRangeSpecification, List[PostalCodeRangeSpecification]]] = Field(
+    postalCodeRange: Optional[Union["PostalCodeRangeSpecification", List["PostalCodeRangeSpecification"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'postalCodeRange',
@@ -61,7 +61,7 @@ Region = state, canton, prefecture, autonomous community...
         ),
         serialization_alias='https://schema.org/postalCode'
     )
-    addressCountry: Optional[Union[str, List[str], Country, List[Country]]] = Field(
+    addressCountry: Optional[Union[str, List[str], "Country", List["Country"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'addressCountry',

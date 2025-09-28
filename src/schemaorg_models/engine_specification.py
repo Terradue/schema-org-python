@@ -25,7 +25,7 @@ Information about the engine of the vehicle. A vehicle can have multiple engines
         alias='@type',
         serialization_alias='@type'
     )
-    fuelType: Optional[Union[str, List[str], QualitativeValue, List[QualitativeValue], HttpUrl, List[HttpUrl]]] = Field(
+    fuelType: Optional[Union[str, List[str], "QualitativeValue", List["QualitativeValue"], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'fuelType',
@@ -33,7 +33,7 @@ Information about the engine of the vehicle. A vehicle can have multiple engines
         ),
         serialization_alias='https://schema.org/fuelType'
     )
-    engineType: Optional[Union[HttpUrl, List[HttpUrl], str, List[str], QualitativeValue, List[QualitativeValue]]] = Field(
+    engineType: Optional[Union[HttpUrl, List[HttpUrl], str, List[str], "QualitativeValue", List["QualitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'engineType',
@@ -41,7 +41,7 @@ Information about the engine of the vehicle. A vehicle can have multiple engines
         ),
         serialization_alias='https://schema.org/engineType'
     )
-    engineDisplacement: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
+    engineDisplacement: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'engineDisplacement',
@@ -49,7 +49,7 @@ Information about the engine of the vehicle. A vehicle can have multiple engines
         ),
         serialization_alias='https://schema.org/engineDisplacement'
     )
-    enginePower: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
+    enginePower: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'enginePower',
@@ -57,7 +57,7 @@ Information about the engine of the vehicle. A vehicle can have multiple engines
         ),
         serialization_alias='https://schema.org/enginePower'
     )
-    torque: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
+    torque: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'torque',

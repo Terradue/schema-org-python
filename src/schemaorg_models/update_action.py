@@ -23,7 +23,7 @@ The act of managing by changing/editing the state of the object.
         alias='@type',
         serialization_alias='@type'
     )
-    targetCollection: Optional[Union[Thing, List[Thing]]] = Field(
+    targetCollection: Optional[Union["Thing", List["Thing"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'targetCollection',
@@ -31,7 +31,7 @@ The act of managing by changing/editing the state of the object.
         ),
         serialization_alias='https://schema.org/targetCollection'
     )
-    collection: Optional[Union[Thing, List[Thing]]] = Field(
+    collection: Optional[Union["Thing", List["Thing"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'collection',

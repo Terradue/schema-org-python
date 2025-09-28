@@ -24,7 +24,7 @@ A compound price specification is one that bundles multiple prices that all appl
         alias='@type',
         serialization_alias='@type'
     )
-    priceType: Optional[Union[str, List[str], PriceTypeEnumeration, List[PriceTypeEnumeration]]] = Field(
+    priceType: Optional[Union[str, List[str], "PriceTypeEnumeration", List["PriceTypeEnumeration"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'priceType',
@@ -32,7 +32,7 @@ A compound price specification is one that bundles multiple prices that all appl
         ),
         serialization_alias='https://schema.org/priceType'
     )
-    priceComponent: Optional[Union[UnitPriceSpecification, List[UnitPriceSpecification]]] = Field(
+    priceComponent: Optional[Union["UnitPriceSpecification", List["UnitPriceSpecification"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'priceComponent',

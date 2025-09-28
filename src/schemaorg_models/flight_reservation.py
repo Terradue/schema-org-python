@@ -33,7 +33,7 @@ Note: This type is for information about actual reservations, e.g. in confirmati
         ),
         serialization_alias='https://schema.org/boardingGroup'
     )
-    passengerPriorityStatus: Optional[Union[str, List[str], QualitativeValue, List[QualitativeValue]]] = Field(
+    passengerPriorityStatus: Optional[Union[str, List[str], "QualitativeValue", List["QualitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'passengerPriorityStatus',

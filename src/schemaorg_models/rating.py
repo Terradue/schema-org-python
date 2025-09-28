@@ -40,7 +40,7 @@ A rating is an evaluation on a numeric scale, such as 1 to 5 stars.
         ),
         serialization_alias='https://schema.org/reviewAspect'
     )
-    author: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
+    author: Optional[Union["Person", List["Person"], "Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'author',

@@ -12,9 +12,9 @@ from typing import (
 from .transfer_action import TransferAction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .delivery_method import DeliveryMethod
-    from .organization import Organization
     from .audience import Audience
+    from .organization import Organization
+    from .delivery_method import DeliveryMethod
     from .person import Person
 
 class ReceiveAction(TransferAction):
@@ -31,7 +31,7 @@ Related actions:\
         alias='@type',
         serialization_alias='@type'
     )
-    sender: Optional[Union[Organization, List[Organization], Audience, List[Audience], Person, List[Person]]] = Field(
+    sender: Optional[Union["Organization", List["Organization"], "Audience", List["Audience"], "Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'sender',
@@ -39,7 +39,7 @@ Related actions:\
         ),
         serialization_alias='https://schema.org/sender'
     )
-    deliveryMethod: Optional[Union[DeliveryMethod, List[DeliveryMethod]]] = Field(
+    deliveryMethod: Optional[Union["DeliveryMethod", List["DeliveryMethod"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'deliveryMethod',

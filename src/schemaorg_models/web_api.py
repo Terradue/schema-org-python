@@ -24,7 +24,7 @@ An application programming interface accessible over Web/Internet technologies.
         alias='@type',
         serialization_alias='@type'
     )
-    documentation: Optional[Union[HttpUrl, List[HttpUrl], CreativeWork, List[CreativeWork]]] = Field(
+    documentation: Optional[Union[HttpUrl, List[HttpUrl], "CreativeWork", List["CreativeWork"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'documentation',

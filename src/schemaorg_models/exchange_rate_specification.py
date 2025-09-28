@@ -12,8 +12,8 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .unit_price_specification import UnitPriceSpecification
     from .monetary_amount import MonetaryAmount
+    from .unit_price_specification import UnitPriceSpecification
 
 class ExchangeRateSpecification(StructuredValue):
     """
@@ -24,7 +24,7 @@ A structured value representing exchange rate.
         alias='@type',
         serialization_alias='@type'
     )
-    exchangeRateSpread: Optional[Union[MonetaryAmount, List[MonetaryAmount], float, List[float]]] = Field(
+    exchangeRateSpread: Optional[Union["MonetaryAmount", List["MonetaryAmount"], float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'exchangeRateSpread',
@@ -40,7 +40,7 @@ A structured value representing exchange rate.
         ),
         serialization_alias='https://schema.org/currency'
     )
-    currentExchangeRate: Optional[Union[UnitPriceSpecification, List[UnitPriceSpecification]]] = Field(
+    currentExchangeRate: Optional[Union["UnitPriceSpecification", List["UnitPriceSpecification"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'currentExchangeRate',

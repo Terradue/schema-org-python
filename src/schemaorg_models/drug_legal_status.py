@@ -23,7 +23,7 @@ The legal availability status of a medical drug.
         alias='@type',
         serialization_alias='@type'
     )
-    applicableLocation: Optional[Union[AdministrativeArea, List[AdministrativeArea]]] = Field(
+    applicableLocation: Optional[Union["AdministrativeArea", List["AdministrativeArea"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'applicableLocation',

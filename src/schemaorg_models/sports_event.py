@@ -25,7 +25,7 @@ A sub property of location. The sports event where this action occurred.
         alias='@type',
         serialization_alias='@type'
     )
-    homeTeam: Optional[Union[Person, List[Person], SportsTeam, List[SportsTeam]]] = Field(
+    homeTeam: Optional[Union["Person", List["Person"], "SportsTeam", List["SportsTeam"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'homeTeam',
@@ -33,7 +33,7 @@ A sub property of location. The sports event where this action occurred.
         ),
         serialization_alias='https://schema.org/homeTeam'
     )
-    awayTeam: Optional[Union[SportsTeam, List[SportsTeam], Person, List[Person]]] = Field(
+    awayTeam: Optional[Union["SportsTeam", List["SportsTeam"], "Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'awayTeam',
@@ -41,7 +41,7 @@ A sub property of location. The sports event where this action occurred.
         ),
         serialization_alias='https://schema.org/awayTeam'
     )
-    referee: Optional[Union[Person, List[Person]]] = Field(
+    referee: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'referee',
@@ -57,7 +57,7 @@ A sub property of location. The sports event where this action occurred.
         ),
         serialization_alias='https://schema.org/sport'
     )
-    competitor: Optional[Union[SportsTeam, List[SportsTeam], Person, List[Person]]] = Field(
+    competitor: Optional[Union["SportsTeam", List["SportsTeam"], "Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'competitor',

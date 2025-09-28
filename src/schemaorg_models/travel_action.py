@@ -23,7 +23,7 @@ The act of traveling from a fromLocation to a destination by a specified mode of
         alias='@type',
         serialization_alias='@type'
     )
-    distance: Optional[Union[Distance, List[Distance]]] = Field(
+    distance: Optional[Union["Distance", List["Distance"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'distance',

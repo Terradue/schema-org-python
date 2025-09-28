@@ -16,11 +16,11 @@ from typing import (
 from .local_business import LocalBusiness
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .language import Language
-    from .quantitative_value import QuantitativeValue
     from .audience import Audience
-    from .location_feature_specification import LocationFeatureSpecification
     from .rating import Rating
+    from .language import Language
+    from .location_feature_specification import LocationFeatureSpecification
+    from .quantitative_value import QuantitativeValue
 
 class LodgingBusiness(LocalBusiness):
     """
@@ -31,7 +31,7 @@ A lodging business, such as a motel, hotel, or inn.
         alias='@type',
         serialization_alias='@type'
     )
-    amenityFeature: Optional[Union[LocationFeatureSpecification, List[LocationFeatureSpecification]]] = Field(
+    amenityFeature: Optional[Union["LocationFeatureSpecification", List["LocationFeatureSpecification"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'amenityFeature',
@@ -39,7 +39,7 @@ A lodging business, such as a motel, hotel, or inn.
         ),
         serialization_alias='https://schema.org/amenityFeature'
     )
-    audience: Optional[Union[Audience, List[Audience]]] = Field(
+    audience: Optional[Union["Audience", List["Audience"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'audience',
@@ -55,7 +55,7 @@ A lodging business, such as a motel, hotel, or inn.
         ),
         serialization_alias='https://schema.org/checkoutTime'
     )
-    numberOfRooms: Optional[Union[float, List[float], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    numberOfRooms: Optional[Union[float, List[float], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'numberOfRooms',
@@ -63,7 +63,7 @@ A lodging business, such as a motel, hotel, or inn.
         ),
         serialization_alias='https://schema.org/numberOfRooms'
     )
-    starRating: Optional[Union[Rating, List[Rating]]] = Field(
+    starRating: Optional[Union["Rating", List["Rating"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'starRating',
@@ -79,7 +79,7 @@ A lodging business, such as a motel, hotel, or inn.
         ),
         serialization_alias='https://schema.org/petsAllowed'
     )
-    availableLanguage: Optional[Union[str, List[str], Language, List[Language]]] = Field(
+    availableLanguage: Optional[Union[str, List[str], "Language", List["Language"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'availableLanguage',

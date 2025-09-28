@@ -23,7 +23,7 @@ A short TV program or a segment/part of a TV program.
         alias='@type',
         serialization_alias='@type'
     )
-    partOfTVSeries: Optional[Union[TVSeries, List[TVSeries]]] = Field(
+    partOfTVSeries: Optional[Union["TVSeries", List["TVSeries"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'partOfTVSeries',

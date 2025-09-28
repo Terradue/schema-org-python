@@ -12,8 +12,8 @@ from typing import (
 from .bio_chem_entity import BioChemEntity
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .defined_term import DefinedTerm
     from .quantitative_value import QuantitativeValue
+    from .defined_term import DefinedTerm
 
 class MolecularEntity(BioChemEntity):
     """
@@ -24,7 +24,7 @@ Any constitutionally or isotopically distinct atom, molecule, ion, ion pair, rad
         alias='@type',
         serialization_alias='@type'
     )
-    chemicalRole: Optional[Union[DefinedTerm, List[DefinedTerm]]] = Field(
+    chemicalRole: Optional[Union["DefinedTerm", List["DefinedTerm"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'chemicalRole',
@@ -48,7 +48,7 @@ Any constitutionally or isotopically distinct atom, molecule, ion, ion pair, rad
         ),
         serialization_alias='https://schema.org/smiles'
     )
-    molecularWeight: Optional[Union[str, List[str], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    molecularWeight: Optional[Union[str, List[str], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'molecularWeight',
@@ -56,7 +56,7 @@ Any constitutionally or isotopically distinct atom, molecule, ion, ion pair, rad
         ),
         serialization_alias='https://schema.org/molecularWeight'
     )
-    potentialUse: Optional[Union[DefinedTerm, List[DefinedTerm]]] = Field(
+    potentialUse: Optional[Union["DefinedTerm", List["DefinedTerm"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'potentialUse',
@@ -88,7 +88,7 @@ Any constitutionally or isotopically distinct atom, molecule, ion, ion pair, rad
         ),
         serialization_alias='https://schema.org/iupacName'
     )
-    monoisotopicMolecularWeight: Optional[Union[str, List[str], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    monoisotopicMolecularWeight: Optional[Union[str, List[str], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'monoisotopicMolecularWeight',

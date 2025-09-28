@@ -13,10 +13,10 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .mass import Mass
-    from .quantitative_value import QuantitativeValue
-    from .person import Person
     from .distance import Distance
+    from .quantitative_value import QuantitativeValue
+    from .mass import Mass
+    from .person import Person
 
 class VisualArtwork(CreativeWork):
     """
@@ -27,7 +27,7 @@ A work of art that is primarily visual in character.
         alias='@type',
         serialization_alias='@type'
     )
-    weight: Optional[Union[QuantitativeValue, List[QuantitativeValue], Mass, List[Mass]]] = Field(
+    weight: Optional[Union["QuantitativeValue", List["QuantitativeValue"], "Mass", List["Mass"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'weight',
@@ -43,7 +43,7 @@ A work of art that is primarily visual in character.
         ),
         serialization_alias='https://schema.org/artworkSurface'
     )
-    colorist: Optional[Union[Person, List[Person]]] = Field(
+    colorist: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'colorist',
@@ -51,7 +51,7 @@ A work of art that is primarily visual in character.
         ),
         serialization_alias='https://schema.org/colorist'
     )
-    artist: Optional[Union[Person, List[Person]]] = Field(
+    artist: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'artist',
@@ -59,7 +59,7 @@ A work of art that is primarily visual in character.
         ),
         serialization_alias='https://schema.org/artist'
     )
-    penciler: Optional[Union[Person, List[Person]]] = Field(
+    penciler: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'penciler',
@@ -67,7 +67,7 @@ A work of art that is primarily visual in character.
         ),
         serialization_alias='https://schema.org/penciler'
     )
-    depth: Optional[Union[Distance, List[Distance], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    depth: Optional[Union["Distance", List["Distance"], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'depth',
@@ -91,7 +91,7 @@ A work of art that is primarily visual in character.
         ),
         serialization_alias='https://schema.org/artEdition'
     )
-    width: Optional[Union[QuantitativeValue, List[QuantitativeValue], Distance, List[Distance]]] = Field(
+    width: Optional[Union["QuantitativeValue", List["QuantitativeValue"], "Distance", List["Distance"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'width',
@@ -115,7 +115,7 @@ A work of art that is primarily visual in character.
         ),
         serialization_alias='https://schema.org/artform'
     )
-    inker: Optional[Union[Person, List[Person]]] = Field(
+    inker: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'inker',
@@ -123,7 +123,7 @@ A work of art that is primarily visual in character.
         ),
         serialization_alias='https://schema.org/inker'
     )
-    letterer: Optional[Union[Person, List[Person]]] = Field(
+    letterer: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'letterer',
@@ -131,7 +131,7 @@ A work of art that is primarily visual in character.
         ),
         serialization_alias='https://schema.org/letterer'
     )
-    height: Optional[Union[Distance, List[Distance], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    height: Optional[Union["Distance", List["Distance"], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'height',

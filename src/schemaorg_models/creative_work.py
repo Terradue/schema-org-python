@@ -17,39 +17,39 @@ from typing import (
 from .thing import Thing
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .video_object import VideoObject
-    from .duration import Duration
-    from .size_specification import SizeSpecification
-    from .demand import Demand
-    from .comment import Comment
     from .media_object import MediaObject
-    from .defined_term import DefinedTerm
-    from .review import Review
-    from .person import Person
-    from .organization import Organization
-    from .product import Product
-    from .alignment_object import AlignmentObject
-    from .image_object import ImageObject
     from .audience import Audience
-    from .iptc_digital_source_enumeration import IPTCDigitalSourceEnumeration
-    from .claim import Claim
-    from .music_recording import MusicRecording
-    from .country import Country
-    from .audio_object import AudioObject
-    from .language import Language
-    from .quantitative_value import QuantitativeValue
-    from .clip import Clip
-    from .web_page import WebPage
-    from .item_list import ItemList
-    from .place import Place
-    from .rating import Rating
+    from .defined_term import DefinedTerm
     from .event import Event
-    from .interaction_counter import InteractionCounter
-    from .publication_event import PublicationEvent
     from .aggregate_rating import AggregateRating
-    from .correction_comment import CorrectionComment
+    from .country import Country
+    from .review import Review
+    from .music_recording import MusicRecording
+    from .size_specification import SizeSpecification
+    from .web_page import WebPage
+    from .duration import Duration
+    from .claim import Claim
+    from .item_list import ItemList
+    from .clip import Clip
+    from .image_object import ImageObject
+    from .organization import Organization
     from .offer import Offer
+    from .interaction_counter import InteractionCounter
+    from .video_object import VideoObject
+    from .iptc_digital_source_enumeration import IPTCDigitalSourceEnumeration
+    from .rating import Rating
+    from .language import Language
+    from .comment import Comment
+    from .quantitative_value import QuantitativeValue
+    from .correction_comment import CorrectionComment
     from .grant import Grant
+    from .audio_object import AudioObject
+    from .publication_event import PublicationEvent
+    from .demand import Demand
+    from .product import Product
+    from .place import Place
+    from .person import Person
+    from .alignment_object import AlignmentObject
 
 class CreativeWork(Thing):
     """
@@ -60,7 +60,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         alias='@type',
         serialization_alias='@type'
     )
-    educationalUse: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str]]] = Field(
+    educationalUse: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'educationalUse',
@@ -76,7 +76,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/accessMode'
     )
-    sdLicense: Optional[Union[CreativeWork, List[CreativeWork], HttpUrl, List[HttpUrl]]] = Field(
+    sdLicense: Optional[Union["CreativeWork", List["CreativeWork"], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'sdLicense',
@@ -92,7 +92,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/isAccessibleForFree'
     )
-    learningResourceType: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str]]] = Field(
+    learningResourceType: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'learningResourceType',
@@ -100,7 +100,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/learningResourceType'
     )
-    creator: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
+    creator: Optional[Union["Person", List["Person"], "Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'creator',
@@ -108,7 +108,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/creator'
     )
-    countryOfOrigin: Optional[Union[Country, List[Country]]] = Field(
+    countryOfOrigin: Optional[Union["Country", List["Country"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'countryOfOrigin',
@@ -116,7 +116,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/countryOfOrigin'
     )
-    assesses: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str]]] = Field(
+    assesses: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'assesses',
@@ -124,7 +124,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/assesses'
     )
-    interpretedAsClaim: Optional[Union[Claim, List[Claim]]] = Field(
+    interpretedAsClaim: Optional[Union["Claim", List["Claim"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'interpretedAsClaim',
@@ -140,7 +140,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/commentCount'
     )
-    audio: Optional[Union[AudioObject, List[AudioObject], MusicRecording, List[MusicRecording], Clip, List[Clip]]] = Field(
+    audio: Optional[Union["AudioObject", List["AudioObject"], "MusicRecording", List["MusicRecording"], "Clip", List["Clip"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'audio',
@@ -148,7 +148,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/audio'
     )
-    reviews: Optional[Union[Review, List[Review]]] = Field(
+    reviews: Optional[Union["Review", List["Review"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'reviews',
@@ -156,7 +156,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/reviews'
     )
-    contentLocation: Optional[Union[Place, List[Place]]] = Field(
+    contentLocation: Optional[Union["Place", List["Place"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'contentLocation',
@@ -164,7 +164,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/contentLocation'
     )
-    publication: Optional[Union[PublicationEvent, List[PublicationEvent]]] = Field(
+    publication: Optional[Union["PublicationEvent", List["PublicationEvent"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'publication',
@@ -172,7 +172,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/publication'
     )
-    license: Optional[Union[CreativeWork, List[CreativeWork], HttpUrl, List[HttpUrl]]] = Field(
+    license: Optional[Union["CreativeWork", List["CreativeWork"], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'license',
@@ -188,7 +188,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/position'
     )
-    contentRating: Optional[Union[Rating, List[Rating], str, List[str]]] = Field(
+    contentRating: Optional[Union["Rating", List["Rating"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'contentRating',
@@ -204,7 +204,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/wordCount'
     )
-    interactionStatistic: Optional[Union[InteractionCounter, List[InteractionCounter]]] = Field(
+    interactionStatistic: Optional[Union["InteractionCounter", List["InteractionCounter"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'interactionStatistic',
@@ -212,7 +212,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/interactionStatistic'
     )
-    pattern: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str]]] = Field(
+    pattern: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'pattern',
@@ -228,7 +228,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/accessibilityAPI'
     )
-    usageInfo: Optional[Union[CreativeWork, List[CreativeWork], HttpUrl, List[HttpUrl]]] = Field(
+    usageInfo: Optional[Union["CreativeWork", List["CreativeWork"], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'usageInfo',
@@ -244,7 +244,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/creditText'
     )
-    workTranslation: Optional[Union[CreativeWork, List[CreativeWork]]] = Field(
+    workTranslation: Optional[Union["CreativeWork", List["CreativeWork"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'workTranslation',
@@ -252,7 +252,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/workTranslation'
     )
-    inLanguage: Optional[Union[str, List[str], Language, List[Language]]] = Field(
+    inLanguage: Optional[Union[str, List[str], "Language", List["Language"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'inLanguage',
@@ -260,7 +260,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/inLanguage'
     )
-    sponsor: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(
+    sponsor: Optional[Union["Organization", List["Organization"], "Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'sponsor',
@@ -284,7 +284,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/discussionUrl'
     )
-    accountablePerson: Optional[Union[Person, List[Person]]] = Field(
+    accountablePerson: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'accountablePerson',
@@ -308,7 +308,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/encodingFormat'
     )
-    publisherImprint: Optional[Union[Organization, List[Organization]]] = Field(
+    publisherImprint: Optional[Union["Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'publisherImprint',
@@ -324,7 +324,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/accessibilitySummary'
     )
-    accessModeSufficient: Optional[Union[ItemList, List[ItemList]]] = Field(
+    accessModeSufficient: Optional[Union["ItemList", List["ItemList"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'accessModeSufficient',
@@ -356,7 +356,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/isFamilyFriendly'
     )
-    acquireLicensePage: Optional[Union[HttpUrl, List[HttpUrl], CreativeWork, List[CreativeWork]]] = Field(
+    acquireLicensePage: Optional[Union[HttpUrl, List[HttpUrl], "CreativeWork", List["CreativeWork"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'acquireLicensePage',
@@ -372,7 +372,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/headline'
     )
-    aggregateRating: Optional[Union[AggregateRating, List[AggregateRating]]] = Field(
+    aggregateRating: Optional[Union["AggregateRating", List["AggregateRating"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'aggregateRating',
@@ -388,7 +388,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/editEIDR'
     )
-    correction: Optional[Union[CorrectionComment, List[CorrectionComment], str, List[str], HttpUrl, List[HttpUrl]]] = Field(
+    correction: Optional[Union["CorrectionComment", List["CorrectionComment"], str, List[str], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'correction',
@@ -404,7 +404,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/alternativeHeadline'
     )
-    isPartOf: Optional[Union[HttpUrl, List[HttpUrl], CreativeWork, List[CreativeWork]]] = Field(
+    isPartOf: Optional[Union[HttpUrl, List[HttpUrl], "CreativeWork", List["CreativeWork"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'isPartOf',
@@ -420,7 +420,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/version'
     )
-    translationOfWork: Optional[Union[CreativeWork, List[CreativeWork]]] = Field(
+    translationOfWork: Optional[Union["CreativeWork", List["CreativeWork"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'translationOfWork',
@@ -428,7 +428,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/translationOfWork'
     )
-    copyrightHolder: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
+    copyrightHolder: Optional[Union["Person", List["Person"], "Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'copyrightHolder',
@@ -436,7 +436,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/copyrightHolder'
     )
-    hasPart: Optional[Union[CreativeWork, List[CreativeWork]]] = Field(
+    hasPart: Optional[Union["CreativeWork", List["CreativeWork"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasPart',
@@ -444,7 +444,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/hasPart'
     )
-    sourceOrganization: Optional[Union[Organization, List[Organization]]] = Field(
+    sourceOrganization: Optional[Union["Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'sourceOrganization',
@@ -452,7 +452,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/sourceOrganization'
     )
-    thumbnail: Optional[Union[ImageObject, List[ImageObject]]] = Field(
+    thumbnail: Optional[Union["ImageObject", List["ImageObject"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'thumbnail',
@@ -460,7 +460,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/thumbnail'
     )
-    about: Optional[Union[Thing, List[Thing]]] = Field(
+    about: Optional[Union["Thing", List["Thing"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'about',
@@ -476,7 +476,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/accessibilityControl'
     )
-    mentions: Optional[Union[Thing, List[Thing]]] = Field(
+    mentions: Optional[Union["Thing", List["Thing"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'mentions',
@@ -484,7 +484,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/mentions'
     )
-    archivedAt: Optional[Union[HttpUrl, List[HttpUrl], WebPage, List[WebPage]]] = Field(
+    archivedAt: Optional[Union[HttpUrl, List[HttpUrl], "WebPage", List["WebPage"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'archivedAt',
@@ -508,7 +508,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/copyrightYear'
     )
-    funder: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(
+    funder: Optional[Union["Organization", List["Organization"], "Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'funder',
@@ -516,7 +516,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/funder'
     )
-    timeRequired: Optional[Union[Duration, List[Duration]]] = Field(
+    timeRequired: Optional[Union["Duration", List["Duration"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'timeRequired',
@@ -524,7 +524,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/timeRequired'
     )
-    publisher: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
+    publisher: Optional[Union["Person", List["Person"], "Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'publisher',
@@ -532,7 +532,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/publisher'
     )
-    video: Optional[Union[VideoObject, List[VideoObject], Clip, List[Clip]]] = Field(
+    video: Optional[Union["VideoObject", List["VideoObject"], "Clip", List["Clip"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'video',
@@ -548,7 +548,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/accessibilityFeature'
     )
-    keywords: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], DefinedTerm, List[DefinedTerm]]] = Field(
+    keywords: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], "DefinedTerm", List["DefinedTerm"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'keywords',
@@ -564,7 +564,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/award'
     )
-    translator: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
+    translator: Optional[Union["Person", List["Person"], "Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'translator',
@@ -572,7 +572,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/translator'
     )
-    creativeWorkStatus: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str]]] = Field(
+    creativeWorkStatus: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'creativeWorkStatus',
@@ -596,7 +596,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/abstract'
     )
-    spatialCoverage: Optional[Union[Place, List[Place]]] = Field(
+    spatialCoverage: Optional[Union["Place", List["Place"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'spatialCoverage',
@@ -604,7 +604,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/spatialCoverage'
     )
-    materialExtent: Optional[Union[str, List[str], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    materialExtent: Optional[Union[str, List[str], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'materialExtent',
@@ -620,7 +620,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/accessibilityHazard'
     )
-    associatedMedia: Optional[Union[MediaObject, List[MediaObject]]] = Field(
+    associatedMedia: Optional[Union["MediaObject", List["MediaObject"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'associatedMedia',
@@ -636,7 +636,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/contentReferenceTime'
     )
-    offers: Optional[Union[Demand, List[Demand], Offer, List[Offer]]] = Field(
+    offers: Optional[Union["Demand", List["Demand"], "Offer", List["Offer"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'offers',
@@ -644,7 +644,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/offers'
     )
-    producer: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
+    producer: Optional[Union["Person", List["Person"], "Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'producer',
@@ -652,7 +652,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/producer'
     )
-    audience: Optional[Union[Audience, List[Audience]]] = Field(
+    audience: Optional[Union["Audience", List["Audience"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'audience',
@@ -668,7 +668,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/dateCreated'
     )
-    funding: Optional[Union[Grant, List[Grant]]] = Field(
+    funding: Optional[Union["Grant", List["Grant"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'funding',
@@ -676,7 +676,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/funding'
     )
-    isBasedOn: Optional[Union[Product, List[Product], CreativeWork, List[CreativeWork], HttpUrl, List[HttpUrl]]] = Field(
+    isBasedOn: Optional[Union["Product", List["Product"], "CreativeWork", List["CreativeWork"], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'isBasedOn',
@@ -684,7 +684,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/isBasedOn'
     )
-    educationalLevel: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], DefinedTerm, List[DefinedTerm]]] = Field(
+    educationalLevel: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], "DefinedTerm", List["DefinedTerm"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'educationalLevel',
@@ -692,7 +692,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/educationalLevel'
     )
-    mainEntity: Optional[Union[Thing, List[Thing]]] = Field(
+    mainEntity: Optional[Union["Thing", List["Thing"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'mainEntity',
@@ -708,7 +708,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/thumbnailUrl'
     )
-    author: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
+    author: Optional[Union["Person", List["Person"], "Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'author',
@@ -716,7 +716,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/author'
     )
-    releasedEvent: Optional[Union[PublicationEvent, List[PublicationEvent]]] = Field(
+    releasedEvent: Optional[Union["PublicationEvent", List["PublicationEvent"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'releasedEvent',
@@ -724,7 +724,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/releasedEvent'
     )
-    recordedAt: Optional[Union[Event, List[Event]]] = Field(
+    recordedAt: Optional[Union["Event", List["Event"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'recordedAt',
@@ -740,7 +740,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/schemaVersion'
     )
-    material: Optional[Union[str, List[str], Product, List[Product], HttpUrl, List[HttpUrl]]] = Field(
+    material: Optional[Union[str, List[str], "Product", List["Product"], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'material',
@@ -748,7 +748,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/material'
     )
-    digitalSourceType: Optional[Union[IPTCDigitalSourceEnumeration, List[IPTCDigitalSourceEnumeration]]] = Field(
+    digitalSourceType: Optional[Union["IPTCDigitalSourceEnumeration", List["IPTCDigitalSourceEnumeration"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'digitalSourceType',
@@ -756,7 +756,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/digitalSourceType'
     )
-    exampleOfWork: Optional[Union[CreativeWork, List[CreativeWork]]] = Field(
+    exampleOfWork: Optional[Union["CreativeWork", List["CreativeWork"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'exampleOfWork',
@@ -764,7 +764,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/exampleOfWork'
     )
-    publishingPrinciples: Optional[Union[CreativeWork, List[CreativeWork], HttpUrl, List[HttpUrl]]] = Field(
+    publishingPrinciples: Optional[Union["CreativeWork", List["CreativeWork"], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'publishingPrinciples',
@@ -796,7 +796,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/interactivityType'
     )
-    contributor: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(
+    contributor: Optional[Union["Organization", List["Organization"], "Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'contributor',
@@ -812,7 +812,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/fileFormat'
     )
-    size: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str], SizeSpecification, List[SizeSpecification], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    size: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str], "SizeSpecification", List["SizeSpecification"], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'size',
@@ -820,7 +820,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/size'
     )
-    sdPublisher: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
+    sdPublisher: Optional[Union["Person", List["Person"], "Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'sdPublisher',
@@ -828,7 +828,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/sdPublisher'
     )
-    character: Optional[Union[Person, List[Person]]] = Field(
+    character: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'character',
@@ -844,7 +844,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/text'
     )
-    educationalAlignment: Optional[Union[AlignmentObject, List[AlignmentObject]]] = Field(
+    educationalAlignment: Optional[Union["AlignmentObject", List["AlignmentObject"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'educationalAlignment',
@@ -852,7 +852,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/educationalAlignment'
     )
-    spatial: Optional[Union[Place, List[Place]]] = Field(
+    spatial: Optional[Union["Place", List["Place"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'spatial',
@@ -860,7 +860,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/spatial'
     )
-    workExample: Optional[Union[CreativeWork, List[CreativeWork]]] = Field(
+    workExample: Optional[Union["CreativeWork", List["CreativeWork"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'workExample',
@@ -868,7 +868,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/workExample'
     )
-    citation: Optional[Union[str, List[str], CreativeWork, List[CreativeWork]]] = Field(
+    citation: Optional[Union[str, List[str], "CreativeWork", List["CreativeWork"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'citation',
@@ -876,7 +876,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/citation'
     )
-    review: Optional[Union[Review, List[Review]]] = Field(
+    review: Optional[Union["Review", List["Review"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'review',
@@ -884,7 +884,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/review'
     )
-    maintainer: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
+    maintainer: Optional[Union["Person", List["Person"], "Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'maintainer',
@@ -892,7 +892,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/maintainer'
     )
-    teaches: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str]]] = Field(
+    teaches: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'teaches',
@@ -908,7 +908,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/typicalAgeRange'
     )
-    editor: Optional[Union[Person, List[Person]]] = Field(
+    editor: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'editor',
@@ -916,7 +916,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/editor'
     )
-    encoding: Optional[Union[MediaObject, List[MediaObject]]] = Field(
+    encoding: Optional[Union["MediaObject", List["MediaObject"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'encoding',
@@ -924,7 +924,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/encoding'
     )
-    encodings: Optional[Union[MediaObject, List[MediaObject]]] = Field(
+    encodings: Optional[Union["MediaObject", List["MediaObject"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'encodings',
@@ -932,7 +932,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/encodings'
     )
-    comment: Optional[Union[Comment, List[Comment]]] = Field(
+    comment: Optional[Union["Comment", List["Comment"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'comment',
@@ -956,7 +956,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/dateModified'
     )
-    locationCreated: Optional[Union[Place, List[Place]]] = Field(
+    locationCreated: Optional[Union["Place", List["Place"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'locationCreated',
@@ -964,7 +964,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/locationCreated'
     )
-    provider: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
+    provider: Optional[Union["Person", List["Person"], "Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'provider',
@@ -972,7 +972,7 @@ The most generic kind of creative work, including books, movies, photographs, so
         ),
         serialization_alias='https://schema.org/provider'
     )
-    isBasedOnUrl: Optional[Union[Product, List[Product], CreativeWork, List[CreativeWork], HttpUrl, List[HttpUrl]]] = Field(
+    isBasedOnUrl: Optional[Union["Product", List["Product"], "CreativeWork", List["CreativeWork"], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'isBasedOnUrl',

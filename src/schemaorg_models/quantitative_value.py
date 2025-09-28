@@ -13,10 +13,10 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .qualitative_value import QualitativeValue
-    from .measurement_type_enumeration import MeasurementTypeEnumeration
     from .enumeration import Enumeration
+    from .qualitative_value import QualitativeValue
     from .defined_term import DefinedTerm
+    from .measurement_type_enumeration import MeasurementTypeEnumeration
     from .property_value import PropertyValue
 
 class QuantitativeValue(StructuredValue):
@@ -44,7 +44,7 @@ class QuantitativeValue(StructuredValue):
         ),
         serialization_alias='https://schema.org/minValue'
     )
-    value: Optional[Union[float, List[float], StructuredValue, List[StructuredValue], bool, List[bool], str, List[str]]] = Field(
+    value: Optional[Union[float, List[float], "StructuredValue", List["StructuredValue"], bool, List[bool], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'value',
@@ -68,7 +68,7 @@ class QuantitativeValue(StructuredValue):
         ),
         serialization_alias='https://schema.org/unitCode'
     )
-    additionalProperty: Optional[Union[PropertyValue, List[PropertyValue]]] = Field(
+    additionalProperty: Optional[Union["PropertyValue", List["PropertyValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'additionalProperty',
@@ -76,7 +76,7 @@ class QuantitativeValue(StructuredValue):
         ),
         serialization_alias='https://schema.org/additionalProperty'
     )
-    valueReference: Optional[Union[DefinedTerm, List[DefinedTerm], MeasurementTypeEnumeration, List[MeasurementTypeEnumeration], str, List[str], Enumeration, List[Enumeration], QualitativeValue, List[QualitativeValue], QuantitativeValue, List[QuantitativeValue], PropertyValue, List[PropertyValue], StructuredValue, List[StructuredValue]]] = Field(
+    valueReference: Optional[Union["DefinedTerm", List["DefinedTerm"], "MeasurementTypeEnumeration", List["MeasurementTypeEnumeration"], str, List[str], "Enumeration", List["Enumeration"], "QualitativeValue", List["QualitativeValue"], "QuantitativeValue", List["QuantitativeValue"], "PropertyValue", List["PropertyValue"], "StructuredValue", List["StructuredValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'valueReference',

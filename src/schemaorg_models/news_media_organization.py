@@ -14,8 +14,8 @@ from .organization import Organization
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .about_page import AboutPage
-    from .article import Article
     from .creative_work import CreativeWork
+    from .article import Article
 
 class NewsMediaOrganization(Organization):
     """
@@ -26,7 +26,7 @@ A News/Media organization such as a newspaper or TV station.
         alias='@type',
         serialization_alias='@type'
     )
-    ownershipFundingInfo: Optional[Union[str, List[str], CreativeWork, List[CreativeWork], HttpUrl, List[HttpUrl], AboutPage, List[AboutPage]]] = Field(
+    ownershipFundingInfo: Optional[Union[str, List[str], "CreativeWork", List["CreativeWork"], HttpUrl, List[HttpUrl], "AboutPage", List["AboutPage"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'ownershipFundingInfo',
@@ -34,7 +34,7 @@ A News/Media organization such as a newspaper or TV station.
         ),
         serialization_alias='https://schema.org/ownershipFundingInfo'
     )
-    actionableFeedbackPolicy: Optional[Union[CreativeWork, List[CreativeWork], HttpUrl, List[HttpUrl]]] = Field(
+    actionableFeedbackPolicy: Optional[Union["CreativeWork", List["CreativeWork"], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'actionableFeedbackPolicy',
@@ -42,7 +42,7 @@ A News/Media organization such as a newspaper or TV station.
         ),
         serialization_alias='https://schema.org/actionableFeedbackPolicy'
     )
-    noBylinesPolicy: Optional[Union[HttpUrl, List[HttpUrl], CreativeWork, List[CreativeWork]]] = Field(
+    noBylinesPolicy: Optional[Union[HttpUrl, List[HttpUrl], "CreativeWork", List["CreativeWork"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'noBylinesPolicy',
@@ -50,7 +50,7 @@ A News/Media organization such as a newspaper or TV station.
         ),
         serialization_alias='https://schema.org/noBylinesPolicy'
     )
-    correctionsPolicy: Optional[Union[HttpUrl, List[HttpUrl], CreativeWork, List[CreativeWork]]] = Field(
+    correctionsPolicy: Optional[Union[HttpUrl, List[HttpUrl], "CreativeWork", List["CreativeWork"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'correctionsPolicy',
@@ -58,7 +58,7 @@ A News/Media organization such as a newspaper or TV station.
         ),
         serialization_alias='https://schema.org/correctionsPolicy'
     )
-    missionCoveragePrioritiesPolicy: Optional[Union[CreativeWork, List[CreativeWork], HttpUrl, List[HttpUrl]]] = Field(
+    missionCoveragePrioritiesPolicy: Optional[Union["CreativeWork", List["CreativeWork"], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'missionCoveragePrioritiesPolicy',
@@ -66,7 +66,7 @@ A News/Media organization such as a newspaper or TV station.
         ),
         serialization_alias='https://schema.org/missionCoveragePrioritiesPolicy'
     )
-    verificationFactCheckingPolicy: Optional[Union[CreativeWork, List[CreativeWork], HttpUrl, List[HttpUrl]]] = Field(
+    verificationFactCheckingPolicy: Optional[Union["CreativeWork", List["CreativeWork"], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'verificationFactCheckingPolicy',
@@ -74,7 +74,7 @@ A News/Media organization such as a newspaper or TV station.
         ),
         serialization_alias='https://schema.org/verificationFactCheckingPolicy'
     )
-    masthead: Optional[Union[CreativeWork, List[CreativeWork], HttpUrl, List[HttpUrl]]] = Field(
+    masthead: Optional[Union["CreativeWork", List["CreativeWork"], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'masthead',
@@ -82,7 +82,7 @@ A News/Media organization such as a newspaper or TV station.
         ),
         serialization_alias='https://schema.org/masthead'
     )
-    diversityPolicy: Optional[Union[CreativeWork, List[CreativeWork], HttpUrl, List[HttpUrl]]] = Field(
+    diversityPolicy: Optional[Union["CreativeWork", List["CreativeWork"], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'diversityPolicy',
@@ -90,7 +90,7 @@ A News/Media organization such as a newspaper or TV station.
         ),
         serialization_alias='https://schema.org/diversityPolicy'
     )
-    unnamedSourcesPolicy: Optional[Union[CreativeWork, List[CreativeWork], HttpUrl, List[HttpUrl]]] = Field(
+    unnamedSourcesPolicy: Optional[Union["CreativeWork", List["CreativeWork"], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'unnamedSourcesPolicy',
@@ -98,7 +98,7 @@ A News/Media organization such as a newspaper or TV station.
         ),
         serialization_alias='https://schema.org/unnamedSourcesPolicy'
     )
-    diversityStaffingReport: Optional[Union[Article, List[Article], HttpUrl, List[HttpUrl]]] = Field(
+    diversityStaffingReport: Optional[Union["Article", List["Article"], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'diversityStaffingReport',
@@ -106,7 +106,7 @@ A News/Media organization such as a newspaper or TV station.
         ),
         serialization_alias='https://schema.org/diversityStaffingReport'
     )
-    ethicsPolicy: Optional[Union[CreativeWork, List[CreativeWork], HttpUrl, List[HttpUrl]]] = Field(
+    ethicsPolicy: Optional[Union["CreativeWork", List["CreativeWork"], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'ethicsPolicy',

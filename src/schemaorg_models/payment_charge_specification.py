@@ -12,8 +12,8 @@ from typing import (
 from .price_specification import PriceSpecification
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .payment_method import PaymentMethod
     from .delivery_method import DeliveryMethod
+    from .payment_method import PaymentMethod
 
 class PaymentChargeSpecification(PriceSpecification):
     """
@@ -24,7 +24,7 @@ The costs of settling the payment using a particular payment method.
         alias='@type',
         serialization_alias='@type'
     )
-    appliesToDeliveryMethod: Optional[Union[DeliveryMethod, List[DeliveryMethod]]] = Field(
+    appliesToDeliveryMethod: Optional[Union["DeliveryMethod", List["DeliveryMethod"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'appliesToDeliveryMethod',
@@ -32,7 +32,7 @@ The costs of settling the payment using a particular payment method.
         ),
         serialization_alias='https://schema.org/appliesToDeliveryMethod'
     )
-    appliesToPaymentMethod: Optional[Union[PaymentMethod, List[PaymentMethod]]] = Field(
+    appliesToPaymentMethod: Optional[Union["PaymentMethod", List["PaymentMethod"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'appliesToPaymentMethod',

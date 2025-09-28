@@ -13,15 +13,15 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .organization import Organization
-    from .quantitative_value import QuantitativeValue
-    from .language import Language
-    from .video_object import VideoObject
-    from .music_group import MusicGroup
     from .duration import Duration
-    from .country import Country
-    from .person import Person
+    from .video_object import VideoObject
+    from .language import Language
     from .performing_group import PerformingGroup
+    from .person import Person
+    from .music_group import MusicGroup
+    from .quantitative_value import QuantitativeValue
+    from .organization import Organization
+    from .country import Country
 
 class Movie(CreativeWork):
     """
@@ -40,7 +40,7 @@ A movie.
         ),
         serialization_alias='https://schema.org/titleEIDR'
     )
-    actors: Optional[Union[Person, List[Person]]] = Field(
+    actors: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'actors',
@@ -48,7 +48,7 @@ A movie.
         ),
         serialization_alias='https://schema.org/actors'
     )
-    productionCompany: Optional[Union[Organization, List[Organization]]] = Field(
+    productionCompany: Optional[Union["Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'productionCompany',
@@ -56,7 +56,7 @@ A movie.
         ),
         serialization_alias='https://schema.org/productionCompany'
     )
-    musicBy: Optional[Union[MusicGroup, List[MusicGroup], Person, List[Person]]] = Field(
+    musicBy: Optional[Union["MusicGroup", List["MusicGroup"], "Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'musicBy',
@@ -64,7 +64,7 @@ A movie.
         ),
         serialization_alias='https://schema.org/musicBy'
     )
-    countryOfOrigin: Optional[Union[Country, List[Country]]] = Field(
+    countryOfOrigin: Optional[Union["Country", List["Country"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'countryOfOrigin',
@@ -72,7 +72,7 @@ A movie.
         ),
         serialization_alias='https://schema.org/countryOfOrigin'
     )
-    trailer: Optional[Union[VideoObject, List[VideoObject]]] = Field(
+    trailer: Optional[Union["VideoObject", List["VideoObject"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'trailer',
@@ -80,7 +80,7 @@ A movie.
         ),
         serialization_alias='https://schema.org/trailer'
     )
-    directors: Optional[Union[Person, List[Person]]] = Field(
+    directors: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'directors',
@@ -88,7 +88,7 @@ A movie.
         ),
         serialization_alias='https://schema.org/directors'
     )
-    duration: Optional[Union[Duration, List[Duration], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    duration: Optional[Union["Duration", List["Duration"], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'duration',
@@ -96,7 +96,7 @@ A movie.
         ),
         serialization_alias='https://schema.org/duration'
     )
-    director: Optional[Union[Person, List[Person]]] = Field(
+    director: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'director',
@@ -104,7 +104,7 @@ A movie.
         ),
         serialization_alias='https://schema.org/director'
     )
-    actor: Optional[Union[Person, List[Person], PerformingGroup, List[PerformingGroup]]] = Field(
+    actor: Optional[Union["Person", List["Person"], "PerformingGroup", List["PerformingGroup"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'actor',
@@ -112,7 +112,7 @@ A movie.
         ),
         serialization_alias='https://schema.org/actor'
     )
-    subtitleLanguage: Optional[Union[Language, List[Language], str, List[str]]] = Field(
+    subtitleLanguage: Optional[Union["Language", List["Language"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'subtitleLanguage',

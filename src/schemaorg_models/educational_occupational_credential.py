@@ -13,10 +13,10 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .organization import Organization
     from .defined_term import DefinedTerm
     from .duration import Duration
     from .administrative_area import AdministrativeArea
+    from .organization import Organization
 
 class EducationalOccupationalCredential(CreativeWork):
     """
@@ -27,7 +27,7 @@ An educational or occupational credential. A diploma, academic degree, certifica
         alias='@type',
         serialization_alias='@type'
     )
-    recognizedBy: Optional[Union[Organization, List[Organization]]] = Field(
+    recognizedBy: Optional[Union["Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'recognizedBy',
@@ -35,7 +35,7 @@ An educational or occupational credential. A diploma, academic degree, certifica
         ),
         serialization_alias='https://schema.org/recognizedBy'
     )
-    validFor: Optional[Union[Duration, List[Duration]]] = Field(
+    validFor: Optional[Union["Duration", List["Duration"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'validFor',
@@ -43,7 +43,7 @@ An educational or occupational credential. A diploma, academic degree, certifica
         ),
         serialization_alias='https://schema.org/validFor'
     )
-    validIn: Optional[Union[AdministrativeArea, List[AdministrativeArea]]] = Field(
+    validIn: Optional[Union["AdministrativeArea", List["AdministrativeArea"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'validIn',
@@ -51,7 +51,7 @@ An educational or occupational credential. A diploma, academic degree, certifica
         ),
         serialization_alias='https://schema.org/validIn'
     )
-    educationalLevel: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], DefinedTerm, List[DefinedTerm]]] = Field(
+    educationalLevel: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], "DefinedTerm", List["DefinedTerm"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'educationalLevel',
@@ -59,7 +59,7 @@ An educational or occupational credential. A diploma, academic degree, certifica
         ),
         serialization_alias='https://schema.org/educationalLevel'
     )
-    competencyRequired: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str], HttpUrl, List[HttpUrl]]] = Field(
+    competencyRequired: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'competencyRequired',
@@ -67,7 +67,7 @@ An educational or occupational credential. A diploma, academic degree, certifica
         ),
         serialization_alias='https://schema.org/competencyRequired'
     )
-    credentialCategory: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str], HttpUrl, List[HttpUrl]]] = Field(
+    credentialCategory: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'credentialCategory',

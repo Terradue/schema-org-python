@@ -12,12 +12,12 @@ from typing import (
 from .medical_entity import MedicalEntity
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .organization import Organization
-    from .medical_study_status import MedicalStudyStatus
-    from .event_status_type import EventStatusType
-    from .administrative_area import AdministrativeArea
     from .medical_condition import MedicalCondition
+    from .administrative_area import AdministrativeArea
+    from .medical_study_status import MedicalStudyStatus
     from .person import Person
+    from .organization import Organization
+    from .event_status_type import EventStatusType
 
 class MedicalStudy(MedicalEntity):
     """
@@ -28,7 +28,7 @@ A medical study is an umbrella type covering all kinds of research studies relat
         alias='@type',
         serialization_alias='@type'
     )
-    studySubject: Optional[Union[MedicalEntity, List[MedicalEntity]]] = Field(
+    studySubject: Optional[Union["MedicalEntity", List["MedicalEntity"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'studySubject',
@@ -36,7 +36,7 @@ A medical study is an umbrella type covering all kinds of research studies relat
         ),
         serialization_alias='https://schema.org/studySubject'
     )
-    sponsor: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(
+    sponsor: Optional[Union["Organization", List["Organization"], "Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'sponsor',
@@ -44,7 +44,7 @@ A medical study is an umbrella type covering all kinds of research studies relat
         ),
         serialization_alias='https://schema.org/sponsor'
     )
-    status: Optional[Union[EventStatusType, List[EventStatusType], MedicalStudyStatus, List[MedicalStudyStatus], str, List[str]]] = Field(
+    status: Optional[Union["EventStatusType", List["EventStatusType"], "MedicalStudyStatus", List["MedicalStudyStatus"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'status',
@@ -52,7 +52,7 @@ A medical study is an umbrella type covering all kinds of research studies relat
         ),
         serialization_alias='https://schema.org/status'
     )
-    studyLocation: Optional[Union[AdministrativeArea, List[AdministrativeArea]]] = Field(
+    studyLocation: Optional[Union["AdministrativeArea", List["AdministrativeArea"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'studyLocation',
@@ -60,7 +60,7 @@ A medical study is an umbrella type covering all kinds of research studies relat
         ),
         serialization_alias='https://schema.org/studyLocation'
     )
-    healthCondition: Optional[Union[MedicalCondition, List[MedicalCondition]]] = Field(
+    healthCondition: Optional[Union["MedicalCondition", List["MedicalCondition"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'healthCondition',

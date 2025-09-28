@@ -24,7 +24,7 @@ A screening of a movie or other video.
         alias='@type',
         serialization_alias='@type'
     )
-    subtitleLanguage: Optional[Union[Language, List[Language], str, List[str]]] = Field(
+    subtitleLanguage: Optional[Union["Language", List["Language"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'subtitleLanguage',
@@ -40,7 +40,7 @@ A screening of a movie or other video.
         ),
         serialization_alias='https://schema.org/videoFormat'
     )
-    workPresented: Optional[Union[Movie, List[Movie]]] = Field(
+    workPresented: Optional[Union["Movie", List["Movie"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'workPresented',

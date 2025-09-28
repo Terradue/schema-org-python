@@ -13,15 +13,15 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .shipping_service import ShippingService
-    from .quantitative_value import QuantitativeValue
-    from .shipping_delivery_time import ShippingDeliveryTime
-    from .shipping_rate_settings import ShippingRateSettings
     from .distance import Distance
-    from .member_program_tier import MemberProgramTier
+    from .shipping_delivery_time import ShippingDeliveryTime
     from .monetary_amount import MonetaryAmount
     from .mass import Mass
     from .defined_region import DefinedRegion
+    from .member_program_tier import MemberProgramTier
+    from .shipping_rate_settings import ShippingRateSettings
+    from .quantitative_value import QuantitativeValue
+    from .shipping_service import ShippingService
 
 class OfferShippingDetails(StructuredValue):
     """
@@ -43,7 +43,7 @@ or Fast and expensive: $15 in 1-2 days.
         alias='@type',
         serialization_alias='@type'
     )
-    depth: Optional[Union[Distance, List[Distance], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    depth: Optional[Union["Distance", List["Distance"], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'depth',
@@ -59,7 +59,7 @@ or Fast and expensive: $15 in 1-2 days.
         ),
         serialization_alias='https://schema.org/shippingLabel'
     )
-    hasShippingService: Optional[Union[ShippingService, List[ShippingService]]] = Field(
+    hasShippingService: Optional[Union["ShippingService", List["ShippingService"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasShippingService',
@@ -67,7 +67,7 @@ or Fast and expensive: $15 in 1-2 days.
         ),
         serialization_alias='https://schema.org/hasShippingService'
     )
-    shippingDestination: Optional[Union[DefinedRegion, List[DefinedRegion]]] = Field(
+    shippingDestination: Optional[Union["DefinedRegion", List["DefinedRegion"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'shippingDestination',
@@ -75,7 +75,7 @@ or Fast and expensive: $15 in 1-2 days.
         ),
         serialization_alias='https://schema.org/shippingDestination'
     )
-    deliveryTime: Optional[Union[ShippingDeliveryTime, List[ShippingDeliveryTime]]] = Field(
+    deliveryTime: Optional[Union["ShippingDeliveryTime", List["ShippingDeliveryTime"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'deliveryTime',
@@ -91,7 +91,7 @@ or Fast and expensive: $15 in 1-2 days.
         ),
         serialization_alias='https://schema.org/doesNotShip'
     )
-    width: Optional[Union[QuantitativeValue, List[QuantitativeValue], Distance, List[Distance]]] = Field(
+    width: Optional[Union["QuantitativeValue", List["QuantitativeValue"], "Distance", List["Distance"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'width',
@@ -99,7 +99,7 @@ or Fast and expensive: $15 in 1-2 days.
         ),
         serialization_alias='https://schema.org/width'
     )
-    validForMemberTier: Optional[Union[MemberProgramTier, List[MemberProgramTier]]] = Field(
+    validForMemberTier: Optional[Union["MemberProgramTier", List["MemberProgramTier"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'validForMemberTier',
@@ -107,7 +107,7 @@ or Fast and expensive: $15 in 1-2 days.
         ),
         serialization_alias='https://schema.org/validForMemberTier'
     )
-    shippingOrigin: Optional[Union[DefinedRegion, List[DefinedRegion]]] = Field(
+    shippingOrigin: Optional[Union["DefinedRegion", List["DefinedRegion"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'shippingOrigin',
@@ -115,7 +115,7 @@ or Fast and expensive: $15 in 1-2 days.
         ),
         serialization_alias='https://schema.org/shippingOrigin'
     )
-    height: Optional[Union[Distance, List[Distance], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    height: Optional[Union["Distance", List["Distance"], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'height',
@@ -131,7 +131,7 @@ or Fast and expensive: $15 in 1-2 days.
         ),
         serialization_alias='https://schema.org/transitTimeLabel'
     )
-    weight: Optional[Union[QuantitativeValue, List[QuantitativeValue], Mass, List[Mass]]] = Field(
+    weight: Optional[Union["QuantitativeValue", List["QuantitativeValue"], "Mass", List["Mass"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'weight',
@@ -139,7 +139,7 @@ or Fast and expensive: $15 in 1-2 days.
         ),
         serialization_alias='https://schema.org/weight'
     )
-    shippingRate: Optional[Union[ShippingRateSettings, List[ShippingRateSettings], MonetaryAmount, List[MonetaryAmount]]] = Field(
+    shippingRate: Optional[Union["ShippingRateSettings", List["ShippingRateSettings"], "MonetaryAmount", List["MonetaryAmount"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'shippingRate',

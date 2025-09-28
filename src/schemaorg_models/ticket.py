@@ -17,10 +17,10 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .organization import Organization
     from .seat import Seat
-    from .person import Person
     from .price_specification import PriceSpecification
+    from .organization import Organization
+    from .person import Person
 
 class Ticket(Intangible):
     """
@@ -31,7 +31,7 @@ Used to describe a ticket to an event, a flight, a bus ride, etc.
         alias='@type',
         serialization_alias='@type'
     )
-    underName: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
+    underName: Optional[Union["Person", List["Person"], "Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'underName',
@@ -47,7 +47,7 @@ Used to describe a ticket to an event, a flight, a bus ride, etc.
         ),
         serialization_alias='https://schema.org/priceCurrency'
     )
-    ticketedSeat: Optional[Union[Seat, List[Seat]]] = Field(
+    ticketedSeat: Optional[Union["Seat", List["Seat"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'ticketedSeat',
@@ -71,7 +71,7 @@ Used to describe a ticket to an event, a flight, a bus ride, etc.
         ),
         serialization_alias='https://schema.org/ticketNumber'
     )
-    totalPrice: Optional[Union[str, List[str], PriceSpecification, List[PriceSpecification], float, List[float]]] = Field(
+    totalPrice: Optional[Union[str, List[str], "PriceSpecification", List["PriceSpecification"], float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'totalPrice',
@@ -87,7 +87,7 @@ Used to describe a ticket to an event, a flight, a bus ride, etc.
         ),
         serialization_alias='https://schema.org/ticketToken'
     )
-    issuedBy: Optional[Union[Organization, List[Organization]]] = Field(
+    issuedBy: Optional[Union["Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'issuedBy',

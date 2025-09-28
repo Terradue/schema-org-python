@@ -28,7 +28,7 @@ Related actions:\
         alias='@type',
         serialization_alias='@type'
     )
-    lender: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(
+    lender: Optional[Union["Organization", List["Organization"], "Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'lender',

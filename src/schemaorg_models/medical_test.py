@@ -13,10 +13,10 @@ from .medical_entity import MedicalEntity
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .medical_condition import MedicalCondition
-    from .drug import Drug
-    from .medical_device import MedicalDevice
     from .medical_sign import MedicalSign
     from .medical_enumeration import MedicalEnumeration
+    from .medical_device import MedicalDevice
+    from .drug import Drug
 
 class MedicalTest(MedicalEntity):
     """
@@ -27,7 +27,7 @@ Any medical test, typically performed for diagnostic purposes.
         alias='@type',
         serialization_alias='@type'
     )
-    affectedBy: Optional[Union[Drug, List[Drug]]] = Field(
+    affectedBy: Optional[Union["Drug", List["Drug"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'affectedBy',
@@ -35,7 +35,7 @@ Any medical test, typically performed for diagnostic purposes.
         ),
         serialization_alias='https://schema.org/affectedBy'
     )
-    signDetected: Optional[Union[MedicalSign, List[MedicalSign]]] = Field(
+    signDetected: Optional[Union["MedicalSign", List["MedicalSign"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'signDetected',
@@ -43,7 +43,7 @@ Any medical test, typically performed for diagnostic purposes.
         ),
         serialization_alias='https://schema.org/signDetected'
     )
-    usesDevice: Optional[Union[MedicalDevice, List[MedicalDevice]]] = Field(
+    usesDevice: Optional[Union["MedicalDevice", List["MedicalDevice"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'usesDevice',
@@ -51,7 +51,7 @@ Any medical test, typically performed for diagnostic purposes.
         ),
         serialization_alias='https://schema.org/usesDevice'
     )
-    usedToDiagnose: Optional[Union[MedicalCondition, List[MedicalCondition]]] = Field(
+    usedToDiagnose: Optional[Union["MedicalCondition", List["MedicalCondition"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'usedToDiagnose',
@@ -59,7 +59,7 @@ Any medical test, typically performed for diagnostic purposes.
         ),
         serialization_alias='https://schema.org/usedToDiagnose'
     )
-    normalRange: Optional[Union[MedicalEnumeration, List[MedicalEnumeration], str, List[str]]] = Field(
+    normalRange: Optional[Union["MedicalEnumeration", List["MedicalEnumeration"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'normalRange',

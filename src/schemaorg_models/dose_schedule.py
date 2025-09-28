@@ -31,7 +31,7 @@ A dosing schedule for the drug for a given population, either observed, recommen
         ),
         serialization_alias='https://schema.org/frequency'
     )
-    doseValue: Optional[Union[float, List[float], QualitativeValue, List[QualitativeValue]]] = Field(
+    doseValue: Optional[Union[float, List[float], "QualitativeValue", List["QualitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'doseValue',

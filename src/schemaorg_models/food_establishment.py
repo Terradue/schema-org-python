@@ -25,7 +25,7 @@ A sub property of location. The specific food establishment where the action occ
         alias='@type',
         serialization_alias='@type'
     )
-    menu: Optional[Union[Menu, List[Menu], str, List[str], HttpUrl, List[HttpUrl]]] = Field(
+    menu: Optional[Union["Menu", List["Menu"], str, List[str], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'menu',
@@ -33,7 +33,7 @@ A sub property of location. The specific food establishment where the action occ
         ),
         serialization_alias='https://schema.org/menu'
     )
-    starRating: Optional[Union[Rating, List[Rating]]] = Field(
+    starRating: Optional[Union["Rating", List["Rating"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'starRating',
@@ -57,7 +57,7 @@ A sub property of location. The specific food establishment where the action occ
         ),
         serialization_alias='https://schema.org/acceptsReservations'
     )
-    hasMenu: Optional[Union[HttpUrl, List[HttpUrl], Menu, List[Menu], str, List[str]]] = Field(
+    hasMenu: Optional[Union[HttpUrl, List[HttpUrl], "Menu", List["Menu"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasMenu',

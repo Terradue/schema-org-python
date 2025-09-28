@@ -14,8 +14,8 @@ from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .review import Review
-    from .aggregate_rating import AggregateRating
     from .image_object import ImageObject
+    from .aggregate_rating import AggregateRating
 
 class Brand(Intangible):
     """
@@ -26,7 +26,7 @@ A brand is a name used by an organization or business person for labeling a prod
         alias='@type',
         serialization_alias='@type'
     )
-    review: Optional[Union[Review, List[Review]]] = Field(
+    review: Optional[Union["Review", List["Review"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'review',
@@ -34,7 +34,7 @@ A brand is a name used by an organization or business person for labeling a prod
         ),
         serialization_alias='https://schema.org/review'
     )
-    aggregateRating: Optional[Union[AggregateRating, List[AggregateRating]]] = Field(
+    aggregateRating: Optional[Union["AggregateRating", List["AggregateRating"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'aggregateRating',
@@ -42,7 +42,7 @@ A brand is a name used by an organization or business person for labeling a prod
         ),
         serialization_alias='https://schema.org/aggregateRating'
     )
-    logo: Optional[Union[HttpUrl, List[HttpUrl], ImageObject, List[ImageObject]]] = Field(
+    logo: Optional[Union[HttpUrl, List[HttpUrl], "ImageObject", List["ImageObject"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'logo',

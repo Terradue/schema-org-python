@@ -18,15 +18,15 @@ from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .physical_activity_category import PhysicalActivityCategory
-    from .thing import Thing
-    from .category_code import CategoryCode
-    from .local_business import LocalBusiness
-    from .civic_structure import CivicStructure
-    from .observation import Observation
     from .web_content import WebContent
-    from .government_service import GovernmentService
+    from .local_business import LocalBusiness
     from .data_feed import DataFeed
+    from .government_service import GovernmentService
+    from .category_code import CategoryCode
+    from .observation import Observation
+    from .thing import Thing
     from .dataset import Dataset
+    from .civic_structure import CivicStructure
 
 class SpecialAnnouncement(CreativeWork):
     """
@@ -72,7 +72,7 @@ media type information, e.g. "application/rss+xml" or "application/atom+xml".
         alias='@type',
         serialization_alias='@type'
     )
-    travelBans: Optional[Union[HttpUrl, List[HttpUrl], WebContent, List[WebContent]]] = Field(
+    travelBans: Optional[Union[HttpUrl, List[HttpUrl], "WebContent", List["WebContent"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'travelBans',
@@ -80,7 +80,7 @@ media type information, e.g. "application/rss+xml" or "application/atom+xml".
         ),
         serialization_alias='https://schema.org/travelBans'
     )
-    quarantineGuidelines: Optional[Union[HttpUrl, List[HttpUrl], WebContent, List[WebContent]]] = Field(
+    quarantineGuidelines: Optional[Union[HttpUrl, List[HttpUrl], "WebContent", List["WebContent"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'quarantineGuidelines',
@@ -96,7 +96,7 @@ media type information, e.g. "application/rss+xml" or "application/atom+xml".
         ),
         serialization_alias='https://schema.org/datePosted'
     )
-    newsUpdatesAndGuidelines: Optional[Union[HttpUrl, List[HttpUrl], WebContent, List[WebContent]]] = Field(
+    newsUpdatesAndGuidelines: Optional[Union[HttpUrl, List[HttpUrl], "WebContent", List["WebContent"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'newsUpdatesAndGuidelines',
@@ -104,7 +104,7 @@ media type information, e.g. "application/rss+xml" or "application/atom+xml".
         ),
         serialization_alias='https://schema.org/newsUpdatesAndGuidelines'
     )
-    publicTransportClosuresInfo: Optional[Union[HttpUrl, List[HttpUrl], WebContent, List[WebContent]]] = Field(
+    publicTransportClosuresInfo: Optional[Union[HttpUrl, List[HttpUrl], "WebContent", List["WebContent"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'publicTransportClosuresInfo',
@@ -112,7 +112,7 @@ media type information, e.g. "application/rss+xml" or "application/atom+xml".
         ),
         serialization_alias='https://schema.org/publicTransportClosuresInfo'
     )
-    governmentBenefitsInfo: Optional[Union[GovernmentService, List[GovernmentService]]] = Field(
+    governmentBenefitsInfo: Optional[Union["GovernmentService", List["GovernmentService"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'governmentBenefitsInfo',
@@ -120,7 +120,7 @@ media type information, e.g. "application/rss+xml" or "application/atom+xml".
         ),
         serialization_alias='https://schema.org/governmentBenefitsInfo'
     )
-    gettingTestedInfo: Optional[Union[HttpUrl, List[HttpUrl], WebContent, List[WebContent]]] = Field(
+    gettingTestedInfo: Optional[Union[HttpUrl, List[HttpUrl], "WebContent", List["WebContent"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'gettingTestedInfo',
@@ -128,7 +128,7 @@ media type information, e.g. "application/rss+xml" or "application/atom+xml".
         ),
         serialization_alias='https://schema.org/gettingTestedInfo'
     )
-    diseasePreventionInfo: Optional[Union[HttpUrl, List[HttpUrl], WebContent, List[WebContent]]] = Field(
+    diseasePreventionInfo: Optional[Union[HttpUrl, List[HttpUrl], "WebContent", List["WebContent"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'diseasePreventionInfo',
@@ -136,7 +136,7 @@ media type information, e.g. "application/rss+xml" or "application/atom+xml".
         ),
         serialization_alias='https://schema.org/diseasePreventionInfo'
     )
-    category: Optional[Union[PhysicalActivityCategory, List[PhysicalActivityCategory], CategoryCode, List[CategoryCode], str, List[str], Thing, List[Thing], HttpUrl, List[HttpUrl]]] = Field(
+    category: Optional[Union["PhysicalActivityCategory", List["PhysicalActivityCategory"], "CategoryCode", List["CategoryCode"], str, List[str], "Thing", List["Thing"], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'category',
@@ -144,7 +144,7 @@ media type information, e.g. "application/rss+xml" or "application/atom+xml".
         ),
         serialization_alias='https://schema.org/category'
     )
-    schoolClosuresInfo: Optional[Union[HttpUrl, List[HttpUrl], WebContent, List[WebContent]]] = Field(
+    schoolClosuresInfo: Optional[Union[HttpUrl, List[HttpUrl], "WebContent", List["WebContent"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'schoolClosuresInfo',
@@ -152,7 +152,7 @@ media type information, e.g. "application/rss+xml" or "application/atom+xml".
         ),
         serialization_alias='https://schema.org/schoolClosuresInfo'
     )
-    diseaseSpreadStatistics: Optional[Union[Observation, List[Observation], HttpUrl, List[HttpUrl], Dataset, List[Dataset], WebContent, List[WebContent]]] = Field(
+    diseaseSpreadStatistics: Optional[Union["Observation", List["Observation"], HttpUrl, List[HttpUrl], "Dataset", List["Dataset"], "WebContent", List["WebContent"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'diseaseSpreadStatistics',
@@ -160,7 +160,7 @@ media type information, e.g. "application/rss+xml" or "application/atom+xml".
         ),
         serialization_alias='https://schema.org/diseaseSpreadStatistics'
     )
-    announcementLocation: Optional[Union[LocalBusiness, List[LocalBusiness], CivicStructure, List[CivicStructure]]] = Field(
+    announcementLocation: Optional[Union["LocalBusiness", List["LocalBusiness"], "CivicStructure", List["CivicStructure"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'announcementLocation',
@@ -168,7 +168,7 @@ media type information, e.g. "application/rss+xml" or "application/atom+xml".
         ),
         serialization_alias='https://schema.org/announcementLocation'
     )
-    webFeed: Optional[Union[DataFeed, List[DataFeed], HttpUrl, List[HttpUrl]]] = Field(
+    webFeed: Optional[Union["DataFeed", List["DataFeed"], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'webFeed',

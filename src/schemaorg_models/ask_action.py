@@ -27,7 +27,7 @@ Related actions:\
         alias='@type',
         serialization_alias='@type'
     )
-    question: Optional[Union[Question, List[Question]]] = Field(
+    question: Optional[Union["Question", List["Question"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'question',

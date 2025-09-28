@@ -23,7 +23,7 @@ Intended audience for an item, i.e. the group for whom the item was created.
         alias='@type',
         serialization_alias='@type'
     )
-    geographicArea: Optional[Union[AdministrativeArea, List[AdministrativeArea]]] = Field(
+    geographicArea: Optional[Union["AdministrativeArea", List["AdministrativeArea"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'geographicArea',

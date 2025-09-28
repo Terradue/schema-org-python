@@ -23,7 +23,7 @@ The act of generating a comment about a subject.
         alias='@type',
         serialization_alias='@type'
     )
-    resultComment: Optional[Union[Comment, List[Comment]]] = Field(
+    resultComment: Optional[Union["Comment", List["Comment"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'resultComment',

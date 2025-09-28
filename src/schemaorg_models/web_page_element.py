@@ -31,7 +31,7 @@ A web page element, like a table or an image.
         ),
         serialization_alias='https://schema.org/xpath'
     )
-    cssSelector: Optional[Union[CssSelectorType, List[CssSelectorType]]] = Field(
+    cssSelector: Optional[Union["CssSelectorType", List["CssSelectorType"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'cssSelector',

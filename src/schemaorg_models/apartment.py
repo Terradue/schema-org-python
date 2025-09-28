@@ -23,7 +23,7 @@ An apartment (in American English) or flat (in British English) is a self-contai
         alias='@type',
         serialization_alias='@type'
     )
-    occupancy: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
+    occupancy: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'occupancy',
@@ -31,7 +31,7 @@ An apartment (in American English) or flat (in British English) is a self-contai
         ),
         serialization_alias='https://schema.org/occupancy'
     )
-    numberOfRooms: Optional[Union[float, List[float], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    numberOfRooms: Optional[Union[float, List[float], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'numberOfRooms',

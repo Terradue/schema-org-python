@@ -13,8 +13,8 @@ from .media_object import MediaObject
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .music_group import MusicGroup
-    from .person import Person
     from .performing_group import PerformingGroup
+    from .person import Person
 
 class VideoObject(MediaObject):
     """
@@ -25,7 +25,7 @@ A video file.
         alias='@type',
         serialization_alias='@type'
     )
-    directors: Optional[Union[Person, List[Person]]] = Field(
+    directors: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'directors',
@@ -33,7 +33,7 @@ A video file.
         ),
         serialization_alias='https://schema.org/directors'
     )
-    director: Optional[Union[Person, List[Person]]] = Field(
+    director: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'director',
@@ -49,7 +49,7 @@ A video file.
         ),
         serialization_alias='https://schema.org/videoFrameSize'
     )
-    actor: Optional[Union[Person, List[Person], PerformingGroup, List[PerformingGroup]]] = Field(
+    actor: Optional[Union["Person", List["Person"], "PerformingGroup", List["PerformingGroup"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'actor',
@@ -65,7 +65,7 @@ A video file.
         ),
         serialization_alias='https://schema.org/transcript'
     )
-    actors: Optional[Union[Person, List[Person]]] = Field(
+    actors: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'actors',
@@ -81,7 +81,7 @@ A video file.
         ),
         serialization_alias='https://schema.org/videoQuality'
     )
-    musicBy: Optional[Union[MusicGroup, List[MusicGroup], Person, List[Person]]] = Field(
+    musicBy: Optional[Union["MusicGroup", List["MusicGroup"], "Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'musicBy',
@@ -89,7 +89,7 @@ A video file.
         ),
         serialization_alias='https://schema.org/musicBy'
     )
-    caption: Optional[Union[MediaObject, List[MediaObject], str, List[str]]] = Field(
+    caption: Optional[Union["MediaObject", List["MediaObject"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'caption',

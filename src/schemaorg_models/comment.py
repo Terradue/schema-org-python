@@ -20,7 +20,7 @@ A comment on an item - for example, a comment on a blog post. The comment's cont
         alias='@type',
         serialization_alias='@type'
     )
-    parentItem: Optional[Union[CreativeWork, List[CreativeWork], Comment, List[Comment]]] = Field(
+    parentItem: Optional[Union["CreativeWork", List["CreativeWork"], "Comment", List["Comment"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'parentItem',
@@ -36,7 +36,7 @@ A comment on an item - for example, a comment on a blog post. The comment's cont
         ),
         serialization_alias='https://schema.org/downvoteCount'
     )
-    sharedContent: Optional[Union[CreativeWork, List[CreativeWork]]] = Field(
+    sharedContent: Optional[Union["CreativeWork", List["CreativeWork"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'sharedContent',

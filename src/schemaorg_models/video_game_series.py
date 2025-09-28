@@ -13,19 +13,19 @@ from typing import (
 from .creative_work_series import CreativeWorkSeries
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .episode import Episode
+    from .creative_work import CreativeWork
+    from .video_object import VideoObject
+    from .creative_work_season import CreativeWorkSeason
+    from .postal_address import PostalAddress
     from .thing import Thing
+    from .performing_group import PerformingGroup
+    from .place import Place
+    from .person import Person
+    from .music_group import MusicGroup
+    from .game_play_mode import GamePlayMode
     from .quantitative_value import QuantitativeValue
     from .organization import Organization
-    from .video_object import VideoObject
-    from .music_group import MusicGroup
-    from .creative_work_season import CreativeWorkSeason
-    from .creative_work import CreativeWork
-    from .episode import Episode
-    from .postal_address import PostalAddress
-    from .game_play_mode import GamePlayMode
-    from .person import Person
-    from .place import Place
-    from .performing_group import PerformingGroup
 
 class VideoGameSeries(CreativeWorkSeries):
     """
@@ -36,7 +36,7 @@ A video game series.
         alias='@type',
         serialization_alias='@type'
     )
-    gameItem: Optional[Union[Thing, List[Thing]]] = Field(
+    gameItem: Optional[Union["Thing", List["Thing"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'gameItem',
@@ -44,7 +44,7 @@ A video game series.
         ),
         serialization_alias='https://schema.org/gameItem'
     )
-    episode: Optional[Union[Episode, List[Episode]]] = Field(
+    episode: Optional[Union["Episode", List["Episode"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'episode',
@@ -60,7 +60,7 @@ A video game series.
         ),
         serialization_alias='https://schema.org/numberOfEpisodes'
     )
-    numberOfPlayers: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
+    numberOfPlayers: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'numberOfPlayers',
@@ -68,7 +68,7 @@ A video game series.
         ),
         serialization_alias='https://schema.org/numberOfPlayers'
     )
-    actor: Optional[Union[Person, List[Person], PerformingGroup, List[PerformingGroup]]] = Field(
+    actor: Optional[Union["Person", List["Person"], "PerformingGroup", List["PerformingGroup"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'actor',
@@ -76,7 +76,7 @@ A video game series.
         ),
         serialization_alias='https://schema.org/actor'
     )
-    quest: Optional[Union[Thing, List[Thing]]] = Field(
+    quest: Optional[Union["Thing", List["Thing"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'quest',
@@ -84,7 +84,7 @@ A video game series.
         ),
         serialization_alias='https://schema.org/quest'
     )
-    gameLocation: Optional[Union[Place, List[Place], HttpUrl, List[HttpUrl], PostalAddress, List[PostalAddress]]] = Field(
+    gameLocation: Optional[Union["Place", List["Place"], HttpUrl, List[HttpUrl], "PostalAddress", List["PostalAddress"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'gameLocation',
@@ -92,7 +92,7 @@ A video game series.
         ),
         serialization_alias='https://schema.org/gameLocation'
     )
-    playMode: Optional[Union[GamePlayMode, List[GamePlayMode]]] = Field(
+    playMode: Optional[Union["GamePlayMode", List["GamePlayMode"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'playMode',
@@ -100,7 +100,7 @@ A video game series.
         ),
         serialization_alias='https://schema.org/playMode'
     )
-    season: Optional[Union[CreativeWorkSeason, List[CreativeWorkSeason], HttpUrl, List[HttpUrl]]] = Field(
+    season: Optional[Union["CreativeWorkSeason", List["CreativeWorkSeason"], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'season',
@@ -108,7 +108,7 @@ A video game series.
         ),
         serialization_alias='https://schema.org/season'
     )
-    productionCompany: Optional[Union[Organization, List[Organization]]] = Field(
+    productionCompany: Optional[Union["Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'productionCompany',
@@ -116,7 +116,7 @@ A video game series.
         ),
         serialization_alias='https://schema.org/productionCompany'
     )
-    musicBy: Optional[Union[MusicGroup, List[MusicGroup], Person, List[Person]]] = Field(
+    musicBy: Optional[Union["MusicGroup", List["MusicGroup"], "Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'musicBy',
@@ -124,7 +124,7 @@ A video game series.
         ),
         serialization_alias='https://schema.org/musicBy'
     )
-    characterAttribute: Optional[Union[Thing, List[Thing]]] = Field(
+    characterAttribute: Optional[Union["Thing", List["Thing"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'characterAttribute',
@@ -132,7 +132,7 @@ A video game series.
         ),
         serialization_alias='https://schema.org/characterAttribute'
     )
-    actors: Optional[Union[Person, List[Person]]] = Field(
+    actors: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'actors',
@@ -140,7 +140,7 @@ A video game series.
         ),
         serialization_alias='https://schema.org/actors'
     )
-    seasons: Optional[Union[CreativeWorkSeason, List[CreativeWorkSeason]]] = Field(
+    seasons: Optional[Union["CreativeWorkSeason", List["CreativeWorkSeason"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'seasons',
@@ -156,7 +156,7 @@ A video game series.
         ),
         serialization_alias='https://schema.org/numberOfSeasons'
     )
-    cheatCode: Optional[Union[CreativeWork, List[CreativeWork]]] = Field(
+    cheatCode: Optional[Union["CreativeWork", List["CreativeWork"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'cheatCode',
@@ -164,7 +164,7 @@ A video game series.
         ),
         serialization_alias='https://schema.org/cheatCode'
     )
-    trailer: Optional[Union[VideoObject, List[VideoObject]]] = Field(
+    trailer: Optional[Union["VideoObject", List["VideoObject"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'trailer',
@@ -172,7 +172,7 @@ A video game series.
         ),
         serialization_alias='https://schema.org/trailer'
     )
-    directors: Optional[Union[Person, List[Person]]] = Field(
+    directors: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'directors',
@@ -180,7 +180,7 @@ A video game series.
         ),
         serialization_alias='https://schema.org/directors'
     )
-    containsSeason: Optional[Union[CreativeWorkSeason, List[CreativeWorkSeason]]] = Field(
+    containsSeason: Optional[Union["CreativeWorkSeason", List["CreativeWorkSeason"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'containsSeason',
@@ -188,7 +188,7 @@ A video game series.
         ),
         serialization_alias='https://schema.org/containsSeason'
     )
-    episodes: Optional[Union[Episode, List[Episode]]] = Field(
+    episodes: Optional[Union["Episode", List["Episode"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'episodes',
@@ -196,7 +196,7 @@ A video game series.
         ),
         serialization_alias='https://schema.org/episodes'
     )
-    gamePlatform: Optional[Union[HttpUrl, List[HttpUrl], str, List[str], Thing, List[Thing]]] = Field(
+    gamePlatform: Optional[Union[HttpUrl, List[HttpUrl], str, List[str], "Thing", List["Thing"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'gamePlatform',
@@ -204,7 +204,7 @@ A video game series.
         ),
         serialization_alias='https://schema.org/gamePlatform'
     )
-    director: Optional[Union[Person, List[Person]]] = Field(
+    director: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'director',

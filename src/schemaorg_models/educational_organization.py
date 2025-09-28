@@ -23,7 +23,7 @@ An educational organization.
         alias='@type',
         serialization_alias='@type'
     )
-    alumni: Optional[Union[Person, List[Person]]] = Field(
+    alumni: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'alumni',

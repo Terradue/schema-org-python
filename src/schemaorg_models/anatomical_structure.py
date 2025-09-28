@@ -13,8 +13,8 @@ from .medical_entity import MedicalEntity
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .medical_condition import MedicalCondition
-    from .medical_therapy import MedicalTherapy
     from .anatomical_system import AnatomicalSystem
+    from .medical_therapy import MedicalTherapy
     from .image_object import ImageObject
 
 class AnatomicalStructure(MedicalEntity):
@@ -26,7 +26,7 @@ Any part of the human body, typically a component of an anatomical system. Organ
         alias='@type',
         serialization_alias='@type'
     )
-    subStructure: Optional[Union[AnatomicalStructure, List[AnatomicalStructure]]] = Field(
+    subStructure: Optional[Union["AnatomicalStructure", List["AnatomicalStructure"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'subStructure',
@@ -42,7 +42,7 @@ Any part of the human body, typically a component of an anatomical system. Organ
         ),
         serialization_alias='https://schema.org/associatedPathophysiology'
     )
-    diagram: Optional[Union[ImageObject, List[ImageObject]]] = Field(
+    diagram: Optional[Union["ImageObject", List["ImageObject"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'diagram',
@@ -50,7 +50,7 @@ Any part of the human body, typically a component of an anatomical system. Organ
         ),
         serialization_alias='https://schema.org/diagram'
     )
-    relatedCondition: Optional[Union[MedicalCondition, List[MedicalCondition]]] = Field(
+    relatedCondition: Optional[Union["MedicalCondition", List["MedicalCondition"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'relatedCondition',
@@ -66,7 +66,7 @@ Any part of the human body, typically a component of an anatomical system. Organ
         ),
         serialization_alias='https://schema.org/bodyLocation'
     )
-    connectedTo: Optional[Union[AnatomicalStructure, List[AnatomicalStructure]]] = Field(
+    connectedTo: Optional[Union["AnatomicalStructure", List["AnatomicalStructure"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'connectedTo',
@@ -74,7 +74,7 @@ Any part of the human body, typically a component of an anatomical system. Organ
         ),
         serialization_alias='https://schema.org/connectedTo'
     )
-    relatedTherapy: Optional[Union[MedicalTherapy, List[MedicalTherapy]]] = Field(
+    relatedTherapy: Optional[Union["MedicalTherapy", List["MedicalTherapy"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'relatedTherapy',
@@ -82,7 +82,7 @@ Any part of the human body, typically a component of an anatomical system. Organ
         ),
         serialization_alias='https://schema.org/relatedTherapy'
     )
-    partOfSystem: Optional[Union[AnatomicalSystem, List[AnatomicalSystem]]] = Field(
+    partOfSystem: Optional[Union["AnatomicalSystem", List["AnatomicalSystem"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'partOfSystem',

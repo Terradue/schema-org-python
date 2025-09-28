@@ -12,8 +12,8 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .media_object import MediaObject
     from .hyper_toc_entry import HyperTocEntry
+    from .media_object import MediaObject
 
 class HyperToc(CreativeWork):
     """
@@ -24,7 +24,7 @@ A HyperToc represents a hypertext table of contents for complex media objects, s
         alias='@type',
         serialization_alias='@type'
     )
-    tocEntry: Optional[Union[HyperTocEntry, List[HyperTocEntry]]] = Field(
+    tocEntry: Optional[Union["HyperTocEntry", List["HyperTocEntry"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'tocEntry',
@@ -32,7 +32,7 @@ A HyperToc represents a hypertext table of contents for complex media objects, s
         ),
         serialization_alias='https://schema.org/tocEntry'
     )
-    associatedMedia: Optional[Union[MediaObject, List[MediaObject]]] = Field(
+    associatedMedia: Optional[Union["MediaObject", List["MediaObject"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'associatedMedia',

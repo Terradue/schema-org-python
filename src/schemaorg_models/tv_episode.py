@@ -13,9 +13,9 @@ from typing import (
 from .episode import Episode
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .tv_series import TVSeries
-    from .country import Country
     from .language import Language
+    from .country import Country
+    from .tv_series import TVSeries
 
 class TVEpisode(Episode):
     """
@@ -26,7 +26,7 @@ A TV episode which can be part of a series or season.
         alias='@type',
         serialization_alias='@type'
     )
-    partOfTVSeries: Optional[Union[TVSeries, List[TVSeries]]] = Field(
+    partOfTVSeries: Optional[Union["TVSeries", List["TVSeries"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'partOfTVSeries',
@@ -34,7 +34,7 @@ A TV episode which can be part of a series or season.
         ),
         serialization_alias='https://schema.org/partOfTVSeries'
     )
-    subtitleLanguage: Optional[Union[Language, List[Language], str, List[str]]] = Field(
+    subtitleLanguage: Optional[Union["Language", List["Language"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'subtitleLanguage',
@@ -50,7 +50,7 @@ A TV episode which can be part of a series or season.
         ),
         serialization_alias='https://schema.org/titleEIDR'
     )
-    countryOfOrigin: Optional[Union[Country, List[Country]]] = Field(
+    countryOfOrigin: Optional[Union["Country", List["Country"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'countryOfOrigin',

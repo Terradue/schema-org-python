@@ -25,7 +25,7 @@ A tourist destination. In principle any [[Place]] can be a [[TouristDestination]
         alias='@type',
         serialization_alias='@type'
     )
-    touristType: Optional[Union[Audience, List[Audience], str, List[str]]] = Field(
+    touristType: Optional[Union["Audience", List["Audience"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'touristType',
@@ -33,7 +33,7 @@ A tourist destination. In principle any [[Place]] can be a [[TouristDestination]
         ),
         serialization_alias='https://schema.org/touristType'
     )
-    includesAttraction: Optional[Union[TouristAttraction, List[TouristAttraction]]] = Field(
+    includesAttraction: Optional[Union["TouristAttraction", List["TouristAttraction"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'includesAttraction',

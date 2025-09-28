@@ -24,7 +24,7 @@ An agent approves/certifies/likes/supports/sanctions an object.
         alias='@type',
         serialization_alias='@type'
     )
-    endorsee: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
+    endorsee: Optional[Union["Person", List["Person"], "Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'endorsee',

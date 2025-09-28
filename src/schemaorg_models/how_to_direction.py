@@ -13,10 +13,10 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .how_to_supply import HowToSupply
-    from .media_object import MediaObject
-    from .duration import Duration
     from .how_to_tool import HowToTool
+    from .duration import Duration
+    from .media_object import MediaObject
+    from .how_to_supply import HowToSupply
 
 class HowToDirection(CreativeWork):
     """
@@ -27,7 +27,7 @@ A direction indicating a single action to do in the instructions for how to achi
         alias='@type',
         serialization_alias='@type'
     )
-    beforeMedia: Optional[Union[MediaObject, List[MediaObject], HttpUrl, List[HttpUrl]]] = Field(
+    beforeMedia: Optional[Union["MediaObject", List["MediaObject"], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'beforeMedia',
@@ -35,7 +35,7 @@ A direction indicating a single action to do in the instructions for how to achi
         ),
         serialization_alias='https://schema.org/beforeMedia'
     )
-    prepTime: Optional[Union[Duration, List[Duration]]] = Field(
+    prepTime: Optional[Union["Duration", List["Duration"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'prepTime',
@@ -43,7 +43,7 @@ A direction indicating a single action to do in the instructions for how to achi
         ),
         serialization_alias='https://schema.org/prepTime'
     )
-    supply: Optional[Union[HowToSupply, List[HowToSupply], str, List[str]]] = Field(
+    supply: Optional[Union["HowToSupply", List["HowToSupply"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'supply',
@@ -51,7 +51,7 @@ A direction indicating a single action to do in the instructions for how to achi
         ),
         serialization_alias='https://schema.org/supply'
     )
-    performTime: Optional[Union[Duration, List[Duration]]] = Field(
+    performTime: Optional[Union["Duration", List["Duration"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'performTime',
@@ -59,7 +59,7 @@ A direction indicating a single action to do in the instructions for how to achi
         ),
         serialization_alias='https://schema.org/performTime'
     )
-    totalTime: Optional[Union[Duration, List[Duration]]] = Field(
+    totalTime: Optional[Union["Duration", List["Duration"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'totalTime',
@@ -67,7 +67,7 @@ A direction indicating a single action to do in the instructions for how to achi
         ),
         serialization_alias='https://schema.org/totalTime'
     )
-    duringMedia: Optional[Union[HttpUrl, List[HttpUrl], MediaObject, List[MediaObject]]] = Field(
+    duringMedia: Optional[Union[HttpUrl, List[HttpUrl], "MediaObject", List["MediaObject"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'duringMedia',
@@ -75,7 +75,7 @@ A direction indicating a single action to do in the instructions for how to achi
         ),
         serialization_alias='https://schema.org/duringMedia'
     )
-    tool: Optional[Union[str, List[str], HowToTool, List[HowToTool]]] = Field(
+    tool: Optional[Union[str, List[str], "HowToTool", List["HowToTool"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'tool',
@@ -83,7 +83,7 @@ A direction indicating a single action to do in the instructions for how to achi
         ),
         serialization_alias='https://schema.org/tool'
     )
-    afterMedia: Optional[Union[HttpUrl, List[HttpUrl], MediaObject, List[MediaObject]]] = Field(
+    afterMedia: Optional[Union[HttpUrl, List[HttpUrl], "MediaObject", List["MediaObject"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'afterMedia',

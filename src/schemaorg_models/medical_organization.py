@@ -39,7 +39,7 @@ A medical organization (physical or not), such as hospital, institution or clini
         ),
         serialization_alias='https://schema.org/isAcceptingNewPatients'
     )
-    medicalSpecialty: Optional[Union[MedicalSpecialty, List[MedicalSpecialty]]] = Field(
+    medicalSpecialty: Optional[Union["MedicalSpecialty", List["MedicalSpecialty"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'medicalSpecialty',

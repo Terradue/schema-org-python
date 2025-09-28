@@ -24,7 +24,7 @@ A single feed providing structured information about one or more entities or top
         alias='@type',
         serialization_alias='@type'
     )
-    dataFeedElement: Optional[Union[DataFeedItem, List[DataFeedItem], str, List[str], Thing, List[Thing]]] = Field(
+    dataFeedElement: Optional[Union["DataFeedItem", List["DataFeedItem"], str, List[str], "Thing", List["Thing"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'dataFeedElement',

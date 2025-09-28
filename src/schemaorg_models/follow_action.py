@@ -32,7 +32,7 @@ Related actions:\
         alias='@type',
         serialization_alias='@type'
     )
-    followee: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
+    followee: Optional[Union["Person", List["Person"], "Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'followee',

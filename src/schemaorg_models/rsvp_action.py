@@ -32,7 +32,7 @@ The act of notifying an event organizer as to whether you expect to attend the e
         ),
         serialization_alias='https://schema.org/additionalNumberOfGuests'
     )
-    comment: Optional[Union[Comment, List[Comment]]] = Field(
+    comment: Optional[Union["Comment", List["Comment"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'comment',
@@ -40,7 +40,7 @@ The act of notifying an event organizer as to whether you expect to attend the e
         ),
         serialization_alias='https://schema.org/comment'
     )
-    rsvpResponse: Optional[Union[RsvpResponseType, List[RsvpResponseType]]] = Field(
+    rsvpResponse: Optional[Union["RsvpResponseType", List["RsvpResponseType"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'rsvpResponse',

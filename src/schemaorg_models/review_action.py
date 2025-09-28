@@ -23,7 +23,7 @@ The act of producing a balanced opinion about the object for an audience. An age
         alias='@type',
         serialization_alias='@type'
     )
-    resultReview: Optional[Union[Review, List[Review]]] = Field(
+    resultReview: Optional[Union["Review", List["Review"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'resultReview',

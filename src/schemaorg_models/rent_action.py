@@ -12,9 +12,9 @@ from typing import (
 from .trade_action import TradeAction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .person import Person
     from .organization import Organization
     from .real_estate_agent import RealEstateAgent
+    from .person import Person
 
 class RentAction(TradeAction):
     """
@@ -25,7 +25,7 @@ The act of giving money in return for temporary use, but not ownership, of an ob
         alias='@type',
         serialization_alias='@type'
     )
-    realEstateAgent: Optional[Union[RealEstateAgent, List[RealEstateAgent]]] = Field(
+    realEstateAgent: Optional[Union["RealEstateAgent", List["RealEstateAgent"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'realEstateAgent',
@@ -33,7 +33,7 @@ The act of giving money in return for temporary use, but not ownership, of an ob
         ),
         serialization_alias='https://schema.org/realEstateAgent'
     )
-    landlord: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(
+    landlord: Optional[Union["Organization", List["Organization"], "Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'landlord',

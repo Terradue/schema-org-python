@@ -13,11 +13,11 @@ from typing import (
 from .financial_product import FinancialProduct
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .thing import Thing
-    from .quantitative_value import QuantitativeValue
+    from .monetary_amount import MonetaryAmount
     from .repayment_specification import RepaymentSpecification
     from .duration import Duration
-    from .monetary_amount import MonetaryAmount
+    from .thing import Thing
+    from .quantitative_value import QuantitativeValue
 
 class LoanOrCredit(FinancialProduct):
     """
@@ -28,7 +28,7 @@ A financial product for the loaning of an amount of money, or line of credit, un
         alias='@type',
         serialization_alias='@type'
     )
-    gracePeriod: Optional[Union[Duration, List[Duration]]] = Field(
+    gracePeriod: Optional[Union["Duration", List["Duration"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'gracePeriod',
@@ -36,7 +36,7 @@ A financial product for the loaning of an amount of money, or line of credit, un
         ),
         serialization_alias='https://schema.org/gracePeriod'
     )
-    requiredCollateral: Optional[Union[str, List[str], Thing, List[Thing]]] = Field(
+    requiredCollateral: Optional[Union[str, List[str], "Thing", List["Thing"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'requiredCollateral',
@@ -52,7 +52,7 @@ A financial product for the loaning of an amount of money, or line of credit, un
         ),
         serialization_alias='https://schema.org/currency'
     )
-    loanRepaymentForm: Optional[Union[RepaymentSpecification, List[RepaymentSpecification]]] = Field(
+    loanRepaymentForm: Optional[Union["RepaymentSpecification", List["RepaymentSpecification"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'loanRepaymentForm',
@@ -60,7 +60,7 @@ A financial product for the loaning of an amount of money, or line of credit, un
         ),
         serialization_alias='https://schema.org/loanRepaymentForm'
     )
-    amount: Optional[Union[MonetaryAmount, List[MonetaryAmount], float, List[float]]] = Field(
+    amount: Optional[Union["MonetaryAmount", List["MonetaryAmount"], float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'amount',
@@ -76,7 +76,7 @@ A financial product for the loaning of an amount of money, or line of credit, un
         ),
         serialization_alias='https://schema.org/recourseLoan'
     )
-    loanTerm: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
+    loanTerm: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'loanTerm',

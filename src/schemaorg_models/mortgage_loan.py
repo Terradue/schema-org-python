@@ -23,7 +23,7 @@ A loan in which property or real estate is used as collateral. (A loan securitiz
         alias='@type',
         serialization_alias='@type'
     )
-    loanMortgageMandateAmount: Optional[Union[MonetaryAmount, List[MonetaryAmount]]] = Field(
+    loanMortgageMandateAmount: Optional[Union["MonetaryAmount", List["MonetaryAmount"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'loanMortgageMandateAmount',

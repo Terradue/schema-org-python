@@ -23,7 +23,7 @@ A set of defined terms, for example a set of categories or a classification sche
         alias='@type',
         serialization_alias='@type'
     )
-    hasDefinedTerm: Optional[Union[DefinedTerm, List[DefinedTerm]]] = Field(
+    hasDefinedTerm: Optional[Union["DefinedTerm", List["DefinedTerm"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasDefinedTerm',

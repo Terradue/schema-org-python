@@ -23,7 +23,7 @@ A StupidType for testing.
         alias='@type',
         serialization_alias='@type'
     )
-    stupidProperty: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
+    stupidProperty: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'stupidProperty',

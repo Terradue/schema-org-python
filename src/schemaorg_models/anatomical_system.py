@@ -13,8 +13,8 @@ from .medical_entity import MedicalEntity
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .medical_condition import MedicalCondition
-    from .medical_therapy import MedicalTherapy
     from .anatomical_structure import AnatomicalStructure
+    from .medical_therapy import MedicalTherapy
 
 class AnatomicalSystem(MedicalEntity):
     """
@@ -33,7 +33,7 @@ An anatomical system is a group of anatomical structures that work together to p
         ),
         serialization_alias='https://schema.org/associatedPathophysiology'
     )
-    comprisedOf: Optional[Union[AnatomicalStructure, List[AnatomicalStructure], AnatomicalSystem, List[AnatomicalSystem]]] = Field(
+    comprisedOf: Optional[Union["AnatomicalStructure", List["AnatomicalStructure"], "AnatomicalSystem", List["AnatomicalSystem"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'comprisedOf',
@@ -41,7 +41,7 @@ An anatomical system is a group of anatomical structures that work together to p
         ),
         serialization_alias='https://schema.org/comprisedOf'
     )
-    relatedStructure: Optional[Union[AnatomicalStructure, List[AnatomicalStructure]]] = Field(
+    relatedStructure: Optional[Union["AnatomicalStructure", List["AnatomicalStructure"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'relatedStructure',
@@ -49,7 +49,7 @@ An anatomical system is a group of anatomical structures that work together to p
         ),
         serialization_alias='https://schema.org/relatedStructure'
     )
-    relatedCondition: Optional[Union[MedicalCondition, List[MedicalCondition]]] = Field(
+    relatedCondition: Optional[Union["MedicalCondition", List["MedicalCondition"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'relatedCondition',
@@ -57,7 +57,7 @@ An anatomical system is a group of anatomical structures that work together to p
         ),
         serialization_alias='https://schema.org/relatedCondition'
     )
-    relatedTherapy: Optional[Union[MedicalTherapy, List[MedicalTherapy]]] = Field(
+    relatedTherapy: Optional[Union["MedicalTherapy", List["MedicalTherapy"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'relatedTherapy',

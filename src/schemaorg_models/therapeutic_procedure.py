@@ -12,9 +12,9 @@ from typing import (
 from .medical_procedure import MedicalProcedure
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .medical_entity import MedicalEntity
     from .dose_schedule import DoseSchedule
     from .drug import Drug
+    from .medical_entity import MedicalEntity
 
 class TherapeuticProcedure(MedicalProcedure):
     """
@@ -25,7 +25,7 @@ A medical procedure intended primarily for therapeutic purposes, aimed at improv
         alias='@type',
         serialization_alias='@type'
     )
-    drug: Optional[Union[Drug, List[Drug]]] = Field(
+    drug: Optional[Union["Drug", List["Drug"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'drug',
@@ -33,7 +33,7 @@ A medical procedure intended primarily for therapeutic purposes, aimed at improv
         ),
         serialization_alias='https://schema.org/drug'
     )
-    adverseOutcome: Optional[Union[MedicalEntity, List[MedicalEntity]]] = Field(
+    adverseOutcome: Optional[Union["MedicalEntity", List["MedicalEntity"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'adverseOutcome',
@@ -41,7 +41,7 @@ A medical procedure intended primarily for therapeutic purposes, aimed at improv
         ),
         serialization_alias='https://schema.org/adverseOutcome'
     )
-    doseSchedule: Optional[Union[DoseSchedule, List[DoseSchedule]]] = Field(
+    doseSchedule: Optional[Union["DoseSchedule", List["DoseSchedule"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'doseSchedule',

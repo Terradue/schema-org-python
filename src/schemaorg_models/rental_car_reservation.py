@@ -44,7 +44,7 @@ Note: This type is for information about actual reservations, e.g. in confirmati
         ),
         serialization_alias='https://schema.org/dropoffTime'
     )
-    dropoffLocation: Optional[Union[Place, List[Place]]] = Field(
+    dropoffLocation: Optional[Union["Place", List["Place"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'dropoffLocation',
@@ -52,7 +52,7 @@ Note: This type is for information about actual reservations, e.g. in confirmati
         ),
         serialization_alias='https://schema.org/dropoffLocation'
     )
-    pickupLocation: Optional[Union[Place, List[Place]]] = Field(
+    pickupLocation: Optional[Union["Place", List["Place"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'pickupLocation',

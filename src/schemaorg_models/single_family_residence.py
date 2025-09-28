@@ -23,7 +23,7 @@ Residence type: Single-family home.
         alias='@type',
         serialization_alias='@type'
     )
-    numberOfRooms: Optional[Union[float, List[float], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    numberOfRooms: Optional[Union[float, List[float], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'numberOfRooms',
@@ -31,7 +31,7 @@ Residence type: Single-family home.
         ),
         serialization_alias='https://schema.org/numberOfRooms'
     )
-    occupancy: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
+    occupancy: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'occupancy',

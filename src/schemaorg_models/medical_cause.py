@@ -20,7 +20,7 @@ The causative agent(s) that are responsible for the pathophysiologic process tha
         alias='@type',
         serialization_alias='@type'
     )
-    causeOf: Optional[Union[MedicalEntity, List[MedicalEntity]]] = Field(
+    causeOf: Optional[Union["MedicalEntity", List["MedicalEntity"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'causeOf',

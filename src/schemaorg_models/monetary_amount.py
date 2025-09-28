@@ -48,7 +48,7 @@ A monetary value or range. This type can be used to describe an amount of money 
         ),
         serialization_alias='https://schema.org/minValue'
     )
-    value: Optional[Union[float, List[float], StructuredValue, List[StructuredValue], bool, List[bool], str, List[str]]] = Field(
+    value: Optional[Union[float, List[float], "StructuredValue", List["StructuredValue"], bool, List[bool], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'value',

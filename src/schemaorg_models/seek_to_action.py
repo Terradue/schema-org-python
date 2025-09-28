@@ -23,7 +23,7 @@ This is the [[Action]] of navigating to a specific [[startOffset]] timestamp wit
         alias='@type',
         serialization_alias='@type'
     )
-    startOffset: Optional[Union[float, List[float], HyperTocEntry, List[HyperTocEntry]]] = Field(
+    startOffset: Optional[Union[float, List[float], "HyperTocEntry", List["HyperTocEntry"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'startOffset',

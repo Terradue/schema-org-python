@@ -12,8 +12,8 @@ from typing import (
 from .price_specification import PriceSpecification
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .administrative_area import AdministrativeArea
     from .delivery_method import DeliveryMethod
+    from .administrative_area import AdministrativeArea
     from .place import Place
     from .geo_shape import GeoShape
 
@@ -26,7 +26,7 @@ The price for the delivery of an offer using a particular delivery method.
         alias='@type',
         serialization_alias='@type'
     )
-    areaServed: Optional[Union[GeoShape, List[GeoShape], str, List[str], AdministrativeArea, List[AdministrativeArea], Place, List[Place]]] = Field(
+    areaServed: Optional[Union["GeoShape", List["GeoShape"], str, List[str], "AdministrativeArea", List["AdministrativeArea"], "Place", List["Place"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'areaServed',
@@ -34,7 +34,7 @@ The price for the delivery of an offer using a particular delivery method.
         ),
         serialization_alias='https://schema.org/areaServed'
     )
-    eligibleRegion: Optional[Union[GeoShape, List[GeoShape], str, List[str], Place, List[Place]]] = Field(
+    eligibleRegion: Optional[Union["GeoShape", List["GeoShape"], str, List[str], "Place", List["Place"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'eligibleRegion',
@@ -42,7 +42,7 @@ The price for the delivery of an offer using a particular delivery method.
         ),
         serialization_alias='https://schema.org/eligibleRegion'
     )
-    appliesToDeliveryMethod: Optional[Union[DeliveryMethod, List[DeliveryMethod]]] = Field(
+    appliesToDeliveryMethod: Optional[Union["DeliveryMethod", List["DeliveryMethod"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'appliesToDeliveryMethod',
@@ -50,7 +50,7 @@ The price for the delivery of an offer using a particular delivery method.
         ),
         serialization_alias='https://schema.org/appliesToDeliveryMethod'
     )
-    ineligibleRegion: Optional[Union[str, List[str], Place, List[Place], GeoShape, List[GeoShape]]] = Field(
+    ineligibleRegion: Optional[Union[str, List[str], "Place", List["Place"], "GeoShape", List["GeoShape"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'ineligibleRegion',

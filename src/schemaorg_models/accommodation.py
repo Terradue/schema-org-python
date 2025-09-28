@@ -13,12 +13,12 @@ from typing import (
 from .place import Place
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .quantitative_value import QuantitativeValue
-    from .floor_plan import FloorPlan
+    from .bed_details import BedDetails
     from .duration import Duration
     from .bed_type import BedType
-    from .bed_details import BedDetails
     from .location_feature_specification import LocationFeatureSpecification
+    from .quantitative_value import QuantitativeValue
+    from .floor_plan import FloorPlan
 
 class Accommodation(Place):
     """
@@ -33,7 +33,7 @@ See also the <a href="/docs/hotels.html">dedicated document on the use of schema
         alias='@type',
         serialization_alias='@type'
     )
-    numberOfRooms: Optional[Union[float, List[float], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    numberOfRooms: Optional[Union[float, List[float], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'numberOfRooms',
@@ -57,7 +57,7 @@ See also the <a href="/docs/hotels.html">dedicated document on the use of schema
         ),
         serialization_alias='https://schema.org/numberOfBathroomsTotal'
     )
-    leaseLength: Optional[Union[QuantitativeValue, List[QuantitativeValue], Duration, List[Duration]]] = Field(
+    leaseLength: Optional[Union["QuantitativeValue", List["QuantitativeValue"], "Duration", List["Duration"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'leaseLength',
@@ -65,7 +65,7 @@ See also the <a href="/docs/hotels.html">dedicated document on the use of schema
         ),
         serialization_alias='https://schema.org/leaseLength'
     )
-    numberOfBedrooms: Optional[Union[float, List[float], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    numberOfBedrooms: Optional[Union[float, List[float], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'numberOfBedrooms',
@@ -73,7 +73,7 @@ See also the <a href="/docs/hotels.html">dedicated document on the use of schema
         ),
         serialization_alias='https://schema.org/numberOfBedrooms'
     )
-    accommodationFloorPlan: Optional[Union[FloorPlan, List[FloorPlan]]] = Field(
+    accommodationFloorPlan: Optional[Union["FloorPlan", List["FloorPlan"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'accommodationFloorPlan',
@@ -97,7 +97,7 @@ See also the <a href="/docs/hotels.html">dedicated document on the use of schema
         ),
         serialization_alias='https://schema.org/floorLevel'
     )
-    floorSize: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
+    floorSize: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'floorSize',
@@ -113,7 +113,7 @@ See also the <a href="/docs/hotels.html">dedicated document on the use of schema
         ),
         serialization_alias='https://schema.org/accommodationCategory'
     )
-    amenityFeature: Optional[Union[LocationFeatureSpecification, List[LocationFeatureSpecification]]] = Field(
+    amenityFeature: Optional[Union["LocationFeatureSpecification", List["LocationFeatureSpecification"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'amenityFeature',
@@ -129,7 +129,7 @@ See also the <a href="/docs/hotels.html">dedicated document on the use of schema
         ),
         serialization_alias='https://schema.org/tourBookingPage'
     )
-    occupancy: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
+    occupancy: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'occupancy',
@@ -145,7 +145,7 @@ See also the <a href="/docs/hotels.html">dedicated document on the use of schema
         ),
         serialization_alias='https://schema.org/permittedUsage'
     )
-    bed: Optional[Union[BedType, List[BedType], str, List[str], BedDetails, List[BedDetails]]] = Field(
+    bed: Optional[Union["BedType", List["BedType"], str, List[str], "BedDetails", List["BedDetails"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'bed',

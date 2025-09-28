@@ -25,7 +25,7 @@ population, and does not imply that the population consists of people. For examp
         alias='@type',
         serialization_alias='@type'
     )
-    populationType: Optional[Union[_Class, List[_Class]]] = Field(
+    populationType: Optional[Union["_Class", List["_Class"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'populationType',

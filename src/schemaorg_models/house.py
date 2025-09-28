@@ -23,7 +23,7 @@ A house is a building or structure that has the ability to be occupied for habit
         alias='@type',
         serialization_alias='@type'
     )
-    numberOfRooms: Optional[Union[float, List[float], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    numberOfRooms: Optional[Union[float, List[float], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'numberOfRooms',

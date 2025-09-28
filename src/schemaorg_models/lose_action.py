@@ -23,7 +23,7 @@ The act of being defeated in a competitive activity.
         alias='@type',
         serialization_alias='@type'
     )
-    winner: Optional[Union[Person, List[Person]]] = Field(
+    winner: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'winner',

@@ -16,8 +16,8 @@ from typing import (
 from .reservation import Reservation
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .quantitative_value import QuantitativeValue
     from .qualitative_value import QualitativeValue
+    from .quantitative_value import QuantitativeValue
 
 class LodgingReservation(Reservation):
     """
@@ -38,7 +38,7 @@ Note: This type is for information about actual reservations, e.g. in confirmati
         ),
         serialization_alias='https://schema.org/checkoutTime'
     )
-    numAdults: Optional[Union[QuantitativeValue, List[QuantitativeValue], int, List[int]]] = Field(
+    numAdults: Optional[Union["QuantitativeValue", List["QuantitativeValue"], int, List[int]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'numAdults',
@@ -54,7 +54,7 @@ Note: This type is for information about actual reservations, e.g. in confirmati
         ),
         serialization_alias='https://schema.org/checkinTime'
     )
-    lodgingUnitType: Optional[Union[str, List[str], QualitativeValue, List[QualitativeValue]]] = Field(
+    lodgingUnitType: Optional[Union[str, List[str], "QualitativeValue", List["QualitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'lodgingUnitType',
@@ -70,7 +70,7 @@ Note: This type is for information about actual reservations, e.g. in confirmati
         ),
         serialization_alias='https://schema.org/lodgingUnitDescription'
     )
-    numChildren: Optional[Union[QuantitativeValue, List[QuantitativeValue], int, List[int]]] = Field(
+    numChildren: Optional[Union["QuantitativeValue", List["QuantitativeValue"], int, List[int]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'numChildren',

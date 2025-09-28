@@ -23,7 +23,7 @@ The act of playing a video game.
         alias='@type',
         serialization_alias='@type'
     )
-    gameAvailabilityType: Optional[Union[str, List[str], GameAvailabilityEnumeration, List[GameAvailabilityEnumeration]]] = Field(
+    gameAvailabilityType: Optional[Union[str, List[str], "GameAvailabilityEnumeration", List["GameAvailabilityEnumeration"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'gameAvailabilityType',

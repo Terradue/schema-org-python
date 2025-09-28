@@ -32,7 +32,7 @@ A product or service offered by a bank whereby one may deposit, withdraw or tran
         ),
         serialization_alias='https://schema.org/bankAccountType'
     )
-    accountOverdraftLimit: Optional[Union[MonetaryAmount, List[MonetaryAmount]]] = Field(
+    accountOverdraftLimit: Optional[Union["MonetaryAmount", List["MonetaryAmount"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'accountOverdraftLimit',
@@ -40,7 +40,7 @@ A product or service offered by a bank whereby one may deposit, withdraw or tran
         ),
         serialization_alias='https://schema.org/accountOverdraftLimit'
     )
-    accountMinimumInflow: Optional[Union[MonetaryAmount, List[MonetaryAmount]]] = Field(
+    accountMinimumInflow: Optional[Union["MonetaryAmount", List["MonetaryAmount"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'accountMinimumInflow',

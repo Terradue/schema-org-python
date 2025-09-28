@@ -24,7 +24,7 @@ Any medical intervention designed to prevent, treat, and cure human diseases and
         alias='@type',
         serialization_alias='@type'
     )
-    seriousAdverseOutcome: Optional[Union[MedicalEntity, List[MedicalEntity]]] = Field(
+    seriousAdverseOutcome: Optional[Union["MedicalEntity", List["MedicalEntity"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'seriousAdverseOutcome',
@@ -32,7 +32,7 @@ Any medical intervention designed to prevent, treat, and cure human diseases and
         ),
         serialization_alias='https://schema.org/seriousAdverseOutcome'
     )
-    contraindication: Optional[Union[str, List[str], MedicalContraindication, List[MedicalContraindication]]] = Field(
+    contraindication: Optional[Union[str, List[str], "MedicalContraindication", List["MedicalContraindication"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'contraindication',
@@ -40,7 +40,7 @@ Any medical intervention designed to prevent, treat, and cure human diseases and
         ),
         serialization_alias='https://schema.org/contraindication'
     )
-    duplicateTherapy: Optional[Union[MedicalTherapy, List[MedicalTherapy]]] = Field(
+    duplicateTherapy: Optional[Union["MedicalTherapy", List["MedicalTherapy"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'duplicateTherapy',

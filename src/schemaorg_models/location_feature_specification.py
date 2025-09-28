@@ -35,7 +35,7 @@ Specifies a location feature by providing a structured value representing a feat
         ),
         serialization_alias='https://schema.org/validFrom'
     )
-    hoursAvailable: Optional[Union[OpeningHoursSpecification, List[OpeningHoursSpecification]]] = Field(
+    hoursAvailable: Optional[Union["OpeningHoursSpecification", List["OpeningHoursSpecification"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hoursAvailable',

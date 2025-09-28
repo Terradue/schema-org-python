@@ -36,7 +36,7 @@ Structured values are recommended for newer payment methods.
         alias='@type',
         serialization_alias='@type'
     )
-    paymentMethodType: Optional[Union[PaymentMethodType, List[PaymentMethodType]]] = Field(
+    paymentMethodType: Optional[Union["PaymentMethodType", List["PaymentMethodType"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'paymentMethodType',

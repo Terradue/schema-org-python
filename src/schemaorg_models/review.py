@@ -12,11 +12,11 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .thing import Thing
-    from .web_content import WebContent
     from .list_item import ListItem
+    from .web_content import WebContent
     from .item_list import ItemList
     from .rating import Rating
+    from .thing import Thing
 
 class Review(CreativeWork):
     """
@@ -27,7 +27,7 @@ A review of the item.
         alias='@type',
         serialization_alias='@type'
     )
-    itemReviewed: Optional[Union[Thing, List[Thing]]] = Field(
+    itemReviewed: Optional[Union["Thing", List["Thing"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'itemReviewed',
@@ -35,7 +35,7 @@ A review of the item.
         ),
         serialization_alias='https://schema.org/itemReviewed'
     )
-    positiveNotes: Optional[Union[WebContent, List[WebContent], ItemList, List[ItemList], str, List[str], ListItem, List[ListItem]]] = Field(
+    positiveNotes: Optional[Union["WebContent", List["WebContent"], "ItemList", List["ItemList"], str, List[str], "ListItem", List["ListItem"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'positiveNotes',
@@ -51,7 +51,7 @@ A review of the item.
         ),
         serialization_alias='https://schema.org/reviewAspect'
     )
-    reviewRating: Optional[Union[Rating, List[Rating]]] = Field(
+    reviewRating: Optional[Union["Rating", List["Rating"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'reviewRating',
@@ -59,7 +59,7 @@ A review of the item.
         ),
         serialization_alias='https://schema.org/reviewRating'
     )
-    associatedReview: Optional[Union[Review, List[Review]]] = Field(
+    associatedReview: Optional[Union["Review", List["Review"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'associatedReview',
@@ -67,7 +67,7 @@ A review of the item.
         ),
         serialization_alias='https://schema.org/associatedReview'
     )
-    associatedClaimReview: Optional[Union[Review, List[Review]]] = Field(
+    associatedClaimReview: Optional[Union["Review", List["Review"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'associatedClaimReview',
@@ -75,7 +75,7 @@ A review of the item.
         ),
         serialization_alias='https://schema.org/associatedClaimReview'
     )
-    negativeNotes: Optional[Union[ListItem, List[ListItem], WebContent, List[WebContent], ItemList, List[ItemList], str, List[str]]] = Field(
+    negativeNotes: Optional[Union["ListItem", List["ListItem"], "WebContent", List["WebContent"], "ItemList", List["ItemList"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'negativeNotes',
@@ -91,7 +91,7 @@ A review of the item.
         ),
         serialization_alias='https://schema.org/reviewBody'
     )
-    associatedMediaReview: Optional[Union[Review, List[Review]]] = Field(
+    associatedMediaReview: Optional[Union["Review", List["Review"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'associatedMediaReview',

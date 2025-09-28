@@ -23,7 +23,7 @@ A specific object or file containing a Legislation. Note that the same Legislati
         alias='@type',
         serialization_alias='@type'
     )
-    legislationLegalValue: Optional[Union[LegalValueLevel, List[LegalValueLevel]]] = Field(
+    legislationLegalValue: Optional[Union["LegalValueLevel", List["LegalValueLevel"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'legislationLegalValue',

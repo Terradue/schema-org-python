@@ -12,8 +12,8 @@ from typing import (
 from .medical_intangible import MedicalIntangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .administrative_area import AdministrativeArea
     from .maximum_dose_schedule import MaximumDoseSchedule
+    from .administrative_area import AdministrativeArea
 
 class DrugStrength(MedicalIntangible):
     """
@@ -32,7 +32,7 @@ A specific strength in which a medical drug is available in a specific country.
         ),
         serialization_alias='https://schema.org/strengthUnit'
     )
-    maximumIntake: Optional[Union[MaximumDoseSchedule, List[MaximumDoseSchedule]]] = Field(
+    maximumIntake: Optional[Union["MaximumDoseSchedule", List["MaximumDoseSchedule"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'maximumIntake',
@@ -40,7 +40,7 @@ A specific strength in which a medical drug is available in a specific country.
         ),
         serialization_alias='https://schema.org/maximumIntake'
     )
-    availableIn: Optional[Union[AdministrativeArea, List[AdministrativeArea]]] = Field(
+    availableIn: Optional[Union["AdministrativeArea", List["AdministrativeArea"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'availableIn',

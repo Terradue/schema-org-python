@@ -13,12 +13,12 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .quantitative_value import QuantitativeValue
-    from .qualitative_value import QualitativeValue
-    from .measurement_type_enumeration import MeasurementTypeEnumeration
     from .enumeration import Enumeration
-    from .measurement_method_enum import MeasurementMethodEnum
+    from .qualitative_value import QualitativeValue
     from .defined_term import DefinedTerm
+    from .measurement_method_enum import MeasurementMethodEnum
+    from .measurement_type_enumeration import MeasurementTypeEnumeration
+    from .quantitative_value import QuantitativeValue
 
 class PropertyValue(StructuredValue):
     """
@@ -40,7 +40,7 @@ A property-value pair, e.g. representing a feature of a product or place. Use th
         ),
         serialization_alias='https://schema.org/unitText'
     )
-    measurementTechnique: Optional[Union[DefinedTerm, List[DefinedTerm], MeasurementMethodEnum, List[MeasurementMethodEnum], str, List[str], HttpUrl, List[HttpUrl]]] = Field(
+    measurementTechnique: Optional[Union["DefinedTerm", List["DefinedTerm"], "MeasurementMethodEnum", List["MeasurementMethodEnum"], str, List[str], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'measurementTechnique',
@@ -64,7 +64,7 @@ A property-value pair, e.g. representing a feature of a product or place. Use th
         ),
         serialization_alias='https://schema.org/propertyID'
     )
-    value: Optional[Union[float, List[float], StructuredValue, List[StructuredValue], bool, List[bool], str, List[str]]] = Field(
+    value: Optional[Union[float, List[float], "StructuredValue", List["StructuredValue"], bool, List[bool], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'value',
@@ -88,7 +88,7 @@ A property-value pair, e.g. representing a feature of a product or place. Use th
         ),
         serialization_alias='https://schema.org/unitCode'
     )
-    measurementMethod: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str], MeasurementMethodEnum, List[MeasurementMethodEnum], HttpUrl, List[HttpUrl]]] = Field(
+    measurementMethod: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str], "MeasurementMethodEnum", List["MeasurementMethodEnum"], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'measurementMethod',
@@ -96,7 +96,7 @@ A property-value pair, e.g. representing a feature of a product or place. Use th
         ),
         serialization_alias='https://schema.org/measurementMethod'
     )
-    valueReference: Optional[Union[DefinedTerm, List[DefinedTerm], MeasurementTypeEnumeration, List[MeasurementTypeEnumeration], str, List[str], Enumeration, List[Enumeration], QualitativeValue, List[QualitativeValue], QuantitativeValue, List[QuantitativeValue], PropertyValue, List[PropertyValue], StructuredValue, List[StructuredValue]]] = Field(
+    valueReference: Optional[Union["DefinedTerm", List["DefinedTerm"], "MeasurementTypeEnumeration", List["MeasurementTypeEnumeration"], str, List[str], "Enumeration", List["Enumeration"], "QualitativeValue", List["QualitativeValue"], "QuantitativeValue", List["QuantitativeValue"], "PropertyValue", List["PropertyValue"], "StructuredValue", List["StructuredValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'valueReference',

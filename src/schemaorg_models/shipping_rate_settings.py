@@ -12,9 +12,9 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .defined_region import DefinedRegion
     from .delivery_charge_specification import DeliveryChargeSpecification
     from .monetary_amount import MonetaryAmount
+    from .defined_region import DefinedRegion
 
 class ShippingRateSettings(StructuredValue):
     """
@@ -41,7 +41,7 @@ A ShippingRateSettings represents re-usable pieces of shipping information. It i
         ),
         serialization_alias='https://schema.org/doesNotShip'
     )
-    freeShippingThreshold: Optional[Union[DeliveryChargeSpecification, List[DeliveryChargeSpecification], MonetaryAmount, List[MonetaryAmount]]] = Field(
+    freeShippingThreshold: Optional[Union["DeliveryChargeSpecification", List["DeliveryChargeSpecification"], "MonetaryAmount", List["MonetaryAmount"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'freeShippingThreshold',
@@ -73,7 +73,7 @@ A ShippingRateSettings represents re-usable pieces of shipping information. It i
         ),
         serialization_alias='https://schema.org/shippingLabel'
     )
-    shippingDestination: Optional[Union[DefinedRegion, List[DefinedRegion]]] = Field(
+    shippingDestination: Optional[Union["DefinedRegion", List["DefinedRegion"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'shippingDestination',
@@ -81,7 +81,7 @@ A ShippingRateSettings represents re-usable pieces of shipping information. It i
         ),
         serialization_alias='https://schema.org/shippingDestination'
     )
-    shippingRate: Optional[Union[ShippingRateSettings, List[ShippingRateSettings], MonetaryAmount, List[MonetaryAmount]]] = Field(
+    shippingRate: Optional[Union["ShippingRateSettings", List["ShippingRateSettings"], "MonetaryAmount", List["MonetaryAmount"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'shippingRate',

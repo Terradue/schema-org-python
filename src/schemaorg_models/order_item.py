@@ -12,10 +12,10 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .quantitative_value import QuantitativeValue
     from .product import Product
-    from .service import Service
     from .parcel_delivery import ParcelDelivery
+    from .service import Service
+    from .quantitative_value import QuantitativeValue
     from .order_status import OrderStatus
 
 class OrderItem(Intangible):
@@ -27,7 +27,7 @@ An order item is a line of an order. It includes the quantity and shipping detai
         alias='@type',
         serialization_alias='@type'
     )
-    orderQuantity: Optional[Union[float, List[float], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    orderQuantity: Optional[Union[float, List[float], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'orderQuantity',
@@ -35,7 +35,7 @@ An order item is a line of an order. It includes the quantity and shipping detai
         ),
         serialization_alias='https://schema.org/orderQuantity'
     )
-    orderItemStatus: Optional[Union[OrderStatus, List[OrderStatus]]] = Field(
+    orderItemStatus: Optional[Union["OrderStatus", List["OrderStatus"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'orderItemStatus',
@@ -51,7 +51,7 @@ An order item is a line of an order. It includes the quantity and shipping detai
         ),
         serialization_alias='https://schema.org/orderItemNumber'
     )
-    orderDelivery: Optional[Union[ParcelDelivery, List[ParcelDelivery]]] = Field(
+    orderDelivery: Optional[Union["ParcelDelivery", List["ParcelDelivery"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'orderDelivery',
@@ -59,7 +59,7 @@ An order item is a line of an order. It includes the quantity and shipping detai
         ),
         serialization_alias='https://schema.org/orderDelivery'
     )
-    orderedItem: Optional[Union[OrderItem, List[OrderItem], Service, List[Service], Product, List[Product]]] = Field(
+    orderedItem: Optional[Union["OrderItem", List["OrderItem"], "Service", List["Service"], "Product", List["Product"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'orderedItem',

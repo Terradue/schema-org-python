@@ -16,8 +16,8 @@ from typing import (
 from .web_page import WebPage
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .quantitative_value import QuantitativeValue
     from .duration import Duration
+    from .quantitative_value import QuantitativeValue
 
 class RealEstateListing(WebPage):
     """
@@ -30,7 +30,7 @@ A [[RealEstateListing]] is a listing that describes one or more real-estate [[Of
         alias='@type',
         serialization_alias='@type'
     )
-    leaseLength: Optional[Union[QuantitativeValue, List[QuantitativeValue], Duration, List[Duration]]] = Field(
+    leaseLength: Optional[Union["QuantitativeValue", List["QuantitativeValue"], "Duration", List["Duration"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'leaseLength',

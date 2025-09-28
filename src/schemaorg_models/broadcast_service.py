@@ -12,11 +12,11 @@ from typing import (
 from .service import Service
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .organization import Organization
+    from .broadcast_frequency_specification import BroadcastFrequencySpecification
     from .language import Language
     from .broadcast_channel import BroadcastChannel
-    from .broadcast_frequency_specification import BroadcastFrequencySpecification
     from .place import Place
+    from .organization import Organization
 
 class BroadcastService(Service):
     """
@@ -35,7 +35,7 @@ A delivery service through which content is provided via broadcast over the air 
         ),
         serialization_alias='https://schema.org/callSign'
     )
-    broadcastAffiliateOf: Optional[Union[Organization, List[Organization]]] = Field(
+    broadcastAffiliateOf: Optional[Union["Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'broadcastAffiliateOf',
@@ -43,7 +43,7 @@ A delivery service through which content is provided via broadcast over the air 
         ),
         serialization_alias='https://schema.org/broadcastAffiliateOf'
     )
-    broadcaster: Optional[Union[Organization, List[Organization]]] = Field(
+    broadcaster: Optional[Union["Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'broadcaster',
@@ -51,7 +51,7 @@ A delivery service through which content is provided via broadcast over the air 
         ),
         serialization_alias='https://schema.org/broadcaster'
     )
-    area: Optional[Union[Place, List[Place]]] = Field(
+    area: Optional[Union["Place", List["Place"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'area',
@@ -75,7 +75,7 @@ A delivery service through which content is provided via broadcast over the air 
         ),
         serialization_alias='https://schema.org/broadcastDisplayName'
     )
-    inLanguage: Optional[Union[str, List[str], Language, List[Language]]] = Field(
+    inLanguage: Optional[Union[str, List[str], "Language", List["Language"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'inLanguage',
@@ -83,7 +83,7 @@ A delivery service through which content is provided via broadcast over the air 
         ),
         serialization_alias='https://schema.org/inLanguage'
     )
-    broadcastFrequency: Optional[Union[str, List[str], BroadcastFrequencySpecification, List[BroadcastFrequencySpecification]]] = Field(
+    broadcastFrequency: Optional[Union[str, List[str], "BroadcastFrequencySpecification", List["BroadcastFrequencySpecification"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'broadcastFrequency',
@@ -91,7 +91,7 @@ A delivery service through which content is provided via broadcast over the air 
         ),
         serialization_alias='https://schema.org/broadcastFrequency'
     )
-    hasBroadcastChannel: Optional[Union[BroadcastChannel, List[BroadcastChannel]]] = Field(
+    hasBroadcastChannel: Optional[Union["BroadcastChannel", List["BroadcastChannel"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasBroadcastChannel',
@@ -99,7 +99,7 @@ A delivery service through which content is provided via broadcast over the air 
         ),
         serialization_alias='https://schema.org/hasBroadcastChannel'
     )
-    parentService: Optional[Union[BroadcastService, List[BroadcastService]]] = Field(
+    parentService: Optional[Union["BroadcastService", List["BroadcastService"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'parentService',

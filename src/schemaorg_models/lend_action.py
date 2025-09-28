@@ -27,7 +27,7 @@ Related actions:\
         alias='@type',
         serialization_alias='@type'
     )
-    borrower: Optional[Union[Person, List[Person]]] = Field(
+    borrower: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'borrower',

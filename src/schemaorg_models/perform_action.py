@@ -23,7 +23,7 @@ The act of participating in performance arts.
         alias='@type',
         serialization_alias='@type'
     )
-    entertainmentBusiness: Optional[Union[EntertainmentBusiness, List[EntertainmentBusiness]]] = Field(
+    entertainmentBusiness: Optional[Union["EntertainmentBusiness", List["EntertainmentBusiness"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'entertainmentBusiness',

@@ -25,7 +25,7 @@ While a ProductGroup itself is not directly offered for sale, the various varyin
         alias='@type',
         serialization_alias='@type'
     )
-    variesBy: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str]]] = Field(
+    variesBy: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'variesBy',
@@ -33,7 +33,7 @@ While a ProductGroup itself is not directly offered for sale, the various varyin
         ),
         serialization_alias='https://schema.org/variesBy'
     )
-    hasVariant: Optional[Union[Product, List[Product]]] = Field(
+    hasVariant: Optional[Union["Product", List["Product"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasVariant',

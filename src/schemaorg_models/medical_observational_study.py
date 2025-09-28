@@ -23,7 +23,7 @@ An observational study is a type of medical study that attempts to infer the pos
         alias='@type',
         serialization_alias='@type'
     )
-    studyDesign: Optional[Union[MedicalObservationalStudyDesign, List[MedicalObservationalStudyDesign]]] = Field(
+    studyDesign: Optional[Union["MedicalObservationalStudyDesign", List["MedicalObservationalStudyDesign"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'studyDesign',

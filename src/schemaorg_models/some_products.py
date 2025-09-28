@@ -23,7 +23,7 @@ A placeholder for multiple similar products of the same kind.
         alias='@type',
         serialization_alias='@type'
     )
-    inventoryLevel: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
+    inventoryLevel: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'inventoryLevel',

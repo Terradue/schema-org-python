@@ -12,10 +12,10 @@ from typing import (
 from .qualitative_value import QualitativeValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .size_group_enumeration import SizeGroupEnumeration
     from .size_system_enumeration import SizeSystemEnumeration
     from .quantitative_value import QuantitativeValue
     from .gender_type import GenderType
-    from .size_group_enumeration import SizeGroupEnumeration
 
 class SizeSpecification(QualitativeValue):
     """
@@ -26,7 +26,7 @@ Size related properties of a product, typically a size code ([[name]]) and optio
         alias='@type',
         serialization_alias='@type'
     )
-    suggestedMeasurement: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
+    suggestedMeasurement: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'suggestedMeasurement',
@@ -34,7 +34,7 @@ Size related properties of a product, typically a size code ([[name]]) and optio
         ),
         serialization_alias='https://schema.org/suggestedMeasurement'
     )
-    sizeSystem: Optional[Union[str, List[str], SizeSystemEnumeration, List[SizeSystemEnumeration]]] = Field(
+    sizeSystem: Optional[Union[str, List[str], "SizeSystemEnumeration", List["SizeSystemEnumeration"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'sizeSystem',
@@ -42,7 +42,7 @@ Size related properties of a product, typically a size code ([[name]]) and optio
         ),
         serialization_alias='https://schema.org/sizeSystem'
     )
-    suggestedAge: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
+    suggestedAge: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'suggestedAge',
@@ -50,7 +50,7 @@ Size related properties of a product, typically a size code ([[name]]) and optio
         ),
         serialization_alias='https://schema.org/suggestedAge'
     )
-    sizeGroup: Optional[Union[SizeGroupEnumeration, List[SizeGroupEnumeration], str, List[str]]] = Field(
+    sizeGroup: Optional[Union["SizeGroupEnumeration", List["SizeGroupEnumeration"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'sizeGroup',
@@ -58,7 +58,7 @@ Size related properties of a product, typically a size code ([[name]]) and optio
         ),
         serialization_alias='https://schema.org/sizeGroup'
     )
-    hasMeasurement: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
+    hasMeasurement: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasMeasurement',
@@ -66,7 +66,7 @@ Size related properties of a product, typically a size code ([[name]]) and optio
         ),
         serialization_alias='https://schema.org/hasMeasurement'
     )
-    suggestedGender: Optional[Union[GenderType, List[GenderType], str, List[str]]] = Field(
+    suggestedGender: Optional[Union["GenderType", List["GenderType"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'suggestedGender',

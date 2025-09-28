@@ -24,7 +24,7 @@ A quotation. Often but not necessarily from some written work, attributable to a
         alias='@type',
         serialization_alias='@type'
     )
-    spokenByCharacter: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
+    spokenByCharacter: Optional[Union["Person", List["Person"], "Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'spokenByCharacter',

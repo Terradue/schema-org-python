@@ -13,8 +13,8 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .defined_term import DefinedTerm
     from .alignment_object import AlignmentObject
+    from .defined_term import DefinedTerm
 
 class LearningResource(CreativeWork):
     """
@@ -29,7 +29,7 @@ The LearningResource type can be used to indicate [[CreativeWork]]s (whether phy
         alias='@type',
         serialization_alias='@type'
     )
-    educationalLevel: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], DefinedTerm, List[DefinedTerm]]] = Field(
+    educationalLevel: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], "DefinedTerm", List["DefinedTerm"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'educationalLevel',
@@ -37,7 +37,7 @@ The LearningResource type can be used to indicate [[CreativeWork]]s (whether phy
         ),
         serialization_alias='https://schema.org/educationalLevel'
     )
-    educationalAlignment: Optional[Union[AlignmentObject, List[AlignmentObject]]] = Field(
+    educationalAlignment: Optional[Union["AlignmentObject", List["AlignmentObject"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'educationalAlignment',
@@ -45,7 +45,7 @@ The LearningResource type can be used to indicate [[CreativeWork]]s (whether phy
         ),
         serialization_alias='https://schema.org/educationalAlignment'
     )
-    teaches: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str]]] = Field(
+    teaches: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'teaches',
@@ -53,7 +53,7 @@ The LearningResource type can be used to indicate [[CreativeWork]]s (whether phy
         ),
         serialization_alias='https://schema.org/teaches'
     )
-    educationalUse: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str]]] = Field(
+    educationalUse: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'educationalUse',
@@ -61,7 +61,7 @@ The LearningResource type can be used to indicate [[CreativeWork]]s (whether phy
         ),
         serialization_alias='https://schema.org/educationalUse'
     )
-    competencyRequired: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str], HttpUrl, List[HttpUrl]]] = Field(
+    competencyRequired: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'competencyRequired',
@@ -69,7 +69,7 @@ The LearningResource type can be used to indicate [[CreativeWork]]s (whether phy
         ),
         serialization_alias='https://schema.org/competencyRequired'
     )
-    learningResourceType: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str]]] = Field(
+    learningResourceType: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'learningResourceType',
@@ -77,7 +77,7 @@ The LearningResource type can be used to indicate [[CreativeWork]]s (whether phy
         ),
         serialization_alias='https://schema.org/learningResourceType'
     )
-    assesses: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str]]] = Field(
+    assesses: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'assesses',

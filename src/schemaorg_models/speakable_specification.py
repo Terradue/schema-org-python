@@ -23,7 +23,7 @@ A SpeakableSpecification indicates (typically via [[xpath]] or [[cssSelector]]) 
         alias='@type',
         serialization_alias='@type'
     )
-    cssSelector: Optional[Union[CssSelectorType, List[CssSelectorType]]] = Field(
+    cssSelector: Optional[Union["CssSelectorType", List["CssSelectorType"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'cssSelector',

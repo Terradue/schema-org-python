@@ -32,7 +32,7 @@ A word, name, acronym, phrase, etc. with a formal definition. Often used in the 
         ),
         serialization_alias='https://schema.org/termCode'
     )
-    inDefinedTermSet: Optional[Union[HttpUrl, List[HttpUrl], DefinedTermSet, List[DefinedTermSet]]] = Field(
+    inDefinedTermSet: Optional[Union[HttpUrl, List[HttpUrl], "DefinedTermSet", List["DefinedTermSet"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'inDefinedTermSet',

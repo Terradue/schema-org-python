@@ -12,13 +12,13 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .creative_work_series import CreativeWorkSeries
-    from .music_group import MusicGroup
-    from .creative_work_season import CreativeWorkSeason
     from .episode import Episode
-    from .person import Person
     from .hyper_toc_entry import HyperTocEntry
+    from .creative_work_season import CreativeWorkSeason
+    from .creative_work_series import CreativeWorkSeries
     from .performing_group import PerformingGroup
+    from .person import Person
+    from .music_group import MusicGroup
 
 class Clip(CreativeWork):
     """
@@ -37,7 +37,7 @@ A short TV or radio program or a segment/part of a program.
         ),
         serialization_alias='https://schema.org/clipNumber'
     )
-    director: Optional[Union[Person, List[Person]]] = Field(
+    director: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'director',
@@ -45,7 +45,7 @@ A short TV or radio program or a segment/part of a program.
         ),
         serialization_alias='https://schema.org/director'
     )
-    partOfEpisode: Optional[Union[Episode, List[Episode]]] = Field(
+    partOfEpisode: Optional[Union["Episode", List["Episode"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'partOfEpisode',
@@ -53,7 +53,7 @@ A short TV or radio program or a segment/part of a program.
         ),
         serialization_alias='https://schema.org/partOfEpisode'
     )
-    partOfSeries: Optional[Union[CreativeWorkSeries, List[CreativeWorkSeries]]] = Field(
+    partOfSeries: Optional[Union["CreativeWorkSeries", List["CreativeWorkSeries"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'partOfSeries',
@@ -61,7 +61,7 @@ A short TV or radio program or a segment/part of a program.
         ),
         serialization_alias='https://schema.org/partOfSeries'
     )
-    endOffset: Optional[Union[HyperTocEntry, List[HyperTocEntry], float, List[float]]] = Field(
+    endOffset: Optional[Union["HyperTocEntry", List["HyperTocEntry"], float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'endOffset',
@@ -69,7 +69,7 @@ A short TV or radio program or a segment/part of a program.
         ),
         serialization_alias='https://schema.org/endOffset'
     )
-    partOfSeason: Optional[Union[CreativeWorkSeason, List[CreativeWorkSeason]]] = Field(
+    partOfSeason: Optional[Union["CreativeWorkSeason", List["CreativeWorkSeason"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'partOfSeason',
@@ -77,7 +77,7 @@ A short TV or radio program or a segment/part of a program.
         ),
         serialization_alias='https://schema.org/partOfSeason'
     )
-    actor: Optional[Union[Person, List[Person], PerformingGroup, List[PerformingGroup]]] = Field(
+    actor: Optional[Union["Person", List["Person"], "PerformingGroup", List["PerformingGroup"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'actor',
@@ -85,7 +85,7 @@ A short TV or radio program or a segment/part of a program.
         ),
         serialization_alias='https://schema.org/actor'
     )
-    startOffset: Optional[Union[float, List[float], HyperTocEntry, List[HyperTocEntry]]] = Field(
+    startOffset: Optional[Union[float, List[float], "HyperTocEntry", List["HyperTocEntry"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'startOffset',
@@ -93,7 +93,7 @@ A short TV or radio program or a segment/part of a program.
         ),
         serialization_alias='https://schema.org/startOffset'
     )
-    actors: Optional[Union[Person, List[Person]]] = Field(
+    actors: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'actors',
@@ -101,7 +101,7 @@ A short TV or radio program or a segment/part of a program.
         ),
         serialization_alias='https://schema.org/actors'
     )
-    musicBy: Optional[Union[MusicGroup, List[MusicGroup], Person, List[Person]]] = Field(
+    musicBy: Optional[Union["MusicGroup", List["MusicGroup"], "Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'musicBy',
@@ -109,7 +109,7 @@ A short TV or radio program or a segment/part of a program.
         ),
         serialization_alias='https://schema.org/musicBy'
     )
-    directors: Optional[Union[Person, List[Person]]] = Field(
+    directors: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'directors',

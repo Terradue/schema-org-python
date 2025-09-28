@@ -31,7 +31,7 @@ A [blog](https://en.wikipedia.org/wiki/Blog), sometimes known as a "weblog". Not
         ),
         serialization_alias='https://schema.org/issn'
     )
-    blogPost: Optional[Union[BlogPosting, List[BlogPosting]]] = Field(
+    blogPost: Optional[Union["BlogPosting", List["BlogPosting"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'blogPost',
@@ -39,7 +39,7 @@ A [blog](https://en.wikipedia.org/wiki/Blog), sometimes known as a "weblog". Not
         ),
         serialization_alias='https://schema.org/blogPost'
     )
-    blogPosts: Optional[Union[BlogPosting, List[BlogPosting]]] = Field(
+    blogPosts: Optional[Union["BlogPosting", List["BlogPosting"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'blogPosts',

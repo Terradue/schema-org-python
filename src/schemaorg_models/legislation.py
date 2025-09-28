@@ -16,11 +16,11 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .category_code import CategoryCode
-    from .organization import Organization
     from .administrative_area import AdministrativeArea
     from .legal_force_status import LegalForceStatus
+    from .category_code import CategoryCode
     from .person import Person
+    from .organization import Organization
 
 class Legislation(CreativeWork):
     """
@@ -31,7 +31,7 @@ A legal document such as an act, decree, bill, etc. (enforceable or not) or a co
         alias='@type',
         serialization_alias='@type'
     )
-    legislationApplies: Optional[Union[Legislation, List[Legislation]]] = Field(
+    legislationApplies: Optional[Union["Legislation", List["Legislation"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'legislationApplies',
@@ -39,7 +39,7 @@ A legal document such as an act, decree, bill, etc. (enforceable or not) or a co
         ),
         serialization_alias='https://schema.org/legislationApplies'
     )
-    legislationCountersignedBy: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
+    legislationCountersignedBy: Optional[Union["Person", List["Person"], "Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'legislationCountersignedBy',
@@ -47,7 +47,7 @@ A legal document such as an act, decree, bill, etc. (enforceable or not) or a co
         ),
         serialization_alias='https://schema.org/legislationCountersignedBy'
     )
-    legislationChanges: Optional[Union[Legislation, List[Legislation]]] = Field(
+    legislationChanges: Optional[Union["Legislation", List["Legislation"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'legislationChanges',
@@ -55,7 +55,7 @@ A legal document such as an act, decree, bill, etc. (enforceable or not) or a co
         ),
         serialization_alias='https://schema.org/legislationChanges'
     )
-    legislationCommences: Optional[Union[Legislation, List[Legislation]]] = Field(
+    legislationCommences: Optional[Union["Legislation", List["Legislation"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'legislationCommences',
@@ -63,7 +63,7 @@ A legal document such as an act, decree, bill, etc. (enforceable or not) or a co
         ),
         serialization_alias='https://schema.org/legislationCommences'
     )
-    legislationRepeals: Optional[Union[Legislation, List[Legislation]]] = Field(
+    legislationRepeals: Optional[Union["Legislation", List["Legislation"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'legislationRepeals',
@@ -71,7 +71,7 @@ A legal document such as an act, decree, bill, etc. (enforceable or not) or a co
         ),
         serialization_alias='https://schema.org/legislationRepeals'
     )
-    legislationType: Optional[Union[str, List[str], CategoryCode, List[CategoryCode]]] = Field(
+    legislationType: Optional[Union[str, List[str], "CategoryCode", List["CategoryCode"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'legislationType',
@@ -79,7 +79,7 @@ A legal document such as an act, decree, bill, etc. (enforceable or not) or a co
         ),
         serialization_alias='https://schema.org/legislationType'
     )
-    jurisdiction: Optional[Union[str, List[str], AdministrativeArea, List[AdministrativeArea]]] = Field(
+    jurisdiction: Optional[Union[str, List[str], "AdministrativeArea", List["AdministrativeArea"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'jurisdiction',
@@ -87,7 +87,7 @@ A legal document such as an act, decree, bill, etc. (enforceable or not) or a co
         ),
         serialization_alias='https://schema.org/jurisdiction'
     )
-    legislationJurisdiction: Optional[Union[str, List[str], AdministrativeArea, List[AdministrativeArea]]] = Field(
+    legislationJurisdiction: Optional[Union[str, List[str], "AdministrativeArea", List["AdministrativeArea"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'legislationJurisdiction',
@@ -95,7 +95,7 @@ A legal document such as an act, decree, bill, etc. (enforceable or not) or a co
         ),
         serialization_alias='https://schema.org/legislationJurisdiction'
     )
-    legislationCorrects: Optional[Union[Legislation, List[Legislation]]] = Field(
+    legislationCorrects: Optional[Union["Legislation", List["Legislation"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'legislationCorrects',
@@ -103,7 +103,7 @@ A legal document such as an act, decree, bill, etc. (enforceable or not) or a co
         ),
         serialization_alias='https://schema.org/legislationCorrects'
     )
-    legislationTransposes: Optional[Union[Legislation, List[Legislation]]] = Field(
+    legislationTransposes: Optional[Union["Legislation", List["Legislation"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'legislationTransposes',
@@ -119,7 +119,7 @@ A legal document such as an act, decree, bill, etc. (enforceable or not) or a co
         ),
         serialization_alias='https://schema.org/legislationDate'
     )
-    legislationEnsuresImplementationOf: Optional[Union[Legislation, List[Legislation]]] = Field(
+    legislationEnsuresImplementationOf: Optional[Union["Legislation", List["Legislation"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'legislationEnsuresImplementationOf',
@@ -127,7 +127,7 @@ A legal document such as an act, decree, bill, etc. (enforceable or not) or a co
         ),
         serialization_alias='https://schema.org/legislationEnsuresImplementationOf'
     )
-    legislationPassedBy: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
+    legislationPassedBy: Optional[Union["Person", List["Person"], "Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'legislationPassedBy',
@@ -135,7 +135,7 @@ A legal document such as an act, decree, bill, etc. (enforceable or not) or a co
         ),
         serialization_alias='https://schema.org/legislationPassedBy'
     )
-    legislationConsolidates: Optional[Union[Legislation, List[Legislation]]] = Field(
+    legislationConsolidates: Optional[Union["Legislation", List["Legislation"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'legislationConsolidates',
@@ -159,7 +159,7 @@ A legal document such as an act, decree, bill, etc. (enforceable or not) or a co
         ),
         serialization_alias='https://schema.org/legislationIdentifier'
     )
-    legislationLegalForce: Optional[Union[LegalForceStatus, List[LegalForceStatus]]] = Field(
+    legislationLegalForce: Optional[Union["LegalForceStatus", List["LegalForceStatus"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'legislationLegalForce',
@@ -167,7 +167,7 @@ A legal document such as an act, decree, bill, etc. (enforceable or not) or a co
         ),
         serialization_alias='https://schema.org/legislationLegalForce'
     )
-    legislationAmends: Optional[Union[Legislation, List[Legislation]]] = Field(
+    legislationAmends: Optional[Union["Legislation", List["Legislation"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'legislationAmends',
@@ -183,7 +183,7 @@ A legal document such as an act, decree, bill, etc. (enforceable or not) or a co
         ),
         serialization_alias='https://schema.org/legislationDateVersion'
     )
-    legislationResponsible: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
+    legislationResponsible: Optional[Union["Person", List["Person"], "Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'legislationResponsible',

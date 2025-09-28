@@ -23,7 +23,7 @@ A car is a wheeled, self-powered motor vehicle used for transportation.
         alias='@type',
         serialization_alias='@type'
     )
-    roofLoad: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
+    roofLoad: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'roofLoad',

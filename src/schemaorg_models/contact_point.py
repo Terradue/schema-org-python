@@ -12,13 +12,13 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .language import Language
-    from .product import Product
-    from .geo_shape import GeoShape
     from .administrative_area import AdministrativeArea
-    from .contact_point_option import ContactPointOption
+    from .product import Product
     from .opening_hours_specification import OpeningHoursSpecification
+    from .contact_point_option import ContactPointOption
+    from .language import Language
     from .place import Place
+    from .geo_shape import GeoShape
 
 class ContactPoint(StructuredValue):
     """
@@ -29,7 +29,7 @@ A contact point for a person or organization.
         alias='@type',
         serialization_alias='@type'
     )
-    serviceArea: Optional[Union[AdministrativeArea, List[AdministrativeArea], GeoShape, List[GeoShape], Place, List[Place]]] = Field(
+    serviceArea: Optional[Union["AdministrativeArea", List["AdministrativeArea"], "GeoShape", List["GeoShape"], "Place", List["Place"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'serviceArea',
@@ -45,7 +45,7 @@ A contact point for a person or organization.
         ),
         serialization_alias='https://schema.org/email'
     )
-    hoursAvailable: Optional[Union[OpeningHoursSpecification, List[OpeningHoursSpecification]]] = Field(
+    hoursAvailable: Optional[Union["OpeningHoursSpecification", List["OpeningHoursSpecification"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hoursAvailable',
@@ -61,7 +61,7 @@ A contact point for a person or organization.
         ),
         serialization_alias='https://schema.org/telephone'
     )
-    availableLanguage: Optional[Union[str, List[str], Language, List[Language]]] = Field(
+    availableLanguage: Optional[Union[str, List[str], "Language", List["Language"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'availableLanguage',
@@ -69,7 +69,7 @@ A contact point for a person or organization.
         ),
         serialization_alias='https://schema.org/availableLanguage'
     )
-    productSupported: Optional[Union[str, List[str], Product, List[Product]]] = Field(
+    productSupported: Optional[Union[str, List[str], "Product", List["Product"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'productSupported',
@@ -77,7 +77,7 @@ A contact point for a person or organization.
         ),
         serialization_alias='https://schema.org/productSupported'
     )
-    contactOption: Optional[Union[ContactPointOption, List[ContactPointOption]]] = Field(
+    contactOption: Optional[Union["ContactPointOption", List["ContactPointOption"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'contactOption',
@@ -101,7 +101,7 @@ A contact point for a person or organization.
         ),
         serialization_alias='https://schema.org/faxNumber'
     )
-    areaServed: Optional[Union[GeoShape, List[GeoShape], str, List[str], AdministrativeArea, List[AdministrativeArea], Place, List[Place]]] = Field(
+    areaServed: Optional[Union["GeoShape", List["GeoShape"], str, List[str], "AdministrativeArea", List["AdministrativeArea"], "Place", List["Place"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'areaServed',

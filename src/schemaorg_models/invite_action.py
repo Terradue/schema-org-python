@@ -23,7 +23,7 @@ The act of asking someone to attend an event. Reciprocal of RsvpAction.
         alias='@type',
         serialization_alias='@type'
     )
-    event: Optional[Union[Event, List[Event]]] = Field(
+    event: Optional[Union["Event", List["Event"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'event',

@@ -223,8 +223,8 @@ if TYPE_CHECKING:
             for prop_name, prop_type in class_info["properties"]:
                 # if prop_type is self, it should be in double quotes
                 forward_def = other_classes.get(prop_type, False)
-                #if prop_type == class_name or forward_def:
-                #    prop_type = f'"{prop_type}"'
+                if prop_type == class_name or prop_type in other_classes:
+                    prop_type = f'"{prop_type}"'
                 prop_dict[prop_name].append(prop_type)
 
             for prop_name, prop_type_list in prop_dict.items():

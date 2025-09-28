@@ -15,10 +15,10 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .day_of_week import DayOfWeek
-    from .quantitative_value import QuantitativeValue
-    from .duration import Duration
     from .opening_hours_specification import OpeningHoursSpecification
+    from .duration import Duration
+    from .quantitative_value import QuantitativeValue
+    from .day_of_week import DayOfWeek
 
 class ServicePeriod(StructuredValue):
     """
@@ -29,7 +29,7 @@ ServicePeriod represents a duration with some constraints about cutoff time and 
         alias='@type',
         serialization_alias='@type'
     )
-    businessDays: Optional[Union[OpeningHoursSpecification, List[OpeningHoursSpecification], DayOfWeek, List[DayOfWeek]]] = Field(
+    businessDays: Optional[Union["OpeningHoursSpecification", List["OpeningHoursSpecification"], "DayOfWeek", List["DayOfWeek"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'businessDays',
@@ -37,7 +37,7 @@ ServicePeriod represents a duration with some constraints about cutoff time and 
         ),
         serialization_alias='https://schema.org/businessDays'
     )
-    duration: Optional[Union[Duration, List[Duration], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    duration: Optional[Union["Duration", List["Duration"], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'duration',

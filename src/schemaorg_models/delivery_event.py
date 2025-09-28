@@ -42,7 +42,7 @@ An event involving the delivery of an item.
         ),
         serialization_alias='https://schema.org/availableFrom'
     )
-    hasDeliveryMethod: Optional[Union[DeliveryMethod, List[DeliveryMethod]]] = Field(
+    hasDeliveryMethod: Optional[Union["DeliveryMethod", List["DeliveryMethod"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasDeliveryMethod',

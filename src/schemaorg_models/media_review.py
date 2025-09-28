@@ -13,9 +13,9 @@ from typing import (
 from .review import Review
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .media_manipulation_rating_enumeration import MediaManipulationRatingEnumeration
-    from .media_object import MediaObject
     from .web_page import WebPage
+    from .media_object import MediaObject
+    from .media_manipulation_rating_enumeration import MediaManipulationRatingEnumeration
 
 class MediaReview(Review):
     """
@@ -29,7 +29,7 @@ A [[MediaReview]] is a more specialized form of Review dedicated to the evaluati
         alias='@type',
         serialization_alias='@type'
     )
-    mediaAuthenticityCategory: Optional[Union[MediaManipulationRatingEnumeration, List[MediaManipulationRatingEnumeration]]] = Field(
+    mediaAuthenticityCategory: Optional[Union["MediaManipulationRatingEnumeration", List["MediaManipulationRatingEnumeration"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'mediaAuthenticityCategory',
@@ -37,7 +37,7 @@ A [[MediaReview]] is a more specialized form of Review dedicated to the evaluati
         ),
         serialization_alias='https://schema.org/mediaAuthenticityCategory'
     )
-    originalMediaLink: Optional[Union[WebPage, List[WebPage], HttpUrl, List[HttpUrl], MediaObject, List[MediaObject]]] = Field(
+    originalMediaLink: Optional[Union["WebPage", List["WebPage"], HttpUrl, List[HttpUrl], "MediaObject", List["MediaObject"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'originalMediaLink',

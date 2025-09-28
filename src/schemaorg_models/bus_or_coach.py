@@ -23,7 +23,7 @@ A bus (also omnibus or autobus) is a road vehicle designed to carry passengers. 
         alias='@type',
         serialization_alias='@type'
     )
-    roofLoad: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
+    roofLoad: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'roofLoad',

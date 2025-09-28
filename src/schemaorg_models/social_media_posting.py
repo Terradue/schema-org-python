@@ -23,7 +23,7 @@ A post to a social media platform, including blog posts, tweets, Facebook posts,
         alias='@type',
         serialization_alias='@type'
     )
-    sharedContent: Optional[Union[CreativeWork, List[CreativeWork]]] = Field(
+    sharedContent: Optional[Union["CreativeWork", List["CreativeWork"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'sharedContent',

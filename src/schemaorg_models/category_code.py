@@ -24,7 +24,7 @@ A Category Code.
         alias='@type',
         serialization_alias='@type'
     )
-    inCodeSet: Optional[Union[HttpUrl, List[HttpUrl], CategoryCodeSet, List[CategoryCodeSet]]] = Field(
+    inCodeSet: Optional[Union[HttpUrl, List[HttpUrl], "CategoryCodeSet", List["CategoryCodeSet"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'inCodeSet',

@@ -12,8 +12,8 @@ from typing import (
 from .vessel import Vessel
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .anatomical_structure import AnatomicalStructure
     from .anatomical_system import AnatomicalSystem
+    from .anatomical_structure import AnatomicalStructure
 
 class Vein(Vessel):
     """
@@ -24,7 +24,7 @@ A type of blood vessel that specifically carries blood to the heart.
         alias='@type',
         serialization_alias='@type'
     )
-    regionDrained: Optional[Union[AnatomicalStructure, List[AnatomicalStructure], AnatomicalSystem, List[AnatomicalSystem]]] = Field(
+    regionDrained: Optional[Union["AnatomicalStructure", List["AnatomicalStructure"], "AnatomicalSystem", List["AnatomicalSystem"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'regionDrained',
@@ -32,7 +32,7 @@ A type of blood vessel that specifically carries blood to the heart.
         ),
         serialization_alias='https://schema.org/regionDrained'
     )
-    drainsTo: Optional[Union[Vessel, List[Vessel]]] = Field(
+    drainsTo: Optional[Union["Vessel", List["Vessel"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'drainsTo',
@@ -40,7 +40,7 @@ A type of blood vessel that specifically carries blood to the heart.
         ),
         serialization_alias='https://schema.org/drainsTo'
     )
-    tributary: Optional[Union[AnatomicalStructure, List[AnatomicalStructure]]] = Field(
+    tributary: Optional[Union["AnatomicalStructure", List["AnatomicalStructure"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'tributary',

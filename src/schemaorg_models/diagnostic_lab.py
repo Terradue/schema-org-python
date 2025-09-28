@@ -23,7 +23,7 @@ A medical laboratory that offers on-site or off-site diagnostic services.
         alias='@type',
         serialization_alias='@type'
     )
-    availableTest: Optional[Union[MedicalTest, List[MedicalTest]]] = Field(
+    availableTest: Optional[Union["MedicalTest", List["MedicalTest"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'availableTest',

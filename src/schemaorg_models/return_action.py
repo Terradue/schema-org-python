@@ -12,8 +12,8 @@ from typing import (
 from .transfer_action import TransferAction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .organization import Organization
     from .audience import Audience
+    from .organization import Organization
     from .contact_point import ContactPoint
     from .person import Person
 
@@ -26,7 +26,7 @@ The act of returning to the origin that which was previously received (concrete 
         alias='@type',
         serialization_alias='@type'
     )
-    recipient: Optional[Union[Organization, List[Organization], Audience, List[Audience], ContactPoint, List[ContactPoint], Person, List[Person]]] = Field(
+    recipient: Optional[Union["Organization", List["Organization"], "Audience", List["Audience"], "ContactPoint", List["ContactPoint"], "Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'recipient',

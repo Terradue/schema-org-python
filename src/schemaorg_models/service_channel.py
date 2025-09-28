@@ -13,12 +13,12 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .language import Language
     from .duration import Duration
-    from .service import Service
-    from .contact_point import ContactPoint
+    from .language import Language
     from .postal_address import PostalAddress
     from .place import Place
+    from .service import Service
+    from .contact_point import ContactPoint
 
 class ServiceChannel(Intangible):
     """
@@ -29,7 +29,7 @@ A means for accessing a service, e.g. a government office location, web site, or
         alias='@type',
         serialization_alias='@type'
     )
-    processingTime: Optional[Union[Duration, List[Duration]]] = Field(
+    processingTime: Optional[Union["Duration", List["Duration"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'processingTime',
@@ -37,7 +37,7 @@ A means for accessing a service, e.g. a government office location, web site, or
         ),
         serialization_alias='https://schema.org/processingTime'
     )
-    availableLanguage: Optional[Union[str, List[str], Language, List[Language]]] = Field(
+    availableLanguage: Optional[Union[str, List[str], "Language", List["Language"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'availableLanguage',
@@ -45,7 +45,7 @@ A means for accessing a service, e.g. a government office location, web site, or
         ),
         serialization_alias='https://schema.org/availableLanguage'
     )
-    servicePostalAddress: Optional[Union[PostalAddress, List[PostalAddress]]] = Field(
+    servicePostalAddress: Optional[Union["PostalAddress", List["PostalAddress"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'servicePostalAddress',
@@ -53,7 +53,7 @@ A means for accessing a service, e.g. a government office location, web site, or
         ),
         serialization_alias='https://schema.org/servicePostalAddress'
     )
-    providesService: Optional[Union[Service, List[Service]]] = Field(
+    providesService: Optional[Union["Service", List["Service"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'providesService',
@@ -61,7 +61,7 @@ A means for accessing a service, e.g. a government office location, web site, or
         ),
         serialization_alias='https://schema.org/providesService'
     )
-    serviceSmsNumber: Optional[Union[ContactPoint, List[ContactPoint]]] = Field(
+    serviceSmsNumber: Optional[Union["ContactPoint", List["ContactPoint"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'serviceSmsNumber',
@@ -77,7 +77,7 @@ A means for accessing a service, e.g. a government office location, web site, or
         ),
         serialization_alias='https://schema.org/serviceUrl'
     )
-    serviceLocation: Optional[Union[Place, List[Place]]] = Field(
+    serviceLocation: Optional[Union["Place", List["Place"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'serviceLocation',
@@ -85,7 +85,7 @@ A means for accessing a service, e.g. a government office location, web site, or
         ),
         serialization_alias='https://schema.org/serviceLocation'
     )
-    servicePhone: Optional[Union[ContactPoint, List[ContactPoint]]] = Field(
+    servicePhone: Optional[Union["ContactPoint", List["ContactPoint"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'servicePhone',

@@ -15,10 +15,10 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .day_of_week import DayOfWeek
-    from .quantitative_value import QuantitativeValue
-    from .service_period import ServicePeriod
     from .opening_hours_specification import OpeningHoursSpecification
+    from .service_period import ServicePeriod
+    from .quantitative_value import QuantitativeValue
+    from .day_of_week import DayOfWeek
 
 class ShippingDeliveryTime(StructuredValue):
     """
@@ -29,7 +29,7 @@ ShippingDeliveryTime provides various pieces of information about delivery times
         alias='@type',
         serialization_alias='@type'
     )
-    businessDays: Optional[Union[OpeningHoursSpecification, List[OpeningHoursSpecification], DayOfWeek, List[DayOfWeek]]] = Field(
+    businessDays: Optional[Union["OpeningHoursSpecification", List["OpeningHoursSpecification"], "DayOfWeek", List["DayOfWeek"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'businessDays',
@@ -37,7 +37,7 @@ ShippingDeliveryTime provides various pieces of information about delivery times
         ),
         serialization_alias='https://schema.org/businessDays'
     )
-    transitTime: Optional[Union[ServicePeriod, List[ServicePeriod], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    transitTime: Optional[Union["ServicePeriod", List["ServicePeriod"], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'transitTime',
@@ -45,7 +45,7 @@ ShippingDeliveryTime provides various pieces of information about delivery times
         ),
         serialization_alias='https://schema.org/transitTime'
     )
-    handlingTime: Optional[Union[ServicePeriod, List[ServicePeriod], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    handlingTime: Optional[Union["ServicePeriod", List["ServicePeriod"], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'handlingTime',

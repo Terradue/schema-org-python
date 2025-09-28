@@ -71,7 +71,7 @@ A Property value specification.
         ),
         serialization_alias='https://schema.org/maxValue'
     )
-    defaultValue: Optional[Union[str, List[str], Thing, List[Thing]]] = Field(
+    defaultValue: Optional[Union[str, List[str], "Thing", List["Thing"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'defaultValue',

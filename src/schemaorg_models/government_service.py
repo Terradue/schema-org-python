@@ -12,8 +12,8 @@ from typing import (
 from .service import Service
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .organization import Organization
     from .administrative_area import AdministrativeArea
+    from .organization import Organization
 
 class GovernmentService(Service):
     """
@@ -24,7 +24,7 @@ A service provided by a government organization, e.g. food stamps, veterans bene
         alias='@type',
         serialization_alias='@type'
     )
-    jurisdiction: Optional[Union[str, List[str], AdministrativeArea, List[AdministrativeArea]]] = Field(
+    jurisdiction: Optional[Union[str, List[str], "AdministrativeArea", List["AdministrativeArea"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'jurisdiction',
@@ -32,7 +32,7 @@ A service provided by a government organization, e.g. food stamps, veterans bene
         ),
         serialization_alias='https://schema.org/jurisdiction'
     )
-    serviceOperator: Optional[Union[Organization, List[Organization]]] = Field(
+    serviceOperator: Optional[Union["Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'serviceOperator',

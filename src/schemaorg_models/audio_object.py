@@ -28,7 +28,7 @@ An audio file.
         ),
         serialization_alias='https://schema.org/transcript'
     )
-    caption: Optional[Union[MediaObject, List[MediaObject], str, List[str]]] = Field(
+    caption: Optional[Union["MediaObject", List["MediaObject"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'caption',

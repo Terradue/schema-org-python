@@ -23,7 +23,7 @@ class GeospatialGeometry(Intangible):
         alias='@type',
         serialization_alias='@type'
     )
-    geoCoveredBy: Optional[Union[GeospatialGeometry, List[GeospatialGeometry], Place, List[Place]]] = Field(
+    geoCoveredBy: Optional[Union["GeospatialGeometry", List["GeospatialGeometry"], "Place", List["Place"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'geoCoveredBy',
@@ -31,7 +31,7 @@ class GeospatialGeometry(Intangible):
         ),
         serialization_alias='https://schema.org/geoCoveredBy'
     )
-    geoEquals: Optional[Union[Place, List[Place], GeospatialGeometry, List[GeospatialGeometry]]] = Field(
+    geoEquals: Optional[Union["Place", List["Place"], "GeospatialGeometry", List["GeospatialGeometry"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'geoEquals',
@@ -39,7 +39,7 @@ class GeospatialGeometry(Intangible):
         ),
         serialization_alias='https://schema.org/geoEquals'
     )
-    geoCovers: Optional[Union[Place, List[Place], GeospatialGeometry, List[GeospatialGeometry]]] = Field(
+    geoCovers: Optional[Union["Place", List["Place"], "GeospatialGeometry", List["GeospatialGeometry"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'geoCovers',
@@ -47,7 +47,7 @@ class GeospatialGeometry(Intangible):
         ),
         serialization_alias='https://schema.org/geoCovers'
     )
-    geoOverlaps: Optional[Union[Place, List[Place], GeospatialGeometry, List[GeospatialGeometry]]] = Field(
+    geoOverlaps: Optional[Union["Place", List["Place"], "GeospatialGeometry", List["GeospatialGeometry"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'geoOverlaps',
@@ -55,7 +55,7 @@ class GeospatialGeometry(Intangible):
         ),
         serialization_alias='https://schema.org/geoOverlaps'
     )
-    geoContains: Optional[Union[Place, List[Place], GeospatialGeometry, List[GeospatialGeometry]]] = Field(
+    geoContains: Optional[Union["Place", List["Place"], "GeospatialGeometry", List["GeospatialGeometry"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'geoContains',
@@ -63,7 +63,7 @@ class GeospatialGeometry(Intangible):
         ),
         serialization_alias='https://schema.org/geoContains'
     )
-    geoDisjoint: Optional[Union[GeospatialGeometry, List[GeospatialGeometry], Place, List[Place]]] = Field(
+    geoDisjoint: Optional[Union["GeospatialGeometry", List["GeospatialGeometry"], "Place", List["Place"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'geoDisjoint',
@@ -71,7 +71,7 @@ class GeospatialGeometry(Intangible):
         ),
         serialization_alias='https://schema.org/geoDisjoint'
     )
-    geoWithin: Optional[Union[GeospatialGeometry, List[GeospatialGeometry], Place, List[Place]]] = Field(
+    geoWithin: Optional[Union["GeospatialGeometry", List["GeospatialGeometry"], "Place", List["Place"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'geoWithin',
@@ -79,7 +79,7 @@ class GeospatialGeometry(Intangible):
         ),
         serialization_alias='https://schema.org/geoWithin'
     )
-    geoTouches: Optional[Union[Place, List[Place], GeospatialGeometry, List[GeospatialGeometry]]] = Field(
+    geoTouches: Optional[Union["Place", List["Place"], "GeospatialGeometry", List["GeospatialGeometry"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'geoTouches',
@@ -87,7 +87,7 @@ class GeospatialGeometry(Intangible):
         ),
         serialization_alias='https://schema.org/geoTouches'
     )
-    geoCrosses: Optional[Union[Place, List[Place], GeospatialGeometry, List[GeospatialGeometry]]] = Field(
+    geoCrosses: Optional[Union["Place", List["Place"], "GeospatialGeometry", List["GeospatialGeometry"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'geoCrosses',
@@ -95,7 +95,7 @@ class GeospatialGeometry(Intangible):
         ),
         serialization_alias='https://schema.org/geoCrosses'
     )
-    geoIntersects: Optional[Union[Place, List[Place], GeospatialGeometry, List[GeospatialGeometry]]] = Field(
+    geoIntersects: Optional[Union["Place", List["Place"], "GeospatialGeometry", List["GeospatialGeometry"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'geoIntersects',

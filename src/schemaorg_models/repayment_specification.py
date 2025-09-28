@@ -31,7 +31,7 @@ A structured value representing repayment.
         ),
         serialization_alias='https://schema.org/numberOfLoanPayments'
     )
-    loanPaymentAmount: Optional[Union[MonetaryAmount, List[MonetaryAmount]]] = Field(
+    loanPaymentAmount: Optional[Union["MonetaryAmount", List["MonetaryAmount"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'loanPaymentAmount',
@@ -39,7 +39,7 @@ A structured value representing repayment.
         ),
         serialization_alias='https://schema.org/loanPaymentAmount'
     )
-    earlyPrepaymentPenalty: Optional[Union[MonetaryAmount, List[MonetaryAmount]]] = Field(
+    earlyPrepaymentPenalty: Optional[Union["MonetaryAmount", List["MonetaryAmount"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'earlyPrepaymentPenalty',
@@ -47,7 +47,7 @@ A structured value representing repayment.
         ),
         serialization_alias='https://schema.org/earlyPrepaymentPenalty'
     )
-    downPayment: Optional[Union[float, List[float], MonetaryAmount, List[MonetaryAmount]]] = Field(
+    downPayment: Optional[Union[float, List[float], "MonetaryAmount", List["MonetaryAmount"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'downPayment',

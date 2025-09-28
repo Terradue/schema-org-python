@@ -16,11 +16,11 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .organization import Organization
+    from .administrative_area import AdministrativeArea
     from .audience import Audience
     from .duration import Duration
-    from .administrative_area import AdministrativeArea
     from .service import Service
+    from .organization import Organization
 
 class Permit(Intangible):
     """
@@ -31,7 +31,7 @@ A permit issued by an organization, e.g. a parking pass.
         alias='@type',
         serialization_alias='@type'
     )
-    validFor: Optional[Union[Duration, List[Duration]]] = Field(
+    validFor: Optional[Union["Duration", List["Duration"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'validFor',
@@ -39,7 +39,7 @@ A permit issued by an organization, e.g. a parking pass.
         ),
         serialization_alias='https://schema.org/validFor'
     )
-    validIn: Optional[Union[AdministrativeArea, List[AdministrativeArea]]] = Field(
+    validIn: Optional[Union["AdministrativeArea", List["AdministrativeArea"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'validIn',
@@ -55,7 +55,7 @@ A permit issued by an organization, e.g. a parking pass.
         ),
         serialization_alias='https://schema.org/validFrom'
     )
-    permitAudience: Optional[Union[Audience, List[Audience]]] = Field(
+    permitAudience: Optional[Union["Audience", List["Audience"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'permitAudience',
@@ -63,7 +63,7 @@ A permit issued by an organization, e.g. a parking pass.
         ),
         serialization_alias='https://schema.org/permitAudience'
     )
-    issuedBy: Optional[Union[Organization, List[Organization]]] = Field(
+    issuedBy: Optional[Union["Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'issuedBy',
@@ -71,7 +71,7 @@ A permit issued by an organization, e.g. a parking pass.
         ),
         serialization_alias='https://schema.org/issuedBy'
     )
-    issuedThrough: Optional[Union[Service, List[Service]]] = Field(
+    issuedThrough: Optional[Union["Service", List["Service"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'issuedThrough',

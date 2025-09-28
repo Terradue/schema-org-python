@@ -23,7 +23,7 @@ Any feature associated or not with a medical condition. In medicine a symptom is
         alias='@type',
         serialization_alias='@type'
     )
-    possibleTreatment: Optional[Union[MedicalTherapy, List[MedicalTherapy]]] = Field(
+    possibleTreatment: Optional[Union["MedicalTherapy", List["MedicalTherapy"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'possibleTreatment',

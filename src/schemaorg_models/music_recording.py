@@ -12,13 +12,13 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .quantitative_value import QuantitativeValue
-    from .music_group import MusicGroup
-    from .music_playlist import MusicPlaylist
-    from .duration import Duration
     from .music_album import MusicAlbum
-    from .music_composition import MusicComposition
+    from .duration import Duration
+    from .music_playlist import MusicPlaylist
     from .person import Person
+    from .music_group import MusicGroup
+    from .quantitative_value import QuantitativeValue
+    from .music_composition import MusicComposition
 
 class MusicRecording(CreativeWork):
     """
@@ -29,7 +29,7 @@ A music recording (track), usually a single song.
         alias='@type',
         serialization_alias='@type'
     )
-    inPlaylist: Optional[Union[MusicPlaylist, List[MusicPlaylist]]] = Field(
+    inPlaylist: Optional[Union["MusicPlaylist", List["MusicPlaylist"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'inPlaylist',
@@ -37,7 +37,7 @@ A music recording (track), usually a single song.
         ),
         serialization_alias='https://schema.org/inPlaylist'
     )
-    inAlbum: Optional[Union[MusicAlbum, List[MusicAlbum]]] = Field(
+    inAlbum: Optional[Union["MusicAlbum", List["MusicAlbum"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'inAlbum',
@@ -45,7 +45,7 @@ A music recording (track), usually a single song.
         ),
         serialization_alias='https://schema.org/inAlbum'
     )
-    recordingOf: Optional[Union[MusicComposition, List[MusicComposition]]] = Field(
+    recordingOf: Optional[Union["MusicComposition", List["MusicComposition"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'recordingOf',
@@ -53,7 +53,7 @@ A music recording (track), usually a single song.
         ),
         serialization_alias='https://schema.org/recordingOf'
     )
-    byArtist: Optional[Union[MusicGroup, List[MusicGroup], Person, List[Person]]] = Field(
+    byArtist: Optional[Union["MusicGroup", List["MusicGroup"], "Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'byArtist',
@@ -69,7 +69,7 @@ A music recording (track), usually a single song.
         ),
         serialization_alias='https://schema.org/isrcCode'
     )
-    duration: Optional[Union[Duration, List[Duration], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    duration: Optional[Union["Duration", List["Duration"], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'duration',

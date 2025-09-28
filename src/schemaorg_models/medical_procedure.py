@@ -33,7 +33,7 @@ A process of care used in either a diagnostic, therapeutic, preventive or pallia
         ),
         serialization_alias='https://schema.org/bodyLocation'
     )
-    preparation: Optional[Union[MedicalEntity, List[MedicalEntity], str, List[str]]] = Field(
+    preparation: Optional[Union["MedicalEntity", List["MedicalEntity"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'preparation',
@@ -41,7 +41,7 @@ A process of care used in either a diagnostic, therapeutic, preventive or pallia
         ),
         serialization_alias='https://schema.org/preparation'
     )
-    status: Optional[Union[EventStatusType, List[EventStatusType], MedicalStudyStatus, List[MedicalStudyStatus], str, List[str]]] = Field(
+    status: Optional[Union["EventStatusType", List["EventStatusType"], "MedicalStudyStatus", List["MedicalStudyStatus"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'status',
@@ -57,7 +57,7 @@ A process of care used in either a diagnostic, therapeutic, preventive or pallia
         ),
         serialization_alias='https://schema.org/howPerformed'
     )
-    procedureType: Optional[Union[MedicalProcedureType, List[MedicalProcedureType]]] = Field(
+    procedureType: Optional[Union["MedicalProcedureType", List["MedicalProcedureType"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'procedureType',

@@ -23,7 +23,7 @@ Any rule set or interactive tool for estimating the risk of developing a complic
         alias='@type',
         serialization_alias='@type'
     )
-    estimatesRiskOf: Optional[Union[MedicalEntity, List[MedicalEntity]]] = Field(
+    estimatesRiskOf: Optional[Union["MedicalEntity", List["MedicalEntity"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'estimatesRiskOf',
@@ -31,7 +31,7 @@ Any rule set or interactive tool for estimating the risk of developing a complic
         ),
         serialization_alias='https://schema.org/estimatesRiskOf'
     )
-    includedRiskFactor: Optional[Union[MedicalRiskFactor, List[MedicalRiskFactor]]] = Field(
+    includedRiskFactor: Optional[Union["MedicalRiskFactor", List["MedicalRiskFactor"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'includedRiskFactor',

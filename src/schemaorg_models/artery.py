@@ -23,7 +23,7 @@ A type of blood vessel that specifically carries blood away from the heart.
         alias='@type',
         serialization_alias='@type'
     )
-    arterialBranch: Optional[Union[AnatomicalStructure, List[AnatomicalStructure]]] = Field(
+    arterialBranch: Optional[Union["AnatomicalStructure", List["AnatomicalStructure"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'arterialBranch',
@@ -31,7 +31,7 @@ A type of blood vessel that specifically carries blood away from the heart.
         ),
         serialization_alias='https://schema.org/arterialBranch'
     )
-    supplyTo: Optional[Union[AnatomicalStructure, List[AnatomicalStructure]]] = Field(
+    supplyTo: Optional[Union["AnatomicalStructure", List["AnatomicalStructure"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'supplyTo',

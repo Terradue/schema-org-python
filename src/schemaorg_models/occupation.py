@@ -12,13 +12,13 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .category_code import CategoryCode
-    from .educational_occupational_credential import EducationalOccupationalCredential
     from .monetary_amount_distribution import MonetaryAmountDistribution
-    from .occupational_experience_requirements import OccupationalExperienceRequirements
-    from .administrative_area import AdministrativeArea
     from .monetary_amount import MonetaryAmount
+    from .administrative_area import AdministrativeArea
+    from .educational_occupational_credential import EducationalOccupationalCredential
     from .defined_term import DefinedTerm
+    from .category_code import CategoryCode
+    from .occupational_experience_requirements import OccupationalExperienceRequirements
 
 class Occupation(Intangible):
     """
@@ -29,7 +29,7 @@ A profession, may involve prolonged training and/or a formal qualification.
         alias='@type',
         serialization_alias='@type'
     )
-    occupationalCategory: Optional[Union[CategoryCode, List[CategoryCode], str, List[str]]] = Field(
+    occupationalCategory: Optional[Union["CategoryCode", List["CategoryCode"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'occupationalCategory',
@@ -37,7 +37,7 @@ A profession, may involve prolonged training and/or a formal qualification.
         ),
         serialization_alias='https://schema.org/occupationalCategory'
     )
-    occupationLocation: Optional[Union[AdministrativeArea, List[AdministrativeArea]]] = Field(
+    occupationLocation: Optional[Union["AdministrativeArea", List["AdministrativeArea"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'occupationLocation',
@@ -45,7 +45,7 @@ A profession, may involve prolonged training and/or a formal qualification.
         ),
         serialization_alias='https://schema.org/occupationLocation'
     )
-    experienceRequirements: Optional[Union[OccupationalExperienceRequirements, List[OccupationalExperienceRequirements], str, List[str]]] = Field(
+    experienceRequirements: Optional[Union["OccupationalExperienceRequirements", List["OccupationalExperienceRequirements"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'experienceRequirements',
@@ -61,7 +61,7 @@ A profession, may involve prolonged training and/or a formal qualification.
         ),
         serialization_alias='https://schema.org/responsibilities'
     )
-    qualifications: Optional[Union[EducationalOccupationalCredential, List[EducationalOccupationalCredential], str, List[str]]] = Field(
+    qualifications: Optional[Union["EducationalOccupationalCredential", List["EducationalOccupationalCredential"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'qualifications',
@@ -69,7 +69,7 @@ A profession, may involve prolonged training and/or a formal qualification.
         ),
         serialization_alias='https://schema.org/qualifications'
     )
-    skills: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str]]] = Field(
+    skills: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'skills',
@@ -77,7 +77,7 @@ A profession, may involve prolonged training and/or a formal qualification.
         ),
         serialization_alias='https://schema.org/skills'
     )
-    estimatedSalary: Optional[Union[MonetaryAmountDistribution, List[MonetaryAmountDistribution], float, List[float], MonetaryAmount, List[MonetaryAmount]]] = Field(
+    estimatedSalary: Optional[Union["MonetaryAmountDistribution", List["MonetaryAmountDistribution"], float, List[float], "MonetaryAmount", List["MonetaryAmount"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'estimatedSalary',
@@ -85,7 +85,7 @@ A profession, may involve prolonged training and/or a formal qualification.
         ),
         serialization_alias='https://schema.org/estimatedSalary'
     )
-    educationRequirements: Optional[Union[EducationalOccupationalCredential, List[EducationalOccupationalCredential], str, List[str]]] = Field(
+    educationRequirements: Optional[Union["EducationalOccupationalCredential", List["EducationalOccupationalCredential"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'educationRequirements',

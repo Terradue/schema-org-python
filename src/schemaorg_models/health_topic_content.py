@@ -24,7 +24,7 @@ class HealthTopicContent(WebContent):
         alias='@type',
         serialization_alias='@type'
     )
-    hasHealthAspect: Optional[Union[HealthAspectEnumeration, List[HealthAspectEnumeration]]] = Field(
+    hasHealthAspect: Optional[Union["HealthAspectEnumeration", List["HealthAspectEnumeration"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasHealthAspect',

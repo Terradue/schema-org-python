@@ -23,7 +23,7 @@ The act of editing a recipient by replacing an old object with a new object.
         alias='@type',
         serialization_alias='@type'
     )
-    replacer: Optional[Union[Thing, List[Thing]]] = Field(
+    replacer: Optional[Union["Thing", List["Thing"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'replacer',
@@ -31,7 +31,7 @@ The act of editing a recipient by replacing an old object with a new object.
         ),
         serialization_alias='https://schema.org/replacer'
     )
-    replacee: Optional[Union[Thing, List[Thing]]] = Field(
+    replacee: Optional[Union["Thing", List["Thing"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'replacee',

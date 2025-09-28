@@ -18,13 +18,13 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .media_subscription import MediaSubscription
+    from .offer import Offer
     from .physical_activity_category import PhysicalActivityCategory
     from .category_code import CategoryCode
     from .thing import Thing
-    from .geo_shape import GeoShape
-    from .offer import Offer
+    from .media_subscription import MediaSubscription
     from .place import Place
+    from .geo_shape import GeoShape
 
 class ActionAccessSpecification(Intangible):
     """
@@ -35,7 +35,7 @@ A set of requirements that must be fulfilled in order to perform an Action.
         alias='@type',
         serialization_alias='@type'
     )
-    requiresSubscription: Optional[Union[bool, List[bool], MediaSubscription, List[MediaSubscription]]] = Field(
+    requiresSubscription: Optional[Union[bool, List[bool], "MediaSubscription", List["MediaSubscription"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'requiresSubscription',
@@ -43,7 +43,7 @@ A set of requirements that must be fulfilled in order to perform an Action.
         ),
         serialization_alias='https://schema.org/requiresSubscription'
     )
-    expectsAcceptanceOf: Optional[Union[Offer, List[Offer]]] = Field(
+    expectsAcceptanceOf: Optional[Union["Offer", List["Offer"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'expectsAcceptanceOf',
@@ -51,7 +51,7 @@ A set of requirements that must be fulfilled in order to perform an Action.
         ),
         serialization_alias='https://schema.org/expectsAcceptanceOf'
     )
-    eligibleRegion: Optional[Union[GeoShape, List[GeoShape], str, List[str], Place, List[Place]]] = Field(
+    eligibleRegion: Optional[Union["GeoShape", List["GeoShape"], str, List[str], "Place", List["Place"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'eligibleRegion',
@@ -67,7 +67,7 @@ A set of requirements that must be fulfilled in order to perform an Action.
         ),
         serialization_alias='https://schema.org/availabilityEnds'
     )
-    ineligibleRegion: Optional[Union[str, List[str], Place, List[Place], GeoShape, List[GeoShape]]] = Field(
+    ineligibleRegion: Optional[Union[str, List[str], "Place", List["Place"], "GeoShape", List["GeoShape"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'ineligibleRegion',
@@ -83,7 +83,7 @@ A set of requirements that must be fulfilled in order to perform an Action.
         ),
         serialization_alias='https://schema.org/availabilityStarts'
     )
-    category: Optional[Union[PhysicalActivityCategory, List[PhysicalActivityCategory], CategoryCode, List[CategoryCode], str, List[str], Thing, List[Thing], HttpUrl, List[HttpUrl]]] = Field(
+    category: Optional[Union["PhysicalActivityCategory", List["PhysicalActivityCategory"], "CategoryCode", List["CategoryCode"], str, List[str], "Thing", List["Thing"], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'category',

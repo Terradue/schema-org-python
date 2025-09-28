@@ -23,7 +23,7 @@ Any medical imaging modality typically used for diagnostic purposes.
         alias='@type',
         serialization_alias='@type'
     )
-    imagingTechnique: Optional[Union[MedicalImagingTechnique, List[MedicalImagingTechnique]]] = Field(
+    imagingTechnique: Optional[Union["MedicalImagingTechnique", List["MedicalImagingTechnique"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'imagingTechnique',

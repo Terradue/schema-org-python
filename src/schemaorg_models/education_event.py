@@ -24,7 +24,7 @@ Event type: Education event.
         alias='@type',
         serialization_alias='@type'
     )
-    educationalLevel: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], DefinedTerm, List[DefinedTerm]]] = Field(
+    educationalLevel: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], "DefinedTerm", List["DefinedTerm"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'educationalLevel',
@@ -32,7 +32,7 @@ Event type: Education event.
         ),
         serialization_alias='https://schema.org/educationalLevel'
     )
-    assesses: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str]]] = Field(
+    assesses: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'assesses',
@@ -40,7 +40,7 @@ Event type: Education event.
         ),
         serialization_alias='https://schema.org/assesses'
     )
-    teaches: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str]]] = Field(
+    teaches: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'teaches',

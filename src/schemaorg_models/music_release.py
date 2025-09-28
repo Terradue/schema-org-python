@@ -12,12 +12,12 @@ from typing import (
 from .music_playlist import MusicPlaylist
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .organization import Organization
-    from .quantitative_value import QuantitativeValue
-    from .duration import Duration
     from .music_release_format_type import MusicReleaseFormatType
     from .music_album import MusicAlbum
+    from .duration import Duration
     from .person import Person
+    from .quantitative_value import QuantitativeValue
+    from .organization import Organization
 
 class MusicRelease(MusicPlaylist):
     """
@@ -28,7 +28,7 @@ A MusicRelease is a specific release of a music album.
         alias='@type',
         serialization_alias='@type'
     )
-    recordLabel: Optional[Union[Organization, List[Organization]]] = Field(
+    recordLabel: Optional[Union["Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'recordLabel',
@@ -36,7 +36,7 @@ A MusicRelease is a specific release of a music album.
         ),
         serialization_alias='https://schema.org/recordLabel'
     )
-    musicReleaseFormat: Optional[Union[MusicReleaseFormatType, List[MusicReleaseFormatType]]] = Field(
+    musicReleaseFormat: Optional[Union["MusicReleaseFormatType", List["MusicReleaseFormatType"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'musicReleaseFormat',
@@ -52,7 +52,7 @@ A MusicRelease is a specific release of a music album.
         ),
         serialization_alias='https://schema.org/catalogNumber'
     )
-    releaseOf: Optional[Union[MusicAlbum, List[MusicAlbum]]] = Field(
+    releaseOf: Optional[Union["MusicAlbum", List["MusicAlbum"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'releaseOf',
@@ -60,7 +60,7 @@ A MusicRelease is a specific release of a music album.
         ),
         serialization_alias='https://schema.org/releaseOf'
     )
-    duration: Optional[Union[Duration, List[Duration], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    duration: Optional[Union["Duration", List["Duration"], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'duration',
@@ -68,7 +68,7 @@ A MusicRelease is a specific release of a music album.
         ),
         serialization_alias='https://schema.org/duration'
     )
-    creditedTo: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
+    creditedTo: Optional[Union["Person", List["Person"], "Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'creditedTo',

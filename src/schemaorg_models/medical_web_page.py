@@ -24,7 +24,7 @@ A web page that provides medical information.
         alias='@type',
         serialization_alias='@type'
     )
-    medicalAudience: Optional[Union[MedicalAudience, List[MedicalAudience], MedicalAudienceType, List[MedicalAudienceType]]] = Field(
+    medicalAudience: Optional[Union["MedicalAudience", List["MedicalAudience"], "MedicalAudienceType", List["MedicalAudienceType"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'medicalAudience',

@@ -27,7 +27,7 @@ A single item within a larger data feed.
         alias='@type',
         serialization_alias='@type'
     )
-    item: Optional[Union[Thing, List[Thing]]] = Field(
+    item: Optional[Union["Thing", List["Thing"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'item',

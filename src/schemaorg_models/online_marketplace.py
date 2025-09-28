@@ -20,7 +20,7 @@ An eCommerce marketplace.
         alias='@type',
         serialization_alias='@type'
     )
-    hasStore: Optional[Union[OnlineStore, List[OnlineStore]]] = Field(
+    hasStore: Optional[Union["OnlineStore", List["OnlineStore"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasStore',

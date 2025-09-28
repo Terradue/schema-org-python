@@ -24,7 +24,7 @@ A patient is any person recipient of health care services.
         alias='@type',
         serialization_alias='@type'
     )
-    healthCondition: Optional[Union[MedicalCondition, List[MedicalCondition]]] = Field(
+    healthCondition: Optional[Union["MedicalCondition", List["MedicalCondition"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'healthCondition',
@@ -32,7 +32,7 @@ A patient is any person recipient of health care services.
         ),
         serialization_alias='https://schema.org/healthCondition'
     )
-    diagnosis: Optional[Union[MedicalCondition, List[MedicalCondition]]] = Field(
+    diagnosis: Optional[Union["MedicalCondition", List["MedicalCondition"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'diagnosis',
@@ -40,7 +40,7 @@ A patient is any person recipient of health care services.
         ),
         serialization_alias='https://schema.org/diagnosis'
     )
-    drug: Optional[Union[Drug, List[Drug]]] = Field(
+    drug: Optional[Union["Drug", List["Drug"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'drug',

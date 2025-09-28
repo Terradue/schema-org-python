@@ -31,7 +31,7 @@ A chemical substance is 'a portion of matter of constant composition, composed o
         ),
         serialization_alias='https://schema.org/chemicalComposition'
     )
-    chemicalRole: Optional[Union[DefinedTerm, List[DefinedTerm]]] = Field(
+    chemicalRole: Optional[Union["DefinedTerm", List["DefinedTerm"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'chemicalRole',
@@ -39,7 +39,7 @@ A chemical substance is 'a portion of matter of constant composition, composed o
         ),
         serialization_alias='https://schema.org/chemicalRole'
     )
-    potentialUse: Optional[Union[DefinedTerm, List[DefinedTerm]]] = Field(
+    potentialUse: Optional[Union["DefinedTerm", List["DefinedTerm"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'potentialUse',

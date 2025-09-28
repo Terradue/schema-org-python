@@ -29,7 +29,7 @@ Note: This type is for information about actual reservations, e.g. in confirmati
         alias='@type',
         serialization_alias='@type'
     )
-    partySize: Optional[Union[int, List[int], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    partySize: Optional[Union[int, List[int], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'partySize',
@@ -37,7 +37,7 @@ Note: This type is for information about actual reservations, e.g. in confirmati
         ),
         serialization_alias='https://schema.org/partySize'
     )
-    pickupLocation: Optional[Union[Place, List[Place]]] = Field(
+    pickupLocation: Optional[Union["Place", List["Place"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'pickupLocation',

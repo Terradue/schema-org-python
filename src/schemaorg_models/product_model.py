@@ -23,7 +23,7 @@ A datasheet or vendor specification of a product (in the sense of a prototypical
         alias='@type',
         serialization_alias='@type'
     )
-    predecessorOf: Optional[Union[ProductModel, List[ProductModel]]] = Field(
+    predecessorOf: Optional[Union["ProductModel", List["ProductModel"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'predecessorOf',
@@ -31,7 +31,7 @@ A datasheet or vendor specification of a product (in the sense of a prototypical
         ),
         serialization_alias='https://schema.org/predecessorOf'
     )
-    isVariantOf: Optional[Union[ProductModel, List[ProductModel], ProductGroup, List[ProductGroup]]] = Field(
+    isVariantOf: Optional[Union["ProductModel", List["ProductModel"], "ProductGroup", List["ProductGroup"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'isVariantOf',
@@ -39,7 +39,7 @@ A datasheet or vendor specification of a product (in the sense of a prototypical
         ),
         serialization_alias='https://schema.org/isVariantOf'
     )
-    successorOf: Optional[Union[ProductModel, List[ProductModel]]] = Field(
+    successorOf: Optional[Union["ProductModel", List["ProductModel"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'successorOf',

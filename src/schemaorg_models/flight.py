@@ -15,13 +15,13 @@ from typing import (
 from .trip import Trip
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .organization import Organization
-    from .boarding_policy_type import BoardingPolicyType
     from .distance import Distance
-    from .airport import Airport
-    from .vehicle import Vehicle
+    from .boarding_policy_type import BoardingPolicyType
     from .duration import Duration
     from .person import Person
+    from .vehicle import Vehicle
+    from .airport import Airport
+    from .organization import Organization
 
 class Flight(Trip):
     """
@@ -32,7 +32,7 @@ An airline flight.
         alias='@type',
         serialization_alias='@type'
     )
-    boardingPolicy: Optional[Union[BoardingPolicyType, List[BoardingPolicyType]]] = Field(
+    boardingPolicy: Optional[Union["BoardingPolicyType", List["BoardingPolicyType"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'boardingPolicy',
@@ -40,7 +40,7 @@ An airline flight.
         ),
         serialization_alias='https://schema.org/boardingPolicy'
     )
-    estimatedFlightDuration: Optional[Union[str, List[str], Duration, List[Duration]]] = Field(
+    estimatedFlightDuration: Optional[Union[str, List[str], "Duration", List["Duration"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'estimatedFlightDuration',
@@ -48,7 +48,7 @@ An airline flight.
         ),
         serialization_alias='https://schema.org/estimatedFlightDuration'
     )
-    departureAirport: Optional[Union[Airport, List[Airport]]] = Field(
+    departureAirport: Optional[Union["Airport", List["Airport"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'departureAirport',
@@ -56,7 +56,7 @@ An airline flight.
         ),
         serialization_alias='https://schema.org/departureAirport'
     )
-    carrier: Optional[Union[Organization, List[Organization]]] = Field(
+    carrier: Optional[Union["Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'carrier',
@@ -72,7 +72,7 @@ An airline flight.
         ),
         serialization_alias='https://schema.org/departureGate'
     )
-    seller: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(
+    seller: Optional[Union["Organization", List["Organization"], "Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'seller',
@@ -88,7 +88,7 @@ An airline flight.
         ),
         serialization_alias='https://schema.org/arrivalTerminal'
     )
-    flightDistance: Optional[Union[str, List[str], Distance, List[Distance]]] = Field(
+    flightDistance: Optional[Union[str, List[str], "Distance", List["Distance"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'flightDistance',
@@ -112,7 +112,7 @@ An airline flight.
         ),
         serialization_alias='https://schema.org/mealService'
     )
-    aircraft: Optional[Union[Vehicle, List[Vehicle], str, List[str]]] = Field(
+    aircraft: Optional[Union["Vehicle", List["Vehicle"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'aircraft',
@@ -144,7 +144,7 @@ An airline flight.
         ),
         serialization_alias='https://schema.org/departureTerminal'
     )
-    arrivalAirport: Optional[Union[Airport, List[Airport]]] = Field(
+    arrivalAirport: Optional[Union["Airport", List["Airport"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'arrivalAirport',

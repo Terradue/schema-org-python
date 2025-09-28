@@ -20,7 +20,7 @@ Any collection of tests commonly ordered together.
         alias='@type',
         serialization_alias='@type'
     )
-    subTest: Optional[Union[MedicalTest, List[MedicalTest]]] = Field(
+    subTest: Optional[Union["MedicalTest", List["MedicalTest"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'subTest',

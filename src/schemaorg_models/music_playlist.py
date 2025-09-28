@@ -24,7 +24,7 @@ A collection of music tracks in playlist form.
         alias='@type',
         serialization_alias='@type'
     )
-    tracks: Optional[Union[MusicRecording, List[MusicRecording]]] = Field(
+    tracks: Optional[Union["MusicRecording", List["MusicRecording"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'tracks',
@@ -32,7 +32,7 @@ A collection of music tracks in playlist form.
         ),
         serialization_alias='https://schema.org/tracks'
     )
-    track: Optional[Union[ItemList, List[ItemList], MusicRecording, List[MusicRecording]]] = Field(
+    track: Optional[Union["ItemList", List["ItemList"], "MusicRecording", List["MusicRecording"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'track',

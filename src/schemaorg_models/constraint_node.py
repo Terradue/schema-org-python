@@ -33,7 +33,7 @@ The ConstraintNode type is provided to support usecases in which a node in a str
         ),
         serialization_alias='https://schema.org/numConstraints'
     )
-    constraintProperty: Optional[Union[HttpUrl, List[HttpUrl], Property, List[Property]]] = Field(
+    constraintProperty: Optional[Union[HttpUrl, List[HttpUrl], "Property", List["Property"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'constraintProperty',

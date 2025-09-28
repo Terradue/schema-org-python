@@ -27,7 +27,7 @@ A musical group, such as a band, an orchestra, or a choir. Can also be a solo mu
         alias='@type',
         serialization_alias='@type'
     )
-    albums: Optional[Union[MusicAlbum, List[MusicAlbum]]] = Field(
+    albums: Optional[Union["MusicAlbum", List["MusicAlbum"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'albums',
@@ -35,7 +35,7 @@ A musical group, such as a band, an orchestra, or a choir. Can also be a solo mu
         ),
         serialization_alias='https://schema.org/albums'
     )
-    album: Optional[Union[MusicAlbum, List[MusicAlbum]]] = Field(
+    album: Optional[Union["MusicAlbum", List["MusicAlbum"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'album',
@@ -43,7 +43,7 @@ A musical group, such as a band, an orchestra, or a choir. Can also be a solo mu
         ),
         serialization_alias='https://schema.org/album'
     )
-    musicGroupMember: Optional[Union[Person, List[Person]]] = Field(
+    musicGroupMember: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'musicGroupMember',
@@ -51,7 +51,7 @@ A musical group, such as a band, an orchestra, or a choir. Can also be a solo mu
         ),
         serialization_alias='https://schema.org/musicGroupMember'
     )
-    tracks: Optional[Union[MusicRecording, List[MusicRecording]]] = Field(
+    tracks: Optional[Union["MusicRecording", List["MusicRecording"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'tracks',
@@ -59,7 +59,7 @@ A musical group, such as a band, an orchestra, or a choir. Can also be a solo mu
         ),
         serialization_alias='https://schema.org/tracks'
     )
-    track: Optional[Union[ItemList, List[ItemList], MusicRecording, List[MusicRecording]]] = Field(
+    track: Optional[Union["ItemList", List["ItemList"], "MusicRecording", List["MusicRecording"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'track',

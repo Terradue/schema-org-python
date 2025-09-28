@@ -18,40 +18,40 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .physical_activity_category import PhysicalActivityCategory
-    from .thing import Thing
     from .merchant_return_policy import MerchantReturnPolicy
-    from .duration import Duration
-    from .creative_work import CreativeWork
-    from .warranty_promise import WarrantyPromise
-    from .review import Review
-    from .person import Person
-    from .category_code import CategoryCode
-    from .organization import Organization
-    from .product import Product
-    from .member_program_tier import MemberProgramTier
-    from .business_entity_type import BusinessEntityType
+    from .item_availability import ItemAvailability
+    from .event import Event
+    from .menu_item import MenuItem
     from .delivery_method import DeliveryMethod
+    from .aggregate_rating import AggregateRating
+    from .price_specification import PriceSpecification
+    from .adult_oriented_enumeration import AdultOrientedEnumeration
+    from .review import Review
+    from .duration import Duration
+    from .category_code import CategoryCode
+    from .type_and_quantity_node import TypeAndQuantityNode
     from .aggregate_offer import AggregateOffer
+    from .property_value import PropertyValue
+    from .organization import Organization
+    from .creative_work import CreativeWork
+    from .offer_shipping_details import OfferShippingDetails
+    from .physical_activity_category import PhysicalActivityCategory
+    from .business_entity_type import BusinessEntityType
+    from .trip import Trip
     from .payment_method import PaymentMethod
+    from .offer_item_condition import OfferItemCondition
+    from .service import Service
     from .quantitative_value import QuantitativeValue
     from .geo_shape import GeoShape
-    from .offer_item_condition import OfferItemCondition
-    from .menu_item import MenuItem
-    from .property_value import PropertyValue
-    from .type_and_quantity_node import TypeAndQuantityNode
-    from .place import Place
-    from .event import Event
-    from .trip import Trip
-    from .price_specification import PriceSpecification
-    from .administrative_area import AdministrativeArea
-    from .aggregate_rating import AggregateRating
-    from .item_availability import ItemAvailability
-    from .service import Service
-    from .business_function import BusinessFunction
-    from .offer_shipping_details import OfferShippingDetails
     from .loan_or_credit import LoanOrCredit
-    from .adult_oriented_enumeration import AdultOrientedEnumeration
+    from .administrative_area import AdministrativeArea
+    from .product import Product
+    from .member_program_tier import MemberProgramTier
+    from .warranty_promise import WarrantyPromise
+    from .thing import Thing
+    from .business_function import BusinessFunction
+    from .place import Place
+    from .person import Person
 
 class Offer(Intangible):
     """
@@ -74,7 +74,7 @@ For [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, se
         ),
         serialization_alias='https://schema.org/asin'
     )
-    hasAdultConsideration: Optional[Union[AdultOrientedEnumeration, List[AdultOrientedEnumeration]]] = Field(
+    hasAdultConsideration: Optional[Union["AdultOrientedEnumeration", List["AdultOrientedEnumeration"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasAdultConsideration',
@@ -82,7 +82,7 @@ For [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, se
         ),
         serialization_alias='https://schema.org/hasAdultConsideration'
     )
-    eligibleTransactionVolume: Optional[Union[PriceSpecification, List[PriceSpecification]]] = Field(
+    eligibleTransactionVolume: Optional[Union["PriceSpecification", List["PriceSpecification"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'eligibleTransactionVolume',
@@ -90,7 +90,7 @@ For [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, se
         ),
         serialization_alias='https://schema.org/eligibleTransactionVolume'
     )
-    includesObject: Optional[Union[TypeAndQuantityNode, List[TypeAndQuantityNode]]] = Field(
+    includesObject: Optional[Union["TypeAndQuantityNode", List["TypeAndQuantityNode"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'includesObject',
@@ -98,7 +98,7 @@ For [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, se
         ),
         serialization_alias='https://schema.org/includesObject'
     )
-    eligibleCustomerType: Optional[Union[BusinessEntityType, List[BusinessEntityType]]] = Field(
+    eligibleCustomerType: Optional[Union["BusinessEntityType", List["BusinessEntityType"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'eligibleCustomerType',
@@ -106,7 +106,7 @@ For [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, se
         ),
         serialization_alias='https://schema.org/eligibleCustomerType'
     )
-    shippingDetails: Optional[Union[OfferShippingDetails, List[OfferShippingDetails]]] = Field(
+    shippingDetails: Optional[Union["OfferShippingDetails", List["OfferShippingDetails"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'shippingDetails',
@@ -122,7 +122,7 @@ For [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, se
         ),
         serialization_alias='https://schema.org/availabilityEnds'
     )
-    availableDeliveryMethod: Optional[Union[DeliveryMethod, List[DeliveryMethod]]] = Field(
+    availableDeliveryMethod: Optional[Union["DeliveryMethod", List["DeliveryMethod"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'availableDeliveryMethod',
@@ -146,7 +146,7 @@ For [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, se
         ),
         serialization_alias='https://schema.org/mobileUrl'
     )
-    validForMemberTier: Optional[Union[MemberProgramTier, List[MemberProgramTier]]] = Field(
+    validForMemberTier: Optional[Union["MemberProgramTier", List["MemberProgramTier"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'validForMemberTier',
@@ -154,7 +154,7 @@ For [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, se
         ),
         serialization_alias='https://schema.org/validForMemberTier'
     )
-    deliveryLeadTime: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
+    deliveryLeadTime: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'deliveryLeadTime',
@@ -170,7 +170,7 @@ For [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, se
         ),
         serialization_alias='https://schema.org/isFamilyFriendly'
     )
-    ineligibleRegion: Optional[Union[str, List[str], Place, List[Place], GeoShape, List[GeoShape]]] = Field(
+    ineligibleRegion: Optional[Union[str, List[str], "Place", List["Place"], "GeoShape", List["GeoShape"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'ineligibleRegion',
@@ -194,7 +194,7 @@ For [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, se
         ),
         serialization_alias='https://schema.org/hasGS1DigitalLink'
     )
-    hasMeasurement: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
+    hasMeasurement: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasMeasurement',
@@ -202,7 +202,7 @@ For [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, se
         ),
         serialization_alias='https://schema.org/hasMeasurement'
     )
-    inventoryLevel: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
+    inventoryLevel: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'inventoryLevel',
@@ -210,7 +210,7 @@ For [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, se
         ),
         serialization_alias='https://schema.org/inventoryLevel'
     )
-    itemCondition: Optional[Union[OfferItemCondition, List[OfferItemCondition]]] = Field(
+    itemCondition: Optional[Union["OfferItemCondition", List["OfferItemCondition"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'itemCondition',
@@ -226,7 +226,7 @@ For [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, se
         ),
         serialization_alias='https://schema.org/price'
     )
-    additionalProperty: Optional[Union[PropertyValue, List[PropertyValue]]] = Field(
+    additionalProperty: Optional[Union["PropertyValue", List["PropertyValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'additionalProperty',
@@ -242,7 +242,7 @@ For [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, se
         ),
         serialization_alias='https://schema.org/checkoutPageURLTemplate'
     )
-    category: Optional[Union[PhysicalActivityCategory, List[PhysicalActivityCategory], CategoryCode, List[CategoryCode], str, List[str], Thing, List[Thing], HttpUrl, List[HttpUrl]]] = Field(
+    category: Optional[Union["PhysicalActivityCategory", List["PhysicalActivityCategory"], "CategoryCode", List["CategoryCode"], str, List[str], "Thing", List["Thing"], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'category',
@@ -250,7 +250,7 @@ For [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, se
         ),
         serialization_alias='https://schema.org/category'
     )
-    hasMerchantReturnPolicy: Optional[Union[MerchantReturnPolicy, List[MerchantReturnPolicy]]] = Field(
+    hasMerchantReturnPolicy: Optional[Union["MerchantReturnPolicy", List["MerchantReturnPolicy"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasMerchantReturnPolicy',
@@ -266,7 +266,7 @@ For [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, se
         ),
         serialization_alias='https://schema.org/priceCurrency'
     )
-    availability: Optional[Union[ItemAvailability, List[ItemAvailability]]] = Field(
+    availability: Optional[Union["ItemAvailability", List["ItemAvailability"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'availability',
@@ -298,7 +298,7 @@ For [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, se
         ),
         serialization_alias='https://schema.org/serialNumber'
     )
-    advanceBookingRequirement: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
+    advanceBookingRequirement: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'advanceBookingRequirement',
@@ -314,7 +314,7 @@ For [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, se
         ),
         serialization_alias='https://schema.org/gtin12'
     )
-    acceptedPaymentMethod: Optional[Union[str, List[str], PaymentMethod, List[PaymentMethod], LoanOrCredit, List[LoanOrCredit]]] = Field(
+    acceptedPaymentMethod: Optional[Union[str, List[str], "PaymentMethod", List["PaymentMethod"], "LoanOrCredit", List["LoanOrCredit"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'acceptedPaymentMethod',
@@ -322,7 +322,7 @@ For [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, se
         ),
         serialization_alias='https://schema.org/acceptedPaymentMethod'
     )
-    review: Optional[Union[Review, List[Review]]] = Field(
+    review: Optional[Union["Review", List["Review"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'review',
@@ -346,7 +346,7 @@ For [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, se
         ),
         serialization_alias='https://schema.org/mpn'
     )
-    leaseLength: Optional[Union[QuantitativeValue, List[QuantitativeValue], Duration, List[Duration]]] = Field(
+    leaseLength: Optional[Union["QuantitativeValue", List["QuantitativeValue"], "Duration", List["Duration"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'leaseLength',
@@ -354,7 +354,7 @@ For [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, se
         ),
         serialization_alias='https://schema.org/leaseLength'
     )
-    priceSpecification: Optional[Union[PriceSpecification, List[PriceSpecification]]] = Field(
+    priceSpecification: Optional[Union["PriceSpecification", List["PriceSpecification"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'priceSpecification',
@@ -362,7 +362,7 @@ For [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, se
         ),
         serialization_alias='https://schema.org/priceSpecification'
     )
-    reviews: Optional[Union[Review, List[Review]]] = Field(
+    reviews: Optional[Union["Review", List["Review"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'reviews',
@@ -378,7 +378,7 @@ For [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, se
         ),
         serialization_alias='https://schema.org/gtin'
     )
-    availableAtOrFrom: Optional[Union[Place, List[Place]]] = Field(
+    availableAtOrFrom: Optional[Union["Place", List["Place"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'availableAtOrFrom',
@@ -386,7 +386,7 @@ For [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, se
         ),
         serialization_alias='https://schema.org/availableAtOrFrom'
     )
-    addOn: Optional[Union[Offer, List[Offer]]] = Field(
+    addOn: Optional[Union["Offer", List["Offer"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'addOn',
@@ -394,7 +394,7 @@ For [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, se
         ),
         serialization_alias='https://schema.org/addOn'
     )
-    businessFunction: Optional[Union[BusinessFunction, List[BusinessFunction]]] = Field(
+    businessFunction: Optional[Union["BusinessFunction", List["BusinessFunction"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'businessFunction',
@@ -410,7 +410,7 @@ For [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, se
         ),
         serialization_alias='https://schema.org/gtin8'
     )
-    seller: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(
+    seller: Optional[Union["Organization", List["Organization"], "Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'seller',
@@ -426,7 +426,7 @@ For [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, se
         ),
         serialization_alias='https://schema.org/validThrough'
     )
-    eligibleQuantity: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
+    eligibleQuantity: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'eligibleQuantity',
@@ -434,7 +434,7 @@ For [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, se
         ),
         serialization_alias='https://schema.org/eligibleQuantity'
     )
-    eligibleDuration: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
+    eligibleDuration: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'eligibleDuration',
@@ -442,7 +442,7 @@ For [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, se
         ),
         serialization_alias='https://schema.org/eligibleDuration'
     )
-    itemOffered: Optional[Union[Event, List[Event], Service, List[Service], AggregateOffer, List[AggregateOffer], Product, List[Product], MenuItem, List[MenuItem], CreativeWork, List[CreativeWork], Trip, List[Trip]]] = Field(
+    itemOffered: Optional[Union["Event", List["Event"], "Service", List["Service"], "AggregateOffer", List["AggregateOffer"], "Product", List["Product"], "MenuItem", List["MenuItem"], "CreativeWork", List["CreativeWork"], "Trip", List["Trip"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'itemOffered',
@@ -450,7 +450,7 @@ For [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, se
         ),
         serialization_alias='https://schema.org/itemOffered'
     )
-    warranty: Optional[Union[WarrantyPromise, List[WarrantyPromise]]] = Field(
+    warranty: Optional[Union["WarrantyPromise", List["WarrantyPromise"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'warranty',
@@ -458,7 +458,7 @@ For [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, se
         ),
         serialization_alias='https://schema.org/warranty'
     )
-    eligibleRegion: Optional[Union[GeoShape, List[GeoShape], str, List[str], Place, List[Place]]] = Field(
+    eligibleRegion: Optional[Union["GeoShape", List["GeoShape"], str, List[str], "Place", List["Place"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'eligibleRegion',
@@ -466,7 +466,7 @@ For [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, se
         ),
         serialization_alias='https://schema.org/eligibleRegion'
     )
-    offeredBy: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(
+    offeredBy: Optional[Union["Organization", List["Organization"], "Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'offeredBy',
@@ -474,7 +474,7 @@ For [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, se
         ),
         serialization_alias='https://schema.org/offeredBy'
     )
-    aggregateRating: Optional[Union[AggregateRating, List[AggregateRating]]] = Field(
+    aggregateRating: Optional[Union["AggregateRating", List["AggregateRating"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'aggregateRating',
@@ -490,7 +490,7 @@ For [GTIN](http://www.gs1.org/barcodes/technical/idkeys/gtin)-related fields, se
         ),
         serialization_alias='https://schema.org/sku'
     )
-    areaServed: Optional[Union[GeoShape, List[GeoShape], str, List[str], AdministrativeArea, List[AdministrativeArea], Place, List[Place]]] = Field(
+    areaServed: Optional[Union["GeoShape", List["GeoShape"], str, List[str], "AdministrativeArea", List["AdministrativeArea"], "Place", List["Place"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'areaServed',

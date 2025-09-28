@@ -23,7 +23,7 @@ Represents an item or group of closely related items treated as a unit for the s
         alias='@type',
         serialization_alias='@type'
     )
-    mediaItemAppearance: Optional[Union[MediaObject, List[MediaObject]]] = Field(
+    mediaItemAppearance: Optional[Union["MediaObject", List["MediaObject"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'mediaItemAppearance',

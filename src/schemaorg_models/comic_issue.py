@@ -36,7 +36,7 @@ Individual comic issues are serially published as
         ),
         serialization_alias='https://schema.org/variantCover'
     )
-    colorist: Optional[Union[Person, List[Person]]] = Field(
+    colorist: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'colorist',
@@ -44,7 +44,7 @@ Individual comic issues are serially published as
         ),
         serialization_alias='https://schema.org/colorist'
     )
-    artist: Optional[Union[Person, List[Person]]] = Field(
+    artist: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'artist',
@@ -52,7 +52,7 @@ Individual comic issues are serially published as
         ),
         serialization_alias='https://schema.org/artist'
     )
-    penciler: Optional[Union[Person, List[Person]]] = Field(
+    penciler: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'penciler',
@@ -60,7 +60,7 @@ Individual comic issues are serially published as
         ),
         serialization_alias='https://schema.org/penciler'
     )
-    inker: Optional[Union[Person, List[Person]]] = Field(
+    inker: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'inker',
@@ -68,7 +68,7 @@ Individual comic issues are serially published as
         ),
         serialization_alias='https://schema.org/inker'
     )
-    letterer: Optional[Union[Person, List[Person]]] = Field(
+    letterer: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'letterer',

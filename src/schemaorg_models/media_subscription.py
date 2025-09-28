@@ -12,8 +12,8 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .organization import Organization
     from .offer import Offer
+    from .organization import Organization
 
 class MediaSubscription(Intangible):
     """
@@ -24,7 +24,7 @@ A subscription which allows a user to access media including audio, video, books
         alias='@type',
         serialization_alias='@type'
     )
-    expectsAcceptanceOf: Optional[Union[Offer, List[Offer]]] = Field(
+    expectsAcceptanceOf: Optional[Union["Offer", List["Offer"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'expectsAcceptanceOf',
@@ -32,7 +32,7 @@ A subscription which allows a user to access media including audio, video, books
         ),
         serialization_alias='https://schema.org/expectsAcceptanceOf'
     )
-    authenticator: Optional[Union[Organization, List[Organization]]] = Field(
+    authenticator: Optional[Union["Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'authenticator',

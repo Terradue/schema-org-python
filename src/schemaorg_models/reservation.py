@@ -15,13 +15,13 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .organization import Organization
-    from .thing import Thing
     from .ticket import Ticket
-    from .price_specification import PriceSpecification
     from .program_membership import ProgramMembership
-    from .reservation_status_type import ReservationStatusType
+    from .thing import Thing
     from .person import Person
+    from .reservation_status_type import ReservationStatusType
+    from .price_specification import PriceSpecification
+    from .organization import Organization
 
 class Reservation(Intangible):
     """
@@ -34,7 +34,7 @@ Note: This type is for information about actual reservations, e.g. in confirmati
         alias='@type',
         serialization_alias='@type'
     )
-    reservationStatus: Optional[Union[ReservationStatusType, List[ReservationStatusType]]] = Field(
+    reservationStatus: Optional[Union["ReservationStatusType", List["ReservationStatusType"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'reservationStatus',
@@ -42,7 +42,7 @@ Note: This type is for information about actual reservations, e.g. in confirmati
         ),
         serialization_alias='https://schema.org/reservationStatus'
     )
-    bookingAgent: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
+    bookingAgent: Optional[Union["Person", List["Person"], "Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'bookingAgent',
@@ -50,7 +50,7 @@ Note: This type is for information about actual reservations, e.g. in confirmati
         ),
         serialization_alias='https://schema.org/bookingAgent'
     )
-    reservationFor: Optional[Union[Thing, List[Thing]]] = Field(
+    reservationFor: Optional[Union["Thing", List["Thing"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'reservationFor',
@@ -58,7 +58,7 @@ Note: This type is for information about actual reservations, e.g. in confirmati
         ),
         serialization_alias='https://schema.org/reservationFor'
     )
-    totalPrice: Optional[Union[str, List[str], PriceSpecification, List[PriceSpecification], float, List[float]]] = Field(
+    totalPrice: Optional[Union[str, List[str], "PriceSpecification", List["PriceSpecification"], float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'totalPrice',
@@ -74,7 +74,7 @@ Note: This type is for information about actual reservations, e.g. in confirmati
         ),
         serialization_alias='https://schema.org/priceCurrency'
     )
-    broker: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
+    broker: Optional[Union["Person", List["Person"], "Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'broker',
@@ -90,7 +90,7 @@ Note: This type is for information about actual reservations, e.g. in confirmati
         ),
         serialization_alias='https://schema.org/bookingTime'
     )
-    provider: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
+    provider: Optional[Union["Person", List["Person"], "Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'provider',
@@ -106,7 +106,7 @@ Note: This type is for information about actual reservations, e.g. in confirmati
         ),
         serialization_alias='https://schema.org/reservationId'
     )
-    underName: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
+    underName: Optional[Union["Person", List["Person"], "Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'underName',
@@ -114,7 +114,7 @@ Note: This type is for information about actual reservations, e.g. in confirmati
         ),
         serialization_alias='https://schema.org/underName'
     )
-    reservedTicket: Optional[Union[Ticket, List[Ticket]]] = Field(
+    reservedTicket: Optional[Union["Ticket", List["Ticket"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'reservedTicket',
@@ -130,7 +130,7 @@ Note: This type is for information about actual reservations, e.g. in confirmati
         ),
         serialization_alias='https://schema.org/modifiedTime'
     )
-    programMembershipUsed: Optional[Union[ProgramMembership, List[ProgramMembership]]] = Field(
+    programMembershipUsed: Optional[Union["ProgramMembership", List["ProgramMembership"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'programMembershipUsed',

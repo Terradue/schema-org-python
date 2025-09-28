@@ -28,7 +28,7 @@ Related actions:\
         alias='@type',
         serialization_alias='@type'
     )
-    deliveryMethod: Optional[Union[DeliveryMethod, List[DeliveryMethod]]] = Field(
+    deliveryMethod: Optional[Union["DeliveryMethod", List["DeliveryMethod"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'deliveryMethod',

@@ -13,8 +13,8 @@ from .audience import Audience
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .medical_condition import MedicalCondition
-    from .quantitative_value import QuantitativeValue
     from .gender_type import GenderType
+    from .quantitative_value import QuantitativeValue
 
 class PeopleAudience(Audience):
     """
@@ -25,7 +25,7 @@ A set of characteristics belonging to people, e.g. who compose an item's target 
         alias='@type',
         serialization_alias='@type'
     )
-    suggestedGender: Optional[Union[GenderType, List[GenderType], str, List[str]]] = Field(
+    suggestedGender: Optional[Union["GenderType", List["GenderType"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'suggestedGender',
@@ -41,7 +41,7 @@ A set of characteristics belonging to people, e.g. who compose an item's target 
         ),
         serialization_alias='https://schema.org/requiredMaxAge'
     )
-    suggestedAge: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
+    suggestedAge: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'suggestedAge',
@@ -81,7 +81,7 @@ A set of characteristics belonging to people, e.g. who compose an item's target 
         ),
         serialization_alias='https://schema.org/requiredMinAge'
     )
-    suggestedMeasurement: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
+    suggestedMeasurement: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'suggestedMeasurement',
@@ -89,7 +89,7 @@ A set of characteristics belonging to people, e.g. who compose an item's target 
         ),
         serialization_alias='https://schema.org/suggestedMeasurement'
     )
-    healthCondition: Optional[Union[MedicalCondition, List[MedicalCondition]]] = Field(
+    healthCondition: Optional[Union["MedicalCondition", List["MedicalCondition"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'healthCondition',

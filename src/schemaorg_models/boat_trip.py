@@ -23,7 +23,7 @@ A trip on a commercial ferry line.
         alias='@type',
         serialization_alias='@type'
     )
-    departureBoatTerminal: Optional[Union[BoatTerminal, List[BoatTerminal]]] = Field(
+    departureBoatTerminal: Optional[Union["BoatTerminal", List["BoatTerminal"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'departureBoatTerminal',
@@ -31,7 +31,7 @@ A trip on a commercial ferry line.
         ),
         serialization_alias='https://schema.org/departureBoatTerminal'
     )
-    arrivalBoatTerminal: Optional[Union[BoatTerminal, List[BoatTerminal]]] = Field(
+    arrivalBoatTerminal: Optional[Union["BoatTerminal", List["BoatTerminal"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'arrivalBoatTerminal',

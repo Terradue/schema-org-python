@@ -32,7 +32,7 @@ A book.
         ),
         serialization_alias='https://schema.org/abridged'
     )
-    bookFormat: Optional[Union[BookFormatType, List[BookFormatType]]] = Field(
+    bookFormat: Optional[Union["BookFormatType", List["BookFormatType"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'bookFormat',
@@ -56,7 +56,7 @@ A book.
         ),
         serialization_alias='https://schema.org/numberOfPages'
     )
-    illustrator: Optional[Union[Person, List[Person]]] = Field(
+    illustrator: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'illustrator',

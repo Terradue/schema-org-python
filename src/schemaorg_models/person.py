@@ -16,36 +16,36 @@ from typing import (
 from .thing import Thing
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .demand import Demand
-    from .creative_work import CreativeWork
-    from .defined_term import DefinedTerm
-    from .certification import Certification
-    from .organization import Organization
-    from .product import Product
-    from .distance import Distance
-    from .ownership_info import OwnershipInfo
-    from .educational_organization import EducationalOrganization
-    from .member_program_tier import MemberProgramTier
-    from .contact_point import ContactPoint
-    from .postal_address import PostalAddress
-    from .country import Country
-    from .language import Language
-    from .quantitative_value import QuantitativeValue
     from .structured_value import StructuredValue
-    from .program_membership import ProgramMembership
-    from .monetary_amount import MonetaryAmount
+    from .defined_term import DefinedTerm
     from .occupation import Occupation
-    from .place import Place
+    from .program_membership import ProgramMembership
     from .event import Event
-    from .educational_occupational_credential import EducationalOccupationalCredential
-    from .interaction_counter import InteractionCounter
     from .price_specification import PriceSpecification
-    from .gender_type import GenderType
-    from .offer import Offer
+    from .country import Country
+    from .educational_organization import EducationalOrganization
     from .mass import Mass
+    from .organization import Organization
+    from .offer import Offer
+    from .certification import Certification
     from .brand import Brand
-    from .grant import Grant
     from .offer_catalog import OfferCatalog
+    from .creative_work import CreativeWork
+    from .interaction_counter import InteractionCounter
+    from .educational_occupational_credential import EducationalOccupationalCredential
+    from .language import Language
+    from .postal_address import PostalAddress
+    from .quantitative_value import QuantitativeValue
+    from .grant import Grant
+    from .monetary_amount import MonetaryAmount
+    from .ownership_info import OwnershipInfo
+    from .demand import Demand
+    from .distance import Distance
+    from .product import Product
+    from .member_program_tier import MemberProgramTier
+    from .gender_type import GenderType
+    from .place import Place
+    from .contact_point import ContactPoint
 
 class Person(Thing):
     """
@@ -56,7 +56,7 @@ A person (alive, dead, undead, or fictional).
         alias='@type',
         serialization_alias='@type'
     )
-    knowsLanguage: Optional[Union[str, List[str], Language, List[Language]]] = Field(
+    knowsLanguage: Optional[Union[str, List[str], "Language", List["Language"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'knowsLanguage',
@@ -64,7 +64,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/knowsLanguage'
     )
-    gender: Optional[Union[GenderType, List[GenderType], str, List[str]]] = Field(
+    gender: Optional[Union["GenderType", List["GenderType"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'gender',
@@ -88,7 +88,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/globalLocationNumber'
     )
-    sponsor: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(
+    sponsor: Optional[Union["Organization", List["Organization"], "Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'sponsor',
@@ -96,7 +96,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/sponsor'
     )
-    deathPlace: Optional[Union[Place, List[Place]]] = Field(
+    deathPlace: Optional[Union["Place", List["Place"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'deathPlace',
@@ -104,7 +104,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/deathPlace'
     )
-    follows: Optional[Union[Person, List[Person]]] = Field(
+    follows: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'follows',
@@ -112,7 +112,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/follows'
     )
-    sibling: Optional[Union[Person, List[Person]]] = Field(
+    sibling: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'sibling',
@@ -120,7 +120,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/sibling'
     )
-    hasOfferCatalog: Optional[Union[OfferCatalog, List[OfferCatalog]]] = Field(
+    hasOfferCatalog: Optional[Union["OfferCatalog", List["OfferCatalog"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasOfferCatalog',
@@ -128,7 +128,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/hasOfferCatalog'
     )
-    hasCertification: Optional[Union[Certification, List[Certification]]] = Field(
+    hasCertification: Optional[Union["Certification", List["Certification"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasCertification',
@@ -136,7 +136,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/hasCertification'
     )
-    homeLocation: Optional[Union[Place, List[Place], ContactPoint, List[ContactPoint]]] = Field(
+    homeLocation: Optional[Union["Place", List["Place"], "ContactPoint", List["ContactPoint"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'homeLocation',
@@ -144,7 +144,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/homeLocation'
     )
-    alumniOf: Optional[Union[Organization, List[Organization], EducationalOrganization, List[EducationalOrganization]]] = Field(
+    alumniOf: Optional[Union["Organization", List["Organization"], "EducationalOrganization", List["EducationalOrganization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'alumniOf',
@@ -168,7 +168,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/birthDate'
     )
-    owns: Optional[Union[Product, List[Product], OwnershipInfo, List[OwnershipInfo]]] = Field(
+    owns: Optional[Union["Product", List["Product"], "OwnershipInfo", List["OwnershipInfo"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'owns',
@@ -176,7 +176,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/owns'
     )
-    memberOf: Optional[Union[Organization, List[Organization], MemberProgramTier, List[MemberProgramTier], ProgramMembership, List[ProgramMembership]]] = Field(
+    memberOf: Optional[Union["Organization", List["Organization"], "MemberProgramTier", List["MemberProgramTier"], "ProgramMembership", List["ProgramMembership"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'memberOf',
@@ -184,7 +184,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/memberOf'
     )
-    interactionStatistic: Optional[Union[InteractionCounter, List[InteractionCounter]]] = Field(
+    interactionStatistic: Optional[Union["InteractionCounter", List["InteractionCounter"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'interactionStatistic',
@@ -208,7 +208,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/awards'
     )
-    jobTitle: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str]]] = Field(
+    jobTitle: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'jobTitle',
@@ -216,7 +216,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/jobTitle'
     )
-    funder: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(
+    funder: Optional[Union["Organization", List["Organization"], "Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'funder',
@@ -232,7 +232,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/deathDate'
     )
-    spouse: Optional[Union[Person, List[Person]]] = Field(
+    spouse: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'spouse',
@@ -256,7 +256,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/email'
     )
-    netWorth: Optional[Union[PriceSpecification, List[PriceSpecification], MonetaryAmount, List[MonetaryAmount]]] = Field(
+    netWorth: Optional[Union["PriceSpecification", List["PriceSpecification"], "MonetaryAmount", List["MonetaryAmount"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'netWorth',
@@ -264,7 +264,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/netWorth'
     )
-    siblings: Optional[Union[Person, List[Person]]] = Field(
+    siblings: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'siblings',
@@ -272,7 +272,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/siblings'
     )
-    colleagues: Optional[Union[Person, List[Person]]] = Field(
+    colleagues: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'colleagues',
@@ -280,7 +280,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/colleagues'
     )
-    seeks: Optional[Union[Demand, List[Demand]]] = Field(
+    seeks: Optional[Union["Demand", List["Demand"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'seeks',
@@ -288,7 +288,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/seeks'
     )
-    nationality: Optional[Union[Country, List[Country]]] = Field(
+    nationality: Optional[Union["Country", List["Country"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'nationality',
@@ -296,7 +296,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/nationality'
     )
-    hasCredential: Optional[Union[EducationalOccupationalCredential, List[EducationalOccupationalCredential]]] = Field(
+    hasCredential: Optional[Union["EducationalOccupationalCredential", List["EducationalOccupationalCredential"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasCredential',
@@ -304,7 +304,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/hasCredential'
     )
-    funding: Optional[Union[Grant, List[Grant]]] = Field(
+    funding: Optional[Union["Grant", List["Grant"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'funding',
@@ -312,7 +312,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/funding'
     )
-    agentInteractionStatistic: Optional[Union[InteractionCounter, List[InteractionCounter]]] = Field(
+    agentInteractionStatistic: Optional[Union["InteractionCounter", List["InteractionCounter"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'agentInteractionStatistic',
@@ -328,7 +328,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/naics'
     )
-    colleague: Optional[Union[Person, List[Person], HttpUrl, List[HttpUrl]]] = Field(
+    colleague: Optional[Union["Person", List["Person"], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'colleague',
@@ -344,7 +344,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/givenName'
     )
-    worksFor: Optional[Union[Organization, List[Organization]]] = Field(
+    worksFor: Optional[Union["Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'worksFor',
@@ -360,7 +360,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/additionalName'
     )
-    hasOccupation: Optional[Union[Occupation, List[Occupation]]] = Field(
+    hasOccupation: Optional[Union["Occupation", List["Occupation"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasOccupation',
@@ -368,7 +368,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/hasOccupation'
     )
-    knows: Optional[Union[Person, List[Person]]] = Field(
+    knows: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'knows',
@@ -384,7 +384,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/award'
     )
-    parents: Optional[Union[Person, List[Person]]] = Field(
+    parents: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'parents',
@@ -392,7 +392,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/parents'
     )
-    address: Optional[Union[str, List[str], PostalAddress, List[PostalAddress]]] = Field(
+    address: Optional[Union[str, List[str], "PostalAddress", List["PostalAddress"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'address',
@@ -400,7 +400,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/address'
     )
-    height: Optional[Union[Distance, List[Distance], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    height: Optional[Union["Distance", List["Distance"], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'height',
@@ -416,7 +416,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/taxID'
     )
-    weight: Optional[Union[QuantitativeValue, List[QuantitativeValue], Mass, List[Mass]]] = Field(
+    weight: Optional[Union["QuantitativeValue", List["QuantitativeValue"], "Mass", List["Mass"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'weight',
@@ -424,7 +424,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/weight'
     )
-    children: Optional[Union[Person, List[Person]]] = Field(
+    children: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'children',
@@ -432,7 +432,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/children'
     )
-    performerIn: Optional[Union[Event, List[Event]]] = Field(
+    performerIn: Optional[Union["Event", List["Event"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'performerIn',
@@ -440,7 +440,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/performerIn'
     )
-    pronouns: Optional[Union[str, List[str], StructuredValue, List[StructuredValue], DefinedTerm, List[DefinedTerm]]] = Field(
+    pronouns: Optional[Union[str, List[str], "StructuredValue", List["StructuredValue"], "DefinedTerm", List["DefinedTerm"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'pronouns',
@@ -448,7 +448,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/pronouns'
     )
-    knowsAbout: Optional[Union[str, List[str], Thing, List[Thing], HttpUrl, List[HttpUrl]]] = Field(
+    knowsAbout: Optional[Union[str, List[str], "Thing", List["Thing"], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'knowsAbout',
@@ -472,7 +472,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/callSign'
     )
-    brand: Optional[Union[Organization, List[Organization], Brand, List[Brand]]] = Field(
+    brand: Optional[Union["Organization", List["Organization"], "Brand", List["Brand"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'brand',
@@ -480,7 +480,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/brand'
     )
-    contactPoints: Optional[Union[ContactPoint, List[ContactPoint]]] = Field(
+    contactPoints: Optional[Union["ContactPoint", List["ContactPoint"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'contactPoints',
@@ -488,7 +488,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/contactPoints'
     )
-    workLocation: Optional[Union[ContactPoint, List[ContactPoint], Place, List[Place]]] = Field(
+    workLocation: Optional[Union["ContactPoint", List["ContactPoint"], "Place", List["Place"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'workLocation',
@@ -496,7 +496,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/workLocation'
     )
-    makesOffer: Optional[Union[Offer, List[Offer]]] = Field(
+    makesOffer: Optional[Union["Offer", List["Offer"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'makesOffer',
@@ -504,7 +504,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/makesOffer'
     )
-    birthPlace: Optional[Union[Place, List[Place]]] = Field(
+    birthPlace: Optional[Union["Place", List["Place"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'birthPlace',
@@ -512,7 +512,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/birthPlace'
     )
-    publishingPrinciples: Optional[Union[CreativeWork, List[CreativeWork], HttpUrl, List[HttpUrl]]] = Field(
+    publishingPrinciples: Optional[Union["CreativeWork", List["CreativeWork"], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'publishingPrinciples',
@@ -544,7 +544,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/duns'
     )
-    hasPOS: Optional[Union[Place, List[Place]]] = Field(
+    hasPOS: Optional[Union["Place", List["Place"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasPOS',
@@ -552,7 +552,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/hasPOS'
     )
-    skills: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str]]] = Field(
+    skills: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'skills',
@@ -560,7 +560,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/skills'
     )
-    relatedTo: Optional[Union[Person, List[Person]]] = Field(
+    relatedTo: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'relatedTo',
@@ -568,7 +568,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/relatedTo'
     )
-    contactPoint: Optional[Union[ContactPoint, List[ContactPoint]]] = Field(
+    contactPoint: Optional[Union["ContactPoint", List["ContactPoint"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'contactPoint',
@@ -576,7 +576,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/contactPoint'
     )
-    affiliation: Optional[Union[Organization, List[Organization]]] = Field(
+    affiliation: Optional[Union["Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'affiliation',
@@ -584,7 +584,7 @@ A person (alive, dead, undead, or fictional).
         ),
         serialization_alias='https://schema.org/affiliation'
     )
-    parent: Optional[Union[Person, List[Person]]] = Field(
+    parent: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'parent',

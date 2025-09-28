@@ -17,19 +17,19 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .category_code import CategoryCode
-    from .organization import Organization
-    from .person import Person
-    from .educational_occupational_credential import EducationalOccupationalCredential
     from .monetary_amount_distribution import MonetaryAmountDistribution
-    from .price_specification import PriceSpecification
-    from .occupational_experience_requirements import OccupationalExperienceRequirements
-    from .administrative_area import AdministrativeArea
-    from .contact_point import ContactPoint
     from .monetary_amount import MonetaryAmount
+    from .administrative_area import AdministrativeArea
+    from .price_specification import PriceSpecification
+    from .educational_occupational_credential import EducationalOccupationalCredential
     from .defined_term import DefinedTerm
     from .occupation import Occupation
+    from .category_code import CategoryCode
     from .place import Place
+    from .person import Person
+    from .organization import Organization
+    from .occupational_experience_requirements import OccupationalExperienceRequirements
+    from .contact_point import ContactPoint
 
 class JobPosting(Intangible):
     """
@@ -40,7 +40,7 @@ A listing that describes a job opening in a certain organization.
         alias='@type',
         serialization_alias='@type'
     )
-    estimatedSalary: Optional[Union[MonetaryAmountDistribution, List[MonetaryAmountDistribution], float, List[float], MonetaryAmount, List[MonetaryAmount]]] = Field(
+    estimatedSalary: Optional[Union["MonetaryAmountDistribution", List["MonetaryAmountDistribution"], float, List[float], "MonetaryAmount", List["MonetaryAmount"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'estimatedSalary',
@@ -64,7 +64,7 @@ A listing that describes a job opening in a certain organization.
         ),
         serialization_alias='https://schema.org/totalJobOpenings'
     )
-    skills: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str]]] = Field(
+    skills: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'skills',
@@ -80,7 +80,7 @@ A listing that describes a job opening in a certain organization.
         ),
         serialization_alias='https://schema.org/workHours'
     )
-    applicantLocationRequirements: Optional[Union[AdministrativeArea, List[AdministrativeArea]]] = Field(
+    applicantLocationRequirements: Optional[Union["AdministrativeArea", List["AdministrativeArea"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'applicantLocationRequirements',
@@ -128,7 +128,7 @@ A listing that describes a job opening in a certain organization.
         ),
         serialization_alias='https://schema.org/salaryCurrency'
     )
-    educationRequirements: Optional[Union[EducationalOccupationalCredential, List[EducationalOccupationalCredential], str, List[str]]] = Field(
+    educationRequirements: Optional[Union["EducationalOccupationalCredential", List["EducationalOccupationalCredential"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'educationRequirements',
@@ -144,7 +144,7 @@ A listing that describes a job opening in a certain organization.
         ),
         serialization_alias='https://schema.org/benefits'
     )
-    industry: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str]]] = Field(
+    industry: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'industry',
@@ -152,7 +152,7 @@ A listing that describes a job opening in a certain organization.
         ),
         serialization_alias='https://schema.org/industry'
     )
-    sensoryRequirement: Optional[Union[HttpUrl, List[HttpUrl], DefinedTerm, List[DefinedTerm], str, List[str]]] = Field(
+    sensoryRequirement: Optional[Union[HttpUrl, List[HttpUrl], "DefinedTerm", List["DefinedTerm"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'sensoryRequirement',
@@ -176,7 +176,7 @@ A listing that describes a job opening in a certain organization.
         ),
         serialization_alias='https://schema.org/experienceInPlaceOfEducation'
     )
-    applicationContact: Optional[Union[ContactPoint, List[ContactPoint]]] = Field(
+    applicationContact: Optional[Union["ContactPoint", List["ContactPoint"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'applicationContact',
@@ -184,7 +184,7 @@ A listing that describes a job opening in a certain organization.
         ),
         serialization_alias='https://schema.org/applicationContact'
     )
-    occupationalCategory: Optional[Union[CategoryCode, List[CategoryCode], str, List[str]]] = Field(
+    occupationalCategory: Optional[Union["CategoryCode", List["CategoryCode"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'occupationalCategory',
@@ -192,7 +192,7 @@ A listing that describes a job opening in a certain organization.
         ),
         serialization_alias='https://schema.org/occupationalCategory'
     )
-    physicalRequirement: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str], HttpUrl, List[HttpUrl]]] = Field(
+    physicalRequirement: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'physicalRequirement',
@@ -200,7 +200,7 @@ A listing that describes a job opening in a certain organization.
         ),
         serialization_alias='https://schema.org/physicalRequirement'
     )
-    relevantOccupation: Optional[Union[Occupation, List[Occupation]]] = Field(
+    relevantOccupation: Optional[Union["Occupation", List["Occupation"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'relevantOccupation',
@@ -216,7 +216,7 @@ A listing that describes a job opening in a certain organization.
         ),
         serialization_alias='https://schema.org/datePosted'
     )
-    experienceRequirements: Optional[Union[OccupationalExperienceRequirements, List[OccupationalExperienceRequirements], str, List[str]]] = Field(
+    experienceRequirements: Optional[Union["OccupationalExperienceRequirements", List["OccupationalExperienceRequirements"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'experienceRequirements',
@@ -264,7 +264,7 @@ A listing that describes a job opening in a certain organization.
         ),
         serialization_alias='https://schema.org/responsibilities'
     )
-    employmentUnit: Optional[Union[Organization, List[Organization]]] = Field(
+    employmentUnit: Optional[Union["Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'employmentUnit',
@@ -272,7 +272,7 @@ A listing that describes a job opening in a certain organization.
         ),
         serialization_alias='https://schema.org/employmentUnit'
     )
-    hiringOrganization: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
+    hiringOrganization: Optional[Union["Person", List["Person"], "Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hiringOrganization',
@@ -288,7 +288,7 @@ A listing that describes a job opening in a certain organization.
         ),
         serialization_alias='https://schema.org/jobLocationType'
     )
-    jobLocation: Optional[Union[Place, List[Place]]] = Field(
+    jobLocation: Optional[Union["Place", List["Place"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'jobLocation',
@@ -312,7 +312,7 @@ A listing that describes a job opening in a certain organization.
         ),
         serialization_alias='https://schema.org/securityClearanceRequirement'
     )
-    baseSalary: Optional[Union[float, List[float], PriceSpecification, List[PriceSpecification], MonetaryAmount, List[MonetaryAmount]]] = Field(
+    baseSalary: Optional[Union[float, List[float], "PriceSpecification", List["PriceSpecification"], "MonetaryAmount", List["MonetaryAmount"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'baseSalary',
@@ -320,7 +320,7 @@ A listing that describes a job opening in a certain organization.
         ),
         serialization_alias='https://schema.org/baseSalary'
     )
-    qualifications: Optional[Union[EducationalOccupationalCredential, List[EducationalOccupationalCredential], str, List[str]]] = Field(
+    qualifications: Optional[Union["EducationalOccupationalCredential", List["EducationalOccupationalCredential"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'qualifications',

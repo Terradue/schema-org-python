@@ -13,8 +13,8 @@ from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .music_recording import MusicRecording
-    from .event import Event
     from .organization import Organization
+    from .event import Event
     from .person import Person
 
 class MusicComposition(CreativeWork):
@@ -26,7 +26,7 @@ A musical composition.
         alias='@type',
         serialization_alias='@type'
     )
-    recordedAs: Optional[Union[MusicRecording, List[MusicRecording]]] = Field(
+    recordedAs: Optional[Union["MusicRecording", List["MusicRecording"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'recordedAs',
@@ -34,7 +34,7 @@ A musical composition.
         ),
         serialization_alias='https://schema.org/recordedAs'
     )
-    composer: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(
+    composer: Optional[Union["Organization", List["Organization"], "Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'composer',
@@ -42,7 +42,7 @@ A musical composition.
         ),
         serialization_alias='https://schema.org/composer'
     )
-    musicArrangement: Optional[Union[MusicComposition, List[MusicComposition]]] = Field(
+    musicArrangement: Optional[Union["MusicComposition", List["MusicComposition"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'musicArrangement',
@@ -50,7 +50,7 @@ A musical composition.
         ),
         serialization_alias='https://schema.org/musicArrangement'
     )
-    lyrics: Optional[Union[CreativeWork, List[CreativeWork]]] = Field(
+    lyrics: Optional[Union["CreativeWork", List["CreativeWork"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'lyrics',
@@ -58,7 +58,7 @@ A musical composition.
         ),
         serialization_alias='https://schema.org/lyrics'
     )
-    includedComposition: Optional[Union[MusicComposition, List[MusicComposition]]] = Field(
+    includedComposition: Optional[Union["MusicComposition", List["MusicComposition"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'includedComposition',
@@ -82,7 +82,7 @@ A musical composition.
         ),
         serialization_alias='https://schema.org/iswcCode'
     )
-    lyricist: Optional[Union[Person, List[Person]]] = Field(
+    lyricist: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'lyricist',
@@ -98,7 +98,7 @@ A musical composition.
         ),
         serialization_alias='https://schema.org/musicCompositionForm'
     )
-    firstPerformance: Optional[Union[Event, List[Event]]] = Field(
+    firstPerformance: Optional[Union["Event", List["Event"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'firstPerformance',

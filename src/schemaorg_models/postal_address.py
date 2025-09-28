@@ -47,7 +47,7 @@ The mailing address.
         ),
         serialization_alias='https://schema.org/streetAddress'
     )
-    addressCountry: Optional[Union[str, List[str], Country, List[Country]]] = Field(
+    addressCountry: Optional[Union[str, List[str], "Country", List["Country"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'addressCountry',

@@ -23,7 +23,7 @@ An item used as either a tool or supply when performing the instructions for how
         alias='@type',
         serialization_alias='@type'
     )
-    requiredQuantity: Optional[Union[str, List[str], float, List[float], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    requiredQuantity: Optional[Union[str, List[str], float, List[float], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'requiredQuantity',

@@ -24,7 +24,7 @@ A structured value representing the duration and scope of services that will be 
         alias='@type',
         serialization_alias='@type'
     )
-    warrantyScope: Optional[Union[WarrantyScope, List[WarrantyScope]]] = Field(
+    warrantyScope: Optional[Union["WarrantyScope", List["WarrantyScope"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'warrantyScope',
@@ -32,7 +32,7 @@ A structured value representing the duration and scope of services that will be 
         ),
         serialization_alias='https://schema.org/warrantyScope'
     )
-    durationOfWarranty: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
+    durationOfWarranty: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'durationOfWarranty',

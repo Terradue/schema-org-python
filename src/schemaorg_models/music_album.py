@@ -12,11 +12,11 @@ from typing import (
 from .music_playlist import MusicPlaylist
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .person import Person
     from .music_group import MusicGroup
     from .music_album_production_type import MusicAlbumProductionType
-    from .music_album_release_type import MusicAlbumReleaseType
+    from .person import Person
     from .music_release import MusicRelease
+    from .music_album_release_type import MusicAlbumReleaseType
 
 class MusicAlbum(MusicPlaylist):
     """
@@ -27,7 +27,7 @@ A collection of music tracks.
         alias='@type',
         serialization_alias='@type'
     )
-    albumRelease: Optional[Union[MusicRelease, List[MusicRelease]]] = Field(
+    albumRelease: Optional[Union["MusicRelease", List["MusicRelease"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'albumRelease',
@@ -35,7 +35,7 @@ A collection of music tracks.
         ),
         serialization_alias='https://schema.org/albumRelease'
     )
-    byArtist: Optional[Union[MusicGroup, List[MusicGroup], Person, List[Person]]] = Field(
+    byArtist: Optional[Union["MusicGroup", List["MusicGroup"], "Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'byArtist',
@@ -43,7 +43,7 @@ A collection of music tracks.
         ),
         serialization_alias='https://schema.org/byArtist'
     )
-    albumProductionType: Optional[Union[MusicAlbumProductionType, List[MusicAlbumProductionType]]] = Field(
+    albumProductionType: Optional[Union["MusicAlbumProductionType", List["MusicAlbumProductionType"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'albumProductionType',
@@ -51,7 +51,7 @@ A collection of music tracks.
         ),
         serialization_alias='https://schema.org/albumProductionType'
     )
-    albumReleaseType: Optional[Union[MusicAlbumReleaseType, List[MusicAlbumReleaseType]]] = Field(
+    albumReleaseType: Optional[Union["MusicAlbumReleaseType", List["MusicAlbumReleaseType"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'albumReleaseType',

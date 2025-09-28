@@ -15,10 +15,10 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .organization import Organization
-    from .person import Person
     from .product import Product
+    from .organization import Organization
     from .service import Service
+    from .person import Person
 
 class OwnershipInfo(StructuredValue):
     """
@@ -37,7 +37,7 @@ A structured value providing information about when a certain organization or pe
         ),
         serialization_alias='https://schema.org/ownedFrom'
     )
-    acquiredFrom: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(
+    acquiredFrom: Optional[Union["Organization", List["Organization"], "Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'acquiredFrom',
@@ -45,7 +45,7 @@ A structured value providing information about when a certain organization or pe
         ),
         serialization_alias='https://schema.org/acquiredFrom'
     )
-    typeOfGood: Optional[Union[Product, List[Product], Service, List[Service]]] = Field(
+    typeOfGood: Optional[Union["Product", List["Product"], "Service", List["Service"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'typeOfGood',

@@ -12,9 +12,9 @@ from typing import (
 from .comment import Comment
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .creative_work import CreativeWork
     from .answer import Answer
     from .item_list import ItemList
-    from .creative_work import CreativeWork
 
 class Question(Comment):
     """
@@ -33,7 +33,7 @@ A specific question - e.g. from a user seeking answers online, or collected in a
         ),
         serialization_alias='https://schema.org/eduQuestionType'
     )
-    parentItem: Optional[Union[CreativeWork, List[CreativeWork], Comment, List[Comment]]] = Field(
+    parentItem: Optional[Union["CreativeWork", List["CreativeWork"], "Comment", List["Comment"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'parentItem',
@@ -41,7 +41,7 @@ A specific question - e.g. from a user seeking answers online, or collected in a
         ),
         serialization_alias='https://schema.org/parentItem'
     )
-    acceptedAnswer: Optional[Union[ItemList, List[ItemList], Answer, List[Answer]]] = Field(
+    acceptedAnswer: Optional[Union["ItemList", List["ItemList"], "Answer", List["Answer"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'acceptedAnswer',
@@ -57,7 +57,7 @@ A specific question - e.g. from a user seeking answers online, or collected in a
         ),
         serialization_alias='https://schema.org/answerCount'
     )
-    suggestedAnswer: Optional[Union[Answer, List[Answer], ItemList, List[ItemList]]] = Field(
+    suggestedAnswer: Optional[Union["Answer", List["Answer"], "ItemList", List["ItemList"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'suggestedAnswer',

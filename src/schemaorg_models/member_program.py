@@ -24,7 +24,7 @@ A MemberProgram defines a loyalty (or membership) program that provides its memb
         alias='@type',
         serialization_alias='@type'
     )
-    hostingOrganization: Optional[Union[Organization, List[Organization]]] = Field(
+    hostingOrganization: Optional[Union["Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hostingOrganization',
@@ -32,7 +32,7 @@ A MemberProgram defines a loyalty (or membership) program that provides its memb
         ),
         serialization_alias='https://schema.org/hostingOrganization'
     )
-    hasTiers: Optional[Union[MemberProgramTier, List[MemberProgramTier]]] = Field(
+    hasTiers: Optional[Union["MemberProgramTier", List["MemberProgramTier"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasTiers',

@@ -13,9 +13,9 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .quantitative_value import QuantitativeValue
-    from .location_feature_specification import LocationFeatureSpecification
     from .accommodation import Accommodation
+    from .location_feature_specification import LocationFeatureSpecification
+    from .quantitative_value import QuantitativeValue
     from .image_object import ImageObject
 
 class FloorPlan(Intangible):
@@ -27,7 +27,7 @@ A FloorPlan is an explicit representation of a collection of similar accommodati
         alias='@type',
         serialization_alias='@type'
     )
-    numberOfAvailableAccommodationUnits: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
+    numberOfAvailableAccommodationUnits: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'numberOfAvailableAccommodationUnits',
@@ -35,7 +35,7 @@ A FloorPlan is an explicit representation of a collection of similar accommodati
         ),
         serialization_alias='https://schema.org/numberOfAvailableAccommodationUnits'
     )
-    layoutImage: Optional[Union[HttpUrl, List[HttpUrl], ImageObject, List[ImageObject]]] = Field(
+    layoutImage: Optional[Union[HttpUrl, List[HttpUrl], "ImageObject", List["ImageObject"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'layoutImage',
@@ -51,7 +51,7 @@ A FloorPlan is an explicit representation of a collection of similar accommodati
         ),
         serialization_alias='https://schema.org/numberOfPartialBathrooms'
     )
-    numberOfBedrooms: Optional[Union[float, List[float], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    numberOfBedrooms: Optional[Union[float, List[float], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'numberOfBedrooms',
@@ -59,7 +59,7 @@ A FloorPlan is an explicit representation of a collection of similar accommodati
         ),
         serialization_alias='https://schema.org/numberOfBedrooms'
     )
-    numberOfRooms: Optional[Union[float, List[float], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    numberOfRooms: Optional[Union[float, List[float], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'numberOfRooms',
@@ -83,7 +83,7 @@ A FloorPlan is an explicit representation of a collection of similar accommodati
         ),
         serialization_alias='https://schema.org/numberOfBathroomsTotal'
     )
-    numberOfAccommodationUnits: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
+    numberOfAccommodationUnits: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'numberOfAccommodationUnits',
@@ -99,7 +99,7 @@ A FloorPlan is an explicit representation of a collection of similar accommodati
         ),
         serialization_alias='https://schema.org/numberOfFullBathrooms'
     )
-    floorSize: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
+    floorSize: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'floorSize',
@@ -107,7 +107,7 @@ A FloorPlan is an explicit representation of a collection of similar accommodati
         ),
         serialization_alias='https://schema.org/floorSize'
     )
-    isPlanForApartment: Optional[Union[Accommodation, List[Accommodation]]] = Field(
+    isPlanForApartment: Optional[Union["Accommodation", List["Accommodation"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'isPlanForApartment',
@@ -115,7 +115,7 @@ A FloorPlan is an explicit representation of a collection of similar accommodati
         ),
         serialization_alias='https://schema.org/isPlanForApartment'
     )
-    amenityFeature: Optional[Union[LocationFeatureSpecification, List[LocationFeatureSpecification]]] = Field(
+    amenityFeature: Optional[Union["LocationFeatureSpecification", List["LocationFeatureSpecification"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'amenityFeature',

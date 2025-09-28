@@ -26,7 +26,7 @@ Any recommendation made by a standard society (e.g. ACC/AHA) or consensus statem
         alias='@type',
         serialization_alias='@type'
     )
-    guidelineSubject: Optional[Union[MedicalEntity, List[MedicalEntity]]] = Field(
+    guidelineSubject: Optional[Union["MedicalEntity", List["MedicalEntity"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'guidelineSubject',
@@ -34,7 +34,7 @@ Any recommendation made by a standard society (e.g. ACC/AHA) or consensus statem
         ),
         serialization_alias='https://schema.org/guidelineSubject'
     )
-    evidenceLevel: Optional[Union[MedicalEvidenceLevel, List[MedicalEvidenceLevel]]] = Field(
+    evidenceLevel: Optional[Union["MedicalEvidenceLevel", List["MedicalEvidenceLevel"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'evidenceLevel',

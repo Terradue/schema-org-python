@@ -12,13 +12,13 @@ from typing import (
 from .how_to import HowTo
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .quantitative_value import QuantitativeValue
-    from .restricted_diet import RestrictedDiet
-    from .duration import Duration
     from .creative_work import CreativeWork
+    from .duration import Duration
     from .item_list import ItemList
-    from .property_value import PropertyValue
     from .nutrition_information import NutritionInformation
+    from .restricted_diet import RestrictedDiet
+    from .property_value import PropertyValue
+    from .quantitative_value import QuantitativeValue
 
 class Recipe(HowTo):
     """
@@ -29,7 +29,7 @@ A sub property of instrument. The recipe/instructions used to perform the action
         alias='@type',
         serialization_alias='@type'
     )
-    suitableForDiet: Optional[Union[RestrictedDiet, List[RestrictedDiet]]] = Field(
+    suitableForDiet: Optional[Union["RestrictedDiet", List["RestrictedDiet"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'suitableForDiet',
@@ -37,7 +37,7 @@ A sub property of instrument. The recipe/instructions used to perform the action
         ),
         serialization_alias='https://schema.org/suitableForDiet'
     )
-    cookTime: Optional[Union[Duration, List[Duration]]] = Field(
+    cookTime: Optional[Union["Duration", List["Duration"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'cookTime',
@@ -45,7 +45,7 @@ A sub property of instrument. The recipe/instructions used to perform the action
         ),
         serialization_alias='https://schema.org/cookTime'
     )
-    recipeIngredient: Optional[Union[PropertyValue, List[PropertyValue], ItemList, List[ItemList], str, List[str]]] = Field(
+    recipeIngredient: Optional[Union["PropertyValue", List["PropertyValue"], "ItemList", List["ItemList"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'recipeIngredient',
@@ -53,7 +53,7 @@ A sub property of instrument. The recipe/instructions used to perform the action
         ),
         serialization_alias='https://schema.org/recipeIngredient'
     )
-    recipeInstructions: Optional[Union[ItemList, List[ItemList], str, List[str], CreativeWork, List[CreativeWork]]] = Field(
+    recipeInstructions: Optional[Union["ItemList", List["ItemList"], str, List[str], "CreativeWork", List["CreativeWork"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'recipeInstructions',
@@ -61,7 +61,7 @@ A sub property of instrument. The recipe/instructions used to perform the action
         ),
         serialization_alias='https://schema.org/recipeInstructions'
     )
-    recipeYield: Optional[Union[str, List[str], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    recipeYield: Optional[Union[str, List[str], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'recipeYield',
@@ -85,7 +85,7 @@ A sub property of instrument. The recipe/instructions used to perform the action
         ),
         serialization_alias='https://schema.org/recipeCategory'
     )
-    nutrition: Optional[Union[NutritionInformation, List[NutritionInformation]]] = Field(
+    nutrition: Optional[Union["NutritionInformation", List["NutritionInformation"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'nutrition',

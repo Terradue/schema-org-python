@@ -39,7 +39,7 @@ The average rating based on multiple ratings or reviews.
         ),
         serialization_alias='https://schema.org/ratingCount'
     )
-    itemReviewed: Optional[Union[Thing, List[Thing]]] = Field(
+    itemReviewed: Optional[Union["Thing", List["Thing"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'itemReviewed',

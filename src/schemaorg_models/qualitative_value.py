@@ -12,11 +12,11 @@ from typing import (
 from .enumeration import Enumeration
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .quantitative_value import QuantitativeValue
-    from .measurement_type_enumeration import MeasurementTypeEnumeration
     from .structured_value import StructuredValue
     from .defined_term import DefinedTerm
+    from .measurement_type_enumeration import MeasurementTypeEnumeration
     from .property_value import PropertyValue
+    from .quantitative_value import QuantitativeValue
 
 class QualitativeValue(Enumeration):
     """
@@ -27,7 +27,7 @@ A predefined value for a product characteristic, e.g. the power cord plug type '
         alias='@type',
         serialization_alias='@type'
     )
-    greaterOrEqual: Optional[Union[QualitativeValue, List[QualitativeValue]]] = Field(
+    greaterOrEqual: Optional[Union["QualitativeValue", List["QualitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'greaterOrEqual',
@@ -35,7 +35,7 @@ A predefined value for a product characteristic, e.g. the power cord plug type '
         ),
         serialization_alias='https://schema.org/greaterOrEqual'
     )
-    equal: Optional[Union[QualitativeValue, List[QualitativeValue]]] = Field(
+    equal: Optional[Union["QualitativeValue", List["QualitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'equal',
@@ -43,7 +43,7 @@ A predefined value for a product characteristic, e.g. the power cord plug type '
         ),
         serialization_alias='https://schema.org/equal'
     )
-    lesserOrEqual: Optional[Union[QualitativeValue, List[QualitativeValue]]] = Field(
+    lesserOrEqual: Optional[Union["QualitativeValue", List["QualitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'lesserOrEqual',
@@ -51,7 +51,7 @@ A predefined value for a product characteristic, e.g. the power cord plug type '
         ),
         serialization_alias='https://schema.org/lesserOrEqual'
     )
-    greater: Optional[Union[QualitativeValue, List[QualitativeValue]]] = Field(
+    greater: Optional[Union["QualitativeValue", List["QualitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'greater',
@@ -59,7 +59,7 @@ A predefined value for a product characteristic, e.g. the power cord plug type '
         ),
         serialization_alias='https://schema.org/greater'
     )
-    lesser: Optional[Union[QualitativeValue, List[QualitativeValue]]] = Field(
+    lesser: Optional[Union["QualitativeValue", List["QualitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'lesser',
@@ -67,7 +67,7 @@ A predefined value for a product characteristic, e.g. the power cord plug type '
         ),
         serialization_alias='https://schema.org/lesser'
     )
-    additionalProperty: Optional[Union[PropertyValue, List[PropertyValue]]] = Field(
+    additionalProperty: Optional[Union["PropertyValue", List["PropertyValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'additionalProperty',
@@ -75,7 +75,7 @@ A predefined value for a product characteristic, e.g. the power cord plug type '
         ),
         serialization_alias='https://schema.org/additionalProperty'
     )
-    valueReference: Optional[Union[DefinedTerm, List[DefinedTerm], MeasurementTypeEnumeration, List[MeasurementTypeEnumeration], str, List[str], Enumeration, List[Enumeration], QualitativeValue, List[QualitativeValue], QuantitativeValue, List[QuantitativeValue], PropertyValue, List[PropertyValue], StructuredValue, List[StructuredValue]]] = Field(
+    valueReference: Optional[Union["DefinedTerm", List["DefinedTerm"], "MeasurementTypeEnumeration", List["MeasurementTypeEnumeration"], str, List[str], "Enumeration", List["Enumeration"], "QualitativeValue", List["QualitativeValue"], "QuantitativeValue", List["QuantitativeValue"], "PropertyValue", List["PropertyValue"], "StructuredValue", List["StructuredValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'valueReference',
@@ -83,7 +83,7 @@ A predefined value for a product characteristic, e.g. the power cord plug type '
         ),
         serialization_alias='https://schema.org/valueReference'
     )
-    nonEqual: Optional[Union[QualitativeValue, List[QualitativeValue]]] = Field(
+    nonEqual: Optional[Union["QualitativeValue", List["QualitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'nonEqual',

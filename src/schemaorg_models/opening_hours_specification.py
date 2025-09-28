@@ -28,7 +28,7 @@ The opening hours of a certain place.
         alias='@type',
         serialization_alias='@type'
     )
-    dayOfWeek: Optional[Union[DayOfWeek, List[DayOfWeek]]] = Field(
+    dayOfWeek: Optional[Union["DayOfWeek", List["DayOfWeek"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'dayOfWeek',

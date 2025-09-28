@@ -23,7 +23,7 @@ The act of expressing a preference from a fixed/finite/structured set of choices
         alias='@type',
         serialization_alias='@type'
     )
-    candidate: Optional[Union[Person, List[Person]]] = Field(
+    candidate: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'candidate',

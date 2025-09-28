@@ -31,7 +31,7 @@ An list item, e.g. a step in a checklist or how-to description.
         ),
         serialization_alias='https://schema.org/position'
     )
-    nextItem: Optional[Union[ListItem, List[ListItem]]] = Field(
+    nextItem: Optional[Union["ListItem", List["ListItem"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'nextItem',
@@ -39,7 +39,7 @@ An list item, e.g. a step in a checklist or how-to description.
         ),
         serialization_alias='https://schema.org/nextItem'
     )
-    item: Optional[Union[Thing, List[Thing]]] = Field(
+    item: Optional[Union["Thing", List["Thing"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'item',
@@ -47,7 +47,7 @@ An list item, e.g. a step in a checklist or how-to description.
         ),
         serialization_alias='https://schema.org/item'
     )
-    previousItem: Optional[Union[ListItem, List[ListItem]]] = Field(
+    previousItem: Optional[Union["ListItem", List["ListItem"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'previousItem',

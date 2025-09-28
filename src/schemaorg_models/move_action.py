@@ -27,7 +27,7 @@ Related actions:\
         alias='@type',
         serialization_alias='@type'
     )
-    toLocation: Optional[Union[Place, List[Place]]] = Field(
+    toLocation: Optional[Union["Place", List["Place"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'toLocation',
@@ -35,7 +35,7 @@ Related actions:\
         ),
         serialization_alias='https://schema.org/toLocation'
     )
-    fromLocation: Optional[Union[Place, List[Place]]] = Field(
+    fromLocation: Optional[Union["Place", List["Place"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'fromLocation',

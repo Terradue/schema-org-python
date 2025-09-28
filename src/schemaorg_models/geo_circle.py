@@ -27,7 +27,7 @@ A GeoCircle is a GeoShape representing a circular geographic area. As it is a Ge
         alias='@type',
         serialization_alias='@type'
     )
-    geoMidpoint: Optional[Union[GeoCoordinates, List[GeoCoordinates]]] = Field(
+    geoMidpoint: Optional[Union["GeoCoordinates", List["GeoCoordinates"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'geoMidpoint',
@@ -35,7 +35,7 @@ A GeoCircle is a GeoShape representing a circular geographic area. As it is a Ge
         ),
         serialization_alias='https://schema.org/geoMidpoint'
     )
-    geoRadius: Optional[Union[float, List[float], Distance, List[Distance], str, List[str]]] = Field(
+    geoRadius: Optional[Union[float, List[float], "Distance", List["Distance"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'geoRadius',

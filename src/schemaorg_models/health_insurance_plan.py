@@ -13,8 +13,8 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .health_plan_formulary import HealthPlanFormulary
     from .health_plan_network import HealthPlanNetwork
+    from .health_plan_formulary import HealthPlanFormulary
     from .contact_point import ContactPoint
 
 class HealthInsurancePlan(Intangible):
@@ -34,7 +34,7 @@ A US-style health insurance plan, including PPOs, EPOs, and HMOs.
         ),
         serialization_alias='https://schema.org/benefitsSummaryUrl'
     )
-    includesHealthPlanNetwork: Optional[Union[HealthPlanNetwork, List[HealthPlanNetwork]]] = Field(
+    includesHealthPlanNetwork: Optional[Union["HealthPlanNetwork", List["HealthPlanNetwork"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'includesHealthPlanNetwork',
@@ -42,7 +42,7 @@ A US-style health insurance plan, including PPOs, EPOs, and HMOs.
         ),
         serialization_alias='https://schema.org/includesHealthPlanNetwork'
     )
-    includesHealthPlanFormulary: Optional[Union[HealthPlanFormulary, List[HealthPlanFormulary]]] = Field(
+    includesHealthPlanFormulary: Optional[Union["HealthPlanFormulary", List["HealthPlanFormulary"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'includesHealthPlanFormulary',
@@ -50,7 +50,7 @@ A US-style health insurance plan, including PPOs, EPOs, and HMOs.
         ),
         serialization_alias='https://schema.org/includesHealthPlanFormulary'
     )
-    contactPoint: Optional[Union[ContactPoint, List[ContactPoint]]] = Field(
+    contactPoint: Optional[Union["ContactPoint", List["ContactPoint"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'contactPoint',

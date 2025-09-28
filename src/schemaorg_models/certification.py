@@ -17,14 +17,14 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .thing import Thing
-    from .quantitative_value import QuantitativeValue
-    from .organization import Organization
-    from .image_object import ImageObject
-    from .certification_status_enumeration import CertificationStatusEnumeration
     from .administrative_area import AdministrativeArea
     from .defined_term import DefinedTerm
     from .rating import Rating
+    from .certification_status_enumeration import CertificationStatusEnumeration
+    from .thing import Thing
+    from .organization import Organization
+    from .quantitative_value import QuantitativeValue
+    from .image_object import ImageObject
 
 class Certification(CreativeWork):
     """
@@ -35,7 +35,7 @@ A Certification is an official and authoritative statement about a subject, for 
         alias='@type',
         serialization_alias='@type'
     )
-    certificationIdentification: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str]]] = Field(
+    certificationIdentification: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'certificationIdentification',
@@ -43,7 +43,7 @@ A Certification is an official and authoritative statement about a subject, for 
         ),
         serialization_alias='https://schema.org/certificationIdentification'
     )
-    logo: Optional[Union[HttpUrl, List[HttpUrl], ImageObject, List[ImageObject]]] = Field(
+    logo: Optional[Union[HttpUrl, List[HttpUrl], "ImageObject", List["ImageObject"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'logo',
@@ -51,7 +51,7 @@ A Certification is an official and authoritative statement about a subject, for 
         ),
         serialization_alias='https://schema.org/logo'
     )
-    about: Optional[Union[Thing, List[Thing]]] = Field(
+    about: Optional[Union["Thing", List["Thing"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'about',
@@ -83,7 +83,7 @@ A Certification is an official and authoritative statement about a subject, for 
         ),
         serialization_alias='https://schema.org/expires'
     )
-    certificationRating: Optional[Union[Rating, List[Rating]]] = Field(
+    certificationRating: Optional[Union["Rating", List["Rating"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'certificationRating',
@@ -91,7 +91,7 @@ A Certification is an official and authoritative statement about a subject, for 
         ),
         serialization_alias='https://schema.org/certificationRating'
     )
-    validIn: Optional[Union[AdministrativeArea, List[AdministrativeArea]]] = Field(
+    validIn: Optional[Union["AdministrativeArea", List["AdministrativeArea"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'validIn',
@@ -99,7 +99,7 @@ A Certification is an official and authoritative statement about a subject, for 
         ),
         serialization_alias='https://schema.org/validIn'
     )
-    hasMeasurement: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
+    hasMeasurement: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasMeasurement',
@@ -107,7 +107,7 @@ A Certification is an official and authoritative statement about a subject, for 
         ),
         serialization_alias='https://schema.org/hasMeasurement'
     )
-    issuedBy: Optional[Union[Organization, List[Organization]]] = Field(
+    issuedBy: Optional[Union["Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'issuedBy',
@@ -115,7 +115,7 @@ A Certification is an official and authoritative statement about a subject, for 
         ),
         serialization_alias='https://schema.org/issuedBy'
     )
-    certificationStatus: Optional[Union[CertificationStatusEnumeration, List[CertificationStatusEnumeration]]] = Field(
+    certificationStatus: Optional[Union["CertificationStatusEnumeration", List["CertificationStatusEnumeration"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'certificationStatus',

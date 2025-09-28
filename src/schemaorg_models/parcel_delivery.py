@@ -17,13 +17,13 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .organization import Organization
     from .product import Product
     from .order import Order
+    from .delivery_event import DeliveryEvent
     from .delivery_method import DeliveryMethod
     from .postal_address import PostalAddress
-    from .delivery_event import DeliveryEvent
     from .person import Person
+    from .organization import Organization
 
 class ParcelDelivery(Intangible):
     """
@@ -34,7 +34,7 @@ The delivery of a parcel either via the postal service or a commercial service.
         alias='@type',
         serialization_alias='@type'
     )
-    hasDeliveryMethod: Optional[Union[DeliveryMethod, List[DeliveryMethod]]] = Field(
+    hasDeliveryMethod: Optional[Union["DeliveryMethod", List["DeliveryMethod"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasDeliveryMethod',
@@ -50,7 +50,7 @@ The delivery of a parcel either via the postal service or a commercial service.
         ),
         serialization_alias='https://schema.org/expectedArrivalUntil'
     )
-    originAddress: Optional[Union[PostalAddress, List[PostalAddress]]] = Field(
+    originAddress: Optional[Union["PostalAddress", List["PostalAddress"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'originAddress',
@@ -58,7 +58,7 @@ The delivery of a parcel either via the postal service or a commercial service.
         ),
         serialization_alias='https://schema.org/originAddress'
     )
-    deliveryAddress: Optional[Union[PostalAddress, List[PostalAddress]]] = Field(
+    deliveryAddress: Optional[Union["PostalAddress", List["PostalAddress"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'deliveryAddress',
@@ -66,7 +66,7 @@ The delivery of a parcel either via the postal service or a commercial service.
         ),
         serialization_alias='https://schema.org/deliveryAddress'
     )
-    itemShipped: Optional[Union[Product, List[Product]]] = Field(
+    itemShipped: Optional[Union["Product", List["Product"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'itemShipped',
@@ -82,7 +82,7 @@ The delivery of a parcel either via the postal service or a commercial service.
         ),
         serialization_alias='https://schema.org/trackingNumber'
     )
-    provider: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
+    provider: Optional[Union["Person", List["Person"], "Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'provider',
@@ -106,7 +106,7 @@ The delivery of a parcel either via the postal service or a commercial service.
         ),
         serialization_alias='https://schema.org/expectedArrivalFrom'
     )
-    carrier: Optional[Union[Organization, List[Organization]]] = Field(
+    carrier: Optional[Union["Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'carrier',
@@ -114,7 +114,7 @@ The delivery of a parcel either via the postal service or a commercial service.
         ),
         serialization_alias='https://schema.org/carrier'
     )
-    deliveryStatus: Optional[Union[DeliveryEvent, List[DeliveryEvent]]] = Field(
+    deliveryStatus: Optional[Union["DeliveryEvent", List["DeliveryEvent"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'deliveryStatus',
@@ -122,7 +122,7 @@ The delivery of a parcel either via the postal service or a commercial service.
         ),
         serialization_alias='https://schema.org/deliveryStatus'
     )
-    partOfOrder: Optional[Union[Order, List[Order]]] = Field(
+    partOfOrder: Optional[Union["Order", List["Order"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'partOfOrder',

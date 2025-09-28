@@ -23,7 +23,7 @@ A supply consumed when performing the instructions for how to achieve a result.
         alias='@type',
         serialization_alias='@type'
     )
-    estimatedCost: Optional[Union[str, List[str], MonetaryAmount, List[MonetaryAmount]]] = Field(
+    estimatedCost: Optional[Union[str, List[str], "MonetaryAmount", List["MonetaryAmount"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'estimatedCost',

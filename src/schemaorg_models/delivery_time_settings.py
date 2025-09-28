@@ -40,7 +40,7 @@ A DeliveryTimeSettings represents re-usable pieces of shipping information, rela
         ),
         serialization_alias='https://schema.org/isUnlabelledFallback'
     )
-    shippingDestination: Optional[Union[DefinedRegion, List[DefinedRegion]]] = Field(
+    shippingDestination: Optional[Union["DefinedRegion", List["DefinedRegion"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'shippingDestination',
@@ -48,7 +48,7 @@ A DeliveryTimeSettings represents re-usable pieces of shipping information, rela
         ),
         serialization_alias='https://schema.org/shippingDestination'
     )
-    deliveryTime: Optional[Union[ShippingDeliveryTime, List[ShippingDeliveryTime]]] = Field(
+    deliveryTime: Optional[Union["ShippingDeliveryTime", List["ShippingDeliveryTime"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'deliveryTime',

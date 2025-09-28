@@ -31,7 +31,7 @@ An infectious disease is a clinically evident human disease resulting from the p
         ),
         serialization_alias='https://schema.org/transmissionMethod'
     )
-    infectiousAgentClass: Optional[Union[InfectiousAgentClass, List[InfectiousAgentClass]]] = Field(
+    infectiousAgentClass: Optional[Union["InfectiousAgentClass", List["InfectiousAgentClass"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'infectiousAgentClass',

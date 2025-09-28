@@ -56,7 +56,7 @@ A strategy of regulating the intake of food to achieve or maintain a specific he
         ),
         serialization_alias='https://schema.org/expertConsiderations'
     )
-    endorsers: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(
+    endorsers: Optional[Union["Organization", List["Organization"], "Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'endorsers',

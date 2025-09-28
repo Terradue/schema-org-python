@@ -29,7 +29,7 @@ Related actions:\
         alias='@type',
         serialization_alias='@type'
     )
-    audience: Optional[Union[Audience, List[Audience]]] = Field(
+    audience: Optional[Union["Audience", List["Audience"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'audience',
@@ -37,7 +37,7 @@ Related actions:\
         ),
         serialization_alias='https://schema.org/audience'
     )
-    event: Optional[Union[Event, List[Event]]] = Field(
+    event: Optional[Union["Event", List["Event"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'event',

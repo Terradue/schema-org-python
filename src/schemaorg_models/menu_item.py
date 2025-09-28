@@ -12,11 +12,11 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .menu_section import MenuSection
-    from .restricted_diet import RestrictedDiet
-    from .demand import Demand
     from .offer import Offer
+    from .demand import Demand
     from .nutrition_information import NutritionInformation
+    from .restricted_diet import RestrictedDiet
+    from .menu_section import MenuSection
 
 class MenuItem(Intangible):
     """
@@ -27,7 +27,7 @@ A food or drink item listed in a menu or menu section.
         alias='@type',
         serialization_alias='@type'
     )
-    suitableForDiet: Optional[Union[RestrictedDiet, List[RestrictedDiet]]] = Field(
+    suitableForDiet: Optional[Union["RestrictedDiet", List["RestrictedDiet"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'suitableForDiet',
@@ -35,7 +35,7 @@ A food or drink item listed in a menu or menu section.
         ),
         serialization_alias='https://schema.org/suitableForDiet'
     )
-    menuAddOn: Optional[Union[MenuItem, List[MenuItem], MenuSection, List[MenuSection]]] = Field(
+    menuAddOn: Optional[Union["MenuItem", List["MenuItem"], "MenuSection", List["MenuSection"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'menuAddOn',
@@ -43,7 +43,7 @@ A food or drink item listed in a menu or menu section.
         ),
         serialization_alias='https://schema.org/menuAddOn'
     )
-    offers: Optional[Union[Demand, List[Demand], Offer, List[Offer]]] = Field(
+    offers: Optional[Union["Demand", List["Demand"], "Offer", List["Offer"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'offers',
@@ -51,7 +51,7 @@ A food or drink item listed in a menu or menu section.
         ),
         serialization_alias='https://schema.org/offers'
     )
-    nutrition: Optional[Union[NutritionInformation, List[NutritionInformation]]] = Field(
+    nutrition: Optional[Union["NutritionInformation", List["NutritionInformation"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'nutrition',

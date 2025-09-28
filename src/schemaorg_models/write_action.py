@@ -23,7 +23,7 @@ The act of authoring written creative content.
         alias='@type',
         serialization_alias='@type'
     )
-    language: Optional[Union[Language, List[Language]]] = Field(
+    language: Optional[Union["Language", List["Language"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'language',
@@ -31,7 +31,7 @@ The act of authoring written creative content.
         ),
         serialization_alias='https://schema.org/language'
     )
-    inLanguage: Optional[Union[str, List[str], Language, List[Language]]] = Field(
+    inLanguage: Optional[Union[str, List[str], "Language", List["Language"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'inLanguage',

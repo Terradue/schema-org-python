@@ -39,7 +39,7 @@ A particular physical business or branch of an organization. Examples of LocalBu
         ),
         serialization_alias='https://schema.org/priceRange'
     )
-    branchOf: Optional[Union[Organization, List[Organization]]] = Field(
+    branchOf: Optional[Union["Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'branchOf',

@@ -31,7 +31,7 @@ An organization that provides flights for passengers.
         ),
         serialization_alias='https://schema.org/iataCode'
     )
-    boardingPolicy: Optional[Union[BoardingPolicyType, List[BoardingPolicyType]]] = Field(
+    boardingPolicy: Optional[Union["BoardingPolicyType", List["BoardingPolicyType"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'boardingPolicy',

@@ -13,14 +13,14 @@ from typing import (
 from .game import Game
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .thing import Thing
-    from .video_object import VideoObject
-    from .music_group import MusicGroup
     from .creative_work import CreativeWork
-    from .game_play_mode import GamePlayMode
     from .game_server import GameServer
-    from .person import Person
+    from .video_object import VideoObject
+    from .thing import Thing
     from .performing_group import PerformingGroup
+    from .person import Person
+    from .music_group import MusicGroup
+    from .game_play_mode import GamePlayMode
 
 class VideoGame(Game):
     """
@@ -31,7 +31,7 @@ A video game is an electronic game that involves human interaction with a user i
         alias='@type',
         serialization_alias='@type'
     )
-    gameTip: Optional[Union[CreativeWork, List[CreativeWork]]] = Field(
+    gameTip: Optional[Union["CreativeWork", List["CreativeWork"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'gameTip',
@@ -39,7 +39,7 @@ A video game is an electronic game that involves human interaction with a user i
         ),
         serialization_alias='https://schema.org/gameTip'
     )
-    musicBy: Optional[Union[MusicGroup, List[MusicGroup], Person, List[Person]]] = Field(
+    musicBy: Optional[Union["MusicGroup", List["MusicGroup"], "Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'musicBy',
@@ -47,7 +47,7 @@ A video game is an electronic game that involves human interaction with a user i
         ),
         serialization_alias='https://schema.org/musicBy'
     )
-    gamePlatform: Optional[Union[HttpUrl, List[HttpUrl], str, List[str], Thing, List[Thing]]] = Field(
+    gamePlatform: Optional[Union[HttpUrl, List[HttpUrl], str, List[str], "Thing", List["Thing"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'gamePlatform',
@@ -55,7 +55,7 @@ A video game is an electronic game that involves human interaction with a user i
         ),
         serialization_alias='https://schema.org/gamePlatform'
     )
-    cheatCode: Optional[Union[CreativeWork, List[CreativeWork]]] = Field(
+    cheatCode: Optional[Union["CreativeWork", List["CreativeWork"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'cheatCode',
@@ -63,7 +63,7 @@ A video game is an electronic game that involves human interaction with a user i
         ),
         serialization_alias='https://schema.org/cheatCode'
     )
-    trailer: Optional[Union[VideoObject, List[VideoObject]]] = Field(
+    trailer: Optional[Union["VideoObject", List["VideoObject"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'trailer',
@@ -71,7 +71,7 @@ A video game is an electronic game that involves human interaction with a user i
         ),
         serialization_alias='https://schema.org/trailer'
     )
-    directors: Optional[Union[Person, List[Person]]] = Field(
+    directors: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'directors',
@@ -79,7 +79,7 @@ A video game is an electronic game that involves human interaction with a user i
         ),
         serialization_alias='https://schema.org/directors'
     )
-    director: Optional[Union[Person, List[Person]]] = Field(
+    director: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'director',
@@ -87,7 +87,7 @@ A video game is an electronic game that involves human interaction with a user i
         ),
         serialization_alias='https://schema.org/director'
     )
-    gameServer: Optional[Union[GameServer, List[GameServer]]] = Field(
+    gameServer: Optional[Union["GameServer", List["GameServer"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'gameServer',
@@ -95,7 +95,7 @@ A video game is an electronic game that involves human interaction with a user i
         ),
         serialization_alias='https://schema.org/gameServer'
     )
-    actor: Optional[Union[Person, List[Person], PerformingGroup, List[PerformingGroup]]] = Field(
+    actor: Optional[Union["Person", List["Person"], "PerformingGroup", List["PerformingGroup"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'actor',
@@ -103,7 +103,7 @@ A video game is an electronic game that involves human interaction with a user i
         ),
         serialization_alias='https://schema.org/actor'
     )
-    playMode: Optional[Union[GamePlayMode, List[GamePlayMode]]] = Field(
+    playMode: Optional[Union["GamePlayMode", List["GamePlayMode"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'playMode',
@@ -119,7 +119,7 @@ A video game is an electronic game that involves human interaction with a user i
         ),
         serialization_alias='https://schema.org/gameEdition'
     )
-    actors: Optional[Union[Person, List[Person]]] = Field(
+    actors: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'actors',

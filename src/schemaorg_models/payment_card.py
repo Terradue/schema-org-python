@@ -23,7 +23,7 @@ A payment method using a credit, debit, store or other card to associate the pay
         alias='@type',
         serialization_alias='@type'
     )
-    monthlyMinimumRepaymentAmount: Optional[Union[float, List[float], MonetaryAmount, List[MonetaryAmount]]] = Field(
+    monthlyMinimumRepaymentAmount: Optional[Union[float, List[float], "MonetaryAmount", List["MonetaryAmount"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'monthlyMinimumRepaymentAmount',
@@ -31,7 +31,7 @@ A payment method using a credit, debit, store or other card to associate the pay
         ),
         serialization_alias='https://schema.org/monthlyMinimumRepaymentAmount'
     )
-    floorLimit: Optional[Union[MonetaryAmount, List[MonetaryAmount]]] = Field(
+    floorLimit: Optional[Union["MonetaryAmount", List["MonetaryAmount"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'floorLimit',

@@ -16,12 +16,12 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .creative_work_series import CreativeWorkSeries
-    from .organization import Organization
-    from .video_object import VideoObject
     from .episode import Episode
-    from .person import Person
+    from .video_object import VideoObject
+    from .creative_work_series import CreativeWorkSeries
     from .performing_group import PerformingGroup
+    from .person import Person
+    from .organization import Organization
 
 class CreativeWorkSeason(CreativeWork):
     """
@@ -32,7 +32,7 @@ A media season, e.g. TV, radio, video game etc.
         alias='@type',
         serialization_alias='@type'
     )
-    director: Optional[Union[Person, List[Person]]] = Field(
+    director: Optional[Union["Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'director',
@@ -40,7 +40,7 @@ A media season, e.g. TV, radio, video game etc.
         ),
         serialization_alias='https://schema.org/director'
     )
-    actor: Optional[Union[Person, List[Person], PerformingGroup, List[PerformingGroup]]] = Field(
+    actor: Optional[Union["Person", List["Person"], "PerformingGroup", List["PerformingGroup"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'actor',
@@ -48,7 +48,7 @@ A media season, e.g. TV, radio, video game etc.
         ),
         serialization_alias='https://schema.org/actor'
     )
-    partOfSeries: Optional[Union[CreativeWorkSeries, List[CreativeWorkSeries]]] = Field(
+    partOfSeries: Optional[Union["CreativeWorkSeries", List["CreativeWorkSeries"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'partOfSeries',
@@ -56,7 +56,7 @@ A media season, e.g. TV, radio, video game etc.
         ),
         serialization_alias='https://schema.org/partOfSeries'
     )
-    episode: Optional[Union[Episode, List[Episode]]] = Field(
+    episode: Optional[Union["Episode", List["Episode"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'episode',
@@ -80,7 +80,7 @@ A media season, e.g. TV, radio, video game etc.
         ),
         serialization_alias='https://schema.org/endDate'
     )
-    productionCompany: Optional[Union[Organization, List[Organization]]] = Field(
+    productionCompany: Optional[Union["Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'productionCompany',
@@ -96,7 +96,7 @@ A media season, e.g. TV, radio, video game etc.
         ),
         serialization_alias='https://schema.org/seasonNumber'
     )
-    episodes: Optional[Union[Episode, List[Episode]]] = Field(
+    episodes: Optional[Union["Episode", List["Episode"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'episodes',
@@ -104,7 +104,7 @@ A media season, e.g. TV, radio, video game etc.
         ),
         serialization_alias='https://schema.org/episodes'
     )
-    trailer: Optional[Union[VideoObject, List[VideoObject]]] = Field(
+    trailer: Optional[Union["VideoObject", List["VideoObject"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'trailer',

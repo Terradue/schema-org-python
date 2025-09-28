@@ -17,9 +17,9 @@ from typing import (
 from .user_interaction import UserInteraction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .creative_work import CreativeWork
     from .organization import Organization
     from .person import Person
-    from .creative_work import CreativeWork
 
 class UserComments(UserInteraction):
     """
@@ -46,7 +46,7 @@ UserInteraction and its subtypes is an old way of talking about users interactin
         ),
         serialization_alias='https://schema.org/replyToUrl'
     )
-    creator: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
+    creator: Optional[Union["Person", List["Person"], "Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'creator',
@@ -54,7 +54,7 @@ UserInteraction and its subtypes is an old way of talking about users interactin
         ),
         serialization_alias='https://schema.org/creator'
     )
-    discusses: Optional[Union[CreativeWork, List[CreativeWork]]] = Field(
+    discusses: Optional[Union["CreativeWork", List["CreativeWork"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'discusses',

@@ -23,7 +23,7 @@ A sub-grouping of steps in the instructions for how to achieve a result (e.g. st
         alias='@type',
         serialization_alias='@type'
     )
-    steps: Optional[Union[str, List[str], CreativeWork, List[CreativeWork], ItemList, List[ItemList]]] = Field(
+    steps: Optional[Union[str, List[str], "CreativeWork", List["CreativeWork"], "ItemList", List["ItemList"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'steps',

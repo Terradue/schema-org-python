@@ -23,7 +23,7 @@ An eCommerce site.
         alias='@type',
         serialization_alias='@type'
     )
-    isStoreOn: Optional[Union[OnlineMarketplace, List[OnlineMarketplace]]] = Field(
+    isStoreOn: Optional[Union["OnlineMarketplace", List["OnlineMarketplace"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'isStoreOn',

@@ -16,12 +16,12 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .organization import Organization
+    from .offer import Offer
     from .demand import Demand
     from .item_list import ItemList
-    from .offer import Offer
-    from .person import Person
     from .place import Place
+    from .person import Person
+    from .organization import Organization
 
 class Trip(Intangible):
     """
@@ -32,7 +32,7 @@ A trip or journey. An itinerary of visits to one or more places.
         alias='@type',
         serialization_alias='@type'
     )
-    subTrip: Optional[Union[Trip, List[Trip]]] = Field(
+    subTrip: Optional[Union["Trip", List["Trip"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'subTrip',
@@ -40,7 +40,7 @@ A trip or journey. An itinerary of visits to one or more places.
         ),
         serialization_alias='https://schema.org/subTrip'
     )
-    provider: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
+    provider: Optional[Union["Person", List["Person"], "Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'provider',
@@ -48,7 +48,7 @@ A trip or journey. An itinerary of visits to one or more places.
         ),
         serialization_alias='https://schema.org/provider'
     )
-    partOfTrip: Optional[Union[Trip, List[Trip]]] = Field(
+    partOfTrip: Optional[Union["Trip", List["Trip"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'partOfTrip',
@@ -64,7 +64,7 @@ A trip or journey. An itinerary of visits to one or more places.
         ),
         serialization_alias='https://schema.org/departureTime'
     )
-    tripOrigin: Optional[Union[Place, List[Place]]] = Field(
+    tripOrigin: Optional[Union["Place", List["Place"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'tripOrigin',
@@ -72,7 +72,7 @@ A trip or journey. An itinerary of visits to one or more places.
         ),
         serialization_alias='https://schema.org/tripOrigin'
     )
-    itinerary: Optional[Union[ItemList, List[ItemList], Place, List[Place]]] = Field(
+    itinerary: Optional[Union["ItemList", List["ItemList"], "Place", List["Place"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'itinerary',
@@ -88,7 +88,7 @@ A trip or journey. An itinerary of visits to one or more places.
         ),
         serialization_alias='https://schema.org/arrivalTime'
     )
-    offers: Optional[Union[Demand, List[Demand], Offer, List[Offer]]] = Field(
+    offers: Optional[Union["Demand", List["Demand"], "Offer", List["Offer"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'offers',

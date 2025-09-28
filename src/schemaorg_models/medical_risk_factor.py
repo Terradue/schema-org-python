@@ -20,7 +20,7 @@ A risk factor is anything that increases a person's likelihood of developing or 
         alias='@type',
         serialization_alias='@type'
     )
-    increasesRiskOf: Optional[Union[MedicalEntity, List[MedicalEntity]]] = Field(
+    increasesRiskOf: Optional[Union["MedicalEntity", List["MedicalEntity"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'increasesRiskOf',

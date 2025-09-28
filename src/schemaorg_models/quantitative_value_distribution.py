@@ -12,8 +12,8 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .quantitative_value import QuantitativeValue
     from .duration import Duration
+    from .quantitative_value import QuantitativeValue
 
 class QuantitativeValueDistribution(StructuredValue):
     """
@@ -64,7 +64,7 @@ A statistical distribution of values.
         ),
         serialization_alias='https://schema.org/percentile10'
     )
-    duration: Optional[Union[Duration, List[Duration], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    duration: Optional[Union["Duration", List["Duration"], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'duration',

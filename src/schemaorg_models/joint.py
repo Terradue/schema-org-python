@@ -23,7 +23,7 @@ The anatomical location at which two or more bones make contact.
         alias='@type',
         serialization_alias='@type'
     )
-    functionalClass: Optional[Union[MedicalEntity, List[MedicalEntity], str, List[str]]] = Field(
+    functionalClass: Optional[Union["MedicalEntity", List["MedicalEntity"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'functionalClass',

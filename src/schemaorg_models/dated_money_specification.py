@@ -43,7 +43,7 @@ A DatedMoneySpecification represents monetary values with optional start and end
         ),
         serialization_alias='https://schema.org/endDate'
     )
-    amount: Optional[Union[MonetaryAmount, List[MonetaryAmount], float, List[float]]] = Field(
+    amount: Optional[Union["MonetaryAmount", List["MonetaryAmount"], float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'amount',

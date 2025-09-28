@@ -23,7 +23,7 @@ A [[LiveBlogPosting]] is a [[BlogPosting]] intended to provide a rolling textual
         alias='@type',
         serialization_alias='@type'
     )
-    liveBlogUpdate: Optional[Union[BlogPosting, List[BlogPosting]]] = Field(
+    liveBlogUpdate: Optional[Union["BlogPosting", List["BlogPosting"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'liveBlogUpdate',

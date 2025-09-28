@@ -12,8 +12,8 @@ from typing import (
 from .place import Place
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .language import Language
     from .audience import Audience
+    from .language import Language
 
 class TouristAttraction(Place):
     """
@@ -24,7 +24,7 @@ A tourist attraction.  In principle any Thing can be a [[TouristAttraction]], fr
         alias='@type',
         serialization_alias='@type'
     )
-    touristType: Optional[Union[Audience, List[Audience], str, List[str]]] = Field(
+    touristType: Optional[Union["Audience", List["Audience"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'touristType',
@@ -32,7 +32,7 @@ A tourist attraction.  In principle any Thing can be a [[TouristAttraction]], fr
         ),
         serialization_alias='https://schema.org/touristType'
     )
-    availableLanguage: Optional[Union[str, List[str], Language, List[Language]]] = Field(
+    availableLanguage: Optional[Union[str, List[str], "Language", List["Language"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'availableLanguage',

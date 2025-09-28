@@ -14,8 +14,8 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .drug_legal_status import DrugLegalStatus
     from .medical_enumeration import MedicalEnumeration
-    from .recommended_dose_schedule import RecommendedDoseSchedule
     from .maximum_dose_schedule import MaximumDoseSchedule
+    from .recommended_dose_schedule import RecommendedDoseSchedule
 
 class DietarySupplement(Substance):
     """
@@ -50,7 +50,7 @@ A product taken by mouth that contains a dietary ingredient intended to suppleme
         ),
         serialization_alias='https://schema.org/isProprietary'
     )
-    maximumIntake: Optional[Union[MaximumDoseSchedule, List[MaximumDoseSchedule]]] = Field(
+    maximumIntake: Optional[Union["MaximumDoseSchedule", List["MaximumDoseSchedule"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'maximumIntake',
@@ -66,7 +66,7 @@ A product taken by mouth that contains a dietary ingredient intended to suppleme
         ),
         serialization_alias='https://schema.org/activeIngredient'
     )
-    recommendedIntake: Optional[Union[RecommendedDoseSchedule, List[RecommendedDoseSchedule]]] = Field(
+    recommendedIntake: Optional[Union["RecommendedDoseSchedule", List["RecommendedDoseSchedule"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'recommendedIntake',
@@ -90,7 +90,7 @@ A product taken by mouth that contains a dietary ingredient intended to suppleme
         ),
         serialization_alias='https://schema.org/targetPopulation'
     )
-    legalStatus: Optional[Union[DrugLegalStatus, List[DrugLegalStatus], MedicalEnumeration, List[MedicalEnumeration], str, List[str]]] = Field(
+    legalStatus: Optional[Union["DrugLegalStatus", List["DrugLegalStatus"], "MedicalEnumeration", List["MedicalEnumeration"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'legalStatus',

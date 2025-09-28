@@ -16,11 +16,11 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .action import Action
-    from .virtual_location import VirtualLocation
-    from .software_application import SoftwareApplication
-    from .postal_address import PostalAddress
     from .web_site import WebSite
+    from .software_application import SoftwareApplication
+    from .virtual_location import VirtualLocation
+    from .postal_address import PostalAddress
+    from .action import Action
     from .place import Place
 
 class InteractionCounter(StructuredValue):
@@ -32,7 +32,7 @@ A summary of how users have interacted with this CreativeWork. In most cases, au
         alias='@type',
         serialization_alias='@type'
     )
-    interactionType: Optional[Union[Action, List[Action]]] = Field(
+    interactionType: Optional[Union["Action", List["Action"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'interactionType',
@@ -56,7 +56,7 @@ A summary of how users have interacted with this CreativeWork. In most cases, au
         ),
         serialization_alias='https://schema.org/endTime'
     )
-    location: Optional[Union[VirtualLocation, List[VirtualLocation], PostalAddress, List[PostalAddress], str, List[str], Place, List[Place]]] = Field(
+    location: Optional[Union["VirtualLocation", List["VirtualLocation"], "PostalAddress", List["PostalAddress"], str, List[str], "Place", List["Place"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'location',
@@ -64,7 +64,7 @@ A summary of how users have interacted with this CreativeWork. In most cases, au
         ),
         serialization_alias='https://schema.org/location'
     )
-    interactionService: Optional[Union[WebSite, List[WebSite], SoftwareApplication, List[SoftwareApplication]]] = Field(
+    interactionService: Optional[Union["WebSite", List["WebSite"], "SoftwareApplication", List["SoftwareApplication"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'interactionService',

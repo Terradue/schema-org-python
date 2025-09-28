@@ -12,8 +12,8 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .country import Country
     from .postal_address import PostalAddress
+    from .country import Country
 
 class GeoShape(StructuredValue):
     """
@@ -40,7 +40,7 @@ The geographic shape of a place. A GeoShape can be described using several prope
         ),
         serialization_alias='https://schema.org/line'
     )
-    address: Optional[Union[str, List[str], PostalAddress, List[PostalAddress]]] = Field(
+    address: Optional[Union[str, List[str], "PostalAddress", List["PostalAddress"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'address',
@@ -64,7 +64,7 @@ The geographic shape of a place. A GeoShape can be described using several prope
         ),
         serialization_alias='https://schema.org/elevation'
     )
-    addressCountry: Optional[Union[str, List[str], Country, List[Country]]] = Field(
+    addressCountry: Optional[Union[str, List[str], "Country", List["Country"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'addressCountry',

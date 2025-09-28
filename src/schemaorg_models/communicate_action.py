@@ -12,12 +12,12 @@ from typing import (
 from .interact_action import InteractAction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .audience import Audience
     from .language import Language
     from .thing import Thing
-    from .organization import Organization
-    from .audience import Audience
-    from .contact_point import ContactPoint
     from .person import Person
+    from .organization import Organization
+    from .contact_point import ContactPoint
 
 class CommunicateAction(InteractAction):
     """
@@ -28,7 +28,7 @@ The act of conveying information to another person via a communication medium (i
         alias='@type',
         serialization_alias='@type'
     )
-    inLanguage: Optional[Union[str, List[str], Language, List[Language]]] = Field(
+    inLanguage: Optional[Union[str, List[str], "Language", List["Language"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'inLanguage',
@@ -36,7 +36,7 @@ The act of conveying information to another person via a communication medium (i
         ),
         serialization_alias='https://schema.org/inLanguage'
     )
-    about: Optional[Union[Thing, List[Thing]]] = Field(
+    about: Optional[Union["Thing", List["Thing"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'about',
@@ -44,7 +44,7 @@ The act of conveying information to another person via a communication medium (i
         ),
         serialization_alias='https://schema.org/about'
     )
-    recipient: Optional[Union[Organization, List[Organization], Audience, List[Audience], ContactPoint, List[ContactPoint], Person, List[Person]]] = Field(
+    recipient: Optional[Union["Organization", List["Organization"], "Audience", List["Audience"], "ContactPoint", List["ContactPoint"], "Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'recipient',
@@ -52,7 +52,7 @@ The act of conveying information to another person via a communication medium (i
         ),
         serialization_alias='https://schema.org/recipient'
     )
-    language: Optional[Union[Language, List[Language]]] = Field(
+    language: Optional[Union["Language", List["Language"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'language',

@@ -12,9 +12,9 @@ from typing import (
 from .trade_action import TradeAction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .warranty_promise import WarrantyPromise
     from .organization import Organization
     from .person import Person
-    from .warranty_promise import WarrantyPromise
 
 class SellAction(TradeAction):
     """
@@ -25,7 +25,7 @@ The act of taking money from a buyer in exchange for goods or services rendered.
         alias='@type',
         serialization_alias='@type'
     )
-    buyer: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
+    buyer: Optional[Union["Person", List["Person"], "Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'buyer',
@@ -33,7 +33,7 @@ The act of taking money from a buyer in exchange for goods or services rendered.
         ),
         serialization_alias='https://schema.org/buyer'
     )
-    warrantyPromise: Optional[Union[WarrantyPromise, List[WarrantyPromise]]] = Field(
+    warrantyPromise: Optional[Union["WarrantyPromise", List["WarrantyPromise"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'warrantyPromise',

@@ -12,11 +12,11 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .monetary_amount import MonetaryAmount
     from .quantitative_value import QuantitativeValue
     from .credit_card import CreditCard
-    from .unit_price_specification import UnitPriceSpecification
-    from .monetary_amount import MonetaryAmount
     from .member_program import MemberProgram
+    from .unit_price_specification import UnitPriceSpecification
     from .tier_benefit_enumeration import TierBenefitEnumeration
 
 class MemberProgramTier(Intangible):
@@ -28,7 +28,7 @@ A MemberProgramTier specifies a tier under a loyalty (member) program, for examp
         alias='@type',
         serialization_alias='@type'
     )
-    membershipPointsEarned: Optional[Union[QuantitativeValue, List[QuantitativeValue], float, List[float]]] = Field(
+    membershipPointsEarned: Optional[Union["QuantitativeValue", List["QuantitativeValue"], float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'membershipPointsEarned',
@@ -36,7 +36,7 @@ A MemberProgramTier specifies a tier under a loyalty (member) program, for examp
         ),
         serialization_alias='https://schema.org/membershipPointsEarned'
     )
-    hasTierBenefit: Optional[Union[TierBenefitEnumeration, List[TierBenefitEnumeration]]] = Field(
+    hasTierBenefit: Optional[Union["TierBenefitEnumeration", List["TierBenefitEnumeration"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasTierBenefit',
@@ -44,7 +44,7 @@ A MemberProgramTier specifies a tier under a loyalty (member) program, for examp
         ),
         serialization_alias='https://schema.org/hasTierBenefit'
     )
-    isTierOf: Optional[Union[MemberProgram, List[MemberProgram]]] = Field(
+    isTierOf: Optional[Union["MemberProgram", List["MemberProgram"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'isTierOf',
@@ -52,7 +52,7 @@ A MemberProgramTier specifies a tier under a loyalty (member) program, for examp
         ),
         serialization_alias='https://schema.org/isTierOf'
     )
-    hasTierRequirement: Optional[Union[MonetaryAmount, List[MonetaryAmount], CreditCard, List[CreditCard], str, List[str], UnitPriceSpecification, List[UnitPriceSpecification]]] = Field(
+    hasTierRequirement: Optional[Union["MonetaryAmount", List["MonetaryAmount"], "CreditCard", List["CreditCard"], str, List[str], "UnitPriceSpecification", List["UnitPriceSpecification"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasTierRequirement',

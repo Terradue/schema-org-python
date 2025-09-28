@@ -12,9 +12,9 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .postal_address import PostalAddress
     from .archive_organization import ArchiveOrganization
     from .place import Place
-    from .postal_address import PostalAddress
 
 class ArchiveComponent(CreativeWork):
     """
@@ -25,7 +25,7 @@ An intangible type to be applied to any archive content, carrying with it a set 
         alias='@type',
         serialization_alias='@type'
     )
-    holdingArchive: Optional[Union[ArchiveOrganization, List[ArchiveOrganization]]] = Field(
+    holdingArchive: Optional[Union["ArchiveOrganization", List["ArchiveOrganization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'holdingArchive',
@@ -33,7 +33,7 @@ An intangible type to be applied to any archive content, carrying with it a set 
         ),
         serialization_alias='https://schema.org/holdingArchive'
     )
-    itemLocation: Optional[Union[PostalAddress, List[PostalAddress], str, List[str], Place, List[Place]]] = Field(
+    itemLocation: Optional[Union["PostalAddress", List["PostalAddress"], str, List[str], "Place", List["Place"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'itemLocation',

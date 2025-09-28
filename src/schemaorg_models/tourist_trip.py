@@ -24,7 +24,7 @@ A tourist trip. A created itinerary of visits to one or more places of interest 
         alias='@type',
         serialization_alias='@type'
     )
-    touristType: Optional[Union[Audience, List[Audience], str, List[str]]] = Field(
+    touristType: Optional[Union["Audience", List["Audience"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'touristType',

@@ -12,8 +12,8 @@ from typing import (
 from .accommodation import Accommodation
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .bed_details import BedDetails
     from .quantitative_value import QuantitativeValue
+    from .bed_details import BedDetails
     from .bed_type import BedType
 
 class Suite(Accommodation):
@@ -28,7 +28,7 @@ See also the <a href="/docs/hotels.html">dedicated document on the use of schema
         alias='@type',
         serialization_alias='@type'
     )
-    occupancy: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
+    occupancy: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'occupancy',
@@ -36,7 +36,7 @@ See also the <a href="/docs/hotels.html">dedicated document on the use of schema
         ),
         serialization_alias='https://schema.org/occupancy'
     )
-    bed: Optional[Union[BedType, List[BedType], str, List[str], BedDetails, List[BedDetails]]] = Field(
+    bed: Optional[Union["BedType", List["BedType"], str, List[str], "BedDetails", List["BedDetails"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'bed',
@@ -44,7 +44,7 @@ See also the <a href="/docs/hotels.html">dedicated document on the use of schema
         ),
         serialization_alias='https://schema.org/bed'
     )
-    numberOfRooms: Optional[Union[float, List[float], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    numberOfRooms: Optional[Union[float, List[float], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'numberOfRooms',

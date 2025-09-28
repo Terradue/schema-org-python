@@ -23,7 +23,7 @@ The act of notifying someone of information pertinent to them, with no expectati
         alias='@type',
         serialization_alias='@type'
     )
-    event: Optional[Union[Event, List[Event]]] = Field(
+    event: Optional[Union["Event", List["Event"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'event',

@@ -12,8 +12,8 @@ from typing import (
 from .trip import Trip
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .bus_station import BusStation
     from .bus_stop import BusStop
+    from .bus_station import BusStation
 
 class BusTrip(Trip):
     """
@@ -32,7 +32,7 @@ A trip on a commercial bus line.
         ),
         serialization_alias='https://schema.org/busNumber'
     )
-    arrivalBusStop: Optional[Union[BusStation, List[BusStation], BusStop, List[BusStop]]] = Field(
+    arrivalBusStop: Optional[Union["BusStation", List["BusStation"], "BusStop", List["BusStop"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'arrivalBusStop',
@@ -40,7 +40,7 @@ A trip on a commercial bus line.
         ),
         serialization_alias='https://schema.org/arrivalBusStop'
     )
-    departureBusStop: Optional[Union[BusStop, List[BusStop], BusStation, List[BusStation]]] = Field(
+    departureBusStop: Optional[Union["BusStop", List["BusStop"], "BusStation", List["BusStation"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'departureBusStop',

@@ -13,8 +13,8 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .data_feed import DataFeed
     from .image_object import ImageObject
+    from .data_feed import DataFeed
 
 class SoftwareApplication(CreativeWork):
     """
@@ -113,7 +113,7 @@ A software application.
         ),
         serialization_alias='https://schema.org/availableOnDevice'
     )
-    softwareHelp: Optional[Union[CreativeWork, List[CreativeWork]]] = Field(
+    softwareHelp: Optional[Union["CreativeWork", List["CreativeWork"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'softwareHelp',
@@ -137,7 +137,7 @@ A software application.
         ),
         serialization_alias='https://schema.org/featureList'
     )
-    supportingData: Optional[Union[DataFeed, List[DataFeed]]] = Field(
+    supportingData: Optional[Union["DataFeed", List["DataFeed"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'supportingData',
@@ -185,7 +185,7 @@ A software application.
         ),
         serialization_alias='https://schema.org/operatingSystem'
     )
-    screenshot: Optional[Union[HttpUrl, List[HttpUrl], ImageObject, List[ImageObject]]] = Field(
+    screenshot: Optional[Union[HttpUrl, List[HttpUrl], "ImageObject", List["ImageObject"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'screenshot',
@@ -193,7 +193,7 @@ A software application.
         ),
         serialization_alias='https://schema.org/screenshot'
     )
-    softwareAddOn: Optional[Union[SoftwareApplication, List[SoftwareApplication]]] = Field(
+    softwareAddOn: Optional[Union["SoftwareApplication", List["SoftwareApplication"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'softwareAddOn',

@@ -31,7 +31,7 @@ Any object used in a medical capacity, such as to diagnose or treat a patient.
         ),
         serialization_alias='https://schema.org/procedure'
     )
-    seriousAdverseOutcome: Optional[Union[MedicalEntity, List[MedicalEntity]]] = Field(
+    seriousAdverseOutcome: Optional[Union["MedicalEntity", List["MedicalEntity"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'seriousAdverseOutcome',
@@ -39,7 +39,7 @@ Any object used in a medical capacity, such as to diagnose or treat a patient.
         ),
         serialization_alias='https://schema.org/seriousAdverseOutcome'
     )
-    adverseOutcome: Optional[Union[MedicalEntity, List[MedicalEntity]]] = Field(
+    adverseOutcome: Optional[Union["MedicalEntity", List["MedicalEntity"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'adverseOutcome',
@@ -55,7 +55,7 @@ Any object used in a medical capacity, such as to diagnose or treat a patient.
         ),
         serialization_alias='https://schema.org/preOp'
     )
-    contraindication: Optional[Union[str, List[str], MedicalContraindication, List[MedicalContraindication]]] = Field(
+    contraindication: Optional[Union[str, List[str], "MedicalContraindication", List["MedicalContraindication"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'contraindication',

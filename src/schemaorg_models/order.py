@@ -17,16 +17,16 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .organization import Organization
-    from .payment_method import PaymentMethod
-    from .order_item import OrderItem
-    from .product import Product
-    from .service import Service
-    from .parcel_delivery import ParcelDelivery
-    from .invoice import Invoice
-    from .postal_address import PostalAddress
     from .offer import Offer
+    from .invoice import Invoice
+    from .product import Product
+    from .payment_method import PaymentMethod
+    from .parcel_delivery import ParcelDelivery
+    from .postal_address import PostalAddress
+    from .order_item import OrderItem
     from .person import Person
+    from .service import Service
+    from .organization import Organization
     from .order_status import OrderStatus
 
 class Order(Intangible):
@@ -38,7 +38,7 @@ An order is a confirmation of a transaction (a receipt), which can contain multi
         alias='@type',
         serialization_alias='@type'
     )
-    orderDelivery: Optional[Union[ParcelDelivery, List[ParcelDelivery]]] = Field(
+    orderDelivery: Optional[Union["ParcelDelivery", List["ParcelDelivery"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'orderDelivery',
@@ -46,7 +46,7 @@ An order is a confirmation of a transaction (a receipt), which can contain multi
         ),
         serialization_alias='https://schema.org/orderDelivery'
     )
-    broker: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
+    broker: Optional[Union["Person", List["Person"], "Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'broker',
@@ -62,7 +62,7 @@ An order is a confirmation of a transaction (a receipt), which can contain multi
         ),
         serialization_alias='https://schema.org/isGift'
     )
-    customer: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
+    customer: Optional[Union["Person", List["Person"], "Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'customer',
@@ -70,7 +70,7 @@ An order is a confirmation of a transaction (a receipt), which can contain multi
         ),
         serialization_alias='https://schema.org/customer'
     )
-    paymentMethod: Optional[Union[str, List[str], PaymentMethod, List[PaymentMethod]]] = Field(
+    paymentMethod: Optional[Union[str, List[str], "PaymentMethod", List["PaymentMethod"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'paymentMethod',
@@ -78,7 +78,7 @@ An order is a confirmation of a transaction (a receipt), which can contain multi
         ),
         serialization_alias='https://schema.org/paymentMethod'
     )
-    merchant: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
+    merchant: Optional[Union["Person", List["Person"], "Organization", List["Organization"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'merchant',
@@ -102,7 +102,7 @@ An order is a confirmation of a transaction (a receipt), which can contain multi
         ),
         serialization_alias='https://schema.org/confirmationNumber'
     )
-    orderStatus: Optional[Union[OrderStatus, List[OrderStatus]]] = Field(
+    orderStatus: Optional[Union["OrderStatus", List["OrderStatus"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'orderStatus',
@@ -110,7 +110,7 @@ An order is a confirmation of a transaction (a receipt), which can contain multi
         ),
         serialization_alias='https://schema.org/orderStatus'
     )
-    partOfInvoice: Optional[Union[Invoice, List[Invoice]]] = Field(
+    partOfInvoice: Optional[Union["Invoice", List["Invoice"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'partOfInvoice',
@@ -126,7 +126,7 @@ An order is a confirmation of a transaction (a receipt), which can contain multi
         ),
         serialization_alias='https://schema.org/orderNumber'
     )
-    acceptedOffer: Optional[Union[Offer, List[Offer]]] = Field(
+    acceptedOffer: Optional[Union["Offer", List["Offer"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'acceptedOffer',
@@ -134,7 +134,7 @@ An order is a confirmation of a transaction (a receipt), which can contain multi
         ),
         serialization_alias='https://schema.org/acceptedOffer'
     )
-    seller: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(
+    seller: Optional[Union["Organization", List["Organization"], "Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'seller',
@@ -150,7 +150,7 @@ An order is a confirmation of a transaction (a receipt), which can contain multi
         ),
         serialization_alias='https://schema.org/paymentDueDate'
     )
-    billingAddress: Optional[Union[PostalAddress, List[PostalAddress]]] = Field(
+    billingAddress: Optional[Union["PostalAddress", List["PostalAddress"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'billingAddress',
@@ -158,7 +158,7 @@ An order is a confirmation of a transaction (a receipt), which can contain multi
         ),
         serialization_alias='https://schema.org/billingAddress'
     )
-    orderedItem: Optional[Union[OrderItem, List[OrderItem], Service, List[Service], Product, List[Product]]] = Field(
+    orderedItem: Optional[Union["OrderItem", List["OrderItem"], "Service", List["Service"], "Product", List["Product"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'orderedItem',

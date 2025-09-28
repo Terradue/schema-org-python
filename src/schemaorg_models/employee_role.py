@@ -32,7 +32,7 @@ A subclass of OrganizationRole used to describe employee relationships.
         ),
         serialization_alias='https://schema.org/salaryCurrency'
     )
-    baseSalary: Optional[Union[float, List[float], PriceSpecification, List[PriceSpecification], MonetaryAmount, List[MonetaryAmount]]] = Field(
+    baseSalary: Optional[Union[float, List[float], "PriceSpecification", List["PriceSpecification"], "MonetaryAmount", List["MonetaryAmount"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'baseSalary',

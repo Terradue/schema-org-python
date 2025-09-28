@@ -12,8 +12,8 @@ from typing import (
 from .educational_occupational_program import EducationalOccupationalProgram
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .category_code import CategoryCode
     from .monetary_amount_distribution import MonetaryAmountDistribution
+    from .category_code import CategoryCode
 
 class WorkBasedProgram(EducationalOccupationalProgram):
     """
@@ -24,7 +24,7 @@ A program with both an educational and employment component. Typically based at 
         alias='@type',
         serialization_alias='@type'
     )
-    trainingSalary: Optional[Union[MonetaryAmountDistribution, List[MonetaryAmountDistribution]]] = Field(
+    trainingSalary: Optional[Union["MonetaryAmountDistribution", List["MonetaryAmountDistribution"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'trainingSalary',
@@ -32,7 +32,7 @@ A program with both an educational and employment component. Typically based at 
         ),
         serialization_alias='https://schema.org/trainingSalary'
     )
-    occupationalCategory: Optional[Union[CategoryCode, List[CategoryCode], str, List[str]]] = Field(
+    occupationalCategory: Optional[Union["CategoryCode", List["CategoryCode"], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'occupationalCategory',

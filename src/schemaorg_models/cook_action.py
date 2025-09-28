@@ -12,10 +12,10 @@ from typing import (
 from .create_action import CreateAction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .place import Place
-    from .food_establishment import FoodEstablishment
     from .recipe import Recipe
+    from .food_establishment import FoodEstablishment
     from .food_event import FoodEvent
+    from .place import Place
 
 class CookAction(CreateAction):
     """
@@ -26,7 +26,7 @@ The act of producing/preparing food.
         alias='@type',
         serialization_alias='@type'
     )
-    foodEvent: Optional[Union[FoodEvent, List[FoodEvent]]] = Field(
+    foodEvent: Optional[Union["FoodEvent", List["FoodEvent"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'foodEvent',
@@ -34,7 +34,7 @@ The act of producing/preparing food.
         ),
         serialization_alias='https://schema.org/foodEvent'
     )
-    recipe: Optional[Union[Recipe, List[Recipe]]] = Field(
+    recipe: Optional[Union["Recipe", List["Recipe"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'recipe',
@@ -42,7 +42,7 @@ The act of producing/preparing food.
         ),
         serialization_alias='https://schema.org/recipe'
     )
-    foodEstablishment: Optional[Union[Place, List[Place], FoodEstablishment, List[FoodEstablishment]]] = Field(
+    foodEstablishment: Optional[Union["Place", List["Place"], "FoodEstablishment", List["FoodEstablishment"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'foodEstablishment',

@@ -29,7 +29,7 @@ A [[Claim]] in Schema.org represents a specific, factually-oriented claim that c
         alias='@type',
         serialization_alias='@type'
     )
-    claimInterpreter: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(
+    claimInterpreter: Optional[Union["Organization", List["Organization"], "Person", List["Person"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'claimInterpreter',
@@ -37,7 +37,7 @@ A [[Claim]] in Schema.org represents a specific, factually-oriented claim that c
         ),
         serialization_alias='https://schema.org/claimInterpreter'
     )
-    firstAppearance: Optional[Union[CreativeWork, List[CreativeWork]]] = Field(
+    firstAppearance: Optional[Union["CreativeWork", List["CreativeWork"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'firstAppearance',
@@ -45,7 +45,7 @@ A [[Claim]] in Schema.org represents a specific, factually-oriented claim that c
         ),
         serialization_alias='https://schema.org/firstAppearance'
     )
-    appearance: Optional[Union[CreativeWork, List[CreativeWork]]] = Field(
+    appearance: Optional[Union["CreativeWork", List["CreativeWork"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'appearance',

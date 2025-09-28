@@ -12,14 +12,14 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .shipping_rate_settings import ShippingRateSettings
-    from .quantitative_value import QuantitativeValue
-    from .distance import Distance
-    from .service_period import ServicePeriod
     from .monetary_amount import MonetaryAmount
+    from .distance import Distance
     from .mass import Mass
+    from .service_period import ServicePeriod
     from .opening_hours_specification import OpeningHoursSpecification
     from .defined_region import DefinedRegion
+    from .shipping_rate_settings import ShippingRateSettings
+    from .quantitative_value import QuantitativeValue
 
 class ShippingConditions(StructuredValue):
     """
@@ -30,7 +30,7 @@ The conditions (constraints, price) applicable to the [[ShippingService]].
         alias='@type',
         serialization_alias='@type'
     )
-    weight: Optional[Union[QuantitativeValue, List[QuantitativeValue], Mass, List[Mass]]] = Field(
+    weight: Optional[Union["QuantitativeValue", List["QuantitativeValue"], "Mass", List["Mass"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'weight',
@@ -38,7 +38,7 @@ The conditions (constraints, price) applicable to the [[ShippingService]].
         ),
         serialization_alias='https://schema.org/weight'
     )
-    shippingOrigin: Optional[Union[DefinedRegion, List[DefinedRegion]]] = Field(
+    shippingOrigin: Optional[Union["DefinedRegion", List["DefinedRegion"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'shippingOrigin',
@@ -46,7 +46,7 @@ The conditions (constraints, price) applicable to the [[ShippingService]].
         ),
         serialization_alias='https://schema.org/shippingOrigin'
     )
-    shippingDestination: Optional[Union[DefinedRegion, List[DefinedRegion]]] = Field(
+    shippingDestination: Optional[Union["DefinedRegion", List["DefinedRegion"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'shippingDestination',
@@ -54,7 +54,7 @@ The conditions (constraints, price) applicable to the [[ShippingService]].
         ),
         serialization_alias='https://schema.org/shippingDestination'
     )
-    seasonalOverride: Optional[Union[OpeningHoursSpecification, List[OpeningHoursSpecification]]] = Field(
+    seasonalOverride: Optional[Union["OpeningHoursSpecification", List["OpeningHoursSpecification"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'seasonalOverride',
@@ -62,7 +62,7 @@ The conditions (constraints, price) applicable to the [[ShippingService]].
         ),
         serialization_alias='https://schema.org/seasonalOverride'
     )
-    shippingRate: Optional[Union[ShippingRateSettings, List[ShippingRateSettings], MonetaryAmount, List[MonetaryAmount]]] = Field(
+    shippingRate: Optional[Union["ShippingRateSettings", List["ShippingRateSettings"], "MonetaryAmount", List["MonetaryAmount"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'shippingRate',
@@ -70,7 +70,7 @@ The conditions (constraints, price) applicable to the [[ShippingService]].
         ),
         serialization_alias='https://schema.org/shippingRate'
     )
-    depth: Optional[Union[Distance, List[Distance], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    depth: Optional[Union["Distance", List["Distance"], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'depth',
@@ -86,7 +86,7 @@ The conditions (constraints, price) applicable to the [[ShippingService]].
         ),
         serialization_alias='https://schema.org/doesNotShip'
     )
-    width: Optional[Union[QuantitativeValue, List[QuantitativeValue], Distance, List[Distance]]] = Field(
+    width: Optional[Union["QuantitativeValue", List["QuantitativeValue"], "Distance", List["Distance"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'width',
@@ -94,7 +94,7 @@ The conditions (constraints, price) applicable to the [[ShippingService]].
         ),
         serialization_alias='https://schema.org/width'
     )
-    numItems: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
+    numItems: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'numItems',
@@ -102,7 +102,7 @@ The conditions (constraints, price) applicable to the [[ShippingService]].
         ),
         serialization_alias='https://schema.org/numItems'
     )
-    orderValue: Optional[Union[MonetaryAmount, List[MonetaryAmount]]] = Field(
+    orderValue: Optional[Union["MonetaryAmount", List["MonetaryAmount"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'orderValue',
@@ -110,7 +110,7 @@ The conditions (constraints, price) applicable to the [[ShippingService]].
         ),
         serialization_alias='https://schema.org/orderValue'
     )
-    transitTime: Optional[Union[ServicePeriod, List[ServicePeriod], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    transitTime: Optional[Union["ServicePeriod", List["ServicePeriod"], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'transitTime',
@@ -118,7 +118,7 @@ The conditions (constraints, price) applicable to the [[ShippingService]].
         ),
         serialization_alias='https://schema.org/transitTime'
     )
-    height: Optional[Union[Distance, List[Distance], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    height: Optional[Union["Distance", List["Distance"], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'height',

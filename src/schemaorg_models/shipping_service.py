@@ -12,11 +12,11 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .quantitative_value import QuantitativeValue
-    from .fulfillment_type_enumeration import FulfillmentTypeEnumeration
     from .service_period import ServicePeriod
     from .member_program_tier import MemberProgramTier
     from .shipping_conditions import ShippingConditions
+    from .quantitative_value import QuantitativeValue
+    from .fulfillment_type_enumeration import FulfillmentTypeEnumeration
 
 class ShippingService(StructuredValue):
     """
@@ -27,7 +27,7 @@ ShippingService represents the criteria used to determine if and how an offer co
         alias='@type',
         serialization_alias='@type'
     )
-    fulfillmentType: Optional[Union[FulfillmentTypeEnumeration, List[FulfillmentTypeEnumeration]]] = Field(
+    fulfillmentType: Optional[Union["FulfillmentTypeEnumeration", List["FulfillmentTypeEnumeration"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'fulfillmentType',
@@ -35,7 +35,7 @@ ShippingService represents the criteria used to determine if and how an offer co
         ),
         serialization_alias='https://schema.org/fulfillmentType'
     )
-    shippingConditions: Optional[Union[ShippingConditions, List[ShippingConditions]]] = Field(
+    shippingConditions: Optional[Union["ShippingConditions", List["ShippingConditions"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'shippingConditions',
@@ -43,7 +43,7 @@ ShippingService represents the criteria used to determine if and how an offer co
         ),
         serialization_alias='https://schema.org/shippingConditions'
     )
-    validForMemberTier: Optional[Union[MemberProgramTier, List[MemberProgramTier]]] = Field(
+    validForMemberTier: Optional[Union["MemberProgramTier", List["MemberProgramTier"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'validForMemberTier',
@@ -51,7 +51,7 @@ ShippingService represents the criteria used to determine if and how an offer co
         ),
         serialization_alias='https://schema.org/validForMemberTier'
     )
-    handlingTime: Optional[Union[ServicePeriod, List[ServicePeriod], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    handlingTime: Optional[Union["ServicePeriod", List["ServicePeriod"], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'handlingTime',
