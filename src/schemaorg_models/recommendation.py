@@ -11,9 +11,11 @@ from typing import (
     Union
 )
 from .review import Review
-from .thing import Thing
-from .category_code import CategoryCode
-from .physical_activity_category import PhysicalActivityCategory
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .physical_activity_category import PhysicalActivityCategory
+    from .thing import Thing
+    from .category_code import CategoryCode
 
 class Recommendation(Review):
     """

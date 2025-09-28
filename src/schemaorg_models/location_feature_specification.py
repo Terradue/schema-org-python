@@ -13,8 +13,10 @@ from typing import (
     Optional,
     Union
 )
-from .opening_hours_specification import OpeningHoursSpecification
 from .property_value import PropertyValue
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .opening_hours_specification import OpeningHoursSpecification
 
 class LocationFeatureSpecification(PropertyValue):
     """

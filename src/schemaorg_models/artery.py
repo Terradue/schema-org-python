@@ -10,7 +10,9 @@ from typing import (
     Union
 )
 from .vessel import Vessel
-from .anatomical_structure import AnatomicalStructure
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .anatomical_structure import AnatomicalStructure
 
 class Artery(Vessel):
     """

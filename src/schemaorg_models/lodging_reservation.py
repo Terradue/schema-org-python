@@ -13,9 +13,11 @@ from typing import (
     Optional,
     Union
 )
-from .qualitative_value import QualitativeValue
 from .reservation import Reservation
-from .quantitative_value import QuantitativeValue
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .quantitative_value import QuantitativeValue
+    from .qualitative_value import QualitativeValue
 
 class LodgingReservation(Reservation):
     """

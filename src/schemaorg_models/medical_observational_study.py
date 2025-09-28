@@ -9,8 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from .medical_observational_study_design import MedicalObservationalStudyDesign
 from .medical_study import MedicalStudy
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .medical_observational_study_design import MedicalObservationalStudyDesign
 
 class MedicalObservationalStudy(MedicalStudy):
     """

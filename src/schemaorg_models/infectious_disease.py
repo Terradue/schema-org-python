@@ -10,7 +10,9 @@ from typing import (
     Union
 )
 from .medical_condition import MedicalCondition
-from .infectious_agent_class import InfectiousAgentClass
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .infectious_agent_class import InfectiousAgentClass
 
 class InfectiousDisease(MedicalCondition):
     """

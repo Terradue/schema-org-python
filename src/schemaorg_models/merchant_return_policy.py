@@ -14,18 +14,20 @@ from typing import (
     Optional,
     Union
 )
-from .return_fees_enumeration import ReturnFeesEnumeration
-from .return_label_source_enumeration import ReturnLabelSourceEnumeration
-from .merchant_return_enumeration import MerchantReturnEnumeration
-from .monetary_amount import MonetaryAmount
 from .intangible import Intangible
-from .property_value import PropertyValue
-from .refund_type_enumeration import RefundTypeEnumeration
-from .country import Country
-from .merchant_return_policy_seasonal_override import MerchantReturnPolicySeasonalOverride
-from .return_method_enumeration import ReturnMethodEnumeration
-from .member_program_tier import MemberProgramTier
-from .offer_item_condition import OfferItemCondition
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .merchant_return_enumeration import MerchantReturnEnumeration
+    from .return_method_enumeration import ReturnMethodEnumeration
+    from .offer_item_condition import OfferItemCondition
+    from .member_program_tier import MemberProgramTier
+    from .return_fees_enumeration import ReturnFeesEnumeration
+    from .return_label_source_enumeration import ReturnLabelSourceEnumeration
+    from .refund_type_enumeration import RefundTypeEnumeration
+    from .monetary_amount import MonetaryAmount
+    from .country import Country
+    from .merchant_return_policy_seasonal_override import MerchantReturnPolicySeasonalOverride
+    from .property_value import PropertyValue
 
 class MerchantReturnPolicy(Intangible):
     """

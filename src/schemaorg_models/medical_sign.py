@@ -10,8 +10,10 @@ from typing import (
     Union
 )
 from .medical_sign_or_symptom import MedicalSignOrSymptom
-from .medical_test import MedicalTest
-from .physical_exam import PhysicalExam
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .medical_test import MedicalTest
+    from .physical_exam import PhysicalExam
 
 class MedicalSign(MedicalSignOrSymptom):
     """

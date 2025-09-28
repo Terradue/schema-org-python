@@ -9,12 +9,14 @@ from typing import (
     Optional,
     Union
 )
-from .demand import Demand
-from .offer import Offer
 from .intangible import Intangible
-from .nutrition_information import NutritionInformation
-from .restricted_diet import RestrictedDiet
-from .menu_section import MenuSection
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .menu_section import MenuSection
+    from .restricted_diet import RestrictedDiet
+    from .demand import Demand
+    from .offer import Offer
+    from .nutrition_information import NutritionInformation
 
 class MenuItem(Intangible):
     """

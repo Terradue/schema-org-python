@@ -10,10 +10,12 @@ from typing import (
     Optional,
     Union
 )
-from .about_page import AboutPage
-from .article import Article
-from .creative_work import CreativeWork
 from .organization import Organization
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .about_page import AboutPage
+    from .article import Article
+    from .creative_work import CreativeWork
 
 class NewsMediaOrganization(Organization):
     """

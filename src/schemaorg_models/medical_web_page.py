@@ -9,9 +9,11 @@ from typing import (
     Optional,
     Union
 )
-from .medical_audience_type import MedicalAudienceType
-from .medical_audience import MedicalAudience
 from .web_page import WebPage
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .medical_audience_type import MedicalAudienceType
+    from .medical_audience import MedicalAudience
 
 class MedicalWebPage(WebPage):
     """

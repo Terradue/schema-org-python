@@ -14,15 +14,17 @@ from typing import (
     Optional,
     Union
 )
-from .person import Person
-from .entry_point import EntryPoint
-from .how_to import HowTo
 from .thing import Thing
-from .virtual_location import VirtualLocation
-from .postal_address import PostalAddress
-from .place import Place
-from .action_status_type import ActionStatusType
-from .organization import Organization
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .organization import Organization
+    from .how_to import HowTo
+    from .virtual_location import VirtualLocation
+    from .entry_point import EntryPoint
+    from .postal_address import PostalAddress
+    from .person import Person
+    from .place import Place
+    from .action_status_type import ActionStatusType
 
 class Action(Thing):
     """

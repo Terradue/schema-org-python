@@ -13,37 +13,39 @@ from typing import (
     Optional,
     Union
 )
-from .contact_point import ContactPoint
 from .thing import Thing
-from .occupation import Occupation
-from .product import Product
-from .educational_occupational_credential import EducationalOccupationalCredential
-from .demand import Demand
-from .offer import Offer
-from .interaction_counter import InteractionCounter
-from .event import Event
-from .structured_value import StructuredValue
-from .place import Place
-from .country import Country
-from .price_specification import PriceSpecification
-from .organization import Organization
-from .language import Language
-from .ownership_info import OwnershipInfo
-from .certification import Certification
-from .postal_address import PostalAddress
-from .mass import Mass
-from .program_membership import ProgramMembership
-from .quantitative_value import QuantitativeValue
-from .member_program_tier import MemberProgramTier
-from .creative_work import CreativeWork
-from .distance import Distance
-from .offer_catalog import OfferCatalog
-from .monetary_amount import MonetaryAmount
-from .educational_organization import EducationalOrganization
-from .gender_type import GenderType
-from .brand import Brand
-from .defined_term import DefinedTerm
-from .grant import Grant
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .demand import Demand
+    from .creative_work import CreativeWork
+    from .defined_term import DefinedTerm
+    from .certification import Certification
+    from .organization import Organization
+    from .product import Product
+    from .distance import Distance
+    from .ownership_info import OwnershipInfo
+    from .educational_organization import EducationalOrganization
+    from .member_program_tier import MemberProgramTier
+    from .contact_point import ContactPoint
+    from .postal_address import PostalAddress
+    from .country import Country
+    from .language import Language
+    from .quantitative_value import QuantitativeValue
+    from .structured_value import StructuredValue
+    from .program_membership import ProgramMembership
+    from .monetary_amount import MonetaryAmount
+    from .occupation import Occupation
+    from .place import Place
+    from .event import Event
+    from .educational_occupational_credential import EducationalOccupationalCredential
+    from .interaction_counter import InteractionCounter
+    from .price_specification import PriceSpecification
+    from .gender_type import GenderType
+    from .offer import Offer
+    from .mass import Mass
+    from .brand import Brand
+    from .grant import Grant
+    from .offer_catalog import OfferCatalog
 
 class Person(Thing):
     """

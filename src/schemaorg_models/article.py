@@ -10,8 +10,10 @@ from typing import (
     Optional,
     Union
 )
-from .speakable_specification import SpeakableSpecification
 from .creative_work import CreativeWork
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .speakable_specification import SpeakableSpecification
 
 class Article(CreativeWork):
     """

@@ -11,8 +11,10 @@ from typing import (
     Union
 )
 from .event import Event
-from .schedule import Schedule
-from .person import Person
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .schedule import Schedule
+    from .person import Person
 
 class CourseInstance(Event):
     """

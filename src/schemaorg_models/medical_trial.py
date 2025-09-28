@@ -10,7 +10,9 @@ from typing import (
     Union
 )
 from .medical_study import MedicalStudy
-from .medical_trial_design import MedicalTrialDesign
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .medical_trial_design import MedicalTrialDesign
 
 class MedicalTrial(MedicalStudy):
     """

@@ -13,7 +13,9 @@ from typing import (
     Union
 )
 from .event import Event
-from .delivery_method import DeliveryMethod
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .delivery_method import DeliveryMethod
 
 class DeliveryEvent(Event):
     """

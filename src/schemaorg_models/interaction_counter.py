@@ -13,13 +13,15 @@ from typing import (
     Optional,
     Union
 )
-from .virtual_location import VirtualLocation
 from .structured_value import StructuredValue
-from .place import Place
-from .postal_address import PostalAddress
-from .software_application import SoftwareApplication
-from .web_site import WebSite
-from .action import Action
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .action import Action
+    from .virtual_location import VirtualLocation
+    from .software_application import SoftwareApplication
+    from .postal_address import PostalAddress
+    from .web_site import WebSite
+    from .place import Place
 
 class InteractionCounter(StructuredValue):
     """

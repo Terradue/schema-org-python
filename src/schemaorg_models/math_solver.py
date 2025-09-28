@@ -9,8 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from .solve_math_action import SolveMathAction
 from .creative_work import CreativeWork
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .solve_math_action import SolveMathAction
 
 class MathSolver(CreativeWork):
     """

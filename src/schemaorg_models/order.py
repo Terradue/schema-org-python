@@ -14,18 +14,20 @@ from typing import (
     Optional,
     Union
 )
-from .person import Person
-from .offer import Offer
-from .payment_method import PaymentMethod
-from .invoice import Invoice
-from .order_item import OrderItem
 from .intangible import Intangible
-from .postal_address import PostalAddress
-from .order_status import OrderStatus
-from .parcel_delivery import ParcelDelivery
-from .organization import Organization
-from .product import Product
-from .service import Service
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .organization import Organization
+    from .payment_method import PaymentMethod
+    from .order_item import OrderItem
+    from .product import Product
+    from .service import Service
+    from .parcel_delivery import ParcelDelivery
+    from .invoice import Invoice
+    from .postal_address import PostalAddress
+    from .offer import Offer
+    from .person import Person
+    from .order_status import OrderStatus
 
 class Order(Intangible):
     """

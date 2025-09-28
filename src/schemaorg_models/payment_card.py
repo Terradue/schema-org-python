@@ -9,8 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from .monetary_amount import MonetaryAmount
 from .financial_product import FinancialProduct
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .monetary_amount import MonetaryAmount
 
 class PaymentCard(FinancialProduct):
     """

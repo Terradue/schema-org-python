@@ -14,18 +14,20 @@ from typing import (
     Optional,
     Union
 )
-from .payment_status_type import PaymentStatusType
-from .physical_activity_category import PhysicalActivityCategory
-from .person import Person
-from .order import Order
-from .category_code import CategoryCode
-from .thing import Thing
-from .monetary_amount import MonetaryAmount
 from .intangible import Intangible
-from .payment_method import PaymentMethod
-from .duration import Duration
-from .price_specification import PriceSpecification
-from .organization import Organization
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .physical_activity_category import PhysicalActivityCategory
+    from .organization import Organization
+    from .category_code import CategoryCode
+    from .thing import Thing
+    from .payment_method import PaymentMethod
+    from .price_specification import PriceSpecification
+    from .duration import Duration
+    from .payment_status_type import PaymentStatusType
+    from .order import Order
+    from .monetary_amount import MonetaryAmount
+    from .person import Person
 
 class Invoice(Intangible):
     """

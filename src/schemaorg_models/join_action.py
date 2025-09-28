@@ -9,8 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from .event import Event
 from .interact_action import InteractAction
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .event import Event
 
 class JoinAction(InteractAction):
     """

@@ -9,8 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from .archive_component import ArchiveComponent
 from .local_business import LocalBusiness
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .archive_component import ArchiveComponent
 
 class ArchiveOrganization(LocalBusiness):
     """

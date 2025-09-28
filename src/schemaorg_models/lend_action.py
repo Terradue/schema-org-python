@@ -10,7 +10,9 @@ from typing import (
     Union
 )
 from .transfer_action import TransferAction
-from .person import Person
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .person import Person
 
 class LendAction(TransferAction):
     """

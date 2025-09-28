@@ -10,13 +10,15 @@ from typing import (
     Optional,
     Union
 )
-from .medical_condition import MedicalCondition
 from .thing import Thing
-from .property_value import PropertyValue
-from .taxon import Taxon
-from .defined_term import DefinedTerm
-from .gene import Gene
-from .grant import Grant
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .gene import Gene
+    from .property_value import PropertyValue
+    from .medical_condition import MedicalCondition
+    from .defined_term import DefinedTerm
+    from .grant import Grant
+    from .taxon import Taxon
 
 class BioChemEntity(Thing):
     """

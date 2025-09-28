@@ -15,7 +15,9 @@ from typing import (
     Union
 )
 from .structured_value import StructuredValue
-from .day_of_week import DayOfWeek
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .day_of_week import DayOfWeek
 
 class OpeningHoursSpecification(StructuredValue):
     """

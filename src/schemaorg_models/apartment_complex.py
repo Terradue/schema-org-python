@@ -10,8 +10,10 @@ from typing import (
     Optional,
     Union
 )
-from .quantitative_value import QuantitativeValue
 from .residence import Residence
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .quantitative_value import QuantitativeValue
 
 class ApartmentComplex(Residence):
     """

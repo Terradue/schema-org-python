@@ -10,9 +10,11 @@ from typing import (
     Optional,
     Union
 )
-from .menu import Menu
 from .local_business import LocalBusiness
-from .rating import Rating
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .menu import Menu
+    from .rating import Rating
 
 class FoodEstablishment(LocalBusiness):
     """

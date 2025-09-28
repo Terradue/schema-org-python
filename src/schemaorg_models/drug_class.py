@@ -10,7 +10,9 @@ from typing import (
     Union
 )
 from .medical_entity import MedicalEntity
-from .drug import Drug
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .drug import Drug
 
 class DrugClass(MedicalEntity):
     """

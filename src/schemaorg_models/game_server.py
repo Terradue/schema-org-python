@@ -9,9 +9,11 @@ from typing import (
     Optional,
     Union
 )
-from .game_server_status import GameServerStatus
 from .intangible import Intangible
-from .video_game import VideoGame
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .video_game import VideoGame
+    from .game_server_status import GameServerStatus
 
 class GameServer(Intangible):
     """

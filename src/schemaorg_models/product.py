@@ -13,37 +13,39 @@ from typing import (
     Optional,
     Union
 )
-from .product_model import ProductModel
 from .thing import Thing
-from .product_group import ProductGroup
-from .review import Review
-from .energy_consumption_details import EnergyConsumptionDetails
-from .demand import Demand
-from .merchant_return_policy import MerchantReturnPolicy
-from .adult_oriented_enumeration import AdultOrientedEnumeration
-from .offer import Offer
-from .category_code import CategoryCode
-from .image_object import ImageObject
-from .country import Country
-from .list_item import ListItem
-from .organization import Organization
-from .item_list import ItemList
-from .physical_activity_category import PhysicalActivityCategory
-from .web_content import WebContent
-from .certification import Certification
-from .brand import Brand
-from .quantitative_value import QuantitativeValue
-from .size_specification import SizeSpecification
-from .mass import Mass
-from .service import Service
-from .distance import Distance
-from .property_value import PropertyValue
-from .aggregate_rating import AggregateRating
-from .product_return_policy import ProductReturnPolicy
-from .defined_term import DefinedTerm
-from .offer_item_condition import OfferItemCondition
-from .audience import Audience
-from .grant import Grant
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .physical_activity_category import PhysicalActivityCategory
+    from .merchant_return_policy import MerchantReturnPolicy
+    from .size_specification import SizeSpecification
+    from .demand import Demand
+    from .defined_term import DefinedTerm
+    from .certification import Certification
+    from .review import Review
+    from .product_group import ProductGroup
+    from .category_code import CategoryCode
+    from .organization import Organization
+    from .distance import Distance
+    from .product_return_policy import ProductReturnPolicy
+    from .image_object import ImageObject
+    from .energy_consumption_details import EnergyConsumptionDetails
+    from .audience import Audience
+    from .product_model import ProductModel
+    from .country import Country
+    from .quantitative_value import QuantitativeValue
+    from .offer_item_condition import OfferItemCondition
+    from .web_content import WebContent
+    from .list_item import ListItem
+    from .item_list import ItemList
+    from .property_value import PropertyValue
+    from .aggregate_rating import AggregateRating
+    from .service import Service
+    from .offer import Offer
+    from .mass import Mass
+    from .brand import Brand
+    from .grant import Grant
+    from .adult_oriented_enumeration import AdultOrientedEnumeration
 
 class Product(Thing):
     """

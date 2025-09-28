@@ -9,8 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from .person import Person
 from .creative_work import CreativeWork
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .person import Person
 
 class ComicStory(CreativeWork):
     """

@@ -9,8 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from .__class import _Class
 from .intangible import Intangible
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .__class import _Class
 
 class StatisticalPopulation(Intangible):
     """

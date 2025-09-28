@@ -13,14 +13,16 @@ from typing import (
     Optional,
     Union
 )
-from .measurement_method_enum import MeasurementMethodEnum
-from .property import Property
-from .property_value import PropertyValue
-from .statistical_variable import StatisticalVariable
-from .data_download import DataDownload
-from .data_catalog import DataCatalog
-from .defined_term import DefinedTerm
 from .creative_work import CreativeWork
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .statistical_variable import StatisticalVariable
+    from .measurement_method_enum import MeasurementMethodEnum
+    from .defined_term import DefinedTerm
+    from .property import Property
+    from .property_value import PropertyValue
+    from .data_download import DataDownload
+    from .data_catalog import DataCatalog
 
 class Dataset(CreativeWork):
     """

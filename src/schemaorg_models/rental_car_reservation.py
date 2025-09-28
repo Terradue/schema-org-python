@@ -13,7 +13,9 @@ from typing import (
     Union
 )
 from .reservation import Reservation
-from .place import Place
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .place import Place
 
 class RentalCarReservation(Reservation):
     """

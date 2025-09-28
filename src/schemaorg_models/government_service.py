@@ -9,9 +9,11 @@ from typing import (
     Optional,
     Union
 )
-from .administrative_area import AdministrativeArea
 from .service import Service
-from .organization import Organization
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .organization import Organization
+    from .administrative_area import AdministrativeArea
 
 class GovernmentService(Service):
     """

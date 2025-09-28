@@ -9,8 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from .administrative_area import AdministrativeArea
 from .medical_intangible import MedicalIntangible
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .administrative_area import AdministrativeArea
 
 class DrugLegalStatus(MedicalIntangible):
     """

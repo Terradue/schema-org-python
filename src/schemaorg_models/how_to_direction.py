@@ -10,11 +10,13 @@ from typing import (
     Optional,
     Union
 )
-from .how_to_supply import HowToSupply
-from .how_to_tool import HowToTool
-from .duration import Duration
-from .media_object import MediaObject
 from .creative_work import CreativeWork
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .how_to_supply import HowToSupply
+    from .media_object import MediaObject
+    from .duration import Duration
+    from .how_to_tool import HowToTool
 
 class HowToDirection(CreativeWork):
     """

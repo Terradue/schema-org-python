@@ -10,7 +10,9 @@ from typing import (
     Union
 )
 from .choose_action import ChooseAction
-from .person import Person
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .person import Person
 
 class VoteAction(ChooseAction):
     """

@@ -12,12 +12,6 @@ from typing import (
     Optional,
     Union
 )
-from .event import Event
-from .property_value import PropertyValue
-from .image_object import ImageObject
-from .text_object import TextObject
-from .action import Action
-from .creative_work import CreativeWork
 
 class Thing(BaseModel):
     """

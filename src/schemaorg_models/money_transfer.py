@@ -9,9 +9,11 @@ from typing import (
     Optional,
     Union
 )
-from .monetary_amount import MonetaryAmount
 from .transfer_action import TransferAction
-from .bank_or_credit_union import BankOrCreditUnion
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .bank_or_credit_union import BankOrCreditUnion
+    from .monetary_amount import MonetaryAmount
 
 class MoneyTransfer(TransferAction):
     """

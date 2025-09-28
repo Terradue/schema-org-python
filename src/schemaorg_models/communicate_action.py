@@ -9,13 +9,15 @@ from typing import (
     Optional,
     Union
 )
-from .contact_point import ContactPoint
-from .language import Language
-from .person import Person
-from .thing import Thing
 from .interact_action import InteractAction
-from .organization import Organization
-from .audience import Audience
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .language import Language
+    from .thing import Thing
+    from .organization import Organization
+    from .audience import Audience
+    from .contact_point import ContactPoint
+    from .person import Person
 
 class CommunicateAction(InteractAction):
     """

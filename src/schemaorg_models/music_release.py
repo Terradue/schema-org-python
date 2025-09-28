@@ -9,13 +9,15 @@ from typing import (
     Optional,
     Union
 )
-from .person import Person
-from .duration import Duration
-from .quantitative_value import QuantitativeValue
-from .music_album import MusicAlbum
-from .organization import Organization
-from .music_release_format_type import MusicReleaseFormatType
 from .music_playlist import MusicPlaylist
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .organization import Organization
+    from .quantitative_value import QuantitativeValue
+    from .duration import Duration
+    from .music_release_format_type import MusicReleaseFormatType
+    from .music_album import MusicAlbum
+    from .person import Person
 
 class MusicRelease(MusicPlaylist):
     """

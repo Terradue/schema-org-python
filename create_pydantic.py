@@ -168,7 +168,7 @@ from typing import (
             # Import parent class if exists
             aux_imports : set = set([])
             if class_info["parent"]:
-                aux_imports.add(class_info["parent"])
+                f.write(f"from .{camel_to_snake(class_info['parent'])} import {class_info['parent']}\n")
 
             # Import other classes
             other_classes = {}
@@ -178,10 +178,15 @@ from typing import (
                     forward_def = classes[prop_type]["order"] > class_info["order"]
                     other_classes[prop_type] = forward_def
 
-                    aux_imports.add(prop_type)
+                    if class_info["parent"] and prop_type != class_info["parent"]:
+                        aux_imports.add(prop_type)
 
+            if aux_imports:
+                f.write("""from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+""")
             for prop_type in aux_imports:
-                f.write(f"from .{camel_to_snake(prop_type)} import {prop_type}\n")
+                f.write(f"    from .{camel_to_snake(prop_type)} import {prop_type}\n")
 
             # Class definition
             if class_info["parent"]:

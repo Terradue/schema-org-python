@@ -10,8 +10,10 @@ from typing import (
     Optional,
     Union
 )
-from .category_code_set import CategoryCodeSet
 from .defined_term import DefinedTerm
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .category_code_set import CategoryCodeSet
 
 class CategoryCode(DefinedTerm):
     """

@@ -15,30 +15,32 @@ from typing import (
     Optional,
     Union
 )
-from .payment_method import PaymentMethod
-from .administrative_area import AdministrativeArea
-from .loan_or_credit import LoanOrCredit
-from .product import Product
-from .business_function import BusinessFunction
-from .person import Person
-from .geo_shape import GeoShape
-from .event import Event
-from .warranty_promise import WarrantyPromise
-from .place import Place
-from .price_specification import PriceSpecification
-from .organization import Organization
-from .delivery_method import DeliveryMethod
-from .business_entity_type import BusinessEntityType
-from .item_availability import ItemAvailability
-from .quantitative_value import QuantitativeValue
-from .trip import Trip
-from .service import Service
-from .creative_work import CreativeWork
-from .menu_item import MenuItem
 from .intangible import Intangible
-from .type_and_quantity_node import TypeAndQuantityNode
-from .aggregate_offer import AggregateOffer
-from .offer_item_condition import OfferItemCondition
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .creative_work import CreativeWork
+    from .warranty_promise import WarrantyPromise
+    from .person import Person
+    from .organization import Organization
+    from .product import Product
+    from .business_entity_type import BusinessEntityType
+    from .delivery_method import DeliveryMethod
+    from .aggregate_offer import AggregateOffer
+    from .payment_method import PaymentMethod
+    from .quantitative_value import QuantitativeValue
+    from .geo_shape import GeoShape
+    from .offer_item_condition import OfferItemCondition
+    from .menu_item import MenuItem
+    from .type_and_quantity_node import TypeAndQuantityNode
+    from .place import Place
+    from .event import Event
+    from .trip import Trip
+    from .price_specification import PriceSpecification
+    from .administrative_area import AdministrativeArea
+    from .item_availability import ItemAvailability
+    from .service import Service
+    from .business_function import BusinessFunction
+    from .loan_or_credit import LoanOrCredit
 
 class Demand(Intangible):
     """

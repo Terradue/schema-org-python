@@ -9,8 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from .monetary_amount import MonetaryAmount
 from .loan_or_credit import LoanOrCredit
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .monetary_amount import MonetaryAmount
 
 class MortgageLoan(LoanOrCredit):
     """

@@ -13,16 +13,18 @@ from typing import (
     Optional,
     Union
 )
-from .enumeration import Enumeration
-from .measurement_method_enum import MeasurementMethodEnum
-from .property import Property
-from .thing import Thing
 from .intangible import Intangible
-from .property_value import PropertyValue
-from .place import Place
-from .statistical_variable import StatisticalVariable
-from .quantitative_value import QuantitativeValue
-from .defined_term import DefinedTerm
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .statistical_variable import StatisticalVariable
+    from .quantitative_value import QuantitativeValue
+    from .thing import Thing
+    from .enumeration import Enumeration
+    from .measurement_method_enum import MeasurementMethodEnum
+    from .defined_term import DefinedTerm
+    from .property import Property
+    from .property_value import PropertyValue
+    from .place import Place
 
 class Observation(Intangible):
     """

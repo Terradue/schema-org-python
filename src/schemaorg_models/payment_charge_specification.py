@@ -9,9 +9,11 @@ from typing import (
     Optional,
     Union
 )
-from .payment_method import PaymentMethod
-from .delivery_method import DeliveryMethod
 from .price_specification import PriceSpecification
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .payment_method import PaymentMethod
+    from .delivery_method import DeliveryMethod
 
 class PaymentChargeSpecification(PriceSpecification):
     """

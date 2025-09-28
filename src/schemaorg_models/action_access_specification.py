@@ -15,14 +15,16 @@ from typing import (
     Optional,
     Union
 )
-from .offer import Offer
-from .physical_activity_category import PhysicalActivityCategory
-from .media_subscription import MediaSubscription
-from .geo_shape import GeoShape
-from .category_code import CategoryCode
 from .intangible import Intangible
-from .thing import Thing
-from .place import Place
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .media_subscription import MediaSubscription
+    from .physical_activity_category import PhysicalActivityCategory
+    from .category_code import CategoryCode
+    from .thing import Thing
+    from .geo_shape import GeoShape
+    from .offer import Offer
+    from .place import Place
 
 class ActionAccessSpecification(Intangible):
     """

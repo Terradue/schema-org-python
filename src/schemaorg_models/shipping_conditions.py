@@ -9,15 +9,17 @@ from typing import (
     Optional,
     Union
 )
-from .opening_hours_specification import OpeningHoursSpecification
-from .service_period import ServicePeriod
-from .distance import Distance
-from .monetary_amount import MonetaryAmount
-from .shipping_rate_settings import ShippingRateSettings
 from .structured_value import StructuredValue
-from .defined_region import DefinedRegion
-from .mass import Mass
-from .quantitative_value import QuantitativeValue
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .shipping_rate_settings import ShippingRateSettings
+    from .quantitative_value import QuantitativeValue
+    from .distance import Distance
+    from .service_period import ServicePeriod
+    from .monetary_amount import MonetaryAmount
+    from .mass import Mass
+    from .opening_hours_specification import OpeningHoursSpecification
+    from .defined_region import DefinedRegion
 
 class ShippingConditions(StructuredValue):
     """

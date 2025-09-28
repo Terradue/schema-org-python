@@ -12,14 +12,16 @@ from typing import (
     Optional,
     Union
 )
-from .person import Person
-from .vehicle import Vehicle
-from .distance import Distance
-from .airport import Airport
-from .duration import Duration
-from .boarding_policy_type import BoardingPolicyType
-from .organization import Organization
 from .trip import Trip
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .organization import Organization
+    from .boarding_policy_type import BoardingPolicyType
+    from .distance import Distance
+    from .airport import Airport
+    from .vehicle import Vehicle
+    from .duration import Duration
+    from .person import Person
 
 class Flight(Trip):
     """

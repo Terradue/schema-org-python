@@ -13,8 +13,10 @@ from typing import (
     Union
 )
 from .reservation import Reservation
-from .quantitative_value import QuantitativeValue
-from .place import Place
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .quantitative_value import QuantitativeValue
+    from .place import Place
 
 class TaxiReservation(Reservation):
     """

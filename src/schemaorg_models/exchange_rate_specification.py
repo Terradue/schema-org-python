@@ -9,9 +9,11 @@ from typing import (
     Optional,
     Union
 )
-from .monetary_amount import MonetaryAmount
 from .structured_value import StructuredValue
-from .unit_price_specification import UnitPriceSpecification
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .unit_price_specification import UnitPriceSpecification
+    from .monetary_amount import MonetaryAmount
 
 class ExchangeRateSpecification(StructuredValue):
     """

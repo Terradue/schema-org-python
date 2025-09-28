@@ -9,14 +9,16 @@ from typing import (
     Optional,
     Union
 )
-from .person import Person
-from .music_group import MusicGroup
-from .music_composition import MusicComposition
-from .duration import Duration
-from .quantitative_value import QuantitativeValue
-from .music_album import MusicAlbum
-from .music_playlist import MusicPlaylist
 from .creative_work import CreativeWork
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .quantitative_value import QuantitativeValue
+    from .music_group import MusicGroup
+    from .music_playlist import MusicPlaylist
+    from .duration import Duration
+    from .music_album import MusicAlbum
+    from .music_composition import MusicComposition
+    from .person import Person
 
 class MusicRecording(CreativeWork):
     """

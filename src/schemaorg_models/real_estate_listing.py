@@ -13,9 +13,11 @@ from typing import (
     Optional,
     Union
 )
-from .quantitative_value import QuantitativeValue
-from .duration import Duration
 from .web_page import WebPage
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .quantitative_value import QuantitativeValue
+    from .duration import Duration
 
 class RealEstateListing(WebPage):
     """

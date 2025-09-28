@@ -10,7 +10,9 @@ from typing import (
     Union
 )
 from .media_object import MediaObject
-from .property_value import PropertyValue
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .property_value import PropertyValue
 
 class ImageObject(MediaObject):
     """

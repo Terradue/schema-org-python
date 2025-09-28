@@ -14,7 +14,9 @@ from typing import (
     Union
 )
 from .reservation import Reservation
-from .quantitative_value import QuantitativeValue
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .quantitative_value import QuantitativeValue
 
 class FoodEstablishmentReservation(Reservation):
     """

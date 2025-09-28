@@ -10,8 +10,10 @@ from typing import (
     Union
 )
 from .intangible import Intangible
-from .offer import Offer
-from .organization import Organization
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .organization import Organization
+    from .offer import Offer
 
 class MediaSubscription(Intangible):
     """

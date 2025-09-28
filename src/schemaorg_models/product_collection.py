@@ -10,7 +10,9 @@ from typing import (
     Union
 )
 from .product import Product
-from .type_and_quantity_node import TypeAndQuantityNode
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .type_and_quantity_node import TypeAndQuantityNode
 
 class ProductCollection(Product):
     """

@@ -10,12 +10,14 @@ from typing import (
     Optional,
     Union
 )
-from .enumeration import Enumeration
-from .__class import _Class
-from .property import Property
-from .measurement_method_enum import MeasurementMethodEnum
 from .constraint_node import ConstraintNode
-from .defined_term import DefinedTerm
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .enumeration import Enumeration
+    from .measurement_method_enum import MeasurementMethodEnum
+    from .__class import _Class
+    from .defined_term import DefinedTerm
+    from .property import Property
 
 class StatisticalVariable(ConstraintNode):
     """

@@ -9,9 +9,11 @@ from typing import (
     Optional,
     Union
 )
-from .media_object import MediaObject
-from .hyper_toc_entry import HyperTocEntry
 from .creative_work import CreativeWork
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .media_object import MediaObject
+    from .hyper_toc_entry import HyperTocEntry
 
 class HyperToc(CreativeWork):
     """

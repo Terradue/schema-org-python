@@ -9,12 +9,14 @@ from typing import (
     Optional,
     Union
 )
-from .measurement_type_enumeration import MeasurementTypeEnumeration
 from .enumeration import Enumeration
-from .property_value import PropertyValue
-from .structured_value import StructuredValue
-from .quantitative_value import QuantitativeValue
-from .defined_term import DefinedTerm
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .quantitative_value import QuantitativeValue
+    from .measurement_type_enumeration import MeasurementTypeEnumeration
+    from .structured_value import StructuredValue
+    from .defined_term import DefinedTerm
+    from .property_value import PropertyValue
 
 class QualitativeValue(Enumeration):
     """

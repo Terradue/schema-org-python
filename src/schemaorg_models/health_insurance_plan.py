@@ -10,10 +10,12 @@ from typing import (
     Optional,
     Union
 )
-from .contact_point import ContactPoint
 from .intangible import Intangible
-from .health_plan_formulary import HealthPlanFormulary
-from .health_plan_network import HealthPlanNetwork
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .health_plan_formulary import HealthPlanFormulary
+    from .health_plan_network import HealthPlanNetwork
+    from .contact_point import ContactPoint
 
 class HealthInsurancePlan(Intangible):
     """

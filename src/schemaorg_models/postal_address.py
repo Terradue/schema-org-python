@@ -10,7 +10,9 @@ from typing import (
     Union
 )
 from .contact_point import ContactPoint
-from .country import Country
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .country import Country
 
 class PostalAddress(ContactPoint):
     """

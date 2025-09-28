@@ -13,13 +13,15 @@ from typing import (
     Optional,
     Union
 )
-from .person import Person
-from .episode import Episode
-from .organization import Organization
-from .video_object import VideoObject
-from .performing_group import PerformingGroup
-from .creative_work_series import CreativeWorkSeries
 from .creative_work import CreativeWork
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .creative_work_series import CreativeWorkSeries
+    from .organization import Organization
+    from .video_object import VideoObject
+    from .episode import Episode
+    from .person import Person
+    from .performing_group import PerformingGroup
 
 class CreativeWorkSeason(CreativeWork):
     """

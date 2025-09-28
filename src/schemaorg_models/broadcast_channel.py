@@ -10,10 +10,12 @@ from typing import (
     Optional,
     Union
 )
-from .broadcast_service import BroadcastService
-from .broadcast_frequency_specification import BroadcastFrequencySpecification
 from .intangible import Intangible
-from .cable_or_satellite_service import CableOrSatelliteService
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .broadcast_service import BroadcastService
+    from .cable_or_satellite_service import CableOrSatelliteService
+    from .broadcast_frequency_specification import BroadcastFrequencySpecification
 
 class BroadcastChannel(Intangible):
     """

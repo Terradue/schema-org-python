@@ -10,10 +10,12 @@ from typing import (
     Optional,
     Union
 )
-from .person import Person
-from .data_feed import DataFeed
-from .performing_group import PerformingGroup
 from .creative_work_series import CreativeWorkSeries
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .data_feed import DataFeed
+    from .person import Person
+    from .performing_group import PerformingGroup
 
 class PodcastSeries(CreativeWorkSeries):
     """

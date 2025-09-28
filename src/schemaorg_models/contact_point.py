@@ -9,14 +9,16 @@ from typing import (
     Optional,
     Union
 )
-from .opening_hours_specification import OpeningHoursSpecification
-from .language import Language
-from .geo_shape import GeoShape
 from .structured_value import StructuredValue
-from .contact_point_option import ContactPointOption
-from .place import Place
-from .administrative_area import AdministrativeArea
-from .product import Product
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .language import Language
+    from .product import Product
+    from .geo_shape import GeoShape
+    from .administrative_area import AdministrativeArea
+    from .contact_point_option import ContactPointOption
+    from .opening_hours_specification import OpeningHoursSpecification
+    from .place import Place
 
 class ContactPoint(StructuredValue):
     """

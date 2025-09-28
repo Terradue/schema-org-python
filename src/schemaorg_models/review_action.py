@@ -9,8 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from .review import Review
 from .assess_action import AssessAction
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .review import Review
 
 class ReviewAction(AssessAction):
     """

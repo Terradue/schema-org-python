@@ -10,7 +10,9 @@ from typing import (
     Union
 )
 from .medical_entity import MedicalEntity
-from .medical_risk_factor import MedicalRiskFactor
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .medical_risk_factor import MedicalRiskFactor
 
 class MedicalRiskEstimator(MedicalEntity):
     """

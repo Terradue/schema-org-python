@@ -10,7 +10,9 @@ from typing import (
     Union
 )
 from .creative_work import CreativeWork
-from .item_list import ItemList
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .item_list import ItemList
 
 class HowToSection(CreativeWork):
     """

@@ -9,10 +9,12 @@ from typing import (
     Optional,
     Union
 )
-from .music_group import MusicGroup
 from .media_object import MediaObject
-from .person import Person
-from .performing_group import PerformingGroup
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .music_group import MusicGroup
+    from .person import Person
+    from .performing_group import PerformingGroup
 
 class VideoObject(MediaObject):
     """

@@ -9,9 +9,11 @@ from typing import (
     Optional,
     Union
 )
-from .person import Person
 from .react_action import ReactAction
-from .organization import Organization
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .organization import Organization
+    from .person import Person
 
 class EndorseAction(ReactAction):
     """

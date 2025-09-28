@@ -9,8 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from .person import Person
 from .achieve_action import AchieveAction
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .person import Person
 
 class LoseAction(AchieveAction):
     """

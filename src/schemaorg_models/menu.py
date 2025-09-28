@@ -9,9 +9,11 @@ from typing import (
     Optional,
     Union
 )
-from .menu_item import MenuItem
 from .creative_work import CreativeWork
-from .menu_section import MenuSection
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .menu_section import MenuSection
+    from .menu_item import MenuItem
 
 class Menu(CreativeWork):
     """

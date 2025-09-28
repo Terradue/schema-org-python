@@ -10,7 +10,9 @@ from typing import (
     Union
 )
 from .find_action import FindAction
-from .delivery_method import DeliveryMethod
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .delivery_method import DeliveryMethod
 
 class TrackAction(FindAction):
     """

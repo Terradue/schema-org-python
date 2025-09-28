@@ -9,8 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from .tv_series import TVSeries
 from .clip import Clip
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .tv_series import TVSeries
 
 class TVClip(Clip):
     """

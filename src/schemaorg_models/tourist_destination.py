@@ -9,9 +9,11 @@ from typing import (
     Optional,
     Union
 )
-from .audience import Audience
 from .place import Place
-from .tourist_attraction import TouristAttraction
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .audience import Audience
+    from .tourist_attraction import TouristAttraction
 
 class TouristDestination(Place):
     """

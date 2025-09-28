@@ -14,20 +14,22 @@ from typing import (
     Optional,
     Union
 )
-from .demand import Demand
-from .monetary_amount_distribution import MonetaryAmountDistribution
-from .offer import Offer
-from .person import Person
-from .category_code import CategoryCode
 from .intangible import Intangible
-from .structured_value import StructuredValue
-from .course import Course
-from .alignment_object import AlignmentObject
-from .duration import Duration
-from .organization import Organization
-from .defined_term import DefinedTerm
-from .day_of_week import DayOfWeek
-from .educational_occupational_credential import EducationalOccupationalCredential
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .category_code import CategoryCode
+    from .organization import Organization
+    from .alignment_object import AlignmentObject
+    from .educational_occupational_credential import EducationalOccupationalCredential
+    from .monetary_amount_distribution import MonetaryAmountDistribution
+    from .duration import Duration
+    from .structured_value import StructuredValue
+    from .demand import Demand
+    from .day_of_week import DayOfWeek
+    from .offer import Offer
+    from .course import Course
+    from .defined_term import DefinedTerm
+    from .person import Person
 
 class EducationalOccupationalProgram(Intangible):
     """

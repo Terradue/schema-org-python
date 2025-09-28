@@ -9,8 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from .medical_test import MedicalTest
 from .medical_organization import MedicalOrganization
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .medical_test import MedicalTest
 
 class DiagnosticLab(MedicalOrganization):
     """

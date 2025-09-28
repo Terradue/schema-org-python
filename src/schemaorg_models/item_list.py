@@ -9,10 +9,12 @@ from typing import (
     Optional,
     Union
 )
-from .item_list_order_type import ItemListOrderType
-from .thing import Thing
 from .intangible import Intangible
-from .list_item import ListItem
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .list_item import ListItem
+    from .thing import Thing
+    from .item_list_order_type import ItemListOrderType
 
 class ItemList(Intangible):
     """

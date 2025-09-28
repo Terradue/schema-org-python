@@ -11,8 +11,10 @@ from typing import (
     Union
 )
 from .creative_work_season import CreativeWorkSeason
-from .country import Country
-from .tv_series import TVSeries
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .tv_series import TVSeries
+    from .country import Country
 
 class TVSeason(CreativeWorkSeason):
     """

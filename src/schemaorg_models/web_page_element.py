@@ -9,8 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from .css_selector_type import CssSelectorType
 from .creative_work import CreativeWork
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .css_selector_type import CssSelectorType
 
 class WebPageElement(CreativeWork):
     """

@@ -9,8 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from .administrative_area import AdministrativeArea
 from .intangible import Intangible
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .administrative_area import AdministrativeArea
 
 class Audience(Intangible):
     """

@@ -10,7 +10,9 @@ from typing import (
     Union
 )
 from .text import Text
-from .language import Language
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .language import Language
 
 class PronounceableText(Text):
     """

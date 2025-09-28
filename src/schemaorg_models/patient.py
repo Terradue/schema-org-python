@@ -9,9 +9,11 @@ from typing import (
     Optional,
     Union
 )
-from .medical_condition import MedicalCondition
 from .medical_audience import MedicalAudience
-from .drug import Drug
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .medical_condition import MedicalCondition
+    from .drug import Drug
 
 class Patient(MedicalAudience):
     """

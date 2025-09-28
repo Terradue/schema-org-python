@@ -10,7 +10,9 @@ from typing import (
     Union
 )
 from .place import Place
-from .organization import Organization
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .organization import Organization
 
 class LocalBusiness(Place):
     """

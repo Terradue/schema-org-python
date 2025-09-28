@@ -13,7 +13,9 @@ from typing import (
     Union
 )
 from .medical_entity import MedicalEntity
-from .medical_evidence_level import MedicalEvidenceLevel
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .medical_evidence_level import MedicalEvidenceLevel
 
 class MedicalGuideline(MedicalEntity):
     """

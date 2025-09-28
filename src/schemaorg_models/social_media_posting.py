@@ -10,7 +10,9 @@ from typing import (
     Union
 )
 from .article import Article
-from .creative_work import CreativeWork
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .creative_work import CreativeWork
 
 class SocialMediaPosting(Article):
     """

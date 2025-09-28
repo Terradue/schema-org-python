@@ -10,10 +10,12 @@ from typing import (
     Optional,
     Union
 )
-from .business_function import BusinessFunction
-from .product import Product
 from .structured_value import StructuredValue
-from .service import Service
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .product import Product
+    from .business_function import BusinessFunction
+    from .service import Service
 
 class TypeAndQuantityNode(StructuredValue):
     """

@@ -10,7 +10,9 @@ from typing import (
     Union
 )
 from .trip import Trip
-from .train_station import TrainStation
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .train_station import TrainStation
 
 class TrainTrip(Trip):
     """

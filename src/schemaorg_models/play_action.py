@@ -9,9 +9,11 @@ from typing import (
     Optional,
     Union
 )
-from .event import Event
 from .action import Action
-from .audience import Audience
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .audience import Audience
+    from .event import Event
 
 class PlayAction(Action):
     """

@@ -10,7 +10,9 @@ from typing import (
     Union
 )
 from .add_action import AddAction
-from .place import Place
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .place import Place
 
 class InsertAction(AddAction):
     """

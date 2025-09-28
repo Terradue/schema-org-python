@@ -9,8 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from .comment import Comment
 from .communicate_action import CommunicateAction
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .comment import Comment
 
 class ReplyAction(CommunicateAction):
     """

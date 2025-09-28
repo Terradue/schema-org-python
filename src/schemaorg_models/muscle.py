@@ -9,9 +9,11 @@ from typing import (
     Optional,
     Union
 )
-from .nerve import Nerve
 from .anatomical_structure import AnatomicalStructure
-from .vessel import Vessel
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .nerve import Nerve
+    from .vessel import Vessel
 
 class Muscle(AnatomicalStructure):
     """

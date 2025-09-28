@@ -9,12 +9,14 @@ from typing import (
     Optional,
     Union
 )
-from .shipping_conditions import ShippingConditions
-from .fulfillment_type_enumeration import FulfillmentTypeEnumeration
-from .service_period import ServicePeriod
 from .structured_value import StructuredValue
-from .quantitative_value import QuantitativeValue
-from .member_program_tier import MemberProgramTier
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .quantitative_value import QuantitativeValue
+    from .fulfillment_type_enumeration import FulfillmentTypeEnumeration
+    from .service_period import ServicePeriod
+    from .member_program_tier import MemberProgramTier
+    from .shipping_conditions import ShippingConditions
 
 class ShippingService(StructuredValue):
     """

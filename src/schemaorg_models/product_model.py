@@ -9,8 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from .product_group import ProductGroup
 from .product import Product
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .product_group import ProductGroup
 
 class ProductModel(Product):
     """

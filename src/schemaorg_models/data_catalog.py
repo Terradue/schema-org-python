@@ -10,10 +10,12 @@ from typing import (
     Optional,
     Union
 )
-from .measurement_method_enum import MeasurementMethodEnum
-from .defined_term import DefinedTerm
 from .creative_work import CreativeWork
-from .dataset import Dataset
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .defined_term import DefinedTerm
+    from .measurement_method_enum import MeasurementMethodEnum
+    from .dataset import Dataset
 
 class DataCatalog(CreativeWork):
     """

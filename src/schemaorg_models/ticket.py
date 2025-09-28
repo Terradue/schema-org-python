@@ -14,11 +14,13 @@ from typing import (
     Optional,
     Union
 )
-from .person import Person
 from .intangible import Intangible
-from .seat import Seat
-from .price_specification import PriceSpecification
-from .organization import Organization
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .organization import Organization
+    from .seat import Seat
+    from .person import Person
+    from .price_specification import PriceSpecification
 
 class Ticket(Intangible):
     """

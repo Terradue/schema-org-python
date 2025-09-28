@@ -10,16 +10,18 @@ from typing import (
     Optional,
     Union
 )
-from .shipping_service import ShippingService
-from .distance import Distance
-from .monetary_amount import MonetaryAmount
-from .shipping_rate_settings import ShippingRateSettings
 from .structured_value import StructuredValue
-from .defined_region import DefinedRegion
-from .mass import Mass
-from .quantitative_value import QuantitativeValue
-from .member_program_tier import MemberProgramTier
-from .shipping_delivery_time import ShippingDeliveryTime
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .shipping_service import ShippingService
+    from .quantitative_value import QuantitativeValue
+    from .shipping_delivery_time import ShippingDeliveryTime
+    from .shipping_rate_settings import ShippingRateSettings
+    from .distance import Distance
+    from .member_program_tier import MemberProgramTier
+    from .monetary_amount import MonetaryAmount
+    from .mass import Mass
+    from .defined_region import DefinedRegion
 
 class OfferShippingDetails(StructuredValue):
     """

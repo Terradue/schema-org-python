@@ -9,9 +9,11 @@ from typing import (
     Optional,
     Union
 )
-from .country import Country
 from .structured_value import StructuredValue
-from .postal_address import PostalAddress
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .country import Country
+    from .postal_address import PostalAddress
 
 class GeoShape(StructuredValue):
     """

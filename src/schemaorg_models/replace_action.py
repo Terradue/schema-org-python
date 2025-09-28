@@ -9,8 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from .thing import Thing
 from .update_action import UpdateAction
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .thing import Thing
 
 class ReplaceAction(UpdateAction):
     """

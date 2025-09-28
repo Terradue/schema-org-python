@@ -9,9 +9,11 @@ from typing import (
     Optional,
     Union
 )
-from .unit_price_specification import UnitPriceSpecification
-from .price_type_enumeration import PriceTypeEnumeration
 from .price_specification import PriceSpecification
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .unit_price_specification import UnitPriceSpecification
+    from .price_type_enumeration import PriceTypeEnumeration
 
 class CompoundPriceSpecification(PriceSpecification):
     """

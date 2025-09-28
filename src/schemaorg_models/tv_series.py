@@ -10,15 +10,17 @@ from typing import (
     Optional,
     Union
 )
-from .person import Person
-from .music_group import MusicGroup
-from .episode import Episode
-from .video_object import VideoObject
-from .performing_group import PerformingGroup
-from .country import Country
-from .organization import Organization
-from .creative_work_season import CreativeWorkSeason
 from .creative_work import CreativeWork
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .organization import Organization
+    from .video_object import VideoObject
+    from .music_group import MusicGroup
+    from .creative_work_season import CreativeWorkSeason
+    from .episode import Episode
+    from .country import Country
+    from .person import Person
+    from .performing_group import PerformingGroup
 
 class TVSeries(CreativeWork):
     """

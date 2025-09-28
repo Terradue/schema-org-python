@@ -10,7 +10,9 @@ from typing import (
     Union
 )
 from .bio_chem_entity import BioChemEntity
-from .defined_term import DefinedTerm
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .defined_term import DefinedTerm
 
 class ChemicalSubstance(BioChemEntity):
     """

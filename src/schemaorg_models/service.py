@@ -10,28 +10,30 @@ from typing import (
     Optional,
     Union
 )
-from .service_channel import ServiceChannel
-from .thing import Thing
-from .review import Review
-from .administrative_area import AdministrativeArea
-from .product import Product
-from .demand import Demand
-from .offer import Offer
-from .person import Person
-from .category_code import CategoryCode
-from .geo_shape import GeoShape
-from .image_object import ImageObject
-from .place import Place
-from .organization import Organization
-from .physical_activity_category import PhysicalActivityCategory
-from .certification import Certification
-from .government_benefits_type import GovernmentBenefitsType
-from .opening_hours_specification import OpeningHoursSpecification
-from .offer_catalog import OfferCatalog
 from .intangible import Intangible
-from .aggregate_rating import AggregateRating
-from .brand import Brand
-from .audience import Audience
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .physical_activity_category import PhysicalActivityCategory
+    from .thing import Thing
+    from .demand import Demand
+    from .government_benefits_type import GovernmentBenefitsType
+    from .person import Person
+    from .review import Review
+    from .certification import Certification
+    from .category_code import CategoryCode
+    from .organization import Organization
+    from .product import Product
+    from .image_object import ImageObject
+    from .audience import Audience
+    from .geo_shape import GeoShape
+    from .service_channel import ServiceChannel
+    from .opening_hours_specification import OpeningHoursSpecification
+    from .place import Place
+    from .administrative_area import AdministrativeArea
+    from .aggregate_rating import AggregateRating
+    from .offer import Offer
+    from .brand import Brand
+    from .offer_catalog import OfferCatalog
 
 class Service(Intangible):
     """

@@ -9,8 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from .quantitative_value import QuantitativeValue
 from .list_item import ListItem
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .quantitative_value import QuantitativeValue
 
 class HowToItem(ListItem):
     """

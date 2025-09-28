@@ -12,11 +12,13 @@ from typing import (
     Optional,
     Union
 )
-from .opening_hours_specification import OpeningHoursSpecification
 from .structured_value import StructuredValue
-from .duration import Duration
-from .quantitative_value import QuantitativeValue
-from .day_of_week import DayOfWeek
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .day_of_week import DayOfWeek
+    from .quantitative_value import QuantitativeValue
+    from .duration import Duration
+    from .opening_hours_specification import OpeningHoursSpecification
 
 class ServicePeriod(StructuredValue):
     """

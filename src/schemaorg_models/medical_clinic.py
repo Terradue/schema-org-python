@@ -9,11 +9,13 @@ from typing import (
     Optional,
     Union
 )
-from .medical_specialty import MedicalSpecialty
-from .medical_therapy import MedicalTherapy
-from .medical_procedure import MedicalProcedure
-from .medical_test import MedicalTest
 from .medical_organization import MedicalOrganization
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .medical_procedure import MedicalProcedure
+    from .medical_therapy import MedicalTherapy
+    from .medical_test import MedicalTest
+    from .medical_specialty import MedicalSpecialty
 
 class MedicalClinic(MedicalOrganization):
     """

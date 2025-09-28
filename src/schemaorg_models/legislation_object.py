@@ -10,7 +10,9 @@ from typing import (
     Union
 )
 from .legislation import Legislation
-from .legal_value_level import LegalValueLevel
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .legal_value_level import LegalValueLevel
 
 class LegislationObject(Legislation):
     """

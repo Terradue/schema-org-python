@@ -9,13 +9,15 @@ from typing import (
     Optional,
     Union
 )
-from .credit_card import CreditCard
-from .member_program import MemberProgram
-from .monetary_amount import MonetaryAmount
-from .tier_benefit_enumeration import TierBenefitEnumeration
 from .intangible import Intangible
-from .unit_price_specification import UnitPriceSpecification
-from .quantitative_value import QuantitativeValue
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .quantitative_value import QuantitativeValue
+    from .credit_card import CreditCard
+    from .unit_price_specification import UnitPriceSpecification
+    from .monetary_amount import MonetaryAmount
+    from .member_program import MemberProgram
+    from .tier_benefit_enumeration import TierBenefitEnumeration
 
 class MemberProgramTier(Intangible):
     """

@@ -10,13 +10,15 @@ from typing import (
     Optional,
     Union
 )
-from .bed_type import BedType
-from .floor_plan import FloorPlan
 from .place import Place
-from .duration import Duration
-from .location_feature_specification import LocationFeatureSpecification
-from .quantitative_value import QuantitativeValue
-from .bed_details import BedDetails
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .quantitative_value import QuantitativeValue
+    from .floor_plan import FloorPlan
+    from .duration import Duration
+    from .bed_type import BedType
+    from .bed_details import BedDetails
+    from .location_feature_specification import LocationFeatureSpecification
 
 class Accommodation(Place):
     """

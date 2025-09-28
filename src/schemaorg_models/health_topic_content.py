@@ -10,7 +10,9 @@ from typing import (
     Union
 )
 from .web_content import WebContent
-from .health_aspect_enumeration import HealthAspectEnumeration
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .health_aspect_enumeration import HealthAspectEnumeration
 
 class HealthTopicContent(WebContent):
     """

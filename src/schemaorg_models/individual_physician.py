@@ -10,7 +10,9 @@ from typing import (
     Union
 )
 from .physician import Physician
-from .medical_organization import MedicalOrganization
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .medical_organization import MedicalOrganization
 
 class IndividualPhysician(Physician):
     """

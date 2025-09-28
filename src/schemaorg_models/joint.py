@@ -9,8 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from .medical_entity import MedicalEntity
 from .anatomical_structure import AnatomicalStructure
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .medical_entity import MedicalEntity
 
 class Joint(AnatomicalStructure):
     """

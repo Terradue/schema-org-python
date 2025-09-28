@@ -10,8 +10,10 @@ from typing import (
     Optional,
     Union
 )
-from .property import Property
 from .intangible import Intangible
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .property import Property
 
 class ConstraintNode(Intangible):
     """

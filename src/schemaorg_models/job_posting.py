@@ -14,20 +14,22 @@ from typing import (
     Optional,
     Union
 )
-from .contact_point import ContactPoint
-from .monetary_amount_distribution import MonetaryAmountDistribution
-from .person import Person
-from .monetary_amount import MonetaryAmount
-from .category_code import CategoryCode
 from .intangible import Intangible
-from .occupation import Occupation
-from .occupational_experience_requirements import OccupationalExperienceRequirements
-from .place import Place
-from .price_specification import PriceSpecification
-from .organization import Organization
-from .administrative_area import AdministrativeArea
-from .defined_term import DefinedTerm
-from .educational_occupational_credential import EducationalOccupationalCredential
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .category_code import CategoryCode
+    from .organization import Organization
+    from .person import Person
+    from .educational_occupational_credential import EducationalOccupationalCredential
+    from .monetary_amount_distribution import MonetaryAmountDistribution
+    from .price_specification import PriceSpecification
+    from .occupational_experience_requirements import OccupationalExperienceRequirements
+    from .administrative_area import AdministrativeArea
+    from .contact_point import ContactPoint
+    from .monetary_amount import MonetaryAmount
+    from .defined_term import DefinedTerm
+    from .occupation import Occupation
+    from .place import Place
 
 class JobPosting(Intangible):
     """

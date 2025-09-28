@@ -9,9 +9,11 @@ from typing import (
     Optional,
     Union
 )
-from .gender_type import GenderType
 from .sports_organization import SportsOrganization
-from .person import Person
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .gender_type import GenderType
+    from .person import Person
 
 class SportsTeam(SportsOrganization):
     """

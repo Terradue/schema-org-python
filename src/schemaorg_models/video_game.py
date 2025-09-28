@@ -10,15 +10,17 @@ from typing import (
     Optional,
     Union
 )
-from .person import Person
-from .music_group import MusicGroup
 from .game import Game
-from .thing import Thing
-from .video_object import VideoObject
-from .game_server import GameServer
-from .performing_group import PerformingGroup
-from .game_play_mode import GamePlayMode
-from .creative_work import CreativeWork
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .thing import Thing
+    from .video_object import VideoObject
+    from .music_group import MusicGroup
+    from .creative_work import CreativeWork
+    from .game_play_mode import GamePlayMode
+    from .game_server import GameServer
+    from .person import Person
+    from .performing_group import PerformingGroup
 
 class VideoGame(Game):
     """

@@ -9,10 +9,12 @@ from typing import (
     Optional,
     Union
 )
-from .energy import Energy
-from .duration import Duration
-from .quantitative_value import QuantitativeValue
 from .creative_work import CreativeWork
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .energy import Energy
+    from .quantitative_value import QuantitativeValue
+    from .duration import Duration
 
 class ExercisePlan(CreativeWork):
     """

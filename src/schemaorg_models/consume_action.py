@@ -10,8 +10,10 @@ from typing import (
     Union
 )
 from .action import Action
-from .offer import Offer
-from .action_access_specification import ActionAccessSpecification
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .action_access_specification import ActionAccessSpecification
+    from .offer import Offer
 
 class ConsumeAction(Action):
     """

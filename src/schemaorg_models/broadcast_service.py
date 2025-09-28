@@ -9,12 +9,14 @@ from typing import (
     Optional,
     Union
 )
-from .language import Language
-from .broadcast_frequency_specification import BroadcastFrequencySpecification
-from .broadcast_channel import BroadcastChannel
-from .place import Place
-from .organization import Organization
 from .service import Service
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .organization import Organization
+    from .language import Language
+    from .broadcast_channel import BroadcastChannel
+    from .broadcast_frequency_specification import BroadcastFrequencySpecification
+    from .place import Place
 
 class BroadcastService(Service):
     """

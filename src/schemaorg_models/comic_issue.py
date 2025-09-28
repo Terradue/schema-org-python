@@ -9,8 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from .person import Person
 from .publication_issue import PublicationIssue
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .person import Person
 
 class ComicIssue(PublicationIssue):
     """

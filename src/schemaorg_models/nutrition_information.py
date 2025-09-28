@@ -9,9 +9,11 @@ from typing import (
     Optional,
     Union
 )
-from .energy import Energy
 from .structured_value import StructuredValue
-from .mass import Mass
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .mass import Mass
+    from .energy import Energy
 
 class NutritionInformation(StructuredValue):
     """

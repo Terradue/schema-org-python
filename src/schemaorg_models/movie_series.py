@@ -9,12 +9,14 @@ from typing import (
     Optional,
     Union
 )
-from .person import Person
-from .music_group import MusicGroup
-from .video_object import VideoObject
-from .performing_group import PerformingGroup
 from .creative_work_series import CreativeWorkSeries
-from .organization import Organization
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .organization import Organization
+    from .video_object import VideoObject
+    from .music_group import MusicGroup
+    from .person import Person
+    from .performing_group import PerformingGroup
 
 class MovieSeries(CreativeWorkSeries):
     """

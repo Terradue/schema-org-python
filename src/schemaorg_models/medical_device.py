@@ -10,7 +10,9 @@ from typing import (
     Union
 )
 from .medical_entity import MedicalEntity
-from .medical_contraindication import MedicalContraindication
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .medical_contraindication import MedicalContraindication
 
 class MedicalDevice(MedicalEntity):
     """

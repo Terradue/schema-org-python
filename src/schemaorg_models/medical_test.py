@@ -9,12 +9,14 @@ from typing import (
     Optional,
     Union
 )
-from .medical_condition import MedicalCondition
-from .medical_device import MedicalDevice
-from .medical_sign import MedicalSign
-from .drug import Drug
 from .medical_entity import MedicalEntity
-from .medical_enumeration import MedicalEnumeration
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .medical_condition import MedicalCondition
+    from .drug import Drug
+    from .medical_device import MedicalDevice
+    from .medical_sign import MedicalSign
+    from .medical_enumeration import MedicalEnumeration
 
 class MedicalTest(MedicalEntity):
     """

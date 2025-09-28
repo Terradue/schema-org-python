@@ -9,8 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from .delivery_method import DeliveryMethod
 from .trade_action import TradeAction
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .delivery_method import DeliveryMethod
 
 class OrderAction(TradeAction):
     """

@@ -10,9 +10,11 @@ from typing import (
     Optional,
     Union
 )
-from .defined_term import DefinedTerm
 from .creative_work import CreativeWork
-from .alignment_object import AlignmentObject
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .defined_term import DefinedTerm
+    from .alignment_object import AlignmentObject
 
 class LearningResource(CreativeWork):
     """

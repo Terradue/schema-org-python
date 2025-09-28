@@ -13,12 +13,14 @@ from typing import (
     Optional,
     Union
 )
-from .person import Person
-from .category_code import CategoryCode
-from .legal_force_status import LegalForceStatus
-from .organization import Organization
-from .administrative_area import AdministrativeArea
 from .creative_work import CreativeWork
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .category_code import CategoryCode
+    from .organization import Organization
+    from .administrative_area import AdministrativeArea
+    from .legal_force_status import LegalForceStatus
+    from .person import Person
 
 class Legislation(CreativeWork):
     """

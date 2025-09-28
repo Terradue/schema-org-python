@@ -10,9 +10,11 @@ from typing import (
     Optional,
     Union
 )
-from .digital_platform_enumeration import DigitalPlatformEnumeration
 from .intangible import Intangible
-from .software_application import SoftwareApplication
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .software_application import SoftwareApplication
+    from .digital_platform_enumeration import DigitalPlatformEnumeration
 
 class EntryPoint(Intangible):
     """

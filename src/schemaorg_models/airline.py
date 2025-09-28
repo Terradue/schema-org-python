@@ -9,8 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from .boarding_policy_type import BoardingPolicyType
 from .organization import Organization
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .boarding_policy_type import BoardingPolicyType
 
 class Airline(Organization):
     """

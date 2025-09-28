@@ -9,10 +9,12 @@ from typing import (
     Optional,
     Union
 )
-from .postal_address import PostalAddress
-from .place import Place
-from .archive_organization import ArchiveOrganization
 from .creative_work import CreativeWork
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .archive_organization import ArchiveOrganization
+    from .place import Place
+    from .postal_address import PostalAddress
 
 class ArchiveComponent(CreativeWork):
     """

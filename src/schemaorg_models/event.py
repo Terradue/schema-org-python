@@ -16,26 +16,28 @@ from typing import (
     Union
 )
 from .thing import Thing
-from .virtual_location import VirtualLocation
-from .review import Review
-from .schedule import Schedule
-from .demand import Demand
-from .person import Person
-from .offer import Offer
-from .place import Place
-from .duration import Duration
-from .organization import Organization
-from .language import Language
-from .postal_address import PostalAddress
-from .performing_group import PerformingGroup
-from .quantitative_value import QuantitativeValue
-from .creative_work import CreativeWork
-from .event_status_type import EventStatusType
-from .aggregate_rating import AggregateRating
-from .event_attendance_mode_enumeration import EventAttendanceModeEnumeration
-from .defined_term import DefinedTerm
-from .audience import Audience
-from .grant import Grant
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .duration import Duration
+    from .creative_work import CreativeWork
+    from .demand import Demand
+    from .defined_term import DefinedTerm
+    from .review import Review
+    from .person import Person
+    from .performing_group import PerformingGroup
+    from .organization import Organization
+    from .event_status_type import EventStatusType
+    from .audience import Audience
+    from .schedule import Schedule
+    from .postal_address import PostalAddress
+    from .event_attendance_mode_enumeration import EventAttendanceModeEnumeration
+    from .language import Language
+    from .quantitative_value import QuantitativeValue
+    from .place import Place
+    from .virtual_location import VirtualLocation
+    from .aggregate_rating import AggregateRating
+    from .offer import Offer
+    from .grant import Grant
 
 class Event(Thing):
     """

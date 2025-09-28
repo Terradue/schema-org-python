@@ -10,8 +10,10 @@ from typing import (
     Union
 )
 from .event import Event
-from .language import Language
-from .movie import Movie
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .language import Language
+    from .movie import Movie
 
 class ScreeningEvent(Event):
     """

@@ -10,11 +10,13 @@ from typing import (
     Optional,
     Union
 )
-from .duration import Duration
-from .organization import Organization
-from .administrative_area import AdministrativeArea
-from .defined_term import DefinedTerm
 from .creative_work import CreativeWork
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .organization import Organization
+    from .defined_term import DefinedTerm
+    from .duration import Duration
+    from .administrative_area import AdministrativeArea
 
 class EducationalOccupationalCredential(CreativeWork):
     """

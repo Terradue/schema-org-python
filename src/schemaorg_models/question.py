@@ -9,10 +9,12 @@ from typing import (
     Optional,
     Union
 )
-from .answer import Answer
 from .comment import Comment
-from .creative_work import CreativeWork
-from .item_list import ItemList
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .answer import Answer
+    from .item_list import ItemList
+    from .creative_work import CreativeWork
 
 class Question(Comment):
     """

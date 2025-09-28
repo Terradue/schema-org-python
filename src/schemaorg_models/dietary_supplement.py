@@ -9,11 +9,13 @@ from typing import (
     Optional,
     Union
 )
-from .drug_legal_status import DrugLegalStatus
 from .substance import Substance
-from .recommended_dose_schedule import RecommendedDoseSchedule
-from .medical_enumeration import MedicalEnumeration
-from .maximum_dose_schedule import MaximumDoseSchedule
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .drug_legal_status import DrugLegalStatus
+    from .medical_enumeration import MedicalEnumeration
+    from .recommended_dose_schedule import RecommendedDoseSchedule
+    from .maximum_dose_schedule import MaximumDoseSchedule
 
 class DietarySupplement(Substance):
     """

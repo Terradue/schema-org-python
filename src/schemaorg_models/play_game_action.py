@@ -10,7 +10,9 @@ from typing import (
     Union
 )
 from .consume_action import ConsumeAction
-from .game_availability_enumeration import GameAvailabilityEnumeration
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .game_availability_enumeration import GameAvailabilityEnumeration
 
 class PlayGameAction(ConsumeAction):
     """

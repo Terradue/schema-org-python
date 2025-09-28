@@ -10,16 +10,18 @@ from typing import (
     Optional,
     Union
 )
-from .health_insurance_plan import HealthInsurancePlan
-from .drug_class import DrugClass
-from .drug_strength import DrugStrength
-from .drug_legal_status import DrugLegalStatus
 from .substance import Substance
-from .drug_pregnancy_category import DrugPregnancyCategory
-from .medical_enumeration import MedicalEnumeration
-from .dose_schedule import DoseSchedule
-from .drug_prescription_status import DrugPrescriptionStatus
-from .maximum_dose_schedule import MaximumDoseSchedule
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .drug_strength import DrugStrength
+    from .drug_class import DrugClass
+    from .dose_schedule import DoseSchedule
+    from .drug_pregnancy_category import DrugPregnancyCategory
+    from .maximum_dose_schedule import MaximumDoseSchedule
+    from .drug_prescription_status import DrugPrescriptionStatus
+    from .drug_legal_status import DrugLegalStatus
+    from .health_insurance_plan import HealthInsurancePlan
+    from .medical_enumeration import MedicalEnumeration
 
 class Drug(Substance):
     """

@@ -10,9 +10,11 @@ from typing import (
     Optional,
     Union
 )
-from .computer_language import ComputerLanguage
 from .creative_work import CreativeWork
-from .software_application import SoftwareApplication
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .software_application import SoftwareApplication
+    from .computer_language import ComputerLanguage
 
 class SoftwareSourceCode(CreativeWork):
     """

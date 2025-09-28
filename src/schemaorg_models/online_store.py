@@ -10,7 +10,9 @@ from typing import (
     Union
 )
 from .online_business import OnlineBusiness
-from .online_marketplace import OnlineMarketplace
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .online_marketplace import OnlineMarketplace
 
 class OnlineStore(OnlineBusiness):
     """

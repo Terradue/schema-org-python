@@ -10,7 +10,9 @@ from typing import (
     Union
 )
 from .action import Action
-from .hyper_toc_entry import HyperTocEntry
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .hyper_toc_entry import HyperTocEntry
 
 class SeekToAction(Action):
     """

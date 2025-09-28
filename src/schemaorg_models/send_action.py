@@ -9,12 +9,14 @@ from typing import (
     Optional,
     Union
 )
-from .contact_point import ContactPoint
 from .transfer_action import TransferAction
-from .person import Person
-from .organization import Organization
-from .delivery_method import DeliveryMethod
-from .audience import Audience
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .organization import Organization
+    from .audience import Audience
+    from .contact_point import ContactPoint
+    from .delivery_method import DeliveryMethod
+    from .person import Person
 
 class SendAction(TransferAction):
     """

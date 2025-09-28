@@ -10,16 +10,18 @@ from typing import (
     Optional,
     Union
 )
-from .language import Language
-from .person import Person
-from .music_group import MusicGroup
-from .video_object import VideoObject
-from .performing_group import PerformingGroup
-from .duration import Duration
-from .country import Country
-from .quantitative_value import QuantitativeValue
-from .organization import Organization
 from .creative_work import CreativeWork
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .organization import Organization
+    from .quantitative_value import QuantitativeValue
+    from .language import Language
+    from .video_object import VideoObject
+    from .music_group import MusicGroup
+    from .duration import Duration
+    from .country import Country
+    from .person import Person
+    from .performing_group import PerformingGroup
 
 class Movie(CreativeWork):
     """

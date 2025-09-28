@@ -9,10 +9,12 @@ from typing import (
     Optional,
     Union
 )
-from .bed_type import BedType
-from .bed_details import BedDetails
-from .quantitative_value import QuantitativeValue
 from .room import Room
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .bed_details import BedDetails
+    from .quantitative_value import QuantitativeValue
+    from .bed_type import BedType
 
 class HotelRoom(Room):
     """

@@ -9,10 +9,12 @@ from typing import (
     Optional,
     Union
 )
-from .warranty_promise import WarrantyPromise
-from .person import Person
 from .trade_action import TradeAction
-from .organization import Organization
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .organization import Organization
+    from .person import Person
+    from .warranty_promise import WarrantyPromise
 
 class SellAction(TradeAction):
     """

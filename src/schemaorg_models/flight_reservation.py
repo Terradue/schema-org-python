@@ -9,8 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from .qualitative_value import QualitativeValue
 from .reservation import Reservation
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .qualitative_value import QualitativeValue
 
 class FlightReservation(Reservation):
     """

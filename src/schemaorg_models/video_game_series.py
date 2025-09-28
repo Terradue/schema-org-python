@@ -10,20 +10,22 @@ from typing import (
     Optional,
     Union
 )
-from .person import Person
-from .music_group import MusicGroup
-from .thing import Thing
-from .episode import Episode
-from .organization import Organization
-from .video_object import VideoObject
-from .performing_group import PerformingGroup
-from .place import Place
-from .postal_address import PostalAddress
-from .game_play_mode import GamePlayMode
-from .quantitative_value import QuantitativeValue
 from .creative_work_series import CreativeWorkSeries
-from .creative_work_season import CreativeWorkSeason
-from .creative_work import CreativeWork
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .thing import Thing
+    from .quantitative_value import QuantitativeValue
+    from .organization import Organization
+    from .video_object import VideoObject
+    from .music_group import MusicGroup
+    from .creative_work_season import CreativeWorkSeason
+    from .creative_work import CreativeWork
+    from .episode import Episode
+    from .postal_address import PostalAddress
+    from .game_play_mode import GamePlayMode
+    from .person import Person
+    from .place import Place
+    from .performing_group import PerformingGroup
 
 class VideoGameSeries(CreativeWorkSeries):
     """

@@ -10,7 +10,9 @@ from typing import (
     Union
 )
 from .medical_entity import MedicalEntity
-from .maximum_dose_schedule import MaximumDoseSchedule
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .maximum_dose_schedule import MaximumDoseSchedule
 
 class Substance(MedicalEntity):
     """

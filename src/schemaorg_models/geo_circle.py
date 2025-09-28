@@ -10,8 +10,10 @@ from typing import (
     Union
 )
 from .geo_shape import GeoShape
-from .geo_coordinates import GeoCoordinates
-from .distance import Distance
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .distance import Distance
+    from .geo_coordinates import GeoCoordinates
 
 class GeoCircle(GeoShape):
     """

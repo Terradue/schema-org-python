@@ -13,22 +13,24 @@ from typing import (
     Optional,
     Union
 )
-from .incentive_type import IncentiveType
-from .person import Person
-from .monetary_amount import MonetaryAmount
-from .geo_shape import GeoShape
 from .intangible import Intangible
-from .unit_price_specification import UnitPriceSpecification
-from .place import Place
-from .incentive_status import IncentiveStatus
-from .quantitative_value import QuantitativeValue
-from .organization import Organization
-from .administrative_area import AdministrativeArea
-from .loan_or_credit import LoanOrCredit
-from .product import Product
-from .defined_term import DefinedTerm
-from .purchase_type import PurchaseType
-from .incentive_qualified_expense_type import IncentiveQualifiedExpenseType
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .incentive_status import IncentiveStatus
+    from .organization import Organization
+    from .quantitative_value import QuantitativeValue
+    from .product import Product
+    from .incentive_type import IncentiveType
+    from .geo_shape import GeoShape
+    from .administrative_area import AdministrativeArea
+    from .unit_price_specification import UnitPriceSpecification
+    from .monetary_amount import MonetaryAmount
+    from .defined_term import DefinedTerm
+    from .loan_or_credit import LoanOrCredit
+    from .person import Person
+    from .incentive_qualified_expense_type import IncentiveQualifiedExpenseType
+    from .place import Place
+    from .purchase_type import PurchaseType
 
 class FinancialIncentive(Intangible):
     """

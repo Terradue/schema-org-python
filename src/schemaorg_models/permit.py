@@ -14,11 +14,13 @@ from typing import (
     Union
 )
 from .intangible import Intangible
-from .duration import Duration
-from .organization import Organization
-from .administrative_area import AdministrativeArea
-from .service import Service
-from .audience import Audience
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .organization import Organization
+    from .audience import Audience
+    from .duration import Duration
+    from .administrative_area import AdministrativeArea
+    from .service import Service
 
 class Permit(Intangible):
     """

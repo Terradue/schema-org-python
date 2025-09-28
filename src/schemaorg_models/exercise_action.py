@@ -10,14 +10,16 @@ from typing import (
     Union
 )
 from .play_action import PlayAction
-from .sports_activity_location import SportsActivityLocation
-from .person import Person
-from .distance import Distance
-from .diet import Diet
-from .place import Place
-from .sports_event import SportsEvent
-from .exercise_plan import ExercisePlan
-from .sports_team import SportsTeam
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .distance import Distance
+    from .sports_team import SportsTeam
+    from .diet import Diet
+    from .sports_activity_location import SportsActivityLocation
+    from .exercise_plan import ExercisePlan
+    from .sports_event import SportsEvent
+    from .person import Person
+    from .place import Place
 
 class ExerciseAction(PlayAction):
     """

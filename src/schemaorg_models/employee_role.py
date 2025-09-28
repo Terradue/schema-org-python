@@ -9,9 +9,11 @@ from typing import (
     Optional,
     Union
 )
-from .monetary_amount import MonetaryAmount
-from .price_specification import PriceSpecification
 from .organization_role import OrganizationRole
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .monetary_amount import MonetaryAmount
+    from .price_specification import PriceSpecification
 
 class EmployeeRole(OrganizationRole):
     """

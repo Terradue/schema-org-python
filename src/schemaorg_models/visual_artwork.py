@@ -10,11 +10,13 @@ from typing import (
     Optional,
     Union
 )
-from .person import Person
-from .distance import Distance
-from .mass import Mass
-from .quantitative_value import QuantitativeValue
 from .creative_work import CreativeWork
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .mass import Mass
+    from .quantitative_value import QuantitativeValue
+    from .person import Person
+    from .distance import Distance
 
 class VisualArtwork(CreativeWork):
     """

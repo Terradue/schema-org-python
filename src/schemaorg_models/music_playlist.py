@@ -9,9 +9,11 @@ from typing import (
     Optional,
     Union
 )
-from .music_recording import MusicRecording
 from .creative_work import CreativeWork
-from .item_list import ItemList
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .music_recording import MusicRecording
+    from .item_list import ItemList
 
 class MusicPlaylist(CreativeWork):
     """

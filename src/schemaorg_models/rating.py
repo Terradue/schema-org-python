@@ -10,8 +10,10 @@ from typing import (
     Union
 )
 from .intangible import Intangible
-from .person import Person
-from .organization import Organization
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .organization import Organization
+    from .person import Person
 
 class Rating(Intangible):
     """

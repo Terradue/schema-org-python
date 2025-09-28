@@ -9,16 +9,18 @@ from typing import (
     Optional,
     Union
 )
-from .medical_specialty import MedicalSpecialty
 from .thing import Thing
-from .drug_legal_status import DrugLegalStatus
-from .medical_study import MedicalStudy
-from .medical_code import MedicalCode
-from .organization import Organization
-from .medicine_system import MedicineSystem
-from .medical_enumeration import MedicalEnumeration
-from .medical_guideline import MedicalGuideline
-from .grant import Grant
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .medicine_system import MedicineSystem
+    from .organization import Organization
+    from .medical_study import MedicalStudy
+    from .medical_specialty import MedicalSpecialty
+    from .drug_legal_status import DrugLegalStatus
+    from .medical_guideline import MedicalGuideline
+    from .medical_enumeration import MedicalEnumeration
+    from .grant import Grant
+    from .medical_code import MedicalCode
 
 class MedicalEntity(Thing):
     """

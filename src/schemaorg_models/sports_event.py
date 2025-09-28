@@ -11,8 +11,10 @@ from typing import (
     Union
 )
 from .event import Event
-from .person import Person
-from .sports_team import SportsTeam
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .sports_team import SportsTeam
+    from .person import Person
 
 class SportsEvent(Event):
     """

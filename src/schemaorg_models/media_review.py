@@ -11,9 +11,11 @@ from typing import (
     Union
 )
 from .review import Review
-from .media_object import MediaObject
-from .media_manipulation_rating_enumeration import MediaManipulationRatingEnumeration
-from .web_page import WebPage
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .media_manipulation_rating_enumeration import MediaManipulationRatingEnumeration
+    from .media_object import MediaObject
+    from .web_page import WebPage
 
 class MediaReview(Review):
     """

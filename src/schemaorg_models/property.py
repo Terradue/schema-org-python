@@ -9,9 +9,11 @@ from typing import (
     Optional,
     Union
 )
-from .__class import _Class
 from .intangible import Intangible
-from .enumeration import Enumeration
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .enumeration import Enumeration
+    from .__class import _Class
 
 class Property(Intangible):
     """

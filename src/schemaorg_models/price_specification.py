@@ -14,8 +14,10 @@ from typing import (
     Union
 )
 from .structured_value import StructuredValue
-from .quantitative_value import QuantitativeValue
-from .member_program_tier import MemberProgramTier
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .quantitative_value import QuantitativeValue
+    from .member_program_tier import MemberProgramTier
 
 class PriceSpecification(StructuredValue):
     """

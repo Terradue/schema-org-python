@@ -10,14 +10,16 @@ from typing import (
     Optional,
     Union
 )
-from .person import Person
-from .music_group import MusicGroup
-from .episode import Episode
-from .organization import Organization
-from .video_object import VideoObject
-from .performing_group import PerformingGroup
 from .creative_work_series import CreativeWorkSeries
-from .creative_work_season import CreativeWorkSeason
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .organization import Organization
+    from .video_object import VideoObject
+    from .music_group import MusicGroup
+    from .creative_work_season import CreativeWorkSeason
+    from .episode import Episode
+    from .person import Person
+    from .performing_group import PerformingGroup
 
 class RadioSeries(CreativeWorkSeries):
     """

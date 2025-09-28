@@ -14,10 +14,12 @@ from typing import (
     Optional,
     Union
 )
-from .person import Person
 from .user_interaction import UserInteraction
-from .creative_work import CreativeWork
-from .organization import Organization
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .organization import Organization
+    from .person import Person
+    from .creative_work import CreativeWork
 
 class UserComments(UserInteraction):
     """

@@ -10,10 +10,12 @@ from typing import (
     Union
 )
 from .transfer_action import TransferAction
-from .person import Person
-from .organization import Organization
-from .delivery_method import DeliveryMethod
-from .audience import Audience
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .delivery_method import DeliveryMethod
+    from .organization import Organization
+    from .audience import Audience
+    from .person import Person
 
 class ReceiveAction(TransferAction):
     """

@@ -10,13 +10,15 @@ from typing import (
     Optional,
     Union
 )
-from .contact_point import ContactPoint
-from .language import Language
 from .intangible import Intangible
-from .postal_address import PostalAddress
-from .place import Place
-from .duration import Duration
-from .service import Service
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .language import Language
+    from .duration import Duration
+    from .service import Service
+    from .contact_point import ContactPoint
+    from .postal_address import PostalAddress
+    from .place import Place
 
 class ServiceChannel(Intangible):
     """

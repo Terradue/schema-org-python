@@ -10,7 +10,9 @@ from typing import (
     Union
 )
 from .house import House
-from .quantitative_value import QuantitativeValue
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .quantitative_value import QuantitativeValue
 
 class SingleFamilyResidence(House):
     """

@@ -10,8 +10,10 @@ from typing import (
     Union
 )
 from .structured_value import StructuredValue
-from .warranty_scope import WarrantyScope
-from .quantitative_value import QuantitativeValue
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .quantitative_value import QuantitativeValue
+    from .warranty_scope import WarrantyScope
 
 class WarrantyPromise(StructuredValue):
     """

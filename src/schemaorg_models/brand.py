@@ -10,10 +10,12 @@ from typing import (
     Optional,
     Union
 )
-from .review import Review
 from .intangible import Intangible
-from .image_object import ImageObject
-from .aggregate_rating import AggregateRating
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .review import Review
+    from .aggregate_rating import AggregateRating
+    from .image_object import ImageObject
 
 class Brand(Intangible):
     """

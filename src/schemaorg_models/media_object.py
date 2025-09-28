@@ -15,16 +15,18 @@ from typing import (
     Optional,
     Union
 )
-from .distance import Distance
-from .media_subscription import MediaSubscription
-from .geo_shape import GeoShape
-from .place import Place
-from .duration import Duration
-from .claim import Claim
-from .quantitative_value import QuantitativeValue
-from .organization import Organization
 from .creative_work import CreativeWork
-from .news_article import NewsArticle
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .media_subscription import MediaSubscription
+    from .organization import Organization
+    from .quantitative_value import QuantitativeValue
+    from .news_article import NewsArticle
+    from .distance import Distance
+    from .geo_shape import GeoShape
+    from .duration import Duration
+    from .claim import Claim
+    from .place import Place
 
 class MediaObject(CreativeWork):
     """

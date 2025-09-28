@@ -10,7 +10,9 @@ from typing import (
     Union
 )
 from .medical_intangible import MedicalIntangible
-from .qualitative_value import QualitativeValue
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .qualitative_value import QualitativeValue
 
 class DoseSchedule(MedicalIntangible):
     """

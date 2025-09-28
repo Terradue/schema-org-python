@@ -9,8 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from .floor_plan import FloorPlan
 from .place import Place
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .floor_plan import FloorPlan
 
 class Residence(Place):
     """

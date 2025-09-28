@@ -10,9 +10,11 @@ from typing import (
     Union
 )
 from .medical_procedure import MedicalProcedure
-from .medical_entity import MedicalEntity
-from .dose_schedule import DoseSchedule
-from .drug import Drug
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .medical_entity import MedicalEntity
+    from .dose_schedule import DoseSchedule
+    from .drug import Drug
 
 class TherapeuticProcedure(MedicalProcedure):
     """

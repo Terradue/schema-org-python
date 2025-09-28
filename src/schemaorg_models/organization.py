@@ -13,43 +13,45 @@ from typing import (
     Optional,
     Union
 )
-from .contact_point import ContactPoint
-from .payment_method import PaymentMethod
 from .thing import Thing
-from .virtual_location import VirtualLocation
-from .review import Review
-from .administrative_area import AdministrativeArea
-from .loan_or_credit import LoanOrCredit
-from .product import Product
-from .nonprofit_type import NonprofitType
-from .educational_occupational_credential import EducationalOccupationalCredential
-from .product_return_policy import ProductReturnPolicy
-from .merchant_return_policy import MerchantReturnPolicy
-from .demand import Demand
-from .person import Person
-from .offer import Offer
-from .geo_shape import GeoShape
-from .event import Event
-from .interaction_counter import InteractionCounter
-from .image_object import ImageObject
-from .place import Place
-from .shipping_service import ShippingService
-from .member_program import MemberProgram
-from .language import Language
-from .about_page import AboutPage
-from .ownership_info import OwnershipInfo
-from .certification import Certification
-from .postal_address import PostalAddress
-from .program_membership import ProgramMembership
-from .quantitative_value import QuantitativeValue
-from .member_program_tier import MemberProgramTier
-from .creative_work import CreativeWork
-from .article import Article
-from .offer_catalog import OfferCatalog
-from .aggregate_rating import AggregateRating
-from .brand import Brand
-from .defined_term import DefinedTerm
-from .grant import Grant
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .merchant_return_policy import MerchantReturnPolicy
+    from .article import Article
+    from .creative_work import CreativeWork
+    from .demand import Demand
+    from .nonprofit_type import NonprofitType
+    from .defined_term import DefinedTerm
+    from .review import Review
+    from .person import Person
+    from .certification import Certification
+    from .product import Product
+    from .ownership_info import OwnershipInfo
+    from .product_return_policy import ProductReturnPolicy
+    from .image_object import ImageObject
+    from .member_program_tier import MemberProgramTier
+    from .contact_point import ContactPoint
+    from .postal_address import PostalAddress
+    from .member_program import MemberProgram
+    from .payment_method import PaymentMethod
+    from .shipping_service import ShippingService
+    from .language import Language
+    from .quantitative_value import QuantitativeValue
+    from .geo_shape import GeoShape
+    from .program_membership import ProgramMembership
+    from .place import Place
+    from .event import Event
+    from .educational_occupational_credential import EducationalOccupationalCredential
+    from .interaction_counter import InteractionCounter
+    from .administrative_area import AdministrativeArea
+    from .about_page import AboutPage
+    from .aggregate_rating import AggregateRating
+    from .virtual_location import VirtualLocation
+    from .offer import Offer
+    from .brand import Brand
+    from .loan_or_credit import LoanOrCredit
+    from .grant import Grant
+    from .offer_catalog import OfferCatalog
 
 class Organization(Thing):
     """

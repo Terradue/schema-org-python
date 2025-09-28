@@ -14,14 +14,16 @@ from typing import (
     Optional,
     Union
 )
-from .person import Person
-from .delivery_event import DeliveryEvent
-from .order import Order
-from .organization import Organization
 from .intangible import Intangible
-from .postal_address import PostalAddress
-from .product import Product
-from .delivery_method import DeliveryMethod
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .organization import Organization
+    from .product import Product
+    from .order import Order
+    from .delivery_method import DeliveryMethod
+    from .postal_address import PostalAddress
+    from .delivery_event import DeliveryEvent
+    from .person import Person
 
 class ParcelDelivery(Intangible):
     """

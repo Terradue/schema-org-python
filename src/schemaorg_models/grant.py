@@ -9,14 +9,16 @@ from typing import (
     Optional,
     Union
 )
-from .person import Person
-from .event import Event
 from .intangible import Intangible
-from .bio_chem_entity import BioChemEntity
-from .organization import Organization
-from .medical_entity import MedicalEntity
-from .product import Product
-from .creative_work import CreativeWork
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .organization import Organization
+    from .event import Event
+    from .product import Product
+    from .medical_entity import MedicalEntity
+    from .creative_work import CreativeWork
+    from .bio_chem_entity import BioChemEntity
+    from .person import Person
 
 class Grant(Intangible):
     """

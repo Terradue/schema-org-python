@@ -10,7 +10,9 @@ from typing import (
     Union
 )
 from .play_action import PlayAction
-from .entertainment_business import EntertainmentBusiness
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .entertainment_business import EntertainmentBusiness
 
 class PerformAction(PlayAction):
     """

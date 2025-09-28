@@ -12,14 +12,16 @@ from typing import (
     Optional,
     Union
 )
-from .person import Person
-from .reservation_status_type import ReservationStatusType
-from .thing import Thing
 from .intangible import Intangible
-from .ticket import Ticket
-from .program_membership import ProgramMembership
-from .price_specification import PriceSpecification
-from .organization import Organization
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .organization import Organization
+    from .thing import Thing
+    from .ticket import Ticket
+    from .price_specification import PriceSpecification
+    from .program_membership import ProgramMembership
+    from .reservation_status_type import ReservationStatusType
+    from .person import Person
 
 class Reservation(Intangible):
     """

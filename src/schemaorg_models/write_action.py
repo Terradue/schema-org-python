@@ -9,8 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from .language import Language
 from .create_action import CreateAction
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .language import Language
 
 class WriteAction(CreateAction):
     """

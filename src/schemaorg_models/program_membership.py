@@ -9,11 +9,13 @@ from typing import (
     Optional,
     Union
 )
-from .member_program import MemberProgram
-from .person import Person
 from .intangible import Intangible
-from .quantitative_value import QuantitativeValue
-from .organization import Organization
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .organization import Organization
+    from .quantitative_value import QuantitativeValue
+    from .person import Person
+    from .member_program import MemberProgram
 
 class ProgramMembership(Intangible):
     """

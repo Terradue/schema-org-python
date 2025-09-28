@@ -10,14 +10,16 @@ from typing import (
     Optional,
     Union
 )
-from .syllabus import Syllabus
-from .language import Language
-from .structured_value import StructuredValue
-from .alignment_object import AlignmentObject
 from .learning_resource import LearningResource
-from .course_instance import CourseInstance
-from .defined_term import DefinedTerm
-from .educational_occupational_credential import EducationalOccupationalCredential
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .language import Language
+    from .alignment_object import AlignmentObject
+    from .educational_occupational_credential import EducationalOccupationalCredential
+    from .syllabus import Syllabus
+    from .course_instance import CourseInstance
+    from .structured_value import StructuredValue
+    from .defined_term import DefinedTerm
 
 class Course(LearningResource):
     """

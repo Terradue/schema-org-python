@@ -9,11 +9,13 @@ from typing import (
     Optional,
     Union
 )
-from .geo_shape import GeoShape
-from .place import Place
 from .price_specification import PriceSpecification
-from .administrative_area import AdministrativeArea
-from .delivery_method import DeliveryMethod
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .administrative_area import AdministrativeArea
+    from .delivery_method import DeliveryMethod
+    from .place import Place
+    from .geo_shape import GeoShape
 
 class DeliveryChargeSpecification(PriceSpecification):
     """

@@ -13,13 +13,15 @@ from typing import (
     Optional,
     Union
 )
-from .demand import Demand
-from .person import Person
-from .offer import Offer
 from .intangible import Intangible
-from .place import Place
-from .organization import Organization
-from .item_list import ItemList
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .organization import Organization
+    from .demand import Demand
+    from .item_list import ItemList
+    from .offer import Offer
+    from .person import Person
+    from .place import Place
 
 class Trip(Intangible):
     """

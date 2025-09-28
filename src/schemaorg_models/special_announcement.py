@@ -14,17 +14,19 @@ from typing import (
     Optional,
     Union
 )
-from .government_service import GovernmentService
-from .observation import Observation
-from .physical_activity_category import PhysicalActivityCategory
-from .civic_structure import CivicStructure
-from .data_feed import DataFeed
-from .category_code import CategoryCode
-from .thing import Thing
-from .web_content import WebContent
-from .local_business import LocalBusiness
 from .creative_work import CreativeWork
-from .dataset import Dataset
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .physical_activity_category import PhysicalActivityCategory
+    from .thing import Thing
+    from .category_code import CategoryCode
+    from .local_business import LocalBusiness
+    from .civic_structure import CivicStructure
+    from .observation import Observation
+    from .web_content import WebContent
+    from .government_service import GovernmentService
+    from .data_feed import DataFeed
+    from .dataset import Dataset
 
 class SpecialAnnouncement(CreativeWork):
     """

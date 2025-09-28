@@ -9,12 +9,14 @@ from typing import (
     Optional,
     Union
 )
-from .thing import Thing
-from .web_content import WebContent
-from .rating import Rating
-from .list_item import ListItem
 from .creative_work import CreativeWork
-from .item_list import ItemList
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .thing import Thing
+    from .web_content import WebContent
+    from .list_item import ListItem
+    from .item_list import ItemList
+    from .rating import Rating
 
 class Review(CreativeWork):
     """

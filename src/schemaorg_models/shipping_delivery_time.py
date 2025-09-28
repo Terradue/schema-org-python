@@ -12,11 +12,13 @@ from typing import (
     Optional,
     Union
 )
-from .opening_hours_specification import OpeningHoursSpecification
-from .service_period import ServicePeriod
 from .structured_value import StructuredValue
-from .quantitative_value import QuantitativeValue
-from .day_of_week import DayOfWeek
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .day_of_week import DayOfWeek
+    from .quantitative_value import QuantitativeValue
+    from .service_period import ServicePeriod
+    from .opening_hours_specification import OpeningHoursSpecification
 
 class ShippingDeliveryTime(StructuredValue):
     """

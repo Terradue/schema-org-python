@@ -10,7 +10,9 @@ from typing import (
     Union
 )
 from .trip import Trip
-from .boat_terminal import BoatTerminal
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .boat_terminal import BoatTerminal
 
 class BoatTrip(Trip):
     """

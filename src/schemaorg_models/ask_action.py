@@ -10,7 +10,9 @@ from typing import (
     Union
 )
 from .communicate_action import CommunicateAction
-from .question import Question
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .question import Question
 
 class AskAction(CommunicateAction):
     """

@@ -10,7 +10,9 @@ from typing import (
     Union
 )
 from .trip import Trip
-from .audience import Audience
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .audience import Audience
 
 class TouristTrip(Trip):
     """

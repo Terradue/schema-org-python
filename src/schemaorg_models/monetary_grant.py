@@ -9,10 +9,12 @@ from typing import (
     Optional,
     Union
 )
-from .monetary_amount import MonetaryAmount
-from .organization import Organization
-from .person import Person
 from .grant import Grant
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .organization import Organization
+    from .person import Person
+    from .monetary_amount import MonetaryAmount
 
 class MonetaryGrant(Grant):
     """

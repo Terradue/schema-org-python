@@ -9,14 +9,16 @@ from typing import (
     Optional,
     Union
 )
-from .monetary_amount_distribution import MonetaryAmountDistribution
-from .category_code import CategoryCode
-from .monetary_amount import MonetaryAmount
 from .intangible import Intangible
-from .occupational_experience_requirements import OccupationalExperienceRequirements
-from .administrative_area import AdministrativeArea
-from .defined_term import DefinedTerm
-from .educational_occupational_credential import EducationalOccupationalCredential
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .category_code import CategoryCode
+    from .educational_occupational_credential import EducationalOccupationalCredential
+    from .monetary_amount_distribution import MonetaryAmountDistribution
+    from .occupational_experience_requirements import OccupationalExperienceRequirements
+    from .administrative_area import AdministrativeArea
+    from .monetary_amount import MonetaryAmount
+    from .defined_term import DefinedTerm
 
 class Occupation(Intangible):
     """

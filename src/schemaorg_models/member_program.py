@@ -10,8 +10,10 @@ from typing import (
     Union
 )
 from .intangible import Intangible
-from .member_program_tier import MemberProgramTier
-from .organization import Organization
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .organization import Organization
+    from .member_program_tier import MemberProgramTier
 
 class MemberProgram(Intangible):
     """

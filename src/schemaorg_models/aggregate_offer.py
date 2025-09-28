@@ -9,8 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from .demand import Demand
 from .offer import Offer
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .demand import Demand
 
 class AggregateOffer(Offer):
     """

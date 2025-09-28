@@ -10,11 +10,13 @@ from typing import (
     Optional,
     Union
 )
-from .person import Person
-from .music_recording import MusicRecording
 from .performing_group import PerformingGroup
-from .music_album import MusicAlbum
-from .item_list import ItemList
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .music_recording import MusicRecording
+    from .person import Person
+    from .item_list import ItemList
+    from .music_album import MusicAlbum
 
 class MusicGroup(PerformingGroup):
     """

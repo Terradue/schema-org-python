@@ -9,8 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from .bed_type import BedType
 from .intangible import Intangible
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .bed_type import BedType
 
 class BedDetails(Intangible):
     """

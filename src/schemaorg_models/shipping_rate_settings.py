@@ -9,10 +9,12 @@ from typing import (
     Optional,
     Union
 )
-from .monetary_amount import MonetaryAmount
 from .structured_value import StructuredValue
-from .defined_region import DefinedRegion
-from .delivery_charge_specification import DeliveryChargeSpecification
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .defined_region import DefinedRegion
+    from .delivery_charge_specification import DeliveryChargeSpecification
+    from .monetary_amount import MonetaryAmount
 
 class ShippingRateSettings(StructuredValue):
     """

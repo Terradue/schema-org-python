@@ -13,13 +13,15 @@ from typing import (
     Optional,
     Union
 )
-from .qualitative_value import QualitativeValue
-from .drive_wheel_configuration_value import DriveWheelConfigurationValue
-from .steering_position_value import SteeringPositionValue
-from .quantitative_value import QuantitativeValue
 from .product import Product
-from .engine_specification import EngineSpecification
-from .car_usage_type import CarUsageType
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .steering_position_value import SteeringPositionValue
+    from .quantitative_value import QuantitativeValue
+    from .qualitative_value import QualitativeValue
+    from .car_usage_type import CarUsageType
+    from .engine_specification import EngineSpecification
+    from .drive_wheel_configuration_value import DriveWheelConfigurationValue
 
 class Vehicle(Product):
     """

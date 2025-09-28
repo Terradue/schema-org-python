@@ -10,7 +10,9 @@ from typing import (
     Union
 )
 from .move_action import MoveAction
-from .distance import Distance
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .distance import Distance
 
 class TravelAction(MoveAction):
     """

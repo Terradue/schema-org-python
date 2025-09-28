@@ -9,11 +9,13 @@ from typing import (
     Optional,
     Union
 )
-from .size_group_enumeration import SizeGroupEnumeration
-from .size_system_enumeration import SizeSystemEnumeration
-from .gender_type import GenderType
-from .quantitative_value import QuantitativeValue
 from .qualitative_value import QualitativeValue
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .size_system_enumeration import SizeSystemEnumeration
+    from .quantitative_value import QuantitativeValue
+    from .gender_type import GenderType
+    from .size_group_enumeration import SizeGroupEnumeration
 
 class SizeSpecification(QualitativeValue):
     """

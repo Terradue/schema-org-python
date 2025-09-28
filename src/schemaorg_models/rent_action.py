@@ -9,10 +9,12 @@ from typing import (
     Optional,
     Union
 )
-from .person import Person
-from .real_estate_agent import RealEstateAgent
 from .trade_action import TradeAction
-from .organization import Organization
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .person import Person
+    from .organization import Organization
+    from .real_estate_agent import RealEstateAgent
 
 class RentAction(TradeAction):
     """

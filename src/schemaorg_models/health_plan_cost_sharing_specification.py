@@ -10,7 +10,9 @@ from typing import (
     Union
 )
 from .intangible import Intangible
-from .price_specification import PriceSpecification
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .price_specification import PriceSpecification
 
 class HealthPlanCostSharingSpecification(Intangible):
     """

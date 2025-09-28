@@ -9,8 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from .medical_imaging_technique import MedicalImagingTechnique
 from .medical_test import MedicalTest
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .medical_imaging_technique import MedicalImagingTechnique
 
 class ImagingTest(MedicalTest):
     """

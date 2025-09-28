@@ -10,11 +10,13 @@ from typing import (
     Union
 )
 from .intangible import Intangible
-from .order_status import OrderStatus
-from .parcel_delivery import ParcelDelivery
-from .quantitative_value import QuantitativeValue
-from .product import Product
-from .service import Service
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .quantitative_value import QuantitativeValue
+    from .product import Product
+    from .service import Service
+    from .parcel_delivery import ParcelDelivery
+    from .order_status import OrderStatus
 
 class OrderItem(Intangible):
     """

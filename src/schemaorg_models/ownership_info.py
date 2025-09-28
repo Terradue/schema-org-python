@@ -12,11 +12,13 @@ from typing import (
     Optional,
     Union
 )
-from .person import Person
 from .structured_value import StructuredValue
-from .organization import Organization
-from .product import Product
-from .service import Service
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .organization import Organization
+    from .person import Person
+    from .product import Product
+    from .service import Service
 
 class OwnershipInfo(StructuredValue):
     """

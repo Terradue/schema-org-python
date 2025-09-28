@@ -9,9 +9,11 @@ from typing import (
     Optional,
     Union
 )
-from .postal_code_range_specification import PostalCodeRangeSpecification
 from .structured_value import StructuredValue
-from .country import Country
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .country import Country
+    from .postal_code_range_specification import PostalCodeRangeSpecification
 
 class DefinedRegion(StructuredValue):
     """

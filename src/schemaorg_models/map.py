@@ -9,8 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from .map_category_type import MapCategoryType
 from .creative_work import CreativeWork
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .map_category_type import MapCategoryType
 
 class Map(CreativeWork):
     """

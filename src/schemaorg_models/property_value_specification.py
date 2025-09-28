@@ -9,8 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from .thing import Thing
 from .intangible import Intangible
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .thing import Thing
 
 class PropertyValueSpecification(Intangible):
     """

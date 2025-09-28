@@ -14,15 +14,17 @@ from typing import (
     Optional,
     Union
 )
-from .certification_status_enumeration import CertificationStatusEnumeration
-from .thing import Thing
-from .image_object import ImageObject
-from .quantitative_value import QuantitativeValue
-from .rating import Rating
-from .organization import Organization
-from .administrative_area import AdministrativeArea
-from .defined_term import DefinedTerm
 from .creative_work import CreativeWork
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .thing import Thing
+    from .quantitative_value import QuantitativeValue
+    from .organization import Organization
+    from .image_object import ImageObject
+    from .certification_status_enumeration import CertificationStatusEnumeration
+    from .administrative_area import AdministrativeArea
+    from .defined_term import DefinedTerm
+    from .rating import Rating
 
 class Certification(CreativeWork):
     """

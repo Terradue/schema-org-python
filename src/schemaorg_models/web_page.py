@@ -13,14 +13,16 @@ from typing import (
     Optional,
     Union
 )
-from .person import Person
-from .image_object import ImageObject
-from .web_page_element import WebPageElement
-from .speakable_specification import SpeakableSpecification
-from .specialty import Specialty
-from .organization import Organization
-from .breadcrumb_list import BreadcrumbList
 from .creative_work import CreativeWork
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .organization import Organization
+    from .image_object import ImageObject
+    from .breadcrumb_list import BreadcrumbList
+    from .specialty import Specialty
+    from .speakable_specification import SpeakableSpecification
+    from .web_page_element import WebPageElement
+    from .person import Person
 
 class WebPage(CreativeWork):
     """

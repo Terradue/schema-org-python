@@ -9,9 +9,11 @@ from typing import (
     Optional,
     Union
 )
-from .rsvp_response_type import RsvpResponseType
 from .inform_action import InformAction
-from .comment import Comment
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .comment import Comment
+    from .rsvp_response_type import RsvpResponseType
 
 class RsvpAction(InformAction):
     """

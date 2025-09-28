@@ -9,11 +9,13 @@ from typing import (
     Optional,
     Union
 )
-from .contact_point import ContactPoint
-from .person import Person
 from .allocate_action import AllocateAction
-from .organization import Organization
-from .audience import Audience
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .organization import Organization
+    from .audience import Audience
+    from .contact_point import ContactPoint
+    from .person import Person
 
 class AuthorizeAction(AllocateAction):
     """

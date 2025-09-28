@@ -10,13 +10,15 @@ from typing import (
     Union
 )
 from .how_to import HowTo
-from .property_value import PropertyValue
-from .nutrition_information import NutritionInformation
-from .duration import Duration
-from .quantitative_value import QuantitativeValue
-from .restricted_diet import RestrictedDiet
-from .creative_work import CreativeWork
-from .item_list import ItemList
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .quantitative_value import QuantitativeValue
+    from .restricted_diet import RestrictedDiet
+    from .duration import Duration
+    from .creative_work import CreativeWork
+    from .item_list import ItemList
+    from .property_value import PropertyValue
+    from .nutrition_information import NutritionInformation
 
 class Recipe(HowTo):
     """

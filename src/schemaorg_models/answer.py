@@ -9,9 +9,11 @@ from typing import (
     Optional,
     Union
 )
-from .web_content import WebContent
 from .comment import Comment
-from .creative_work import CreativeWork
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .web_content import WebContent
+    from .creative_work import CreativeWork
 
 class Answer(Comment):
     """

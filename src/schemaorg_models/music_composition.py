@@ -9,11 +9,13 @@ from typing import (
     Optional,
     Union
 )
-from .person import Person
-from .event import Event
-from .music_recording import MusicRecording
-from .organization import Organization
 from .creative_work import CreativeWork
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .music_recording import MusicRecording
+    from .event import Event
+    from .organization import Organization
+    from .person import Person
 
 class MusicComposition(CreativeWork):
     """

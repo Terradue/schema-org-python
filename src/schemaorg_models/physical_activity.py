@@ -10,13 +10,15 @@ from typing import (
     Optional,
     Union
 )
-from .physical_activity_category import PhysicalActivityCategory
-from .category_code import CategoryCode
-from .thing import Thing
-from .superficial_anatomy import SuperficialAnatomy
 from .lifestyle_modification import LifestyleModification
-from .anatomical_structure import AnatomicalStructure
-from .anatomical_system import AnatomicalSystem
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .physical_activity_category import PhysicalActivityCategory
+    from .thing import Thing
+    from .category_code import CategoryCode
+    from .anatomical_system import AnatomicalSystem
+    from .anatomical_structure import AnatomicalStructure
+    from .superficial_anatomy import SuperficialAnatomy
 
 class PhysicalActivity(LifestyleModification):
     """

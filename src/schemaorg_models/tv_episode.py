@@ -11,9 +11,11 @@ from typing import (
     Union
 )
 from .episode import Episode
-from .country import Country
-from .tv_series import TVSeries
-from .language import Language
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .tv_series import TVSeries
+    from .country import Country
+    from .language import Language
 
 class TVEpisode(Episode):
     """

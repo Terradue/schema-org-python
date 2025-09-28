@@ -9,13 +9,15 @@ from typing import (
     Optional,
     Union
 )
-from .medical_condition import MedicalCondition
-from .event_status_type import EventStatusType
-from .person import Person
-from .medical_study_status import MedicalStudyStatus
-from .organization import Organization
-from .administrative_area import AdministrativeArea
 from .medical_entity import MedicalEntity
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .organization import Organization
+    from .medical_study_status import MedicalStudyStatus
+    from .event_status_type import EventStatusType
+    from .administrative_area import AdministrativeArea
+    from .medical_condition import MedicalCondition
+    from .person import Person
 
 class MedicalStudy(MedicalEntity):
     """

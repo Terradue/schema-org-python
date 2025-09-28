@@ -11,11 +11,13 @@ from typing import (
     Union
 )
 from .financial_product import FinancialProduct
-from .monetary_amount import MonetaryAmount
-from .thing import Thing
-from .duration import Duration
-from .quantitative_value import QuantitativeValue
-from .repayment_specification import RepaymentSpecification
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .thing import Thing
+    from .quantitative_value import QuantitativeValue
+    from .repayment_specification import RepaymentSpecification
+    from .duration import Duration
+    from .monetary_amount import MonetaryAmount
 
 class LoanOrCredit(FinancialProduct):
     """

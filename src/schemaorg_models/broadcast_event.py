@@ -10,8 +10,10 @@ from typing import (
     Union
 )
 from .publication_event import PublicationEvent
-from .event import Event
-from .language import Language
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .language import Language
+    from .event import Event
 
 class BroadcastEvent(PublicationEvent):
     """

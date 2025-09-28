@@ -9,12 +9,14 @@ from typing import (
     Optional,
     Union
 )
-from .contact_point import ContactPoint
-from .person import Person
-from .digital_document_permission_type import DigitalDocumentPermissionType
 from .intangible import Intangible
-from .organization import Organization
-from .audience import Audience
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .organization import Organization
+    from .audience import Audience
+    from .digital_document_permission_type import DigitalDocumentPermissionType
+    from .contact_point import ContactPoint
+    from .person import Person
 
 class DigitalDocumentPermission(Intangible):
     """

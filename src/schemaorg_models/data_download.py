@@ -10,9 +10,11 @@ from typing import (
     Optional,
     Union
 )
-from .measurement_method_enum import MeasurementMethodEnum
 from .media_object import MediaObject
-from .defined_term import DefinedTerm
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .defined_term import DefinedTerm
+    from .measurement_method_enum import MeasurementMethodEnum
 
 class DataDownload(MediaObject):
     """

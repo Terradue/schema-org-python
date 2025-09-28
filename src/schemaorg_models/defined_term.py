@@ -10,8 +10,10 @@ from typing import (
     Optional,
     Union
 )
-from .defined_term_set import DefinedTermSet
 from .intangible import Intangible
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .defined_term_set import DefinedTermSet
 
 class DefinedTerm(Intangible):
     """

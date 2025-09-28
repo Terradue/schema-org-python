@@ -11,8 +11,10 @@ from typing import (
     Union
 )
 from .thing import Thing
-from .defined_term import DefinedTerm
-from .property_value import PropertyValue
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .defined_term import DefinedTerm
+    from .property_value import PropertyValue
 
 class Taxon(Thing):
     """

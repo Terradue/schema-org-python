@@ -9,8 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from .quantitative_value import QuantitativeValue
 from .audience import Audience
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .quantitative_value import QuantitativeValue
 
 class BusinessAudience(Audience):
     """

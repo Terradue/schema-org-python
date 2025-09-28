@@ -15,39 +15,41 @@ from typing import (
     Union
 )
 from .thing import Thing
-from .video_object import VideoObject
-from .music_recording import MusicRecording
-from .alignment_object import AlignmentObject
-from .review import Review
-from .rating import Rating
-from .product import Product
-from .demand import Demand
-from .person import Person
-from .offer import Offer
-from .interaction_counter import InteractionCounter
-from .event import Event
-from .image_object import ImageObject
-from .place import Place
-from .publication_event import PublicationEvent
-from .country import Country
-from .duration import Duration
-from .organization import Organization
-from .audio_object import AudioObject
-from .item_list import ItemList
-from .language import Language
-from .clip import Clip
-from .web_page import WebPage
-from .quantitative_value import QuantitativeValue
-from .size_specification import SizeSpecification
-from .media_object import MediaObject
-from .comment import Comment
-from .correction_comment import CorrectionComment
-from .iptc_digital_source_enumeration import IPTCDigitalSourceEnumeration
-from .claim import Claim
-from .aggregate_rating import AggregateRating
-from .defined_term import DefinedTerm
-from .audience import Audience
-from .grant import Grant
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .video_object import VideoObject
+    from .duration import Duration
+    from .size_specification import SizeSpecification
+    from .demand import Demand
+    from .comment import Comment
+    from .media_object import MediaObject
+    from .defined_term import DefinedTerm
+    from .review import Review
+    from .person import Person
+    from .organization import Organization
+    from .product import Product
+    from .alignment_object import AlignmentObject
+    from .image_object import ImageObject
+    from .audience import Audience
+    from .iptc_digital_source_enumeration import IPTCDigitalSourceEnumeration
+    from .claim import Claim
+    from .music_recording import MusicRecording
+    from .country import Country
+    from .audio_object import AudioObject
+    from .language import Language
+    from .quantitative_value import QuantitativeValue
+    from .clip import Clip
+    from .web_page import WebPage
+    from .item_list import ItemList
+    from .place import Place
+    from .rating import Rating
+    from .event import Event
+    from .interaction_counter import InteractionCounter
+    from .publication_event import PublicationEvent
+    from .aggregate_rating import AggregateRating
+    from .correction_comment import CorrectionComment
+    from .offer import Offer
+    from .grant import Grant
 
 class CreativeWork(Thing):
     """

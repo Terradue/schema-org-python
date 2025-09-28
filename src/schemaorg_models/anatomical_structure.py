@@ -9,11 +9,13 @@ from typing import (
     Optional,
     Union
 )
-from .medical_condition import MedicalCondition
-from .medical_therapy import MedicalTherapy
-from .image_object import ImageObject
 from .medical_entity import MedicalEntity
-from .anatomical_system import AnatomicalSystem
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .medical_condition import MedicalCondition
+    from .medical_therapy import MedicalTherapy
+    from .anatomical_system import AnatomicalSystem
+    from .image_object import ImageObject
 
 class AnatomicalStructure(MedicalEntity):
     """

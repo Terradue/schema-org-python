@@ -10,22 +10,24 @@ from typing import (
     Optional,
     Union
 )
-from .opening_hours_specification import OpeningHoursSpecification
-from .geo_shape import GeoShape
 from .thing import Thing
-from .event import Event
-from .certification import Certification
-from .map import Map
-from .image_object import ImageObject
-from .postal_address import PostalAddress
-from .property_value import PropertyValue
-from .review import Review
-from .geo_coordinates import GeoCoordinates
-from .location_feature_specification import LocationFeatureSpecification
-from .aggregate_rating import AggregateRating
-from .geospatial_geometry import GeospatialGeometry
-from .defined_term import DefinedTerm
-from .photograph import Photograph
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .event import Event
+    from .map import Map
+    from .property_value import PropertyValue
+    from .image_object import ImageObject
+    from .geo_shape import GeoShape
+    from .certification import Certification
+    from .photograph import Photograph
+    from .opening_hours_specification import OpeningHoursSpecification
+    from .aggregate_rating import AggregateRating
+    from .geo_coordinates import GeoCoordinates
+    from .geospatial_geometry import GeospatialGeometry
+    from .location_feature_specification import LocationFeatureSpecification
+    from .postal_address import PostalAddress
+    from .defined_term import DefinedTerm
+    from .review import Review
 
 class Place(Thing):
     """

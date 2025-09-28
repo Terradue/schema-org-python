@@ -9,9 +9,11 @@ from typing import (
     Optional,
     Union
 )
-from .medical_entity import MedicalEntity
 from .therapeutic_procedure import TherapeuticProcedure
-from .medical_contraindication import MedicalContraindication
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .medical_contraindication import MedicalContraindication
+    from .medical_entity import MedicalEntity
 
 class MedicalTherapy(TherapeuticProcedure):
     """

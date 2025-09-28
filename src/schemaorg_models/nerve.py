@@ -9,10 +9,12 @@ from typing import (
     Optional,
     Union
 )
-from .brain_structure import BrainStructure
 from .anatomical_structure import AnatomicalStructure
-from .superficial_anatomy import SuperficialAnatomy
-from .muscle import Muscle
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .brain_structure import BrainStructure
+    from .superficial_anatomy import SuperficialAnatomy
+    from .muscle import Muscle
 
 class Nerve(AnatomicalStructure):
     """

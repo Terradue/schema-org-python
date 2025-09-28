@@ -11,7 +11,9 @@ from typing import (
     Union
 )
 from .service import Service
-from .creative_work import CreativeWork
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .creative_work import CreativeWork
 
 class WebAPI(Service):
     """

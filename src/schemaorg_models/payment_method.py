@@ -10,7 +10,9 @@ from typing import (
     Union
 )
 from .intangible import Intangible
-from .payment_method_type import PaymentMethodType
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .payment_method_type import PaymentMethodType
 
 class PaymentMethod(Intangible):
     """
