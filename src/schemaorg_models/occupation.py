@@ -13,12 +13,12 @@ from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .monetary_amount_distribution import MonetaryAmountDistribution
+    from .category_code import CategoryCode
+    from .occupational_experience_requirements import OccupationalExperienceRequirements
+    from .defined_term import DefinedTerm
     from .monetary_amount import MonetaryAmount
     from .administrative_area import AdministrativeArea
     from .educational_occupational_credential import EducationalOccupationalCredential
-    from .defined_term import DefinedTerm
-    from .category_code import CategoryCode
-    from .occupational_experience_requirements import OccupationalExperienceRequirements
 
 class Occupation(Intangible):
     """

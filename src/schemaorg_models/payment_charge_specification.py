@@ -12,8 +12,8 @@ from typing import (
 from .price_specification import PriceSpecification
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .delivery_method import DeliveryMethod
     from .payment_method import PaymentMethod
+    from .delivery_method import DeliveryMethod
 
 class PaymentChargeSpecification(PriceSpecification):
     """

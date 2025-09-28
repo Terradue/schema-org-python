@@ -18,10 +18,10 @@ if TYPE_CHECKING:
     from .distance import Distance
     from .boarding_policy_type import BoardingPolicyType
     from .duration import Duration
-    from .person import Person
-    from .vehicle import Vehicle
     from .airport import Airport
     from .organization import Organization
+    from .vehicle import Vehicle
+    from .person import Person
 
 class Flight(Trip):
     """

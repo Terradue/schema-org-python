@@ -13,12 +13,12 @@ from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .music_album import MusicAlbum
-    from .duration import Duration
     from .music_playlist import MusicPlaylist
-    from .person import Person
     from .music_group import MusicGroup
-    from .quantitative_value import QuantitativeValue
+    from .duration import Duration
     from .music_composition import MusicComposition
+    from .quantitative_value import QuantitativeValue
+    from .person import Person
 
 class MusicRecording(CreativeWork):
     """

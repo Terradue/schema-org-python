@@ -12,6 +12,14 @@ from typing import (
     Optional,
     Union
 )
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .text_object import TextObject
+    from .creative_work import CreativeWork
+    from .property_value import PropertyValue
+    from .image_object import ImageObject
+    from .event import Event
+    from .action import Action
 
 class Thing(BaseModel):
     """

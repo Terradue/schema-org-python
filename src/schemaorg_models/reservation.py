@@ -15,13 +15,13 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .ticket import Ticket
-    from .program_membership import ProgramMembership
-    from .thing import Thing
-    from .person import Person
     from .reservation_status_type import ReservationStatusType
-    from .price_specification import PriceSpecification
     from .organization import Organization
+    from .price_specification import PriceSpecification
+    from .thing import Thing
+    from .ticket import Ticket
+    from .person import Person
+    from .program_membership import ProgramMembership
 
 class Reservation(Intangible):
     """

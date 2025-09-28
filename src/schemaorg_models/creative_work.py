@@ -17,39 +17,39 @@ from typing import (
 from .thing import Thing
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .media_object import MediaObject
-    from .audience import Audience
-    from .defined_term import DefinedTerm
-    from .event import Event
     from .aggregate_rating import AggregateRating
-    from .country import Country
-    from .review import Review
-    from .music_recording import MusicRecording
+    from .audience import Audience
+    from .product import Product
     from .size_specification import SizeSpecification
-    from .web_page import WebPage
+    from .country import Country
     from .duration import Duration
-    from .claim import Claim
-    from .item_list import ItemList
+    from .language import Language
+    from .grant import Grant
     from .clip import Clip
     from .image_object import ImageObject
+    from .claim import Claim
+    from .publication_event import PublicationEvent
+    from .demand import Demand
+    from .alignment_object import AlignmentObject
     from .organization import Organization
-    from .offer import Offer
+    from .web_page import WebPage
+    from .person import Person
+    from .music_recording import MusicRecording
+    from .event import Event
+    from .correction_comment import CorrectionComment
+    from .defined_term import DefinedTerm
+    from .review import Review
+    from .comment import Comment
+    from .quantitative_value import QuantitativeValue
+    from .place import Place
+    from .rating import Rating
     from .interaction_counter import InteractionCounter
     from .video_object import VideoObject
     from .iptc_digital_source_enumeration import IPTCDigitalSourceEnumeration
-    from .rating import Rating
-    from .language import Language
-    from .comment import Comment
-    from .quantitative_value import QuantitativeValue
-    from .correction_comment import CorrectionComment
-    from .grant import Grant
     from .audio_object import AudioObject
-    from .publication_event import PublicationEvent
-    from .demand import Demand
-    from .product import Product
-    from .place import Place
-    from .person import Person
-    from .alignment_object import AlignmentObject
+    from .offer import Offer
+    from .media_object import MediaObject
+    from .item_list import ItemList
 
 class CreativeWork(Thing):
     """

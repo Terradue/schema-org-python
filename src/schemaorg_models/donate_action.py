@@ -13,10 +13,10 @@ from .transfer_action import TransferAction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .audience import Audience
-    from .person import Person
+    from .contact_point import ContactPoint
     from .price_specification import PriceSpecification
     from .organization import Organization
-    from .contact_point import ContactPoint
+    from .person import Person
 
 class DonateAction(TransferAction):
     """

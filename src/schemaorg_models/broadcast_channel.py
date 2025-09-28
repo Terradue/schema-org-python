@@ -14,8 +14,8 @@ from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .broadcast_frequency_specification import BroadcastFrequencySpecification
-    from .broadcast_service import BroadcastService
     from .cable_or_satellite_service import CableOrSatelliteService
+    from .broadcast_service import BroadcastService
 
 class BroadcastChannel(Intangible):
     """

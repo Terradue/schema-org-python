@@ -12,13 +12,13 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .episode import Episode
-    from .hyper_toc_entry import HyperTocEntry
-    from .creative_work_season import CreativeWorkSeason
     from .creative_work_series import CreativeWorkSeries
+    from .creative_work_season import CreativeWorkSeason
     from .performing_group import PerformingGroup
-    from .person import Person
     from .music_group import MusicGroup
+    from .hyper_toc_entry import HyperTocEntry
+    from .person import Person
+    from .episode import Episode
 
 class Clip(CreativeWork):
     """

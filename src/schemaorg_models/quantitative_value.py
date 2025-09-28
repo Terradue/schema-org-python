@@ -15,9 +15,9 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .enumeration import Enumeration
     from .qualitative_value import QualitativeValue
-    from .defined_term import DefinedTerm
-    from .measurement_type_enumeration import MeasurementTypeEnumeration
     from .property_value import PropertyValue
+    from .measurement_type_enumeration import MeasurementTypeEnumeration
+    from .defined_term import DefinedTerm
 
 class QuantitativeValue(StructuredValue):
     """

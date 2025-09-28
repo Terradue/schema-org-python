@@ -12,8 +12,8 @@ from typing import (
 from .publication_event import PublicationEvent
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .language import Language
     from .event import Event
+    from .language import Language
 
 class BroadcastEvent(PublicationEvent):
     """

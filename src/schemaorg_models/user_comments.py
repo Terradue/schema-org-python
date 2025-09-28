@@ -17,9 +17,9 @@ from typing import (
 from .user_interaction import UserInteraction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .creative_work import CreativeWork
     from .organization import Organization
     from .person import Person
+    from .creative_work import CreativeWork
 
 class UserComments(UserInteraction):
     """

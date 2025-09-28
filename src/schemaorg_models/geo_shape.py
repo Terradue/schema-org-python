@@ -12,8 +12,8 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .postal_address import PostalAddress
     from .country import Country
+    from .postal_address import PostalAddress
 
 class GeoShape(StructuredValue):
     """

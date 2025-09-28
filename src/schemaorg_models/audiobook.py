@@ -12,9 +12,9 @@ from typing import (
 from .audio_object import AudioObject
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .duration import Duration
     from .quantitative_value import QuantitativeValue
     from .person import Person
+    from .duration import Duration
 
 class Audiobook(AudioObject):
     """

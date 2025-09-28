@@ -166,19 +166,18 @@ from typing import (
 """)
 
             # Import parent class if exists
-            aux_imports : set = set([])
             if class_info["parent"]:
                 f.write(f"from .{camel_to_snake(class_info['parent'])} import {class_info['parent']}\n")
 
             # Import other classes
             other_classes = {}
-            
+            aux_imports : set = set([])
             for prop_name, prop_type in class_info["properties"]:
                 if prop_type != class_name and prop_type not in BASE_TYPES.values():
                     forward_def = classes[prop_type]["order"] > class_info["order"]
                     other_classes[prop_type] = forward_def
 
-                    if class_info["parent"] and prop_type != class_info["parent"]:
+                    if not class_info["parent"] or class_info["parent"] and prop_type != class_info["parent"]:
                         aux_imports.add(prop_type)
 
             if aux_imports:

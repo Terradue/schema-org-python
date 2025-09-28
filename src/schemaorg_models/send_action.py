@@ -13,10 +13,10 @@ from .transfer_action import TransferAction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .audience import Audience
+    from .contact_point import ContactPoint
+    from .organization import Organization
     from .delivery_method import DeliveryMethod
     from .person import Person
-    from .organization import Organization
-    from .contact_point import ContactPoint
 
 class SendAction(TransferAction):
     """

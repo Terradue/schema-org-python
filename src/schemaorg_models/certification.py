@@ -17,14 +17,14 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .administrative_area import AdministrativeArea
-    from .defined_term import DefinedTerm
     from .rating import Rating
+    from .defined_term import DefinedTerm
+    from .organization import Organization
     from .certification_status_enumeration import CertificationStatusEnumeration
     from .thing import Thing
-    from .organization import Organization
     from .quantitative_value import QuantitativeValue
     from .image_object import ImageObject
+    from .administrative_area import AdministrativeArea
 
 class Certification(CreativeWork):
     """

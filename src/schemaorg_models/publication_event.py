@@ -13,8 +13,8 @@ from .event import Event
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .organization import Organization
-    from .broadcast_service import BroadcastService
     from .person import Person
+    from .broadcast_service import BroadcastService
 
 class PublicationEvent(Event):
     """

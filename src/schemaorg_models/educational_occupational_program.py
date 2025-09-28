@@ -17,19 +17,19 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .offer import Offer
-    from .day_of_week import DayOfWeek
-    from .monetary_amount_distribution import MonetaryAmountDistribution
     from .structured_value import StructuredValue
-    from .demand import Demand
-    from .educational_occupational_credential import EducationalOccupationalCredential
-    from .duration import Duration
-    from .defined_term import DefinedTerm
-    from .course import Course
+    from .monetary_amount_distribution import MonetaryAmountDistribution
     from .category_code import CategoryCode
-    from .person import Person
+    from .demand import Demand
+    from .course import Course
+    from .duration import Duration
     from .alignment_object import AlignmentObject
+    from .day_of_week import DayOfWeek
+    from .defined_term import DefinedTerm
     from .organization import Organization
+    from .person import Person
+    from .offer import Offer
+    from .educational_occupational_credential import EducationalOccupationalCredential
 
 class EducationalOccupationalProgram(Intangible):
     """

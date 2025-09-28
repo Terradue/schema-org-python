@@ -13,10 +13,10 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .distance import Distance
     from .quantitative_value import QuantitativeValue
-    from .mass import Mass
     from .person import Person
+    from .distance import Distance
+    from .mass import Mass
 
 class VisualArtwork(CreativeWork):
     """

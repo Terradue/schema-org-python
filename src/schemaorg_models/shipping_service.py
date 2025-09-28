@@ -12,11 +12,11 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .service_period import ServicePeriod
     from .member_program_tier import MemberProgramTier
-    from .shipping_conditions import ShippingConditions
-    from .quantitative_value import QuantitativeValue
     from .fulfillment_type_enumeration import FulfillmentTypeEnumeration
+    from .service_period import ServicePeriod
+    from .quantitative_value import QuantitativeValue
+    from .shipping_conditions import ShippingConditions
 
 class ShippingService(StructuredValue):
     """

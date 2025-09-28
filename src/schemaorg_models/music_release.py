@@ -15,9 +15,9 @@ if TYPE_CHECKING:
     from .music_release_format_type import MusicReleaseFormatType
     from .music_album import MusicAlbum
     from .duration import Duration
-    from .person import Person
-    from .quantitative_value import QuantitativeValue
     from .organization import Organization
+    from .quantitative_value import QuantitativeValue
+    from .person import Person
 
 class MusicRelease(MusicPlaylist):
     """

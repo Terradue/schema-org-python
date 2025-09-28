@@ -18,11 +18,11 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .offer import Offer
-    from .physical_activity_category import PhysicalActivityCategory
     from .category_code import CategoryCode
-    from .thing import Thing
+    from .physical_activity_category import PhysicalActivityCategory
     from .media_subscription import MediaSubscription
+    from .thing import Thing
+    from .offer import Offer
     from .place import Place
     from .geo_shape import GeoShape
 

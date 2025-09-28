@@ -16,12 +16,12 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .web_site import WebSite
-    from .software_application import SoftwareApplication
     from .virtual_location import VirtualLocation
     from .postal_address import PostalAddress
-    from .action import Action
+    from .software_application import SoftwareApplication
+    from .web_site import WebSite
     from .place import Place
+    from .action import Action
 
 class InteractionCounter(StructuredValue):
     """

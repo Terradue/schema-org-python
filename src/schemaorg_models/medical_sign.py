@@ -12,8 +12,8 @@ from typing import (
 from .medical_sign_or_symptom import MedicalSignOrSymptom
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .medical_test import MedicalTest
     from .physical_exam import PhysicalExam
+    from .medical_test import MedicalTest
 
 class MedicalSign(MedicalSignOrSymptom):
     """

@@ -13,9 +13,9 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .product import Product
-    from .business_function import BusinessFunction
     from .service import Service
+    from .business_function import BusinessFunction
+    from .product import Product
 
 class TypeAndQuantityNode(StructuredValue):
     """

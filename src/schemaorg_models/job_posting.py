@@ -18,18 +18,18 @@ from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .monetary_amount_distribution import MonetaryAmountDistribution
-    from .monetary_amount import MonetaryAmount
-    from .administrative_area import AdministrativeArea
-    from .price_specification import PriceSpecification
-    from .educational_occupational_credential import EducationalOccupationalCredential
-    from .defined_term import DefinedTerm
-    from .occupation import Occupation
     from .category_code import CategoryCode
-    from .place import Place
-    from .person import Person
-    from .organization import Organization
     from .occupational_experience_requirements import OccupationalExperienceRequirements
     from .contact_point import ContactPoint
+    from .place import Place
+    from .defined_term import DefinedTerm
+    from .organization import Organization
+    from .price_specification import PriceSpecification
+    from .monetary_amount import MonetaryAmount
+    from .person import Person
+    from .occupation import Occupation
+    from .administrative_area import AdministrativeArea
+    from .educational_occupational_credential import EducationalOccupationalCredential
 
 class JobPosting(Intangible):
     """

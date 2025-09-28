@@ -17,17 +17,17 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .monetary_amount import MonetaryAmount
-    from .physical_activity_category import PhysicalActivityCategory
-    from .payment_status_type import PaymentStatusType
-    from .order import Order
     from .payment_method import PaymentMethod
-    from .duration import Duration
     from .category_code import CategoryCode
-    from .thing import Thing
-    from .person import Person
-    from .price_specification import PriceSpecification
+    from .order import Order
+    from .duration import Duration
+    from .physical_activity_category import PhysicalActivityCategory
     from .organization import Organization
+    from .price_specification import PriceSpecification
+    from .thing import Thing
+    from .payment_status_type import PaymentStatusType
+    from .monetary_amount import MonetaryAmount
+    from .person import Person
 
 class Invoice(Intangible):
     """

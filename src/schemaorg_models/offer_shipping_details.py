@@ -14,14 +14,14 @@ from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .distance import Distance
+    from .shipping_service import ShippingService
     from .shipping_delivery_time import ShippingDeliveryTime
-    from .monetary_amount import MonetaryAmount
-    from .mass import Mass
-    from .defined_region import DefinedRegion
     from .member_program_tier import MemberProgramTier
     from .shipping_rate_settings import ShippingRateSettings
+    from .monetary_amount import MonetaryAmount
+    from .defined_region import DefinedRegion
     from .quantitative_value import QuantitativeValue
-    from .shipping_service import ShippingService
+    from .mass import Mass
 
 class OfferShippingDetails(StructuredValue):
     """

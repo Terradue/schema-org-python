@@ -13,11 +13,11 @@ from .medical_entity import MedicalEntity
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .medical_condition import MedicalCondition
-    from .administrative_area import AdministrativeArea
     from .medical_study_status import MedicalStudyStatus
-    from .person import Person
     from .organization import Organization
+    from .person import Person
     from .event_status_type import EventStatusType
+    from .administrative_area import AdministrativeArea
 
 class MedicalStudy(MedicalEntity):
     """

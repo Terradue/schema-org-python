@@ -12,10 +12,10 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .music_recording import MusicRecording
     from .organization import Organization
-    from .event import Event
     from .person import Person
+    from .music_recording import MusicRecording
+    from .event import Event
 
 class MusicComposition(CreativeWork):
     """

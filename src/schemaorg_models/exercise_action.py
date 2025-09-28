@@ -13,13 +13,13 @@ from .play_action import PlayAction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .distance import Distance
-    from .sports_event import SportsEvent
-    from .sports_team import SportsTeam
-    from .sports_activity_location import SportsActivityLocation
-    from .place import Place
-    from .person import Person
     from .exercise_plan import ExercisePlan
+    from .sports_team import SportsTeam
     from .diet import Diet
+    from .sports_event import SportsEvent
+    from .sports_activity_location import SportsActivityLocation
+    from .person import Person
+    from .place import Place
 
 class ExerciseAction(PlayAction):
     """

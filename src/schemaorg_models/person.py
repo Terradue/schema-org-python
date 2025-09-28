@@ -16,36 +16,36 @@ from typing import (
 from .thing import Thing
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .structured_value import StructuredValue
-    from .defined_term import DefinedTerm
-    from .occupation import Occupation
-    from .program_membership import ProgramMembership
-    from .event import Event
-    from .price_specification import PriceSpecification
-    from .country import Country
-    from .educational_organization import EducationalOrganization
-    from .mass import Mass
-    from .organization import Organization
-    from .offer import Offer
-    from .certification import Certification
-    from .brand import Brand
-    from .offer_catalog import OfferCatalog
-    from .creative_work import CreativeWork
-    from .interaction_counter import InteractionCounter
-    from .educational_occupational_credential import EducationalOccupationalCredential
-    from .language import Language
     from .postal_address import PostalAddress
-    from .quantitative_value import QuantitativeValue
-    from .grant import Grant
-    from .monetary_amount import MonetaryAmount
-    from .ownership_info import OwnershipInfo
-    from .demand import Demand
-    from .distance import Distance
     from .product import Product
+    from .country import Country
+    from .offer_catalog import OfferCatalog
+    from .language import Language
+    from .grant import Grant
+    from .program_membership import ProgramMembership
+    from .demand import Demand
+    from .creative_work import CreativeWork
+    from .certification import Certification
+    from .organization import Organization
+    from .price_specification import PriceSpecification
+    from .occupation import Occupation
+    from .mass import Mass
     from .member_program_tier import MemberProgramTier
+    from .defined_term import DefinedTerm
     from .gender_type import GenderType
+    from .quantitative_value import QuantitativeValue
+    from .brand import Brand
     from .place import Place
+    from .distance import Distance
+    from .structured_value import StructuredValue
+    from .interaction_counter import InteractionCounter
+    from .educational_organization import EducationalOrganization
+    from .ownership_info import OwnershipInfo
     from .contact_point import ContactPoint
+    from .monetary_amount import MonetaryAmount
+    from .offer import Offer
+    from .event import Event
+    from .educational_occupational_credential import EducationalOccupationalCredential
 
 class Person(Thing):
     """

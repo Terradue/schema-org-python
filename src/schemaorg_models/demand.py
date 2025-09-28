@@ -18,29 +18,29 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .item_availability import ItemAvailability
-    from .event import Event
-    from .menu_item import MenuItem
-    from .delivery_method import DeliveryMethod
-    from .price_specification import PriceSpecification
-    from .type_and_quantity_node import TypeAndQuantityNode
-    from .aggregate_offer import AggregateOffer
-    from .organization import Organization
-    from .creative_work import CreativeWork
-    from .business_entity_type import BusinessEntityType
-    from .trip import Trip
-    from .payment_method import PaymentMethod
     from .offer_item_condition import OfferItemCondition
-    from .service import Service
-    from .quantitative_value import QuantitativeValue
-    from .geo_shape import GeoShape
-    from .loan_or_credit import LoanOrCredit
-    from .administrative_area import AdministrativeArea
+    from .trip import Trip
     from .product import Product
     from .warranty_promise import WarrantyPromise
-    from .business_function import BusinessFunction
-    from .place import Place
+    from .menu_item import MenuItem
+    from .loan_or_credit import LoanOrCredit
+    from .service import Service
+    from .payment_method import PaymentMethod
+    from .creative_work import CreativeWork
+    from .type_and_quantity_node import TypeAndQuantityNode
+    from .price_specification import PriceSpecification
+    from .organization import Organization
     from .person import Person
+    from .geo_shape import GeoShape
+    from .aggregate_offer import AggregateOffer
+    from .delivery_method import DeliveryMethod
+    from .quantitative_value import QuantitativeValue
+    from .place import Place
+    from .administrative_area import AdministrativeArea
+    from .item_availability import ItemAvailability
+    from .business_function import BusinessFunction
+    from .business_entity_type import BusinessEntityType
+    from .event import Event
 
 class Demand(Intangible):
     """

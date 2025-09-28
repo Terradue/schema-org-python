@@ -17,14 +17,14 @@ from typing import (
 from .thing import Thing
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .entry_point import EntryPoint
-    from .action_status_type import ActionStatusType
     from .virtual_location import VirtualLocation
     from .postal_address import PostalAddress
-    from .place import Place
-    from .person import Person
-    from .organization import Organization
+    from .entry_point import EntryPoint
     from .how_to import HowTo
+    from .organization import Organization
+    from .person import Person
+    from .place import Place
+    from .action_status_type import ActionStatusType
 
 class Action(Thing):
     """

@@ -13,10 +13,10 @@ from typing import (
 from .price_specification import PriceSpecification
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .price_type_enumeration import PriceTypeEnumeration
-    from .duration import Duration
     from .quantitative_value import QuantitativeValue
     from .price_component_type_enumeration import PriceComponentTypeEnumeration
+    from .price_type_enumeration import PriceTypeEnumeration
+    from .duration import Duration
 
 class UnitPriceSpecification(PriceSpecification):
     """

@@ -13,11 +13,11 @@ from .interact_action import InteractAction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .audience import Audience
-    from .language import Language
-    from .thing import Thing
-    from .person import Person
-    from .organization import Organization
     from .contact_point import ContactPoint
+    from .organization import Organization
+    from .thing import Thing
+    from .language import Language
+    from .person import Person
 
 class CommunicateAction(InteractAction):
     """

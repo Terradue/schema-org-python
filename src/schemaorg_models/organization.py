@@ -16,42 +16,42 @@ from typing import (
 from .thing import Thing
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .merchant_return_policy import MerchantReturnPolicy
-    from .defined_term import DefinedTerm
-    from .event import Event
-    from .program_membership import ProgramMembership
-    from .aggregate_rating import AggregateRating
-    from .review import Review
-    from .virtual_location import VirtualLocation
-    from .image_object import ImageObject
-    from .offer import Offer
-    from .certification import Certification
-    from .brand import Brand
-    from .creative_work import CreativeWork
-    from .offer_catalog import OfferCatalog
-    from .article import Article
-    from .nonprofit_type import NonprofitType
-    from .interaction_counter import InteractionCounter
-    from .payment_method import PaymentMethod
-    from .product_return_policy import ProductReturnPolicy
-    from .educational_occupational_credential import EducationalOccupationalCredential
-    from .language import Language
     from .postal_address import PostalAddress
-    from .quantitative_value import QuantitativeValue
-    from .geo_shape import GeoShape
+    from .product import Product
+    from .aggregate_rating import AggregateRating
+    from .offer_catalog import OfferCatalog
+    from .language import Language
     from .grant import Grant
     from .loan_or_credit import LoanOrCredit
-    from .ownership_info import OwnershipInfo
-    from .administrative_area import AdministrativeArea
+    from .image_object import ImageObject
+    from .program_membership import ProgramMembership
+    from .payment_method import PaymentMethod
     from .demand import Demand
-    from .product import Product
-    from .member_program import MemberProgram
-    from .member_program_tier import MemberProgramTier
+    from .creative_work import CreativeWork
+    from .certification import Certification
     from .about_page import AboutPage
-    from .place import Place
     from .person import Person
+    from .geo_shape import GeoShape
+    from .member_program_tier import MemberProgramTier
+    from .virtual_location import VirtualLocation
+    from .article import Article
+    from .defined_term import DefinedTerm
+    from .review import Review
+    from .member_program import MemberProgram
+    from .quantitative_value import QuantitativeValue
+    from .brand import Brand
+    from .place import Place
+    from .administrative_area import AdministrativeArea
     from .shipping_service import ShippingService
+    from .nonprofit_type import NonprofitType
+    from .interaction_counter import InteractionCounter
+    from .ownership_info import OwnershipInfo
     from .contact_point import ContactPoint
+    from .merchant_return_policy import MerchantReturnPolicy
+    from .offer import Offer
+    from .event import Event
+    from .product_return_policy import ProductReturnPolicy
+    from .educational_occupational_credential import EducationalOccupationalCredential
 
 class Organization(Thing):
     """

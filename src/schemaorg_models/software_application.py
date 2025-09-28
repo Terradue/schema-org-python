@@ -13,8 +13,8 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .image_object import ImageObject
     from .data_feed import DataFeed
+    from .image_object import ImageObject
 
 class SoftwareApplication(CreativeWork):
     """

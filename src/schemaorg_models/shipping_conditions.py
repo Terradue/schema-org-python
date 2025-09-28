@@ -12,14 +12,14 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .monetary_amount import MonetaryAmount
     from .distance import Distance
-    from .mass import Mass
-    from .service_period import ServicePeriod
-    from .opening_hours_specification import OpeningHoursSpecification
-    from .defined_region import DefinedRegion
     from .shipping_rate_settings import ShippingRateSettings
+    from .monetary_amount import MonetaryAmount
+    from .service_period import ServicePeriod
+    from .defined_region import DefinedRegion
     from .quantitative_value import QuantitativeValue
+    from .opening_hours_specification import OpeningHoursSpecification
+    from .mass import Mass
 
 class ShippingConditions(StructuredValue):
     """

@@ -12,13 +12,13 @@ from typing import (
 from .how_to import HowTo
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .restricted_diet import RestrictedDiet
     from .creative_work import CreativeWork
     from .duration import Duration
-    from .item_list import ItemList
-    from .nutrition_information import NutritionInformation
-    from .restricted_diet import RestrictedDiet
     from .property_value import PropertyValue
+    from .nutrition_information import NutritionInformation
     from .quantitative_value import QuantitativeValue
+    from .item_list import ItemList
 
 class Recipe(HowTo):
     """

@@ -14,8 +14,8 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .recipe import Recipe
     from .food_establishment import FoodEstablishment
-    from .food_event import FoodEvent
     from .place import Place
+    from .food_event import FoodEvent
 
 class CookAction(CreateAction):
     """

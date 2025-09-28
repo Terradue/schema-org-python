@@ -17,14 +17,14 @@ from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .enumeration import Enumeration
-    from .defined_term import DefinedTerm
-    from .property import Property
-    from .statistical_variable import StatisticalVariable
-    from .thing import Thing
     from .measurement_method_enum import MeasurementMethodEnum
-    from .place import Place
+    from .statistical_variable import StatisticalVariable
     from .property_value import PropertyValue
+    from .defined_term import DefinedTerm
+    from .thing import Thing
     from .quantitative_value import QuantitativeValue
+    from .property import Property
+    from .place import Place
 
 class Observation(Intangible):
     """

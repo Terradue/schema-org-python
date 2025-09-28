@@ -13,8 +13,8 @@ from typing import (
 from .performing_group import PerformingGroup
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .music_recording import MusicRecording
     from .person import Person
+    from .music_recording import MusicRecording
     from .item_list import ItemList
     from .music_album import MusicAlbum
 

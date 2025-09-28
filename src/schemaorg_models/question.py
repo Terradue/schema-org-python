@@ -12,8 +12,8 @@ from typing import (
 from .comment import Comment
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .creative_work import CreativeWork
     from .answer import Answer
+    from .creative_work import CreativeWork
     from .item_list import ItemList
 
 class Question(Comment):

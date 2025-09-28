@@ -12,11 +12,11 @@ from typing import (
 from .medical_entity import MedicalEntity
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .medical_enumeration import MedicalEnumeration
+    from .drug import Drug
     from .medical_condition import MedicalCondition
     from .medical_sign import MedicalSign
-    from .medical_enumeration import MedicalEnumeration
     from .medical_device import MedicalDevice
-    from .drug import Drug
 
 class MedicalTest(MedicalEntity):
     """

@@ -16,10 +16,10 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .audience import Audience
     from .organization import Organization
-    from .contact_point import ContactPoint
     from .person import Person
+    from .contact_point import ContactPoint
+    from .audience import Audience
 
 class Message(CreativeWork):
     """

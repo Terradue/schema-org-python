@@ -13,12 +13,12 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .duration import Duration
-    from .language import Language
     from .postal_address import PostalAddress
+    from .duration import Duration
+    from .contact_point import ContactPoint
+    from .language import Language
     from .place import Place
     from .service import Service
-    from .contact_point import ContactPoint
 
 class ServiceChannel(Intangible):
     """

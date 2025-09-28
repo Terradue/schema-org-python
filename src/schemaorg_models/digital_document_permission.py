@@ -12,11 +12,11 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .digital_document_permission_type import DigitalDocumentPermissionType
     from .audience import Audience
-    from .person import Person
-    from .organization import Organization
+    from .digital_document_permission_type import DigitalDocumentPermissionType
     from .contact_point import ContactPoint
+    from .organization import Organization
+    from .person import Person
 
 class DigitalDocumentPermission(Intangible):
     """

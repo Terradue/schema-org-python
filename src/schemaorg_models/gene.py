@@ -12,9 +12,9 @@ from typing import (
 from .bio_chem_entity import BioChemEntity
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .defined_term import DefinedTerm
     from .anatomical_system import AnatomicalSystem
     from .anatomical_structure import AnatomicalStructure
-    from .defined_term import DefinedTerm
 
 class Gene(BioChemEntity):
     """

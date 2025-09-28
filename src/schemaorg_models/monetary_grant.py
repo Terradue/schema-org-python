@@ -13,8 +13,8 @@ from .grant import Grant
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .monetary_amount import MonetaryAmount
-    from .organization import Organization
     from .person import Person
+    from .organization import Organization
 
 class MonetaryGrant(Grant):
     """

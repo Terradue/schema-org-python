@@ -12,8 +12,8 @@ from typing import (
 from .medical_audience import MedicalAudience
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .medical_condition import MedicalCondition
     from .drug import Drug
+    from .medical_condition import MedicalCondition
 
 class Patient(MedicalAudience):
     """

@@ -12,8 +12,8 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .__class import _Class
     from .property import Property
+    from .__class import _Class
 
 class Enumeration(Intangible):
     """

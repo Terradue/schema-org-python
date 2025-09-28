@@ -12,11 +12,11 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .offer import Offer
     from .demand import Demand
-    from .nutrition_information import NutritionInformation
     from .restricted_diet import RestrictedDiet
     from .menu_section import MenuSection
+    from .nutrition_information import NutritionInformation
+    from .offer import Offer
 
 class MenuItem(Intangible):
     """

@@ -16,36 +16,36 @@ from typing import (
 from .thing import Thing
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .merchant_return_policy import MerchantReturnPolicy
-    from .web_content import WebContent
-    from .audience import Audience
-    from .energy_consumption_details import EnergyConsumptionDetails
-    from .defined_term import DefinedTerm
     from .product_model import ProductModel
+    from .offer_item_condition import OfferItemCondition
     from .aggregate_rating import AggregateRating
-    from .country import Country
-    from .adult_oriented_enumeration import AdultOrientedEnumeration
-    from .review import Review
-    from .mass import Mass
+    from .audience import Audience
     from .size_specification import SizeSpecification
-    from .item_list import ItemList
+    from .adult_oriented_enumeration import AdultOrientedEnumeration
+    from .country import Country
+    from .grant import Grant
+    from .energy_consumption_details import EnergyConsumptionDetails
+    from .image_object import ImageObject
+    from .service import Service
+    from .demand import Demand
+    from .certification import Certification
+    from .organization import Organization
+    from .list_item import ListItem
+    from .mass import Mass
+    from .defined_term import DefinedTerm
+    from .review import Review
+    from .quantitative_value import QuantitativeValue
+    from .brand import Brand
+    from .distance import Distance
     from .category_code import CategoryCode
     from .property_value import PropertyValue
-    from .image_object import ImageObject
-    from .organization import Organization
-    from .offer import Offer
-    from .certification import Certification
-    from .brand import Brand
     from .physical_activity_category import PhysicalActivityCategory
     from .product_group import ProductGroup
+    from .merchant_return_policy import MerchantReturnPolicy
+    from .web_content import WebContent
+    from .offer import Offer
     from .product_return_policy import ProductReturnPolicy
-    from .offer_item_condition import OfferItemCondition
-    from .service import Service
-    from .quantitative_value import QuantitativeValue
-    from .grant import Grant
-    from .list_item import ListItem
-    from .distance import Distance
-    from .demand import Demand
+    from .item_list import ItemList
 
 class Product(Thing):
     """
