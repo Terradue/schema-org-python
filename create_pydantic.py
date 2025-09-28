@@ -111,7 +111,7 @@ __all__ = [
 ]
 
 _lazy_map = {{
-{nl.join(f"    {class_name!r}: '.{camel_to_snake(class_name)}'" for class_name in ts_sorted)}
+{nl.join(f"    {class_name!r}: '.{camel_to_snake(class_name)}'," for class_name in ts_sorted)}
 }}
 
 def __getattr__(name): 
