@@ -1,9 +1,6 @@
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
-if TYPE_CHECKING:
-    # put heavy, hint-only imports here
-    from schemaorg_models.social_media_posting import SocialMediaPosting
+from .social_media_posting import SocialMediaPosting    
 
 from pydantic import (
     Field

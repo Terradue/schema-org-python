@@ -1,9 +1,6 @@
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
-if TYPE_CHECKING:
-    # put heavy, hint-only imports here
-    from schemaorg_models.financial_product import FinancialProduct
+from .financial_product import FinancialProduct    
 
 from pydantic import (
     AliasChoices,

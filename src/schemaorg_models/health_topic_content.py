@@ -1,9 +1,6 @@
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
-if TYPE_CHECKING:
-    # put heavy, hint-only imports here
-    from schemaorg_models.web_content import WebContent
+from .web_content import WebContent    
 
 from pydantic import (
     AliasChoices,

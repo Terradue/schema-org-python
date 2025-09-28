@@ -1,9 +1,6 @@
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
-if TYPE_CHECKING:
-    # put heavy, hint-only imports here
-    from schemaorg_models.learning_resource import LearningResource
+from .learning_resource import LearningResource    
 
 from pydantic import (
     Field

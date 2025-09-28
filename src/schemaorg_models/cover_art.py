@@ -1,9 +1,6 @@
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
-if TYPE_CHECKING:
-    # put heavy, hint-only imports here
-    from schemaorg_models.visual_artwork import VisualArtwork
+from .visual_artwork import VisualArtwork    
 
 from pydantic import (
     Field

@@ -1,9 +1,6 @@
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
-if TYPE_CHECKING:
-    # put heavy, hint-only imports here
-    from schemaorg_models.investment_or_deposit import InvestmentOrDeposit
+from .investment_or_deposit import InvestmentOrDeposit    
 
 from pydantic import (
     Field

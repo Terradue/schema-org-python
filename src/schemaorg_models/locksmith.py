@@ -1,9 +1,6 @@
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
-if TYPE_CHECKING:
-    # put heavy, hint-only imports here
-    from schemaorg_models.home_and_construction_business import HomeAndConstructionBusiness
+from .home_and_construction_business import HomeAndConstructionBusiness    
 
 from pydantic import (
     Field

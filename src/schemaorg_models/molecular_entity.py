@@ -1,9 +1,6 @@
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
-if TYPE_CHECKING:
-    # put heavy, hint-only imports here
-    from schemaorg_models.bio_chem_entity import BioChemEntity
+from .bio_chem_entity import BioChemEntity    
 
 from pydantic import (
     AliasChoices,

@@ -1,9 +1,6 @@
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
-if TYPE_CHECKING:
-    # put heavy, hint-only imports here
-    from schemaorg_models.medical_audience import MedicalAudience
+from .medical_audience import MedicalAudience    
 
 from pydantic import (
     AliasChoices,

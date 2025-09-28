@@ -1,9 +1,6 @@
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
-if TYPE_CHECKING:
-    # put heavy, hint-only imports here
-    from schemaorg_models.data_feed import DataFeed
+from .data_feed import DataFeed    
 
 from pydantic import (
     Field

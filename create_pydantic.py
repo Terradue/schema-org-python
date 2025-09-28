@@ -155,10 +155,7 @@ if TYPE_CHECKING:
             if class_info["parent"]:
                 parent = camel_to_snake(class_info["parent"])
                 f.write(f"""
-from typing import TYPE_CHECKING
-if TYPE_CHECKING:
-    # put heavy, hint-only imports here
-    from schemaorg_models.{parent} import {class_info['parent']}
+from .{parent} import {class_info['parent']}    
 
 """)
 

@@ -1,9 +1,6 @@
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
-if TYPE_CHECKING:
-    # put heavy, hint-only imports here
-    from schemaorg_models.collection_page import CollectionPage
+from .collection_page import CollectionPage    
 
 from pydantic import (
     Field

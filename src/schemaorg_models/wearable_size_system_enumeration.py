@@ -1,9 +1,6 @@
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
-if TYPE_CHECKING:
-    # put heavy, hint-only imports here
-    from schemaorg_models.size_system_enumeration import SizeSystemEnumeration
+from .size_system_enumeration import SizeSystemEnumeration    
 
 from pydantic import (
     Field
