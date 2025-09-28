@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .intangible import Intangible    
-
 from datetime import (
     date,
     datetime
@@ -16,8 +13,12 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.administrative_area import AdministrativeArea
-from schemaorg_models.organization import Organization
+from .intangible import Intangible
+from .duration import Duration
+from .organization import Organization
+from .administrative_area import AdministrativeArea
+from .service import Service
+from .audience import Audience
 
 class Permit(Intangible):
     """
@@ -28,7 +29,7 @@ A permit issued by an organization, e.g. a parking pass.
         alias='@type',
         serialization_alias='@type'
     )
-    validFor: Optional[Union["Duration", List["Duration"]]] = Field(
+    validFor: Optional[Union[Duration, List[Duration]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'validFor',
@@ -52,7 +53,7 @@ A permit issued by an organization, e.g. a parking pass.
         ),
         serialization_alias='https://schema.org/validFrom'
     )
-    permitAudience: Optional[Union["Audience", List["Audience"]]] = Field(
+    permitAudience: Optional[Union[Audience, List[Audience]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'permitAudience',
@@ -68,7 +69,7 @@ A permit issued by an organization, e.g. a parking pass.
         ),
         serialization_alias='https://schema.org/issuedBy'
     )
-    issuedThrough: Optional[Union["Service", List["Service"]]] = Field(
+    issuedThrough: Optional[Union[Service, List[Service]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'issuedThrough',

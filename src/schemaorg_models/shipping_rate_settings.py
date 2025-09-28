@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .structured_value import StructuredValue    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.defined_region import DefinedRegion
+from .monetary_amount import MonetaryAmount
+from .structured_value import StructuredValue
+from .defined_region import DefinedRegion
+from .delivery_charge_specification import DeliveryChargeSpecification
 
 class ShippingRateSettings(StructuredValue):
     """
@@ -39,7 +39,7 @@ A ShippingRateSettings represents re-usable pieces of shipping information. It i
         ),
         serialization_alias='https://schema.org/doesNotShip'
     )
-    freeShippingThreshold: Optional[Union["DeliveryChargeSpecification", List["DeliveryChargeSpecification"], "MonetaryAmount", List["MonetaryAmount"]]] = Field(
+    freeShippingThreshold: Optional[Union[DeliveryChargeSpecification, List[DeliveryChargeSpecification], MonetaryAmount, List[MonetaryAmount]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'freeShippingThreshold',
@@ -79,7 +79,7 @@ A ShippingRateSettings represents re-usable pieces of shipping information. It i
         ),
         serialization_alias='https://schema.org/shippingDestination'
     )
-    shippingRate: Optional[Union["ShippingRateSettings", List["ShippingRateSettings"], "MonetaryAmount", List["MonetaryAmount"]]] = Field(
+    shippingRate: Optional[Union[ShippingRateSettings, List[ShippingRateSettings], MonetaryAmount, List[MonetaryAmount]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'shippingRate',

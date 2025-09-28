@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .reservation import Reservation    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,7 @@ from typing import (
     Optional,
     Union
 )
+from .reservation import Reservation
 
 class ReservationPackage(Reservation):
     """

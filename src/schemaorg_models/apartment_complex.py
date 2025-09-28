@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .residence import Residence    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,6 +10,8 @@ from typing import (
     Optional,
     Union
 )
+from .quantitative_value import QuantitativeValue
+from .residence import Residence
 
 class ApartmentComplex(Residence):
     """
@@ -31,7 +30,7 @@ Residence type: Apartment complex.
         ),
         serialization_alias='https://schema.org/tourBookingPage'
     )
-    numberOfAvailableAccommodationUnits: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    numberOfAvailableAccommodationUnits: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'numberOfAvailableAccommodationUnits',
@@ -39,7 +38,7 @@ Residence type: Apartment complex.
         ),
         serialization_alias='https://schema.org/numberOfAvailableAccommodationUnits'
     )
-    numberOfBedrooms: Optional[Union[float, List[float], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    numberOfBedrooms: Optional[Union[float, List[float], QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'numberOfBedrooms',
@@ -55,7 +54,7 @@ Residence type: Apartment complex.
         ),
         serialization_alias='https://schema.org/petsAllowed'
     )
-    numberOfAccommodationUnits: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    numberOfAccommodationUnits: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'numberOfAccommodationUnits',

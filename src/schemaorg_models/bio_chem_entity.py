@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .thing import Thing    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,7 +10,13 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.taxon import Taxon
+from .medical_condition import MedicalCondition
+from .thing import Thing
+from .property_value import PropertyValue
+from .taxon import Taxon
+from .defined_term import DefinedTerm
+from .gene import Gene
+from .grant import Grant
 
 class BioChemEntity(Thing):
     """
@@ -24,7 +27,7 @@ Any biological, chemical, or biochemical thing. For example: a protein; a gene; 
         alias='@type',
         serialization_alias='@type'
     )
-    taxonomicRange: Optional[Union[Taxon, List[Taxon], "DefinedTerm", List["DefinedTerm"], str, List[str], HttpUrl, List[HttpUrl]]] = Field(
+    taxonomicRange: Optional[Union[Taxon, List[Taxon], DefinedTerm, List[DefinedTerm], str, List[str], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'taxonomicRange',
@@ -32,7 +35,7 @@ Any biological, chemical, or biochemical thing. For example: a protein; a gene; 
         ),
         serialization_alias='https://schema.org/taxonomicRange'
     )
-    isInvolvedInBiologicalProcess: Optional[Union["PropertyValue", List["PropertyValue"], HttpUrl, List[HttpUrl], "DefinedTerm", List["DefinedTerm"]]] = Field(
+    isInvolvedInBiologicalProcess: Optional[Union[PropertyValue, List[PropertyValue], HttpUrl, List[HttpUrl], DefinedTerm, List[DefinedTerm]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'isInvolvedInBiologicalProcess',
@@ -40,7 +43,7 @@ Any biological, chemical, or biochemical thing. For example: a protein; a gene; 
         ),
         serialization_alias='https://schema.org/isInvolvedInBiologicalProcess'
     )
-    hasBioChemEntityPart: Optional[Union["BioChemEntity", List["BioChemEntity"]]] = Field(
+    hasBioChemEntityPart: Optional[Union[BioChemEntity, List[BioChemEntity]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasBioChemEntityPart',
@@ -48,7 +51,7 @@ Any biological, chemical, or biochemical thing. For example: a protein; a gene; 
         ),
         serialization_alias='https://schema.org/hasBioChemEntityPart'
     )
-    bioChemSimilarity: Optional[Union["BioChemEntity", List["BioChemEntity"]]] = Field(
+    bioChemSimilarity: Optional[Union[BioChemEntity, List[BioChemEntity]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'bioChemSimilarity',
@@ -56,7 +59,7 @@ Any biological, chemical, or biochemical thing. For example: a protein; a gene; 
         ),
         serialization_alias='https://schema.org/bioChemSimilarity'
     )
-    hasRepresentation: Optional[Union["PropertyValue", List["PropertyValue"], HttpUrl, List[HttpUrl], str, List[str]]] = Field(
+    hasRepresentation: Optional[Union[PropertyValue, List[PropertyValue], HttpUrl, List[HttpUrl], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasRepresentation',
@@ -64,7 +67,7 @@ Any biological, chemical, or biochemical thing. For example: a protein; a gene; 
         ),
         serialization_alias='https://schema.org/hasRepresentation'
     )
-    biologicalRole: Optional[Union["DefinedTerm", List["DefinedTerm"]]] = Field(
+    biologicalRole: Optional[Union[DefinedTerm, List[DefinedTerm]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'biologicalRole',
@@ -72,7 +75,7 @@ Any biological, chemical, or biochemical thing. For example: a protein; a gene; 
         ),
         serialization_alias='https://schema.org/biologicalRole'
     )
-    hasMolecularFunction: Optional[Union["PropertyValue", List["PropertyValue"], HttpUrl, List[HttpUrl], "DefinedTerm", List["DefinedTerm"]]] = Field(
+    hasMolecularFunction: Optional[Union[PropertyValue, List[PropertyValue], HttpUrl, List[HttpUrl], DefinedTerm, List[DefinedTerm]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasMolecularFunction',
@@ -80,7 +83,7 @@ Any biological, chemical, or biochemical thing. For example: a protein; a gene; 
         ),
         serialization_alias='https://schema.org/hasMolecularFunction'
     )
-    bioChemInteraction: Optional[Union["BioChemEntity", List["BioChemEntity"]]] = Field(
+    bioChemInteraction: Optional[Union[BioChemEntity, List[BioChemEntity]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'bioChemInteraction',
@@ -88,7 +91,7 @@ Any biological, chemical, or biochemical thing. For example: a protein; a gene; 
         ),
         serialization_alias='https://schema.org/bioChemInteraction'
     )
-    isLocatedInSubcellularLocation: Optional[Union[HttpUrl, List[HttpUrl], "PropertyValue", List["PropertyValue"], "DefinedTerm", List["DefinedTerm"]]] = Field(
+    isLocatedInSubcellularLocation: Optional[Union[HttpUrl, List[HttpUrl], PropertyValue, List[PropertyValue], DefinedTerm, List[DefinedTerm]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'isLocatedInSubcellularLocation',
@@ -96,7 +99,7 @@ Any biological, chemical, or biochemical thing. For example: a protein; a gene; 
         ),
         serialization_alias='https://schema.org/isLocatedInSubcellularLocation'
     )
-    funding: Optional[Union["Grant", List["Grant"]]] = Field(
+    funding: Optional[Union[Grant, List[Grant]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'funding',
@@ -104,7 +107,7 @@ Any biological, chemical, or biochemical thing. For example: a protein; a gene; 
         ),
         serialization_alias='https://schema.org/funding'
     )
-    isPartOfBioChemEntity: Optional[Union["BioChemEntity", List["BioChemEntity"]]] = Field(
+    isPartOfBioChemEntity: Optional[Union[BioChemEntity, List[BioChemEntity]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'isPartOfBioChemEntity',
@@ -112,7 +115,7 @@ Any biological, chemical, or biochemical thing. For example: a protein; a gene; 
         ),
         serialization_alias='https://schema.org/isPartOfBioChemEntity'
     )
-    isEncodedByBioChemEntity: Optional[Union["Gene", List["Gene"]]] = Field(
+    isEncodedByBioChemEntity: Optional[Union[Gene, List[Gene]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'isEncodedByBioChemEntity',
@@ -120,7 +123,7 @@ Any biological, chemical, or biochemical thing. For example: a protein; a gene; 
         ),
         serialization_alias='https://schema.org/isEncodedByBioChemEntity'
     )
-    associatedDisease: Optional[Union["MedicalCondition", List["MedicalCondition"], "PropertyValue", List["PropertyValue"], HttpUrl, List[HttpUrl]]] = Field(
+    associatedDisease: Optional[Union[MedicalCondition, List[MedicalCondition], PropertyValue, List[PropertyValue], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'associatedDisease',

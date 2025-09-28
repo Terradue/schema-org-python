@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .accommodation import Accommodation    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,8 @@ from typing import (
     Optional,
     Union
 )
+from .accommodation import Accommodation
+from .quantitative_value import QuantitativeValue
 
 class House(Accommodation):
     """
@@ -22,7 +21,7 @@ A house is a building or structure that has the ability to be occupied for habit
         alias='@type',
         serialization_alias='@type'
     )
-    numberOfRooms: Optional[Union[float, List[float], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    numberOfRooms: Optional[Union[float, List[float], QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'numberOfRooms',

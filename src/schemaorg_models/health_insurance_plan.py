@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .intangible import Intangible    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,6 +10,10 @@ from typing import (
     Optional,
     Union
 )
+from .contact_point import ContactPoint
+from .intangible import Intangible
+from .health_plan_formulary import HealthPlanFormulary
+from .health_plan_network import HealthPlanNetwork
 
 class HealthInsurancePlan(Intangible):
     """
@@ -31,7 +32,7 @@ A US-style health insurance plan, including PPOs, EPOs, and HMOs.
         ),
         serialization_alias='https://schema.org/benefitsSummaryUrl'
     )
-    includesHealthPlanNetwork: Optional[Union["HealthPlanNetwork", List["HealthPlanNetwork"]]] = Field(
+    includesHealthPlanNetwork: Optional[Union[HealthPlanNetwork, List[HealthPlanNetwork]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'includesHealthPlanNetwork',
@@ -39,7 +40,7 @@ A US-style health insurance plan, including PPOs, EPOs, and HMOs.
         ),
         serialization_alias='https://schema.org/includesHealthPlanNetwork'
     )
-    includesHealthPlanFormulary: Optional[Union["HealthPlanFormulary", List["HealthPlanFormulary"]]] = Field(
+    includesHealthPlanFormulary: Optional[Union[HealthPlanFormulary, List[HealthPlanFormulary]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'includesHealthPlanFormulary',
@@ -47,7 +48,7 @@ A US-style health insurance plan, including PPOs, EPOs, and HMOs.
         ),
         serialization_alias='https://schema.org/includesHealthPlanFormulary'
     )
-    contactPoint: Optional[Union["ContactPoint", List["ContactPoint"]]] = Field(
+    contactPoint: Optional[Union[ContactPoint, List[ContactPoint]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'contactPoint',

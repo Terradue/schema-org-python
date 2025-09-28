@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .accommodation import Accommodation    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.bed_details import BedDetails
+from .bed_type import BedType
+from .bed_details import BedDetails
+from .accommodation import Accommodation
+from .quantitative_value import QuantitativeValue
 
 class Suite(Accommodation):
     """
@@ -26,7 +26,7 @@ See also the <a href="/docs/hotels.html">dedicated document on the use of schema
         alias='@type',
         serialization_alias='@type'
     )
-    occupancy: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    occupancy: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'occupancy',
@@ -34,7 +34,7 @@ See also the <a href="/docs/hotels.html">dedicated document on the use of schema
         ),
         serialization_alias='https://schema.org/occupancy'
     )
-    bed: Optional[Union["BedType", List["BedType"], str, List[str], BedDetails, List[BedDetails]]] = Field(
+    bed: Optional[Union[BedType, List[BedType], str, List[str], BedDetails, List[BedDetails]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'bed',
@@ -42,7 +42,7 @@ See also the <a href="/docs/hotels.html">dedicated document on the use of schema
         ),
         serialization_alias='https://schema.org/bed'
     )
-    numberOfRooms: Optional[Union[float, List[float], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    numberOfRooms: Optional[Union[float, List[float], QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'numberOfRooms',

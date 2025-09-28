@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .medical_study import MedicalStudy    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,8 @@ from typing import (
     Optional,
     Union
 )
+from .medical_study import MedicalStudy
+from .medical_trial_design import MedicalTrialDesign
 
 class MedicalTrial(MedicalStudy):
     """
@@ -22,7 +21,7 @@ A medical trial is a type of medical study that uses a scientific process to com
         alias='@type',
         serialization_alias='@type'
     )
-    trialDesign: Optional[Union["MedicalTrialDesign", List["MedicalTrialDesign"]]] = Field(
+    trialDesign: Optional[Union[MedicalTrialDesign, List[MedicalTrialDesign]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'trialDesign',

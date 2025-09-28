@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .software_application import SoftwareApplication    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,7 @@ from typing import (
     Optional,
     Union
 )
+from .software_application import SoftwareApplication
 
 class WebApplication(SoftwareApplication):
     """

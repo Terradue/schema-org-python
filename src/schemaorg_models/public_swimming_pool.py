@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .sports_activity_location import SportsActivityLocation    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .sports_activity_location import SportsActivityLocation
 
 class PublicSwimmingPool(SportsActivityLocation):
     """

@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .performing_group import PerformingGroup    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .performing_group import PerformingGroup
 
 class DanceGroup(PerformingGroup):
     """

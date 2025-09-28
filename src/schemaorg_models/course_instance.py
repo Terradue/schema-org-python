@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .event import Event    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,7 +10,9 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.person import Person
+from .event import Event
+from .schedule import Schedule
+from .person import Person
 
 class CourseInstance(Event):
     """
@@ -40,7 +39,7 @@ An instance of a [[Course]] which is distinct from other instances because it is
         ),
         serialization_alias='https://schema.org/courseWorkload'
     )
-    courseSchedule: Optional[Union["Schedule", List["Schedule"]]] = Field(
+    courseSchedule: Optional[Union[Schedule, List[Schedule]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'courseSchedule',

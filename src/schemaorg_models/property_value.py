@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .structured_value import StructuredValue    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,12 +10,13 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.defined_term import DefinedTerm
-from schemaorg_models.measurement_method_enum import MeasurementMethodEnum
-from schemaorg_models.measurement_type_enumeration import MeasurementTypeEnumeration
-from schemaorg_models.enumeration import Enumeration
-from schemaorg_models.qualitative_value import QualitativeValue
-from schemaorg_models.quantitative_value import QuantitativeValue
+from .measurement_type_enumeration import MeasurementTypeEnumeration
+from .enumeration import Enumeration
+from .measurement_method_enum import MeasurementMethodEnum
+from .structured_value import StructuredValue
+from .quantitative_value import QuantitativeValue
+from .qualitative_value import QualitativeValue
+from .defined_term import DefinedTerm
 
 class PropertyValue(StructuredValue):
     """
@@ -96,7 +94,7 @@ A property-value pair, e.g. representing a feature of a product or place. Use th
         ),
         serialization_alias='https://schema.org/measurementMethod'
     )
-    valueReference: Optional[Union[DefinedTerm, List[DefinedTerm], MeasurementTypeEnumeration, List[MeasurementTypeEnumeration], str, List[str], Enumeration, List[Enumeration], QualitativeValue, List[QualitativeValue], QuantitativeValue, List[QuantitativeValue], "PropertyValue", List["PropertyValue"], StructuredValue, List[StructuredValue]]] = Field(
+    valueReference: Optional[Union[DefinedTerm, List[DefinedTerm], MeasurementTypeEnumeration, List[MeasurementTypeEnumeration], str, List[str], Enumeration, List[Enumeration], QualitativeValue, List[QualitativeValue], QuantitativeValue, List[QuantitativeValue], PropertyValue, List[PropertyValue], StructuredValue, List[StructuredValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'valueReference',

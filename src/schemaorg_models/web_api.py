@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .service import Service    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,7 +10,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.creative_work import CreativeWork
+from .service import Service
+from .creative_work import CreativeWork
 
 class WebAPI(Service):
     """

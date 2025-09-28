@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .media_object import MediaObject    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.property_value import PropertyValue
+from .media_object import MediaObject
+from .property_value import PropertyValue
 
 class ImageObject(MediaObject):
     """

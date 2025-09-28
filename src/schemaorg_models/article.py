@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .creative_work import CreativeWork    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,7 +10,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.speakable_specification import SpeakableSpecification
+from .speakable_specification import SpeakableSpecification
+from .creative_work import CreativeWork
 
 class Article(CreativeWork):
     """

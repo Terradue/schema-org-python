@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .control_action import ControlAction    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .control_action import ControlAction
 
 class ResumeAction(ControlAction):
     """

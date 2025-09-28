@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .intangible import Intangible    
-
 from datetime import (
     date,
     datetime
@@ -16,7 +13,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.thing import Thing
+from .thing import Thing
+from .intangible import Intangible
 
 class DataFeedItem(Intangible):
     """

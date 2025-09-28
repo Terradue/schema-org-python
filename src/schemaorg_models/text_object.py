@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .media_object import MediaObject    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .media_object import MediaObject
 
 class TextObject(MediaObject):
     """

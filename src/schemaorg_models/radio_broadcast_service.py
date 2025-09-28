@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .broadcast_service import BroadcastService    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .broadcast_service import BroadcastService
 
 class RadioBroadcastService(BroadcastService):
     """

@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .intangible import Intangible    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,8 @@ from typing import (
     Optional,
     Union
 )
+from .__class import _Class
+from .intangible import Intangible
 
 class StatisticalPopulation(Intangible):
     """
@@ -24,7 +23,7 @@ population, and does not imply that the population consists of people. For examp
         alias='@type',
         serialization_alias='@type'
     )
-    populationType: Optional[Union["_Class", List["_Class"]]] = Field(
+    populationType: Optional[Union[_Class, List[_Class]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'populationType',

@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .defined_term_set import DefinedTermSet    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.category_code import CategoryCode
+from .category_code import CategoryCode
+from .defined_term_set import DefinedTermSet
 
 class CategoryCodeSet(DefinedTermSet):
     """

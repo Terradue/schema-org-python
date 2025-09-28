@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .creative_work_series import CreativeWorkSeries    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .creative_work_series import CreativeWorkSeries
 
 class BookSeries(CreativeWorkSeries):
     """

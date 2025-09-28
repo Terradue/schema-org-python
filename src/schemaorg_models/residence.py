@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .place import Place    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,8 @@ from typing import (
     Optional,
     Union
 )
+from .floor_plan import FloorPlan
+from .place import Place
 
 class Residence(Place):
     """
@@ -22,7 +21,7 @@ The place where a person lives.
         alias='@type',
         serialization_alias='@type'
     )
-    accommodationFloorPlan: Optional[Union["FloorPlan", List["FloorPlan"]]] = Field(
+    accommodationFloorPlan: Optional[Union[FloorPlan, List[FloorPlan]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'accommodationFloorPlan',

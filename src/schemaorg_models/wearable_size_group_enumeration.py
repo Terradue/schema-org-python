@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .size_group_enumeration import SizeGroupEnumeration    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .size_group_enumeration import SizeGroupEnumeration
 
 class WearableSizeGroupEnumeration(SizeGroupEnumeration):
     """

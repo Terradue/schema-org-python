@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .quantity import Quantity    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .quantity import Quantity
 
 class Mass(Quantity):
     """

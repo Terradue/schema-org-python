@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .action import Action    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,8 @@ from typing import (
     Optional,
     Union
 )
+from .action import Action
+from .price_specification import PriceSpecification
 
 class TradeAction(Action):
     """
@@ -38,7 +37,7 @@ The act of participating in an exchange of goods and services for monetary compe
         ),
         serialization_alias='https://schema.org/priceCurrency'
     )
-    priceSpecification: Optional[Union["PriceSpecification", List["PriceSpecification"]]] = Field(
+    priceSpecification: Optional[Union[PriceSpecification, List[PriceSpecification]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'priceSpecification',

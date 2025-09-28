@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .review import Review    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,9 +10,10 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.media_manipulation_rating_enumeration import MediaManipulationRatingEnumeration
-from schemaorg_models.web_page import WebPage
-from schemaorg_models.media_object import MediaObject
+from .review import Review
+from .media_object import MediaObject
+from .media_manipulation_rating_enumeration import MediaManipulationRatingEnumeration
+from .web_page import WebPage
 
 class MediaReview(Review):
     """

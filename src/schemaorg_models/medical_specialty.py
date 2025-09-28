@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .specialty import Specialty    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .specialty import Specialty
 
 class MedicalSpecialty(Specialty):
     """

@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .educational_occupational_program import EducationalOccupationalProgram    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,9 @@ from typing import (
     Optional,
     Union
 )
+from .category_code import CategoryCode
+from .monetary_amount_distribution import MonetaryAmountDistribution
+from .educational_occupational_program import EducationalOccupationalProgram
 
 class WorkBasedProgram(EducationalOccupationalProgram):
     """
@@ -22,7 +22,7 @@ A program with both an educational and employment component. Typically based at 
         alias='@type',
         serialization_alias='@type'
     )
-    trainingSalary: Optional[Union["MonetaryAmountDistribution", List["MonetaryAmountDistribution"]]] = Field(
+    trainingSalary: Optional[Union[MonetaryAmountDistribution, List[MonetaryAmountDistribution]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'trainingSalary',
@@ -30,7 +30,7 @@ A program with both an educational and employment component. Typically based at 
         ),
         serialization_alias='https://schema.org/trainingSalary'
     )
-    occupationalCategory: Optional[Union["CategoryCode", List["CategoryCode"], str, List[str]]] = Field(
+    occupationalCategory: Optional[Union[CategoryCode, List[CategoryCode], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'occupationalCategory',

@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .medical_business import MedicalBusiness    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,10 +9,13 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.hospital import Hospital
-from schemaorg_models.medical_procedure import MedicalProcedure
-from schemaorg_models.medical_test import MedicalTest
-from schemaorg_models.category_code import CategoryCode
+from .medical_specialty import MedicalSpecialty
+from .category_code import CategoryCode
+from .medical_therapy import MedicalTherapy
+from .hospital import Hospital
+from .medical_procedure import MedicalProcedure
+from .medical_test import MedicalTest
+from .medical_business import MedicalBusiness
 
 class Physician(MedicalBusiness):
     """
@@ -34,7 +34,7 @@ An individual physician or a physician's office considered as a [[MedicalOrganiz
         ),
         serialization_alias='https://schema.org/hospitalAffiliation'
     )
-    availableService: Optional[Union[MedicalProcedure, List[MedicalProcedure], "MedicalTherapy", List["MedicalTherapy"], MedicalTest, List[MedicalTest]]] = Field(
+    availableService: Optional[Union[MedicalProcedure, List[MedicalProcedure], MedicalTherapy, List[MedicalTherapy], MedicalTest, List[MedicalTest]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'availableService',
@@ -58,7 +58,7 @@ An individual physician or a physician's office considered as a [[MedicalOrganiz
         ),
         serialization_alias='https://schema.org/occupationalCategory'
     )
-    medicalSpecialty: Optional[Union["MedicalSpecialty", List["MedicalSpecialty"]]] = Field(
+    medicalSpecialty: Optional[Union[MedicalSpecialty, List[MedicalSpecialty]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'medicalSpecialty',

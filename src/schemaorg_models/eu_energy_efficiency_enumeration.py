@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .energy_efficiency_enumeration import EnergyEfficiencyEnumeration    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .energy_efficiency_enumeration import EnergyEfficiencyEnumeration
 
 class EUEnergyEfficiencyEnumeration(EnergyEfficiencyEnumeration):
     """

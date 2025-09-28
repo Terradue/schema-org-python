@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .blog_posting import BlogPosting    
-
 from datetime import (
     datetime
 )
@@ -15,6 +12,7 @@ from typing import (
     Optional,
     Union
 )
+from .blog_posting import BlogPosting
 
 class LiveBlogPosting(BlogPosting):
     """

@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .structured_value import StructuredValue    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,7 +10,9 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.qualitative_value import QualitativeValue
+from .qualitative_value import QualitativeValue
+from .structured_value import StructuredValue
+from .quantitative_value import QuantitativeValue
 
 class EngineSpecification(StructuredValue):
     """
@@ -40,7 +39,7 @@ Information about the engine of the vehicle. A vehicle can have multiple engines
         ),
         serialization_alias='https://schema.org/engineType'
     )
-    engineDisplacement: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    engineDisplacement: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'engineDisplacement',
@@ -48,7 +47,7 @@ Information about the engine of the vehicle. A vehicle can have multiple engines
         ),
         serialization_alias='https://schema.org/engineDisplacement'
     )
-    enginePower: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    enginePower: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'enginePower',
@@ -56,7 +55,7 @@ Information about the engine of the vehicle. A vehicle can have multiple engines
         ),
         serialization_alias='https://schema.org/enginePower'
     )
-    torque: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    torque: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'torque',

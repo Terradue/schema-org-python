@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .medical_entity import MedicalEntity    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.medical_contraindication import MedicalContraindication
+from .medical_entity import MedicalEntity
+from .medical_contraindication import MedicalContraindication
 
 class MedicalDevice(MedicalEntity):
     """

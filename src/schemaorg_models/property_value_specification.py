@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .intangible import Intangible    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.thing import Thing
+from .thing import Thing
+from .intangible import Intangible
 
 class PropertyValueSpecification(Intangible):
     """

@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .intangible import Intangible    
-
 from datetime import (
     date,
     datetime
@@ -17,6 +14,7 @@ from typing import (
     Optional,
     Union
 )
+from .intangible import Intangible
 
 class Role(Intangible):
     """

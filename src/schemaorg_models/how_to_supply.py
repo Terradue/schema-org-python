@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .how_to_item import HowToItem    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.monetary_amount import MonetaryAmount
+from .monetary_amount import MonetaryAmount
+from .how_to_item import HowToItem
 
 class HowToSupply(HowToItem):
     """

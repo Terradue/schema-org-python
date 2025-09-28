@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .thing import Thing    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,6 +10,9 @@ from typing import (
     Optional,
     Union
 )
+from .thing import Thing
+from .defined_term import DefinedTerm
+from .property_value import PropertyValue
 
 class Taxon(Thing):
     """
@@ -23,7 +23,7 @@ A set of organisms asserted to represent a natural cohesive biological unit.
         alias='@type',
         serialization_alias='@type'
     )
-    hasDefinedTerm: Optional[Union["DefinedTerm", List["DefinedTerm"]]] = Field(
+    hasDefinedTerm: Optional[Union[DefinedTerm, List[DefinedTerm]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasDefinedTerm',
@@ -31,7 +31,7 @@ A set of organisms asserted to represent a natural cohesive biological unit.
         ),
         serialization_alias='https://schema.org/hasDefinedTerm'
     )
-    taxonRank: Optional[Union[str, List[str], "PropertyValue", List["PropertyValue"], HttpUrl, List[HttpUrl]]] = Field(
+    taxonRank: Optional[Union[str, List[str], PropertyValue, List[PropertyValue], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'taxonRank',
@@ -39,7 +39,7 @@ A set of organisms asserted to represent a natural cohesive biological unit.
         ),
         serialization_alias='https://schema.org/taxonRank'
     )
-    parentTaxon: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], "Taxon", List["Taxon"]]] = Field(
+    parentTaxon: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], Taxon, List[Taxon]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'parentTaxon',
@@ -47,7 +47,7 @@ A set of organisms asserted to represent a natural cohesive biological unit.
         ),
         serialization_alias='https://schema.org/parentTaxon'
     )
-    childTaxon: Optional[Union["Taxon", List["Taxon"], str, List[str], HttpUrl, List[HttpUrl]]] = Field(
+    childTaxon: Optional[Union[Taxon, List[Taxon], str, List[str], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'childTaxon',

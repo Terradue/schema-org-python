@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .intangible import Intangible    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,6 +10,7 @@ from typing import (
     Optional,
     Union
 )
+from .intangible import Intangible
 
 class ProductReturnPolicy(Intangible):
     """

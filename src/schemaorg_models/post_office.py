@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .government_office import GovernmentOffice    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .government_office import GovernmentOffice
 
 class PostOffice(GovernmentOffice):
     """

@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .structured_value import StructuredValue    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,9 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.defined_region import DefinedRegion
+from .structured_value import StructuredValue
+from .defined_region import DefinedRegion
+from .shipping_delivery_time import ShippingDeliveryTime
 
 class DeliveryTimeSettings(StructuredValue):
     """
@@ -47,7 +46,7 @@ A DeliveryTimeSettings represents re-usable pieces of shipping information, rela
         ),
         serialization_alias='https://schema.org/shippingDestination'
     )
-    deliveryTime: Optional[Union["ShippingDeliveryTime", List["ShippingDeliveryTime"]]] = Field(
+    deliveryTime: Optional[Union[ShippingDeliveryTime, List[ShippingDeliveryTime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'deliveryTime',

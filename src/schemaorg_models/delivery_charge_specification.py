@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .price_specification import PriceSpecification    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,10 +9,11 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.geo_shape import GeoShape
-from schemaorg_models.administrative_area import AdministrativeArea
-from schemaorg_models.place import Place
-from schemaorg_models.delivery_method import DeliveryMethod
+from .geo_shape import GeoShape
+from .place import Place
+from .price_specification import PriceSpecification
+from .administrative_area import AdministrativeArea
+from .delivery_method import DeliveryMethod
 
 class DeliveryChargeSpecification(PriceSpecification):
     """

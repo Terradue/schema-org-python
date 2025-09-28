@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .creative_work_season import CreativeWorkSeason    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,8 +10,9 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.country import Country
-from schemaorg_models.tv_series import TVSeries
+from .creative_work_season import CreativeWorkSeason
+from .country import Country
+from .tv_series import TVSeries
 
 class TVSeason(CreativeWorkSeason):
     """

@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .intangible import Intangible    
-
 from datetime import (
     date,
     datetime
@@ -17,8 +14,20 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.person import Person
-from schemaorg_models.organization import Organization
+from .demand import Demand
+from .monetary_amount_distribution import MonetaryAmountDistribution
+from .offer import Offer
+from .person import Person
+from .category_code import CategoryCode
+from .intangible import Intangible
+from .structured_value import StructuredValue
+from .course import Course
+from .alignment_object import AlignmentObject
+from .duration import Duration
+from .organization import Organization
+from .defined_term import DefinedTerm
+from .day_of_week import DayOfWeek
+from .educational_occupational_credential import EducationalOccupationalCredential
 
 class EducationalOccupationalProgram(Intangible):
     """
@@ -29,7 +38,7 @@ A program offered by an institution which determines the learning progress to ac
         alias='@type',
         serialization_alias='@type'
     )
-    timeToComplete: Optional[Union["Duration", List["Duration"]]] = Field(
+    timeToComplete: Optional[Union[Duration, List[Duration]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'timeToComplete',
@@ -37,7 +46,7 @@ A program offered by an institution which determines the learning progress to ac
         ),
         serialization_alias='https://schema.org/timeToComplete'
     )
-    programType: Optional[Union[str, List[str], "DefinedTerm", List["DefinedTerm"]]] = Field(
+    programType: Optional[Union[str, List[str], DefinedTerm, List[DefinedTerm]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'programType',
@@ -53,7 +62,7 @@ A program offered by an institution which determines the learning progress to ac
         ),
         serialization_alias='https://schema.org/applicationStartDate'
     )
-    offers: Optional[Union["Demand", List["Demand"], "Offer", List["Offer"]]] = Field(
+    offers: Optional[Union[Demand, List[Demand], Offer, List[Offer]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'offers',
@@ -61,7 +70,7 @@ A program offered by an institution which determines the learning progress to ac
         ),
         serialization_alias='https://schema.org/offers'
     )
-    dayOfWeek: Optional[Union["DayOfWeek", List["DayOfWeek"]]] = Field(
+    dayOfWeek: Optional[Union[DayOfWeek, List[DayOfWeek]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'dayOfWeek',
@@ -77,7 +86,7 @@ A program offered by an institution which determines the learning progress to ac
         ),
         serialization_alias='https://schema.org/applicationDeadline'
     )
-    typicalCreditsPerTerm: Optional[Union[int, List[int], "StructuredValue", List["StructuredValue"]]] = Field(
+    typicalCreditsPerTerm: Optional[Union[int, List[int], StructuredValue, List[StructuredValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'typicalCreditsPerTerm',
@@ -85,7 +94,7 @@ A program offered by an institution which determines the learning progress to ac
         ),
         serialization_alias='https://schema.org/typicalCreditsPerTerm'
     )
-    educationalCredentialAwarded: Optional[Union["EducationalOccupationalCredential", List["EducationalOccupationalCredential"], str, List[str], HttpUrl, List[HttpUrl]]] = Field(
+    educationalCredentialAwarded: Optional[Union[EducationalOccupationalCredential, List[EducationalOccupationalCredential], str, List[str], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'educationalCredentialAwarded',
@@ -109,7 +118,7 @@ A program offered by an institution which determines the learning progress to ac
         ),
         serialization_alias='https://schema.org/provider'
     )
-    salaryUponCompletion: Optional[Union["MonetaryAmountDistribution", List["MonetaryAmountDistribution"]]] = Field(
+    salaryUponCompletion: Optional[Union[MonetaryAmountDistribution, List[MonetaryAmountDistribution]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'salaryUponCompletion',
@@ -117,7 +126,7 @@ A program offered by an institution which determines the learning progress to ac
         ),
         serialization_alias='https://schema.org/salaryUponCompletion'
     )
-    numberOfCredits: Optional[Union[int, List[int], "StructuredValue", List["StructuredValue"]]] = Field(
+    numberOfCredits: Optional[Union[int, List[int], StructuredValue, List[StructuredValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'numberOfCredits',
@@ -141,7 +150,7 @@ A program offered by an institution which determines the learning progress to ac
         ),
         serialization_alias='https://schema.org/educationalProgramMode'
     )
-    trainingSalary: Optional[Union["MonetaryAmountDistribution", List["MonetaryAmountDistribution"]]] = Field(
+    trainingSalary: Optional[Union[MonetaryAmountDistribution, List[MonetaryAmountDistribution]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'trainingSalary',
@@ -149,7 +158,7 @@ A program offered by an institution which determines the learning progress to ac
         ),
         serialization_alias='https://schema.org/trainingSalary'
     )
-    termDuration: Optional[Union["Duration", List["Duration"]]] = Field(
+    termDuration: Optional[Union[Duration, List[Duration]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'termDuration',
@@ -173,7 +182,7 @@ A program offered by an institution which determines the learning progress to ac
         ),
         serialization_alias='https://schema.org/maximumEnrollment'
     )
-    financialAidEligible: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str]]] = Field(
+    financialAidEligible: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'financialAidEligible',
@@ -181,7 +190,7 @@ A program offered by an institution which determines the learning progress to ac
         ),
         serialization_alias='https://schema.org/financialAidEligible'
     )
-    occupationalCredentialAwarded: Optional[Union[HttpUrl, List[HttpUrl], "EducationalOccupationalCredential", List["EducationalOccupationalCredential"], str, List[str]]] = Field(
+    occupationalCredentialAwarded: Optional[Union[HttpUrl, List[HttpUrl], EducationalOccupationalCredential, List[EducationalOccupationalCredential], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'occupationalCredentialAwarded',
@@ -189,7 +198,7 @@ A program offered by an institution which determines the learning progress to ac
         ),
         serialization_alias='https://schema.org/occupationalCredentialAwarded'
     )
-    hasCourse: Optional[Union["Course", List["Course"]]] = Field(
+    hasCourse: Optional[Union[Course, List[Course]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasCourse',
@@ -197,7 +206,7 @@ A program offered by an institution which determines the learning progress to ac
         ),
         serialization_alias='https://schema.org/hasCourse'
     )
-    occupationalCategory: Optional[Union["CategoryCode", List["CategoryCode"], str, List[str]]] = Field(
+    occupationalCategory: Optional[Union[CategoryCode, List[CategoryCode], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'occupationalCategory',
@@ -205,7 +214,7 @@ A program offered by an institution which determines the learning progress to ac
         ),
         serialization_alias='https://schema.org/occupationalCategory'
     )
-    programPrerequisites: Optional[Union["AlignmentObject", List["AlignmentObject"], "Course", List["Course"], "EducationalOccupationalCredential", List["EducationalOccupationalCredential"], str, List[str]]] = Field(
+    programPrerequisites: Optional[Union[AlignmentObject, List[AlignmentObject], Course, List[Course], EducationalOccupationalCredential, List[EducationalOccupationalCredential], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'programPrerequisites',

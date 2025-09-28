@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .periodical import Periodical    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .periodical import Periodical
 
 class Newspaper(Periodical):
     """

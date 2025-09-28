@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .assess_action import AssessAction    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .assess_action import AssessAction
 
 class IgnoreAction(AssessAction):
     """

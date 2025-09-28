@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .play_action import PlayAction    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,12 +9,15 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.distance import Distance
-from schemaorg_models.place import Place
-from schemaorg_models.exercise_plan import ExercisePlan
-from schemaorg_models.sports_event import SportsEvent
-from schemaorg_models.person import Person
-from schemaorg_models.sports_activity_location import SportsActivityLocation
+from .play_action import PlayAction
+from .sports_activity_location import SportsActivityLocation
+from .person import Person
+from .distance import Distance
+from .diet import Diet
+from .place import Place
+from .sports_event import SportsEvent
+from .exercise_plan import ExercisePlan
+from .sports_team import SportsTeam
 
 class ExerciseAction(PlayAction):
     """
@@ -28,7 +28,7 @@ The act of participating in exertive activity for the purposes of improving heal
         alias='@type',
         serialization_alias='@type'
     )
-    diet: Optional[Union["Diet", List["Diet"]]] = Field(
+    diet: Optional[Union[Diet, List[Diet]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'diet',
@@ -44,7 +44,7 @@ The act of participating in exertive activity for the purposes of improving heal
         ),
         serialization_alias='https://schema.org/distance'
     )
-    exerciseRelatedDiet: Optional[Union["Diet", List["Diet"]]] = Field(
+    exerciseRelatedDiet: Optional[Union[Diet, List[Diet]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'exerciseRelatedDiet',
@@ -100,7 +100,7 @@ The act of participating in exertive activity for the purposes of improving heal
         ),
         serialization_alias='https://schema.org/fromLocation'
     )
-    sportsTeam: Optional[Union["SportsTeam", List["SportsTeam"]]] = Field(
+    sportsTeam: Optional[Union[SportsTeam, List[SportsTeam]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'sportsTeam',

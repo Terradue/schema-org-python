@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .episode import Episode    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,9 +10,10 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.tv_series import TVSeries
-from schemaorg_models.language import Language
-from schemaorg_models.country import Country
+from .episode import Episode
+from .country import Country
+from .tv_series import TVSeries
+from .language import Language
 
 class TVEpisode(Episode):
     """

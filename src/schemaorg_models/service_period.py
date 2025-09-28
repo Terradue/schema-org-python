@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .structured_value import StructuredValue    
-
 from datetime import (
     time
 )
@@ -15,8 +12,11 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.day_of_week import DayOfWeek
-from schemaorg_models.quantitative_value import QuantitativeValue
+from .opening_hours_specification import OpeningHoursSpecification
+from .structured_value import StructuredValue
+from .duration import Duration
+from .quantitative_value import QuantitativeValue
+from .day_of_week import DayOfWeek
 
 class ServicePeriod(StructuredValue):
     """
@@ -27,7 +27,7 @@ ServicePeriod represents a duration with some constraints about cutoff time and 
         alias='@type',
         serialization_alias='@type'
     )
-    businessDays: Optional[Union["OpeningHoursSpecification", List["OpeningHoursSpecification"], DayOfWeek, List[DayOfWeek]]] = Field(
+    businessDays: Optional[Union[OpeningHoursSpecification, List[OpeningHoursSpecification], DayOfWeek, List[DayOfWeek]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'businessDays',
@@ -35,7 +35,7 @@ ServicePeriod represents a duration with some constraints about cutoff time and 
         ),
         serialization_alias='https://schema.org/businessDays'
     )
-    duration: Optional[Union["Duration", List["Duration"], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    duration: Optional[Union[Duration, List[Duration], QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'duration',

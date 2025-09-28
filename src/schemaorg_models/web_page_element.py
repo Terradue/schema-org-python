@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .creative_work import CreativeWork    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.css_selector_type import CssSelectorType
+from .css_selector_type import CssSelectorType
+from .creative_work import CreativeWork
 
 class WebPageElement(CreativeWork):
     """

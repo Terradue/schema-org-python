@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .medical_risk_estimator import MedicalRiskEstimator    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .medical_risk_estimator import MedicalRiskEstimator
 
 class MedicalRiskCalculator(MedicalRiskEstimator):
     """

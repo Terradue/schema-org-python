@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .media_enumeration import MediaEnumeration    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .media_enumeration import MediaEnumeration
 
 class IPTCDigitalSourceEnumeration(MediaEnumeration):
     """

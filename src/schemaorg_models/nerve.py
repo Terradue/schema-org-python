@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .anatomical_structure import AnatomicalStructure    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,9 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.superficial_anatomy import SuperficialAnatomy
-from schemaorg_models.muscle import Muscle
-from schemaorg_models.brain_structure import BrainStructure
+from .brain_structure import BrainStructure
+from .anatomical_structure import AnatomicalStructure
+from .superficial_anatomy import SuperficialAnatomy
+from .muscle import Muscle
 
 class Nerve(AnatomicalStructure):
     """

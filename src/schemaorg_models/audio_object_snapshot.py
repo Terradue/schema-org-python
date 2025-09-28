@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .audio_object import AudioObject    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .audio_object import AudioObject
 
 class AudioObjectSnapshot(AudioObject):
     """

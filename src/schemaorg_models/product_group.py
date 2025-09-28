@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .product import Product    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.defined_term import DefinedTerm
+from .product import Product
+from .defined_term import DefinedTerm
 
 class ProductGroup(Product):
     """

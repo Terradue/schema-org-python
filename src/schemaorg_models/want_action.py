@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .react_action import ReactAction    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .react_action import ReactAction
 
 class WantAction(ReactAction):
     """

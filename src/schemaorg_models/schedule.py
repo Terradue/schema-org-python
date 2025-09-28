@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .intangible import Intangible    
-
 from datetime import (
     date,
     datetime,
@@ -17,6 +14,10 @@ from typing import (
     Optional,
     Union
 )
+from .duration import Duration
+from .intangible import Intangible
+from .day_of_week import DayOfWeek
+from .quantitative_value import QuantitativeValue
 
 class Schedule(Intangible):
     """
@@ -37,7 +38,7 @@ A schedule defines a repeating time period used to describe a regularly occurrin
         ),
         serialization_alias='https://schema.org/scheduleTimezone'
     )
-    repeatFrequency: Optional[Union[str, List[str], "Duration", List["Duration"]]] = Field(
+    repeatFrequency: Optional[Union[str, List[str], Duration, List[Duration]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'repeatFrequency',
@@ -61,7 +62,7 @@ A schedule defines a repeating time period used to describe a regularly occurrin
         ),
         serialization_alias='https://schema.org/exceptDate'
     )
-    byDay: Optional[Union[str, List[str], "DayOfWeek", List["DayOfWeek"]]] = Field(
+    byDay: Optional[Union[str, List[str], DayOfWeek, List[DayOfWeek]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'byDay',
@@ -93,7 +94,7 @@ A schedule defines a repeating time period used to describe a regularly occurrin
         ),
         serialization_alias='https://schema.org/startDate'
     )
-    duration: Optional[Union["Duration", List["Duration"], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    duration: Optional[Union[Duration, List[Duration], QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'duration',

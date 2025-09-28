@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .status_enumeration import StatusEnumeration    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .status_enumeration import StatusEnumeration
 
 class ActionStatusType(StatusEnumeration):
     """

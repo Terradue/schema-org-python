@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .medical_clinic import MedicalClinic    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .medical_clinic import MedicalClinic
 
 class CovidTestingFacility(MedicalClinic):
     """

@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .anatomical_structure import AnatomicalStructure    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,9 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.vessel import Vessel
+from .nerve import Nerve
+from .anatomical_structure import AnatomicalStructure
+from .vessel import Vessel
 
 class Muscle(AnatomicalStructure):
     """
@@ -23,7 +22,7 @@ A muscle is an anatomical structure consisting of a contractile form of tissue t
         alias='@type',
         serialization_alias='@type'
     )
-    antagonist: Optional[Union["Muscle", List["Muscle"]]] = Field(
+    antagonist: Optional[Union[Muscle, List[Muscle]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'antagonist',
@@ -39,7 +38,7 @@ A muscle is an anatomical structure consisting of a contractile form of tissue t
         ),
         serialization_alias='https://schema.org/insertion'
     )
-    nerve: Optional[Union["Nerve", List["Nerve"]]] = Field(
+    nerve: Optional[Union[Nerve, List[Nerve]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'nerve',

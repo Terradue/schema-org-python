@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .comment import Comment    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,8 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.creative_work import CreativeWork
-from schemaorg_models.item_list import ItemList
+from .answer import Answer
+from .comment import Comment
+from .creative_work import CreativeWork
+from .item_list import ItemList
 
 class Question(Comment):
     """
@@ -40,7 +39,7 @@ A specific question - e.g. from a user seeking answers online, or collected in a
         ),
         serialization_alias='https://schema.org/parentItem'
     )
-    acceptedAnswer: Optional[Union[ItemList, List[ItemList], "Answer", List["Answer"]]] = Field(
+    acceptedAnswer: Optional[Union[ItemList, List[ItemList], Answer, List[Answer]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'acceptedAnswer',
@@ -56,7 +55,7 @@ A specific question - e.g. from a user seeking answers online, or collected in a
         ),
         serialization_alias='https://schema.org/answerCount'
     )
-    suggestedAnswer: Optional[Union["Answer", List["Answer"], ItemList, List[ItemList]]] = Field(
+    suggestedAnswer: Optional[Union[Answer, List[Answer], ItemList, List[ItemList]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'suggestedAnswer',

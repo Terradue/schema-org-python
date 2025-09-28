@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .therapeutic_procedure import TherapeuticProcedure    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,8 +9,9 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.medical_entity import MedicalEntity
-from schemaorg_models.medical_contraindication import MedicalContraindication
+from .medical_entity import MedicalEntity
+from .therapeutic_procedure import TherapeuticProcedure
+from .medical_contraindication import MedicalContraindication
 
 class MedicalTherapy(TherapeuticProcedure):
     """
@@ -40,7 +38,7 @@ Any medical intervention designed to prevent, treat, and cure human diseases and
         ),
         serialization_alias='https://schema.org/contraindication'
     )
-    duplicateTherapy: Optional[Union["MedicalTherapy", List["MedicalTherapy"]]] = Field(
+    duplicateTherapy: Optional[Union[MedicalTherapy, List[MedicalTherapy]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'duplicateTherapy',

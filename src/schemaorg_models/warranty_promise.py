@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .structured_value import StructuredValue    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,8 +9,9 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.warranty_scope import WarrantyScope
-from schemaorg_models.quantitative_value import QuantitativeValue
+from .structured_value import StructuredValue
+from .warranty_scope import WarrantyScope
+from .quantitative_value import QuantitativeValue
 
 class WarrantyPromise(StructuredValue):
     """

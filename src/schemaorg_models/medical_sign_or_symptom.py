@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .medical_condition import MedicalCondition    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,8 @@ from typing import (
     Optional,
     Union
 )
+from .medical_condition import MedicalCondition
+from .medical_therapy import MedicalTherapy
 
 class MedicalSignOrSymptom(MedicalCondition):
     """
@@ -22,7 +21,7 @@ Any feature associated or not with a medical condition. In medicine a symptom is
         alias='@type',
         serialization_alias='@type'
     )
-    possibleTreatment: Optional[Union["MedicalTherapy", List["MedicalTherapy"]]] = Field(
+    possibleTreatment: Optional[Union[MedicalTherapy, List[MedicalTherapy]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'possibleTreatment',

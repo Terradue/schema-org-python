@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .organize_action import OrganizeAction    
-
 from datetime import (
     date,
     datetime
@@ -16,6 +13,7 @@ from typing import (
     Optional,
     Union
 )
+from .organize_action import OrganizeAction
 
 class PlanAction(OrganizeAction):
     """

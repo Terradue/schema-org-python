@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .intangible import Intangible    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,7 +10,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.property import Property
+from .property import Property
+from .intangible import Intangible
 
 class ConstraintNode(Intangible):
     """

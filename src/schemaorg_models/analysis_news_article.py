@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .news_article import NewsArticle    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .news_article import NewsArticle
 
 class AnalysisNewsArticle(NewsArticle):
     """

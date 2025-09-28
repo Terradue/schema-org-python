@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .thing import Thing    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,16 @@ from typing import (
     Optional,
     Union
 )
+from .medical_specialty import MedicalSpecialty
+from .thing import Thing
+from .drug_legal_status import DrugLegalStatus
+from .medical_study import MedicalStudy
+from .medical_code import MedicalCode
+from .organization import Organization
+from .medicine_system import MedicineSystem
+from .medical_enumeration import MedicalEnumeration
+from .medical_guideline import MedicalGuideline
+from .grant import Grant
 
 class MedicalEntity(Thing):
     """
@@ -22,7 +29,7 @@ The most generic type of entity related to health and the practice of medicine.
         alias='@type',
         serialization_alias='@type'
     )
-    code: Optional[Union["MedicalCode", List["MedicalCode"]]] = Field(
+    code: Optional[Union[MedicalCode, List[MedicalCode]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'code',
@@ -30,7 +37,7 @@ The most generic type of entity related to health and the practice of medicine.
         ),
         serialization_alias='https://schema.org/code'
     )
-    guideline: Optional[Union["MedicalGuideline", List["MedicalGuideline"]]] = Field(
+    guideline: Optional[Union[MedicalGuideline, List[MedicalGuideline]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'guideline',
@@ -38,7 +45,7 @@ The most generic type of entity related to health and the practice of medicine.
         ),
         serialization_alias='https://schema.org/guideline'
     )
-    legalStatus: Optional[Union["DrugLegalStatus", List["DrugLegalStatus"], "MedicalEnumeration", List["MedicalEnumeration"], str, List[str]]] = Field(
+    legalStatus: Optional[Union[DrugLegalStatus, List[DrugLegalStatus], MedicalEnumeration, List[MedicalEnumeration], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'legalStatus',
@@ -46,7 +53,7 @@ The most generic type of entity related to health and the practice of medicine.
         ),
         serialization_alias='https://schema.org/legalStatus'
     )
-    recognizingAuthority: Optional[Union["Organization", List["Organization"]]] = Field(
+    recognizingAuthority: Optional[Union[Organization, List[Organization]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'recognizingAuthority',
@@ -54,7 +61,7 @@ The most generic type of entity related to health and the practice of medicine.
         ),
         serialization_alias='https://schema.org/recognizingAuthority'
     )
-    medicineSystem: Optional[Union["MedicineSystem", List["MedicineSystem"]]] = Field(
+    medicineSystem: Optional[Union[MedicineSystem, List[MedicineSystem]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'medicineSystem',
@@ -62,7 +69,7 @@ The most generic type of entity related to health and the practice of medicine.
         ),
         serialization_alias='https://schema.org/medicineSystem'
     )
-    funding: Optional[Union["Grant", List["Grant"]]] = Field(
+    funding: Optional[Union[Grant, List[Grant]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'funding',
@@ -70,7 +77,7 @@ The most generic type of entity related to health and the practice of medicine.
         ),
         serialization_alias='https://schema.org/funding'
     )
-    relevantSpecialty: Optional[Union["MedicalSpecialty", List["MedicalSpecialty"]]] = Field(
+    relevantSpecialty: Optional[Union[MedicalSpecialty, List[MedicalSpecialty]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'relevantSpecialty',
@@ -78,7 +85,7 @@ The most generic type of entity related to health and the practice of medicine.
         ),
         serialization_alias='https://schema.org/relevantSpecialty'
     )
-    study: Optional[Union["MedicalStudy", List["MedicalStudy"]]] = Field(
+    study: Optional[Union[MedicalStudy, List[MedicalStudy]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'study',

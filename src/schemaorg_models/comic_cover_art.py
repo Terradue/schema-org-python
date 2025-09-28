@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .comic_story import ComicStory    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .comic_story import ComicStory
 
 class ComicCoverArt(ComicStory):
     """

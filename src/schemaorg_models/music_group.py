@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .performing_group import PerformingGroup    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,10 +10,11 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.music_album import MusicAlbum
-from schemaorg_models.person import Person
-from schemaorg_models.music_recording import MusicRecording
-from schemaorg_models.item_list import ItemList
+from .person import Person
+from .music_recording import MusicRecording
+from .performing_group import PerformingGroup
+from .music_album import MusicAlbum
+from .item_list import ItemList
 
 class MusicGroup(PerformingGroup):
     """

@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .creative_work import CreativeWork    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,9 +9,14 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.music_playlist import MusicPlaylist
-from schemaorg_models.music_composition import MusicComposition
-from schemaorg_models.person import Person
+from .person import Person
+from .music_group import MusicGroup
+from .music_composition import MusicComposition
+from .duration import Duration
+from .quantitative_value import QuantitativeValue
+from .music_album import MusicAlbum
+from .music_playlist import MusicPlaylist
+from .creative_work import CreativeWork
 
 class MusicRecording(CreativeWork):
     """
@@ -33,7 +35,7 @@ A music recording (track), usually a single song.
         ),
         serialization_alias='https://schema.org/inPlaylist'
     )
-    inAlbum: Optional[Union["MusicAlbum", List["MusicAlbum"]]] = Field(
+    inAlbum: Optional[Union[MusicAlbum, List[MusicAlbum]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'inAlbum',
@@ -49,7 +51,7 @@ A music recording (track), usually a single song.
         ),
         serialization_alias='https://schema.org/recordingOf'
     )
-    byArtist: Optional[Union["MusicGroup", List["MusicGroup"], Person, List[Person]]] = Field(
+    byArtist: Optional[Union[MusicGroup, List[MusicGroup], Person, List[Person]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'byArtist',
@@ -65,7 +67,7 @@ A music recording (track), usually a single song.
         ),
         serialization_alias='https://schema.org/isrcCode'
     )
-    duration: Optional[Union["Duration", List["Duration"], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    duration: Optional[Union[Duration, List[Duration], QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'duration',

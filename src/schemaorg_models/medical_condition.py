@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .medical_entity import MedicalEntity    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,8 +9,19 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.medical_test import MedicalTest
-from schemaorg_models.medical_risk_factor import MedicalRiskFactor
+from .medical_condition_stage import MedicalConditionStage
+from .event_status_type import EventStatusType
+from .medical_study_status import MedicalStudyStatus
+from .medical_therapy import MedicalTherapy
+from .superficial_anatomy import SuperficialAnatomy
+from .medical_risk_factor import MedicalRiskFactor
+from .anatomical_structure import AnatomicalStructure
+from .medical_sign_or_symptom import MedicalSignOrSymptom
+from .medical_test import MedicalTest
+from .drug import Drug
+from .d_dx_element import DDxElement
+from .medical_entity import MedicalEntity
+from .anatomical_system import AnatomicalSystem
 
 class MedicalCondition(MedicalEntity):
     """
@@ -24,7 +32,7 @@ Any condition of the human body that affects the normal functioning of a person,
         alias='@type',
         serialization_alias='@type'
     )
-    associatedAnatomy: Optional[Union["AnatomicalSystem", List["AnatomicalSystem"], "SuperficialAnatomy", List["SuperficialAnatomy"], "AnatomicalStructure", List["AnatomicalStructure"]]] = Field(
+    associatedAnatomy: Optional[Union[AnatomicalSystem, List[AnatomicalSystem], SuperficialAnatomy, List[SuperficialAnatomy], AnatomicalStructure, List[AnatomicalStructure]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'associatedAnatomy',
@@ -32,7 +40,7 @@ Any condition of the human body that affects the normal functioning of a person,
         ),
         serialization_alias='https://schema.org/associatedAnatomy'
     )
-    signOrSymptom: Optional[Union["MedicalSignOrSymptom", List["MedicalSignOrSymptom"]]] = Field(
+    signOrSymptom: Optional[Union[MedicalSignOrSymptom, List[MedicalSignOrSymptom]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'signOrSymptom',
@@ -40,7 +48,7 @@ Any condition of the human body that affects the normal functioning of a person,
         ),
         serialization_alias='https://schema.org/signOrSymptom'
     )
-    possibleTreatment: Optional[Union["MedicalTherapy", List["MedicalTherapy"]]] = Field(
+    possibleTreatment: Optional[Union[MedicalTherapy, List[MedicalTherapy]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'possibleTreatment',
@@ -48,7 +56,7 @@ Any condition of the human body that affects the normal functioning of a person,
         ),
         serialization_alias='https://schema.org/possibleTreatment'
     )
-    status: Optional[Union["EventStatusType", List["EventStatusType"], "MedicalStudyStatus", List["MedicalStudyStatus"], str, List[str]]] = Field(
+    status: Optional[Union[EventStatusType, List[EventStatusType], MedicalStudyStatus, List[MedicalStudyStatus], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'status',
@@ -88,7 +96,7 @@ Any condition of the human body that affects the normal functioning of a person,
         ),
         serialization_alias='https://schema.org/naturalProgression'
     )
-    secondaryPrevention: Optional[Union["MedicalTherapy", List["MedicalTherapy"]]] = Field(
+    secondaryPrevention: Optional[Union[MedicalTherapy, List[MedicalTherapy]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'secondaryPrevention',
@@ -96,7 +104,7 @@ Any condition of the human body that affects the normal functioning of a person,
         ),
         serialization_alias='https://schema.org/secondaryPrevention'
     )
-    drug: Optional[Union["Drug", List["Drug"]]] = Field(
+    drug: Optional[Union[Drug, List[Drug]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'drug',
@@ -112,7 +120,7 @@ Any condition of the human body that affects the normal functioning of a person,
         ),
         serialization_alias='https://schema.org/pathophysiology'
     )
-    primaryPrevention: Optional[Union["MedicalTherapy", List["MedicalTherapy"]]] = Field(
+    primaryPrevention: Optional[Union[MedicalTherapy, List[MedicalTherapy]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'primaryPrevention',
@@ -120,7 +128,7 @@ Any condition of the human body that affects the normal functioning of a person,
         ),
         serialization_alias='https://schema.org/primaryPrevention'
     )
-    differentialDiagnosis: Optional[Union["DDxElement", List["DDxElement"]]] = Field(
+    differentialDiagnosis: Optional[Union[DDxElement, List[DDxElement]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'differentialDiagnosis',
@@ -128,7 +136,7 @@ Any condition of the human body that affects the normal functioning of a person,
         ),
         serialization_alias='https://schema.org/differentialDiagnosis'
     )
-    stage: Optional[Union["MedicalConditionStage", List["MedicalConditionStage"]]] = Field(
+    stage: Optional[Union[MedicalConditionStage, List[MedicalConditionStage]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'stage',

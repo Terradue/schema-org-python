@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .broadcast_channel import BroadcastChannel    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .broadcast_channel import BroadcastChannel
 
 class TelevisionChannel(BroadcastChannel):
     """

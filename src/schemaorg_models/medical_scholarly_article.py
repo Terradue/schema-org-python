@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .scholarly_article import ScholarlyArticle    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,7 @@ from typing import (
     Optional,
     Union
 )
+from .scholarly_article import ScholarlyArticle
 
 class MedicalScholarlyArticle(ScholarlyArticle):
     """

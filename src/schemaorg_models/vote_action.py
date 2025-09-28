@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .choose_action import ChooseAction    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.person import Person
+from .choose_action import ChooseAction
+from .person import Person
 
 class VoteAction(ChooseAction):
     """

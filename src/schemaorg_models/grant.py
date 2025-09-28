@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .intangible import Intangible    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,13 +9,14 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.organization import Organization
-from schemaorg_models.person import Person
-from schemaorg_models.event import Event
-from schemaorg_models.medical_entity import MedicalEntity
-from schemaorg_models.bio_chem_entity import BioChemEntity
-from schemaorg_models.product import Product
-from schemaorg_models.creative_work import CreativeWork
+from .person import Person
+from .event import Event
+from .intangible import Intangible
+from .bio_chem_entity import BioChemEntity
+from .organization import Organization
+from .medical_entity import MedicalEntity
+from .product import Product
+from .creative_work import CreativeWork
 
 class Grant(Intangible):
     """

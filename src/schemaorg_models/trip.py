@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .intangible import Intangible    
-
 from datetime import (
     datetime,
     time
@@ -16,12 +13,13 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.person import Person
-from schemaorg_models.organization import Organization
-from schemaorg_models.place import Place
-from schemaorg_models.item_list import ItemList
-from schemaorg_models.demand import Demand
-from schemaorg_models.offer import Offer
+from .demand import Demand
+from .person import Person
+from .offer import Offer
+from .intangible import Intangible
+from .place import Place
+from .organization import Organization
+from .item_list import ItemList
 
 class Trip(Intangible):
     """
@@ -32,7 +30,7 @@ A trip or journey. An itinerary of visits to one or more places.
         alias='@type',
         serialization_alias='@type'
     )
-    subTrip: Optional[Union["Trip", List["Trip"]]] = Field(
+    subTrip: Optional[Union[Trip, List[Trip]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'subTrip',
@@ -48,7 +46,7 @@ A trip or journey. An itinerary of visits to one or more places.
         ),
         serialization_alias='https://schema.org/provider'
     )
-    partOfTrip: Optional[Union["Trip", List["Trip"]]] = Field(
+    partOfTrip: Optional[Union[Trip, List[Trip]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'partOfTrip',

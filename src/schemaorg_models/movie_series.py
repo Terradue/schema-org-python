@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .creative_work_series import CreativeWorkSeries    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,10 +9,12 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.person import Person
-from schemaorg_models.performing_group import PerformingGroup
-from schemaorg_models.organization import Organization
-from schemaorg_models.video_object import VideoObject
+from .person import Person
+from .music_group import MusicGroup
+from .video_object import VideoObject
+from .performing_group import PerformingGroup
+from .creative_work_series import CreativeWorkSeries
+from .organization import Organization
 
 class MovieSeries(CreativeWorkSeries):
     """
@@ -26,7 +25,7 @@ A series of movies. Included movies can be indicated with the hasPart property.
         alias='@type',
         serialization_alias='@type'
     )
-    musicBy: Optional[Union["MusicGroup", List["MusicGroup"], Person, List[Person]]] = Field(
+    musicBy: Optional[Union[MusicGroup, List[MusicGroup], Person, List[Person]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'musicBy',

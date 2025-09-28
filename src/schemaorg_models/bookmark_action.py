@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .organize_action import OrganizeAction    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .organize_action import OrganizeAction
 
 class BookmarkAction(OrganizeAction):
     """

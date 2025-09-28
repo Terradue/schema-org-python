@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .creative_work import CreativeWork    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,7 +10,11 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.media_object import MediaObject
+from .how_to_supply import HowToSupply
+from .how_to_tool import HowToTool
+from .duration import Duration
+from .media_object import MediaObject
+from .creative_work import CreativeWork
 
 class HowToDirection(CreativeWork):
     """
@@ -32,7 +33,7 @@ A direction indicating a single action to do in the instructions for how to achi
         ),
         serialization_alias='https://schema.org/beforeMedia'
     )
-    prepTime: Optional[Union["Duration", List["Duration"]]] = Field(
+    prepTime: Optional[Union[Duration, List[Duration]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'prepTime',
@@ -40,7 +41,7 @@ A direction indicating a single action to do in the instructions for how to achi
         ),
         serialization_alias='https://schema.org/prepTime'
     )
-    supply: Optional[Union["HowToSupply", List["HowToSupply"], str, List[str]]] = Field(
+    supply: Optional[Union[HowToSupply, List[HowToSupply], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'supply',
@@ -48,7 +49,7 @@ A direction indicating a single action to do in the instructions for how to achi
         ),
         serialization_alias='https://schema.org/supply'
     )
-    performTime: Optional[Union["Duration", List["Duration"]]] = Field(
+    performTime: Optional[Union[Duration, List[Duration]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'performTime',
@@ -56,7 +57,7 @@ A direction indicating a single action to do in the instructions for how to achi
         ),
         serialization_alias='https://schema.org/performTime'
     )
-    totalTime: Optional[Union["Duration", List["Duration"]]] = Field(
+    totalTime: Optional[Union[Duration, List[Duration]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'totalTime',
@@ -72,7 +73,7 @@ A direction indicating a single action to do in the instructions for how to achi
         ),
         serialization_alias='https://schema.org/duringMedia'
     )
-    tool: Optional[Union[str, List[str], "HowToTool", List["HowToTool"]]] = Field(
+    tool: Optional[Union[str, List[str], HowToTool, List[HowToTool]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'tool',

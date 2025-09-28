@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .intangible import Intangible    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,8 +9,9 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.organization import Organization
-from schemaorg_models.member_program_tier import MemberProgramTier
+from .intangible import Intangible
+from .member_program_tier import MemberProgramTier
+from .organization import Organization
 
 class MemberProgram(Intangible):
     """

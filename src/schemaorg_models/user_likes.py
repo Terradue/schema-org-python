@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .user_interaction import UserInteraction    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .user_interaction import UserInteraction
 
 class UserLikes(UserInteraction):
     """

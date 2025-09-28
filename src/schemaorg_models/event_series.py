@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .series import Series    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .series import Series
 
 class EventSeries(Series):
     """

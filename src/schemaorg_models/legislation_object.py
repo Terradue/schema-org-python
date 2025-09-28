@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .legislation import Legislation    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.legal_value_level import LegalValueLevel
+from .legislation import Legislation
+from .legal_value_level import LegalValueLevel
 
 class LegislationObject(Legislation):
     """

@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .store import Store    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .store import Store
 
 class ConvenienceStore(Store):
     """

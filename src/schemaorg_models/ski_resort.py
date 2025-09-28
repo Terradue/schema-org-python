@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .resort import Resort    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .resort import Resort
 
 class SkiResort(Resort):
     """

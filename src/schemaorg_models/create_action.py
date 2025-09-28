@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .action import Action    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .action import Action
 
 class CreateAction(Action):
     """

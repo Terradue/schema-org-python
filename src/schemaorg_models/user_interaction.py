@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .event import Event    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .event import Event
 
 class UserInteraction(Event):
     """

@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .product import Product    
-
 from datetime import (
     date
 )
@@ -16,6 +13,13 @@ from typing import (
     Optional,
     Union
 )
+from .qualitative_value import QualitativeValue
+from .drive_wheel_configuration_value import DriveWheelConfigurationValue
+from .steering_position_value import SteeringPositionValue
+from .quantitative_value import QuantitativeValue
+from .product import Product
+from .engine_specification import EngineSpecification
+from .car_usage_type import CarUsageType
 
 class Vehicle(Product):
     """
@@ -50,7 +54,7 @@ A vehicle is a device that is designed or used to transport people or cargo over
         ),
         serialization_alias='https://schema.org/callSign'
     )
-    fuelCapacity: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    fuelCapacity: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'fuelCapacity',
@@ -58,7 +62,7 @@ A vehicle is a device that is designed or used to transport people or cargo over
         ),
         serialization_alias='https://schema.org/fuelCapacity'
     )
-    bodyType: Optional[Union[str, List[str], "QualitativeValue", List["QualitativeValue"], HttpUrl, List[HttpUrl]]] = Field(
+    bodyType: Optional[Union[str, List[str], QualitativeValue, List[QualitativeValue], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'bodyType',
@@ -66,7 +70,7 @@ A vehicle is a device that is designed or used to transport people or cargo over
         ),
         serialization_alias='https://schema.org/bodyType'
     )
-    driveWheelConfiguration: Optional[Union[str, List[str], "DriveWheelConfigurationValue", List["DriveWheelConfigurationValue"]]] = Field(
+    driveWheelConfiguration: Optional[Union[str, List[str], DriveWheelConfigurationValue, List[DriveWheelConfigurationValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'driveWheelConfiguration',
@@ -74,7 +78,7 @@ A vehicle is a device that is designed or used to transport people or cargo over
         ),
         serialization_alias='https://schema.org/driveWheelConfiguration'
     )
-    fuelType: Optional[Union[str, List[str], "QualitativeValue", List["QualitativeValue"], HttpUrl, List[HttpUrl]]] = Field(
+    fuelType: Optional[Union[str, List[str], QualitativeValue, List[QualitativeValue], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'fuelType',
@@ -82,7 +86,7 @@ A vehicle is a device that is designed or used to transport people or cargo over
         ),
         serialization_alias='https://schema.org/fuelType'
     )
-    trailerWeight: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    trailerWeight: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'trailerWeight',
@@ -90,7 +94,7 @@ A vehicle is a device that is designed or used to transport people or cargo over
         ),
         serialization_alias='https://schema.org/trailerWeight'
     )
-    numberOfPreviousOwners: Optional[Union[float, List[float], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    numberOfPreviousOwners: Optional[Union[float, List[float], QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'numberOfPreviousOwners',
@@ -106,7 +110,7 @@ A vehicle is a device that is designed or used to transport people or cargo over
         ),
         serialization_alias='https://schema.org/numberOfAirbags'
     )
-    vehicleTransmission: Optional[Union[str, List[str], "QualitativeValue", List["QualitativeValue"], HttpUrl, List[HttpUrl]]] = Field(
+    vehicleTransmission: Optional[Union[str, List[str], QualitativeValue, List[QualitativeValue], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'vehicleTransmission',
@@ -114,7 +118,7 @@ A vehicle is a device that is designed or used to transport people or cargo over
         ),
         serialization_alias='https://schema.org/vehicleTransmission'
     )
-    payload: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    payload: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'payload',
@@ -122,7 +126,7 @@ A vehicle is a device that is designed or used to transport people or cargo over
         ),
         serialization_alias='https://schema.org/payload'
     )
-    numberOfAxles: Optional[Union[float, List[float], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    numberOfAxles: Optional[Union[float, List[float], QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'numberOfAxles',
@@ -130,7 +134,7 @@ A vehicle is a device that is designed or used to transport people or cargo over
         ),
         serialization_alias='https://schema.org/numberOfAxles'
     )
-    tongueWeight: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    tongueWeight: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'tongueWeight',
@@ -138,7 +142,7 @@ A vehicle is a device that is designed or used to transport people or cargo over
         ),
         serialization_alias='https://schema.org/tongueWeight'
     )
-    stupidProperty: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    stupidProperty: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'stupidProperty',
@@ -154,7 +158,7 @@ A vehicle is a device that is designed or used to transport people or cargo over
         ),
         serialization_alias='https://schema.org/productionDate'
     )
-    steeringPosition: Optional[Union["SteeringPositionValue", List["SteeringPositionValue"]]] = Field(
+    steeringPosition: Optional[Union[SteeringPositionValue, List[SteeringPositionValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'steeringPosition',
@@ -162,7 +166,7 @@ A vehicle is a device that is designed or used to transport people or cargo over
         ),
         serialization_alias='https://schema.org/steeringPosition'
     )
-    vehicleSeatingCapacity: Optional[Union[float, List[float], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    vehicleSeatingCapacity: Optional[Union[float, List[float], QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'vehicleSeatingCapacity',
@@ -170,7 +174,7 @@ A vehicle is a device that is designed or used to transport people or cargo over
         ),
         serialization_alias='https://schema.org/vehicleSeatingCapacity'
     )
-    fuelEfficiency: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    fuelEfficiency: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'fuelEfficiency',
@@ -178,7 +182,7 @@ A vehicle is a device that is designed or used to transport people or cargo over
         ),
         serialization_alias='https://schema.org/fuelEfficiency'
     )
-    numberOfDoors: Optional[Union[float, List[float], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    numberOfDoors: Optional[Union[float, List[float], QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'numberOfDoors',
@@ -186,7 +190,7 @@ A vehicle is a device that is designed or used to transport people or cargo over
         ),
         serialization_alias='https://schema.org/numberOfDoors'
     )
-    vehicleSpecialUsage: Optional[Union["CarUsageType", List["CarUsageType"], str, List[str]]] = Field(
+    vehicleSpecialUsage: Optional[Union[CarUsageType, List[CarUsageType], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'vehicleSpecialUsage',
@@ -194,7 +198,7 @@ A vehicle is a device that is designed or used to transport people or cargo over
         ),
         serialization_alias='https://schema.org/vehicleSpecialUsage'
     )
-    seatingCapacity: Optional[Union["QuantitativeValue", List["QuantitativeValue"], float, List[float]]] = Field(
+    seatingCapacity: Optional[Union[QuantitativeValue, List[QuantitativeValue], float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'seatingCapacity',
@@ -202,7 +206,7 @@ A vehicle is a device that is designed or used to transport people or cargo over
         ),
         serialization_alias='https://schema.org/seatingCapacity'
     )
-    speed: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    speed: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'speed',
@@ -250,7 +254,7 @@ A vehicle is a device that is designed or used to transport people or cargo over
         ),
         serialization_alias='https://schema.org/knownVehicleDamages'
     )
-    meetsEmissionStandard: Optional[Union[str, List[str], "QualitativeValue", List["QualitativeValue"], HttpUrl, List[HttpUrl]]] = Field(
+    meetsEmissionStandard: Optional[Union[str, List[str], QualitativeValue, List[QualitativeValue], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'meetsEmissionStandard',
@@ -258,7 +262,7 @@ A vehicle is a device that is designed or used to transport people or cargo over
         ),
         serialization_alias='https://schema.org/meetsEmissionStandard'
     )
-    weightTotal: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    weightTotal: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'weightTotal',
@@ -266,7 +270,7 @@ A vehicle is a device that is designed or used to transport people or cargo over
         ),
         serialization_alias='https://schema.org/weightTotal'
     )
-    numberOfForwardGears: Optional[Union[float, List[float], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    numberOfForwardGears: Optional[Union[float, List[float], QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'numberOfForwardGears',
@@ -290,7 +294,7 @@ A vehicle is a device that is designed or used to transport people or cargo over
         ),
         serialization_alias='https://schema.org/purchaseDate'
     )
-    vehicleEngine: Optional[Union["EngineSpecification", List["EngineSpecification"]]] = Field(
+    vehicleEngine: Optional[Union[EngineSpecification, List[EngineSpecification]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'vehicleEngine',
@@ -306,7 +310,7 @@ A vehicle is a device that is designed or used to transport people or cargo over
         ),
         serialization_alias='https://schema.org/emissionsCO2'
     )
-    wheelbase: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    wheelbase: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'wheelbase',
@@ -314,7 +318,7 @@ A vehicle is a device that is designed or used to transport people or cargo over
         ),
         serialization_alias='https://schema.org/wheelbase'
     )
-    mileageFromOdometer: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    mileageFromOdometer: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'mileageFromOdometer',
@@ -322,7 +326,7 @@ A vehicle is a device that is designed or used to transport people or cargo over
         ),
         serialization_alias='https://schema.org/mileageFromOdometer'
     )
-    cargoVolume: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    cargoVolume: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'cargoVolume',
@@ -330,7 +334,7 @@ A vehicle is a device that is designed or used to transport people or cargo over
         ),
         serialization_alias='https://schema.org/cargoVolume'
     )
-    fuelConsumption: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    fuelConsumption: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'fuelConsumption',
@@ -338,7 +342,7 @@ A vehicle is a device that is designed or used to transport people or cargo over
         ),
         serialization_alias='https://schema.org/fuelConsumption'
     )
-    accelerationTime: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    accelerationTime: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'accelerationTime',

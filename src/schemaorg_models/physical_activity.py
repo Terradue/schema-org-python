@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .lifestyle_modification import LifestyleModification    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,12 +10,13 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.physical_activity_category import PhysicalActivityCategory
-from schemaorg_models.category_code import CategoryCode
-from schemaorg_models.thing import Thing
-from schemaorg_models.anatomical_system import AnatomicalSystem
-from schemaorg_models.superficial_anatomy import SuperficialAnatomy
-from schemaorg_models.anatomical_structure import AnatomicalStructure
+from .physical_activity_category import PhysicalActivityCategory
+from .category_code import CategoryCode
+from .thing import Thing
+from .superficial_anatomy import SuperficialAnatomy
+from .lifestyle_modification import LifestyleModification
+from .anatomical_structure import AnatomicalStructure
+from .anatomical_system import AnatomicalSystem
 
 class PhysicalActivity(LifestyleModification):
     """

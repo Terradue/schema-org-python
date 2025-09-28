@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .visual_artwork import VisualArtwork    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .visual_artwork import VisualArtwork
 
 class CoverArt(VisualArtwork):
     """

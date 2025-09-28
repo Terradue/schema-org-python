@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .entertainment_business import EntertainmentBusiness    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .entertainment_business import EntertainmentBusiness
 
 class AmusementPark(EntertainmentBusiness):
     """

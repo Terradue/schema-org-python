@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .plan_action import PlanAction    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .plan_action import PlanAction
 
 class CancelAction(PlanAction):
     """

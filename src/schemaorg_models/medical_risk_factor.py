@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .medical_entity import MedicalEntity    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,7 @@ from typing import (
     Optional,
     Union
 )
+from .medical_entity import MedicalEntity
 
 class MedicalRiskFactor(MedicalEntity):
     """

@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .structured_value import StructuredValue    
-
 from datetime import (
     datetime,
     time
@@ -16,11 +13,13 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.action import Action
-from schemaorg_models.virtual_location import VirtualLocation
-from schemaorg_models.place import Place
-from schemaorg_models.web_site import WebSite
-from schemaorg_models.software_application import SoftwareApplication
+from .virtual_location import VirtualLocation
+from .structured_value import StructuredValue
+from .place import Place
+from .postal_address import PostalAddress
+from .software_application import SoftwareApplication
+from .web_site import WebSite
+from .action import Action
 
 class InteractionCounter(StructuredValue):
     """
@@ -55,7 +54,7 @@ A summary of how users have interacted with this CreativeWork. In most cases, au
         ),
         serialization_alias='https://schema.org/endTime'
     )
-    location: Optional[Union[VirtualLocation, List[VirtualLocation], "PostalAddress", List["PostalAddress"], str, List[str], Place, List[Place]]] = Field(
+    location: Optional[Union[VirtualLocation, List[VirtualLocation], PostalAddress, List[PostalAddress], str, List[str], Place, List[Place]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'location',

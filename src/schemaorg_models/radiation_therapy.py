@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .medical_therapy import MedicalTherapy    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .medical_therapy import MedicalTherapy
 
 class RadiationTherapy(MedicalTherapy):
     """

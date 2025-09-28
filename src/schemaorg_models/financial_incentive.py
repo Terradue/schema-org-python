@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .intangible import Intangible    
-
 from datetime import (
     date,
     datetime
@@ -16,12 +13,22 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.person import Person
-from schemaorg_models.organization import Organization
-from schemaorg_models.defined_term import DefinedTerm
-from schemaorg_models.product import Product
-from schemaorg_models.administrative_area import AdministrativeArea
-from schemaorg_models.place import Place
+from .incentive_type import IncentiveType
+from .person import Person
+from .monetary_amount import MonetaryAmount
+from .geo_shape import GeoShape
+from .intangible import Intangible
+from .unit_price_specification import UnitPriceSpecification
+from .place import Place
+from .incentive_status import IncentiveStatus
+from .quantitative_value import QuantitativeValue
+from .organization import Organization
+from .administrative_area import AdministrativeArea
+from .loan_or_credit import LoanOrCredit
+from .product import Product
+from .defined_term import DefinedTerm
+from .purchase_type import PurchaseType
+from .incentive_qualified_expense_type import IncentiveQualifiedExpenseType
 
 class FinancialIncentive(Intangible):
     """
@@ -37,7 +44,7 @@ class FinancialIncentive(Intangible):
         alias='@type',
         serialization_alias='@type'
     )
-    incomeLimit: Optional[Union[str, List[str], "MonetaryAmount", List["MonetaryAmount"]]] = Field(
+    incomeLimit: Optional[Union[str, List[str], MonetaryAmount, List[MonetaryAmount]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'incomeLimit',
@@ -45,7 +52,7 @@ class FinancialIncentive(Intangible):
         ),
         serialization_alias='https://schema.org/incomeLimit'
     )
-    qualifiedExpense: Optional[Union["IncentiveQualifiedExpenseType", List["IncentiveQualifiedExpenseType"]]] = Field(
+    qualifiedExpense: Optional[Union[IncentiveQualifiedExpenseType, List[IncentiveQualifiedExpenseType]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'qualifiedExpense',
@@ -77,7 +84,7 @@ class FinancialIncentive(Intangible):
         ),
         serialization_alias='https://schema.org/validThrough'
     )
-    areaServed: Optional[Union["GeoShape", List["GeoShape"], str, List[str], AdministrativeArea, List[AdministrativeArea], Place, List[Place]]] = Field(
+    areaServed: Optional[Union[GeoShape, List[GeoShape], str, List[str], AdministrativeArea, List[AdministrativeArea], Place, List[Place]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'areaServed',
@@ -101,7 +108,7 @@ class FinancialIncentive(Intangible):
         ),
         serialization_alias='https://schema.org/eligibleWithSupplier'
     )
-    purchaseType: Optional[Union["PurchaseType", List["PurchaseType"]]] = Field(
+    purchaseType: Optional[Union[PurchaseType, List[PurchaseType]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'purchaseType',
@@ -117,7 +124,7 @@ class FinancialIncentive(Intangible):
         ),
         serialization_alias='https://schema.org/validFrom'
     )
-    incentiveAmount: Optional[Union["UnitPriceSpecification", List["UnitPriceSpecification"], "QuantitativeValue", List["QuantitativeValue"], "LoanOrCredit", List["LoanOrCredit"]]] = Field(
+    incentiveAmount: Optional[Union[UnitPriceSpecification, List[UnitPriceSpecification], QuantitativeValue, List[QuantitativeValue], LoanOrCredit, List[LoanOrCredit]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'incentiveAmount',
@@ -125,7 +132,7 @@ class FinancialIncentive(Intangible):
         ),
         serialization_alias='https://schema.org/incentiveAmount'
     )
-    purchasePriceLimit: Optional[Union["MonetaryAmount", List["MonetaryAmount"]]] = Field(
+    purchasePriceLimit: Optional[Union[MonetaryAmount, List[MonetaryAmount]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'purchasePriceLimit',
@@ -133,7 +140,7 @@ class FinancialIncentive(Intangible):
         ),
         serialization_alias='https://schema.org/purchasePriceLimit'
     )
-    incentiveType: Optional[Union["IncentiveType", List["IncentiveType"]]] = Field(
+    incentiveType: Optional[Union[IncentiveType, List[IncentiveType]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'incentiveType',
@@ -141,7 +148,7 @@ class FinancialIncentive(Intangible):
         ),
         serialization_alias='https://schema.org/incentiveType'
     )
-    incentiveStatus: Optional[Union["IncentiveStatus", List["IncentiveStatus"]]] = Field(
+    incentiveStatus: Optional[Union[IncentiveStatus, List[IncentiveStatus]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'incentiveStatus',

@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .intangible import Intangible    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,7 +10,10 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.broadcast_frequency_specification import BroadcastFrequencySpecification
+from .broadcast_service import BroadcastService
+from .broadcast_frequency_specification import BroadcastFrequencySpecification
+from .intangible import Intangible
+from .cable_or_satellite_service import CableOrSatelliteService
 
 class BroadcastChannel(Intangible):
     """
@@ -24,7 +24,7 @@ A unique instance of a BroadcastService on a CableOrSatelliteService lineup.
         alias='@type',
         serialization_alias='@type'
     )
-    inBroadcastLineup: Optional[Union["CableOrSatelliteService", List["CableOrSatelliteService"]]] = Field(
+    inBroadcastLineup: Optional[Union[CableOrSatelliteService, List[CableOrSatelliteService]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'inBroadcastLineup',
@@ -40,7 +40,7 @@ A unique instance of a BroadcastService on a CableOrSatelliteService lineup.
         ),
         serialization_alias='https://schema.org/broadcastChannelId'
     )
-    providesBroadcastService: Optional[Union["BroadcastService", List["BroadcastService"]]] = Field(
+    providesBroadcastService: Optional[Union[BroadcastService, List[BroadcastService]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'providesBroadcastService',

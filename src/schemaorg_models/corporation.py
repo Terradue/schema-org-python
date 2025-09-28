@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .organization import Organization    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,7 @@ from typing import (
     Optional,
     Union
 )
+from .organization import Organization
 
 class Corporation(Organization):
     """

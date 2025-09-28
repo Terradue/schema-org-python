@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .medical_entity import MedicalEntity    
-
 from datetime import (
     date
 )
@@ -15,6 +12,8 @@ from typing import (
     Optional,
     Union
 )
+from .medical_entity import MedicalEntity
+from .medical_evidence_level import MedicalEvidenceLevel
 
 class MedicalGuideline(MedicalEntity):
     """
@@ -33,7 +32,7 @@ Any recommendation made by a standard society (e.g. ACC/AHA) or consensus statem
         ),
         serialization_alias='https://schema.org/guidelineSubject'
     )
-    evidenceLevel: Optional[Union["MedicalEvidenceLevel", List["MedicalEvidenceLevel"]]] = Field(
+    evidenceLevel: Optional[Union[MedicalEvidenceLevel, List[MedicalEvidenceLevel]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'evidenceLevel',

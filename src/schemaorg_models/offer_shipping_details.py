@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .structured_value import StructuredValue    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,13 +10,16 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.quantitative_value import QuantitativeValue
-from schemaorg_models.shipping_service import ShippingService
-from schemaorg_models.defined_region import DefinedRegion
-from schemaorg_models.shipping_delivery_time import ShippingDeliveryTime
-from schemaorg_models.member_program_tier import MemberProgramTier
-from schemaorg_models.shipping_rate_settings import ShippingRateSettings
-from schemaorg_models.monetary_amount import MonetaryAmount
+from .shipping_service import ShippingService
+from .distance import Distance
+from .monetary_amount import MonetaryAmount
+from .shipping_rate_settings import ShippingRateSettings
+from .structured_value import StructuredValue
+from .defined_region import DefinedRegion
+from .mass import Mass
+from .quantitative_value import QuantitativeValue
+from .member_program_tier import MemberProgramTier
+from .shipping_delivery_time import ShippingDeliveryTime
 
 class OfferShippingDetails(StructuredValue):
     """
@@ -41,7 +41,7 @@ or Fast and expensive: $15 in 1-2 days.
         alias='@type',
         serialization_alias='@type'
     )
-    depth: Optional[Union["Distance", List["Distance"], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    depth: Optional[Union[Distance, List[Distance], QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'depth',
@@ -89,7 +89,7 @@ or Fast and expensive: $15 in 1-2 days.
         ),
         serialization_alias='https://schema.org/doesNotShip'
     )
-    width: Optional[Union[QuantitativeValue, List[QuantitativeValue], "Distance", List["Distance"]]] = Field(
+    width: Optional[Union[QuantitativeValue, List[QuantitativeValue], Distance, List[Distance]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'width',
@@ -113,7 +113,7 @@ or Fast and expensive: $15 in 1-2 days.
         ),
         serialization_alias='https://schema.org/shippingOrigin'
     )
-    height: Optional[Union["Distance", List["Distance"], QuantitativeValue, List[QuantitativeValue]]] = Field(
+    height: Optional[Union[Distance, List[Distance], QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'height',
@@ -129,7 +129,7 @@ or Fast and expensive: $15 in 1-2 days.
         ),
         serialization_alias='https://schema.org/transitTimeLabel'
     )
-    weight: Optional[Union[QuantitativeValue, List[QuantitativeValue], "Mass", List["Mass"]]] = Field(
+    weight: Optional[Union[QuantitativeValue, List[QuantitativeValue], Mass, List[Mass]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'weight',

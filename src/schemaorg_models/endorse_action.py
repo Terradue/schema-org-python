@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .react_action import ReactAction    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,8 +9,9 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.person import Person
-from schemaorg_models.organization import Organization
+from .person import Person
+from .react_action import ReactAction
+from .organization import Organization
 
 class EndorseAction(ReactAction):
     """

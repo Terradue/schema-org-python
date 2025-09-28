@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .creative_work import CreativeWork    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,9 +10,16 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.person import Person
-from schemaorg_models.organization import Organization
-from schemaorg_models.language import Language
+from .language import Language
+from .person import Person
+from .music_group import MusicGroup
+from .video_object import VideoObject
+from .performing_group import PerformingGroup
+from .duration import Duration
+from .country import Country
+from .quantitative_value import QuantitativeValue
+from .organization import Organization
+from .creative_work import CreativeWork
 
 class Movie(CreativeWork):
     """
@@ -50,7 +54,7 @@ A movie.
         ),
         serialization_alias='https://schema.org/productionCompany'
     )
-    musicBy: Optional[Union["MusicGroup", List["MusicGroup"], Person, List[Person]]] = Field(
+    musicBy: Optional[Union[MusicGroup, List[MusicGroup], Person, List[Person]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'musicBy',
@@ -58,7 +62,7 @@ A movie.
         ),
         serialization_alias='https://schema.org/musicBy'
     )
-    countryOfOrigin: Optional[Union["Country", List["Country"]]] = Field(
+    countryOfOrigin: Optional[Union[Country, List[Country]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'countryOfOrigin',
@@ -66,7 +70,7 @@ A movie.
         ),
         serialization_alias='https://schema.org/countryOfOrigin'
     )
-    trailer: Optional[Union["VideoObject", List["VideoObject"]]] = Field(
+    trailer: Optional[Union[VideoObject, List[VideoObject]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'trailer',
@@ -82,7 +86,7 @@ A movie.
         ),
         serialization_alias='https://schema.org/directors'
     )
-    duration: Optional[Union["Duration", List["Duration"], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    duration: Optional[Union[Duration, List[Duration], QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'duration',
@@ -98,7 +102,7 @@ A movie.
         ),
         serialization_alias='https://schema.org/director'
     )
-    actor: Optional[Union[Person, List[Person], "PerformingGroup", List["PerformingGroup"]]] = Field(
+    actor: Optional[Union[Person, List[Person], PerformingGroup, List[PerformingGroup]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'actor',

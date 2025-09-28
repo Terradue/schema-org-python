@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .creative_work import CreativeWork    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.defined_term import DefinedTerm
+from .defined_term import DefinedTerm
+from .creative_work import CreativeWork
 
 class DefinedTermSet(CreativeWork):
     """

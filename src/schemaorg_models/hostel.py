@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .lodging_business import LodgingBusiness    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .lodging_business import LodgingBusiness
 
 class Hostel(LodgingBusiness):
     """

@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .communicate_action import CommunicateAction    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .communicate_action import CommunicateAction
 
 class CheckOutAction(CommunicateAction):
     """

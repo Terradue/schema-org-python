@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .creative_work import CreativeWork    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,9 +9,16 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.creative_work_season import CreativeWorkSeason
-from schemaorg_models.person import Person
-from schemaorg_models.organization import Organization
+from .person import Person
+from .music_group import MusicGroup
+from .organization import Organization
+from .video_object import VideoObject
+from .performing_group import PerformingGroup
+from .duration import Duration
+from .quantitative_value import QuantitativeValue
+from .creative_work_series import CreativeWorkSeries
+from .creative_work_season import CreativeWorkSeason
+from .creative_work import CreativeWork
 
 class Episode(CreativeWork):
     """
@@ -25,7 +29,7 @@ An episode of a TV, radio or game media within a series or season.
         alias='@type',
         serialization_alias='@type'
     )
-    partOfSeries: Optional[Union["CreativeWorkSeries", List["CreativeWorkSeries"]]] = Field(
+    partOfSeries: Optional[Union[CreativeWorkSeries, List[CreativeWorkSeries]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'partOfSeries',
@@ -49,7 +53,7 @@ An episode of a TV, radio or game media within a series or season.
         ),
         serialization_alias='https://schema.org/partOfSeason'
     )
-    actor: Optional[Union[Person, List[Person], "PerformingGroup", List["PerformingGroup"]]] = Field(
+    actor: Optional[Union[Person, List[Person], PerformingGroup, List[PerformingGroup]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'actor',
@@ -65,7 +69,7 @@ An episode of a TV, radio or game media within a series or season.
         ),
         serialization_alias='https://schema.org/productionCompany'
     )
-    musicBy: Optional[Union["MusicGroup", List["MusicGroup"], Person, List[Person]]] = Field(
+    musicBy: Optional[Union[MusicGroup, List[MusicGroup], Person, List[Person]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'musicBy',
@@ -81,7 +85,7 @@ An episode of a TV, radio or game media within a series or season.
         ),
         serialization_alias='https://schema.org/actors'
     )
-    trailer: Optional[Union["VideoObject", List["VideoObject"]]] = Field(
+    trailer: Optional[Union[VideoObject, List[VideoObject]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'trailer',
@@ -97,7 +101,7 @@ An episode of a TV, radio or game media within a series or season.
         ),
         serialization_alias='https://schema.org/directors'
     )
-    duration: Optional[Union["Duration", List["Duration"], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    duration: Optional[Union[Duration, List[Duration], QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'duration',

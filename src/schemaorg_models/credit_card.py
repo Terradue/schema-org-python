@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .payment_card import PaymentCard    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .payment_card import PaymentCard
 
 class CreditCard(PaymentCard):
     """

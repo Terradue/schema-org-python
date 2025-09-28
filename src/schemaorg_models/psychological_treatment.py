@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .therapeutic_procedure import TherapeuticProcedure    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .therapeutic_procedure import TherapeuticProcedure
 
 class PsychologicalTreatment(TherapeuticProcedure):
     """

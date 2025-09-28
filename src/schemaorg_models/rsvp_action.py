@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .inform_action import InformAction    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,8 +9,9 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.comment import Comment
-from schemaorg_models.rsvp_response_type import RsvpResponseType
+from .rsvp_response_type import RsvpResponseType
+from .inform_action import InformAction
+from .comment import Comment
 
 class RsvpAction(InformAction):
     """

@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .local_business import LocalBusiness    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,8 +10,9 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.menu import Menu
-from schemaorg_models.rating import Rating
+from .menu import Menu
+from .local_business import LocalBusiness
+from .rating import Rating
 
 class FoodEstablishment(LocalBusiness):
     """

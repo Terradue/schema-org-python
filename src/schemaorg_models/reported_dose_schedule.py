@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .dose_schedule import DoseSchedule    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .dose_schedule import DoseSchedule
 
 class ReportedDoseSchedule(DoseSchedule):
     """

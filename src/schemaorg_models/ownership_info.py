@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .structured_value import StructuredValue    
-
 from datetime import (
     datetime
 )
@@ -15,10 +12,11 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.organization import Organization
-from schemaorg_models.person import Person
-from schemaorg_models.product import Product
-from schemaorg_models.service import Service
+from .person import Person
+from .structured_value import StructuredValue
+from .organization import Organization
+from .product import Product
+from .service import Service
 
 class OwnershipInfo(StructuredValue):
     """

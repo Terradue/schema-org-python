@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .medical_business import MedicalBusiness    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .medical_business import MedicalBusiness
 
 class Optician(MedicalBusiness):
     """

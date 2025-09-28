@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .creative_work import CreativeWork    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,7 @@ from typing import (
     Optional,
     Union
 )
+from .creative_work import CreativeWork
 
 class Comment(CreativeWork):
     """
@@ -22,7 +20,7 @@ A comment on an item - for example, a comment on a blog post. The comment's cont
         alias='@type',
         serialization_alias='@type'
     )
-    parentItem: Optional[Union[CreativeWork, List[CreativeWork], "Comment", List["Comment"]]] = Field(
+    parentItem: Optional[Union[CreativeWork, List[CreativeWork], Comment, List[Comment]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'parentItem',

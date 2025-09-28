@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .thing import Thing    
-
 from datetime import (
     datetime,
     time
@@ -17,8 +14,15 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.person import Person
-from schemaorg_models.place import Place
+from .person import Person
+from .entry_point import EntryPoint
+from .how_to import HowTo
+from .thing import Thing
+from .virtual_location import VirtualLocation
+from .postal_address import PostalAddress
+from .place import Place
+from .action_status_type import ActionStatusType
+from .organization import Organization
 
 class Action(Thing):
     """
@@ -31,7 +35,7 @@ See also [blog post](https://blog.schema.org/2014/04/16/announcing-schema-org-ac
         alias='@type',
         serialization_alias='@type'
     )
-    actionStatus: Optional[Union["ActionStatusType", List["ActionStatusType"]]] = Field(
+    actionStatus: Optional[Union[ActionStatusType, List[ActionStatusType]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'actionStatus',
@@ -39,7 +43,7 @@ See also [blog post](https://blog.schema.org/2014/04/16/announcing-schema-org-ac
         ),
         serialization_alias='https://schema.org/actionStatus'
     )
-    target: Optional[Union[HttpUrl, List[HttpUrl], "EntryPoint", List["EntryPoint"]]] = Field(
+    target: Optional[Union[HttpUrl, List[HttpUrl], EntryPoint, List[EntryPoint]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'target',
@@ -55,7 +59,7 @@ See also [blog post](https://blog.schema.org/2014/04/16/announcing-schema-org-ac
         ),
         serialization_alias='https://schema.org/instrument'
     )
-    provider: Optional[Union[Person, List[Person], "Organization", List["Organization"]]] = Field(
+    provider: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'provider',
@@ -63,7 +67,7 @@ See also [blog post](https://blog.schema.org/2014/04/16/announcing-schema-org-ac
         ),
         serialization_alias='https://schema.org/provider'
     )
-    actionProcess: Optional[Union["HowTo", List["HowTo"]]] = Field(
+    actionProcess: Optional[Union[HowTo, List[HowTo]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'actionProcess',
@@ -71,7 +75,7 @@ See also [blog post](https://blog.schema.org/2014/04/16/announcing-schema-org-ac
         ),
         serialization_alias='https://schema.org/actionProcess'
     )
-    agent: Optional[Union[Person, List[Person], "Organization", List["Organization"]]] = Field(
+    agent: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'agent',
@@ -79,7 +83,7 @@ See also [blog post](https://blog.schema.org/2014/04/16/announcing-schema-org-ac
         ),
         serialization_alias='https://schema.org/agent'
     )
-    participant: Optional[Union["Organization", List["Organization"], Person, List[Person]]] = Field(
+    participant: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'participant',
@@ -119,7 +123,7 @@ See also [blog post](https://blog.schema.org/2014/04/16/announcing-schema-org-ac
         ),
         serialization_alias='https://schema.org/object'
     )
-    location: Optional[Union["VirtualLocation", List["VirtualLocation"], "PostalAddress", List["PostalAddress"], str, List[str], Place, List[Place]]] = Field(
+    location: Optional[Union[VirtualLocation, List[VirtualLocation], PostalAddress, List[PostalAddress], str, List[str], Place, List[Place]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'location',

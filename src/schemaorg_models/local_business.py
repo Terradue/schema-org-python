@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .place import Place    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.organization import Organization
+from .place import Place
+from .organization import Organization
 
 class LocalBusiness(Place):
     """

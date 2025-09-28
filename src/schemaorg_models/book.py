@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .creative_work import CreativeWork    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,9 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.person import Person
+from .book_format_type import BookFormatType
+from .person import Person
+from .creative_work import CreativeWork
 
 class Book(CreativeWork):
     """
@@ -31,7 +30,7 @@ A book.
         ),
         serialization_alias='https://schema.org/abridged'
     )
-    bookFormat: Optional[Union["BookFormatType", List["BookFormatType"]]] = Field(
+    bookFormat: Optional[Union[BookFormatType, List[BookFormatType]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'bookFormat',

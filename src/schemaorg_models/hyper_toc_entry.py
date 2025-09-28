@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .creative_work import CreativeWork    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.media_object import MediaObject
+from .media_object import MediaObject
+from .creative_work import CreativeWork
 
 class HyperTocEntry(CreativeWork):
     """
@@ -31,7 +29,7 @@ A HyperToEntry is an item within a [[HyperToc]], which represents a hypertext ta
         ),
         serialization_alias='https://schema.org/utterances'
     )
-    tocContinuation: Optional[Union["HyperTocEntry", List["HyperTocEntry"]]] = Field(
+    tocContinuation: Optional[Union[HyperTocEntry, List[HyperTocEntry]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'tocContinuation',

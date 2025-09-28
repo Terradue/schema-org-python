@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .intangible import Intangible    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,9 +9,12 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.parcel_delivery import ParcelDelivery
-from schemaorg_models.service import Service
-from schemaorg_models.product import Product
+from .intangible import Intangible
+from .order_status import OrderStatus
+from .parcel_delivery import ParcelDelivery
+from .quantitative_value import QuantitativeValue
+from .product import Product
+from .service import Service
 
 class OrderItem(Intangible):
     """
@@ -25,7 +25,7 @@ An order item is a line of an order. It includes the quantity and shipping detai
         alias='@type',
         serialization_alias='@type'
     )
-    orderQuantity: Optional[Union[float, List[float], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    orderQuantity: Optional[Union[float, List[float], QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'orderQuantity',
@@ -33,7 +33,7 @@ An order item is a line of an order. It includes the quantity and shipping detai
         ),
         serialization_alias='https://schema.org/orderQuantity'
     )
-    orderItemStatus: Optional[Union["OrderStatus", List["OrderStatus"]]] = Field(
+    orderItemStatus: Optional[Union[OrderStatus, List[OrderStatus]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'orderItemStatus',
@@ -57,7 +57,7 @@ An order item is a line of an order. It includes the quantity and shipping detai
         ),
         serialization_alias='https://schema.org/orderDelivery'
     )
-    orderedItem: Optional[Union["OrderItem", List["OrderItem"], Service, List[Service], Product, List[Product]]] = Field(
+    orderedItem: Optional[Union[OrderItem, List[OrderItem], Service, List[Service], Product, List[Product]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'orderedItem',

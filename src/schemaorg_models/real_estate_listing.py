@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .web_page import WebPage    
-
 from datetime import (
     date,
     datetime
@@ -16,8 +13,9 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.quantitative_value import QuantitativeValue
-from schemaorg_models.duration import Duration
+from .quantitative_value import QuantitativeValue
+from .duration import Duration
+from .web_page import WebPage
 
 class RealEstateListing(WebPage):
     """

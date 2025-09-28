@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .intangible import Intangible    
-
 from datetime import (
     date,
     datetime
@@ -17,9 +14,18 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.person import Person
-from schemaorg_models.organization import Organization
-from schemaorg_models.thing import Thing
+from .payment_status_type import PaymentStatusType
+from .physical_activity_category import PhysicalActivityCategory
+from .person import Person
+from .order import Order
+from .category_code import CategoryCode
+from .thing import Thing
+from .monetary_amount import MonetaryAmount
+from .intangible import Intangible
+from .payment_method import PaymentMethod
+from .duration import Duration
+from .price_specification import PriceSpecification
+from .organization import Organization
 
 class Invoice(Intangible):
     """
@@ -30,7 +36,7 @@ A statement of the money due for goods or services; a bill.
         alias='@type',
         serialization_alias='@type'
     )
-    referencesOrder: Optional[Union["Order", List["Order"]]] = Field(
+    referencesOrder: Optional[Union[Order, List[Order]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'referencesOrder',
@@ -78,7 +84,7 @@ A statement of the money due for goods or services; a bill.
         ),
         serialization_alias='https://schema.org/accountId'
     )
-    category: Optional[Union["PhysicalActivityCategory", List["PhysicalActivityCategory"], "CategoryCode", List["CategoryCode"], str, List[str], Thing, List[Thing], HttpUrl, List[HttpUrl]]] = Field(
+    category: Optional[Union[PhysicalActivityCategory, List[PhysicalActivityCategory], CategoryCode, List[CategoryCode], str, List[str], Thing, List[Thing], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'category',
@@ -94,7 +100,7 @@ A statement of the money due for goods or services; a bill.
         ),
         serialization_alias='https://schema.org/scheduledPaymentDate'
     )
-    totalPaymentDue: Optional[Union["PriceSpecification", List["PriceSpecification"], "MonetaryAmount", List["MonetaryAmount"]]] = Field(
+    totalPaymentDue: Optional[Union[PriceSpecification, List[PriceSpecification], MonetaryAmount, List[MonetaryAmount]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'totalPaymentDue',
@@ -110,7 +116,7 @@ A statement of the money due for goods or services; a bill.
         ),
         serialization_alias='https://schema.org/customer'
     )
-    paymentMethod: Optional[Union[str, List[str], "PaymentMethod", List["PaymentMethod"]]] = Field(
+    paymentMethod: Optional[Union[str, List[str], PaymentMethod, List[PaymentMethod]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'paymentMethod',
@@ -118,7 +124,7 @@ A statement of the money due for goods or services; a bill.
         ),
         serialization_alias='https://schema.org/paymentMethod'
     )
-    minimumPaymentDue: Optional[Union["PriceSpecification", List["PriceSpecification"], "MonetaryAmount", List["MonetaryAmount"]]] = Field(
+    minimumPaymentDue: Optional[Union[PriceSpecification, List[PriceSpecification], MonetaryAmount, List[MonetaryAmount]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'minimumPaymentDue',
@@ -142,7 +148,7 @@ A statement of the money due for goods or services; a bill.
         ),
         serialization_alias='https://schema.org/provider'
     )
-    paymentStatus: Optional[Union[str, List[str], "PaymentStatusType", List["PaymentStatusType"]]] = Field(
+    paymentStatus: Optional[Union[str, List[str], PaymentStatusType, List[PaymentStatusType]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'paymentStatus',
@@ -150,7 +156,7 @@ A statement of the money due for goods or services; a bill.
         ),
         serialization_alias='https://schema.org/paymentStatus'
     )
-    billingPeriod: Optional[Union["Duration", List["Duration"]]] = Field(
+    billingPeriod: Optional[Union[Duration, List[Duration]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'billingPeriod',

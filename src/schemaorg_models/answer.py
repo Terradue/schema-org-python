@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .comment import Comment    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,8 +9,9 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.creative_work import CreativeWork
-from schemaorg_models.web_content import WebContent
+from .web_content import WebContent
+from .comment import Comment
+from .creative_work import CreativeWork
 
 class Answer(Comment):
     """

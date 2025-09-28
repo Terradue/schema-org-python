@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .project import Project    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .project import Project
 
 class FundingAgency(Project):
     """

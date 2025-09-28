@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .action import Action    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,8 +9,9 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.audience import Audience
-from schemaorg_models.event import Event
+from .event import Event
+from .action import Action
+from .audience import Audience
 
 class PlayAction(Action):
     """

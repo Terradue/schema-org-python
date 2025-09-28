@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .financial_service import FinancialService    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .financial_service import FinancialService
 
 class AccountingService(FinancialService):
     """

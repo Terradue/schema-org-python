@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .medical_entity import MedicalEntity    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,9 +9,13 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.organization import Organization
-from schemaorg_models.person import Person
-from schemaorg_models.administrative_area import AdministrativeArea
+from .medical_condition import MedicalCondition
+from .event_status_type import EventStatusType
+from .person import Person
+from .medical_study_status import MedicalStudyStatus
+from .organization import Organization
+from .administrative_area import AdministrativeArea
+from .medical_entity import MedicalEntity
 
 class MedicalStudy(MedicalEntity):
     """
@@ -41,7 +42,7 @@ A medical study is an umbrella type covering all kinds of research studies relat
         ),
         serialization_alias='https://schema.org/sponsor'
     )
-    status: Optional[Union["EventStatusType", List["EventStatusType"], "MedicalStudyStatus", List["MedicalStudyStatus"], str, List[str]]] = Field(
+    status: Optional[Union[EventStatusType, List[EventStatusType], MedicalStudyStatus, List[MedicalStudyStatus], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'status',
@@ -57,7 +58,7 @@ A medical study is an umbrella type covering all kinds of research studies relat
         ),
         serialization_alias='https://schema.org/studyLocation'
     )
-    healthCondition: Optional[Union["MedicalCondition", List["MedicalCondition"]]] = Field(
+    healthCondition: Optional[Union[MedicalCondition, List[MedicalCondition]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'healthCondition',

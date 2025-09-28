@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .medical_entity import MedicalEntity    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .medical_entity import MedicalEntity
 
 class MedicalIndication(MedicalEntity):
     """

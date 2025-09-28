@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .local_business import LocalBusiness    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,6 +10,7 @@ from typing import (
     Optional,
     Union
 )
+from .local_business import LocalBusiness
 
 class FinancialService(LocalBusiness):
     """

@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .trip import Trip    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.boat_terminal import BoatTerminal
+from .trip import Trip
+from .boat_terminal import BoatTerminal
 
 class BoatTrip(Trip):
     """

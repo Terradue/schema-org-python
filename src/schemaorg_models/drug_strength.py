@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .medical_intangible import MedicalIntangible    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,9 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.administrative_area import AdministrativeArea
+from .administrative_area import AdministrativeArea
+from .medical_intangible import MedicalIntangible
+from .maximum_dose_schedule import MaximumDoseSchedule
 
 class DrugStrength(MedicalIntangible):
     """
@@ -31,7 +30,7 @@ A specific strength in which a medical drug is available in a specific country.
         ),
         serialization_alias='https://schema.org/strengthUnit'
     )
-    maximumIntake: Optional[Union["MaximumDoseSchedule", List["MaximumDoseSchedule"]]] = Field(
+    maximumIntake: Optional[Union[MaximumDoseSchedule, List[MaximumDoseSchedule]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'maximumIntake',

@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .intangible import Intangible    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,6 +10,8 @@ from typing import (
     Optional,
     Union
 )
+from .defined_term_set import DefinedTermSet
+from .intangible import Intangible
 
 class DefinedTerm(Intangible):
     """
@@ -31,7 +30,7 @@ A word, name, acronym, phrase, etc. with a formal definition. Often used in the 
         ),
         serialization_alias='https://schema.org/termCode'
     )
-    inDefinedTermSet: Optional[Union[HttpUrl, List[HttpUrl], "DefinedTermSet", List["DefinedTermSet"]]] = Field(
+    inDefinedTermSet: Optional[Union[HttpUrl, List[HttpUrl], DefinedTermSet, List[DefinedTermSet]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'inDefinedTermSet',

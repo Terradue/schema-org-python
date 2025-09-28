@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .intangible import Intangible    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,9 @@ from typing import (
     Optional,
     Union
 )
+from .energy_efficiency_enumeration import EnergyEfficiencyEnumeration
+from .eu_energy_efficiency_enumeration import EUEnergyEfficiencyEnumeration
+from .intangible import Intangible
 
 class EnergyConsumptionDetails(Intangible):
     """
@@ -22,7 +22,7 @@ EnergyConsumptionDetails represents information related to the energy efficiency
         alias='@type',
         serialization_alias='@type'
     )
-    hasEnergyEfficiencyCategory: Optional[Union["EnergyEfficiencyEnumeration", List["EnergyEfficiencyEnumeration"]]] = Field(
+    hasEnergyEfficiencyCategory: Optional[Union[EnergyEfficiencyEnumeration, List[EnergyEfficiencyEnumeration]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasEnergyEfficiencyCategory',
@@ -30,7 +30,7 @@ EnergyConsumptionDetails represents information related to the energy efficiency
         ),
         serialization_alias='https://schema.org/hasEnergyEfficiencyCategory'
     )
-    energyEfficiencyScaleMax: Optional[Union["EUEnergyEfficiencyEnumeration", List["EUEnergyEfficiencyEnumeration"]]] = Field(
+    energyEfficiencyScaleMax: Optional[Union[EUEnergyEfficiencyEnumeration, List[EUEnergyEfficiencyEnumeration]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'energyEfficiencyScaleMax',
@@ -38,7 +38,7 @@ EnergyConsumptionDetails represents information related to the energy efficiency
         ),
         serialization_alias='https://schema.org/energyEfficiencyScaleMax'
     )
-    energyEfficiencyScaleMin: Optional[Union["EUEnergyEfficiencyEnumeration", List["EUEnergyEfficiencyEnumeration"]]] = Field(
+    energyEfficiencyScaleMin: Optional[Union[EUEnergyEfficiencyEnumeration, List[EUEnergyEfficiencyEnumeration]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'energyEfficiencyScaleMin',

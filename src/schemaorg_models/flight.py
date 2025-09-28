@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .trip import Trip    
-
 from datetime import (
     datetime
 )
@@ -15,11 +12,14 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.boarding_policy_type import BoardingPolicyType
-from schemaorg_models.airport import Airport
-from schemaorg_models.organization import Organization
-from schemaorg_models.person import Person
-from schemaorg_models.vehicle import Vehicle
+from .person import Person
+from .vehicle import Vehicle
+from .distance import Distance
+from .airport import Airport
+from .duration import Duration
+from .boarding_policy_type import BoardingPolicyType
+from .organization import Organization
+from .trip import Trip
 
 class Flight(Trip):
     """
@@ -38,7 +38,7 @@ An airline flight.
         ),
         serialization_alias='https://schema.org/boardingPolicy'
     )
-    estimatedFlightDuration: Optional[Union[str, List[str], "Duration", List["Duration"]]] = Field(
+    estimatedFlightDuration: Optional[Union[str, List[str], Duration, List[Duration]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'estimatedFlightDuration',
@@ -86,7 +86,7 @@ An airline flight.
         ),
         serialization_alias='https://schema.org/arrivalTerminal'
     )
-    flightDistance: Optional[Union[str, List[str], "Distance", List["Distance"]]] = Field(
+    flightDistance: Optional[Union[str, List[str], Distance, List[Distance]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'flightDistance',

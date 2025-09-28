@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .anatomical_structure import AnatomicalStructure    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .anatomical_structure import AnatomicalStructure
 
 class Ligament(AnatomicalStructure):
     """

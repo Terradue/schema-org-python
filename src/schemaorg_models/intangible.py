@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .thing import Thing    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .thing import Thing
 
 class Intangible(Thing):
     """

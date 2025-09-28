@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .administrative_area import AdministrativeArea    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .administrative_area import AdministrativeArea
 
 class Country(AdministrativeArea):
     """

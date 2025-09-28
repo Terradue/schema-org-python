@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .media_gallery import MediaGallery    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .media_gallery import MediaGallery
 
 class ImageGallery(MediaGallery):
     """

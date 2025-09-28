@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .vessel import Vessel    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.anatomical_structure import AnatomicalStructure
+from .vessel import Vessel
+from .anatomical_structure import AnatomicalStructure
 
 class Artery(Vessel):
     """

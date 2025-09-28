@@ -97,31 +97,22 @@ def generate_models(graph: Graph):
         if class_name is not None and class_name in classes:
             classes[class_name]["order"] = order
             ts_sorted.append(class_name)
-
     # Write init file
     with open("src/schemaorg_models/__init__.py", "w") as f:
-        nl = '\n'
-        cnl = ',\n    '
-        f.write(f"""from __future__ import annotations
-import importlib
-from typing import TYPE_CHECKING
+        f.write(f"""
+# Schema.org Pydantic v2 models
+# The MIT License (MIT)
+""")
+    '''
+        f.write("from typing import Union, List, Optional\n")
+        f.write("from datetime import date, datetime, time\n")
+        f.write("from pydantic import field_validator, ConfigDict, Field, HttpUrl\n\n")
 
-__all__ = [
-    {cnl.join(repr(class_name) for class_name in ts_sorted)}
-]
-
-_lazy_map = {{
-{nl.join(f"    {class_name!r}: '.{camel_to_snake(class_name)}'," for class_name in ts_sorted)}
-}}
-
-def __getattr__(name): 
-    mod = importlib.import_module(_lazy_map[name], __name__)
-    return getattr(mod, name)
-
-if TYPE_CHECKING:
-    for _n, _m in _lazy_map.items():
-        globals()[_n] = getattr(importlib.import_module(_m, __name__), _n)
-        """)
+        for class_name in ts_sorted:
+            if class_name is not None:
+                class_filename = camel_to_snake(class_name)
+                f.write(f"from schema_models.{class_filename} import {class_name}\n")
+    '''
     # Second pass: collect properties
     for class_name, class_info in classes.items():
         class_uri = SCHEMA[class_name]
@@ -151,14 +142,6 @@ if TYPE_CHECKING:
         with open(filename, "w") as f:
             f.write("from __future__ import annotations\n")
 
-            # Import parent class if exists
-            if class_info["parent"]:
-                parent = camel_to_snake(class_info["parent"])
-                f.write(f"""
-from .{parent} import {class_info['parent']}    
-
-""")
-
             # Imports
             f.write("""from datetime import (
     date,
@@ -182,26 +165,29 @@ from typing import (
 )
 """)
 
+            # Import parent class if exists
+            aux_imports : set = set([])
+            if class_info["parent"]:
+                aux_imports.add(class_info["parent"])
+
             # Import other classes
             other_classes = {}
+            
             for prop_name, prop_type in class_info["properties"]:
                 if prop_type != class_name and prop_type not in BASE_TYPES.values():
                     forward_def = classes[prop_type]["order"] > class_info["order"]
                     other_classes[prop_type] = forward_def
 
-            for prop_type, forward_def in other_classes.items():
-                other_snake = camel_to_snake(prop_type)
-                if not forward_def and prop_type != class_info.get('parent', None):
-                    f.write(f"from schemaorg_models.{other_snake} import {prop_type}\n")
-            f.write("\n")
+                    aux_imports.add(prop_type)
+
+            for prop_type in aux_imports:
+                f.write(f"from .{camel_to_snake(prop_type)} import {prop_type}\n")
 
             # Class definition
             if class_info["parent"]:
-                f.write(f"class {class_name}({class_info['parent']}):\n")
+                f.write(f"\nclass {class_name}({class_info['parent']}):\n")
             else:
-                #if class_name == "Thing":
-                #    f.write("from pydantic import BaseModel\n")
-                f.write(f"class {class_name}(BaseModel):\n")
+                f.write(f"\nclass {class_name}(BaseModel):\n")
 
             docstring = class_info.get("docstring", None)
             if docstring is not None:
@@ -232,8 +218,8 @@ from typing import (
             for prop_name, prop_type in class_info["properties"]:
                 # if prop_type is self, it should be in double quotes
                 forward_def = other_classes.get(prop_type, False)
-                if prop_type == class_name or forward_def:
-                    prop_type = f'"{prop_type}"'
+                #if prop_type == class_name or forward_def:
+                #    prop_type = f'"{prop_type}"'
                 prop_dict[prop_name].append(prop_type)
 
             for prop_name, prop_type_list in prop_dict.items():

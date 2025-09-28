@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .online_store import OnlineStore    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,7 @@ from typing import (
     Optional,
     Union
 )
+from .online_store import OnlineStore
 
 class OnlineMarketplace(OnlineStore):
     """

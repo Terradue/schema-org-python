@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .constraint_node import ConstraintNode    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,11 +10,12 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.property import Property
-from schemaorg_models.__class import _Class
-from schemaorg_models.defined_term import DefinedTerm
-from schemaorg_models.measurement_method_enum import MeasurementMethodEnum
-from schemaorg_models.enumeration import Enumeration
+from .enumeration import Enumeration
+from .__class import _Class
+from .property import Property
+from .measurement_method_enum import MeasurementMethodEnum
+from .constraint_node import ConstraintNode
+from .defined_term import DefinedTerm
 
 class StatisticalVariable(ConstraintNode):
     """
@@ -36,7 +34,7 @@ class StatisticalVariable(ConstraintNode):
         ),
         serialization_alias='https://schema.org/statType'
     )
-    measurementDenominator: Optional[Union["StatisticalVariable", List["StatisticalVariable"]]] = Field(
+    measurementDenominator: Optional[Union[StatisticalVariable, List[StatisticalVariable]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'measurementDenominator',

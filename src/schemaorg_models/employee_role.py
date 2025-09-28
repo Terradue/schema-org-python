@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .organization_role import OrganizationRole    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,8 +9,9 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.price_specification import PriceSpecification
-from schemaorg_models.monetary_amount import MonetaryAmount
+from .monetary_amount import MonetaryAmount
+from .price_specification import PriceSpecification
+from .organization_role import OrganizationRole
 
 class EmployeeRole(OrganizationRole):
     """

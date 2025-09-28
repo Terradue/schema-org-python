@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .product import Product    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,8 @@ from typing import (
     Optional,
     Union
 )
+from .product import Product
+from .type_and_quantity_node import TypeAndQuantityNode
 
 class ProductCollection(Product):
     """
@@ -22,7 +21,7 @@ A set of products (either [[ProductGroup]]s or specific variants) that are liste
         alias='@type',
         serialization_alias='@type'
     )
-    includesObject: Optional[Union["TypeAndQuantityNode", List["TypeAndQuantityNode"]]] = Field(
+    includesObject: Optional[Union[TypeAndQuantityNode, List[TypeAndQuantityNode]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'includesObject',

@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .event import Event    
-
 from datetime import (
     datetime
 )
@@ -15,6 +12,8 @@ from typing import (
     Optional,
     Union
 )
+from .event import Event
+from .delivery_method import DeliveryMethod
 
 class DeliveryEvent(Event):
     """
@@ -41,7 +40,7 @@ An event involving the delivery of an item.
         ),
         serialization_alias='https://schema.org/availableFrom'
     )
-    hasDeliveryMethod: Optional[Union["DeliveryMethod", List["DeliveryMethod"]]] = Field(
+    hasDeliveryMethod: Optional[Union[DeliveryMethod, List[DeliveryMethod]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasDeliveryMethod',

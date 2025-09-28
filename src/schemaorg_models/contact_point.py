@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .structured_value import StructuredValue    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,12 +9,14 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.administrative_area import AdministrativeArea
-from schemaorg_models.geo_shape import GeoShape
-from schemaorg_models.place import Place
-from schemaorg_models.language import Language
-from schemaorg_models.product import Product
-from schemaorg_models.contact_point_option import ContactPointOption
+from .opening_hours_specification import OpeningHoursSpecification
+from .language import Language
+from .geo_shape import GeoShape
+from .structured_value import StructuredValue
+from .contact_point_option import ContactPointOption
+from .place import Place
+from .administrative_area import AdministrativeArea
+from .product import Product
 
 class ContactPoint(StructuredValue):
     """
@@ -44,7 +43,7 @@ A contact point for a person or organization.
         ),
         serialization_alias='https://schema.org/email'
     )
-    hoursAvailable: Optional[Union["OpeningHoursSpecification", List["OpeningHoursSpecification"]]] = Field(
+    hoursAvailable: Optional[Union[OpeningHoursSpecification, List[OpeningHoursSpecification]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hoursAvailable',

@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .creative_work import CreativeWork    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,6 +10,9 @@ from typing import (
     Optional,
     Union
 )
+from .image_object import ImageObject
+from .data_feed import DataFeed
+from .creative_work import CreativeWork
 
 class SoftwareApplication(CreativeWork):
     """
@@ -135,7 +135,7 @@ A software application.
         ),
         serialization_alias='https://schema.org/featureList'
     )
-    supportingData: Optional[Union["DataFeed", List["DataFeed"]]] = Field(
+    supportingData: Optional[Union[DataFeed, List[DataFeed]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'supportingData',
@@ -183,7 +183,7 @@ A software application.
         ),
         serialization_alias='https://schema.org/operatingSystem'
     )
-    screenshot: Optional[Union[HttpUrl, List[HttpUrl], "ImageObject", List["ImageObject"]]] = Field(
+    screenshot: Optional[Union[HttpUrl, List[HttpUrl], ImageObject, List[ImageObject]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'screenshot',
@@ -191,7 +191,7 @@ A software application.
         ),
         serialization_alias='https://schema.org/screenshot'
     )
-    softwareAddOn: Optional[Union["SoftwareApplication", List["SoftwareApplication"]]] = Field(
+    softwareAddOn: Optional[Union[SoftwareApplication, List[SoftwareApplication]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'softwareAddOn',

@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .action import Action    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,8 +9,9 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.action_access_specification import ActionAccessSpecification
-from schemaorg_models.offer import Offer
+from .action import Action
+from .offer import Offer
+from .action_access_specification import ActionAccessSpecification
 
 class ConsumeAction(Action):
     """

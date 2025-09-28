@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .audio_object import AudioObject    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,9 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.duration import Duration
-from schemaorg_models.quantitative_value import QuantitativeValue
-from schemaorg_models.person import Person
+from .duration import Duration
+from .person import Person
+from .quantitative_value import QuantitativeValue
+from .audio_object import AudioObject
 
 class Audiobook(AudioObject):
     """

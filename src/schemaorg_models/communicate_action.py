@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .interact_action import InteractAction    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,12 +9,13 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.language import Language
-from schemaorg_models.thing import Thing
-from schemaorg_models.organization import Organization
-from schemaorg_models.audience import Audience
-from schemaorg_models.contact_point import ContactPoint
-from schemaorg_models.person import Person
+from .contact_point import ContactPoint
+from .language import Language
+from .person import Person
+from .thing import Thing
+from .interact_action import InteractAction
+from .organization import Organization
+from .audience import Audience
 
 class CommunicateAction(InteractAction):
     """

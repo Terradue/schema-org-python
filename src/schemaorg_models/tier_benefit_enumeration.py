@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .enumeration import Enumeration    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .enumeration import Enumeration
 
 class TierBenefitEnumeration(Enumeration):
     """

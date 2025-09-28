@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .price_specification import PriceSpecification    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,10 +10,11 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.duration import Duration
-from schemaorg_models.quantitative_value import QuantitativeValue
-from schemaorg_models.price_component_type_enumeration import PriceComponentTypeEnumeration
-from schemaorg_models.price_type_enumeration import PriceTypeEnumeration
+from .price_type_enumeration import PriceTypeEnumeration
+from .duration import Duration
+from .quantitative_value import QuantitativeValue
+from .price_specification import PriceSpecification
+from .price_component_type_enumeration import PriceComponentTypeEnumeration
 
 class UnitPriceSpecification(PriceSpecification):
     """

@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .clip import Clip    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.tv_series import TVSeries
+from .tv_series import TVSeries
+from .clip import Clip
 
 class TVClip(Clip):
     """

@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .organization import Organization    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,8 +10,10 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.creative_work import CreativeWork
-from schemaorg_models.article import Article
+from .about_page import AboutPage
+from .article import Article
+from .creative_work import CreativeWork
+from .organization import Organization
 
 class NewsMediaOrganization(Organization):
     """
@@ -25,7 +24,7 @@ A News/Media organization such as a newspaper or TV station.
         alias='@type',
         serialization_alias='@type'
     )
-    ownershipFundingInfo: Optional[Union[str, List[str], CreativeWork, List[CreativeWork], HttpUrl, List[HttpUrl], "AboutPage", List["AboutPage"]]] = Field(
+    ownershipFundingInfo: Optional[Union[str, List[str], CreativeWork, List[CreativeWork], HttpUrl, List[HttpUrl], AboutPage, List[AboutPage]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'ownershipFundingInfo',

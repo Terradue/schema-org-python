@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .creative_work import CreativeWork    
-
 from datetime import (
     date
 )
@@ -16,9 +13,12 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.person import Person
-from schemaorg_models.organization import Organization
-from schemaorg_models.administrative_area import AdministrativeArea
+from .person import Person
+from .category_code import CategoryCode
+from .legal_force_status import LegalForceStatus
+from .organization import Organization
+from .administrative_area import AdministrativeArea
+from .creative_work import CreativeWork
 
 class Legislation(CreativeWork):
     """
@@ -29,7 +29,7 @@ A legal document such as an act, decree, bill, etc. (enforceable or not) or a co
         alias='@type',
         serialization_alias='@type'
     )
-    legislationApplies: Optional[Union["Legislation", List["Legislation"]]] = Field(
+    legislationApplies: Optional[Union[Legislation, List[Legislation]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'legislationApplies',
@@ -45,7 +45,7 @@ A legal document such as an act, decree, bill, etc. (enforceable or not) or a co
         ),
         serialization_alias='https://schema.org/legislationCountersignedBy'
     )
-    legislationChanges: Optional[Union["Legislation", List["Legislation"]]] = Field(
+    legislationChanges: Optional[Union[Legislation, List[Legislation]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'legislationChanges',
@@ -53,7 +53,7 @@ A legal document such as an act, decree, bill, etc. (enforceable or not) or a co
         ),
         serialization_alias='https://schema.org/legislationChanges'
     )
-    legislationCommences: Optional[Union["Legislation", List["Legislation"]]] = Field(
+    legislationCommences: Optional[Union[Legislation, List[Legislation]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'legislationCommences',
@@ -61,7 +61,7 @@ A legal document such as an act, decree, bill, etc. (enforceable or not) or a co
         ),
         serialization_alias='https://schema.org/legislationCommences'
     )
-    legislationRepeals: Optional[Union["Legislation", List["Legislation"]]] = Field(
+    legislationRepeals: Optional[Union[Legislation, List[Legislation]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'legislationRepeals',
@@ -69,7 +69,7 @@ A legal document such as an act, decree, bill, etc. (enforceable or not) or a co
         ),
         serialization_alias='https://schema.org/legislationRepeals'
     )
-    legislationType: Optional[Union[str, List[str], "CategoryCode", List["CategoryCode"]]] = Field(
+    legislationType: Optional[Union[str, List[str], CategoryCode, List[CategoryCode]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'legislationType',
@@ -93,7 +93,7 @@ A legal document such as an act, decree, bill, etc. (enforceable or not) or a co
         ),
         serialization_alias='https://schema.org/legislationJurisdiction'
     )
-    legislationCorrects: Optional[Union["Legislation", List["Legislation"]]] = Field(
+    legislationCorrects: Optional[Union[Legislation, List[Legislation]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'legislationCorrects',
@@ -101,7 +101,7 @@ A legal document such as an act, decree, bill, etc. (enforceable or not) or a co
         ),
         serialization_alias='https://schema.org/legislationCorrects'
     )
-    legislationTransposes: Optional[Union["Legislation", List["Legislation"]]] = Field(
+    legislationTransposes: Optional[Union[Legislation, List[Legislation]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'legislationTransposes',
@@ -117,7 +117,7 @@ A legal document such as an act, decree, bill, etc. (enforceable or not) or a co
         ),
         serialization_alias='https://schema.org/legislationDate'
     )
-    legislationEnsuresImplementationOf: Optional[Union["Legislation", List["Legislation"]]] = Field(
+    legislationEnsuresImplementationOf: Optional[Union[Legislation, List[Legislation]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'legislationEnsuresImplementationOf',
@@ -133,7 +133,7 @@ A legal document such as an act, decree, bill, etc. (enforceable or not) or a co
         ),
         serialization_alias='https://schema.org/legislationPassedBy'
     )
-    legislationConsolidates: Optional[Union["Legislation", List["Legislation"]]] = Field(
+    legislationConsolidates: Optional[Union[Legislation, List[Legislation]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'legislationConsolidates',
@@ -157,7 +157,7 @@ A legal document such as an act, decree, bill, etc. (enforceable or not) or a co
         ),
         serialization_alias='https://schema.org/legislationIdentifier'
     )
-    legislationLegalForce: Optional[Union["LegalForceStatus", List["LegalForceStatus"]]] = Field(
+    legislationLegalForce: Optional[Union[LegalForceStatus, List[LegalForceStatus]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'legislationLegalForce',
@@ -165,7 +165,7 @@ A legal document such as an act, decree, bill, etc. (enforceable or not) or a co
         ),
         serialization_alias='https://schema.org/legislationLegalForce'
     )
-    legislationAmends: Optional[Union["Legislation", List["Legislation"]]] = Field(
+    legislationAmends: Optional[Union[Legislation, List[Legislation]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'legislationAmends',

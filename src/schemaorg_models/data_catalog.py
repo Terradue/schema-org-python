@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .creative_work import CreativeWork    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,7 +10,10 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.defined_term import DefinedTerm
+from .measurement_method_enum import MeasurementMethodEnum
+from .defined_term import DefinedTerm
+from .creative_work import CreativeWork
+from .dataset import Dataset
 
 class DataCatalog(CreativeWork):
     """
@@ -24,7 +24,7 @@ A collection of datasets.
         alias='@type',
         serialization_alias='@type'
     )
-    measurementTechnique: Optional[Union[DefinedTerm, List[DefinedTerm], "MeasurementMethodEnum", List["MeasurementMethodEnum"], str, List[str], HttpUrl, List[HttpUrl]]] = Field(
+    measurementTechnique: Optional[Union[DefinedTerm, List[DefinedTerm], MeasurementMethodEnum, List[MeasurementMethodEnum], str, List[str], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'measurementTechnique',
@@ -32,7 +32,7 @@ A collection of datasets.
         ),
         serialization_alias='https://schema.org/measurementTechnique'
     )
-    dataset: Optional[Union["Dataset", List["Dataset"]]] = Field(
+    dataset: Optional[Union[Dataset, List[Dataset]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'dataset',
@@ -40,7 +40,7 @@ A collection of datasets.
         ),
         serialization_alias='https://schema.org/dataset'
     )
-    measurementMethod: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str], "MeasurementMethodEnum", List["MeasurementMethodEnum"], HttpUrl, List[HttpUrl]]] = Field(
+    measurementMethod: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str], MeasurementMethodEnum, List[MeasurementMethodEnum], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'measurementMethod',

@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .insert_action import InsertAction    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .insert_action import InsertAction
 
 class PrependAction(InsertAction):
     """

@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .media_object import MediaObject    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,8 +10,9 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.defined_term import DefinedTerm
-from schemaorg_models.measurement_method_enum import MeasurementMethodEnum
+from .measurement_method_enum import MeasurementMethodEnum
+from .media_object import MediaObject
+from .defined_term import DefinedTerm
 
 class DataDownload(MediaObject):
     """

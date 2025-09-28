@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .geo_shape import GeoShape    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,8 +9,9 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.geo_coordinates import GeoCoordinates
-from schemaorg_models.distance import Distance
+from .geo_shape import GeoShape
+from .geo_coordinates import GeoCoordinates
+from .distance import Distance
 
 class GeoCircle(GeoShape):
     """

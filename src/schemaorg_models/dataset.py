@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .creative_work import CreativeWork    
-
 from datetime import (
     datetime
 )
@@ -16,9 +13,14 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.property import Property
-from schemaorg_models.data_catalog import DataCatalog
-from schemaorg_models.defined_term import DefinedTerm
+from .measurement_method_enum import MeasurementMethodEnum
+from .property import Property
+from .property_value import PropertyValue
+from .statistical_variable import StatisticalVariable
+from .data_download import DataDownload
+from .data_catalog import DataCatalog
+from .defined_term import DefinedTerm
+from .creative_work import CreativeWork
 
 class Dataset(CreativeWork):
     """
@@ -37,7 +39,7 @@ A dataset contained in this catalog.
         ),
         serialization_alias='https://schema.org/issn'
     )
-    variableMeasured: Optional[Union[Property, List[Property], "StatisticalVariable", List["StatisticalVariable"], str, List[str], "PropertyValue", List["PropertyValue"]]] = Field(
+    variableMeasured: Optional[Union[Property, List[Property], StatisticalVariable, List[StatisticalVariable], str, List[str], PropertyValue, List[PropertyValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'variableMeasured',
@@ -69,7 +71,7 @@ A dataset contained in this catalog.
         ),
         serialization_alias='https://schema.org/catalog'
     )
-    variablesMeasured: Optional[Union[str, List[str], "PropertyValue", List["PropertyValue"]]] = Field(
+    variablesMeasured: Optional[Union[str, List[str], PropertyValue, List[PropertyValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'variablesMeasured',
@@ -77,7 +79,7 @@ A dataset contained in this catalog.
         ),
         serialization_alias='https://schema.org/variablesMeasured'
     )
-    distribution: Optional[Union["DataDownload", List["DataDownload"]]] = Field(
+    distribution: Optional[Union[DataDownload, List[DataDownload]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'distribution',
@@ -85,7 +87,7 @@ A dataset contained in this catalog.
         ),
         serialization_alias='https://schema.org/distribution'
     )
-    measurementTechnique: Optional[Union[DefinedTerm, List[DefinedTerm], "MeasurementMethodEnum", List["MeasurementMethodEnum"], str, List[str], HttpUrl, List[HttpUrl]]] = Field(
+    measurementTechnique: Optional[Union[DefinedTerm, List[DefinedTerm], MeasurementMethodEnum, List[MeasurementMethodEnum], str, List[str], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'measurementTechnique',
@@ -101,7 +103,7 @@ A dataset contained in this catalog.
         ),
         serialization_alias='https://schema.org/datasetTimeInterval'
     )
-    measurementMethod: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str], "MeasurementMethodEnum", List["MeasurementMethodEnum"], HttpUrl, List[HttpUrl]]] = Field(
+    measurementMethod: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str], MeasurementMethodEnum, List[MeasurementMethodEnum], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'measurementMethod',

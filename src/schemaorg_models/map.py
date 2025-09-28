@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .creative_work import CreativeWork    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,8 @@ from typing import (
     Optional,
     Union
 )
+from .map_category_type import MapCategoryType
+from .creative_work import CreativeWork
 
 class Map(CreativeWork):
     """
@@ -22,7 +21,7 @@ A map.
         alias='@type',
         serialization_alias='@type'
     )
-    mapType: Optional[Union["MapCategoryType", List["MapCategoryType"]]] = Field(
+    mapType: Optional[Union[MapCategoryType, List[MapCategoryType]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'mapType',

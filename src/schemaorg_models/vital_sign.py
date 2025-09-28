@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .medical_sign import MedicalSign    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .medical_sign import MedicalSign
 
 class VitalSign(MedicalSign):
     """

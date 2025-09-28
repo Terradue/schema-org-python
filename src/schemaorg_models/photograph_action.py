@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .create_action import CreateAction    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .create_action import CreateAction
 
 class PhotographAction(CreateAction):
     """

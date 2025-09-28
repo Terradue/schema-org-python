@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .product import Product    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,7 @@ from typing import (
     Optional,
     Union
 )
+from .product import Product
 
 class IndividualProduct(Product):
     """

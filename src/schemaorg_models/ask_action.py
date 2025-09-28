@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .communicate_action import CommunicateAction    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.question import Question
+from .communicate_action import CommunicateAction
+from .question import Question
 
 class AskAction(CommunicateAction):
     """

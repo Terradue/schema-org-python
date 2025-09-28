@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .financial_product import FinancialProduct    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .financial_product import FinancialProduct
 
 class CurrencyConversionService(FinancialProduct):
     """

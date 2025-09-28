@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .collection_page import CollectionPage    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .collection_page import CollectionPage
 
 class MediaGallery(CollectionPage):
     """

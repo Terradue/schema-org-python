@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .creative_work_series import CreativeWorkSeries    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,17 +10,20 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.thing import Thing
-from schemaorg_models.episode import Episode
-from schemaorg_models.quantitative_value import QuantitativeValue
-from schemaorg_models.person import Person
-from schemaorg_models.performing_group import PerformingGroup
-from schemaorg_models.place import Place
-from schemaorg_models.game_play_mode import GamePlayMode
-from schemaorg_models.creative_work_season import CreativeWorkSeason
-from schemaorg_models.organization import Organization
-from schemaorg_models.creative_work import CreativeWork
-from schemaorg_models.video_object import VideoObject
+from .person import Person
+from .music_group import MusicGroup
+from .thing import Thing
+from .episode import Episode
+from .organization import Organization
+from .video_object import VideoObject
+from .performing_group import PerformingGroup
+from .place import Place
+from .postal_address import PostalAddress
+from .game_play_mode import GamePlayMode
+from .quantitative_value import QuantitativeValue
+from .creative_work_series import CreativeWorkSeries
+from .creative_work_season import CreativeWorkSeason
+from .creative_work import CreativeWork
 
 class VideoGameSeries(CreativeWorkSeries):
     """
@@ -82,7 +82,7 @@ A video game series.
         ),
         serialization_alias='https://schema.org/quest'
     )
-    gameLocation: Optional[Union[Place, List[Place], HttpUrl, List[HttpUrl], "PostalAddress", List["PostalAddress"]]] = Field(
+    gameLocation: Optional[Union[Place, List[Place], HttpUrl, List[HttpUrl], PostalAddress, List[PostalAddress]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'gameLocation',
@@ -114,7 +114,7 @@ A video game series.
         ),
         serialization_alias='https://schema.org/productionCompany'
     )
-    musicBy: Optional[Union["MusicGroup", List["MusicGroup"], Person, List[Person]]] = Field(
+    musicBy: Optional[Union[MusicGroup, List[MusicGroup], Person, List[Person]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'musicBy',

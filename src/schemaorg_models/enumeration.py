@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .intangible import Intangible    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,9 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.property import Property
+from .__class import _Class
+from .property import Property
+from .intangible import Intangible
 
 class Enumeration(Intangible):
     """
@@ -23,7 +22,7 @@ Lists or enumerations—for example, a list of cuisines or music genres, etc.
         alias='@type',
         serialization_alias='@type'
     )
-    supersededBy: Optional[Union["Enumeration", List["Enumeration"], "_Class", List["_Class"], Property, List[Property]]] = Field(
+    supersededBy: Optional[Union[Enumeration, List[Enumeration], _Class, List[_Class], Property, List[Property]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'supersededBy',

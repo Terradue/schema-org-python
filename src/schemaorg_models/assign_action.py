@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .allocate_action import AllocateAction    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .allocate_action import AllocateAction
 
 class AssignAction(AllocateAction):
     """

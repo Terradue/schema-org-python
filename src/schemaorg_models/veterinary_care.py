@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .medical_organization import MedicalOrganization    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .medical_organization import MedicalOrganization
 
 class VeterinaryCare(MedicalOrganization):
     """

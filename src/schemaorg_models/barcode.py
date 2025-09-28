@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .image_object import ImageObject    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .image_object import ImageObject
 
 class Barcode(ImageObject):
     """

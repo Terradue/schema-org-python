@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .intangible import Intangible    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,14 +10,28 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.audience import Audience
-from schemaorg_models.thing import Thing
-from schemaorg_models.product import Product
-from schemaorg_models.organization import Organization
-from schemaorg_models.brand import Brand
-from schemaorg_models.person import Person
-from schemaorg_models.administrative_area import AdministrativeArea
-from schemaorg_models.place import Place
+from .service_channel import ServiceChannel
+from .thing import Thing
+from .review import Review
+from .administrative_area import AdministrativeArea
+from .product import Product
+from .demand import Demand
+from .offer import Offer
+from .person import Person
+from .category_code import CategoryCode
+from .geo_shape import GeoShape
+from .image_object import ImageObject
+from .place import Place
+from .organization import Organization
+from .physical_activity_category import PhysicalActivityCategory
+from .certification import Certification
+from .government_benefits_type import GovernmentBenefitsType
+from .opening_hours_specification import OpeningHoursSpecification
+from .offer_catalog import OfferCatalog
+from .intangible import Intangible
+from .aggregate_rating import AggregateRating
+from .brand import Brand
+from .audience import Audience
 
 class Service(Intangible):
     """
@@ -39,7 +50,7 @@ A service provided by an organization, e.g. delivery service, print services, et
         ),
         serialization_alias='https://schema.org/slogan'
     )
-    logo: Optional[Union[HttpUrl, List[HttpUrl], "ImageObject", List["ImageObject"]]] = Field(
+    logo: Optional[Union[HttpUrl, List[HttpUrl], ImageObject, List[ImageObject]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'logo',
@@ -63,7 +74,7 @@ A service provided by an organization, e.g. delivery service, print services, et
         ),
         serialization_alias='https://schema.org/produces'
     )
-    hoursAvailable: Optional[Union["OpeningHoursSpecification", List["OpeningHoursSpecification"]]] = Field(
+    hoursAvailable: Optional[Union[OpeningHoursSpecification, List[OpeningHoursSpecification]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hoursAvailable',
@@ -95,7 +106,7 @@ A service provided by an organization, e.g. delivery service, print services, et
         ),
         serialization_alias='https://schema.org/award'
     )
-    availableChannel: Optional[Union["ServiceChannel", List["ServiceChannel"]]] = Field(
+    availableChannel: Optional[Union[ServiceChannel, List[ServiceChannel]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'availableChannel',
@@ -103,7 +114,7 @@ A service provided by an organization, e.g. delivery service, print services, et
         ),
         serialization_alias='https://schema.org/availableChannel'
     )
-    isSimilarTo: Optional[Union["Service", List["Service"], Product, List[Product]]] = Field(
+    isSimilarTo: Optional[Union[Service, List[Service], Product, List[Product]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'isSimilarTo',
@@ -111,7 +122,7 @@ A service provided by an organization, e.g. delivery service, print services, et
         ),
         serialization_alias='https://schema.org/isSimilarTo'
     )
-    offers: Optional[Union["Demand", List["Demand"], "Offer", List["Offer"]]] = Field(
+    offers: Optional[Union[Demand, List[Demand], Offer, List[Offer]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'offers',
@@ -135,7 +146,7 @@ A service provided by an organization, e.g. delivery service, print services, et
         ),
         serialization_alias='https://schema.org/brand'
     )
-    review: Optional[Union["Review", List["Review"]]] = Field(
+    review: Optional[Union[Review, List[Review]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'review',
@@ -159,7 +170,7 @@ A service provided by an organization, e.g. delivery service, print services, et
         ),
         serialization_alias='https://schema.org/provider'
     )
-    category: Optional[Union["PhysicalActivityCategory", List["PhysicalActivityCategory"], "CategoryCode", List["CategoryCode"], str, List[str], Thing, List[Thing], HttpUrl, List[HttpUrl]]] = Field(
+    category: Optional[Union[PhysicalActivityCategory, List[PhysicalActivityCategory], CategoryCode, List[CategoryCode], str, List[str], Thing, List[Thing], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'category',
@@ -167,7 +178,7 @@ A service provided by an organization, e.g. delivery service, print services, et
         ),
         serialization_alias='https://schema.org/category'
     )
-    serviceArea: Optional[Union[AdministrativeArea, List[AdministrativeArea], "GeoShape", List["GeoShape"], Place, List[Place]]] = Field(
+    serviceArea: Optional[Union[AdministrativeArea, List[AdministrativeArea], GeoShape, List[GeoShape], Place, List[Place]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'serviceArea',
@@ -175,7 +186,7 @@ A service provided by an organization, e.g. delivery service, print services, et
         ),
         serialization_alias='https://schema.org/serviceArea'
     )
-    hasOfferCatalog: Optional[Union["OfferCatalog", List["OfferCatalog"]]] = Field(
+    hasOfferCatalog: Optional[Union[OfferCatalog, List[OfferCatalog]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasOfferCatalog',
@@ -183,7 +194,7 @@ A service provided by an organization, e.g. delivery service, print services, et
         ),
         serialization_alias='https://schema.org/hasOfferCatalog'
     )
-    hasCertification: Optional[Union["Certification", List["Certification"]]] = Field(
+    hasCertification: Optional[Union[Certification, List[Certification]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasCertification',
@@ -191,7 +202,7 @@ A service provided by an organization, e.g. delivery service, print services, et
         ),
         serialization_alias='https://schema.org/hasCertification'
     )
-    serviceType: Optional[Union["GovernmentBenefitsType", List["GovernmentBenefitsType"], str, List[str]]] = Field(
+    serviceType: Optional[Union[GovernmentBenefitsType, List[GovernmentBenefitsType], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'serviceType',
@@ -199,7 +210,7 @@ A service provided by an organization, e.g. delivery service, print services, et
         ),
         serialization_alias='https://schema.org/serviceType'
     )
-    aggregateRating: Optional[Union["AggregateRating", List["AggregateRating"]]] = Field(
+    aggregateRating: Optional[Union[AggregateRating, List[AggregateRating]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'aggregateRating',
@@ -207,7 +218,7 @@ A service provided by an organization, e.g. delivery service, print services, et
         ),
         serialization_alias='https://schema.org/aggregateRating'
     )
-    areaServed: Optional[Union["GeoShape", List["GeoShape"], str, List[str], AdministrativeArea, List[AdministrativeArea], Place, List[Place]]] = Field(
+    areaServed: Optional[Union[GeoShape, List[GeoShape], str, List[str], AdministrativeArea, List[AdministrativeArea], Place, List[Place]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'areaServed',
@@ -215,7 +226,7 @@ A service provided by an organization, e.g. delivery service, print services, et
         ),
         serialization_alias='https://schema.org/areaServed'
     )
-    isRelatedTo: Optional[Union["Service", List["Service"], Product, List[Product]]] = Field(
+    isRelatedTo: Optional[Union[Service, List[Service], Product, List[Product]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'isRelatedTo',

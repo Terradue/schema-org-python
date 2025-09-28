@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .creative_work import CreativeWork    
-
 from datetime import (
     date
 )
@@ -16,10 +13,14 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.web_page_element import WebPageElement
-from schemaorg_models.speakable_specification import SpeakableSpecification
-from schemaorg_models.person import Person
-from schemaorg_models.organization import Organization
+from .person import Person
+from .image_object import ImageObject
+from .web_page_element import WebPageElement
+from .speakable_specification import SpeakableSpecification
+from .specialty import Specialty
+from .organization import Organization
+from .breadcrumb_list import BreadcrumbList
+from .creative_work import CreativeWork
 
 class WebPage(CreativeWork):
     """
@@ -62,7 +63,7 @@ A web page. Every web page is implicitly assumed to be declared to be of type We
         ),
         serialization_alias='https://schema.org/lastReviewed'
     )
-    primaryImageOfPage: Optional[Union["ImageObject", List["ImageObject"]]] = Field(
+    primaryImageOfPage: Optional[Union[ImageObject, List[ImageObject]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'primaryImageOfPage',
@@ -94,7 +95,7 @@ A web page. Every web page is implicitly assumed to be declared to be of type We
         ),
         serialization_alias='https://schema.org/significantLinks'
     )
-    specialty: Optional[Union["Specialty", List["Specialty"]]] = Field(
+    specialty: Optional[Union[Specialty, List[Specialty]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'specialty',
@@ -102,7 +103,7 @@ A web page. Every web page is implicitly assumed to be declared to be of type We
         ),
         serialization_alias='https://schema.org/specialty'
     )
-    breadcrumb: Optional[Union[str, List[str], "BreadcrumbList", List["BreadcrumbList"]]] = Field(
+    breadcrumb: Optional[Union[str, List[str], BreadcrumbList, List[BreadcrumbList]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'breadcrumb',

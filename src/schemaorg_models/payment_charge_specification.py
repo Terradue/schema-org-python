@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .price_specification import PriceSpecification    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,8 +9,9 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.delivery_method import DeliveryMethod
-from schemaorg_models.payment_method import PaymentMethod
+from .payment_method import PaymentMethod
+from .delivery_method import DeliveryMethod
+from .price_specification import PriceSpecification
 
 class PaymentChargeSpecification(PriceSpecification):
     """

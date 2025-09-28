@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .bio_chem_entity import BioChemEntity    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,9 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.anatomical_system import AnatomicalSystem
-from schemaorg_models.anatomical_structure import AnatomicalStructure
-from schemaorg_models.defined_term import DefinedTerm
+from .anatomical_structure import AnatomicalStructure
+from .bio_chem_entity import BioChemEntity
+from .anatomical_system import AnatomicalSystem
+from .defined_term import DefinedTerm
 
 class Gene(BioChemEntity):
     """
@@ -41,7 +39,7 @@ A discrete unit of inheritance which affects one or more biological traits (Sour
         ),
         serialization_alias='https://schema.org/hasBioPolymerSequence'
     )
-    alternativeOf: Optional[Union["Gene", List["Gene"]]] = Field(
+    alternativeOf: Optional[Union[Gene, List[Gene]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'alternativeOf',

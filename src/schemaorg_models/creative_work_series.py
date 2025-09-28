@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .creative_work import CreativeWork    
-
 from datetime import (
     date,
     datetime
@@ -16,6 +13,7 @@ from typing import (
     Optional,
     Union
 )
+from .creative_work import CreativeWork
 
 class CreativeWorkSeries(CreativeWork):
     """

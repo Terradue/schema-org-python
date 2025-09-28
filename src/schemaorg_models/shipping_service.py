@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .structured_value import StructuredValue    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,8 +9,12 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.fulfillment_type_enumeration import FulfillmentTypeEnumeration
-from schemaorg_models.member_program_tier import MemberProgramTier
+from .shipping_conditions import ShippingConditions
+from .fulfillment_type_enumeration import FulfillmentTypeEnumeration
+from .service_period import ServicePeriod
+from .structured_value import StructuredValue
+from .quantitative_value import QuantitativeValue
+from .member_program_tier import MemberProgramTier
 
 class ShippingService(StructuredValue):
     """
@@ -32,7 +33,7 @@ ShippingService represents the criteria used to determine if and how an offer co
         ),
         serialization_alias='https://schema.org/fulfillmentType'
     )
-    shippingConditions: Optional[Union["ShippingConditions", List["ShippingConditions"]]] = Field(
+    shippingConditions: Optional[Union[ShippingConditions, List[ShippingConditions]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'shippingConditions',
@@ -48,7 +49,7 @@ ShippingService represents the criteria used to determine if and how an offer co
         ),
         serialization_alias='https://schema.org/validForMemberTier'
     )
-    handlingTime: Optional[Union["ServicePeriod", List["ServicePeriod"], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    handlingTime: Optional[Union[ServicePeriod, List[ServicePeriod], QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'handlingTime',

@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .government_building import GovernmentBuilding    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .government_building import GovernmentBuilding
 
 class DefenceEstablishment(GovernmentBuilding):
     """

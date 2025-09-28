@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .role import Role    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.language import Language
+from .language import Language
+from .role import Role
 
 class LinkRole(Role):
     """

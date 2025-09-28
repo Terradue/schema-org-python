@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .publication_issue import PublicationIssue    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.person import Person
+from .person import Person
+from .publication_issue import PublicationIssue
 
 class ComicIssue(PublicationIssue):
     """

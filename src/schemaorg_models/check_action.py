@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .find_action import FindAction    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .find_action import FindAction
 
 class CheckAction(FindAction):
     """

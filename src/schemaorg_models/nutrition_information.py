@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .structured_value import StructuredValue    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,9 @@ from typing import (
     Optional,
     Union
 )
+from .energy import Energy
+from .structured_value import StructuredValue
+from .mass import Mass
 
 class NutritionInformation(StructuredValue):
     """
@@ -22,7 +22,7 @@ Nutritional information about the recipe.
         alias='@type',
         serialization_alias='@type'
     )
-    unsaturatedFatContent: Optional[Union["Mass", List["Mass"]]] = Field(
+    unsaturatedFatContent: Optional[Union[Mass, List[Mass]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'unsaturatedFatContent',
@@ -30,7 +30,7 @@ Nutritional information about the recipe.
         ),
         serialization_alias='https://schema.org/unsaturatedFatContent'
     )
-    cholesterolContent: Optional[Union["Mass", List["Mass"]]] = Field(
+    cholesterolContent: Optional[Union[Mass, List[Mass]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'cholesterolContent',
@@ -38,7 +38,7 @@ Nutritional information about the recipe.
         ),
         serialization_alias='https://schema.org/cholesterolContent'
     )
-    calories: Optional[Union["Energy", List["Energy"]]] = Field(
+    calories: Optional[Union[Energy, List[Energy]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'calories',
@@ -46,7 +46,7 @@ Nutritional information about the recipe.
         ),
         serialization_alias='https://schema.org/calories'
     )
-    transFatContent: Optional[Union["Mass", List["Mass"]]] = Field(
+    transFatContent: Optional[Union[Mass, List[Mass]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'transFatContent',
@@ -54,7 +54,7 @@ Nutritional information about the recipe.
         ),
         serialization_alias='https://schema.org/transFatContent'
     )
-    fiberContent: Optional[Union["Mass", List["Mass"]]] = Field(
+    fiberContent: Optional[Union[Mass, List[Mass]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'fiberContent',
@@ -70,7 +70,7 @@ Nutritional information about the recipe.
         ),
         serialization_alias='https://schema.org/servingSize'
     )
-    carbohydrateContent: Optional[Union["Mass", List["Mass"]]] = Field(
+    carbohydrateContent: Optional[Union[Mass, List[Mass]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'carbohydrateContent',
@@ -78,7 +78,7 @@ Nutritional information about the recipe.
         ),
         serialization_alias='https://schema.org/carbohydrateContent'
     )
-    fatContent: Optional[Union["Mass", List["Mass"]]] = Field(
+    fatContent: Optional[Union[Mass, List[Mass]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'fatContent',
@@ -86,7 +86,7 @@ Nutritional information about the recipe.
         ),
         serialization_alias='https://schema.org/fatContent'
     )
-    sodiumContent: Optional[Union["Mass", List["Mass"]]] = Field(
+    sodiumContent: Optional[Union[Mass, List[Mass]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'sodiumContent',
@@ -94,7 +94,7 @@ Nutritional information about the recipe.
         ),
         serialization_alias='https://schema.org/sodiumContent'
     )
-    sugarContent: Optional[Union["Mass", List["Mass"]]] = Field(
+    sugarContent: Optional[Union[Mass, List[Mass]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'sugarContent',
@@ -102,7 +102,7 @@ Nutritional information about the recipe.
         ),
         serialization_alias='https://schema.org/sugarContent'
     )
-    saturatedFatContent: Optional[Union["Mass", List["Mass"]]] = Field(
+    saturatedFatContent: Optional[Union[Mass, List[Mass]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'saturatedFatContent',
@@ -110,7 +110,7 @@ Nutritional information about the recipe.
         ),
         serialization_alias='https://schema.org/saturatedFatContent'
     )
-    proteinContent: Optional[Union["Mass", List["Mass"]]] = Field(
+    proteinContent: Optional[Union[Mass, List[Mass]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'proteinContent',

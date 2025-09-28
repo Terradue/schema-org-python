@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .intangible import Intangible    
-
 from datetime import (
     date,
     datetime
@@ -17,14 +14,18 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.parcel_delivery import ParcelDelivery
-from schemaorg_models.person import Person
-from schemaorg_models.organization import Organization
-from schemaorg_models.payment_method import PaymentMethod
-from schemaorg_models.invoice import Invoice
-from schemaorg_models.order_item import OrderItem
-from schemaorg_models.service import Service
-from schemaorg_models.product import Product
+from .person import Person
+from .offer import Offer
+from .payment_method import PaymentMethod
+from .invoice import Invoice
+from .order_item import OrderItem
+from .intangible import Intangible
+from .postal_address import PostalAddress
+from .order_status import OrderStatus
+from .parcel_delivery import ParcelDelivery
+from .organization import Organization
+from .product import Product
+from .service import Service
 
 class Order(Intangible):
     """
@@ -99,7 +100,7 @@ An order is a confirmation of a transaction (a receipt), which can contain multi
         ),
         serialization_alias='https://schema.org/confirmationNumber'
     )
-    orderStatus: Optional[Union["OrderStatus", List["OrderStatus"]]] = Field(
+    orderStatus: Optional[Union[OrderStatus, List[OrderStatus]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'orderStatus',
@@ -123,7 +124,7 @@ An order is a confirmation of a transaction (a receipt), which can contain multi
         ),
         serialization_alias='https://schema.org/orderNumber'
     )
-    acceptedOffer: Optional[Union["Offer", List["Offer"]]] = Field(
+    acceptedOffer: Optional[Union[Offer, List[Offer]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'acceptedOffer',
@@ -147,7 +148,7 @@ An order is a confirmation of a transaction (a receipt), which can contain multi
         ),
         serialization_alias='https://schema.org/paymentDueDate'
     )
-    billingAddress: Optional[Union["PostalAddress", List["PostalAddress"]]] = Field(
+    billingAddress: Optional[Union[PostalAddress, List[PostalAddress]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'billingAddress',

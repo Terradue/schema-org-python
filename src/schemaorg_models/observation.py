@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .intangible import Intangible    
-
 from datetime import (
     datetime
 )
@@ -16,11 +13,16 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.defined_term import DefinedTerm
-from schemaorg_models.property import Property
-from schemaorg_models.thing import Thing
-from schemaorg_models.place import Place
-from schemaorg_models.enumeration import Enumeration
+from .enumeration import Enumeration
+from .measurement_method_enum import MeasurementMethodEnum
+from .property import Property
+from .thing import Thing
+from .intangible import Intangible
+from .property_value import PropertyValue
+from .place import Place
+from .statistical_variable import StatisticalVariable
+from .quantitative_value import QuantitativeValue
+from .defined_term import DefinedTerm
 
 class Observation(Intangible):
     """
@@ -36,7 +38,7 @@ In the context of a quantitative knowledge graph, typical properties could inclu
         alias='@type',
         serialization_alias='@type'
     )
-    measurementTechnique: Optional[Union[DefinedTerm, List[DefinedTerm], "MeasurementMethodEnum", List["MeasurementMethodEnum"], str, List[str], HttpUrl, List[HttpUrl]]] = Field(
+    measurementTechnique: Optional[Union[DefinedTerm, List[DefinedTerm], MeasurementMethodEnum, List[MeasurementMethodEnum], str, List[str], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'measurementTechnique',
@@ -44,7 +46,7 @@ In the context of a quantitative knowledge graph, typical properties could inclu
         ),
         serialization_alias='https://schema.org/measurementTechnique'
     )
-    marginOfError: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    marginOfError: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'marginOfError',
@@ -60,7 +62,7 @@ In the context of a quantitative knowledge graph, typical properties could inclu
         ),
         serialization_alias='https://schema.org/observationPeriod'
     )
-    measurementDenominator: Optional[Union["StatisticalVariable", List["StatisticalVariable"]]] = Field(
+    measurementDenominator: Optional[Union[StatisticalVariable, List[StatisticalVariable]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'measurementDenominator',
@@ -76,7 +78,7 @@ In the context of a quantitative knowledge graph, typical properties could inclu
         ),
         serialization_alias='https://schema.org/observationDate'
     )
-    measurementMethod: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str], "MeasurementMethodEnum", List["MeasurementMethodEnum"], HttpUrl, List[HttpUrl]]] = Field(
+    measurementMethod: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str], MeasurementMethodEnum, List[MeasurementMethodEnum], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'measurementMethod',
@@ -100,7 +102,7 @@ In the context of a quantitative knowledge graph, typical properties could inclu
         ),
         serialization_alias='https://schema.org/observationAbout'
     )
-    variableMeasured: Optional[Union[Property, List[Property], "StatisticalVariable", List["StatisticalVariable"], str, List[str], "PropertyValue", List["PropertyValue"]]] = Field(
+    variableMeasured: Optional[Union[Property, List[Property], StatisticalVariable, List[StatisticalVariable], str, List[str], PropertyValue, List[PropertyValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'variableMeasured',

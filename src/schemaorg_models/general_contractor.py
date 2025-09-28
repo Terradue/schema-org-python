@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .home_and_construction_business import HomeAndConstructionBusiness    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .home_and_construction_business import HomeAndConstructionBusiness
 
 class GeneralContractor(HomeAndConstructionBusiness):
     """

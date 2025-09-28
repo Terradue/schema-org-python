@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .permit import Permit    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .permit import Permit
 
 class GovernmentPermit(Permit):
     """

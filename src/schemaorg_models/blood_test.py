@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .medical_test import MedicalTest    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .medical_test import MedicalTest
 
 class BloodTest(MedicalTest):
     """

@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .intangible import Intangible    
-
 from datetime import (
     date,
     datetime,
@@ -18,15 +15,30 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.place import Place
-from schemaorg_models.payment_method import PaymentMethod
-from schemaorg_models.event import Event
-from schemaorg_models.service import Service
-from schemaorg_models.product import Product
-from schemaorg_models.creative_work import CreativeWork
-from schemaorg_models.administrative_area import AdministrativeArea
-from schemaorg_models.organization import Organization
-from schemaorg_models.person import Person
+from .payment_method import PaymentMethod
+from .administrative_area import AdministrativeArea
+from .loan_or_credit import LoanOrCredit
+from .product import Product
+from .business_function import BusinessFunction
+from .person import Person
+from .geo_shape import GeoShape
+from .event import Event
+from .warranty_promise import WarrantyPromise
+from .place import Place
+from .price_specification import PriceSpecification
+from .organization import Organization
+from .delivery_method import DeliveryMethod
+from .business_entity_type import BusinessEntityType
+from .item_availability import ItemAvailability
+from .quantitative_value import QuantitativeValue
+from .trip import Trip
+from .service import Service
+from .creative_work import CreativeWork
+from .menu_item import MenuItem
+from .intangible import Intangible
+from .type_and_quantity_node import TypeAndQuantityNode
+from .aggregate_offer import AggregateOffer
+from .offer_item_condition import OfferItemCondition
 
 class Demand(Intangible):
     """
@@ -53,7 +65,7 @@ A demand entity represents the public, not necessarily binding, not necessarily 
         ),
         serialization_alias='https://schema.org/sku'
     )
-    eligibleTransactionVolume: Optional[Union["PriceSpecification", List["PriceSpecification"]]] = Field(
+    eligibleTransactionVolume: Optional[Union[PriceSpecification, List[PriceSpecification]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'eligibleTransactionVolume',
@@ -61,7 +73,7 @@ A demand entity represents the public, not necessarily binding, not necessarily 
         ),
         serialization_alias='https://schema.org/eligibleTransactionVolume'
     )
-    includesObject: Optional[Union["TypeAndQuantityNode", List["TypeAndQuantityNode"]]] = Field(
+    includesObject: Optional[Union[TypeAndQuantityNode, List[TypeAndQuantityNode]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'includesObject',
@@ -69,7 +81,7 @@ A demand entity represents the public, not necessarily binding, not necessarily 
         ),
         serialization_alias='https://schema.org/includesObject'
     )
-    eligibleCustomerType: Optional[Union["BusinessEntityType", List["BusinessEntityType"]]] = Field(
+    eligibleCustomerType: Optional[Union[BusinessEntityType, List[BusinessEntityType]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'eligibleCustomerType',
@@ -77,7 +89,7 @@ A demand entity represents the public, not necessarily binding, not necessarily 
         ),
         serialization_alias='https://schema.org/eligibleCustomerType'
     )
-    availableDeliveryMethod: Optional[Union["DeliveryMethod", List["DeliveryMethod"]]] = Field(
+    availableDeliveryMethod: Optional[Union[DeliveryMethod, List[DeliveryMethod]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'availableDeliveryMethod',
@@ -93,7 +105,7 @@ A demand entity represents the public, not necessarily binding, not necessarily 
         ),
         serialization_alias='https://schema.org/validFrom'
     )
-    deliveryLeadTime: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    deliveryLeadTime: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'deliveryLeadTime',
@@ -101,7 +113,7 @@ A demand entity represents the public, not necessarily binding, not necessarily 
         ),
         serialization_alias='https://schema.org/deliveryLeadTime'
     )
-    ineligibleRegion: Optional[Union[str, List[str], Place, List[Place], "GeoShape", List["GeoShape"]]] = Field(
+    ineligibleRegion: Optional[Union[str, List[str], Place, List[Place], GeoShape, List[GeoShape]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'ineligibleRegion',
@@ -117,7 +129,7 @@ A demand entity represents the public, not necessarily binding, not necessarily 
         ),
         serialization_alias='https://schema.org/gtin13'
     )
-    advanceBookingRequirement: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    advanceBookingRequirement: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'advanceBookingRequirement',
@@ -125,7 +137,7 @@ A demand entity represents the public, not necessarily binding, not necessarily 
         ),
         serialization_alias='https://schema.org/advanceBookingRequirement'
     )
-    inventoryLevel: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    inventoryLevel: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'inventoryLevel',
@@ -133,7 +145,7 @@ A demand entity represents the public, not necessarily binding, not necessarily 
         ),
         serialization_alias='https://schema.org/inventoryLevel'
     )
-    acceptedPaymentMethod: Optional[Union[str, List[str], PaymentMethod, List[PaymentMethod], "LoanOrCredit", List["LoanOrCredit"]]] = Field(
+    acceptedPaymentMethod: Optional[Union[str, List[str], PaymentMethod, List[PaymentMethod], LoanOrCredit, List[LoanOrCredit]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'acceptedPaymentMethod',
@@ -141,7 +153,7 @@ A demand entity represents the public, not necessarily binding, not necessarily 
         ),
         serialization_alias='https://schema.org/acceptedPaymentMethod'
     )
-    itemCondition: Optional[Union["OfferItemCondition", List["OfferItemCondition"]]] = Field(
+    itemCondition: Optional[Union[OfferItemCondition, List[OfferItemCondition]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'itemCondition',
@@ -165,7 +177,7 @@ A demand entity represents the public, not necessarily binding, not necessarily 
         ),
         serialization_alias='https://schema.org/mpn'
     )
-    availability: Optional[Union["ItemAvailability", List["ItemAvailability"]]] = Field(
+    availability: Optional[Union[ItemAvailability, List[ItemAvailability]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'availability',
@@ -205,7 +217,7 @@ A demand entity represents the public, not necessarily binding, not necessarily 
         ),
         serialization_alias='https://schema.org/gtin12'
     )
-    businessFunction: Optional[Union["BusinessFunction", List["BusinessFunction"]]] = Field(
+    businessFunction: Optional[Union[BusinessFunction, List[BusinessFunction]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'businessFunction',
@@ -221,7 +233,7 @@ A demand entity represents the public, not necessarily binding, not necessarily 
         ),
         serialization_alias='https://schema.org/gtin8'
     )
-    eligibleQuantity: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    eligibleQuantity: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'eligibleQuantity',
@@ -229,7 +241,7 @@ A demand entity represents the public, not necessarily binding, not necessarily 
         ),
         serialization_alias='https://schema.org/eligibleQuantity'
     )
-    eligibleDuration: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    eligibleDuration: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'eligibleDuration',
@@ -237,7 +249,7 @@ A demand entity represents the public, not necessarily binding, not necessarily 
         ),
         serialization_alias='https://schema.org/eligibleDuration'
     )
-    itemOffered: Optional[Union[Event, List[Event], Service, List[Service], "AggregateOffer", List["AggregateOffer"], Product, List[Product], "MenuItem", List["MenuItem"], CreativeWork, List[CreativeWork], "Trip", List["Trip"]]] = Field(
+    itemOffered: Optional[Union[Event, List[Event], Service, List[Service], AggregateOffer, List[AggregateOffer], Product, List[Product], MenuItem, List[MenuItem], CreativeWork, List[CreativeWork], Trip, List[Trip]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'itemOffered',
@@ -245,7 +257,7 @@ A demand entity represents the public, not necessarily binding, not necessarily 
         ),
         serialization_alias='https://schema.org/itemOffered'
     )
-    eligibleRegion: Optional[Union["GeoShape", List["GeoShape"], str, List[str], Place, List[Place]]] = Field(
+    eligibleRegion: Optional[Union[GeoShape, List[GeoShape], str, List[str], Place, List[Place]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'eligibleRegion',
@@ -253,7 +265,7 @@ A demand entity represents the public, not necessarily binding, not necessarily 
         ),
         serialization_alias='https://schema.org/eligibleRegion'
     )
-    priceSpecification: Optional[Union["PriceSpecification", List["PriceSpecification"]]] = Field(
+    priceSpecification: Optional[Union[PriceSpecification, List[PriceSpecification]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'priceSpecification',
@@ -269,7 +281,7 @@ A demand entity represents the public, not necessarily binding, not necessarily 
         ),
         serialization_alias='https://schema.org/gtin'
     )
-    areaServed: Optional[Union["GeoShape", List["GeoShape"], str, List[str], AdministrativeArea, List[AdministrativeArea], Place, List[Place]]] = Field(
+    areaServed: Optional[Union[GeoShape, List[GeoShape], str, List[str], AdministrativeArea, List[AdministrativeArea], Place, List[Place]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'areaServed',
@@ -301,7 +313,7 @@ A demand entity represents the public, not necessarily binding, not necessarily 
         ),
         serialization_alias='https://schema.org/validThrough'
     )
-    warranty: Optional[Union["WarrantyPromise", List["WarrantyPromise"]]] = Field(
+    warranty: Optional[Union[WarrantyPromise, List[WarrantyPromise]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'warranty',

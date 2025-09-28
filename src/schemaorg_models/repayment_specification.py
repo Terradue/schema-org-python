@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .structured_value import StructuredValue    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,8 @@ from typing import (
     Optional,
     Union
 )
+from .monetary_amount import MonetaryAmount
+from .structured_value import StructuredValue
 
 class RepaymentSpecification(StructuredValue):
     """
@@ -30,7 +29,7 @@ A structured value representing repayment.
         ),
         serialization_alias='https://schema.org/numberOfLoanPayments'
     )
-    loanPaymentAmount: Optional[Union["MonetaryAmount", List["MonetaryAmount"]]] = Field(
+    loanPaymentAmount: Optional[Union[MonetaryAmount, List[MonetaryAmount]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'loanPaymentAmount',
@@ -38,7 +37,7 @@ A structured value representing repayment.
         ),
         serialization_alias='https://schema.org/loanPaymentAmount'
     )
-    earlyPrepaymentPenalty: Optional[Union["MonetaryAmount", List["MonetaryAmount"]]] = Field(
+    earlyPrepaymentPenalty: Optional[Union[MonetaryAmount, List[MonetaryAmount]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'earlyPrepaymentPenalty',
@@ -46,7 +45,7 @@ A structured value representing repayment.
         ),
         serialization_alias='https://schema.org/earlyPrepaymentPenalty'
     )
-    downPayment: Optional[Union[float, List[float], "MonetaryAmount", List["MonetaryAmount"]]] = Field(
+    downPayment: Optional[Union[float, List[float], MonetaryAmount, List[MonetaryAmount]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'downPayment',

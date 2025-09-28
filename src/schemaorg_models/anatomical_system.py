@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .medical_entity import MedicalEntity    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,8 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.anatomical_structure import AnatomicalStructure
-from schemaorg_models.medical_condition import MedicalCondition
+from .medical_entity import MedicalEntity
+from .anatomical_structure import AnatomicalStructure
+from .medical_condition import MedicalCondition
+from .medical_therapy import MedicalTherapy
 
 class AnatomicalSystem(MedicalEntity):
     """
@@ -32,7 +31,7 @@ An anatomical system is a group of anatomical structures that work together to p
         ),
         serialization_alias='https://schema.org/associatedPathophysiology'
     )
-    comprisedOf: Optional[Union[AnatomicalStructure, List[AnatomicalStructure], "AnatomicalSystem", List["AnatomicalSystem"]]] = Field(
+    comprisedOf: Optional[Union[AnatomicalStructure, List[AnatomicalStructure], AnatomicalSystem, List[AnatomicalSystem]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'comprisedOf',
@@ -56,7 +55,7 @@ An anatomical system is a group of anatomical structures that work together to p
         ),
         serialization_alias='https://schema.org/relatedCondition'
     )
-    relatedTherapy: Optional[Union["MedicalTherapy", List["MedicalTherapy"]]] = Field(
+    relatedTherapy: Optional[Union[MedicalTherapy, List[MedicalTherapy]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'relatedTherapy',

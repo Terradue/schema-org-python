@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .intangible import Intangible    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,8 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.thing import Thing
-from schemaorg_models.list_item import ListItem
+from .item_list_order_type import ItemListOrderType
+from .thing import Thing
+from .intangible import Intangible
+from .list_item import ListItem
 
 class ItemList(Intangible):
     """
@@ -40,7 +39,7 @@ A list of items of any sort&#x2014;for example, Top 10 Movies About Weathermen, 
         ),
         serialization_alias='https://schema.org/aggregateElement'
     )
-    itemListOrder: Optional[Union["ItemListOrderType", List["ItemListOrderType"], str, List[str]]] = Field(
+    itemListOrder: Optional[Union[ItemListOrderType, List[ItemListOrderType], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'itemListOrder',

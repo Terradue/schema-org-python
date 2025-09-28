@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .consume_action import ConsumeAction    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .consume_action import ConsumeAction
 
 class ViewAction(ConsumeAction):
     """

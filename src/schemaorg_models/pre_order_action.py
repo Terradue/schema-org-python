@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .trade_action import TradeAction    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .trade_action import TradeAction
 
 class PreOrderAction(TradeAction):
     """

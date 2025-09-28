@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .tech_article import TechArticle    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,7 @@ from typing import (
     Optional,
     Union
 )
+from .tech_article import TechArticle
 
 class APIReference(TechArticle):
     """

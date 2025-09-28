@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .contact_point import ContactPoint    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.country import Country
+from .contact_point import ContactPoint
+from .country import Country
 
 class PostalAddress(ContactPoint):
     """

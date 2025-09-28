@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .offer import Offer    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .offer import Offer
 
 class OfferForPurchase(Offer):
     """

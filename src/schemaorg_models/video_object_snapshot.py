@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .video_object import VideoObject    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .video_object import VideoObject
 
 class VideoObjectSnapshot(VideoObject):
     """

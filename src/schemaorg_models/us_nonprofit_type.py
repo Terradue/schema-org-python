@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .nonprofit_type import NonprofitType    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .nonprofit_type import NonprofitType
 
 class USNonprofitType(NonprofitType):
     """

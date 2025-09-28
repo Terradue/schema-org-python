@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .rating import Rating    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.thing import Thing
+from .thing import Thing
+from .rating import Rating
 
 class AggregateRating(Rating):
     """

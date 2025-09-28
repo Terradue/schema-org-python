@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .event import Event    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,8 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.organization import Organization
-from schemaorg_models.person import Person
+from .event import Event
+from .broadcast_service import BroadcastService
+from .person import Person
+from .organization import Organization
 
 class PublicationEvent(Event):
     """
@@ -32,7 +31,7 @@ A PublicationEvent corresponds indifferently to the event of publication for a C
         ),
         serialization_alias='https://schema.org/publishedBy'
     )
-    publishedOn: Optional[Union["BroadcastService", List["BroadcastService"]]] = Field(
+    publishedOn: Optional[Union[BroadcastService, List[BroadcastService]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'publishedOn',

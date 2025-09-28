@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .article import Article    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.creative_work import CreativeWork
+from .article import Article
+from .creative_work import CreativeWork
 
 class SocialMediaPosting(Article):
     """

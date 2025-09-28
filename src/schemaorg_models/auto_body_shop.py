@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .automotive_business import AutomotiveBusiness    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .automotive_business import AutomotiveBusiness
 
 class AutoBodyShop(AutomotiveBusiness):
     """

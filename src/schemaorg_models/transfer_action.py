@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .action import Action    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.place import Place
+from .action import Action
+from .place import Place
 
 class TransferAction(Action):
     """

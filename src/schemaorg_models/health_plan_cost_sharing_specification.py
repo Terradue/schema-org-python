@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .intangible import Intangible    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,8 @@ from typing import (
     Optional,
     Union
 )
+from .intangible import Intangible
+from .price_specification import PriceSpecification
 
 class HealthPlanCostSharingSpecification(Intangible):
     """
@@ -30,7 +29,7 @@ A description of costs to the patient under a given network or formulary.
         ),
         serialization_alias='https://schema.org/healthPlanCoinsuranceRate'
     )
-    healthPlanCopay: Optional[Union["PriceSpecification", List["PriceSpecification"]]] = Field(
+    healthPlanCopay: Optional[Union[PriceSpecification, List[PriceSpecification]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'healthPlanCopay',

@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .audience import Audience    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.medical_condition import MedicalCondition
+from .quantitative_value import QuantitativeValue
+from .medical_condition import MedicalCondition
+from .gender_type import GenderType
+from .audience import Audience
 
 class PeopleAudience(Audience):
     """
@@ -23,7 +23,7 @@ A set of characteristics belonging to people, e.g. who compose an item's target 
         alias='@type',
         serialization_alias='@type'
     )
-    suggestedGender: Optional[Union["GenderType", List["GenderType"], str, List[str]]] = Field(
+    suggestedGender: Optional[Union[GenderType, List[GenderType], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'suggestedGender',
@@ -39,7 +39,7 @@ A set of characteristics belonging to people, e.g. who compose an item's target 
         ),
         serialization_alias='https://schema.org/requiredMaxAge'
     )
-    suggestedAge: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    suggestedAge: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'suggestedAge',
@@ -79,7 +79,7 @@ A set of characteristics belonging to people, e.g. who compose an item's target 
         ),
         serialization_alias='https://schema.org/requiredMinAge'
     )
-    suggestedMeasurement: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    suggestedMeasurement: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'suggestedMeasurement',

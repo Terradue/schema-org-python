@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .use_action import UseAction    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .use_action import UseAction
 
 class WearAction(UseAction):
     """

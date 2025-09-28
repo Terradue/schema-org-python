@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .digital_document import DigitalDocument    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .digital_document import DigitalDocument
 
 class SpreadsheetDigitalDocument(DigitalDocument):
     """

@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .anatomical_structure import AnatomicalStructure    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.medical_entity import MedicalEntity
+from .medical_entity import MedicalEntity
+from .anatomical_structure import AnatomicalStructure
 
 class Joint(AnatomicalStructure):
     """

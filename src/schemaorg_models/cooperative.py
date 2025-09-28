@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .organization import Organization    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .organization import Organization
 
 class Cooperative(Organization):
     """

@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .intangible import Intangible    
-
 from datetime import (
     date,
     datetime
@@ -17,8 +14,18 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.member_program_tier import MemberProgramTier
-from schemaorg_models.merchant_return_policy_seasonal_override import MerchantReturnPolicySeasonalOverride
+from .return_fees_enumeration import ReturnFeesEnumeration
+from .return_label_source_enumeration import ReturnLabelSourceEnumeration
+from .merchant_return_enumeration import MerchantReturnEnumeration
+from .monetary_amount import MonetaryAmount
+from .intangible import Intangible
+from .property_value import PropertyValue
+from .refund_type_enumeration import RefundTypeEnumeration
+from .country import Country
+from .merchant_return_policy_seasonal_override import MerchantReturnPolicySeasonalOverride
+from .return_method_enumeration import ReturnMethodEnumeration
+from .member_program_tier import MemberProgramTier
+from .offer_item_condition import OfferItemCondition
 
 class MerchantReturnPolicy(Intangible):
     """
@@ -29,7 +36,7 @@ A MerchantReturnPolicy provides information about product return policies associ
         alias='@type',
         serialization_alias='@type'
     )
-    additionalProperty: Optional[Union["PropertyValue", List["PropertyValue"]]] = Field(
+    additionalProperty: Optional[Union[PropertyValue, List[PropertyValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'additionalProperty',
@@ -37,7 +44,7 @@ A MerchantReturnPolicy provides information about product return policies associ
         ),
         serialization_alias='https://schema.org/additionalProperty'
     )
-    customerRemorseReturnShippingFeesAmount: Optional[Union["MonetaryAmount", List["MonetaryAmount"]]] = Field(
+    customerRemorseReturnShippingFeesAmount: Optional[Union[MonetaryAmount, List[MonetaryAmount]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'customerRemorseReturnShippingFeesAmount',
@@ -53,7 +60,7 @@ A MerchantReturnPolicy provides information about product return policies associ
         ),
         serialization_alias='https://schema.org/merchantReturnLink'
     )
-    returnPolicyCountry: Optional[Union[str, List[str], "Country", List["Country"]]] = Field(
+    returnPolicyCountry: Optional[Union[str, List[str], Country, List[Country]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'returnPolicyCountry',
@@ -69,7 +76,7 @@ A MerchantReturnPolicy provides information about product return policies associ
         ),
         serialization_alias='https://schema.org/merchantReturnDays'
     )
-    refundType: Optional[Union["RefundTypeEnumeration", List["RefundTypeEnumeration"]]] = Field(
+    refundType: Optional[Union[RefundTypeEnumeration, List[RefundTypeEnumeration]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'refundType',
@@ -77,7 +84,7 @@ A MerchantReturnPolicy provides information about product return policies associ
         ),
         serialization_alias='https://schema.org/refundType'
     )
-    returnMethod: Optional[Union["ReturnMethodEnumeration", List["ReturnMethodEnumeration"]]] = Field(
+    returnMethod: Optional[Union[ReturnMethodEnumeration, List[ReturnMethodEnumeration]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'returnMethod',
@@ -93,7 +100,7 @@ A MerchantReturnPolicy provides information about product return policies associ
         ),
         serialization_alias='https://schema.org/inStoreReturnsOffered'
     )
-    itemDefectReturnFees: Optional[Union["ReturnFeesEnumeration", List["ReturnFeesEnumeration"]]] = Field(
+    itemDefectReturnFees: Optional[Union[ReturnFeesEnumeration, List[ReturnFeesEnumeration]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'itemDefectReturnFees',
@@ -101,7 +108,7 @@ A MerchantReturnPolicy provides information about product return policies associ
         ),
         serialization_alias='https://schema.org/itemDefectReturnFees'
     )
-    customerRemorseReturnFees: Optional[Union["ReturnFeesEnumeration", List["ReturnFeesEnumeration"]]] = Field(
+    customerRemorseReturnFees: Optional[Union[ReturnFeesEnumeration, List[ReturnFeesEnumeration]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'customerRemorseReturnFees',
@@ -109,7 +116,7 @@ A MerchantReturnPolicy provides information about product return policies associ
         ),
         serialization_alias='https://schema.org/customerRemorseReturnFees'
     )
-    itemDefectReturnShippingFeesAmount: Optional[Union["MonetaryAmount", List["MonetaryAmount"]]] = Field(
+    itemDefectReturnShippingFeesAmount: Optional[Union[MonetaryAmount, List[MonetaryAmount]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'itemDefectReturnShippingFeesAmount',
@@ -117,7 +124,7 @@ A MerchantReturnPolicy provides information about product return policies associ
         ),
         serialization_alias='https://schema.org/itemDefectReturnShippingFeesAmount'
     )
-    returnFees: Optional[Union["ReturnFeesEnumeration", List["ReturnFeesEnumeration"]]] = Field(
+    returnFees: Optional[Union[ReturnFeesEnumeration, List[ReturnFeesEnumeration]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'returnFees',
@@ -125,7 +132,7 @@ A MerchantReturnPolicy provides information about product return policies associ
         ),
         serialization_alias='https://schema.org/returnFees'
     )
-    returnShippingFeesAmount: Optional[Union["MonetaryAmount", List["MonetaryAmount"]]] = Field(
+    returnShippingFeesAmount: Optional[Union[MonetaryAmount, List[MonetaryAmount]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'returnShippingFeesAmount',
@@ -141,7 +148,7 @@ A MerchantReturnPolicy provides information about product return policies associ
         ),
         serialization_alias='https://schema.org/validForMemberTier'
     )
-    returnPolicyCategory: Optional[Union["MerchantReturnEnumeration", List["MerchantReturnEnumeration"]]] = Field(
+    returnPolicyCategory: Optional[Union[MerchantReturnEnumeration, List[MerchantReturnEnumeration]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'returnPolicyCategory',
@@ -149,7 +156,7 @@ A MerchantReturnPolicy provides information about product return policies associ
         ),
         serialization_alias='https://schema.org/returnPolicyCategory'
     )
-    customerRemorseReturnLabelSource: Optional[Union["ReturnLabelSourceEnumeration", List["ReturnLabelSourceEnumeration"]]] = Field(
+    customerRemorseReturnLabelSource: Optional[Union[ReturnLabelSourceEnumeration, List[ReturnLabelSourceEnumeration]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'customerRemorseReturnLabelSource',
@@ -165,7 +172,7 @@ A MerchantReturnPolicy provides information about product return policies associ
         ),
         serialization_alias='https://schema.org/returnPolicySeasonalOverride'
     )
-    itemDefectReturnLabelSource: Optional[Union["ReturnLabelSourceEnumeration", List["ReturnLabelSourceEnumeration"]]] = Field(
+    itemDefectReturnLabelSource: Optional[Union[ReturnLabelSourceEnumeration, List[ReturnLabelSourceEnumeration]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'itemDefectReturnLabelSource',
@@ -173,7 +180,7 @@ A MerchantReturnPolicy provides information about product return policies associ
         ),
         serialization_alias='https://schema.org/itemDefectReturnLabelSource'
     )
-    applicableCountry: Optional[Union["Country", List["Country"], str, List[str]]] = Field(
+    applicableCountry: Optional[Union[Country, List[Country], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'applicableCountry',
@@ -181,7 +188,7 @@ A MerchantReturnPolicy provides information about product return policies associ
         ),
         serialization_alias='https://schema.org/applicableCountry'
     )
-    returnLabelSource: Optional[Union["ReturnLabelSourceEnumeration", List["ReturnLabelSourceEnumeration"]]] = Field(
+    returnLabelSource: Optional[Union[ReturnLabelSourceEnumeration, List[ReturnLabelSourceEnumeration]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'returnLabelSource',
@@ -189,7 +196,7 @@ A MerchantReturnPolicy provides information about product return policies associ
         ),
         serialization_alias='https://schema.org/returnLabelSource'
     )
-    restockingFee: Optional[Union["MonetaryAmount", List["MonetaryAmount"], float, List[float]]] = Field(
+    restockingFee: Optional[Union[MonetaryAmount, List[MonetaryAmount], float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'restockingFee',
@@ -197,7 +204,7 @@ A MerchantReturnPolicy provides information about product return policies associ
         ),
         serialization_alias='https://schema.org/restockingFee'
     )
-    itemCondition: Optional[Union["OfferItemCondition", List["OfferItemCondition"]]] = Field(
+    itemCondition: Optional[Union[OfferItemCondition, List[OfferItemCondition]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'itemCondition',

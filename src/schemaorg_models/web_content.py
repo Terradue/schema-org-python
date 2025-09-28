@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .creative_work import CreativeWork    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .creative_work import CreativeWork
 
 class WebContent(CreativeWork):
     """

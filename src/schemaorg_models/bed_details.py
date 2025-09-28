@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .intangible import Intangible    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,8 @@ from typing import (
     Optional,
     Union
 )
+from .bed_type import BedType
+from .intangible import Intangible
 
 class BedDetails(Intangible):
     """
@@ -22,7 +21,7 @@ An entity holding detailed information about the available bed types, e.g. the q
         alias='@type',
         serialization_alias='@type'
     )
-    typeOfBed: Optional[Union["BedType", List["BedType"], str, List[str]]] = Field(
+    typeOfBed: Optional[Union[BedType, List[BedType], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'typeOfBed',

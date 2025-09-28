@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .aggregate_rating import AggregateRating    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .aggregate_rating import AggregateRating
 
 class EmployerAggregateRating(AggregateRating):
     """

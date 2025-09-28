@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .creative_work import CreativeWork    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,9 +10,11 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.organization import Organization
-from schemaorg_models.administrative_area import AdministrativeArea
-from schemaorg_models.defined_term import DefinedTerm
+from .duration import Duration
+from .organization import Organization
+from .administrative_area import AdministrativeArea
+from .defined_term import DefinedTerm
+from .creative_work import CreativeWork
 
 class EducationalOccupationalCredential(CreativeWork):
     """
@@ -34,7 +33,7 @@ An educational or occupational credential. A diploma, academic degree, certifica
         ),
         serialization_alias='https://schema.org/recognizedBy'
     )
-    validFor: Optional[Union["Duration", List["Duration"]]] = Field(
+    validFor: Optional[Union[Duration, List[Duration]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'validFor',

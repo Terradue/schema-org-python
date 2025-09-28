@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .creative_work import CreativeWork    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,8 +10,11 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.thing import Thing
-from schemaorg_models.place import Place
+from .thing import Thing
+from .postal_address import PostalAddress
+from .place import Place
+from .quantitative_value import QuantitativeValue
+from .creative_work import CreativeWork
 
 class Game(CreativeWork):
     """
@@ -49,7 +49,7 @@ The Game type represents things which are games. These are typically rule-govern
         ),
         serialization_alias='https://schema.org/gameItem'
     )
-    numberOfPlayers: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    numberOfPlayers: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'numberOfPlayers',
@@ -57,7 +57,7 @@ The Game type represents things which are games. These are typically rule-govern
         ),
         serialization_alias='https://schema.org/numberOfPlayers'
     )
-    gameLocation: Optional[Union[Place, List[Place], HttpUrl, List[HttpUrl], "PostalAddress", List["PostalAddress"]]] = Field(
+    gameLocation: Optional[Union[Place, List[Place], HttpUrl, List[HttpUrl], PostalAddress, List[PostalAddress]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'gameLocation',

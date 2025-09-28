@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .episode import Episode    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .episode import Episode
 
 class PodcastEpisode(Episode):
     """

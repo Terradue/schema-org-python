@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .review import Review    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .review import Review
 
 class UserReview(Review):
     """

@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .creative_work import CreativeWork    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,8 @@ from typing import (
     Optional,
     Union
 )
+from .blog_posting import BlogPosting
+from .creative_work import CreativeWork
 
 class Blog(CreativeWork):
     """
@@ -30,7 +29,7 @@ A [blog](https://en.wikipedia.org/wiki/Blog), sometimes known as a "weblog". Not
         ),
         serialization_alias='https://schema.org/issn'
     )
-    blogPost: Optional[Union["BlogPosting", List["BlogPosting"]]] = Field(
+    blogPost: Optional[Union[BlogPosting, List[BlogPosting]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'blogPost',
@@ -38,7 +37,7 @@ A [blog](https://en.wikipedia.org/wiki/Blog), sometimes known as a "weblog". Not
         ),
         serialization_alias='https://schema.org/blogPost'
     )
-    blogPosts: Optional[Union["BlogPosting", List["BlogPosting"]]] = Field(
+    blogPosts: Optional[Union[BlogPosting, List[BlogPosting]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'blogPosts',

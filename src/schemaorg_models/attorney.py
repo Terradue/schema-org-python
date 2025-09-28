@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .legal_service import LegalService    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .legal_service import LegalService
 
 class Attorney(LegalService):
     """

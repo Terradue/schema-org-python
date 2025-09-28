@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .room import Room    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,8 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.quantitative_value import QuantitativeValue
-from schemaorg_models.bed_details import BedDetails
+from .bed_type import BedType
+from .bed_details import BedDetails
+from .quantitative_value import QuantitativeValue
+from .room import Room
 
 class HotelRoom(Room):
     """
@@ -35,7 +34,7 @@ See also the <a href="/docs/hotels.html">dedicated document on the use of schema
         ),
         serialization_alias='https://schema.org/occupancy'
     )
-    bed: Optional[Union["BedType", List["BedType"], str, List[str], BedDetails, List[BedDetails]]] = Field(
+    bed: Optional[Union[BedType, List[BedType], str, List[str], BedDetails, List[BedDetails]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'bed',

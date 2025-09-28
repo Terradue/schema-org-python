@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .transfer_action import TransferAction    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,11 +9,12 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.price_specification import PriceSpecification
-from schemaorg_models.organization import Organization
-from schemaorg_models.audience import Audience
-from schemaorg_models.contact_point import ContactPoint
-from schemaorg_models.person import Person
+from .contact_point import ContactPoint
+from .transfer_action import TransferAction
+from .person import Person
+from .price_specification import PriceSpecification
+from .organization import Organization
+from .audience import Audience
 
 class DonateAction(TransferAction):
     """

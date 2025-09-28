@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .measurement_type_enumeration import MeasurementTypeEnumeration    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .measurement_type_enumeration import MeasurementTypeEnumeration
 
 class WearableMeasurementTypeEnumeration(MeasurementTypeEnumeration):
     """

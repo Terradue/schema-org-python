@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .intangible import Intangible    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,6 +10,9 @@ from typing import (
     Optional,
     Union
 )
+from .digital_platform_enumeration import DigitalPlatformEnumeration
+from .intangible import Intangible
+from .software_application import SoftwareApplication
 
 class EntryPoint(Intangible):
     """
@@ -47,7 +47,7 @@ An entry point, within some Web-based protocol.
         ),
         serialization_alias='https://schema.org/urlTemplate'
     )
-    actionApplication: Optional[Union["SoftwareApplication", List["SoftwareApplication"]]] = Field(
+    actionApplication: Optional[Union[SoftwareApplication, List[SoftwareApplication]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'actionApplication',
@@ -63,7 +63,7 @@ An entry point, within some Web-based protocol.
         ),
         serialization_alias='https://schema.org/encodingType'
     )
-    application: Optional[Union["SoftwareApplication", List["SoftwareApplication"]]] = Field(
+    application: Optional[Union[SoftwareApplication, List[SoftwareApplication]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'application',
@@ -71,7 +71,7 @@ An entry point, within some Web-based protocol.
         ),
         serialization_alias='https://schema.org/application'
     )
-    actionPlatform: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], "DigitalPlatformEnumeration", List["DigitalPlatformEnumeration"]]] = Field(
+    actionPlatform: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], DigitalPlatformEnumeration, List[DigitalPlatformEnumeration]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'actionPlatform',

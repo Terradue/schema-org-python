@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .transfer_action import TransferAction    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,9 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.monetary_amount import MonetaryAmount
+from .monetary_amount import MonetaryAmount
+from .transfer_action import TransferAction
+from .bank_or_credit_union import BankOrCreditUnion
 
 class MoneyTransfer(TransferAction):
     """
@@ -23,7 +22,7 @@ The act of transferring money from one place to another place. This may occur el
         alias='@type',
         serialization_alias='@type'
     )
-    beneficiaryBank: Optional[Union[str, List[str], "BankOrCreditUnion", List["BankOrCreditUnion"]]] = Field(
+    beneficiaryBank: Optional[Union[str, List[str], BankOrCreditUnion, List[BankOrCreditUnion]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'beneficiaryBank',

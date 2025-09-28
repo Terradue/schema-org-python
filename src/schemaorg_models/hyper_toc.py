@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .creative_work import CreativeWork    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,8 +9,9 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.hyper_toc_entry import HyperTocEntry
-from schemaorg_models.media_object import MediaObject
+from .media_object import MediaObject
+from .hyper_toc_entry import HyperTocEntry
+from .creative_work import CreativeWork
 
 class HyperToc(CreativeWork):
     """

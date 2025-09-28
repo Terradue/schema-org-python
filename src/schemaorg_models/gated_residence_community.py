@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .residence import Residence    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .residence import Residence
 
 class GatedResidenceCommunity(Residence):
     """

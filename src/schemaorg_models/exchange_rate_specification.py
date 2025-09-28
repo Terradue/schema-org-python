@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .structured_value import StructuredValue    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,9 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.monetary_amount import MonetaryAmount
+from .monetary_amount import MonetaryAmount
+from .structured_value import StructuredValue
+from .unit_price_specification import UnitPriceSpecification
 
 class ExchangeRateSpecification(StructuredValue):
     """
@@ -39,7 +38,7 @@ A structured value representing exchange rate.
         ),
         serialization_alias='https://schema.org/currency'
     )
-    currentExchangeRate: Optional[Union["UnitPriceSpecification", List["UnitPriceSpecification"]]] = Field(
+    currentExchangeRate: Optional[Union[UnitPriceSpecification, List[UnitPriceSpecification]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'currentExchangeRate',

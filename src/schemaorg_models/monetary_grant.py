@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .grant import Grant    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,9 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.monetary_amount import MonetaryAmount
-from schemaorg_models.organization import Organization
-from schemaorg_models.person import Person
+from .monetary_amount import MonetaryAmount
+from .organization import Organization
+from .person import Person
+from .grant import Grant
 
 class MonetaryGrant(Grant):
     """

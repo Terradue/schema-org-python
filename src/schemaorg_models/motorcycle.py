@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .vehicle import Vehicle    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .vehicle import Vehicle
 
 class Motorcycle(Vehicle):
     """

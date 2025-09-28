@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .creative_work import CreativeWork    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,8 +10,9 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.software_application import SoftwareApplication
-from schemaorg_models.computer_language import ComputerLanguage
+from .computer_language import ComputerLanguage
+from .creative_work import CreativeWork
+from .software_application import SoftwareApplication
 
 class SoftwareSourceCode(CreativeWork):
     """

@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .structured_value import StructuredValue    
-
 from datetime import (
     date,
     datetime
@@ -16,7 +13,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.monetary_amount import MonetaryAmount
+from .monetary_amount import MonetaryAmount
+from .structured_value import StructuredValue
 
 class DatedMoneySpecification(StructuredValue):
     """

@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .place import Place    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,7 @@ from typing import (
     Optional,
     Union
 )
+from .place import Place
 
 class CivicStructure(Place):
     """

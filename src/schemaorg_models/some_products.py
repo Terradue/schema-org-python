@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .product import Product    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,8 @@ from typing import (
     Optional,
     Union
 )
+from .product import Product
+from .quantitative_value import QuantitativeValue
 
 class SomeProducts(Product):
     """
@@ -22,7 +21,7 @@ A placeholder for multiple similar products of the same kind.
         alias='@type',
         serialization_alias='@type'
     )
-    inventoryLevel: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    inventoryLevel: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'inventoryLevel',

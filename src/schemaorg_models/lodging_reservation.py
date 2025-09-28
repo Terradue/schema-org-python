@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .reservation import Reservation    
-
 from datetime import (
     datetime,
     time
@@ -16,8 +13,9 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.quantitative_value import QuantitativeValue
-from schemaorg_models.qualitative_value import QualitativeValue
+from .qualitative_value import QualitativeValue
+from .reservation import Reservation
+from .quantitative_value import QuantitativeValue
 
 class LodgingReservation(Reservation):
     """

@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .qualitative_value import QualitativeValue    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .qualitative_value import QualitativeValue
 
 class BedType(QualitativeValue):
     """

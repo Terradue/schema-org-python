@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .service import Service    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,8 +9,9 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.administrative_area import AdministrativeArea
-from schemaorg_models.organization import Organization
+from .administrative_area import AdministrativeArea
+from .service import Service
+from .organization import Organization
 
 class GovernmentService(Service):
     """

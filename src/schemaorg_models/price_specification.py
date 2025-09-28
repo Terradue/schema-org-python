@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .structured_value import StructuredValue    
-
 from datetime import (
     date,
     datetime
@@ -16,8 +13,9 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.quantitative_value import QuantitativeValue
-from schemaorg_models.member_program_tier import MemberProgramTier
+from .structured_value import StructuredValue
+from .quantitative_value import QuantitativeValue
+from .member_program_tier import MemberProgramTier
 
 class PriceSpecification(StructuredValue):
     """
@@ -76,7 +74,7 @@ One or more detailed price specifications, indicating the unit price and deliver
         ),
         serialization_alias='https://schema.org/validThrough'
     )
-    eligibleTransactionVolume: Optional[Union["PriceSpecification", List["PriceSpecification"]]] = Field(
+    eligibleTransactionVolume: Optional[Union[PriceSpecification, List[PriceSpecification]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'eligibleTransactionVolume',

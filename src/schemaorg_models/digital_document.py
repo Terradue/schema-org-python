@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .creative_work import CreativeWork    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.digital_document_permission import DigitalDocumentPermission
+from .digital_document_permission import DigitalDocumentPermission
+from .creative_work import CreativeWork
 
 class DigitalDocument(CreativeWork):
     """

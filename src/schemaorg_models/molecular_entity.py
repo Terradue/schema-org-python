@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .bio_chem_entity import BioChemEntity    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,9 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.defined_term import DefinedTerm
+from .bio_chem_entity import BioChemEntity
+from .quantitative_value import QuantitativeValue
+from .defined_term import DefinedTerm
 
 class MolecularEntity(BioChemEntity):
     """
@@ -47,7 +46,7 @@ Any constitutionally or isotopically distinct atom, molecule, ion, ion pair, rad
         ),
         serialization_alias='https://schema.org/smiles'
     )
-    molecularWeight: Optional[Union[str, List[str], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    molecularWeight: Optional[Union[str, List[str], QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'molecularWeight',
@@ -87,7 +86,7 @@ Any constitutionally or isotopically distinct atom, molecule, ion, ion pair, rad
         ),
         serialization_alias='https://schema.org/iupacName'
     )
-    monoisotopicMolecularWeight: Optional[Union[str, List[str], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    monoisotopicMolecularWeight: Optional[Union[str, List[str], QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'monoisotopicMolecularWeight',

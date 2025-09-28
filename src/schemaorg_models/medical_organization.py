@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .organization import Organization    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,8 @@ from typing import (
     Optional,
     Union
 )
+from .medical_specialty import MedicalSpecialty
+from .organization import Organization
 
 class MedicalOrganization(Organization):
     """
@@ -38,7 +37,7 @@ A medical organization (physical or not), such as hospital, institution or clini
         ),
         serialization_alias='https://schema.org/isAcceptingNewPatients'
     )
-    medicalSpecialty: Optional[Union["MedicalSpecialty", List["MedicalSpecialty"]]] = Field(
+    medicalSpecialty: Optional[Union[MedicalSpecialty, List[MedicalSpecialty]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'medicalSpecialty',

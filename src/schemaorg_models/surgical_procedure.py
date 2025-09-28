@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .medical_procedure import MedicalProcedure    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .medical_procedure import MedicalProcedure
 
 class SurgicalProcedure(MedicalProcedure):
     """

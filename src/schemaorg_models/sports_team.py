@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .sports_organization import SportsOrganization    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,8 +9,9 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.person import Person
-from schemaorg_models.gender_type import GenderType
+from .gender_type import GenderType
+from .sports_organization import SportsOrganization
+from .person import Person
 
 class SportsTeam(SportsOrganization):
     """

@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .creative_work import CreativeWork    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,14 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.person import Person
+from .person import Person
+from .music_group import MusicGroup
+from .episode import Episode
+from .performing_group import PerformingGroup
+from .hyper_toc_entry import HyperTocEntry
+from .creative_work_series import CreativeWorkSeries
+from .creative_work_season import CreativeWorkSeason
+from .creative_work import CreativeWork
 
 class Clip(CreativeWork):
     """
@@ -39,7 +43,7 @@ A short TV or radio program or a segment/part of a program.
         ),
         serialization_alias='https://schema.org/director'
     )
-    partOfEpisode: Optional[Union["Episode", List["Episode"]]] = Field(
+    partOfEpisode: Optional[Union[Episode, List[Episode]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'partOfEpisode',
@@ -47,7 +51,7 @@ A short TV or radio program or a segment/part of a program.
         ),
         serialization_alias='https://schema.org/partOfEpisode'
     )
-    partOfSeries: Optional[Union["CreativeWorkSeries", List["CreativeWorkSeries"]]] = Field(
+    partOfSeries: Optional[Union[CreativeWorkSeries, List[CreativeWorkSeries]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'partOfSeries',
@@ -55,7 +59,7 @@ A short TV or radio program or a segment/part of a program.
         ),
         serialization_alias='https://schema.org/partOfSeries'
     )
-    endOffset: Optional[Union["HyperTocEntry", List["HyperTocEntry"], float, List[float]]] = Field(
+    endOffset: Optional[Union[HyperTocEntry, List[HyperTocEntry], float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'endOffset',
@@ -63,7 +67,7 @@ A short TV or radio program or a segment/part of a program.
         ),
         serialization_alias='https://schema.org/endOffset'
     )
-    partOfSeason: Optional[Union["CreativeWorkSeason", List["CreativeWorkSeason"]]] = Field(
+    partOfSeason: Optional[Union[CreativeWorkSeason, List[CreativeWorkSeason]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'partOfSeason',
@@ -71,7 +75,7 @@ A short TV or radio program or a segment/part of a program.
         ),
         serialization_alias='https://schema.org/partOfSeason'
     )
-    actor: Optional[Union[Person, List[Person], "PerformingGroup", List["PerformingGroup"]]] = Field(
+    actor: Optional[Union[Person, List[Person], PerformingGroup, List[PerformingGroup]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'actor',
@@ -79,7 +83,7 @@ A short TV or radio program or a segment/part of a program.
         ),
         serialization_alias='https://schema.org/actor'
     )
-    startOffset: Optional[Union[float, List[float], "HyperTocEntry", List["HyperTocEntry"]]] = Field(
+    startOffset: Optional[Union[float, List[float], HyperTocEntry, List[HyperTocEntry]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'startOffset',
@@ -95,7 +99,7 @@ A short TV or radio program or a segment/part of a program.
         ),
         serialization_alias='https://schema.org/actors'
     )
-    musicBy: Optional[Union["MusicGroup", List["MusicGroup"], Person, List[Person]]] = Field(
+    musicBy: Optional[Union[MusicGroup, List[MusicGroup], Person, List[Person]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'musicBy',

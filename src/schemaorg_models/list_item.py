@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .intangible import Intangible    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.thing import Thing
+from .thing import Thing
+from .intangible import Intangible
 
 class ListItem(Intangible):
     """
@@ -31,7 +29,7 @@ An list item, e.g. a step in a checklist or how-to description.
         ),
         serialization_alias='https://schema.org/position'
     )
-    nextItem: Optional[Union["ListItem", List["ListItem"]]] = Field(
+    nextItem: Optional[Union[ListItem, List[ListItem]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'nextItem',
@@ -47,7 +45,7 @@ An list item, e.g. a step in a checklist or how-to description.
         ),
         serialization_alias='https://schema.org/item'
     )
-    previousItem: Optional[Union["ListItem", List["ListItem"]]] = Field(
+    previousItem: Optional[Union[ListItem, List[ListItem]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'previousItem',

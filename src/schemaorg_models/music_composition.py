@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .creative_work import CreativeWork    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,9 +9,11 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.organization import Organization
-from schemaorg_models.person import Person
-from schemaorg_models.event import Event
+from .person import Person
+from .event import Event
+from .music_recording import MusicRecording
+from .organization import Organization
+from .creative_work import CreativeWork
 
 class MusicComposition(CreativeWork):
     """
@@ -25,7 +24,7 @@ A musical composition.
         alias='@type',
         serialization_alias='@type'
     )
-    recordedAs: Optional[Union["MusicRecording", List["MusicRecording"]]] = Field(
+    recordedAs: Optional[Union[MusicRecording, List[MusicRecording]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'recordedAs',
@@ -41,7 +40,7 @@ A musical composition.
         ),
         serialization_alias='https://schema.org/composer'
     )
-    musicArrangement: Optional[Union["MusicComposition", List["MusicComposition"]]] = Field(
+    musicArrangement: Optional[Union[MusicComposition, List[MusicComposition]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'musicArrangement',
@@ -57,7 +56,7 @@ A musical composition.
         ),
         serialization_alias='https://schema.org/lyrics'
     )
-    includedComposition: Optional[Union["MusicComposition", List["MusicComposition"]]] = Field(
+    includedComposition: Optional[Union[MusicComposition, List[MusicComposition]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'includedComposition',

@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .structured_value import StructuredValue    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,9 +10,10 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.business_function import BusinessFunction
-from schemaorg_models.product import Product
-from schemaorg_models.service import Service
+from .business_function import BusinessFunction
+from .product import Product
+from .structured_value import StructuredValue
+from .service import Service
 
 class TypeAndQuantityNode(StructuredValue):
     """

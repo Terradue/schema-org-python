@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .consume_action import ConsumeAction    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.game_availability_enumeration import GameAvailabilityEnumeration
+from .consume_action import ConsumeAction
+from .game_availability_enumeration import GameAvailabilityEnumeration
 
 class PlayGameAction(ConsumeAction):
     """

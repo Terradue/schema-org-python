@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .thing import Thing    
-
 from datetime import (
     date,
     datetime,
@@ -18,8 +15,27 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.person import Person
-from schemaorg_models.place import Place
+from .thing import Thing
+from .virtual_location import VirtualLocation
+from .review import Review
+from .schedule import Schedule
+from .demand import Demand
+from .person import Person
+from .offer import Offer
+from .place import Place
+from .duration import Duration
+from .organization import Organization
+from .language import Language
+from .postal_address import PostalAddress
+from .performing_group import PerformingGroup
+from .quantitative_value import QuantitativeValue
+from .creative_work import CreativeWork
+from .event_status_type import EventStatusType
+from .aggregate_rating import AggregateRating
+from .event_attendance_mode_enumeration import EventAttendanceModeEnumeration
+from .defined_term import DefinedTerm
+from .audience import Audience
+from .grant import Grant
 
 class Event(Thing):
     """
@@ -30,7 +46,7 @@ Upcoming or past event associated with this place, organization, or action.
         alias='@type',
         serialization_alias='@type'
     )
-    recordedIn: Optional[Union["CreativeWork", List["CreativeWork"]]] = Field(
+    recordedIn: Optional[Union[CreativeWork, List[CreativeWork]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'recordedIn',
@@ -46,7 +62,7 @@ Upcoming or past event associated with this place, organization, or action.
         ),
         serialization_alias='https://schema.org/isAccessibleForFree'
     )
-    aggregateRating: Optional[Union["AggregateRating", List["AggregateRating"]]] = Field(
+    aggregateRating: Optional[Union[AggregateRating, List[AggregateRating]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'aggregateRating',
@@ -54,7 +70,7 @@ Upcoming or past event associated with this place, organization, or action.
         ),
         serialization_alias='https://schema.org/aggregateRating'
     )
-    eventSchedule: Optional[Union["Schedule", List["Schedule"]]] = Field(
+    eventSchedule: Optional[Union[Schedule, List[Schedule]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'eventSchedule',
@@ -86,7 +102,7 @@ Upcoming or past event associated with this place, organization, or action.
         ),
         serialization_alias='https://schema.org/about'
     )
-    subEvent: Optional[Union["Event", List["Event"]]] = Field(
+    subEvent: Optional[Union[Event, List[Event]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'subEvent',
@@ -102,7 +118,7 @@ Upcoming or past event associated with this place, organization, or action.
         ),
         serialization_alias='https://schema.org/maximumPhysicalAttendeeCapacity'
     )
-    workFeatured: Optional[Union["CreativeWork", List["CreativeWork"]]] = Field(
+    workFeatured: Optional[Union[CreativeWork, List[CreativeWork]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'workFeatured',
@@ -110,7 +126,7 @@ Upcoming or past event associated with this place, organization, or action.
         ),
         serialization_alias='https://schema.org/workFeatured'
     )
-    location: Optional[Union["VirtualLocation", List["VirtualLocation"], "PostalAddress", List["PostalAddress"], str, List[str], Place, List[Place]]] = Field(
+    location: Optional[Union[VirtualLocation, List[VirtualLocation], PostalAddress, List[PostalAddress], str, List[str], Place, List[Place]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'location',
@@ -134,7 +150,7 @@ Upcoming or past event associated with this place, organization, or action.
         ),
         serialization_alias='https://schema.org/previousStartDate'
     )
-    funder: Optional[Union["Organization", List["Organization"], Person, List[Person]]] = Field(
+    funder: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'funder',
@@ -150,7 +166,7 @@ Upcoming or past event associated with this place, organization, or action.
         ),
         serialization_alias='https://schema.org/maximumVirtualAttendeeCapacity'
     )
-    duration: Optional[Union["Duration", List["Duration"], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    duration: Optional[Union[Duration, List[Duration], QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'duration',
@@ -158,7 +174,7 @@ Upcoming or past event associated with this place, organization, or action.
         ),
         serialization_alias='https://schema.org/duration'
     )
-    keywords: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], "DefinedTerm", List["DefinedTerm"]]] = Field(
+    keywords: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], DefinedTerm, List[DefinedTerm]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'keywords',
@@ -166,7 +182,7 @@ Upcoming or past event associated with this place, organization, or action.
         ),
         serialization_alias='https://schema.org/keywords'
     )
-    translator: Optional[Union[Person, List[Person], "Organization", List["Organization"]]] = Field(
+    translator: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'translator',
@@ -182,7 +198,7 @@ Upcoming or past event associated with this place, organization, or action.
         ),
         serialization_alias='https://schema.org/doorTime'
     )
-    attendee: Optional[Union[Person, List[Person], "Organization", List["Organization"]]] = Field(
+    attendee: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'attendee',
@@ -190,7 +206,7 @@ Upcoming or past event associated with this place, organization, or action.
         ),
         serialization_alias='https://schema.org/attendee'
     )
-    offers: Optional[Union["Demand", List["Demand"], "Offer", List["Offer"]]] = Field(
+    offers: Optional[Union[Demand, List[Demand], Offer, List[Offer]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'offers',
@@ -198,7 +214,7 @@ Upcoming or past event associated with this place, organization, or action.
         ),
         serialization_alias='https://schema.org/offers'
     )
-    audience: Optional[Union["Audience", List["Audience"]]] = Field(
+    audience: Optional[Union[Audience, List[Audience]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'audience',
@@ -206,7 +222,7 @@ Upcoming or past event associated with this place, organization, or action.
         ),
         serialization_alias='https://schema.org/audience'
     )
-    funding: Optional[Union["Grant", List["Grant"]]] = Field(
+    funding: Optional[Union[Grant, List[Grant]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'funding',
@@ -214,7 +230,7 @@ Upcoming or past event associated with this place, organization, or action.
         ),
         serialization_alias='https://schema.org/funding'
     )
-    performers: Optional[Union[Person, List[Person], "Organization", List["Organization"]]] = Field(
+    performers: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'performers',
@@ -222,7 +238,7 @@ Upcoming or past event associated with this place, organization, or action.
         ),
         serialization_alias='https://schema.org/performers'
     )
-    eventStatus: Optional[Union["EventStatusType", List["EventStatusType"]]] = Field(
+    eventStatus: Optional[Union[EventStatusType, List[EventStatusType]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'eventStatus',
@@ -230,7 +246,7 @@ Upcoming or past event associated with this place, organization, or action.
         ),
         serialization_alias='https://schema.org/eventStatus'
     )
-    actor: Optional[Union[Person, List[Person], "PerformingGroup", List["PerformingGroup"]]] = Field(
+    actor: Optional[Union[Person, List[Person], PerformingGroup, List[PerformingGroup]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'actor',
@@ -238,7 +254,7 @@ Upcoming or past event associated with this place, organization, or action.
         ),
         serialization_alias='https://schema.org/actor'
     )
-    superEvent: Optional[Union["Event", List["Event"]]] = Field(
+    superEvent: Optional[Union[Event, List[Event]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'superEvent',
@@ -246,7 +262,7 @@ Upcoming or past event associated with this place, organization, or action.
         ),
         serialization_alias='https://schema.org/superEvent'
     )
-    eventAttendanceMode: Optional[Union["EventAttendanceModeEnumeration", List["EventAttendanceModeEnumeration"]]] = Field(
+    eventAttendanceMode: Optional[Union[EventAttendanceModeEnumeration, List[EventAttendanceModeEnumeration]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'eventAttendanceMode',
@@ -254,7 +270,7 @@ Upcoming or past event associated with this place, organization, or action.
         ),
         serialization_alias='https://schema.org/eventAttendanceMode'
     )
-    organizer: Optional[Union[Person, List[Person], "Organization", List["Organization"]]] = Field(
+    organizer: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'organizer',
@@ -262,7 +278,7 @@ Upcoming or past event associated with this place, organization, or action.
         ),
         serialization_alias='https://schema.org/organizer'
     )
-    attendees: Optional[Union[Person, List[Person], "Organization", List["Organization"]]] = Field(
+    attendees: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'attendees',
@@ -270,7 +286,7 @@ Upcoming or past event associated with this place, organization, or action.
         ),
         serialization_alias='https://schema.org/attendees'
     )
-    subEvents: Optional[Union["Event", List["Event"]]] = Field(
+    subEvents: Optional[Union[Event, List[Event]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'subEvents',
@@ -278,7 +294,7 @@ Upcoming or past event associated with this place, organization, or action.
         ),
         serialization_alias='https://schema.org/subEvents'
     )
-    review: Optional[Union["Review", List["Review"]]] = Field(
+    review: Optional[Union[Review, List[Review]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'review',
@@ -286,7 +302,7 @@ Upcoming or past event associated with this place, organization, or action.
         ),
         serialization_alias='https://schema.org/review'
     )
-    performer: Optional[Union[Person, List[Person], "Organization", List["Organization"]]] = Field(
+    performer: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'performer',
@@ -310,7 +326,7 @@ Upcoming or past event associated with this place, organization, or action.
         ),
         serialization_alias='https://schema.org/endDate'
     )
-    contributor: Optional[Union["Organization", List["Organization"], Person, List[Person]]] = Field(
+    contributor: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'contributor',
@@ -318,7 +334,7 @@ Upcoming or past event associated with this place, organization, or action.
         ),
         serialization_alias='https://schema.org/contributor'
     )
-    composer: Optional[Union["Organization", List["Organization"], Person, List[Person]]] = Field(
+    composer: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'composer',
@@ -334,7 +350,7 @@ Upcoming or past event associated with this place, organization, or action.
         ),
         serialization_alias='https://schema.org/maximumAttendeeCapacity'
     )
-    workPerformed: Optional[Union["CreativeWork", List["CreativeWork"]]] = Field(
+    workPerformed: Optional[Union[CreativeWork, List[CreativeWork]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'workPerformed',
@@ -342,7 +358,7 @@ Upcoming or past event associated with this place, organization, or action.
         ),
         serialization_alias='https://schema.org/workPerformed'
     )
-    inLanguage: Optional[Union[str, List[str], "Language", List["Language"]]] = Field(
+    inLanguage: Optional[Union[str, List[str], Language, List[Language]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'inLanguage',
@@ -350,7 +366,7 @@ Upcoming or past event associated with this place, organization, or action.
         ),
         serialization_alias='https://schema.org/inLanguage'
     )
-    sponsor: Optional[Union["Organization", List["Organization"], Person, List[Person]]] = Field(
+    sponsor: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'sponsor',

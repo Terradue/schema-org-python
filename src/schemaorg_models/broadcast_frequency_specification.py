@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .intangible import Intangible    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,9 @@ from typing import (
     Optional,
     Union
 )
+from .qualitative_value import QualitativeValue
+from .intangible import Intangible
+from .quantitative_value import QuantitativeValue
 
 class BroadcastFrequencySpecification(Intangible):
     """
@@ -30,7 +30,7 @@ The frequency in MHz and the modulation used for a particular BroadcastService.
         ),
         serialization_alias='https://schema.org/broadcastSubChannel'
     )
-    broadcastFrequencyValue: Optional[Union[float, List[float], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    broadcastFrequencyValue: Optional[Union[float, List[float], QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'broadcastFrequencyValue',
@@ -38,7 +38,7 @@ The frequency in MHz and the modulation used for a particular BroadcastService.
         ),
         serialization_alias='https://schema.org/broadcastFrequencyValue'
     )
-    broadcastSignalModulation: Optional[Union[str, List[str], "QualitativeValue", List["QualitativeValue"]]] = Field(
+    broadcastSignalModulation: Optional[Union[str, List[str], QualitativeValue, List[QualitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'broadcastSignalModulation',

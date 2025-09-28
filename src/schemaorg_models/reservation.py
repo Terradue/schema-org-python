@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .intangible import Intangible    
-
 from datetime import (
     datetime
 )
@@ -15,11 +12,14 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.person import Person
-from schemaorg_models.organization import Organization
-from schemaorg_models.thing import Thing
-from schemaorg_models.ticket import Ticket
-from schemaorg_models.program_membership import ProgramMembership
+from .person import Person
+from .reservation_status_type import ReservationStatusType
+from .thing import Thing
+from .intangible import Intangible
+from .ticket import Ticket
+from .program_membership import ProgramMembership
+from .price_specification import PriceSpecification
+from .organization import Organization
 
 class Reservation(Intangible):
     """
@@ -32,7 +32,7 @@ Note: This type is for information about actual reservations, e.g. in confirmati
         alias='@type',
         serialization_alias='@type'
     )
-    reservationStatus: Optional[Union["ReservationStatusType", List["ReservationStatusType"]]] = Field(
+    reservationStatus: Optional[Union[ReservationStatusType, List[ReservationStatusType]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'reservationStatus',
@@ -56,7 +56,7 @@ Note: This type is for information about actual reservations, e.g. in confirmati
         ),
         serialization_alias='https://schema.org/reservationFor'
     )
-    totalPrice: Optional[Union[str, List[str], "PriceSpecification", List["PriceSpecification"], float, List[float]]] = Field(
+    totalPrice: Optional[Union[str, List[str], PriceSpecification, List[PriceSpecification], float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'totalPrice',

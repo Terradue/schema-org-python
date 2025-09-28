@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .medical_sign_or_symptom import MedicalSignOrSymptom    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .medical_sign_or_symptom import MedicalSignOrSymptom
 
 class MedicalSymptom(MedicalSignOrSymptom):
     """

@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .review import Review    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,7 @@ from typing import (
     Optional,
     Union
 )
+from .review import Review
 
 class ClaimReview(Review):
     """

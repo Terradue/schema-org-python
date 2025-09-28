@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .civic_structure import CivicStructure    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,9 +9,13 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.dataset import Dataset
-from schemaorg_models.medical_procedure import MedicalProcedure
-from schemaorg_models.medical_test import MedicalTest
+from .medical_specialty import MedicalSpecialty
+from .civic_structure import CivicStructure
+from .cdcpmd_record import CDCPMDRecord
+from .medical_therapy import MedicalTherapy
+from .medical_procedure import MedicalProcedure
+from .medical_test import MedicalTest
+from .dataset import Dataset
 
 class Hospital(CivicStructure):
     """
@@ -25,7 +26,7 @@ A hospital.
         alias='@type',
         serialization_alias='@type'
     )
-    healthcareReportingData: Optional[Union[Dataset, List[Dataset], "CDCPMDRecord", List["CDCPMDRecord"]]] = Field(
+    healthcareReportingData: Optional[Union[Dataset, List[Dataset], CDCPMDRecord, List[CDCPMDRecord]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'healthcareReportingData',
@@ -33,7 +34,7 @@ A hospital.
         ),
         serialization_alias='https://schema.org/healthcareReportingData'
     )
-    medicalSpecialty: Optional[Union["MedicalSpecialty", List["MedicalSpecialty"]]] = Field(
+    medicalSpecialty: Optional[Union[MedicalSpecialty, List[MedicalSpecialty]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'medicalSpecialty',
@@ -41,7 +42,7 @@ A hospital.
         ),
         serialization_alias='https://schema.org/medicalSpecialty'
     )
-    availableService: Optional[Union[MedicalProcedure, List[MedicalProcedure], "MedicalTherapy", List["MedicalTherapy"], MedicalTest, List[MedicalTest]]] = Field(
+    availableService: Optional[Union[MedicalProcedure, List[MedicalProcedure], MedicalTherapy, List[MedicalTherapy], MedicalTest, List[MedicalTest]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'availableService',

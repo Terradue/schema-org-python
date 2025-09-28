@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .medical_entity import MedicalEntity    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.administrative_area import AdministrativeArea
+from .administrative_area import AdministrativeArea
+from .medical_entity import MedicalEntity
+from .qualitative_value import QualitativeValue
+from .drug_cost_category import DrugCostCategory
 
 class DrugCost(MedicalEntity):
     """
@@ -23,7 +23,7 @@ The cost per unit of a medical drug. Note that this type is not meant to represe
         alias='@type',
         serialization_alias='@type'
     )
-    costPerUnit: Optional[Union[str, List[str], float, List[float], "QualitativeValue", List["QualitativeValue"]]] = Field(
+    costPerUnit: Optional[Union[str, List[str], float, List[float], QualitativeValue, List[QualitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'costPerUnit',
@@ -47,7 +47,7 @@ The cost per unit of a medical drug. Note that this type is not meant to represe
         ),
         serialization_alias='https://schema.org/drugUnit'
     )
-    costCategory: Optional[Union["DrugCostCategory", List["DrugCostCategory"]]] = Field(
+    costCategory: Optional[Union[DrugCostCategory, List[DrugCostCategory]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'costCategory',

@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .thing import Thing    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,6 +10,22 @@ from typing import (
     Optional,
     Union
 )
+from .opening_hours_specification import OpeningHoursSpecification
+from .geo_shape import GeoShape
+from .thing import Thing
+from .event import Event
+from .certification import Certification
+from .map import Map
+from .image_object import ImageObject
+from .postal_address import PostalAddress
+from .property_value import PropertyValue
+from .review import Review
+from .geo_coordinates import GeoCoordinates
+from .location_feature_specification import LocationFeatureSpecification
+from .aggregate_rating import AggregateRating
+from .geospatial_geometry import GeospatialGeometry
+from .defined_term import DefinedTerm
+from .photograph import Photograph
 
 class Place(Thing):
     """
@@ -39,7 +52,7 @@ Entities that have a somewhat fixed, physical extension.
         ),
         serialization_alias='https://schema.org/globalLocationNumber'
     )
-    event: Optional[Union["Event", List["Event"]]] = Field(
+    event: Optional[Union[Event, List[Event]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'event',
@@ -47,7 +60,7 @@ Entities that have a somewhat fixed, physical extension.
         ),
         serialization_alias='https://schema.org/event'
     )
-    hasCertification: Optional[Union["Certification", List["Certification"]]] = Field(
+    hasCertification: Optional[Union[Certification, List[Certification]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasCertification',
@@ -63,7 +76,7 @@ Entities that have a somewhat fixed, physical extension.
         ),
         serialization_alias='https://schema.org/isAccessibleForFree'
     )
-    geoIntersects: Optional[Union["Place", List["Place"], "GeospatialGeometry", List["GeospatialGeometry"]]] = Field(
+    geoIntersects: Optional[Union[Place, List[Place], GeospatialGeometry, List[GeospatialGeometry]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'geoIntersects',
@@ -71,7 +84,7 @@ Entities that have a somewhat fixed, physical extension.
         ),
         serialization_alias='https://schema.org/geoIntersects'
     )
-    geoCoveredBy: Optional[Union["GeospatialGeometry", List["GeospatialGeometry"], "Place", List["Place"]]] = Field(
+    geoCoveredBy: Optional[Union[GeospatialGeometry, List[GeospatialGeometry], Place, List[Place]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'geoCoveredBy',
@@ -79,7 +92,7 @@ Entities that have a somewhat fixed, physical extension.
         ),
         serialization_alias='https://schema.org/geoCoveredBy'
     )
-    reviews: Optional[Union["Review", List["Review"]]] = Field(
+    reviews: Optional[Union[Review, List[Review]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'reviews',
@@ -87,7 +100,7 @@ Entities that have a somewhat fixed, physical extension.
         ),
         serialization_alias='https://schema.org/reviews'
     )
-    aggregateRating: Optional[Union["AggregateRating", List["AggregateRating"]]] = Field(
+    aggregateRating: Optional[Union[AggregateRating, List[AggregateRating]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'aggregateRating',
@@ -95,7 +108,7 @@ Entities that have a somewhat fixed, physical extension.
         ),
         serialization_alias='https://schema.org/aggregateRating'
     )
-    hasMap: Optional[Union[HttpUrl, List[HttpUrl], "Map", List["Map"]]] = Field(
+    hasMap: Optional[Union[HttpUrl, List[HttpUrl], Map, List[Map]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasMap',
@@ -111,7 +124,7 @@ Entities that have a somewhat fixed, physical extension.
         ),
         serialization_alias='https://schema.org/longitude'
     )
-    photos: Optional[Union["Photograph", List["Photograph"], "ImageObject", List["ImageObject"]]] = Field(
+    photos: Optional[Union[Photograph, List[Photograph], ImageObject, List[ImageObject]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'photos',
@@ -119,7 +132,7 @@ Entities that have a somewhat fixed, physical extension.
         ),
         serialization_alias='https://schema.org/photos'
     )
-    photo: Optional[Union["Photograph", List["Photograph"], "ImageObject", List["ImageObject"]]] = Field(
+    photo: Optional[Union[Photograph, List[Photograph], ImageObject, List[ImageObject]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'photo',
@@ -127,7 +140,7 @@ Entities that have a somewhat fixed, physical extension.
         ),
         serialization_alias='https://schema.org/photo'
     )
-    geoEquals: Optional[Union["Place", List["Place"], "GeospatialGeometry", List["GeospatialGeometry"]]] = Field(
+    geoEquals: Optional[Union[Place, List[Place], GeospatialGeometry, List[GeospatialGeometry]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'geoEquals',
@@ -143,7 +156,7 @@ Entities that have a somewhat fixed, physical extension.
         ),
         serialization_alias='https://schema.org/hasDriveThroughService'
     )
-    geoCovers: Optional[Union["Place", List["Place"], "GeospatialGeometry", List["GeospatialGeometry"]]] = Field(
+    geoCovers: Optional[Union[Place, List[Place], GeospatialGeometry, List[GeospatialGeometry]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'geoCovers',
@@ -159,7 +172,7 @@ Entities that have a somewhat fixed, physical extension.
         ),
         serialization_alias='https://schema.org/slogan'
     )
-    amenityFeature: Optional[Union["LocationFeatureSpecification", List["LocationFeatureSpecification"]]] = Field(
+    amenityFeature: Optional[Union[LocationFeatureSpecification, List[LocationFeatureSpecification]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'amenityFeature',
@@ -167,7 +180,7 @@ Entities that have a somewhat fixed, physical extension.
         ),
         serialization_alias='https://schema.org/amenityFeature'
     )
-    keywords: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], "DefinedTerm", List["DefinedTerm"]]] = Field(
+    keywords: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], DefinedTerm, List[DefinedTerm]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'keywords',
@@ -175,7 +188,7 @@ Entities that have a somewhat fixed, physical extension.
         ),
         serialization_alias='https://schema.org/keywords'
     )
-    logo: Optional[Union[HttpUrl, List[HttpUrl], "ImageObject", List["ImageObject"]]] = Field(
+    logo: Optional[Union[HttpUrl, List[HttpUrl], ImageObject, List[ImageObject]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'logo',
@@ -191,7 +204,7 @@ Entities that have a somewhat fixed, physical extension.
         ),
         serialization_alias='https://schema.org/map'
     )
-    geo: Optional[Union["GeoShape", List["GeoShape"], "GeoCoordinates", List["GeoCoordinates"]]] = Field(
+    geo: Optional[Union[GeoShape, List[GeoShape], GeoCoordinates, List[GeoCoordinates]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'geo',
@@ -239,7 +252,7 @@ Entities that have a somewhat fixed, physical extension.
         ),
         serialization_alias='https://schema.org/branchCode'
     )
-    address: Optional[Union[str, List[str], "PostalAddress", List["PostalAddress"]]] = Field(
+    address: Optional[Union[str, List[str], PostalAddress, List[PostalAddress]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'address',
@@ -247,7 +260,7 @@ Entities that have a somewhat fixed, physical extension.
         ),
         serialization_alias='https://schema.org/address'
     )
-    additionalProperty: Optional[Union["PropertyValue", List["PropertyValue"]]] = Field(
+    additionalProperty: Optional[Union[PropertyValue, List[PropertyValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'additionalProperty',
@@ -255,7 +268,7 @@ Entities that have a somewhat fixed, physical extension.
         ),
         serialization_alias='https://schema.org/additionalProperty'
     )
-    events: Optional[Union["Event", List["Event"]]] = Field(
+    events: Optional[Union[Event, List[Event]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'events',
@@ -263,7 +276,7 @@ Entities that have a somewhat fixed, physical extension.
         ),
         serialization_alias='https://schema.org/events'
     )
-    openingHoursSpecification: Optional[Union["OpeningHoursSpecification", List["OpeningHoursSpecification"]]] = Field(
+    openingHoursSpecification: Optional[Union[OpeningHoursSpecification, List[OpeningHoursSpecification]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'openingHoursSpecification',
@@ -279,7 +292,7 @@ Entities that have a somewhat fixed, physical extension.
         ),
         serialization_alias='https://schema.org/hasGS1DigitalLink'
     )
-    geoContains: Optional[Union["Place", List["Place"], "GeospatialGeometry", List["GeospatialGeometry"]]] = Field(
+    geoContains: Optional[Union[Place, List[Place], GeospatialGeometry, List[GeospatialGeometry]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'geoContains',
@@ -303,7 +316,7 @@ Entities that have a somewhat fixed, physical extension.
         ),
         serialization_alias='https://schema.org/smokingAllowed'
     )
-    geoDisjoint: Optional[Union["GeospatialGeometry", List["GeospatialGeometry"], "Place", List["Place"]]] = Field(
+    geoDisjoint: Optional[Union[GeospatialGeometry, List[GeospatialGeometry], Place, List[Place]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'geoDisjoint',
@@ -311,7 +324,7 @@ Entities that have a somewhat fixed, physical extension.
         ),
         serialization_alias='https://schema.org/geoDisjoint'
     )
-    containedInPlace: Optional[Union["Place", List["Place"]]] = Field(
+    containedInPlace: Optional[Union[Place, List[Place]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'containedInPlace',
@@ -319,7 +332,7 @@ Entities that have a somewhat fixed, physical extension.
         ),
         serialization_alias='https://schema.org/containedInPlace'
     )
-    geoOverlaps: Optional[Union["Place", List["Place"], "GeospatialGeometry", List["GeospatialGeometry"]]] = Field(
+    geoOverlaps: Optional[Union[Place, List[Place], GeospatialGeometry, List[GeospatialGeometry]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'geoOverlaps',
@@ -327,7 +340,7 @@ Entities that have a somewhat fixed, physical extension.
         ),
         serialization_alias='https://schema.org/geoOverlaps'
     )
-    review: Optional[Union["Review", List["Review"]]] = Field(
+    review: Optional[Union[Review, List[Review]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'review',
@@ -335,7 +348,7 @@ Entities that have a somewhat fixed, physical extension.
         ),
         serialization_alias='https://schema.org/review'
     )
-    containedIn: Optional[Union["Place", List["Place"]]] = Field(
+    containedIn: Optional[Union[Place, List[Place]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'containedIn',
@@ -343,7 +356,7 @@ Entities that have a somewhat fixed, physical extension.
         ),
         serialization_alias='https://schema.org/containedIn'
     )
-    specialOpeningHoursSpecification: Optional[Union["OpeningHoursSpecification", List["OpeningHoursSpecification"]]] = Field(
+    specialOpeningHoursSpecification: Optional[Union[OpeningHoursSpecification, List[OpeningHoursSpecification]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'specialOpeningHoursSpecification',
@@ -351,7 +364,7 @@ Entities that have a somewhat fixed, physical extension.
         ),
         serialization_alias='https://schema.org/specialOpeningHoursSpecification'
     )
-    geoTouches: Optional[Union["Place", List["Place"], "GeospatialGeometry", List["GeospatialGeometry"]]] = Field(
+    geoTouches: Optional[Union[Place, List[Place], GeospatialGeometry, List[GeospatialGeometry]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'geoTouches',
@@ -359,7 +372,7 @@ Entities that have a somewhat fixed, physical extension.
         ),
         serialization_alias='https://schema.org/geoTouches'
     )
-    containsPlace: Optional[Union["Place", List["Place"]]] = Field(
+    containsPlace: Optional[Union[Place, List[Place]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'containsPlace',
@@ -375,7 +388,7 @@ Entities that have a somewhat fixed, physical extension.
         ),
         serialization_alias='https://schema.org/isicV4'
     )
-    geoCrosses: Optional[Union["Place", List["Place"], "GeospatialGeometry", List["GeospatialGeometry"]]] = Field(
+    geoCrosses: Optional[Union[Place, List[Place], GeospatialGeometry, List[GeospatialGeometry]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'geoCrosses',
@@ -391,7 +404,7 @@ Entities that have a somewhat fixed, physical extension.
         ),
         serialization_alias='https://schema.org/maximumAttendeeCapacity'
     )
-    geoWithin: Optional[Union["GeospatialGeometry", List["GeospatialGeometry"], "Place", List["Place"]]] = Field(
+    geoWithin: Optional[Union[GeospatialGeometry, List[GeospatialGeometry], Place, List[Place]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'geoWithin',

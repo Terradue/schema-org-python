@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .physician import Physician    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .physician import Physician
 
 class PhysiciansOffice(Physician):
     """

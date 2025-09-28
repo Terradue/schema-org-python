@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .medical_entity import MedicalEntity    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,10 @@ from typing import (
     Optional,
     Union
 )
+from .medical_entity import MedicalEntity
+from .medical_study_status import MedicalStudyStatus
+from .event_status_type import EventStatusType
+from .medical_procedure_type import MedicalProcedureType
 
 class MedicalProcedure(MedicalEntity):
     """
@@ -38,7 +39,7 @@ A process of care used in either a diagnostic, therapeutic, preventive or pallia
         ),
         serialization_alias='https://schema.org/preparation'
     )
-    status: Optional[Union["EventStatusType", List["EventStatusType"], "MedicalStudyStatus", List["MedicalStudyStatus"], str, List[str]]] = Field(
+    status: Optional[Union[EventStatusType, List[EventStatusType], MedicalStudyStatus, List[MedicalStudyStatus], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'status',
@@ -54,7 +55,7 @@ A process of care used in either a diagnostic, therapeutic, preventive or pallia
         ),
         serialization_alias='https://schema.org/howPerformed'
     )
-    procedureType: Optional[Union["MedicalProcedureType", List["MedicalProcedureType"]]] = Field(
+    procedureType: Optional[Union[MedicalProcedureType, List[MedicalProcedureType]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'procedureType',

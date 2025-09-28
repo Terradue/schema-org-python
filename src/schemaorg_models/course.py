@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .learning_resource import LearningResource    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,12 +10,14 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.language import Language
-from schemaorg_models.structured_value import StructuredValue
-from schemaorg_models.educational_occupational_credential import EducationalOccupationalCredential
-from schemaorg_models.defined_term import DefinedTerm
-from schemaorg_models.alignment_object import AlignmentObject
-from schemaorg_models.course_instance import CourseInstance
+from .syllabus import Syllabus
+from .language import Language
+from .structured_value import StructuredValue
+from .alignment_object import AlignmentObject
+from .learning_resource import LearningResource
+from .course_instance import CourseInstance
+from .defined_term import DefinedTerm
+from .educational_occupational_credential import EducationalOccupationalCredential
 
 class Course(LearningResource):
     """
@@ -53,7 +52,7 @@ A description of an educational course which may be offered as distinct instance
         ),
         serialization_alias='https://schema.org/numberOfCredits'
     )
-    syllabusSections: Optional[Union["Syllabus", List["Syllabus"]]] = Field(
+    syllabusSections: Optional[Union[Syllabus, List[Syllabus]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'syllabusSections',
@@ -77,7 +76,7 @@ A description of an educational course which may be offered as distinct instance
         ),
         serialization_alias='https://schema.org/financialAidEligible'
     )
-    coursePrerequisites: Optional[Union["Course", List["Course"], AlignmentObject, List[AlignmentObject], str, List[str]]] = Field(
+    coursePrerequisites: Optional[Union[Course, List[Course], AlignmentObject, List[AlignmentObject], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'coursePrerequisites',

@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .publication_event import PublicationEvent    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,8 +9,9 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.event import Event
-from schemaorg_models.language import Language
+from .publication_event import PublicationEvent
+from .event import Event
+from .language import Language
 
 class BroadcastEvent(PublicationEvent):
     """

@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .intangible import Intangible    
-
 from datetime import (
     date,
     datetime
@@ -17,8 +14,11 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.person import Person
-from schemaorg_models.organization import Organization
+from .person import Person
+from .intangible import Intangible
+from .seat import Seat
+from .price_specification import PriceSpecification
+from .organization import Organization
 
 class Ticket(Intangible):
     """
@@ -45,7 +45,7 @@ Used to describe a ticket to an event, a flight, a bus ride, etc.
         ),
         serialization_alias='https://schema.org/priceCurrency'
     )
-    ticketedSeat: Optional[Union["Seat", List["Seat"]]] = Field(
+    ticketedSeat: Optional[Union[Seat, List[Seat]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'ticketedSeat',
@@ -69,7 +69,7 @@ Used to describe a ticket to an event, a flight, a bus ride, etc.
         ),
         serialization_alias='https://schema.org/ticketNumber'
     )
-    totalPrice: Optional[Union[str, List[str], "PriceSpecification", List["PriceSpecification"], float, List[float]]] = Field(
+    totalPrice: Optional[Union[str, List[str], PriceSpecification, List[PriceSpecification], float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'totalPrice',

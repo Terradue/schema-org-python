@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .review import Review    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,9 +10,10 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.physical_activity_category import PhysicalActivityCategory
-from schemaorg_models.category_code import CategoryCode
-from schemaorg_models.thing import Thing
+from .review import Review
+from .thing import Thing
+from .category_code import CategoryCode
+from .physical_activity_category import PhysicalActivityCategory
 
 class Recommendation(Review):
     """

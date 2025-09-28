@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .structured_value import StructuredValue    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,10 +10,12 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.defined_term import DefinedTerm
-from schemaorg_models.measurement_type_enumeration import MeasurementTypeEnumeration
-from schemaorg_models.enumeration import Enumeration
-from schemaorg_models.qualitative_value import QualitativeValue
+from .measurement_type_enumeration import MeasurementTypeEnumeration
+from .enumeration import Enumeration
+from .structured_value import StructuredValue
+from .property_value import PropertyValue
+from .qualitative_value import QualitativeValue
+from .defined_term import DefinedTerm
 
 class QuantitativeValue(StructuredValue):
     """
@@ -67,7 +66,7 @@ class QuantitativeValue(StructuredValue):
         ),
         serialization_alias='https://schema.org/unitCode'
     )
-    additionalProperty: Optional[Union["PropertyValue", List["PropertyValue"]]] = Field(
+    additionalProperty: Optional[Union[PropertyValue, List[PropertyValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'additionalProperty',
@@ -75,7 +74,7 @@ class QuantitativeValue(StructuredValue):
         ),
         serialization_alias='https://schema.org/additionalProperty'
     )
-    valueReference: Optional[Union[DefinedTerm, List[DefinedTerm], MeasurementTypeEnumeration, List[MeasurementTypeEnumeration], str, List[str], Enumeration, List[Enumeration], QualitativeValue, List[QualitativeValue], "QuantitativeValue", List["QuantitativeValue"], "PropertyValue", List["PropertyValue"], StructuredValue, List[StructuredValue]]] = Field(
+    valueReference: Optional[Union[DefinedTerm, List[DefinedTerm], MeasurementTypeEnumeration, List[MeasurementTypeEnumeration], str, List[str], Enumeration, List[Enumeration], QualitativeValue, List[QualitativeValue], QuantitativeValue, List[QuantitativeValue], PropertyValue, List[PropertyValue], StructuredValue, List[StructuredValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'valueReference',

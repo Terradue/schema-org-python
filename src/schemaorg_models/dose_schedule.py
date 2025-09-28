@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .medical_intangible import MedicalIntangible    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.qualitative_value import QualitativeValue
+from .medical_intangible import MedicalIntangible
+from .qualitative_value import QualitativeValue
 
 class DoseSchedule(MedicalIntangible):
     """

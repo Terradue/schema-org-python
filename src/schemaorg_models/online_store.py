@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .online_business import OnlineBusiness    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,8 @@ from typing import (
     Optional,
     Union
 )
+from .online_business import OnlineBusiness
+from .online_marketplace import OnlineMarketplace
 
 class OnlineStore(OnlineBusiness):
     """
@@ -22,7 +21,7 @@ An eCommerce site.
         alias='@type',
         serialization_alias='@type'
     )
-    isStoreOn: Optional[Union["OnlineMarketplace", List["OnlineMarketplace"]]] = Field(
+    isStoreOn: Optional[Union[OnlineMarketplace, List[OnlineMarketplace]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'isStoreOn',

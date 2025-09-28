@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .trip import Trip    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.train_station import TrainStation
+from .trip import Trip
+from .train_station import TrainStation
 
 class TrainTrip(Trip):
     """

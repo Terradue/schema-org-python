@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .quantitative_value_distribution import QuantitativeValueDistribution    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,7 @@ from typing import (
     Optional,
     Union
 )
+from .quantitative_value_distribution import QuantitativeValueDistribution
 
 class MonetaryAmountDistribution(QuantitativeValueDistribution):
     """

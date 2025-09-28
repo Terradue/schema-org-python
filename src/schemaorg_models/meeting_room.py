@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .room import Room    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .room import Room
 
 class MeetingRoom(Room):
     """

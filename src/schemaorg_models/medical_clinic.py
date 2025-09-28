@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .medical_organization import MedicalOrganization    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,8 +9,11 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.medical_procedure import MedicalProcedure
-from schemaorg_models.medical_test import MedicalTest
+from .medical_specialty import MedicalSpecialty
+from .medical_therapy import MedicalTherapy
+from .medical_procedure import MedicalProcedure
+from .medical_test import MedicalTest
+from .medical_organization import MedicalOrganization
 
 class MedicalClinic(MedicalOrganization):
     """
@@ -24,7 +24,7 @@ A facility, often associated with a hospital or medical school, that is devoted 
         alias='@type',
         serialization_alias='@type'
     )
-    availableService: Optional[Union[MedicalProcedure, List[MedicalProcedure], "MedicalTherapy", List["MedicalTherapy"], MedicalTest, List[MedicalTest]]] = Field(
+    availableService: Optional[Union[MedicalProcedure, List[MedicalProcedure], MedicalTherapy, List[MedicalTherapy], MedicalTest, List[MedicalTest]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'availableService',
@@ -32,7 +32,7 @@ A facility, often associated with a hospital or medical school, that is devoted 
         ),
         serialization_alias='https://schema.org/availableService'
     )
-    medicalSpecialty: Optional[Union["MedicalSpecialty", List["MedicalSpecialty"]]] = Field(
+    medicalSpecialty: Optional[Union[MedicalSpecialty, List[MedicalSpecialty]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'medicalSpecialty',

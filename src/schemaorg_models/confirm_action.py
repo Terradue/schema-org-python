@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .inform_action import InformAction    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .inform_action import InformAction
 
 class ConfirmAction(InformAction):
     """

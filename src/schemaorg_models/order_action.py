@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .trade_action import TradeAction    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.delivery_method import DeliveryMethod
+from .delivery_method import DeliveryMethod
+from .trade_action import TradeAction
 
 class OrderAction(TradeAction):
     """

@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .structured_value import StructuredValue    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,9 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.country import Country
+from .postal_code_range_specification import PostalCodeRangeSpecification
+from .structured_value import StructuredValue
+from .country import Country
 
 class DefinedRegion(StructuredValue):
     """
@@ -36,7 +35,7 @@ Region = state, canton, prefecture, autonomous community...
         alias='@type',
         serialization_alias='@type'
     )
-    postalCodeRange: Optional[Union["PostalCodeRangeSpecification", List["PostalCodeRangeSpecification"]]] = Field(
+    postalCodeRange: Optional[Union[PostalCodeRangeSpecification, List[PostalCodeRangeSpecification]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'postalCodeRange',

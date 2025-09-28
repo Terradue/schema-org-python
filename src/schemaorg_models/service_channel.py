@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .intangible import Intangible    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,9 +10,13 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.language import Language
-from schemaorg_models.service import Service
-from schemaorg_models.place import Place
+from .contact_point import ContactPoint
+from .language import Language
+from .intangible import Intangible
+from .postal_address import PostalAddress
+from .place import Place
+from .duration import Duration
+from .service import Service
 
 class ServiceChannel(Intangible):
     """
@@ -26,7 +27,7 @@ A means for accessing a service, e.g. a government office location, web site, or
         alias='@type',
         serialization_alias='@type'
     )
-    processingTime: Optional[Union["Duration", List["Duration"]]] = Field(
+    processingTime: Optional[Union[Duration, List[Duration]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'processingTime',
@@ -42,7 +43,7 @@ A means for accessing a service, e.g. a government office location, web site, or
         ),
         serialization_alias='https://schema.org/availableLanguage'
     )
-    servicePostalAddress: Optional[Union["PostalAddress", List["PostalAddress"]]] = Field(
+    servicePostalAddress: Optional[Union[PostalAddress, List[PostalAddress]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'servicePostalAddress',
@@ -58,7 +59,7 @@ A means for accessing a service, e.g. a government office location, web site, or
         ),
         serialization_alias='https://schema.org/providesService'
     )
-    serviceSmsNumber: Optional[Union["ContactPoint", List["ContactPoint"]]] = Field(
+    serviceSmsNumber: Optional[Union[ContactPoint, List[ContactPoint]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'serviceSmsNumber',
@@ -82,7 +83,7 @@ A means for accessing a service, e.g. a government office location, web site, or
         ),
         serialization_alias='https://schema.org/serviceLocation'
     )
-    servicePhone: Optional[Union["ContactPoint", List["ContactPoint"]]] = Field(
+    servicePhone: Optional[Union[ContactPoint, List[ContactPoint]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'servicePhone',

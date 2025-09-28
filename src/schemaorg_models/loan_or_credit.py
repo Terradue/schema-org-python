@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .financial_product import FinancialProduct    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,11 +10,12 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.duration import Duration
-from schemaorg_models.thing import Thing
-from schemaorg_models.repayment_specification import RepaymentSpecification
-from schemaorg_models.monetary_amount import MonetaryAmount
-from schemaorg_models.quantitative_value import QuantitativeValue
+from .financial_product import FinancialProduct
+from .monetary_amount import MonetaryAmount
+from .thing import Thing
+from .duration import Duration
+from .quantitative_value import QuantitativeValue
+from .repayment_specification import RepaymentSpecification
 
 class LoanOrCredit(FinancialProduct):
     """

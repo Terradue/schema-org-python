@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .transfer_action import TransferAction    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .transfer_action import TransferAction
 
 class DownloadAction(TransferAction):
     """

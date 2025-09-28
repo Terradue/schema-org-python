@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .accommodation import Accommodation    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .accommodation import Accommodation
 
 class CampingPitch(Accommodation):
     """

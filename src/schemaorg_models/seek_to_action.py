@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .action import Action    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.hyper_toc_entry import HyperTocEntry
+from .action import Action
+from .hyper_toc_entry import HyperTocEntry
 
 class SeekToAction(Action):
     """

@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .creative_work import CreativeWork    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.menu_item import MenuItem
+from .menu_item import MenuItem
+from .creative_work import CreativeWork
 
 class MenuSection(CreativeWork):
     """
@@ -31,7 +29,7 @@ A sub-grouping of food or drink items in a menu. E.g. courses (such as 'Dinner',
         ),
         serialization_alias='https://schema.org/hasMenuItem'
     )
-    hasMenuSection: Optional[Union["MenuSection", List["MenuSection"]]] = Field(
+    hasMenuSection: Optional[Union[MenuSection, List[MenuSection]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasMenuSection',

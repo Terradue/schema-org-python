@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .trade_action import TradeAction    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,9 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.real_estate_agent import RealEstateAgent
-from schemaorg_models.organization import Organization
-from schemaorg_models.person import Person
+from .person import Person
+from .real_estate_agent import RealEstateAgent
+from .trade_action import TradeAction
+from .organization import Organization
 
 class RentAction(TradeAction):
     """

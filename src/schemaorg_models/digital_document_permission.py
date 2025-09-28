@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .intangible import Intangible    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,9 +9,12 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.organization import Organization
-from schemaorg_models.audience import Audience
-from schemaorg_models.person import Person
+from .contact_point import ContactPoint
+from .person import Person
+from .digital_document_permission_type import DigitalDocumentPermissionType
+from .intangible import Intangible
+from .organization import Organization
+from .audience import Audience
 
 class DigitalDocumentPermission(Intangible):
     """
@@ -25,7 +25,7 @@ A permission for a particular person or group to access a particular file.
         alias='@type',
         serialization_alias='@type'
     )
-    permissionType: Optional[Union["DigitalDocumentPermissionType", List["DigitalDocumentPermissionType"]]] = Field(
+    permissionType: Optional[Union[DigitalDocumentPermissionType, List[DigitalDocumentPermissionType]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'permissionType',
@@ -33,7 +33,7 @@ A permission for a particular person or group to access a particular file.
         ),
         serialization_alias='https://schema.org/permissionType'
     )
-    grantee: Optional[Union[Organization, List[Organization], Audience, List[Audience], Person, List[Person], "ContactPoint", List["ContactPoint"]]] = Field(
+    grantee: Optional[Union[Organization, List[Organization], Audience, List[Audience], Person, List[Person], ContactPoint, List[ContactPoint]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'grantee',

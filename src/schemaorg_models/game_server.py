@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .intangible import Intangible    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,9 @@ from typing import (
     Optional,
     Union
 )
+from .game_server_status import GameServerStatus
+from .intangible import Intangible
+from .video_game import VideoGame
 
 class GameServer(Intangible):
     """
@@ -30,7 +30,7 @@ Server that provides game interaction in a multiplayer game.
         ),
         serialization_alias='https://schema.org/playersOnline'
     )
-    serverStatus: Optional[Union["GameServerStatus", List["GameServerStatus"]]] = Field(
+    serverStatus: Optional[Union[GameServerStatus, List[GameServerStatus]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'serverStatus',
@@ -38,7 +38,7 @@ Server that provides game interaction in a multiplayer game.
         ),
         serialization_alias='https://schema.org/serverStatus'
     )
-    game: Optional[Union["VideoGame", List["VideoGame"]]] = Field(
+    game: Optional[Union[VideoGame, List[VideoGame]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'game',

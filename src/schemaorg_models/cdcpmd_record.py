@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .structured_value import StructuredValue    
-
 from datetime import (
     date,
     datetime
@@ -16,6 +13,7 @@ from typing import (
     Optional,
     Union
 )
+from .structured_value import StructuredValue
 
 class CDCPMDRecord(StructuredValue):
     """

@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .thing import Thing    
-
 from datetime import (
     date
 )
@@ -16,11 +13,43 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.person import Person
-from schemaorg_models.creative_work import CreativeWork
-from schemaorg_models.place import Place
-from schemaorg_models.event import Event
-from schemaorg_models.product import Product
+from .contact_point import ContactPoint
+from .payment_method import PaymentMethod
+from .thing import Thing
+from .virtual_location import VirtualLocation
+from .review import Review
+from .administrative_area import AdministrativeArea
+from .loan_or_credit import LoanOrCredit
+from .product import Product
+from .nonprofit_type import NonprofitType
+from .educational_occupational_credential import EducationalOccupationalCredential
+from .product_return_policy import ProductReturnPolicy
+from .merchant_return_policy import MerchantReturnPolicy
+from .demand import Demand
+from .person import Person
+from .offer import Offer
+from .geo_shape import GeoShape
+from .event import Event
+from .interaction_counter import InteractionCounter
+from .image_object import ImageObject
+from .place import Place
+from .shipping_service import ShippingService
+from .member_program import MemberProgram
+from .language import Language
+from .about_page import AboutPage
+from .ownership_info import OwnershipInfo
+from .certification import Certification
+from .postal_address import PostalAddress
+from .program_membership import ProgramMembership
+from .quantitative_value import QuantitativeValue
+from .member_program_tier import MemberProgramTier
+from .creative_work import CreativeWork
+from .article import Article
+from .offer_catalog import OfferCatalog
+from .aggregate_rating import AggregateRating
+from .brand import Brand
+from .defined_term import DefinedTerm
+from .grant import Grant
 
 class Organization(Thing):
     """
@@ -63,7 +92,7 @@ An organization such as a school, NGO, corporation, club, etc.
         ),
         serialization_alias='https://schema.org/telephone'
     )
-    acceptedPaymentMethod: Optional[Union[str, List[str], "PaymentMethod", List["PaymentMethod"], "LoanOrCredit", List["LoanOrCredit"]]] = Field(
+    acceptedPaymentMethod: Optional[Union[str, List[str], PaymentMethod, List[PaymentMethod], LoanOrCredit, List[LoanOrCredit]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'acceptedPaymentMethod',
@@ -71,7 +100,7 @@ An organization such as a school, NGO, corporation, club, etc.
         ),
         serialization_alias='https://schema.org/acceptedPaymentMethod'
     )
-    brand: Optional[Union["Organization", List["Organization"], "Brand", List["Brand"]]] = Field(
+    brand: Optional[Union[Organization, List[Organization], Brand, List[Brand]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'brand',
@@ -79,7 +108,7 @@ An organization such as a school, NGO, corporation, club, etc.
         ),
         serialization_alias='https://schema.org/brand'
     )
-    member: Optional[Union[Person, List[Person], "Organization", List["Organization"]]] = Field(
+    member: Optional[Union[Person, List[Person], Organization, List[Organization]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'member',
@@ -87,7 +116,7 @@ An organization such as a school, NGO, corporation, club, etc.
         ),
         serialization_alias='https://schema.org/member'
     )
-    contactPoints: Optional[Union["ContactPoint", List["ContactPoint"]]] = Field(
+    contactPoints: Optional[Union[ContactPoint, List[ContactPoint]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'contactPoints',
@@ -95,7 +124,7 @@ An organization such as a school, NGO, corporation, club, etc.
         ),
         serialization_alias='https://schema.org/contactPoints'
     )
-    review: Optional[Union["Review", List["Review"]]] = Field(
+    review: Optional[Union[Review, List[Review]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'review',
@@ -103,7 +132,7 @@ An organization such as a school, NGO, corporation, club, etc.
         ),
         serialization_alias='https://schema.org/review'
     )
-    hasMemberProgram: Optional[Union["MemberProgram", List["MemberProgram"]]] = Field(
+    hasMemberProgram: Optional[Union[MemberProgram, List[MemberProgram]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasMemberProgram',
@@ -111,7 +140,7 @@ An organization such as a school, NGO, corporation, club, etc.
         ),
         serialization_alias='https://schema.org/hasMemberProgram'
     )
-    hasShippingService: Optional[Union["ShippingService", List["ShippingService"]]] = Field(
+    hasShippingService: Optional[Union[ShippingService, List[ShippingService]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasShippingService',
@@ -127,7 +156,7 @@ An organization such as a school, NGO, corporation, club, etc.
         ),
         serialization_alias='https://schema.org/publishingPrinciples'
     )
-    department: Optional[Union["Organization", List["Organization"]]] = Field(
+    department: Optional[Union[Organization, List[Organization]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'department',
@@ -159,7 +188,7 @@ An organization such as a school, NGO, corporation, club, etc.
         ),
         serialization_alias='https://schema.org/hasPOS'
     )
-    skills: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str]]] = Field(
+    skills: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'skills',
@@ -167,7 +196,7 @@ An organization such as a school, NGO, corporation, club, etc.
         ),
         serialization_alias='https://schema.org/skills'
     )
-    subOrganization: Optional[Union["Organization", List["Organization"]]] = Field(
+    subOrganization: Optional[Union[Organization, List[Organization]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'subOrganization',
@@ -175,7 +204,7 @@ An organization such as a school, NGO, corporation, club, etc.
         ),
         serialization_alias='https://schema.org/subOrganization'
     )
-    hasMerchantReturnPolicy: Optional[Union["MerchantReturnPolicy", List["MerchantReturnPolicy"]]] = Field(
+    hasMerchantReturnPolicy: Optional[Union[MerchantReturnPolicy, List[MerchantReturnPolicy]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasMerchantReturnPolicy',
@@ -183,7 +212,7 @@ An organization such as a school, NGO, corporation, club, etc.
         ),
         serialization_alias='https://schema.org/hasMerchantReturnPolicy'
     )
-    ownershipFundingInfo: Optional[Union[str, List[str], CreativeWork, List[CreativeWork], HttpUrl, List[HttpUrl], "AboutPage", List["AboutPage"]]] = Field(
+    ownershipFundingInfo: Optional[Union[str, List[str], CreativeWork, List[CreativeWork], HttpUrl, List[HttpUrl], AboutPage, List[AboutPage]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'ownershipFundingInfo',
@@ -191,7 +220,7 @@ An organization such as a school, NGO, corporation, club, etc.
         ),
         serialization_alias='https://schema.org/ownershipFundingInfo'
     )
-    knowsLanguage: Optional[Union[str, List[str], "Language", List["Language"]]] = Field(
+    knowsLanguage: Optional[Union[str, List[str], Language, List[Language]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'knowsLanguage',
@@ -199,7 +228,7 @@ An organization such as a school, NGO, corporation, club, etc.
         ),
         serialization_alias='https://schema.org/knowsLanguage'
     )
-    makesOffer: Optional[Union["Offer", List["Offer"]]] = Field(
+    makesOffer: Optional[Union[Offer, List[Offer]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'makesOffer',
@@ -231,7 +260,7 @@ An organization such as a school, NGO, corporation, club, etc.
         ),
         serialization_alias='https://schema.org/globalLocationNumber'
     )
-    sponsor: Optional[Union["Organization", List["Organization"], Person, List[Person]]] = Field(
+    sponsor: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'sponsor',
@@ -247,7 +276,7 @@ An organization such as a school, NGO, corporation, club, etc.
         ),
         serialization_alias='https://schema.org/event'
     )
-    owns: Optional[Union[Product, List[Product], "OwnershipInfo", List["OwnershipInfo"]]] = Field(
+    owns: Optional[Union[Product, List[Product], OwnershipInfo, List[OwnershipInfo]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'owns',
@@ -255,7 +284,7 @@ An organization such as a school, NGO, corporation, club, etc.
         ),
         serialization_alias='https://schema.org/owns'
     )
-    reviews: Optional[Union["Review", List["Review"]]] = Field(
+    reviews: Optional[Union[Review, List[Review]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'reviews',
@@ -263,7 +292,7 @@ An organization such as a school, NGO, corporation, club, etc.
         ),
         serialization_alias='https://schema.org/reviews'
     )
-    nonprofitStatus: Optional[Union["NonprofitType", List["NonprofitType"]]] = Field(
+    nonprofitStatus: Optional[Union[NonprofitType, List[NonprofitType]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'nonprofitStatus',
@@ -271,7 +300,7 @@ An organization such as a school, NGO, corporation, club, etc.
         ),
         serialization_alias='https://schema.org/nonprofitStatus'
     )
-    aggregateRating: Optional[Union["AggregateRating", List["AggregateRating"]]] = Field(
+    aggregateRating: Optional[Union[AggregateRating, List[AggregateRating]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'aggregateRating',
@@ -287,7 +316,7 @@ An organization such as a school, NGO, corporation, club, etc.
         ),
         serialization_alias='https://schema.org/dissolutionDate'
     )
-    areaServed: Optional[Union["GeoShape", List["GeoShape"], str, List[str], "AdministrativeArea", List["AdministrativeArea"], Place, List[Place]]] = Field(
+    areaServed: Optional[Union[GeoShape, List[GeoShape], str, List[str], AdministrativeArea, List[AdministrativeArea], Place, List[Place]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'areaServed',
@@ -295,7 +324,7 @@ An organization such as a school, NGO, corporation, club, etc.
         ),
         serialization_alias='https://schema.org/areaServed'
     )
-    memberOf: Optional[Union["Organization", List["Organization"], "MemberProgramTier", List["MemberProgramTier"], "ProgramMembership", List["ProgramMembership"]]] = Field(
+    memberOf: Optional[Union[Organization, List[Organization], MemberProgramTier, List[MemberProgramTier], ProgramMembership, List[ProgramMembership]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'memberOf',
@@ -303,7 +332,7 @@ An organization such as a school, NGO, corporation, club, etc.
         ),
         serialization_alias='https://schema.org/memberOf'
     )
-    contactPoint: Optional[Union["ContactPoint", List["ContactPoint"]]] = Field(
+    contactPoint: Optional[Union[ContactPoint, List[ContactPoint]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'contactPoint',
@@ -311,7 +340,7 @@ An organization such as a school, NGO, corporation, club, etc.
         ),
         serialization_alias='https://schema.org/contactPoint'
     )
-    founder: Optional[Union["Organization", List["Organization"], Person, List[Person]]] = Field(
+    founder: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'founder',
@@ -319,7 +348,7 @@ An organization such as a school, NGO, corporation, club, etc.
         ),
         serialization_alias='https://schema.org/founder'
     )
-    interactionStatistic: Optional[Union["InteractionCounter", List["InteractionCounter"]]] = Field(
+    interactionStatistic: Optional[Union[InteractionCounter, List[InteractionCounter]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'interactionStatistic',
@@ -327,7 +356,7 @@ An organization such as a school, NGO, corporation, club, etc.
         ),
         serialization_alias='https://schema.org/interactionStatistic'
     )
-    legalAddress: Optional[Union["PostalAddress", List["PostalAddress"]]] = Field(
+    legalAddress: Optional[Union[PostalAddress, List[PostalAddress]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'legalAddress',
@@ -343,7 +372,7 @@ An organization such as a school, NGO, corporation, club, etc.
         ),
         serialization_alias='https://schema.org/vatID'
     )
-    parentOrganization: Optional[Union["Organization", List["Organization"]]] = Field(
+    parentOrganization: Optional[Union[Organization, List[Organization]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'parentOrganization',
@@ -359,7 +388,7 @@ An organization such as a school, NGO, corporation, club, etc.
         ),
         serialization_alias='https://schema.org/awards'
     )
-    location: Optional[Union["VirtualLocation", List["VirtualLocation"], "PostalAddress", List["PostalAddress"], str, List[str], Place, List[Place]]] = Field(
+    location: Optional[Union[VirtualLocation, List[VirtualLocation], PostalAddress, List[PostalAddress], str, List[str], Place, List[Place]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'location',
@@ -383,7 +412,7 @@ An organization such as a school, NGO, corporation, club, etc.
         ),
         serialization_alias='https://schema.org/legalRepresentative'
     )
-    serviceArea: Optional[Union["AdministrativeArea", List["AdministrativeArea"], "GeoShape", List["GeoShape"], Place, List[Place]]] = Field(
+    serviceArea: Optional[Union[AdministrativeArea, List[AdministrativeArea], GeoShape, List[GeoShape], Place, List[Place]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'serviceArea',
@@ -391,7 +420,7 @@ An organization such as a school, NGO, corporation, club, etc.
         ),
         serialization_alias='https://schema.org/serviceArea'
     )
-    hasOfferCatalog: Optional[Union["OfferCatalog", List["OfferCatalog"]]] = Field(
+    hasOfferCatalog: Optional[Union[OfferCatalog, List[OfferCatalog]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasOfferCatalog',
@@ -399,7 +428,7 @@ An organization such as a school, NGO, corporation, club, etc.
         ),
         serialization_alias='https://schema.org/hasOfferCatalog'
     )
-    hasCertification: Optional[Union["Certification", List["Certification"]]] = Field(
+    hasCertification: Optional[Union[Certification, List[Certification]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasCertification',
@@ -415,7 +444,7 @@ An organization such as a school, NGO, corporation, club, etc.
         ),
         serialization_alias='https://schema.org/correctionsPolicy'
     )
-    members: Optional[Union["Organization", List["Organization"], Person, List[Person]]] = Field(
+    members: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'members',
@@ -423,7 +452,7 @@ An organization such as a school, NGO, corporation, club, etc.
         ),
         serialization_alias='https://schema.org/members'
     )
-    keywords: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], "DefinedTerm", List["DefinedTerm"]]] = Field(
+    keywords: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], DefinedTerm, List[DefinedTerm]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'keywords',
@@ -431,7 +460,7 @@ An organization such as a school, NGO, corporation, club, etc.
         ),
         serialization_alias='https://schema.org/keywords'
     )
-    hasProductReturnPolicy: Optional[Union["ProductReturnPolicy", List["ProductReturnPolicy"]]] = Field(
+    hasProductReturnPolicy: Optional[Union[ProductReturnPolicy, List[ProductReturnPolicy]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasProductReturnPolicy',
@@ -439,7 +468,7 @@ An organization such as a school, NGO, corporation, club, etc.
         ),
         serialization_alias='https://schema.org/hasProductReturnPolicy'
     )
-    logo: Optional[Union[HttpUrl, List[HttpUrl], "ImageObject", List["ImageObject"]]] = Field(
+    logo: Optional[Union[HttpUrl, List[HttpUrl], ImageObject, List[ImageObject]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'logo',
@@ -447,7 +476,7 @@ An organization such as a school, NGO, corporation, club, etc.
         ),
         serialization_alias='https://schema.org/logo'
     )
-    numberOfEmployees: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    numberOfEmployees: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'numberOfEmployees',
@@ -463,7 +492,7 @@ An organization such as a school, NGO, corporation, club, etc.
         ),
         serialization_alias='https://schema.org/email'
     )
-    seeks: Optional[Union["Demand", List["Demand"]]] = Field(
+    seeks: Optional[Union[Demand, List[Demand]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'seeks',
@@ -479,7 +508,7 @@ An organization such as a school, NGO, corporation, club, etc.
         ),
         serialization_alias='https://schema.org/legalName'
     )
-    hasCredential: Optional[Union["EducationalOccupationalCredential", List["EducationalOccupationalCredential"]]] = Field(
+    hasCredential: Optional[Union[EducationalOccupationalCredential, List[EducationalOccupationalCredential]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'hasCredential',
@@ -495,7 +524,7 @@ An organization such as a school, NGO, corporation, club, etc.
         ),
         serialization_alias='https://schema.org/alumni'
     )
-    funding: Optional[Union["Grant", List["Grant"]]] = Field(
+    funding: Optional[Union[Grant, List[Grant]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'funding',
@@ -503,7 +532,7 @@ An organization such as a school, NGO, corporation, club, etc.
         ),
         serialization_alias='https://schema.org/funding'
     )
-    funder: Optional[Union["Organization", List["Organization"], Person, List[Person]]] = Field(
+    funder: Optional[Union[Organization, List[Organization], Person, List[Person]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'funder',
@@ -511,7 +540,7 @@ An organization such as a school, NGO, corporation, club, etc.
         ),
         serialization_alias='https://schema.org/funder'
     )
-    agentInteractionStatistic: Optional[Union["InteractionCounter", List["InteractionCounter"]]] = Field(
+    agentInteractionStatistic: Optional[Union[InteractionCounter, List[InteractionCounter]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'agentInteractionStatistic',
@@ -591,7 +620,7 @@ An organization such as a school, NGO, corporation, club, etc.
         ),
         serialization_alias='https://schema.org/leiCode'
     )
-    address: Optional[Union[str, List[str], "PostalAddress", List["PostalAddress"]]] = Field(
+    address: Optional[Union[str, List[str], PostalAddress, List[PostalAddress]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'address',
@@ -631,7 +660,7 @@ An organization such as a school, NGO, corporation, club, etc.
         ),
         serialization_alias='https://schema.org/hasGS1DigitalLink'
     )
-    diversityStaffingReport: Optional[Union["Article", List["Article"], HttpUrl, List[HttpUrl]]] = Field(
+    diversityStaffingReport: Optional[Union[Article, List[Article], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'diversityStaffingReport',
@@ -639,7 +668,7 @@ An organization such as a school, NGO, corporation, club, etc.
         ),
         serialization_alias='https://schema.org/diversityStaffingReport'
     )
-    companyRegistration: Optional[Union["Certification", List["Certification"]]] = Field(
+    companyRegistration: Optional[Union[Certification, List[Certification]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'companyRegistration',

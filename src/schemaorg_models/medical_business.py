@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .local_business import LocalBusiness    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .local_business import LocalBusiness
 
 class MedicalBusiness(LocalBusiness):
     """

@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .item_list import ItemList    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .item_list import ItemList
 
 class HowToStep(ItemList):
     """

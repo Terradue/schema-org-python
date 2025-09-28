@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .civic_structure import CivicStructure    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .civic_structure import CivicStructure
 
 class Beach(CivicStructure):
     """

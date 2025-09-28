@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .price_specification import PriceSpecification    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,9 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.price_type_enumeration import PriceTypeEnumeration
+from .unit_price_specification import UnitPriceSpecification
+from .price_type_enumeration import PriceTypeEnumeration
+from .price_specification import PriceSpecification
 
 class CompoundPriceSpecification(PriceSpecification):
     """
@@ -31,7 +30,7 @@ A compound price specification is one that bundles multiple prices that all appl
         ),
         serialization_alias='https://schema.org/priceType'
     )
-    priceComponent: Optional[Union["UnitPriceSpecification", List["UnitPriceSpecification"]]] = Field(
+    priceComponent: Optional[Union[UnitPriceSpecification, List[UnitPriceSpecification]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'priceComponent',

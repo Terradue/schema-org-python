@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .intangible import Intangible    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,8 +9,11 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.organization import Organization
-from schemaorg_models.person import Person
+from .member_program import MemberProgram
+from .person import Person
+from .intangible import Intangible
+from .quantitative_value import QuantitativeValue
+from .organization import Organization
 
 class ProgramMembership(Intangible):
     """
@@ -40,7 +40,7 @@ Used to describe membership in a loyalty programs (e.g. "StarAliance"), traveler
         ),
         serialization_alias='https://schema.org/members'
     )
-    program: Optional[Union["MemberProgram", List["MemberProgram"]]] = Field(
+    program: Optional[Union[MemberProgram, List[MemberProgram]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'program',
@@ -48,7 +48,7 @@ Used to describe membership in a loyalty programs (e.g. "StarAliance"), traveler
         ),
         serialization_alias='https://schema.org/program'
     )
-    membershipPointsEarned: Optional[Union["QuantitativeValue", List["QuantitativeValue"], float, List[float]]] = Field(
+    membershipPointsEarned: Optional[Union[QuantitativeValue, List[QuantitativeValue], float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'membershipPointsEarned',

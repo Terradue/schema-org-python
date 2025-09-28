@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .medical_intangible import MedicalIntangible    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,8 +9,9 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.medical_sign_or_symptom import MedicalSignOrSymptom
-from schemaorg_models.medical_condition import MedicalCondition
+from .medical_condition import MedicalCondition
+from .medical_intangible import MedicalIntangible
+from .medical_sign_or_symptom import MedicalSignOrSymptom
 
 class DDxElement(MedicalIntangible):
     """

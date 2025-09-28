@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .loan_or_credit import LoanOrCredit    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.monetary_amount import MonetaryAmount
+from .monetary_amount import MonetaryAmount
+from .loan_or_credit import LoanOrCredit
 
 class MortgageLoan(LoanOrCredit):
     """

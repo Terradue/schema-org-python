@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .offer import Offer    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.demand import Demand
+from .demand import Demand
+from .offer import Offer
 
 class AggregateOffer(Offer):
     """

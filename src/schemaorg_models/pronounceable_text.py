@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .text import Text    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,8 @@ from typing import (
     Optional,
     Union
 )
+from .text import Text
+from .language import Language
 
 class PronounceableText(Text):
     """
@@ -30,7 +29,7 @@ Data type: PronounceableText.
         ),
         serialization_alias='https://schema.org/speechToTextMarkup'
     )
-    inLanguage: Optional[Union[str, List[str], "Language", List["Language"]]] = Field(
+    inLanguage: Optional[Union[str, List[str], Language, List[Language]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'inLanguage',

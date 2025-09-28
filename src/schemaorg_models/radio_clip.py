@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .clip import Clip    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .clip import Clip
 
 class RadioClip(Clip):
     """

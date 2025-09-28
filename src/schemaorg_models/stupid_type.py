@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .thing import Thing    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,8 @@ from typing import (
     Optional,
     Union
 )
+from .thing import Thing
+from .quantitative_value import QuantitativeValue
 
 class StupidType(Thing):
     """
@@ -22,7 +21,7 @@ A StupidType for testing.
         alias='@type',
         serialization_alias='@type'
     )
-    stupidProperty: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    stupidProperty: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'stupidProperty',

@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .medical_guideline import MedicalGuideline    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .medical_guideline import MedicalGuideline
 
 class MedicalGuidelineContraindication(MedicalGuideline):
     """

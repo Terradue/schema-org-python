@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .creative_work import CreativeWork    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,8 +10,9 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.defined_term import DefinedTerm
-from schemaorg_models.alignment_object import AlignmentObject
+from .defined_term import DefinedTerm
+from .creative_work import CreativeWork
+from .alignment_object import AlignmentObject
 
 class LearningResource(CreativeWork):
     """

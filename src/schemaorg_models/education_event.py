@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .event import Event    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,6 +10,8 @@ from typing import (
     Optional,
     Union
 )
+from .event import Event
+from .defined_term import DefinedTerm
 
 class EducationEvent(Event):
     """
@@ -23,7 +22,7 @@ Event type: Education event.
         alias='@type',
         serialization_alias='@type'
     )
-    educationalLevel: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], "DefinedTerm", List["DefinedTerm"]]] = Field(
+    educationalLevel: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], DefinedTerm, List[DefinedTerm]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'educationalLevel',
@@ -31,7 +30,7 @@ Event type: Education event.
         ),
         serialization_alias='https://schema.org/educationalLevel'
     )
-    assesses: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str]]] = Field(
+    assesses: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'assesses',
@@ -39,7 +38,7 @@ Event type: Education event.
         ),
         serialization_alias='https://schema.org/assesses'
     )
-    teaches: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str]]] = Field(
+    teaches: Optional[Union[DefinedTerm, List[DefinedTerm], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'teaches',

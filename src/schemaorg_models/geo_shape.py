@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .structured_value import StructuredValue    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,9 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.country import Country
+from .country import Country
+from .structured_value import StructuredValue
+from .postal_address import PostalAddress
 
 class GeoShape(StructuredValue):
     """
@@ -39,7 +38,7 @@ The geographic shape of a place. A GeoShape can be described using several prope
         ),
         serialization_alias='https://schema.org/line'
     )
-    address: Optional[Union[str, List[str], "PostalAddress", List["PostalAddress"]]] = Field(
+    address: Optional[Union[str, List[str], PostalAddress, List[PostalAddress]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'address',

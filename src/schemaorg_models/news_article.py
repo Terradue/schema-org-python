@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .article import Article    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,7 @@ from typing import (
     Optional,
     Union
 )
+from .article import Article
 
 class NewsArticle(Article):
     """

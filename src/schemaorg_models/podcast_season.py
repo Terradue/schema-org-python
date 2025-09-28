@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .creative_work_season import CreativeWorkSeason    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .creative_work_season import CreativeWorkSeason
 
 class PodcastSeason(CreativeWorkSeason):
     """

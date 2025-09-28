@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .move_action import MoveAction    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.distance import Distance
+from .move_action import MoveAction
+from .distance import Distance
 
 class TravelAction(MoveAction):
     """

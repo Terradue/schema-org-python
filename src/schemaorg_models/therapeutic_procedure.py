@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .medical_procedure import MedicalProcedure    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.medical_entity import MedicalEntity
+from .medical_procedure import MedicalProcedure
+from .medical_entity import MedicalEntity
+from .dose_schedule import DoseSchedule
+from .drug import Drug
 
 class TherapeuticProcedure(MedicalProcedure):
     """
@@ -23,7 +23,7 @@ A medical procedure intended primarily for therapeutic purposes, aimed at improv
         alias='@type',
         serialization_alias='@type'
     )
-    drug: Optional[Union["Drug", List["Drug"]]] = Field(
+    drug: Optional[Union[Drug, List[Drug]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'drug',
@@ -39,7 +39,7 @@ A medical procedure intended primarily for therapeutic purposes, aimed at improv
         ),
         serialization_alias='https://schema.org/adverseOutcome'
     )
-    doseSchedule: Optional[Union["DoseSchedule", List["DoseSchedule"]]] = Field(
+    doseSchedule: Optional[Union[DoseSchedule, List[DoseSchedule]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'doseSchedule',

@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .music_playlist import MusicPlaylist    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,9 +9,12 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.person import Person
-from schemaorg_models.music_album_production_type import MusicAlbumProductionType
-from schemaorg_models.music_album_release_type import MusicAlbumReleaseType
+from .person import Person
+from .music_release import MusicRelease
+from .music_group import MusicGroup
+from .music_album_release_type import MusicAlbumReleaseType
+from .music_album_production_type import MusicAlbumProductionType
+from .music_playlist import MusicPlaylist
 
 class MusicAlbum(MusicPlaylist):
     """
@@ -25,7 +25,7 @@ A collection of music tracks.
         alias='@type',
         serialization_alias='@type'
     )
-    albumRelease: Optional[Union["MusicRelease", List["MusicRelease"]]] = Field(
+    albumRelease: Optional[Union[MusicRelease, List[MusicRelease]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'albumRelease',
@@ -33,7 +33,7 @@ A collection of music tracks.
         ),
         serialization_alias='https://schema.org/albumRelease'
     )
-    byArtist: Optional[Union["MusicGroup", List["MusicGroup"], Person, List[Person]]] = Field(
+    byArtist: Optional[Union[MusicGroup, List[MusicGroup], Person, List[Person]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'byArtist',

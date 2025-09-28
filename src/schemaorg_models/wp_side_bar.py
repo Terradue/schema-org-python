@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .web_page_element import WebPageElement    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .web_page_element import WebPageElement
 
 class WPSideBar(WebPageElement):
     """

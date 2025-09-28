@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .trade_action import TradeAction    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,10 +9,11 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.organization import Organization
-from schemaorg_models.audience import Audience
-from schemaorg_models.contact_point import ContactPoint
-from schemaorg_models.person import Person
+from .contact_point import ContactPoint
+from .person import Person
+from .trade_action import TradeAction
+from .organization import Organization
+from .audience import Audience
 
 class TipAction(TradeAction):
     """

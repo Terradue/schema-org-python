@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .audience import Audience    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .audience import Audience
 
 class Researcher(Audience):
     """

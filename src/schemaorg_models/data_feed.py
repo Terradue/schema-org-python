@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .dataset import Dataset    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,8 +9,9 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.data_feed_item import DataFeedItem
-from schemaorg_models.thing import Thing
+from .data_feed_item import DataFeedItem
+from .thing import Thing
+from .dataset import Dataset
 
 class DataFeed(Dataset):
     """

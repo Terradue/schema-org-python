@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .medical_entity import MedicalEntity    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,8 @@ from typing import (
     Optional,
     Union
 )
+from .medical_entity import MedicalEntity
+from .drug import Drug
 
 class DrugClass(MedicalEntity):
     """
@@ -22,7 +21,7 @@ A class of medical drugs, e.g., statins. Classes can represent general pharmacol
         alias='@type',
         serialization_alias='@type'
     )
-    drug: Optional[Union["Drug", List["Drug"]]] = Field(
+    drug: Optional[Union[Drug, List[Drug]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'drug',

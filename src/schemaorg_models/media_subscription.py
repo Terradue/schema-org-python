@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .intangible import Intangible    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,9 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.organization import Organization
+from .intangible import Intangible
+from .offer import Offer
+from .organization import Organization
 
 class MediaSubscription(Intangible):
     """
@@ -23,7 +22,7 @@ A subscription which allows a user to access media including audio, video, books
         alias='@type',
         serialization_alias='@type'
     )
-    expectsAcceptanceOf: Optional[Union["Offer", List["Offer"]]] = Field(
+    expectsAcceptanceOf: Optional[Union[Offer, List[Offer]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'expectsAcceptanceOf',

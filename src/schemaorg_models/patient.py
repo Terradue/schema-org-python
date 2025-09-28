@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .medical_audience import MedicalAudience    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,8 +9,9 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.medical_condition import MedicalCondition
-from schemaorg_models.drug import Drug
+from .medical_condition import MedicalCondition
+from .medical_audience import MedicalAudience
+from .drug import Drug
 
 class Patient(MedicalAudience):
     """

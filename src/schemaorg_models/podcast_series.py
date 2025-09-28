@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .creative_work_series import CreativeWorkSeries    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,9 +10,10 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.data_feed import DataFeed
-from schemaorg_models.person import Person
-from schemaorg_models.performing_group import PerformingGroup
+from .person import Person
+from .data_feed import DataFeed
+from .performing_group import PerformingGroup
+from .creative_work_series import CreativeWorkSeries
 
 class PodcastSeries(CreativeWorkSeries):
     """

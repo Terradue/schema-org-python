@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .medical_entity import MedicalEntity    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,11 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.medical_condition import MedicalCondition
+from .medical_condition import MedicalCondition
+from .medical_therapy import MedicalTherapy
+from .anatomical_structure import AnatomicalStructure
+from .medical_entity import MedicalEntity
+from .anatomical_system import AnatomicalSystem
 
 class SuperficialAnatomy(MedicalEntity):
     """
@@ -39,7 +40,7 @@ Anatomical features that can be observed by sight (without dissection), includin
         ),
         serialization_alias='https://schema.org/relatedCondition'
     )
-    relatedTherapy: Optional[Union["MedicalTherapy", List["MedicalTherapy"]]] = Field(
+    relatedTherapy: Optional[Union[MedicalTherapy, List[MedicalTherapy]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'relatedTherapy',
@@ -47,7 +48,7 @@ Anatomical features that can be observed by sight (without dissection), includin
         ),
         serialization_alias='https://schema.org/relatedTherapy'
     )
-    relatedAnatomy: Optional[Union["AnatomicalStructure", List["AnatomicalStructure"], "AnatomicalSystem", List["AnatomicalSystem"]]] = Field(
+    relatedAnatomy: Optional[Union[AnatomicalStructure, List[AnatomicalStructure], AnatomicalSystem, List[AnatomicalSystem]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'relatedAnatomy',

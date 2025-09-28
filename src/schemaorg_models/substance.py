@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .medical_entity import MedicalEntity    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,8 @@ from typing import (
     Optional,
     Union
 )
+from .medical_entity import MedicalEntity
+from .maximum_dose_schedule import MaximumDoseSchedule
 
 class Substance(MedicalEntity):
     """
@@ -22,7 +21,7 @@ Any matter of defined composition that has discrete existence, whose origin may 
         alias='@type',
         serialization_alias='@type'
     )
-    maximumIntake: Optional[Union["MaximumDoseSchedule", List["MaximumDoseSchedule"]]] = Field(
+    maximumIntake: Optional[Union[MaximumDoseSchedule, List[MaximumDoseSchedule]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'maximumIntake',

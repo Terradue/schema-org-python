@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .bio_chem_entity import BioChemEntity    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,7 @@ from typing import (
     Optional,
     Union
 )
+from .bio_chem_entity import BioChemEntity
 
 class Protein(BioChemEntity):
     """

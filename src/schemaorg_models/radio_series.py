@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .creative_work_series import CreativeWorkSeries    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,12 +10,14 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.episode import Episode
-from schemaorg_models.person import Person
-from schemaorg_models.performing_group import PerformingGroup
-from schemaorg_models.creative_work_season import CreativeWorkSeason
-from schemaorg_models.organization import Organization
-from schemaorg_models.video_object import VideoObject
+from .person import Person
+from .music_group import MusicGroup
+from .episode import Episode
+from .organization import Organization
+from .video_object import VideoObject
+from .performing_group import PerformingGroup
+from .creative_work_series import CreativeWorkSeries
+from .creative_work_season import CreativeWorkSeason
 
 class RadioSeries(CreativeWorkSeries):
     """
@@ -77,7 +76,7 @@ CreativeWorkSeries dedicated to radio broadcast and associated online delivery.
         ),
         serialization_alias='https://schema.org/productionCompany'
     )
-    musicBy: Optional[Union["MusicGroup", List["MusicGroup"], Person, List[Person]]] = Field(
+    musicBy: Optional[Union[MusicGroup, List[MusicGroup], Person, List[Person]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'musicBy',

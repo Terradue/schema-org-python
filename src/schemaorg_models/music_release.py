@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .music_playlist import MusicPlaylist    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,12 +9,13 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.organization import Organization
-from schemaorg_models.music_release_format_type import MusicReleaseFormatType
-from schemaorg_models.music_album import MusicAlbum
-from schemaorg_models.duration import Duration
-from schemaorg_models.quantitative_value import QuantitativeValue
-from schemaorg_models.person import Person
+from .person import Person
+from .duration import Duration
+from .quantitative_value import QuantitativeValue
+from .music_album import MusicAlbum
+from .organization import Organization
+from .music_release_format_type import MusicReleaseFormatType
+from .music_playlist import MusicPlaylist
 
 class MusicRelease(MusicPlaylist):
     """

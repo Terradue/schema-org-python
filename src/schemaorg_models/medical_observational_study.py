@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .medical_study import MedicalStudy    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,8 @@ from typing import (
     Optional,
     Union
 )
+from .medical_observational_study_design import MedicalObservationalStudyDesign
+from .medical_study import MedicalStudy
 
 class MedicalObservationalStudy(MedicalStudy):
     """
@@ -22,7 +21,7 @@ An observational study is a type of medical study that attempts to infer the pos
         alias='@type',
         serialization_alias='@type'
     )
-    studyDesign: Optional[Union["MedicalObservationalStudyDesign", List["MedicalObservationalStudyDesign"]]] = Field(
+    studyDesign: Optional[Union[MedicalObservationalStudyDesign, List[MedicalObservationalStudyDesign]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'studyDesign',

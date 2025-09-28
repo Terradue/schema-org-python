@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .service import Service    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,11 +9,12 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.organization import Organization
-from schemaorg_models.place import Place
-from schemaorg_models.language import Language
-from schemaorg_models.broadcast_frequency_specification import BroadcastFrequencySpecification
-from schemaorg_models.broadcast_channel import BroadcastChannel
+from .language import Language
+from .broadcast_frequency_specification import BroadcastFrequencySpecification
+from .broadcast_channel import BroadcastChannel
+from .place import Place
+from .organization import Organization
+from .service import Service
 
 class BroadcastService(Service):
     """
@@ -99,7 +97,7 @@ A delivery service through which content is provided via broadcast over the air 
         ),
         serialization_alias='https://schema.org/hasBroadcastChannel'
     )
-    parentService: Optional[Union["BroadcastService", List["BroadcastService"]]] = Field(
+    parentService: Optional[Union[BroadcastService, List[BroadcastService]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'parentService',

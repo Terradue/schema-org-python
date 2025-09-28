@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .web_content import WebContent    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.health_aspect_enumeration import HealthAspectEnumeration
+from .web_content import WebContent
+from .health_aspect_enumeration import HealthAspectEnumeration
 
 class HealthTopicContent(WebContent):
     """

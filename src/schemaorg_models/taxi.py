@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .service import Service    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .service import Service
 
 class Taxi(Service):
     """

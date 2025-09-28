@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .text import Text    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .text import Text
 
 class CssSelectorType(Text):
     """

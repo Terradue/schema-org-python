@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .medical_enumeration import MedicalEnumeration    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .medical_enumeration import MedicalEnumeration
 
 class MedicalTrialDesign(MedicalEnumeration):
     """

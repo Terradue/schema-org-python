@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .learning_resource import LearningResource    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .learning_resource import LearningResource
 
 class Syllabus(LearningResource):
     """

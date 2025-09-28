@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .publication_event import PublicationEvent    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .publication_event import PublicationEvent
 
 class OnDemandEvent(PublicationEvent):
     """

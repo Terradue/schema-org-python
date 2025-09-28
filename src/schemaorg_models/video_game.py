@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .game import Game    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,12 +10,15 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.creative_work import CreativeWork
-from schemaorg_models.person import Person
-from schemaorg_models.thing import Thing
-from schemaorg_models.game_server import GameServer
-from schemaorg_models.performing_group import PerformingGroup
-from schemaorg_models.game_play_mode import GamePlayMode
+from .person import Person
+from .music_group import MusicGroup
+from .game import Game
+from .thing import Thing
+from .video_object import VideoObject
+from .game_server import GameServer
+from .performing_group import PerformingGroup
+from .game_play_mode import GamePlayMode
+from .creative_work import CreativeWork
 
 class VideoGame(Game):
     """
@@ -37,7 +37,7 @@ A video game is an electronic game that involves human interaction with a user i
         ),
         serialization_alias='https://schema.org/gameTip'
     )
-    musicBy: Optional[Union["MusicGroup", List["MusicGroup"], Person, List[Person]]] = Field(
+    musicBy: Optional[Union[MusicGroup, List[MusicGroup], Person, List[Person]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'musicBy',
@@ -61,7 +61,7 @@ A video game is an electronic game that involves human interaction with a user i
         ),
         serialization_alias='https://schema.org/cheatCode'
     )
-    trailer: Optional[Union["VideoObject", List["VideoObject"]]] = Field(
+    trailer: Optional[Union[VideoObject, List[VideoObject]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'trailer',

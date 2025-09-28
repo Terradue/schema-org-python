@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .defined_term import DefinedTerm    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,6 +10,8 @@ from typing import (
     Optional,
     Union
 )
+from .category_code_set import CategoryCodeSet
+from .defined_term import DefinedTerm
 
 class CategoryCode(DefinedTerm):
     """
@@ -23,7 +22,7 @@ A Category Code.
         alias='@type',
         serialization_alias='@type'
     )
-    inCodeSet: Optional[Union[HttpUrl, List[HttpUrl], "CategoryCodeSet", List["CategoryCodeSet"]]] = Field(
+    inCodeSet: Optional[Union[HttpUrl, List[HttpUrl], CategoryCodeSet, List[CategoryCodeSet]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'inCodeSet',

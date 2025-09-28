@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .creative_work import CreativeWork    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,10 @@ from typing import (
     Optional,
     Union
 )
+from .energy import Energy
+from .duration import Duration
+from .quantitative_value import QuantitativeValue
+from .creative_work import CreativeWork
 
 class ExercisePlan(CreativeWork):
     """
@@ -30,7 +31,7 @@ Fitness-related activity designed for a specific health-related purpose, includi
         ),
         serialization_alias='https://schema.org/additionalVariable'
     )
-    activityDuration: Optional[Union["QuantitativeValue", List["QuantitativeValue"], "Duration", List["Duration"]]] = Field(
+    activityDuration: Optional[Union[QuantitativeValue, List[QuantitativeValue], Duration, List[Duration]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'activityDuration',
@@ -38,7 +39,7 @@ Fitness-related activity designed for a specific health-related purpose, includi
         ),
         serialization_alias='https://schema.org/activityDuration'
     )
-    intensity: Optional[Union[str, List[str], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    intensity: Optional[Union[str, List[str], QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'intensity',
@@ -46,7 +47,7 @@ Fitness-related activity designed for a specific health-related purpose, includi
         ),
         serialization_alias='https://schema.org/intensity'
     )
-    repetitions: Optional[Union[float, List[float], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    repetitions: Optional[Union[float, List[float], QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'repetitions',
@@ -54,7 +55,7 @@ Fitness-related activity designed for a specific health-related purpose, includi
         ),
         serialization_alias='https://schema.org/repetitions'
     )
-    workload: Optional[Union["Energy", List["Energy"], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    workload: Optional[Union[Energy, List[Energy], QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'workload',
@@ -62,7 +63,7 @@ Fitness-related activity designed for a specific health-related purpose, includi
         ),
         serialization_alias='https://schema.org/workload'
     )
-    restPeriods: Optional[Union["QuantitativeValue", List["QuantitativeValue"], str, List[str]]] = Field(
+    restPeriods: Optional[Union[QuantitativeValue, List[QuantitativeValue], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'restPeriods',
@@ -70,7 +71,7 @@ Fitness-related activity designed for a specific health-related purpose, includi
         ),
         serialization_alias='https://schema.org/restPeriods'
     )
-    activityFrequency: Optional[Union[str, List[str], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    activityFrequency: Optional[Union[str, List[str], QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'activityFrequency',

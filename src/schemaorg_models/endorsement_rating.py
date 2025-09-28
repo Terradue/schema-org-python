@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .rating import Rating    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .rating import Rating
 
 class EndorsementRating(Rating):
     """

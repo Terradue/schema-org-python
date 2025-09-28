@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .how_to_item import HowToItem    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .how_to_item import HowToItem
 
 class HowToTool(HowToItem):
     """

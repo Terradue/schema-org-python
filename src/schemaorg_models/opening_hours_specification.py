@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .structured_value import StructuredValue    
-
 from datetime import (
     date,
     datetime,
@@ -17,7 +14,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.day_of_week import DayOfWeek
+from .structured_value import StructuredValue
+from .day_of_week import DayOfWeek
 
 class OpeningHoursSpecification(StructuredValue):
     """

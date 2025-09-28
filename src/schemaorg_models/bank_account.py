@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .financial_product import FinancialProduct    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,7 +10,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.monetary_amount import MonetaryAmount
+from .monetary_amount import MonetaryAmount
+from .financial_product import FinancialProduct
 
 class BankAccount(FinancialProduct):
     """

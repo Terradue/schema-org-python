@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .substance import Substance    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,9 +10,16 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.medical_enumeration import MedicalEnumeration
-from schemaorg_models.health_insurance_plan import HealthInsurancePlan
-from schemaorg_models.drug_class import DrugClass
+from .health_insurance_plan import HealthInsurancePlan
+from .drug_class import DrugClass
+from .drug_strength import DrugStrength
+from .drug_legal_status import DrugLegalStatus
+from .substance import Substance
+from .drug_pregnancy_category import DrugPregnancyCategory
+from .medical_enumeration import MedicalEnumeration
+from .dose_schedule import DoseSchedule
+from .drug_prescription_status import DrugPrescriptionStatus
+from .maximum_dose_schedule import MaximumDoseSchedule
 
 class Drug(Substance):
     """
@@ -34,7 +38,7 @@ Specifying a drug or medicine used in a medication procedure.
         ),
         serialization_alias='https://schema.org/alcoholWarning'
     )
-    legalStatus: Optional[Union["DrugLegalStatus", List["DrugLegalStatus"], MedicalEnumeration, List[MedicalEnumeration], str, List[str]]] = Field(
+    legalStatus: Optional[Union[DrugLegalStatus, List[DrugLegalStatus], MedicalEnumeration, List[MedicalEnumeration], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'legalStatus',
@@ -58,7 +62,7 @@ Specifying a drug or medicine used in a medication procedure.
         ),
         serialization_alias='https://schema.org/mechanismOfAction'
     )
-    interactingDrug: Optional[Union["Drug", List["Drug"]]] = Field(
+    interactingDrug: Optional[Union[Drug, List[Drug]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'interactingDrug',
@@ -82,7 +86,7 @@ Specifying a drug or medicine used in a medication procedure.
         ),
         serialization_alias='https://schema.org/isProprietary'
     )
-    maximumIntake: Optional[Union["MaximumDoseSchedule", List["MaximumDoseSchedule"]]] = Field(
+    maximumIntake: Optional[Union[MaximumDoseSchedule, List[MaximumDoseSchedule]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'maximumIntake',
@@ -98,7 +102,7 @@ Specifying a drug or medicine used in a medication procedure.
         ),
         serialization_alias='https://schema.org/prescribingInfo'
     )
-    doseSchedule: Optional[Union["DoseSchedule", List["DoseSchedule"]]] = Field(
+    doseSchedule: Optional[Union[DoseSchedule, List[DoseSchedule]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'doseSchedule',
@@ -154,7 +158,7 @@ Specifying a drug or medicine used in a medication procedure.
         ),
         serialization_alias='https://schema.org/pregnancyWarning'
     )
-    relatedDrug: Optional[Union["Drug", List["Drug"]]] = Field(
+    relatedDrug: Optional[Union[Drug, List[Drug]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'relatedDrug',
@@ -194,7 +198,7 @@ Specifying a drug or medicine used in a medication procedure.
         ),
         serialization_alias='https://schema.org/labelDetails'
     )
-    availableStrength: Optional[Union["DrugStrength", List["DrugStrength"]]] = Field(
+    availableStrength: Optional[Union[DrugStrength, List[DrugStrength]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'availableStrength',
@@ -226,7 +230,7 @@ Specifying a drug or medicine used in a medication procedure.
         ),
         serialization_alias='https://schema.org/drugClass'
     )
-    pregnancyCategory: Optional[Union["DrugPregnancyCategory", List["DrugPregnancyCategory"]]] = Field(
+    pregnancyCategory: Optional[Union[DrugPregnancyCategory, List[DrugPregnancyCategory]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'pregnancyCategory',
@@ -234,7 +238,7 @@ Specifying a drug or medicine used in a medication procedure.
         ),
         serialization_alias='https://schema.org/pregnancyCategory'
     )
-    prescriptionStatus: Optional[Union["DrugPrescriptionStatus", List["DrugPrescriptionStatus"], str, List[str]]] = Field(
+    prescriptionStatus: Optional[Union[DrugPrescriptionStatus, List[DrugPrescriptionStatus], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'prescriptionStatus',

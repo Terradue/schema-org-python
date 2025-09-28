@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .investment_or_deposit import InvestmentOrDeposit    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .investment_or_deposit import InvestmentOrDeposit
 
 class InvestmentFund(InvestmentOrDeposit):
     """

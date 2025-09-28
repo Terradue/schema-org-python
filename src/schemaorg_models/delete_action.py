@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .update_action import UpdateAction    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .update_action import UpdateAction
 
 class DeleteAction(UpdateAction):
     """

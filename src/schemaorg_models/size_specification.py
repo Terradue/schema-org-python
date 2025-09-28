@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .qualitative_value import QualitativeValue    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,10 +9,11 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.quantitative_value import QuantitativeValue
-from schemaorg_models.size_system_enumeration import SizeSystemEnumeration
-from schemaorg_models.size_group_enumeration import SizeGroupEnumeration
-from schemaorg_models.gender_type import GenderType
+from .size_group_enumeration import SizeGroupEnumeration
+from .size_system_enumeration import SizeSystemEnumeration
+from .gender_type import GenderType
+from .quantitative_value import QuantitativeValue
+from .qualitative_value import QualitativeValue
 
 class SizeSpecification(QualitativeValue):
     """

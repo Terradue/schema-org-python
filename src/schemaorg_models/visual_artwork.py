@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .creative_work import CreativeWork    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,7 +10,11 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.person import Person
+from .person import Person
+from .distance import Distance
+from .mass import Mass
+from .quantitative_value import QuantitativeValue
+from .creative_work import CreativeWork
 
 class VisualArtwork(CreativeWork):
     """
@@ -24,7 +25,7 @@ A work of art that is primarily visual in character.
         alias='@type',
         serialization_alias='@type'
     )
-    weight: Optional[Union["QuantitativeValue", List["QuantitativeValue"], "Mass", List["Mass"]]] = Field(
+    weight: Optional[Union[QuantitativeValue, List[QuantitativeValue], Mass, List[Mass]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'weight',
@@ -64,7 +65,7 @@ A work of art that is primarily visual in character.
         ),
         serialization_alias='https://schema.org/penciler'
     )
-    depth: Optional[Union["Distance", List["Distance"], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    depth: Optional[Union[Distance, List[Distance], QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'depth',
@@ -88,7 +89,7 @@ A work of art that is primarily visual in character.
         ),
         serialization_alias='https://schema.org/artEdition'
     )
-    width: Optional[Union["QuantitativeValue", List["QuantitativeValue"], "Distance", List["Distance"]]] = Field(
+    width: Optional[Union[QuantitativeValue, List[QuantitativeValue], Distance, List[Distance]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'width',
@@ -128,7 +129,7 @@ A work of art that is primarily visual in character.
         ),
         serialization_alias='https://schema.org/letterer'
     )
-    height: Optional[Union["Distance", List["Distance"], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    height: Optional[Union[Distance, List[Distance], QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'height',

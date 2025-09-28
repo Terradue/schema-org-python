@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .medical_sign_or_symptom import MedicalSignOrSymptom    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,8 +9,9 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.medical_test import MedicalTest
-from schemaorg_models.physical_exam import PhysicalExam
+from .medical_sign_or_symptom import MedicalSignOrSymptom
+from .medical_test import MedicalTest
+from .physical_exam import PhysicalExam
 
 class MedicalSign(MedicalSignOrSymptom):
     """

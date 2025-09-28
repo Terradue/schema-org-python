@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .intangible import Intangible    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,8 @@ from typing import (
     Optional,
     Union
 )
+from .qualitative_value import QualitativeValue
+from .intangible import Intangible
 
 class Seat(Intangible):
     """
@@ -38,7 +37,7 @@ Used to describe a seat, such as a reserved seat in an event reservation.
         ),
         serialization_alias='https://schema.org/seatSection'
     )
-    seatingType: Optional[Union[str, List[str], "QualitativeValue", List["QualitativeValue"]]] = Field(
+    seatingType: Optional[Union[str, List[str], QualitativeValue, List[QualitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'seatingType',

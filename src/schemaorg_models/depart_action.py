@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .move_action import MoveAction    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .move_action import MoveAction
 
 class DepartAction(MoveAction):
     """

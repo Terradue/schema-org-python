@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .article import Article    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .article import Article
 
 class ScholarlyArticle(Article):
     """

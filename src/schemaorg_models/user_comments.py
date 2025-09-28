@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .user_interaction import UserInteraction    
-
 from datetime import (
     date,
     datetime
@@ -17,9 +14,10 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.person import Person
-from schemaorg_models.organization import Organization
-from schemaorg_models.creative_work import CreativeWork
+from .person import Person
+from .user_interaction import UserInteraction
+from .creative_work import CreativeWork
+from .organization import Organization
 
 class UserComments(UserInteraction):
     """

@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .medical_test import MedicalTest    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,8 @@ from typing import (
     Optional,
     Union
 )
+from .medical_imaging_technique import MedicalImagingTechnique
+from .medical_test import MedicalTest
 
 class ImagingTest(MedicalTest):
     """
@@ -22,7 +21,7 @@ Any medical imaging modality typically used for diagnostic purposes.
         alias='@type',
         serialization_alias='@type'
     )
-    imagingTechnique: Optional[Union["MedicalImagingTechnique", List["MedicalImagingTechnique"]]] = Field(
+    imagingTechnique: Optional[Union[MedicalImagingTechnique, List[MedicalImagingTechnique]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'imagingTechnique',

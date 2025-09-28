@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .data_feed import DataFeed    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .data_feed import DataFeed
 
 class CompleteDataFeed(DataFeed):
     """

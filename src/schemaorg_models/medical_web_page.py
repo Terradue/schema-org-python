@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .web_page import WebPage    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,9 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.medical_audience import MedicalAudience
+from .medical_audience_type import MedicalAudienceType
+from .medical_audience import MedicalAudience
+from .web_page import WebPage
 
 class MedicalWebPage(WebPage):
     """
@@ -23,7 +22,7 @@ A web page that provides medical information.
         alias='@type',
         serialization_alias='@type'
     )
-    medicalAudience: Optional[Union[MedicalAudience, List[MedicalAudience], "MedicalAudienceType", List["MedicalAudienceType"]]] = Field(
+    medicalAudience: Optional[Union[MedicalAudience, List[MedicalAudience], MedicalAudienceType, List[MedicalAudienceType]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'medicalAudience',

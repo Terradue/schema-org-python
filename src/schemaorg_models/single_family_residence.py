@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .house import House    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.quantitative_value import QuantitativeValue
+from .house import House
+from .quantitative_value import QuantitativeValue
 
 class SingleFamilyResidence(House):
     """

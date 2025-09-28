@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .create_action import CreateAction    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,10 +9,11 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.food_event import FoodEvent
-from schemaorg_models.recipe import Recipe
-from schemaorg_models.place import Place
-from schemaorg_models.food_establishment import FoodEstablishment
+from .recipe import Recipe
+from .place import Place
+from .food_event import FoodEvent
+from .food_establishment import FoodEstablishment
+from .create_action import CreateAction
 
 class CookAction(CreateAction):
     """

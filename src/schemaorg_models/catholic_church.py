@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .church import Church    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .church import Church
 
 class CatholicChurch(Church):
     """

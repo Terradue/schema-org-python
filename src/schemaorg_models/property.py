@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .intangible import Intangible    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,9 @@ from typing import (
     Optional,
     Union
 )
+from .__class import _Class
+from .intangible import Intangible
+from .enumeration import Enumeration
 
 class Property(Intangible):
     """
@@ -22,7 +22,7 @@ A property, used to indicate attributes and relationships of some Thing; equival
         alias='@type',
         serialization_alias='@type'
     )
-    supersededBy: Optional[Union["Enumeration", List["Enumeration"], "_Class", List["_Class"], "Property", List["Property"]]] = Field(
+    supersededBy: Optional[Union[Enumeration, List[Enumeration], _Class, List[_Class], Property, List[Property]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'supersededBy',
@@ -30,7 +30,7 @@ A property, used to indicate attributes and relationships of some Thing; equival
         ),
         serialization_alias='https://schema.org/supersededBy'
     )
-    rangeIncludes: Optional[Union["_Class", List["_Class"]]] = Field(
+    rangeIncludes: Optional[Union[_Class, List[_Class]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'rangeIncludes',
@@ -38,7 +38,7 @@ A property, used to indicate attributes and relationships of some Thing; equival
         ),
         serialization_alias='https://schema.org/rangeIncludes'
     )
-    inverseOf: Optional[Union["Property", List["Property"]]] = Field(
+    inverseOf: Optional[Union[Property, List[Property]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'inverseOf',
@@ -46,7 +46,7 @@ A property, used to indicate attributes and relationships of some Thing; equival
         ),
         serialization_alias='https://schema.org/inverseOf'
     )
-    domainIncludes: Optional[Union["_Class", List["_Class"]]] = Field(
+    domainIncludes: Optional[Union[_Class, List[_Class]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'domainIncludes',

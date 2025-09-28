@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .media_object import MediaObject    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,8 +9,10 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.person import Person
-from schemaorg_models.performing_group import PerformingGroup
+from .music_group import MusicGroup
+from .media_object import MediaObject
+from .person import Person
+from .performing_group import PerformingGroup
 
 class VideoObject(MediaObject):
     """
@@ -80,7 +79,7 @@ A video file.
         ),
         serialization_alias='https://schema.org/videoQuality'
     )
-    musicBy: Optional[Union["MusicGroup", List["MusicGroup"], Person, List[Person]]] = Field(
+    musicBy: Optional[Union[MusicGroup, List[MusicGroup], Person, List[Person]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'musicBy',

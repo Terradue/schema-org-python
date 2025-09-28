@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .how_to import HowTo    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,13 +9,14 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.restricted_diet import RestrictedDiet
-from schemaorg_models.duration import Duration
-from schemaorg_models.property_value import PropertyValue
-from schemaorg_models.item_list import ItemList
-from schemaorg_models.creative_work import CreativeWork
-from schemaorg_models.quantitative_value import QuantitativeValue
-from schemaorg_models.nutrition_information import NutritionInformation
+from .how_to import HowTo
+from .property_value import PropertyValue
+from .nutrition_information import NutritionInformation
+from .duration import Duration
+from .quantitative_value import QuantitativeValue
+from .restricted_diet import RestrictedDiet
+from .creative_work import CreativeWork
+from .item_list import ItemList
 
 class Recipe(HowTo):
     """

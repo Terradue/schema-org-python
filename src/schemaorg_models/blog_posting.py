@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .social_media_posting import SocialMediaPosting    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .social_media_posting import SocialMediaPosting
 
 class BlogPosting(SocialMediaPosting):
     """

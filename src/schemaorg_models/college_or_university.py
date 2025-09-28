@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .educational_organization import EducationalOrganization    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .educational_organization import EducationalOrganization
 
 class CollegeOrUniversity(EducationalOrganization):
     """

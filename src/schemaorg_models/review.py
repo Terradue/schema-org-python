@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .creative_work import CreativeWork    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,11 +9,12 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.thing import Thing
-from schemaorg_models.web_content import WebContent
-from schemaorg_models.item_list import ItemList
-from schemaorg_models.list_item import ListItem
-from schemaorg_models.rating import Rating
+from .thing import Thing
+from .web_content import WebContent
+from .rating import Rating
+from .list_item import ListItem
+from .creative_work import CreativeWork
+from .item_list import ItemList
 
 class Review(CreativeWork):
     """
@@ -59,7 +57,7 @@ A review of the item.
         ),
         serialization_alias='https://schema.org/reviewRating'
     )
-    associatedReview: Optional[Union["Review", List["Review"]]] = Field(
+    associatedReview: Optional[Union[Review, List[Review]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'associatedReview',
@@ -67,7 +65,7 @@ A review of the item.
         ),
         serialization_alias='https://schema.org/associatedReview'
     )
-    associatedClaimReview: Optional[Union["Review", List["Review"]]] = Field(
+    associatedClaimReview: Optional[Union[Review, List[Review]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'associatedClaimReview',
@@ -91,7 +89,7 @@ A review of the item.
         ),
         serialization_alias='https://schema.org/reviewBody'
     )
-    associatedMediaReview: Optional[Union["Review", List["Review"]]] = Field(
+    associatedMediaReview: Optional[Union[Review, List[Review]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'associatedMediaReview',

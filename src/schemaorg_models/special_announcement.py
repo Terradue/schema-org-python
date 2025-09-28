@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .creative_work import CreativeWork    
-
 from datetime import (
     date,
     datetime
@@ -17,11 +14,17 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.web_content import WebContent
-from schemaorg_models.thing import Thing
-from schemaorg_models.observation import Observation
-from schemaorg_models.local_business import LocalBusiness
-from schemaorg_models.civic_structure import CivicStructure
+from .government_service import GovernmentService
+from .observation import Observation
+from .physical_activity_category import PhysicalActivityCategory
+from .civic_structure import CivicStructure
+from .data_feed import DataFeed
+from .category_code import CategoryCode
+from .thing import Thing
+from .web_content import WebContent
+from .local_business import LocalBusiness
+from .creative_work import CreativeWork
+from .dataset import Dataset
 
 class SpecialAnnouncement(CreativeWork):
     """
@@ -107,7 +110,7 @@ media type information, e.g. "application/rss+xml" or "application/atom+xml".
         ),
         serialization_alias='https://schema.org/publicTransportClosuresInfo'
     )
-    governmentBenefitsInfo: Optional[Union["GovernmentService", List["GovernmentService"]]] = Field(
+    governmentBenefitsInfo: Optional[Union[GovernmentService, List[GovernmentService]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'governmentBenefitsInfo',
@@ -131,7 +134,7 @@ media type information, e.g. "application/rss+xml" or "application/atom+xml".
         ),
         serialization_alias='https://schema.org/diseasePreventionInfo'
     )
-    category: Optional[Union["PhysicalActivityCategory", List["PhysicalActivityCategory"], "CategoryCode", List["CategoryCode"], str, List[str], Thing, List[Thing], HttpUrl, List[HttpUrl]]] = Field(
+    category: Optional[Union[PhysicalActivityCategory, List[PhysicalActivityCategory], CategoryCode, List[CategoryCode], str, List[str], Thing, List[Thing], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'category',
@@ -147,7 +150,7 @@ media type information, e.g. "application/rss+xml" or "application/atom+xml".
         ),
         serialization_alias='https://schema.org/schoolClosuresInfo'
     )
-    diseaseSpreadStatistics: Optional[Union[Observation, List[Observation], HttpUrl, List[HttpUrl], "Dataset", List["Dataset"], WebContent, List[WebContent]]] = Field(
+    diseaseSpreadStatistics: Optional[Union[Observation, List[Observation], HttpUrl, List[HttpUrl], Dataset, List[Dataset], WebContent, List[WebContent]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'diseaseSpreadStatistics',
@@ -163,7 +166,7 @@ media type information, e.g. "application/rss+xml" or "application/atom+xml".
         ),
         serialization_alias='https://schema.org/announcementLocation'
     )
-    webFeed: Optional[Union["DataFeed", List["DataFeed"], HttpUrl, List[HttpUrl]]] = Field(
+    webFeed: Optional[Union[DataFeed, List[DataFeed], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'webFeed',

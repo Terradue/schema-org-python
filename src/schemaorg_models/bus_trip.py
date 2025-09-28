@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .trip import Trip    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,8 +9,9 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.bus_station import BusStation
-from schemaorg_models.bus_stop import BusStop
+from .trip import Trip
+from .bus_stop import BusStop
+from .bus_station import BusStation
 
 class BusTrip(Trip):
     """

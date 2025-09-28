@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .body_of_water import BodyOfWater    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .body_of_water import BodyOfWater
 
 class Canal(BodyOfWater):
     """

@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .civic_structure import CivicStructure    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,7 @@ from typing import (
     Optional,
     Union
 )
+from .civic_structure import CivicStructure
 
 class Airport(CivicStructure):
     """

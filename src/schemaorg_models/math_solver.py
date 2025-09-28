@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .creative_work import CreativeWork    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,8 @@ from typing import (
     Optional,
     Union
 )
+from .solve_math_action import SolveMathAction
+from .creative_work import CreativeWork
 
 class MathSolver(CreativeWork):
     """
@@ -22,7 +21,7 @@ A math solver which is capable of solving a subset of mathematical problems.
         alias='@type',
         serialization_alias='@type'
     )
-    mathExpression: Optional[Union["SolveMathAction", List["SolveMathAction"], str, List[str]]] = Field(
+    mathExpression: Optional[Union[SolveMathAction, List[SolveMathAction], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'mathExpression',

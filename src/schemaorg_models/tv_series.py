@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .creative_work import CreativeWork    
-
 from pydantic import (
     AliasChoices,
     Field,
@@ -13,8 +10,15 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.organization import Organization
-from schemaorg_models.person import Person
+from .person import Person
+from .music_group import MusicGroup
+from .episode import Episode
+from .video_object import VideoObject
+from .performing_group import PerformingGroup
+from .country import Country
+from .organization import Organization
+from .creative_work_season import CreativeWorkSeason
+from .creative_work import CreativeWork
 
 class TVSeries(CreativeWork):
     """
@@ -25,7 +29,7 @@ CreativeWorkSeries dedicated to TV broadcast and associated online delivery.
         alias='@type',
         serialization_alias='@type'
     )
-    season: Optional[Union["CreativeWorkSeason", List["CreativeWorkSeason"], HttpUrl, List[HttpUrl]]] = Field(
+    season: Optional[Union[CreativeWorkSeason, List[CreativeWorkSeason], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'season',
@@ -49,7 +53,7 @@ CreativeWorkSeries dedicated to TV broadcast and associated online delivery.
         ),
         serialization_alias='https://schema.org/titleEIDR'
     )
-    musicBy: Optional[Union["MusicGroup", List["MusicGroup"], Person, List[Person]]] = Field(
+    musicBy: Optional[Union[MusicGroup, List[MusicGroup], Person, List[Person]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'musicBy',
@@ -65,7 +69,7 @@ CreativeWorkSeries dedicated to TV broadcast and associated online delivery.
         ),
         serialization_alias='https://schema.org/actors'
     )
-    seasons: Optional[Union["CreativeWorkSeason", List["CreativeWorkSeason"]]] = Field(
+    seasons: Optional[Union[CreativeWorkSeason, List[CreativeWorkSeason]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'seasons',
@@ -73,7 +77,7 @@ CreativeWorkSeries dedicated to TV broadcast and associated online delivery.
         ),
         serialization_alias='https://schema.org/seasons'
     )
-    countryOfOrigin: Optional[Union["Country", List["Country"]]] = Field(
+    countryOfOrigin: Optional[Union[Country, List[Country]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'countryOfOrigin',
@@ -89,7 +93,7 @@ CreativeWorkSeries dedicated to TV broadcast and associated online delivery.
         ),
         serialization_alias='https://schema.org/numberOfSeasons'
     )
-    trailer: Optional[Union["VideoObject", List["VideoObject"]]] = Field(
+    trailer: Optional[Union[VideoObject, List[VideoObject]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'trailer',
@@ -105,7 +109,7 @@ CreativeWorkSeries dedicated to TV broadcast and associated online delivery.
         ),
         serialization_alias='https://schema.org/directors'
     )
-    episodes: Optional[Union["Episode", List["Episode"]]] = Field(
+    episodes: Optional[Union[Episode, List[Episode]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'episodes',
@@ -121,7 +125,7 @@ CreativeWorkSeries dedicated to TV broadcast and associated online delivery.
         ),
         serialization_alias='https://schema.org/director'
     )
-    containsSeason: Optional[Union["CreativeWorkSeason", List["CreativeWorkSeason"]]] = Field(
+    containsSeason: Optional[Union[CreativeWorkSeason, List[CreativeWorkSeason]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'containsSeason',
@@ -129,7 +133,7 @@ CreativeWorkSeries dedicated to TV broadcast and associated online delivery.
         ),
         serialization_alias='https://schema.org/containsSeason'
     )
-    episode: Optional[Union["Episode", List["Episode"]]] = Field(
+    episode: Optional[Union[Episode, List[Episode]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'episode',
@@ -145,7 +149,7 @@ CreativeWorkSeries dedicated to TV broadcast and associated online delivery.
         ),
         serialization_alias='https://schema.org/numberOfEpisodes'
     )
-    actor: Optional[Union[Person, List[Person], "PerformingGroup", List["PerformingGroup"]]] = Field(
+    actor: Optional[Union[Person, List[Person], PerformingGroup, List[PerformingGroup]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'actor',

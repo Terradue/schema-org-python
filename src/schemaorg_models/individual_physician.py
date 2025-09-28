@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .physician import Physician    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.medical_organization import MedicalOrganization
+from .physician import Physician
+from .medical_organization import MedicalOrganization
 
 class IndividualPhysician(Physician):
     """

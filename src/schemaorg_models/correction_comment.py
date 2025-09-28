@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .comment import Comment    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .comment import Comment
 
 class CorrectionComment(Comment):
     """

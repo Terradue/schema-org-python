@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .people_audience import PeopleAudience    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,7 @@ from typing import (
     Optional,
     Union
 )
+from .people_audience import PeopleAudience
 
 class ParentAudience(PeopleAudience):
     """

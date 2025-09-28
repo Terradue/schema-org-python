@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .place_of_worship import PlaceOfWorship    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .place_of_worship import PlaceOfWorship
 
 class Synagogue(PlaceOfWorship):
     """

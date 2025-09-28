@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .transfer_action import TransferAction    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,8 +9,9 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.organization import Organization
-from schemaorg_models.person import Person
+from .transfer_action import TransferAction
+from .person import Person
+from .organization import Organization
 
 class BorrowAction(TransferAction):
     """

@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .structured_value import StructuredValue    
-
 from datetime import (
     time
 )
@@ -15,9 +12,11 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.day_of_week import DayOfWeek
-from schemaorg_models.service_period import ServicePeriod
-from schemaorg_models.quantitative_value import QuantitativeValue
+from .opening_hours_specification import OpeningHoursSpecification
+from .service_period import ServicePeriod
+from .structured_value import StructuredValue
+from .quantitative_value import QuantitativeValue
+from .day_of_week import DayOfWeek
 
 class ShippingDeliveryTime(StructuredValue):
     """
@@ -28,7 +27,7 @@ ShippingDeliveryTime provides various pieces of information about delivery times
         alias='@type',
         serialization_alias='@type'
     )
-    businessDays: Optional[Union["OpeningHoursSpecification", List["OpeningHoursSpecification"], DayOfWeek, List[DayOfWeek]]] = Field(
+    businessDays: Optional[Union[OpeningHoursSpecification, List[OpeningHoursSpecification], DayOfWeek, List[DayOfWeek]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'businessDays',

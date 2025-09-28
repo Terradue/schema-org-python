@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .place import Place    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .place import Place
 
 class LandmarksOrHistoricalBuildings(Place):
     """

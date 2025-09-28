@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .property_value import PropertyValue    
-
 from datetime import (
     date,
     datetime
@@ -16,7 +13,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.opening_hours_specification import OpeningHoursSpecification
+from .opening_hours_specification import OpeningHoursSpecification
+from .property_value import PropertyValue
 
 class LocationFeatureSpecification(PropertyValue):
     """

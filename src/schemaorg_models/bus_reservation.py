@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .reservation import Reservation    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .reservation import Reservation
 
 class BusReservation(Reservation):
     """

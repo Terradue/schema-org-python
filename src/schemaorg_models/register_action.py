@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .interact_action import InteractAction    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .interact_action import InteractAction
 
 class RegisterAction(InteractAction):
     """

@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .audience import Audience    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,6 +9,8 @@ from typing import (
     Optional,
     Union
 )
+from .quantitative_value import QuantitativeValue
+from .audience import Audience
 
 class BusinessAudience(Audience):
     """
@@ -22,7 +21,7 @@ A set of characteristics belonging to businesses, e.g. who compose an item's tar
         alias='@type',
         serialization_alias='@type'
     )
-    numberOfEmployees: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    numberOfEmployees: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'numberOfEmployees',
@@ -30,7 +29,7 @@ A set of characteristics belonging to businesses, e.g. who compose an item's tar
         ),
         serialization_alias='https://schema.org/numberOfEmployees'
     )
-    yearsInOperation: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    yearsInOperation: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'yearsInOperation',
@@ -38,7 +37,7 @@ A set of characteristics belonging to businesses, e.g. who compose an item's tar
         ),
         serialization_alias='https://schema.org/yearsInOperation'
     )
-    yearlyRevenue: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    yearlyRevenue: Optional[Union[QuantitativeValue, List[QuantitativeValue]]] = Field(
         default=None,
         validation_alias=AliasChoices(
             'yearlyRevenue',

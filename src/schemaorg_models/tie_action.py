@@ -1,13 +1,11 @@
 from __future__ import annotations
-
-from .achieve_action import AchieveAction    
-
 from pydantic import (
     Field
 )
 from typing import (
     Literal
 )
+from .achieve_action import AchieveAction
 
 class TieAction(AchieveAction):
     """

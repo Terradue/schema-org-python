@@ -1,7 +1,4 @@
 from __future__ import annotations
-
-from .creative_work import CreativeWork    
-
 from pydantic import (
     AliasChoices,
     Field
@@ -12,7 +9,8 @@ from typing import (
     Optional,
     Union
 )
-from schemaorg_models.item_list import ItemList
+from .creative_work import CreativeWork
+from .item_list import ItemList
 
 class HowToSection(CreativeWork):
     """
