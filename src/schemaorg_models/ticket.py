@@ -17,10 +17,10 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .organization import Organization
     from .price_specification import PriceSpecification
     from .seat import Seat
     from .person import Person
-    from .organization import Organization
 
 class Ticket(Intangible):
     """

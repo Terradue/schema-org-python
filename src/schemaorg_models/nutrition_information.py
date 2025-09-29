@@ -12,8 +12,8 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .energy import Energy
     from .mass import Mass
+    from .energy import Energy
 
 class NutritionInformation(StructuredValue):
     """

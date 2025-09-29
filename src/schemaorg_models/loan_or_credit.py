@@ -15,9 +15,9 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .repayment_specification import RepaymentSpecification
     from .quantitative_value import QuantitativeValue
-    from .thing import Thing
     from .duration import Duration
     from .monetary_amount import MonetaryAmount
+    from .thing import Thing
 
 class LoanOrCredit(FinancialProduct):
     """

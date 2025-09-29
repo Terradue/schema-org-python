@@ -13,15 +13,15 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .country import Country
     from .performing_group import PerformingGroup
-    from .language import Language
     from .quantitative_value import QuantitativeValue
-    from .video_object import VideoObject
     from .duration import Duration
-    from .music_group import MusicGroup
+    from .country import Country
     from .person import Person
+    from .music_group import MusicGroup
     from .organization import Organization
+    from .video_object import VideoObject
+    from .language import Language
 
 class Movie(CreativeWork):
     """

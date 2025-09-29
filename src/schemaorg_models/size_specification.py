@@ -12,10 +12,10 @@ from typing import (
 from .qualitative_value import QualitativeValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .quantitative_value import QuantitativeValue
-    from .size_group_enumeration import SizeGroupEnumeration
     from .size_system_enumeration import SizeSystemEnumeration
     from .gender_type import GenderType
+    from .size_group_enumeration import SizeGroupEnumeration
+    from .quantitative_value import QuantitativeValue
 
 class SizeSpecification(QualitativeValue):
     """

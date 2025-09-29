@@ -13,15 +13,15 @@ from typing import (
 from .substance import Substance
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .drug_strength import DrugStrength
     from .medical_enumeration import MedicalEnumeration
+    from .drug_pregnancy_category import DrugPregnancyCategory
     from .health_insurance_plan import HealthInsurancePlan
-    from .drug_class import DrugClass
-    from .dose_schedule import DoseSchedule
     from .drug_legal_status import DrugLegalStatus
     from .drug_prescription_status import DrugPrescriptionStatus
-    from .drug_strength import DrugStrength
-    from .drug_pregnancy_category import DrugPregnancyCategory
     from .maximum_dose_schedule import MaximumDoseSchedule
+    from .dose_schedule import DoseSchedule
+    from .drug_class import DrugClass
 
 class Drug(Substance):
     """

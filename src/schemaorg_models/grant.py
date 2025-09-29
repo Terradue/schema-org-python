@@ -12,12 +12,12 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .medical_entity import MedicalEntity
-    from .product import Product
     from .creative_work import CreativeWork
+    from .product import Product
+    from .event import Event
+    from .medical_entity import MedicalEntity
     from .person import Person
     from .organization import Organization
-    from .event import Event
     from .bio_chem_entity import BioChemEntity
 
 class Grant(Intangible):

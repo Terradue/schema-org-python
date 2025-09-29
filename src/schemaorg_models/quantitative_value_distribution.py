@@ -12,8 +12,8 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .quantitative_value import QuantitativeValue
     from .duration import Duration
+    from .quantitative_value import QuantitativeValue
 
 class QuantitativeValueDistribution(StructuredValue):
     """

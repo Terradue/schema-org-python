@@ -15,8 +15,8 @@ from typing import (
 from .reservation import Reservation
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .quantitative_value import QuantitativeValue
     from .place import Place
+    from .quantitative_value import QuantitativeValue
 
 class TaxiReservation(Reservation):
     """

@@ -16,11 +16,11 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .category_code import CategoryCode
-    from .organization import Organization
-    from .person import Person
-    from .administrative_area import AdministrativeArea
     from .legal_force_status import LegalForceStatus
+    from .administrative_area import AdministrativeArea
+    from .category_code import CategoryCode
+    from .person import Person
+    from .organization import Organization
 
 class Legislation(CreativeWork):
     """

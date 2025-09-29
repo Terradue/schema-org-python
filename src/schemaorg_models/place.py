@@ -13,21 +13,21 @@ from typing import (
 from .thing import Thing
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .property_value import PropertyValue
-    from .geospatial_geometry import GeospatialGeometry
-    from .postal_address import PostalAddress
-    from .certification import Certification
-    from .review import Review
-    from .location_feature_specification import LocationFeatureSpecification
-    from .geo_shape import GeoShape
-    from .aggregate_rating import AggregateRating
-    from .geo_coordinates import GeoCoordinates
-    from .image_object import ImageObject
-    from .event import Event
-    from .map import Map
     from .photograph import Photograph
+    from .geo_coordinates import GeoCoordinates
+    from .location_feature_specification import LocationFeatureSpecification
+    from .event import Event
+    from .postal_address import PostalAddress
+    from .geospatial_geometry import GeospatialGeometry
+    from .aggregate_rating import AggregateRating
     from .opening_hours_specification import OpeningHoursSpecification
+    from .geo_shape import GeoShape
     from .defined_term import DefinedTerm
+    from .map import Map
+    from .review import Review
+    from .certification import Certification
+    from .property_value import PropertyValue
+    from .image_object import ImageObject
 
 class Place(Thing):
     """

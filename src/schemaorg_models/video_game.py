@@ -13,14 +13,14 @@ from typing import (
 from .game import Game
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .performing_group import PerformingGroup
+    from .creative_work import CreativeWork
     from .game_server import GameServer
+    from .performing_group import PerformingGroup
+    from .game_play_mode import GamePlayMode
+    from .person import Person
+    from .music_group import MusicGroup
     from .thing import Thing
     from .video_object import VideoObject
-    from .creative_work import CreativeWork
-    from .music_group import MusicGroup
-    from .person import Person
-    from .game_play_mode import GamePlayMode
 
 class VideoGame(Game):
     """

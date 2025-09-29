@@ -12,9 +12,9 @@ from typing import (
 from .accommodation import Accommodation
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .quantitative_value import QuantitativeValue
     from .bed_type import BedType
     from .bed_details import BedDetails
+    from .quantitative_value import QuantitativeValue
 
 class Suite(Accommodation):
     """

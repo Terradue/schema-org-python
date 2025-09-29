@@ -16,36 +16,36 @@ from typing import (
 from .thing import Thing
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .language import Language
-    from .ownership_info import OwnershipInfo
-    from .grant import Grant
-    from .member_program_tier import MemberProgramTier
+    from .brand import Brand
+    from .educational_occupational_credential import EducationalOccupationalCredential
+    from .gender_type import GenderType
     from .event import Event
-    from .contact_point import ContactPoint
+    from .quantitative_value import QuantitativeValue
+    from .monetary_amount import MonetaryAmount
+    from .price_specification import PriceSpecification
     from .educational_organization import EducationalOrganization
+    from .place import Place
+    from .structured_value import StructuredValue
+    from .language import Language
+    from .demand import Demand
+    from .member_program_tier import MemberProgramTier
+    from .product import Product
+    from .occupation import Occupation
+    from .offer_catalog import OfferCatalog
+    from .grant import Grant
+    from .creative_work import CreativeWork
+    from .contact_point import ContactPoint
+    from .postal_address import PostalAddress
+    from .mass import Mass
+    from .country import Country
     from .interaction_counter import InteractionCounter
     from .certification import Certification
-    from .educational_occupational_credential import EducationalOccupationalCredential
     from .distance import Distance
-    from .place import Place
-    from .offer_catalog import OfferCatalog
-    from .defined_term import DefinedTerm
-    from .country import Country
-    from .quantitative_value import QuantitativeValue
-    from .price_specification import PriceSpecification
-    from .product import Product
     from .offer import Offer
-    from .occupation import Occupation
-    from .brand import Brand
-    from .postal_address import PostalAddress
-    from .demand import Demand
-    from .structured_value import StructuredValue
-    from .creative_work import CreativeWork
-    from .monetary_amount import MonetaryAmount
-    from .gender_type import GenderType
-    from .organization import Organization
-    from .mass import Mass
+    from .ownership_info import OwnershipInfo
     from .program_membership import ProgramMembership
+    from .organization import Organization
+    from .defined_term import DefinedTerm
 
 class Person(Thing):
     """

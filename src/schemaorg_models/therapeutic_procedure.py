@@ -12,9 +12,9 @@ from typing import (
 from .medical_procedure import MedicalProcedure
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .drug import Drug
     from .medical_entity import MedicalEntity
     from .dose_schedule import DoseSchedule
+    from .drug import Drug
 
 class TherapeuticProcedure(MedicalProcedure):
     """

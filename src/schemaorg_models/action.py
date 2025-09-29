@@ -17,11 +17,11 @@ from typing import (
 from .thing import Thing
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .virtual_location import VirtualLocation
-    from .postal_address import PostalAddress
     from .entry_point import EntryPoint
-    from .action_status_type import ActionStatusType
     from .how_to import HowTo
+    from .virtual_location import VirtualLocation
+    from .action_status_type import ActionStatusType
+    from .postal_address import PostalAddress
     from .person import Person
     from .organization import Organization
     from .place import Place

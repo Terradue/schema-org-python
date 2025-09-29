@@ -17,39 +17,39 @@ from typing import (
 from .thing import Thing
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .language import Language
-    from .audio_object import AudioObject
-    from .person import Person
-    from .image_object import ImageObject
-    from .grant import Grant
-    from .event import Event
-    from .publication_event import PublicationEvent
-    from .alignment_object import AlignmentObject
-    from .clip import Clip
-    from .interaction_counter import InteractionCounter
-    from .web_page import WebPage
-    from .audience import Audience
-    from .iptc_digital_source_enumeration import IPTCDigitalSourceEnumeration
-    from .place import Place
-    from .defined_term import DefinedTerm
-    from .country import Country
-    from .size_specification import SizeSpecification
-    from .item_list import ItemList
-    from .quantitative_value import QuantitativeValue
-    from .review import Review
-    from .product import Product
-    from .video_object import VideoObject
-    from .duration import Duration
-    from .offer import Offer
     from .claim import Claim
-    from .media_object import MediaObject
-    from .music_recording import MusicRecording
-    from .demand import Demand
-    from .aggregate_rating import AggregateRating
-    from .comment import Comment
-    from .organization import Organization
-    from .rating import Rating
+    from .event import Event
+    from .web_page import WebPage
+    from .quantitative_value import QuantitativeValue
     from .correction_comment import CorrectionComment
+    from .clip import Clip
+    from .defined_term import DefinedTerm
+    from .person import Person
+    from .review import Review
+    from .audience import Audience
+    from .comment import Comment
+    from .place import Place
+    from .language import Language
+    from .demand import Demand
+    from .media_object import MediaObject
+    from .product import Product
+    from .audio_object import AudioObject
+    from .alignment_object import AlignmentObject
+    from .aggregate_rating import AggregateRating
+    from .rating import Rating
+    from .grant import Grant
+    from .iptc_digital_source_enumeration import IPTCDigitalSourceEnumeration
+    from .country import Country
+    from .interaction_counter import InteractionCounter
+    from .video_object import VideoObject
+    from .offer import Offer
+    from .music_recording import MusicRecording
+    from .size_specification import SizeSpecification
+    from .duration import Duration
+    from .organization import Organization
+    from .publication_event import PublicationEvent
+    from .item_list import ItemList
+    from .image_object import ImageObject
 
 class CreativeWork(Thing):
     """

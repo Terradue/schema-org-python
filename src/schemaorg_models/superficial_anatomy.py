@@ -12,9 +12,9 @@ from typing import (
 from .medical_entity import MedicalEntity
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .medical_condition import MedicalCondition
     from .anatomical_structure import AnatomicalStructure
     from .anatomical_system import AnatomicalSystem
-    from .medical_condition import MedicalCondition
     from .medical_therapy import MedicalTherapy
 
 class SuperficialAnatomy(MedicalEntity):

@@ -16,12 +16,12 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .creative_work_series import CreativeWorkSeries
     from .performing_group import PerformingGroup
-    from .episode import Episode
     from .video_object import VideoObject
     from .person import Person
     from .organization import Organization
-    from .creative_work_series import CreativeWorkSeries
+    from .episode import Episode
 
 class CreativeWorkSeason(CreativeWork):
     """

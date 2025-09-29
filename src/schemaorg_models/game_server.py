@@ -12,8 +12,8 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .video_game import VideoGame
     from .game_server_status import GameServerStatus
+    from .video_game import VideoGame
 
 class GameServer(Intangible):
     """

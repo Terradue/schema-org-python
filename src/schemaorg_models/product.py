@@ -16,36 +16,36 @@ from typing import (
 from .thing import Thing
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .property_value import PropertyValue
-    from .web_content import WebContent
-    from .merchant_return_policy import MerchantReturnPolicy
-    from .adult_oriented_enumeration import AdultOrientedEnumeration
-    from .image_object import ImageObject
-    from .grant import Grant
-    from .category_code import CategoryCode
-    from .certification import Certification
-    from .distance import Distance
-    from .audience import Audience
-    from .defined_term import DefinedTerm
-    from .size_specification import SizeSpecification
-    from .country import Country
-    from .item_list import ItemList
-    from .physical_activity_category import PhysicalActivityCategory
+    from .brand import Brand
     from .quantitative_value import QuantitativeValue
+    from .web_content import WebContent
     from .review import Review
     from .list_item import ListItem
-    from .offer import Offer
-    from .brand import Brand
-    from .product_return_policy import ProductReturnPolicy
+    from .audience import Audience
     from .demand import Demand
-    from .product_model import ProductModel
-    from .product_group import ProductGroup
-    from .offer_item_condition import OfferItemCondition
-    from .aggregate_rating import AggregateRating
-    from .energy_consumption_details import EnergyConsumptionDetails
+    from .merchant_return_policy import MerchantReturnPolicy
     from .service import Service
-    from .organization import Organization
+    from .aggregate_rating import AggregateRating
+    from .product_return_policy import ProductReturnPolicy
+    from .grant import Grant
+    from .physical_activity_category import PhysicalActivityCategory
+    from .product_group import ProductGroup
+    from .energy_consumption_details import EnergyConsumptionDetails
     from .mass import Mass
+    from .country import Country
+    from .property_value import PropertyValue
+    from .distance import Distance
+    from .certification import Certification
+    from .adult_oriented_enumeration import AdultOrientedEnumeration
+    from .offer import Offer
+    from .image_object import ImageObject
+    from .offer_item_condition import OfferItemCondition
+    from .size_specification import SizeSpecification
+    from .category_code import CategoryCode
+    from .organization import Organization
+    from .item_list import ItemList
+    from .defined_term import DefinedTerm
+    from .product_model import ProductModel
 
 class Product(Thing):
     """

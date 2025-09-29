@@ -17,16 +17,16 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .dataset import Dataset
+    from .physical_activity_category import PhysicalActivityCategory
+    from .category_code import CategoryCode
+    from .civic_structure import CivicStructure
     from .government_service import GovernmentService
     from .web_content import WebContent
-    from .category_code import CategoryCode
     from .local_business import LocalBusiness
-    from .physical_activity_category import PhysicalActivityCategory
-    from .thing import Thing
-    from .dataset import Dataset
-    from .data_feed import DataFeed
-    from .civic_structure import CivicStructure
     from .observation import Observation
+    from .data_feed import DataFeed
+    from .thing import Thing
 
 class SpecialAnnouncement(CreativeWork):
     """

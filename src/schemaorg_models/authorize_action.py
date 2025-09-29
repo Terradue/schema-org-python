@@ -12,10 +12,10 @@ from typing import (
 from .allocate_action import AllocateAction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .contact_point import ContactPoint
+    from .organization import Organization
     from .audience import Audience
     from .person import Person
-    from .organization import Organization
+    from .contact_point import ContactPoint
 
 class AuthorizeAction(AllocateAction):
     """

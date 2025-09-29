@@ -12,13 +12,13 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .language import Language
-    from .geo_shape import GeoShape
-    from .product import Product
     from .administrative_area import AdministrativeArea
-    from .place import Place
+    from .product import Product
     from .opening_hours_specification import OpeningHoursSpecification
+    from .geo_shape import GeoShape
     from .contact_point_option import ContactPointOption
+    from .place import Place
+    from .language import Language
 
 class ContactPoint(StructuredValue):
     """

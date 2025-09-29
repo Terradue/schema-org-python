@@ -18,26 +18,26 @@ from typing import (
 from .thing import Thing
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .language import Language
-    from .schedule import Schedule
+    from .performing_group import PerformingGroup
+    from .quantitative_value import QuantitativeValue
     from .person import Person
-    from .grant import Grant
+    from .review import Review
     from .audience import Audience
     from .place import Place
-    from .defined_term import DefinedTerm
-    from .virtual_location import VirtualLocation
-    from .quantitative_value import QuantitativeValue
-    from .review import Review
-    from .duration import Duration
-    from .offer import Offer
-    from .performing_group import PerformingGroup
-    from .postal_address import PostalAddress
+    from .language import Language
     from .demand import Demand
-    from .event_attendance_mode_enumeration import EventAttendanceModeEnumeration
-    from .creative_work import CreativeWork
+    from .virtual_location import VirtualLocation
     from .aggregate_rating import AggregateRating
-    from .organization import Organization
+    from .grant import Grant
+    from .creative_work import CreativeWork
+    from .schedule import Schedule
+    from .postal_address import PostalAddress
     from .event_status_type import EventStatusType
+    from .event_attendance_mode_enumeration import EventAttendanceModeEnumeration
+    from .offer import Offer
+    from .duration import Duration
+    from .organization import Organization
+    from .defined_term import DefinedTerm
 
 class Event(Thing):
     """

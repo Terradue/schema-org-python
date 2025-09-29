@@ -16,42 +16,42 @@ from typing import (
 from .thing import Thing
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .about_page import AboutPage
-    from .language import Language
-    from .merchant_return_policy import MerchantReturnPolicy
-    from .ownership_info import OwnershipInfo
-    from .payment_method import PaymentMethod
-    from .person import Person
-    from .image_object import ImageObject
+    from .brand import Brand
+    from .administrative_area import AdministrativeArea
+    from .educational_occupational_credential import EducationalOccupationalCredential
+    from .nonprofit_type import NonprofitType
     from .event import Event
+    from .payment_method import PaymentMethod
+    from .quantitative_value import QuantitativeValue
+    from .geo_shape import GeoShape
+    from .person import Person
+    from .review import Review
+    from .place import Place
+    from .language import Language
+    from .demand import Demand
+    from .about_page import AboutPage
     from .member_program_tier import MemberProgramTier
+    from .merchant_return_policy import MerchantReturnPolicy
+    from .article import Article
+    from .loan_or_credit import LoanOrCredit
+    from .product import Product
+    from .virtual_location import VirtualLocation
+    from .offer_catalog import OfferCatalog
+    from .aggregate_rating import AggregateRating
+    from .product_return_policy import ProductReturnPolicy
     from .grant import Grant
+    from .creative_work import CreativeWork
     from .contact_point import ContactPoint
+    from .postal_address import PostalAddress
     from .shipping_service import ShippingService
     from .interaction_counter import InteractionCounter
     from .certification import Certification
-    from .geo_shape import GeoShape
-    from .educational_occupational_credential import EducationalOccupationalCredential
-    from .place import Place
-    from .offer_catalog import OfferCatalog
-    from .defined_term import DefinedTerm
-    from .member_program import MemberProgram
-    from .virtual_location import VirtualLocation
-    from .article import Article
-    from .nonprofit_type import NonprofitType
-    from .quantitative_value import QuantitativeValue
-    from .review import Review
-    from .product import Product
     from .offer import Offer
-    from .brand import Brand
-    from .administrative_area import AdministrativeArea
-    from .product_return_policy import ProductReturnPolicy
-    from .postal_address import PostalAddress
-    from .demand import Demand
-    from .creative_work import CreativeWork
-    from .aggregate_rating import AggregateRating
+    from .image_object import ImageObject
+    from .member_program import MemberProgram
+    from .ownership_info import OwnershipInfo
     from .program_membership import ProgramMembership
-    from .loan_or_credit import LoanOrCredit
+    from .defined_term import DefinedTerm
 
 class Organization(Thing):
     """

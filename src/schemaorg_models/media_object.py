@@ -18,15 +18,15 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .quantitative_value import QuantitativeValue
-    from .media_subscription import MediaSubscription
-    from .organization import Organization
-    from .geo_shape import GeoShape
-    from .duration import Duration
-    from .distance import Distance
     from .claim import Claim
-    from .place import Place
+    from .quantitative_value import QuantitativeValue
+    from .duration import Duration
     from .news_article import NewsArticle
+    from .media_subscription import MediaSubscription
+    from .geo_shape import GeoShape
+    from .organization import Organization
+    from .distance import Distance
+    from .place import Place
 
 class MediaObject(CreativeWork):
     """

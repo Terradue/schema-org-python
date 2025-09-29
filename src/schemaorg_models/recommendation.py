@@ -13,9 +13,9 @@ from typing import (
 from .review import Review
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .physical_activity_category import PhysicalActivityCategory
     from .category_code import CategoryCode
     from .thing import Thing
-    from .physical_activity_category import PhysicalActivityCategory
 
 class Recommendation(Review):
     """

@@ -15,10 +15,10 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .service import Service
-    from .product import Product
-    from .person import Person
     from .organization import Organization
+    from .product import Product
+    from .service import Service
+    from .person import Person
 
 class OwnershipInfo(StructuredValue):
     """

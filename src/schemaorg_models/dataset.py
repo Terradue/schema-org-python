@@ -16,13 +16,13 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .property_value import PropertyValue
-    from .data_download import DataDownload
-    from .data_catalog import DataCatalog
-    from .statistical_variable import StatisticalVariable
     from .measurement_method_enum import MeasurementMethodEnum
     from .property import Property
+    from .property_value import PropertyValue
+    from .data_catalog import DataCatalog
     from .defined_term import DefinedTerm
+    from .data_download import DataDownload
+    from .statistical_variable import StatisticalVariable
 
 class Dataset(CreativeWork):
     """

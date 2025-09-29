@@ -16,8 +16,8 @@ from typing import (
 from .web_page import WebPage
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .quantitative_value import QuantitativeValue
     from .duration import Duration
+    from .quantitative_value import QuantitativeValue
 
 class RealEstateListing(WebPage):
     """

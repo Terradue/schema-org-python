@@ -13,8 +13,8 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .aggregate_rating import AggregateRating
     from .review import Review
+    from .aggregate_rating import AggregateRating
     from .image_object import ImageObject
 
 class Brand(Intangible):

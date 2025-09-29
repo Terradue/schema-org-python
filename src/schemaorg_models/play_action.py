@@ -12,8 +12,8 @@ from typing import (
 from .action import Action
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .event import Event
     from .audience import Audience
+    from .event import Event
 
 class PlayAction(Action):
     """

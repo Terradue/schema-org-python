@@ -12,8 +12,8 @@ from typing import (
 from .transfer_action import TransferAction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .person import Person
     from .organization import Organization
+    from .person import Person
 
 class BorrowAction(TransferAction):
     """

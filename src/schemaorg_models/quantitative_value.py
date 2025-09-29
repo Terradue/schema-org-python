@@ -13,10 +13,10 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .property_value import PropertyValue
-    from .enumeration import Enumeration
     from .measurement_type_enumeration import MeasurementTypeEnumeration
     from .qualitative_value import QualitativeValue
+    from .enumeration import Enumeration
+    from .property_value import PropertyValue
     from .defined_term import DefinedTerm
 
 class QuantitativeValue(StructuredValue):

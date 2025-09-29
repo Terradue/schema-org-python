@@ -14,12 +14,12 @@ from typing import (
 )
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .property_value import PropertyValue
-    from .creative_work import CreativeWork
     from .action import Action
-    from .image_object import ImageObject
+    from .creative_work import CreativeWork
     from .event import Event
     from .text_object import TextObject
+    from .property_value import PropertyValue
+    from .image_object import ImageObject
 
 class Thing(BaseModel):
     """

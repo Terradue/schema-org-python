@@ -16,11 +16,11 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .item_list import ItemList
-    from .demand import Demand
-    from .organization import Organization
     from .offer import Offer
+    from .demand import Demand
     from .person import Person
+    from .organization import Organization
+    from .item_list import ItemList
     from .place import Place
 
 class Trip(Intangible):

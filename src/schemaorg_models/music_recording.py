@@ -14,11 +14,11 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .quantitative_value import QuantitativeValue
     from .duration import Duration
-    from .music_group import MusicGroup
     from .music_album import MusicAlbum
-    from .person import Person
-    from .music_playlist import MusicPlaylist
     from .music_composition import MusicComposition
+    from .person import Person
+    from .music_group import MusicGroup
+    from .music_playlist import MusicPlaylist
 
 class MusicRecording(CreativeWork):
     """

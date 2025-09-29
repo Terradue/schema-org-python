@@ -13,9 +13,9 @@ from typing import (
 from .performing_group import PerformingGroup
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .music_album import MusicAlbum
     from .music_recording import MusicRecording
     from .item_list import ItemList
-    from .music_album import MusicAlbum
     from .person import Person
 
 class MusicGroup(PerformingGroup):

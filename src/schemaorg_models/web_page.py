@@ -16,12 +16,12 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .specialty import Specialty
     from .web_page_element import WebPageElement
     from .breadcrumb_list import BreadcrumbList
-    from .organization import Organization
-    from .speakable_specification import SpeakableSpecification
+    from .specialty import Specialty
     from .person import Person
+    from .speakable_specification import SpeakableSpecification
+    from .organization import Organization
     from .image_object import ImageObject
 
 class WebPage(CreativeWork):

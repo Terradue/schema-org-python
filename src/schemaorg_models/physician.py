@@ -12,12 +12,12 @@ from typing import (
 from .medical_business import MedicalBusiness
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .category_code import CategoryCode
-    from .medical_therapy import MedicalTherapy
-    from .medical_specialty import MedicalSpecialty
     from .hospital import Hospital
+    from .medical_specialty import MedicalSpecialty
+    from .category_code import CategoryCode
     from .medical_procedure import MedicalProcedure
     from .medical_test import MedicalTest
+    from .medical_therapy import MedicalTherapy
 
 class Physician(MedicalBusiness):
     """

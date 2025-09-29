@@ -12,12 +12,12 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .quantitative_value import QuantitativeValue
-    from .credit_card import CreditCard
-    from .unit_price_specification import UnitPriceSpecification
-    from .monetary_amount import MonetaryAmount
     from .tier_benefit_enumeration import TierBenefitEnumeration
+    from .credit_card import CreditCard
     from .member_program import MemberProgram
+    from .quantitative_value import QuantitativeValue
+    from .monetary_amount import MonetaryAmount
+    from .unit_price_specification import UnitPriceSpecification
 
 class MemberProgramTier(Intangible):
     """

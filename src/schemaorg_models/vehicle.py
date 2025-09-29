@@ -16,12 +16,12 @@ from typing import (
 from .product import Product
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .engine_specification import EngineSpecification
-    from .quantitative_value import QuantitativeValue
-    from .drive_wheel_configuration_value import DriveWheelConfigurationValue
     from .steering_position_value import SteeringPositionValue
     from .qualitative_value import QualitativeValue
     from .car_usage_type import CarUsageType
+    from .quantitative_value import QuantitativeValue
+    from .engine_specification import EngineSpecification
+    from .drive_wheel_configuration_value import DriveWheelConfigurationValue
 
 class Vehicle(Product):
     """

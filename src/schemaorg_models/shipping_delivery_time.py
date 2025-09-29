@@ -15,10 +15,10 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .day_of_week import DayOfWeek
-    from .service_period import ServicePeriod
     from .opening_hours_specification import OpeningHoursSpecification
     from .quantitative_value import QuantitativeValue
+    from .service_period import ServicePeriod
+    from .day_of_week import DayOfWeek
 
 class ShippingDeliveryTime(StructuredValue):
     """

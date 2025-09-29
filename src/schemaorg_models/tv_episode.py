@@ -14,8 +14,8 @@ from .episode import Episode
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .country import Country
-    from .language import Language
     from .tv_series import TVSeries
+    from .language import Language
 
 class TVEpisode(Episode):
     """

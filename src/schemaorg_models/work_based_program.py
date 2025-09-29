@@ -12,8 +12,8 @@ from typing import (
 from .educational_occupational_program import EducationalOccupationalProgram
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .category_code import CategoryCode
     from .monetary_amount_distribution import MonetaryAmountDistribution
+    from .category_code import CategoryCode
 
 class WorkBasedProgram(EducationalOccupationalProgram):
     """

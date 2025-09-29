@@ -16,11 +16,11 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .duration import Duration
-    from .service import Service
-    from .audience import Audience
     from .administrative_area import AdministrativeArea
+    from .service import Service
+    from .duration import Duration
     from .organization import Organization
+    from .audience import Audience
 
 class Permit(Intangible):
     """

@@ -12,18 +12,18 @@ from typing import (
 from .medical_entity import MedicalEntity
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .drug import Drug
-    from .superficial_anatomy import SuperficialAnatomy
     from .d_dx_element import DDxElement
     from .medical_therapy import MedicalTherapy
-    from .anatomical_system import AnatomicalSystem
+    from .medical_risk_factor import MedicalRiskFactor
+    from .event_status_type import EventStatusType
     from .medical_sign_or_symptom import MedicalSignOrSymptom
     from .anatomical_structure import AnatomicalStructure
+    from .drug import Drug
     from .medical_condition_stage import MedicalConditionStage
-    from .medical_risk_factor import MedicalRiskFactor
-    from .medical_study_status import MedicalStudyStatus
     from .medical_test import MedicalTest
-    from .event_status_type import EventStatusType
+    from .anatomical_system import AnatomicalSystem
+    from .superficial_anatomy import SuperficialAnatomy
+    from .medical_study_status import MedicalStudyStatus
 
 class MedicalCondition(MedicalEntity):
     """

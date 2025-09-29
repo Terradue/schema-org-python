@@ -13,8 +13,8 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .software_application import SoftwareApplication
     from .computer_language import ComputerLanguage
+    from .software_application import SoftwareApplication
 
 class SoftwareSourceCode(CreativeWork):
     """

@@ -16,15 +16,15 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .property_value import PropertyValue
-    from .quantitative_value import QuantitativeValue
-    from .statistical_variable import StatisticalVariable
-    from .thing import Thing
-    from .enumeration import Enumeration
-    from .place import Place
     from .measurement_method_enum import MeasurementMethodEnum
+    from .place import Place
+    from .enumeration import Enumeration
     from .property import Property
+    from .quantitative_value import QuantitativeValue
+    from .property_value import PropertyValue
+    from .thing import Thing
     from .defined_term import DefinedTerm
+    from .statistical_variable import StatisticalVariable
 
 class Observation(Intangible):
     """

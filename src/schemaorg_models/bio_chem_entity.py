@@ -13,11 +13,11 @@ from typing import (
 from .thing import Thing
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .property_value import PropertyValue
-    from .gene import Gene
     from .medical_condition import MedicalCondition
-    from .grant import Grant
+    from .gene import Gene
     from .taxon import Taxon
+    from .property_value import PropertyValue
+    from .grant import Grant
     from .defined_term import DefinedTerm
 
 class BioChemEntity(Thing):

@@ -13,8 +13,8 @@ from .media_object import MediaObject
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .performing_group import PerformingGroup
-    from .music_group import MusicGroup
     from .person import Person
+    from .music_group import MusicGroup
 
 class VideoObject(MediaObject):
     """

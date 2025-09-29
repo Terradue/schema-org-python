@@ -12,8 +12,8 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .quantitative_value import QuantitativeValue
     from .qualitative_value import QualitativeValue
+    from .quantitative_value import QuantitativeValue
 
 class BroadcastFrequencySpecification(Intangible):
     """
