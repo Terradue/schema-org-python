@@ -18,10 +18,10 @@ tasks:
 
   install:
     cmds:
+    - python -m compileall ./src/schemaorg_models
     - pip install .
 
   default:
     cmds:
     - task: generate
-    - task: autoflake
     - task: install

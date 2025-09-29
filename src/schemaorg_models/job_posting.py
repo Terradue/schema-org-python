@@ -22,19 +22,19 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .person import Person
-    from .contact_point import ContactPoint
-    from .monetary_amount_distribution import MonetaryAmountDistribution
-    from .place import Place
-    from .monetary_amount import MonetaryAmount
-    from .occupation import Occupation
-    from .educational_occupational_credential import EducationalOccupationalCredential
-    from .category_code import CategoryCode
     from .occupational_experience_requirements import OccupationalExperienceRequirements
-    from .price_specification import PriceSpecification
-    from .administrative_area import AdministrativeArea
     from .defined_term import DefinedTerm
+    from .administrative_area import AdministrativeArea
+    from .occupation import Occupation
     from .organization import Organization
+    from .category_code import CategoryCode
+    from .place import Place
+    from .person import Person
+    from .monetary_amount_distribution import MonetaryAmountDistribution
+    from .contact_point import ContactPoint
+    from .monetary_amount import MonetaryAmount
+    from .price_specification import PriceSpecification
+    from .educational_occupational_credential import EducationalOccupationalCredential
 
 class JobPosting(Intangible):
     '''

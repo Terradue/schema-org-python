@@ -22,21 +22,21 @@ from typing import (
 from .thing import Thing
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .map import Map
-    from .geo_coordinates import GeoCoordinates
+    from .photograph import Photograph
+    from .image_object import ImageObject
     from .geo_shape import GeoShape
     from .opening_hours_specification import OpeningHoursSpecification
-    from .property_value import PropertyValue
-    from .event import Event
-    from .review import Review
-    from .image_object import ImageObject
-    from .aggregate_rating import AggregateRating
-    from .location_feature_specification import LocationFeatureSpecification
-    from .postal_address import PostalAddress
     from .defined_term import DefinedTerm
-    from .certification import Certification
-    from .photograph import Photograph
+    from .property_value import PropertyValue
     from .geospatial_geometry import GeospatialGeometry
+    from .location_feature_specification import LocationFeatureSpecification
+    from .review import Review
+    from .event import Event
+    from .certification import Certification
+    from .postal_address import PostalAddress
+    from .geo_coordinates import GeoCoordinates
+    from .map import Map
+    from .aggregate_rating import AggregateRating
 
 class Place(Thing):
     '''

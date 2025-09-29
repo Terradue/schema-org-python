@@ -22,12 +22,12 @@ from typing import (
 from .place import Place
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .duration import Duration
-    from .bed_type import BedType
-    from .location_feature_specification import LocationFeatureSpecification
-    from .floor_plan import FloorPlan
     from .quantitative_value import QuantitativeValue
     from .bed_details import BedDetails
+    from .duration import Duration
+    from .floor_plan import FloorPlan
+    from .bed_type import BedType
+    from .location_feature_specification import LocationFeatureSpecification
 
 class Accommodation(Place):
     '''

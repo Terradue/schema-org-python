@@ -22,10 +22,10 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .image_object import ImageObject
     from .accommodation import Accommodation
     from .location_feature_specification import LocationFeatureSpecification
     from .quantitative_value import QuantitativeValue
-    from .image_object import ImageObject
 
 class FloorPlan(Intangible):
     '''

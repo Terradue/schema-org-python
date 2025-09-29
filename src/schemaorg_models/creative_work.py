@@ -22,39 +22,39 @@ from typing import (
 from .thing import Thing
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .country import Country
-    from .language import Language
-    from .media_object import MediaObject
-    from .publication_event import PublicationEvent
-    from .image_object import ImageObject
-    from .claim import Claim
-    from .audio_object import AudioObject
-    from .clip import Clip
-    from .alignment_object import AlignmentObject
-    from .web_page import WebPage
-    from .organization import Organization
-    from .duration import Duration
-    from .item_list import ItemList
-    from .event import Event
-    from .defined_term import DefinedTerm
-    from .interaction_counter import InteractionCounter
-    from .demand import Demand
-    from .product import Product
     from .offer import Offer
-    from .video_object import VideoObject
-    from .review import Review
-    from .aggregate_rating import AggregateRating
-    from .iptc_digital_source_enumeration import IPTCDigitalSourceEnumeration
-    from .person import Person
-    from .place import Place
-    from .correction_comment import CorrectionComment
-    from .size_specification import SizeSpecification
-    from .audience import Audience
-    from .grant import Grant
     from .rating import Rating
+    from .defined_term import DefinedTerm
+    from .clip import Clip
+    from .place import Place
+    from .demand import Demand
+    from .duration import Duration
+    from .grant import Grant
+    from .publication_event import PublicationEvent
+    from .language import Language
+    from .claim import Claim
+    from .alignment_object import AlignmentObject
+    from .country import Country
     from .comment import Comment
-    from .quantitative_value import QuantitativeValue
+    from .correction_comment import CorrectionComment
+    from .audience import Audience
+    from .video_object import VideoObject
+    from .interaction_counter import InteractionCounter
+    from .product import Product
+    from .organization import Organization
+    from .size_specification import SizeSpecification
+    from .audio_object import AudioObject
+    from .web_page import WebPage
+    from .aggregate_rating import AggregateRating
     from .music_recording import MusicRecording
+    from .image_object import ImageObject
+    from .quantitative_value import QuantitativeValue
+    from .iptc_digital_source_enumeration import IPTCDigitalSourceEnumeration
+    from .review import Review
+    from .event import Event
+    from .item_list import ItemList
+    from .media_object import MediaObject
+    from .person import Person
 
 class CreativeWork(Thing):
     '''

@@ -22,9 +22,9 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .health_plan_network import HealthPlanNetwork
     from .contact_point import ContactPoint
     from .health_plan_formulary import HealthPlanFormulary
+    from .health_plan_network import HealthPlanNetwork
 
 class HealthInsurancePlan(Intangible):
     '''

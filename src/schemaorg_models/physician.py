@@ -24,10 +24,10 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .medical_therapy import MedicalTherapy
     from .category_code import CategoryCode
-    from .hospital import Hospital
     from .medical_specialty import MedicalSpecialty
-    from .medical_test import MedicalTest
     from .medical_procedure import MedicalProcedure
+    from .hospital import Hospital
+    from .medical_test import MedicalTest
 
 class Physician(MedicalBusiness):
     '''

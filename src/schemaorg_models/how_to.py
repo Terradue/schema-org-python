@@ -22,14 +22,14 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .monetary_amount import MonetaryAmount
-    from .duration import Duration
-    from .item_list import ItemList
-    from .how_to_tool import HowToTool
     from .how_to_step import HowToStep
-    from .how_to_supply import HowToSupply
+    from .how_to_tool import HowToTool
     from .quantitative_value import QuantitativeValue
     from .how_to_section import HowToSection
+    from .item_list import ItemList
+    from .duration import Duration
+    from .monetary_amount import MonetaryAmount
+    from .how_to_supply import HowToSupply
 
 class HowTo(CreativeWork):
     '''

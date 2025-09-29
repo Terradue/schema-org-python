@@ -23,12 +23,12 @@ from .trip import Trip
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .vehicle import Vehicle
-    from .duration import Duration
+    from .organization import Organization
     from .airport import Airport
+    from .duration import Duration
+    from .distance import Distance
     from .boarding_policy_type import BoardingPolicyType
     from .person import Person
-    from .distance import Distance
-    from .organization import Organization
 
 class Flight(Trip):
     '''

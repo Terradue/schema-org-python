@@ -22,11 +22,11 @@ from typing import (
 from .transfer_action import TransferAction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .contact_point import ContactPoint
     from .audience import Audience
-    from .price_specification import PriceSpecification
-    from .person import Person
     from .organization import Organization
+    from .person import Person
+    from .contact_point import ContactPoint
+    from .price_specification import PriceSpecification
 
 class DonateAction(TransferAction):
     '''

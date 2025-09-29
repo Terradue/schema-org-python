@@ -22,42 +22,42 @@ from typing import (
 from .thing import Thing
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .language import Language
-    from .shipping_service import ShippingService
+    from .offer import Offer
     from .ownership_info import OwnershipInfo
-    from .image_object import ImageObject
     from .geo_shape import GeoShape
+    from .defined_term import DefinedTerm
+    from .virtual_location import VirtualLocation
+    from .place import Place
+    from .demand import Demand
+    from .offer_catalog import OfferCatalog
+    from .certification import Certification
+    from .program_membership import ProgramMembership
+    from .grant import Grant
+    from .shipping_service import ShippingService
+    from .contact_point import ContactPoint
+    from .product_return_policy import ProductReturnPolicy
+    from .postal_address import PostalAddress
+    from .language import Language
+    from .creative_work import CreativeWork
+    from .payment_method import PaymentMethod
+    from .nonprofit_type import NonprofitType
+    from .educational_occupational_credential import EducationalOccupationalCredential
+    from .product import Product
+    from .about_page import AboutPage
+    from .interaction_counter import InteractionCounter
     from .brand import Brand
     from .merchant_return_policy import MerchantReturnPolicy
-    from .loan_or_credit import LoanOrCredit
-    from .virtual_location import VirtualLocation
-    from .payment_method import PaymentMethod
-    from .event import Event
-    from .nonprofit_type import NonprofitType
     from .member_program import MemberProgram
-    from .creative_work import CreativeWork
-    from .administrative_area import AdministrativeArea
-    from .article import Article
-    from .defined_term import DefinedTerm
-    from .interaction_counter import InteractionCounter
-    from .product import Product
-    from .certification import Certification
-    from .offer import Offer
-    from .demand import Demand
-    from .review import Review
     from .aggregate_rating import AggregateRating
-    from .postal_address import PostalAddress
-    from .person import Person
-    from .product_return_policy import ProductReturnPolicy
-    from .contact_point import ContactPoint
-    from .place import Place
-    from .offer_catalog import OfferCatalog
-    from .educational_occupational_credential import EducationalOccupationalCredential
-    from .grant import Grant
-    from .program_membership import ProgramMembership
     from .member_program_tier import MemberProgramTier
+    from .image_object import ImageObject
     from .quantitative_value import QuantitativeValue
-    from .about_page import AboutPage
+    from .article import Article
+    from .administrative_area import AdministrativeArea
+    from .review import Review
+    from .event import Event
+    from .loan_or_credit import LoanOrCredit
+    from .person import Person
 
 class Organization(Thing):
     '''

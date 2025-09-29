@@ -22,8 +22,8 @@ from typing import (
 from .geo_shape import GeoShape
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .geo_coordinates import GeoCoordinates
     from .distance import Distance
+    from .geo_coordinates import GeoCoordinates
 
 class GeoCircle(GeoShape):
     '''

@@ -22,27 +22,27 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .opening_hours_specification import OpeningHoursSpecification
-    from .government_benefits_type import GovernmentBenefitsType
-    from .image_object import ImageObject
-    from .geo_shape import GeoShape
-    from .brand import Brand
-    from .organization import Organization
-    from .service_channel import ServiceChannel
-    from .administrative_area import AdministrativeArea
-    from .demand import Demand
-    from .certification import Certification
     from .offer import Offer
-    from .product import Product
-    from .review import Review
-    from .aggregate_rating import AggregateRating
-    from .person import Person
+    from .geo_shape import GeoShape
+    from .demand import Demand
     from .place import Place
     from .offer_catalog import OfferCatalog
-    from .audience import Audience
-    from .category_code import CategoryCode
-    from .thing import Thing
+    from .certification import Certification
+    from .service_channel import ServiceChannel
     from .physical_activity_category import PhysicalActivityCategory
+    from .category_code import CategoryCode
+    from .government_benefits_type import GovernmentBenefitsType
+    from .opening_hours_specification import OpeningHoursSpecification
+    from .thing import Thing
+    from .audience import Audience
+    from .product import Product
+    from .organization import Organization
+    from .brand import Brand
+    from .aggregate_rating import AggregateRating
+    from .image_object import ImageObject
+    from .administrative_area import AdministrativeArea
+    from .review import Review
+    from .person import Person
 
 class Service(Intangible):
     '''

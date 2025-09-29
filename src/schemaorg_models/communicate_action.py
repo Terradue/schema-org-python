@@ -22,12 +22,12 @@ from typing import (
 from .interact_action import InteractAction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .contact_point import ContactPoint
-    from .language import Language
-    from .audience import Audience
     from .thing import Thing
-    from .person import Person
+    from .audience import Audience
     from .organization import Organization
+    from .language import Language
+    from .person import Person
+    from .contact_point import ContactPoint
 
 class CommunicateAction(InteractAction):
     '''

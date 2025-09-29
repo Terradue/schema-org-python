@@ -23,8 +23,8 @@ from .medical_entity import MedicalEntity
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .medical_study_status import MedicalStudyStatus
-    from .medical_procedure_type import MedicalProcedureType
     from .event_status_type import EventStatusType
+    from .medical_procedure_type import MedicalProcedureType
 
 class MedicalProcedure(MedicalEntity):
     '''

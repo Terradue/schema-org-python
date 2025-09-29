@@ -22,14 +22,14 @@ from typing import (
 from .thing import Thing
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .how_to import HowTo
-    from .place import Place
-    from .virtual_location import VirtualLocation
-    from .action_status_type import ActionStatusType
-    from .postal_address import PostalAddress
-    from .person import Person
-    from .organization import Organization
     from .entry_point import EntryPoint
+    from .how_to import HowTo
+    from .virtual_location import VirtualLocation
+    from .postal_address import PostalAddress
+    from .organization import Organization
+    from .place import Place
+    from .person import Person
+    from .action_status_type import ActionStatusType
 
 class Action(Thing):
     '''

@@ -22,10 +22,10 @@ from typing import (
 from .service import Service
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .place import Place
-    from .language import Language
     from .broadcast_frequency_specification import BroadcastFrequencySpecification
+    from .language import Language
     from .organization import Organization
+    from .place import Place
     from .broadcast_channel import BroadcastChannel
 
 class BroadcastService(Service):

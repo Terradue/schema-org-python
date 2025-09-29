@@ -22,10 +22,10 @@ from typing import (
 from .create_action import CreateAction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .food_establishment import FoodEstablishment
-    from .place import Place
     from .food_event import FoodEvent
     from .recipe import Recipe
+    from .food_establishment import FoodEstablishment
+    from .place import Place
 
 class CookAction(CreateAction):
     '''

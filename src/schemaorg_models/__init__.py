@@ -18,8 +18,6 @@ from typing import (
     Optional,
     Union
 )
-__all__ = ['PronounceableText', 'CssSelectorType', 'Thing', 'Person', 'Place', 'Event', 'Intangible', 'CreativeWork', 'Action', 'Product', 'MedicalEntity', 'StupidType', 'Taxon', 'Organization', 'BioChemEntity', 'Residence', 'TouristDestination', 'AdministrativeArea', 'Landform', 'LocalBusiness', 'CivicStructure', 'TouristAttraction', 'Accommodation', 'LandmarksOrHistoricalBuildings', 'TheaterEvent', 'FoodEvent', 'EducationEvent', 'Festival', 'SocialEvent', 'MusicEvent', 'ScreeningEvent', 'VisualArtsEvent', 'LiteraryEvent', 'UserInteraction', 'DeliveryEvent', 'SportsEvent', 'PublicationEvent', 'ComedyEvent', 'CourseInstance', 'ChildrensEvent', 'DanceEvent', 'BusinessEvent', 'Hackathon', 'SaleEvent', 'ExhibitionEvent', 'MediaSubscription', 'VirtualLocation', 'Ticket', 'DataFeedItem', 'Series', 'Role', 'FloorPlan', 'Permit', 'MemberProgramTier', 'EducationalOccupationalProgram', 'GeospatialGeometry', 'Audience', 'Brand', 'Occupation', 'ProgramMembership', 'Service', 'HealthPlanCostSharingSpecification', 'Invoice', 'HealthInsurancePlan', 'Property', 'AlignmentObject', 'MerchantReturnPolicySeasonalOverride', '_Class', 'EnergyConsumptionDetails', 'Schedule', 'Enumeration', 'SpeakableSpecification', 'HealthPlanFormulary', 'Language', 'StructuredValue', 'MemberProgram', 'PropertyValueSpecification', 'Rating', 'DigitalDocumentPermission', 'ComputerLanguage', 'ProductReturnPolicy', 'PaymentMethod', 'ParcelDelivery', 'MerchantReturnPolicy', 'Reservation', 'JobPosting', 'BroadcastFrequencySpecification', 'OccupationalExperienceRequirements', 'BedDetails', 'GameServer', 'ServiceChannel', 'Demand', 'DefinedTerm', 'ActionAccessSpecification', 'FinancialIncentive', 'MenuItem', 'ListItem', 'OrderItem', 'ItemList', 'HealthPlanNetwork', 'Grant', 'StatisticalPopulation', 'Order', 'ConstraintNode', 'Offer', 'Trip', 'Observation', 'EntryPoint', 'Quantity', 'Seat', 'BroadcastChannel', 'Chapter', 'TVSeries', 'WebSite', 'ComicStory', 'HowTo', 'WebContent', 'Game', 'Guide', 'MediaObject', 'DataCatalog', 'Clip', 'Review', 'Certification', 'Play', 'SpecialAnnouncement', 'ShortStory', 'Photograph', 'Claim', 'Blog', 'Quotation', 'DigitalDocument', 'Dataset', 'CreativeWorkSeason', 'LearningResource', 'MusicPlaylist', 'Menu', 'Sculpture', 'Painting', 'WebPageElement', 'Code', 'Movie', 'Poster', 'HowToTip', 'HowToSection', 'MediaReviewItem', 'Book', 'Statement', 'Season', 'Article', 'Atlas', 'HowToDirection', 'PublicationIssue', 'Thesis', 'SoftwareApplication', 'PublicationVolume', 'Comment', 'MusicComposition', 'ExercisePlan', 'Message', 'Conversation', 'Drawing', 'Map', 'MusicRecording', 'Legislation', 'DefinedTermSet', 'SoftwareSourceCode', 'HyperTocEntry', 'VisualArtwork', 'SheetMusic', 'Collection', 'EducationalOccupationalCredential', 'WebPage', 'MenuSection', 'Episode', 'Manuscript', 'CreativeWorkSeries', 'MathSolver', 'HyperToc', 'ArchiveComponent', 'ControlAction', 'TradeAction', 'AssessAction', 'MoveAction', 'AchieveAction', 'FindAction', 'TransferAction', 'OrganizeAction', 'UpdateAction', 'CreateAction', 'PlayAction', 'SeekToAction', 'SolveMathAction', 'ConsumeAction', 'InteractAction', 'SearchAction', 'ProductModel', 'SomeProducts', 'ProductGroup', 'ProductCollection', 'Vehicle', 'IndividualProduct', 'MedicalProcedure', 'MedicalRiskFactor', 'MedicalIndication', 'MedicalTest', 'MedicalRiskEstimator', 'LifestyleModification', 'Substance', 'MedicalContraindication', 'MedicalStudy', 'MedicalCondition', 'MedicalGuideline', 'MedicalCause', 'DrugClass', 'MedicalDevice', 'SuperficialAnatomy', 'DrugCost', 'AnatomicalStructure', 'AnatomicalSystem', 'MedicalIntangible', 'NewsMediaOrganization', 'NGO', 'Cooperative', 'SportsOrganization', 'PerformingGroup', 'FundingScheme', 'SearchRescueOrganization', 'LibrarySystem', 'MedicalOrganization', 'OnlineBusiness', 'Consortium', 'WorkersUnion', 'GovernmentOrganization', 'Project', 'ResearchOrganization', 'Airline', 'Corporation', 'PoliticalParty', 'Protein', 'Gene', 'MolecularEntity', 'ChemicalSubstance', 'GatedResidenceCommunity', 'ApartmentComplex', 'Country', 'City', 'State', 'SchoolDistrict', 'Continent', 'BodyOfWater', 'Mountain', 'Volcano', 'RadioStation', 'InternetCafe', 'MedicalBusiness', 'EmploymentAgency', 'FoodEstablishment', 'EntertainmentBusiness', 'SportsActivityLocation', 'ShoppingCenter', 'FinancialService', 'ChildCare', 'HomeAndConstructionBusiness', 'AutomotiveBusiness', 'LodgingBusiness', 'Store', 'LegalService', 'AnimalShelter', 'TelevisionStation', 'EmergencyService', 'DryCleaningOrLaundry', 'ArchiveOrganization', 'RealEstateAgent', 'Library', 'RecyclingCenter', 'GovernmentOffice', 'TravelAgency', 'TouristInformationCenter', 'HealthAndBeautyBusiness', 'ProfessionalService', 'SelfStorage', 'Playground', 'MusicVenue', 'Crematorium', 'PoliceStation', 'PlaceOfWorship', 'PublicToilet', 'TaxiStand', 'TrainStation', 'SubwayStation', 'Bridge', 'EventVenue', 'BusStop', 'EducationalOrganization', 'BusStation', 'Cemetery', 'GovernmentBuilding', 'Airport', 'StadiumOrArena', 'Beach', 'Park', 'RVPark', 'PerformingArtsTheater', 'BoatTerminal', 'Hospital', 'Aquarium', 'Zoo', 'ParkingFacility', 'Museum', 'MovieTheater', 'FireStation', 'Apartment', 'Room', 'Suite', 'House', 'CampingPitch', 'UserCheckins', 'UserBlocks', 'UserComments', 'UserTweets', 'UserLikes', 'UserPlays', 'UserPageVisits', 'UserPlusOnes', 'UserDownloads', 'OnDemandEvent', 'BroadcastEvent', 'EventSeries', 'LinkRole', 'PerformanceRole', 'OrganizationRole', 'GovernmentPermit', 'WorkBasedProgram', 'Researcher', 'BusinessAudience', 'EducationalAudience', 'PeopleAudience', 'MedicalAudience', 'CableOrSatelliteService', 'WebAPI', 'FinancialProduct', 'Taxi', 'FoodService', 'BroadcastService', 'GovernmentService', 'TaxiService', 'SizeGroupEnumeration', 'ReturnLabelSourceEnumeration', 'PhysicalActivityCategory', 'ContactPointOption', 'PriceComponentTypeEnumeration', 'MapCategoryType', 'RestrictedDiet', 'DigitalPlatformEnumeration', 'PaymentMethodType', 'IncentiveQualifiedExpenseType', 'CertificationStatusEnumeration', 'GovernmentBenefitsType', 'StatusEnumeration', 'CarUsageType', 'FulfillmentTypeEnumeration', 'SizeSystemEnumeration', 'Specialty', 'GenderType', 'HealthAspectEnumeration', 'MediaManipulationRatingEnumeration', 'MediaEnumeration', 'WarrantyScope', 'MusicAlbumReleaseType', 'MedicalEnumeration', 'DigitalDocumentPermissionType', 'OfferItemCondition', 'MeasurementMethodEnum', 'LegalValueLevel', 'EnergyEfficiencyEnumeration', 'BookFormatType', 'BusinessEntityType', 'ProductReturnEnumeration', 'PriceTypeEnumeration', 'ItemAvailability', 'ItemListOrderType', 'RefundTypeEnumeration', 'TierBenefitEnumeration', 'GameAvailabilityEnumeration', 'BoardingPolicyType', 'BusinessFunction', 'DeliveryMethod', 'IncentiveStatus', 'PurchaseType', 'QualitativeValue', 'ReturnFeesEnumeration', 'IncentiveType', 'AdultOrientedEnumeration', 'NonprofitType', 'RsvpResponseType', 'ReturnMethodEnumeration', 'MerchantReturnEnumeration', 'DayOfWeek', 'MeasurementTypeEnumeration', 'MusicReleaseFormatType', 'EventAttendanceModeEnumeration', 'MusicAlbumProductionType', 'GamePlayMode', 'DefinedRegion', 'EngineSpecification', 'ShippingService', 'QuantitativeValue', 'RepaymentSpecification', 'ServicePeriod', 'WarrantyPromise', 'DeliveryTimeSettings', 'ShippingRateSettings', 'PriceSpecification', 'QuantitativeValueDistribution', 'ShippingDeliveryTime', 'PostalCodeRangeSpecification', 'MonetaryAmount', 'ShippingConditions', 'PropertyValue', 'OwnershipInfo', 'InteractionCounter', 'ExchangeRateSpecification', 'GeoShape', 'CDCPMDRecord', 'TypeAndQuantityNode', 'OfferShippingDetails', 'DatedMoneySpecification', 'ContactPoint', 'NutritionInformation', 'GeoCoordinates', 'OpeningHoursSpecification', 'EndorsementRating', 'AggregateRating', 'RentalCarReservation', 'LodgingReservation', 'TrainReservation', 'BoatReservation', 'EventReservation', 'FlightReservation', 'BusReservation', 'TaxiReservation', 'ReservationPackage', 'FoodEstablishmentReservation', 'CategoryCode', 'HowToItem', 'BreadcrumbList', 'HowToStep', 'OfferCatalog', 'MonetaryGrant', 'StatisticalVariable', 'AggregateOffer', 'OfferForPurchase', 'OfferForLease', 'TrainTrip', 'BusTrip', 'TouristTrip', 'Flight', 'BoatTrip', 'Energy', 'Distance', 'Mass', 'Duration', 'RadioChannel', 'TelevisionChannel', 'ComicCoverArt', 'Recipe', 'HealthTopicContent', 'VideoGame', 'VideoObject', 'AudioObject', 'MusicVideoObject', 'AmpStory', 'DataDownload', 'TextObject', '_3DModel', 'ImageObject', 'RadioClip', 'TVClip', 'MovieClip', 'VideoGameClip', 'ClaimReview', 'MediaReview', 'UserReview', 'EmployerReview', 'Recommendation', 'CriticReview', 'NoteDigitalDocument', 'SpreadsheetDigitalDocument', 'TextDigitalDocument', 'PresentationDigitalDocument', 'DataFeed', 'TVSeason', 'RadioSeason', 'PodcastSeason', 'Quiz', 'Course', 'Syllabus', 'MusicAlbum', 'MusicRelease', 'Table', 'WPFooter', 'WPSideBar', 'WPAdBlock', 'WPHeader', 'SiteNavigationElement', 'NewsArticle', 'SatiricalArticle', 'AdvertiserContentArticle', 'SocialMediaPosting', 'Report', 'ScholarlyArticle', 'TechArticle', 'ComicIssue', 'WebApplication', 'MobileApplication', 'CorrectionComment', 'Question', 'Answer', 'EmailMessage', 'LegislationObject', 'CategoryCodeSet', 'CoverArt', 'RealEstateListing', 'ProfilePage', 'MedicalWebPage', 'SearchResultsPage', 'CheckoutPage', 'ContactPage', 'ItemPage', 'CollectionPage', 'AboutPage', 'QAPage', 'FAQPage', 'RadioEpisode', 'PodcastEpisode', 'TVEpisode', 'RadioSeries', 'Periodical', 'PodcastSeries', 'BookSeries', 'MovieSeries', 'VideoGameSeries', 'ResumeAction', 'SuspendAction', 'ActivateAction', 'DeactivateAction', 'RentAction', 'OrderAction', 'PreOrderAction', 'BuyAction', 'TipAction', 'SellAction', 'PayAction', 'QuoteAction', 'IgnoreAction', 'ReviewAction', 'ReactAction', 'ChooseAction', 'TravelAction', 'DepartAction', 'ArriveAction', 'TieAction', 'LoseAction', 'WinAction', 'TrackAction', 'DiscoverAction', 'CheckAction', 'LendAction', 'SendAction', 'MoneyTransfer', 'ReturnAction', 'TakeAction', 'GiveAction', 'BorrowAction', 'DonateAction', 'ReceiveAction', 'DownloadAction', 'BookmarkAction', 'PlanAction', 'AllocateAction', 'ApplyAction', 'DeleteAction', 'AddAction', 'ReplaceAction', 'DrawAction', 'PhotographAction', 'CookAction', 'PaintAction', 'FilmAction', 'WriteAction', 'PerformAction', 'ExerciseAction', 'InstallAction', 'ReadAction', 'ViewAction', 'DrinkAction', 'UseAction', 'EatAction', 'ListenAction', 'PlayGameAction', 'WatchAction', 'MarryAction', 'FollowAction', 'JoinAction', 'LeaveAction', 'SubscribeAction', 'RegisterAction', 'CommunicateAction', 'UnRegisterAction', 'BefriendAction', 'Car', 'Motorcycle', 'BusOrCoach', 'MotorizedBicycle', 'DiagnosticProcedure', 'SurgicalProcedure', 'TherapeuticProcedure', 'TreatmentIndication', 'ApprovedIndication', 'PreventionIndication', 'PathologyTest', 'BloodTest', 'ImagingTest', 'MedicalTestPanel', 'MedicalRiskCalculator', 'MedicalRiskScore', 'PhysicalActivity', 'Diet', 'Drug', 'DietarySupplement', 'MedicalTrial', 'MedicalObservationalStudy', 'InfectiousDisease', 'MedicalSignOrSymptom', 'MedicalGuidelineRecommendation', 'MedicalGuidelineContraindication', 'Vessel', 'Ligament', 'Bone', 'BrainStructure', 'Joint', 'Muscle', 'Nerve', 'DoseSchedule', 'MedicalConditionStage', 'DrugStrength', 'DDxElement', 'MedicalCode', 'DrugLegalStatus', 'SportsTeam', 'DanceGroup', 'MusicGroup', 'TheaterGroup', 'VeterinaryCare', 'DiagnosticLab', 'MedicalClinic', 'Pharmacy', 'OnlineStore', 'FundingAgency', 'ResearchProject', 'LakeBodyOfWater', 'Reservoir', 'Pond', 'RiverBodyOfWater', 'SeaBodyOfWater', 'OceanBodyOfWater', 'Waterfall', 'Canal', 'Dentist', 'Physician', 'Optician', 'Winery', 'IceCreamShop', 'BarOrPub', 'Restaurant', 'Bakery', 'CafeOrCoffeeShop', 'FastFoodRestaurant', 'Distillery', 'Brewery', 'ComedyClub', 'AmusementPark', 'Casino', 'ArtGallery', 'AdultEntertainment', 'NightClub', 'PublicSwimmingPool', 'BowlingAlley', 'TennisComplex', 'GolfCourse', 'ExerciseGym', 'SportsClub', 'InsuranceAgency', 'BankOrCreditUnion', 'AutomatedTeller', 'AccountingService', 'MovingCompany', 'Locksmith', 'GeneralContractor', 'Plumber', 'RoofingContractor', 'HVACBusiness', 'Electrician', 'HousePainter', 'AutoDealer', 'AutoBodyShop', 'GasStation', 'MotorcycleDealer', 'AutoRental', 'AutoRepair', 'AutoWash', 'MotorcycleRepair', 'BedAndBreakfast', 'VacationRental', 'Campground', 'Resort', 'Hotel', 'Motel', 'Hostel', 'HobbyShop', 'LiquorStore', 'PawnShop', 'ElectronicsStore', 'BookStore', 'Florist', 'JewelryStore', 'HardwareStore', 'ComputerStore', 'PetStore', 'GardenStore', 'OutletStore', 'HomeGoodsStore', 'DepartmentStore', 'OfficeEquipmentStore', 'ShoeStore', 'MobilePhoneStore', 'MusicStore', 'BikeStore', 'AutoPartsStore', 'FurnitureStore', 'GroceryStore', 'MensClothingStore', 'ConvenienceStore', 'TireShop', 'MovieRentalStore', 'SportingGoodsStore', 'WholesaleStore', 'ClothingStore', 'ToyStore', 'Attorney', 'Notary', 'PostOffice', 'DaySpa', 'BeautySalon', 'HealthClub', 'HairSalon', 'NailSalon', 'TattooParlor', 'HinduTemple', 'BuddhistTemple', 'Mosque', 'Church', 'Synagogue', 'CollegeOrUniversity', 'ElementarySchool', 'School', 'MiddleSchool', 'HighSchool', 'Preschool', 'Embassy', 'Courthouse', 'DefenceEstablishment', 'LegislativeBuilding', 'CityHall', 'MeetingRoom', 'HotelRoom', 'SingleFamilyResidence', 'EmployeeRole', 'ParentAudience', 'Patient', 'InvestmentOrDeposit', 'PaymentService', 'LoanOrCredit', 'BankAccount', 'CurrencyConversionService', 'PaymentCard', 'RadioBroadcastService', 'WearableSizeGroupEnumeration', 'PaymentStatusType', 'ReservationStatusType', 'GameServerStatus', 'EventStatusType', 'ActionStatusType', 'OrderStatus', 'LegalForceStatus', 'WearableSizeSystemEnumeration', 'MedicalSpecialty', 'IPTCDigitalSourceEnumeration', 'DrugPrescriptionStatus', 'MedicalDevicePurpose', 'MedicalTrialDesign', 'DrugCostCategory', 'MedicalProcedureType', 'DrugPregnancyCategory', 'PhysicalExam', 'MedicalObservationalStudyDesign', 'MedicalEvidenceLevel', 'MedicalStudyStatus', 'MedicalImagingTechnique', 'MedicineSystem', 'InfectiousAgentClass', 'MedicalAudienceType', 'EUEnergyEfficiencyEnumeration', 'EnergyStarEnergyEfficiencyEnumeration', 'BedType', 'SteeringPositionValue', 'SizeSpecification', 'DriveWheelConfigurationValue', 'USNonprofitType', 'NLNonprofitType', 'UKNonprofitType', 'WearableMeasurementTypeEnumeration', 'BodyMeasurementTypeEnumeration', 'CompoundPriceSpecification', 'UnitPriceSpecification', 'PaymentChargeSpecification', 'DeliveryChargeSpecification', 'MonetaryAmountDistribution', 'LocationFeatureSpecification', 'GeoCircle', 'PostalAddress', 'EmployerAggregateRating', 'HowToSupply', 'HowToTool', 'AMRadioChannel', 'FMRadioChannel', 'VideoObjectSnapshot', 'AudioObjectSnapshot', 'Audiobook', 'ImageObjectSnapshot', 'Barcode', 'CompleteDataFeed', 'OpinionNewsArticle', 'ReviewNewsArticle', 'ReportageNewsArticle', 'BackgroundNewsArticle', 'AnalysisNewsArticle', 'AskPublicNewsArticle', 'DiscussionForumPosting', 'BlogPosting', 'MedicalScholarlyArticle', 'APIReference', 'MediaGallery', 'Newspaper', 'ComicSeries', 'DisagreeAction', 'DislikeAction', 'WantAction', 'EndorseAction', 'LikeAction', 'AgreeAction', 'VoteAction', 'ScheduleAction', 'CancelAction', 'ReserveAction', 'RejectAction', 'AuthorizeAction', 'AcceptAction', 'AssignAction', 'InsertAction', 'WearAction', 'CommentAction', 'ReplyAction', 'CheckOutAction', 'InviteAction', 'CheckInAction', 'AskAction', 'InformAction', 'ShareAction', 'PsychologicalTreatment', 'MedicalTherapy', 'MedicalSymptom', 'MedicalSign', 'Vein', 'LymphaticVessel', 'Artery', 'MaximumDoseSchedule', 'ReportedDoseSchedule', 'RecommendedDoseSchedule', 'CovidTestingFacility', 'OnlineMarketplace', 'PhysiciansOffice', 'IndividualPhysician', 'SkiResort', 'CatholicChurch', 'BrokerageAccount', 'DepositAccount', 'InvestmentFund', 'MortgageLoan', 'CreditCard', 'LiveBlogPosting', 'VideoGallery', 'ImageGallery', 'AppendAction', 'PrependAction', 'ConfirmAction', 'RsvpAction', 'OccupationalTherapy', 'PalliativeProcedure', 'PhysicalTherapy', 'RadiationTherapy', 'VitalSign']
-
 from .pronounceable_text import PronounceableText
 from .css_selector_type import CssSelectorType
 from .thing import Thing
@@ -934,5798 +932,917 @@ from .physical_therapy import PhysicalTherapy
 from .radiation_therapy import RadiationTherapy
 from .vital_sign import VitalSign
 
-def run_once(f):
-    def wrapper(*args, **kwargs):
-        if not wrapper.has_run:
-            wrapper.has_run = True
-            return f(*args, **kwargs)
-    wrapper.has_run = False
-    return wrapper
 
-@run_once
-def rebuild_pronounceable_text():
-    rebuild_language()
-    PronounceableText.model_rebuild()
-
-@run_once
-def rebuild_css_selector_type():
-    CssSelectorType.model_rebuild()
-
-@run_once
-def rebuild_thing():
-    rebuild_property_value()
-    rebuild_event()
-    rebuild_image_object()
-    rebuild_action()
-    rebuild_creative_work()
-    rebuild_text_object()
-    Thing.model_rebuild()
-
-@run_once
-def rebuild_person():
-    rebuild_country()
-    rebuild_monetary_amount()
-    rebuild_language()
-    rebuild_ownership_info()
-    rebuild_educational_organization()
-    rebuild_brand()
-    rebuild_organization()
-    rebuild_distance()
-    rebuild_event()
-    rebuild_structured_value()
-    rebuild_creative_work()
-    rebuild_defined_term()
-    rebuild_interaction_counter()
-    rebuild_demand()
-    rebuild_product()
-    rebuild_certification()
-    rebuild_offer()
-    rebuild_occupation()
-    rebuild_price_specification()
-    rebuild_postal_address()
-    rebuild_contact_point()
-    rebuild_place()
-    rebuild_offer_catalog()
-    rebuild_educational_occupational_credential()
-    rebuild_grant()
-    rebuild_program_membership()
-    rebuild_mass()
-    rebuild_gender_type()
-    rebuild_member_program_tier()
-    rebuild_quantitative_value()
-    rebuild_thing()
-    Person.model_rebuild()
-
-@run_once
-def rebuild_place():
-    rebuild_map()
-    rebuild_geo_coordinates()
-    rebuild_geo_shape()
-    rebuild_opening_hours_specification()
-    rebuild_property_value()
-    rebuild_event()
-    rebuild_review()
-    rebuild_image_object()
-    rebuild_aggregate_rating()
-    rebuild_location_feature_specification()
-    rebuild_postal_address()
-    rebuild_defined_term()
-    rebuild_certification()
-    rebuild_photograph()
-    rebuild_geospatial_geometry()
-    rebuild_thing()
-    Place.model_rebuild()
-
-@run_once
-def rebuild_event():
-    rebuild_language()
-    rebuild_organization()
-    rebuild_event_attendance_mode_enumeration()
-    rebuild_virtual_location()
-    rebuild_duration()
-    rebuild_creative_work()
-    rebuild_defined_term()
-    rebuild_demand()
-    rebuild_offer()
-    rebuild_schedule()
-    rebuild_performing_group()
-    rebuild_review()
-    rebuild_aggregate_rating()
-    rebuild_postal_address()
-    rebuild_person()
-    rebuild_place()
-    rebuild_audience()
-    rebuild_grant()
-    rebuild_event_status_type()
-    rebuild_quantitative_value()
-    rebuild_thing()
-    Event.model_rebuild()
-
-@run_once
-def rebuild_intangible():
-    rebuild_thing()
-    Intangible.model_rebuild()
-
-@run_once
-def rebuild_creative_work():
-    rebuild_country()
-    rebuild_language()
-    rebuild_media_object()
-    rebuild_publication_event()
-    rebuild_image_object()
-    rebuild_claim()
-    rebuild_audio_object()
-    rebuild_clip()
-    rebuild_alignment_object()
-    rebuild_web_page()
-    rebuild_organization()
-    rebuild_duration()
-    rebuild_item_list()
-    rebuild_event()
-    rebuild_defined_term()
-    rebuild_interaction_counter()
-    rebuild_demand()
-    rebuild_product()
-    rebuild_offer()
-    rebuild_video_object()
-    rebuild_review()
-    rebuild_aggregate_rating()
-    rebuild_iptc_digital_source_enumeration()
-    rebuild_person()
-    rebuild_place()
-    rebuild_correction_comment()
-    rebuild_size_specification()
-    rebuild_audience()
-    rebuild_grant()
-    rebuild_rating()
-    rebuild_comment()
-    rebuild_quantitative_value()
-    rebuild_music_recording()
-    rebuild_thing()
-    CreativeWork.model_rebuild()
-
-@run_once
-def rebuild_action():
-    rebuild_how_to()
-    rebuild_place()
-    rebuild_virtual_location()
-    rebuild_action_status_type()
-    rebuild_postal_address()
-    rebuild_person()
-    rebuild_organization()
-    rebuild_entry_point()
-    rebuild_thing()
-    Action.model_rebuild()
-
-@run_once
-def rebuild_product():
-    rebuild_country()
-    rebuild_offer_item_condition()
-    rebuild_product_group()
-    rebuild_adult_oriented_enumeration()
-    rebuild_image_object()
-    rebuild_brand()
-    rebuild_energy_consumption_details()
-    rebuild_merchant_return_policy()
-    rebuild_distance()
-    rebuild_organization()
-    rebuild_property_value()
-    rebuild_item_list()
-    rebuild_defined_term()
-    rebuild_demand()
-    rebuild_certification()
-    rebuild_offer()
-    rebuild_review()
-    rebuild_web_content()
-    rebuild_aggregate_rating()
-    rebuild_list_item()
-    rebuild_product_return_policy()
-    rebuild_size_specification()
-    rebuild_audience()
-    rebuild_category_code()
-    rebuild_grant()
-    rebuild_mass()
-    rebuild_service()
-    rebuild_physical_activity_category()
-    rebuild_product_model()
-    rebuild_quantitative_value()
-    rebuild_thing()
-    Product.model_rebuild()
-
-@run_once
-def rebuild_medical_entity():
-    rebuild_medical_study()
-    rebuild_medical_guideline()
-    rebuild_medical_enumeration()
-    rebuild_grant()
-    rebuild_medical_specialty()
-    rebuild_drug_legal_status()
-    rebuild_medicine_system()
-    rebuild_organization()
-    rebuild_medical_code()
-    rebuild_thing()
-    MedicalEntity.model_rebuild()
-
-@run_once
-def rebuild_stupid_type():
-    rebuild_quantitative_value()
-    rebuild_thing()
-    StupidType.model_rebuild()
-
-@run_once
-def rebuild_taxon():
-    rebuild_property_value()
-    rebuild_defined_term()
-    rebuild_thing()
-    Taxon.model_rebuild()
-
-@run_once
-def rebuild_organization():
-    rebuild_language()
-    rebuild_shipping_service()
-    rebuild_ownership_info()
-    rebuild_image_object()
-    rebuild_geo_shape()
-    rebuild_brand()
-    rebuild_merchant_return_policy()
-    rebuild_loan_or_credit()
-    rebuild_virtual_location()
-    rebuild_payment_method()
-    rebuild_event()
-    rebuild_nonprofit_type()
-    rebuild_member_program()
-    rebuild_creative_work()
-    rebuild_administrative_area()
-    rebuild_article()
-    rebuild_defined_term()
-    rebuild_interaction_counter()
-    rebuild_product()
-    rebuild_certification()
-    rebuild_offer()
-    rebuild_demand()
-    rebuild_review()
-    rebuild_aggregate_rating()
-    rebuild_postal_address()
-    rebuild_person()
-    rebuild_product_return_policy()
-    rebuild_contact_point()
-    rebuild_place()
-    rebuild_offer_catalog()
-    rebuild_educational_occupational_credential()
-    rebuild_grant()
-    rebuild_program_membership()
-    rebuild_member_program_tier()
-    rebuild_quantitative_value()
-    rebuild_about_page()
-    rebuild_thing()
-    Organization.model_rebuild()
-
-@run_once
-def rebuild_bio_chem_entity():
-    rebuild_taxon()
-    rebuild_gene()
-    rebuild_property_value()
-    rebuild_grant()
-    rebuild_defined_term()
-    rebuild_medical_condition()
-    rebuild_thing()
-    BioChemEntity.model_rebuild()
-
-@run_once
-def rebuild_residence():
-    rebuild_floor_plan()
-    rebuild_place()
-    Residence.model_rebuild()
-
-@run_once
-def rebuild_tourist_destination():
-    rebuild_tourist_attraction()
-    rebuild_audience()
-    rebuild_place()
-    TouristDestination.model_rebuild()
-
-@run_once
-def rebuild_administrative_area():
-    rebuild_place()
-    AdministrativeArea.model_rebuild()
-
-@run_once
-def rebuild_landform():
-    rebuild_place()
-    Landform.model_rebuild()
-
-@run_once
-def rebuild_local_business():
-    rebuild_organization()
-    rebuild_place()
-    LocalBusiness.model_rebuild()
-
-@run_once
-def rebuild_civic_structure():
-    rebuild_place()
-    CivicStructure.model_rebuild()
-
-@run_once
-def rebuild_tourist_attraction():
-    rebuild_audience()
-    rebuild_language()
-    rebuild_place()
-    TouristAttraction.model_rebuild()
-
-@run_once
-def rebuild_accommodation():
-    rebuild_duration()
-    rebuild_bed_type()
-    rebuild_location_feature_specification()
-    rebuild_floor_plan()
-    rebuild_quantitative_value()
-    rebuild_bed_details()
-    rebuild_place()
-    Accommodation.model_rebuild()
-
-@run_once
-def rebuild_landmarks_or_historical_buildings():
-    rebuild_place()
-    LandmarksOrHistoricalBuildings.model_rebuild()
-
-@run_once
-def rebuild_theater_event():
-    rebuild_event()
-    TheaterEvent.model_rebuild()
-
-@run_once
-def rebuild_food_event():
-    rebuild_event()
-    FoodEvent.model_rebuild()
-
-@run_once
-def rebuild_education_event():
-    rebuild_defined_term()
-    rebuild_event()
-    EducationEvent.model_rebuild()
-
-@run_once
-def rebuild_festival():
-    rebuild_event()
-    Festival.model_rebuild()
-
-@run_once
-def rebuild_social_event():
-    rebuild_event()
-    SocialEvent.model_rebuild()
-
-@run_once
-def rebuild_music_event():
-    rebuild_event()
-    MusicEvent.model_rebuild()
-
-@run_once
-def rebuild_screening_event():
-    rebuild_movie()
-    rebuild_language()
-    rebuild_event()
-    ScreeningEvent.model_rebuild()
-
-@run_once
-def rebuild_visual_arts_event():
-    rebuild_event()
-    VisualArtsEvent.model_rebuild()
-
-@run_once
-def rebuild_literary_event():
-    rebuild_event()
-    LiteraryEvent.model_rebuild()
-
-@run_once
-def rebuild_user_interaction():
-    rebuild_event()
-    UserInteraction.model_rebuild()
-
-@run_once
-def rebuild_delivery_event():
-    rebuild_delivery_method()
-    rebuild_event()
-    DeliveryEvent.model_rebuild()
-
-@run_once
-def rebuild_sports_event():
-    rebuild_person()
-    rebuild_sports_team()
-    rebuild_event()
-    SportsEvent.model_rebuild()
-
-@run_once
-def rebuild_publication_event():
-    rebuild_broadcast_service()
-    rebuild_person()
-    rebuild_organization()
-    rebuild_event()
-    PublicationEvent.model_rebuild()
-
-@run_once
-def rebuild_comedy_event():
-    rebuild_event()
-    ComedyEvent.model_rebuild()
-
-@run_once
-def rebuild_course_instance():
-    rebuild_person()
-    rebuild_schedule()
-    rebuild_event()
-    CourseInstance.model_rebuild()
-
-@run_once
-def rebuild_childrens_event():
-    rebuild_event()
-    ChildrensEvent.model_rebuild()
-
-@run_once
-def rebuild_dance_event():
-    rebuild_event()
-    DanceEvent.model_rebuild()
-
-@run_once
-def rebuild_business_event():
-    rebuild_event()
-    BusinessEvent.model_rebuild()
-
-@run_once
-def rebuild_hackathon():
-    rebuild_event()
-    Hackathon.model_rebuild()
-
-@run_once
-def rebuild_sale_event():
-    rebuild_event()
-    SaleEvent.model_rebuild()
-
-@run_once
-def rebuild_exhibition_event():
-    rebuild_event()
-    ExhibitionEvent.model_rebuild()
-
-@run_once
-def rebuild_media_subscription():
-    rebuild_offer()
-    rebuild_organization()
-    rebuild_intangible()
-    MediaSubscription.model_rebuild()
-
-@run_once
-def rebuild_virtual_location():
-    rebuild_intangible()
-    VirtualLocation.model_rebuild()
-
-@run_once
-def rebuild_ticket():
-    rebuild_person()
-    rebuild_organization()
-    rebuild_price_specification()
-    rebuild_seat()
-    rebuild_intangible()
-    Ticket.model_rebuild()
-
-@run_once
-def rebuild_data_feed_item():
-    rebuild_thing()
-    rebuild_intangible()
-    DataFeedItem.model_rebuild()
-
-@run_once
-def rebuild_series():
-    rebuild_intangible()
-    Series.model_rebuild()
-
-@run_once
-def rebuild_role():
-    rebuild_intangible()
-    Role.model_rebuild()
-
-@run_once
-def rebuild_floor_plan():
-    rebuild_accommodation()
-    rebuild_location_feature_specification()
-    rebuild_quantitative_value()
-    rebuild_image_object()
-    rebuild_intangible()
-    FloorPlan.model_rebuild()
-
-@run_once
-def rebuild_permit():
-    rebuild_duration()
-    rebuild_audience()
-    rebuild_service()
-    rebuild_administrative_area()
-    rebuild_organization()
-    rebuild_intangible()
-    Permit.model_rebuild()
-
-@run_once
-def rebuild_member_program_tier():
-    rebuild_unit_price_specification()
-    rebuild_tier_benefit_enumeration()
-    rebuild_monetary_amount()
-    rebuild_credit_card()
-    rebuild_quantitative_value()
-    rebuild_member_program()
-    rebuild_intangible()
-    MemberProgramTier.model_rebuild()
-
-@run_once
-def rebuild_educational_occupational_program():
-    rebuild_offer()
-    rebuild_person()
-    rebuild_course()
-    rebuild_monetary_amount_distribution()
-    rebuild_duration()
-    rebuild_structured_value()
-    rebuild_educational_occupational_credential()
-    rebuild_category_code()
-    rebuild_day_of_week()
-    rebuild_alignment_object()
-    rebuild_defined_term()
-    rebuild_organization()
-    rebuild_demand()
-    rebuild_intangible()
-    EducationalOccupationalProgram.model_rebuild()
-
-@run_once
-def rebuild_geospatial_geometry():
-    rebuild_place()
-    rebuild_intangible()
-    GeospatialGeometry.model_rebuild()
-
-@run_once
-def rebuild_audience():
-    rebuild_administrative_area()
-    rebuild_intangible()
-    Audience.model_rebuild()
-
-@run_once
-def rebuild_brand():
-    rebuild_aggregate_rating()
-    rebuild_review()
-    rebuild_image_object()
-    rebuild_intangible()
-    Brand.model_rebuild()
-
-@run_once
-def rebuild_occupation():
-    rebuild_monetary_amount_distribution()
-    rebuild_monetary_amount()
-    rebuild_educational_occupational_credential()
-    rebuild_category_code()
-    rebuild_occupational_experience_requirements()
-    rebuild_administrative_area()
-    rebuild_defined_term()
-    rebuild_intangible()
-    Occupation.model_rebuild()
-
-@run_once
-def rebuild_program_membership():
-    rebuild_person()
-    rebuild_quantitative_value()
-    rebuild_organization()
-    rebuild_member_program()
-    rebuild_intangible()
-    ProgramMembership.model_rebuild()
-
-@run_once
-def rebuild_service():
-    rebuild_opening_hours_specification()
-    rebuild_government_benefits_type()
-    rebuild_image_object()
-    rebuild_geo_shape()
-    rebuild_brand()
-    rebuild_organization()
-    rebuild_service_channel()
-    rebuild_administrative_area()
-    rebuild_demand()
-    rebuild_certification()
-    rebuild_offer()
-    rebuild_product()
-    rebuild_review()
-    rebuild_aggregate_rating()
-    rebuild_person()
-    rebuild_place()
-    rebuild_offer_catalog()
-    rebuild_audience()
-    rebuild_category_code()
-    rebuild_thing()
-    rebuild_physical_activity_category()
-    rebuild_intangible()
-    Service.model_rebuild()
-
-@run_once
-def rebuild_health_plan_cost_sharing_specification():
-    rebuild_price_specification()
-    rebuild_intangible()
-    HealthPlanCostSharingSpecification.model_rebuild()
-
-@run_once
-def rebuild_invoice():
-    rebuild_monetary_amount()
-    rebuild_duration()
-    rebuild_payment_method()
-    rebuild_payment_status_type()
-    rebuild_category_code()
-    rebuild_order()
-    rebuild_price_specification()
-    rebuild_thing()
-    rebuild_physical_activity_category()
-    rebuild_person()
-    rebuild_organization()
-    rebuild_intangible()
-    Invoice.model_rebuild()
-
-@run_once
-def rebuild_health_insurance_plan():
-    rebuild_health_plan_network()
-    rebuild_contact_point()
-    rebuild_health_plan_formulary()
-    rebuild_intangible()
-    HealthInsurancePlan.model_rebuild()
-
-@run_once
-def rebuild_property():
-    rebuild___class()
-    rebuild_enumeration()
-    rebuild_intangible()
-    Property.model_rebuild()
-
-@run_once
-def rebuild_alignment_object():
-    rebuild_intangible()
-    AlignmentObject.model_rebuild()
-
-@run_once
-def rebuild_merchant_return_policy_seasonal_override():
-    rebuild_monetary_amount()
-    rebuild_merchant_return_enumeration()
-    rebuild_refund_type_enumeration()
-    rebuild_return_fees_enumeration()
-    rebuild_return_method_enumeration()
-    rebuild_intangible()
-    MerchantReturnPolicySeasonalOverride.model_rebuild()
-
-@run_once
-def rebuild___class():
-    rebuild_property()
-    rebuild_enumeration()
-    rebuild_intangible()
-    _Class.model_rebuild()
-
-@run_once
-def rebuild_energy_consumption_details():
-    rebuild_eu_energy_efficiency_enumeration()
-    rebuild_energy_efficiency_enumeration()
-    rebuild_intangible()
-    EnergyConsumptionDetails.model_rebuild()
-
-@run_once
-def rebuild_schedule():
-    rebuild_duration()
-    rebuild_day_of_week()
-    rebuild_quantitative_value()
-    rebuild_intangible()
-    Schedule.model_rebuild()
-
-@run_once
-def rebuild_enumeration():
-    rebuild_property()
-    rebuild___class()
-    rebuild_intangible()
-    Enumeration.model_rebuild()
-
-@run_once
-def rebuild_speakable_specification():
-    rebuild_css_selector_type()
-    rebuild_intangible()
-    SpeakableSpecification.model_rebuild()
-
-@run_once
-def rebuild_health_plan_formulary():
-    rebuild_intangible()
-    HealthPlanFormulary.model_rebuild()
-
-@run_once
-def rebuild_language():
-    rebuild_intangible()
-    Language.model_rebuild()
-
-@run_once
-def rebuild_structured_value():
-    rebuild_intangible()
-    StructuredValue.model_rebuild()
-
-@run_once
-def rebuild_member_program():
-    rebuild_member_program_tier()
-    rebuild_organization()
-    rebuild_intangible()
-    MemberProgram.model_rebuild()
-
-@run_once
-def rebuild_property_value_specification():
-    rebuild_thing()
-    rebuild_intangible()
-    PropertyValueSpecification.model_rebuild()
-
-@run_once
-def rebuild_rating():
-    rebuild_person()
-    rebuild_organization()
-    rebuild_intangible()
-    Rating.model_rebuild()
-
-@run_once
-def rebuild_digital_document_permission():
-    rebuild_contact_point()
-    rebuild_audience()
-    rebuild_person()
-    rebuild_digital_document_permission_type()
-    rebuild_organization()
-    rebuild_intangible()
-    DigitalDocumentPermission.model_rebuild()
-
-@run_once
-def rebuild_computer_language():
-    rebuild_intangible()
-    ComputerLanguage.model_rebuild()
-
-@run_once
-def rebuild_product_return_policy():
-    rebuild_intangible()
-    ProductReturnPolicy.model_rebuild()
-
-@run_once
-def rebuild_payment_method():
-    rebuild_payment_method_type()
-    rebuild_intangible()
-    PaymentMethod.model_rebuild()
-
-@run_once
-def rebuild_parcel_delivery():
-    rebuild_delivery_method()
-    rebuild_delivery_event()
-    rebuild_order()
-    rebuild_postal_address()
-    rebuild_person()
-    rebuild_organization()
-    rebuild_product()
-    rebuild_intangible()
-    ParcelDelivery.model_rebuild()
-
-@run_once
-def rebuild_merchant_return_policy():
-    rebuild_country()
-    rebuild_monetary_amount()
-    rebuild_offer_item_condition()
-    rebuild_merchant_return_enumeration()
-    rebuild_property_value()
-    rebuild_refund_type_enumeration()
-    rebuild_return_fees_enumeration()
-    rebuild_member_program_tier()
-    rebuild_return_label_source_enumeration()
-    rebuild_return_method_enumeration()
-    rebuild_merchant_return_policy_seasonal_override()
-    rebuild_intangible()
-    MerchantReturnPolicy.model_rebuild()
-
-@run_once
-def rebuild_reservation():
-    rebuild_program_membership()
-    rebuild_price_specification()
-    rebuild_ticket()
-    rebuild_thing()
-    rebuild_reservation_status_type()
-    rebuild_person()
-    rebuild_organization()
-    rebuild_intangible()
-    Reservation.model_rebuild()
-
-@run_once
-def rebuild_job_posting():
-    rebuild_person()
-    rebuild_contact_point()
-    rebuild_monetary_amount_distribution()
-    rebuild_place()
-    rebuild_monetary_amount()
-    rebuild_occupation()
-    rebuild_educational_occupational_credential()
-    rebuild_category_code()
-    rebuild_occupational_experience_requirements()
-    rebuild_price_specification()
-    rebuild_administrative_area()
-    rebuild_defined_term()
-    rebuild_organization()
-    rebuild_intangible()
-    JobPosting.model_rebuild()
-
-@run_once
-def rebuild_broadcast_frequency_specification():
-    rebuild_qualitative_value()
-    rebuild_quantitative_value()
-    rebuild_intangible()
-    BroadcastFrequencySpecification.model_rebuild()
-
-@run_once
-def rebuild_occupational_experience_requirements():
-    rebuild_intangible()
-    OccupationalExperienceRequirements.model_rebuild()
-
-@run_once
-def rebuild_bed_details():
-    rebuild_bed_type()
-    rebuild_intangible()
-    BedDetails.model_rebuild()
-
-@run_once
-def rebuild_game_server():
-    rebuild_video_game()
-    rebuild_game_server_status()
-    rebuild_intangible()
-    GameServer.model_rebuild()
-
-@run_once
-def rebuild_service_channel():
-    rebuild_contact_point()
-    rebuild_place()
-    rebuild_language()
-    rebuild_duration()
-    rebuild_postal_address()
-    rebuild_service()
-    rebuild_intangible()
-    ServiceChannel.model_rebuild()
-
-@run_once
-def rebuild_demand():
-    rebuild_offer_item_condition()
-    rebuild_geo_shape()
-    rebuild_business_entity_type()
-    rebuild_organization()
-    rebuild_loan_or_credit()
-    rebuild_warranty_promise()
-    rebuild_payment_method()
-    rebuild_item_availability()
-    rebuild_event()
-    rebuild_creative_work()
-    rebuild_administrative_area()
-    rebuild_product()
-    rebuild_price_specification()
-    rebuild_type_and_quantity_node()
-    rebuild_aggregate_offer()
-    rebuild_person()
-    rebuild_delivery_method()
-    rebuild_place()
-    rebuild_menu_item()
-    rebuild_business_function()
-    rebuild_trip()
-    rebuild_service()
-    rebuild_quantitative_value()
-    rebuild_intangible()
-    Demand.model_rebuild()
-
-@run_once
-def rebuild_defined_term():
-    rebuild_defined_term_set()
-    rebuild_intangible()
-    DefinedTerm.model_rebuild()
-
-@run_once
-def rebuild_action_access_specification():
-    rebuild_offer()
-    rebuild_place()
-    rebuild_media_subscription()
-    rebuild_category_code()
-    rebuild_thing()
-    rebuild_physical_activity_category()
-    rebuild_geo_shape()
-    rebuild_intangible()
-    ActionAccessSpecification.model_rebuild()
-
-@run_once
-def rebuild_financial_incentive():
-    rebuild_place()
-    rebuild_unit_price_specification()
-    rebuild_monetary_amount()
-    rebuild_geo_shape()
-    rebuild_purchase_type()
-    rebuild_loan_or_credit()
-    rebuild_incentive_status()
-    rebuild_quantitative_value()
-    rebuild_administrative_area()
-    rebuild_incentive_qualified_expense_type()
-    rebuild_person()
-    rebuild_incentive_type()
-    rebuild_organization()
-    rebuild_product()
-    rebuild_defined_term()
-    rebuild_intangible()
-    FinancialIncentive.model_rebuild()
-
-@run_once
-def rebuild_menu_item():
-    rebuild_menu_section()
-    rebuild_offer()
-    rebuild_nutrition_information()
-    rebuild_restricted_diet()
-    rebuild_demand()
-    rebuild_intangible()
-    MenuItem.model_rebuild()
-
-@run_once
-def rebuild_list_item():
-    rebuild_thing()
-    rebuild_intangible()
-    ListItem.model_rebuild()
-
-@run_once
-def rebuild_order_item():
-    rebuild_order_status()
-    rebuild_service()
-    rebuild_parcel_delivery()
-    rebuild_quantitative_value()
-    rebuild_product()
-    rebuild_intangible()
-    OrderItem.model_rebuild()
-
-@run_once
-def rebuild_item_list():
-    rebuild_thing()
-    rebuild_list_item()
-    rebuild_item_list_order_type()
-    rebuild_intangible()
-    ItemList.model_rebuild()
-
-@run_once
-def rebuild_health_plan_network():
-    rebuild_intangible()
-    HealthPlanNetwork.model_rebuild()
-
-@run_once
-def rebuild_grant():
-    rebuild_event()
-    rebuild_medical_entity()
-    rebuild_creative_work()
-    rebuild_product()
-    rebuild_person()
-    rebuild_bio_chem_entity()
-    rebuild_organization()
-    rebuild_intangible()
-    Grant.model_rebuild()
-
-@run_once
-def rebuild_statistical_population():
-    rebuild___class()
-    rebuild_intangible()
-    StatisticalPopulation.model_rebuild()
-
-@run_once
-def rebuild_order():
-    rebuild_offer()
-    rebuild_payment_method()
-    rebuild_invoice()
-    rebuild_order_status()
-    rebuild_order_item()
-    rebuild_postal_address()
-    rebuild_service()
-    rebuild_person()
-    rebuild_parcel_delivery()
-    rebuild_organization()
-    rebuild_product()
-    rebuild_intangible()
-    Order.model_rebuild()
-
-@run_once
-def rebuild_constraint_node():
-    rebuild_property()
-    rebuild_intangible()
-    ConstraintNode.model_rebuild()
-
-@run_once
-def rebuild_offer():
-    rebuild_offer_item_condition()
-    rebuild_offer_shipping_details()
-    rebuild_adult_oriented_enumeration()
-    rebuild_geo_shape()
-    rebuild_business_entity_type()
-    rebuild_merchant_return_policy()
-    rebuild_organization()
-    rebuild_loan_or_credit()
-    rebuild_property_value()
-    rebuild_item_availability()
-    rebuild_payment_method()
-    rebuild_duration()
-    rebuild_event()
-    rebuild_warranty_promise()
-    rebuild_creative_work()
-    rebuild_administrative_area()
-    rebuild_product()
-    rebuild_review()
-    rebuild_price_specification()
-    rebuild_aggregate_rating()
-    rebuild_type_and_quantity_node()
-    rebuild_person()
-    rebuild_aggregate_offer()
-    rebuild_delivery_method()
-    rebuild_place()
-    rebuild_menu_item()
-    rebuild_category_code()
-    rebuild_business_function()
-    rebuild_trip()
-    rebuild_thing()
-    rebuild_member_program_tier()
-    rebuild_service()
-    rebuild_physical_activity_category()
-    rebuild_quantitative_value()
-    rebuild_intangible()
-    Offer.model_rebuild()
-
-@run_once
-def rebuild_trip():
-    rebuild_offer()
-    rebuild_place()
-    rebuild_item_list()
-    rebuild_person()
-    rebuild_organization()
-    rebuild_demand()
-    rebuild_intangible()
-    Trip.model_rebuild()
-
-@run_once
-def rebuild_observation():
-    rebuild_place()
-    rebuild_property_value()
-    rebuild_measurement_method_enum()
-    rebuild_statistical_variable()
-    rebuild_property()
-    rebuild_thing()
-    rebuild_defined_term()
-    rebuild_quantitative_value()
-    rebuild_enumeration()
-    rebuild_intangible()
-    Observation.model_rebuild()
-
-@run_once
-def rebuild_entry_point():
-    rebuild_software_application()
-    rebuild_digital_platform_enumeration()
-    rebuild_intangible()
-    EntryPoint.model_rebuild()
-
-@run_once
-def rebuild_quantity():
-    rebuild_intangible()
-    Quantity.model_rebuild()
-
-@run_once
-def rebuild_seat():
-    rebuild_qualitative_value()
-    rebuild_intangible()
-    Seat.model_rebuild()
-
-@run_once
-def rebuild_broadcast_channel():
-    rebuild_broadcast_service()
-    rebuild_cable_or_satellite_service()
-    rebuild_broadcast_frequency_specification()
-    rebuild_intangible()
-    BroadcastChannel.model_rebuild()
-
-@run_once
-def rebuild_chapter():
-    rebuild_creative_work()
-    Chapter.model_rebuild()
-
-@run_once
-def rebuild_tv_series():
-    rebuild_country()
-    rebuild_creative_work_season()
-    rebuild_episode()
-    rebuild_video_object()
-    rebuild_performing_group()
-    rebuild_music_group()
-    rebuild_person()
-    rebuild_organization()
-    rebuild_creative_work()
-    TVSeries.model_rebuild()
-
-@run_once
-def rebuild_web_site():
-    rebuild_creative_work()
-    WebSite.model_rebuild()
-
-@run_once
-def rebuild_comic_story():
-    rebuild_person()
-    rebuild_creative_work()
-    ComicStory.model_rebuild()
-
-@run_once
-def rebuild_how_to():
-    rebuild_monetary_amount()
-    rebuild_duration()
-    rebuild_item_list()
-    rebuild_how_to_tool()
-    rebuild_how_to_step()
-    rebuild_how_to_supply()
-    rebuild_quantitative_value()
-    rebuild_how_to_section()
-    rebuild_creative_work()
-    HowTo.model_rebuild()
-
-@run_once
-def rebuild_web_content():
-    rebuild_creative_work()
-    WebContent.model_rebuild()
-
-@run_once
-def rebuild_game():
-    rebuild_postal_address()
-    rebuild_thing()
-    rebuild_quantitative_value()
-    rebuild_place()
-    rebuild_creative_work()
-    Game.model_rebuild()
-
-@run_once
-def rebuild_guide():
-    rebuild_creative_work()
-    Guide.model_rebuild()
-
-@run_once
-def rebuild_media_object():
-    rebuild_place()
-    rebuild_media_subscription()
-    rebuild_duration()
-    rebuild_news_article()
-    rebuild_quantitative_value()
-    rebuild_claim()
-    rebuild_geo_shape()
-    rebuild_distance()
-    rebuild_organization()
-    rebuild_creative_work()
-    MediaObject.model_rebuild()
-
-@run_once
-def rebuild_data_catalog():
-    rebuild_defined_term()
-    rebuild_measurement_method_enum()
-    rebuild_dataset()
-    rebuild_creative_work()
-    DataCatalog.model_rebuild()
-
-@run_once
-def rebuild_clip():
-    rebuild_creative_work_season()
-    rebuild_episode()
-    rebuild_performing_group()
-    rebuild_creative_work_series()
-    rebuild_music_group()
-    rebuild_person()
-    rebuild_hyper_toc_entry()
-    rebuild_creative_work()
-    Clip.model_rebuild()
-
-@run_once
-def rebuild_review():
-    rebuild_item_list()
-    rebuild_web_content()
-    rebuild_rating()
-    rebuild_thing()
-    rebuild_list_item()
-    rebuild_creative_work()
-    Review.model_rebuild()
-
-@run_once
-def rebuild_certification():
-    rebuild_certification_status_enumeration()
-    rebuild_rating()
-    rebuild_image_object()
-    rebuild_thing()
-    rebuild_administrative_area()
-    rebuild_defined_term()
-    rebuild_quantitative_value()
-    rebuild_organization()
-    rebuild_creative_work()
-    Certification.model_rebuild()
-
-@run_once
-def rebuild_play():
-    rebuild_creative_work()
-    Play.model_rebuild()
-
-@run_once
-def rebuild_special_announcement():
-    rebuild_government_service()
-    rebuild_observation()
-    rebuild_civic_structure()
-    rebuild_dataset()
-    rebuild_category_code()
-    rebuild_web_content()
-    rebuild_data_feed()
-    rebuild_thing()
-    rebuild_physical_activity_category()
-    rebuild_local_business()
-    rebuild_creative_work()
-    SpecialAnnouncement.model_rebuild()
-
-@run_once
-def rebuild_short_story():
-    rebuild_creative_work()
-    ShortStory.model_rebuild()
-
-@run_once
-def rebuild_photograph():
-    rebuild_creative_work()
-    Photograph.model_rebuild()
-
-@run_once
-def rebuild_claim():
-    rebuild_person()
-    rebuild_organization()
-    rebuild_creative_work()
-    Claim.model_rebuild()
-
-@run_once
-def rebuild_blog():
-    rebuild_blog_posting()
-    rebuild_creative_work()
-    Blog.model_rebuild()
-
-@run_once
-def rebuild_quotation():
-    rebuild_person()
-    rebuild_organization()
-    rebuild_creative_work()
-    Quotation.model_rebuild()
-
-@run_once
-def rebuild_digital_document():
-    rebuild_digital_document_permission()
-    rebuild_creative_work()
-    DigitalDocument.model_rebuild()
-
-@run_once
-def rebuild_dataset():
-    rebuild_property_value()
-    rebuild_measurement_method_enum()
-    rebuild_data_download()
-    rebuild_data_catalog()
-    rebuild_statistical_variable()
-    rebuild_property()
-    rebuild_defined_term()
-    rebuild_creative_work()
-    Dataset.model_rebuild()
-
-@run_once
-def rebuild_creative_work_season():
-    rebuild_episode()
-    rebuild_performing_group()
-    rebuild_video_object()
-    rebuild_creative_work_series()
-    rebuild_person()
-    rebuild_organization()
-    rebuild_creative_work()
-    CreativeWorkSeason.model_rebuild()
-
-@run_once
-def rebuild_learning_resource():
-    rebuild_alignment_object()
-    rebuild_defined_term()
-    rebuild_creative_work()
-    LearningResource.model_rebuild()
-
-@run_once
-def rebuild_music_playlist():
-    rebuild_item_list()
-    rebuild_music_recording()
-    rebuild_creative_work()
-    MusicPlaylist.model_rebuild()
-
-@run_once
-def rebuild_menu():
-    rebuild_menu_section()
-    rebuild_menu_item()
-    rebuild_creative_work()
-    Menu.model_rebuild()
-
-@run_once
-def rebuild_sculpture():
-    rebuild_creative_work()
-    Sculpture.model_rebuild()
-
-@run_once
-def rebuild_painting():
-    rebuild_creative_work()
-    Painting.model_rebuild()
-
-@run_once
-def rebuild_web_page_element():
-    rebuild_css_selector_type()
-    rebuild_creative_work()
-    WebPageElement.model_rebuild()
-
-@run_once
-def rebuild_code():
-    rebuild_creative_work()
-    Code.model_rebuild()
-
-@run_once
-def rebuild_movie():
-    rebuild_country()
-    rebuild_language()
-    rebuild_duration()
-    rebuild_video_object()
-    rebuild_quantitative_value()
-    rebuild_performing_group()
-    rebuild_music_group()
-    rebuild_person()
-    rebuild_organization()
-    rebuild_creative_work()
-    Movie.model_rebuild()
-
-@run_once
-def rebuild_poster():
-    rebuild_creative_work()
-    Poster.model_rebuild()
-
-@run_once
-def rebuild_how_to_tip():
-    rebuild_creative_work()
-    HowToTip.model_rebuild()
-
-@run_once
-def rebuild_how_to_section():
-    rebuild_item_list()
-    rebuild_creative_work()
-    HowToSection.model_rebuild()
-
-@run_once
-def rebuild_media_review_item():
-    rebuild_media_object()
-    rebuild_creative_work()
-    MediaReviewItem.model_rebuild()
-
-@run_once
-def rebuild_book():
-    rebuild_person()
-    rebuild_book_format_type()
-    rebuild_creative_work()
-    Book.model_rebuild()
-
-@run_once
-def rebuild_statement():
-    rebuild_creative_work()
-    Statement.model_rebuild()
-
-@run_once
-def rebuild_season():
-    rebuild_creative_work()
-    Season.model_rebuild()
-
-@run_once
-def rebuild_article():
-    rebuild_speakable_specification()
-    rebuild_creative_work()
-    Article.model_rebuild()
-
-@run_once
-def rebuild_atlas():
-    rebuild_creative_work()
-    Atlas.model_rebuild()
-
-@run_once
-def rebuild_how_to_direction():
-    rebuild_duration()
-    rebuild_media_object()
-    rebuild_how_to_supply()
-    rebuild_how_to_tool()
-    rebuild_creative_work()
-    HowToDirection.model_rebuild()
-
-@run_once
-def rebuild_publication_issue():
-    rebuild_creative_work()
-    PublicationIssue.model_rebuild()
-
-@run_once
-def rebuild_thesis():
-    rebuild_creative_work()
-    Thesis.model_rebuild()
-
-@run_once
-def rebuild_software_application():
-    rebuild_image_object()
-    rebuild_data_feed()
-    rebuild_creative_work()
-    SoftwareApplication.model_rebuild()
-
-@run_once
-def rebuild_publication_volume():
-    rebuild_creative_work()
-    PublicationVolume.model_rebuild()
-
-@run_once
-def rebuild_comment():
-    rebuild_creative_work()
-    Comment.model_rebuild()
-
-@run_once
-def rebuild_music_composition():
-    rebuild_person()
-    rebuild_organization()
-    rebuild_music_recording()
-    rebuild_event()
-    rebuild_creative_work()
-    MusicComposition.model_rebuild()
-
-@run_once
-def rebuild_exercise_plan():
-    rebuild_duration()
-    rebuild_energy()
-    rebuild_quantitative_value()
-    rebuild_creative_work()
-    ExercisePlan.model_rebuild()
-
-@run_once
-def rebuild_message():
-    rebuild_person()
-    rebuild_audience()
-    rebuild_contact_point()
-    rebuild_organization()
-    rebuild_creative_work()
-    Message.model_rebuild()
-
-@run_once
-def rebuild_conversation():
-    rebuild_creative_work()
-    Conversation.model_rebuild()
-
-@run_once
-def rebuild_drawing():
-    rebuild_creative_work()
-    Drawing.model_rebuild()
-
-@run_once
-def rebuild_map():
-    rebuild_map_category_type()
-    rebuild_creative_work()
-    Map.model_rebuild()
-
-@run_once
-def rebuild_music_recording():
-    rebuild_duration()
-    rebuild_music_playlist()
-    rebuild_music_composition()
-    rebuild_music_album()
-    rebuild_music_group()
-    rebuild_person()
-    rebuild_quantitative_value()
-    rebuild_creative_work()
-    MusicRecording.model_rebuild()
-
-@run_once
-def rebuild_legislation():
-    rebuild_category_code()
-    rebuild_legal_force_status()
-    rebuild_administrative_area()
-    rebuild_person()
-    rebuild_organization()
-    rebuild_creative_work()
-    Legislation.model_rebuild()
-
-@run_once
-def rebuild_defined_term_set():
-    rebuild_defined_term()
-    rebuild_creative_work()
-    DefinedTermSet.model_rebuild()
-
-@run_once
-def rebuild_software_source_code():
-    rebuild_computer_language()
-    rebuild_software_application()
-    rebuild_creative_work()
-    SoftwareSourceCode.model_rebuild()
-
-@run_once
-def rebuild_hyper_toc_entry():
-    rebuild_media_object()
-    rebuild_creative_work()
-    HyperTocEntry.model_rebuild()
-
-@run_once
-def rebuild_visual_artwork():
-    rebuild_person()
-    rebuild_mass()
-    rebuild_distance()
-    rebuild_quantitative_value()
-    rebuild_creative_work()
-    VisualArtwork.model_rebuild()
-
-@run_once
-def rebuild_sheet_music():
-    rebuild_creative_work()
-    SheetMusic.model_rebuild()
-
-@run_once
-def rebuild_collection():
-    rebuild_creative_work()
-    Collection.model_rebuild()
-
-@run_once
-def rebuild_educational_occupational_credential():
-    rebuild_duration()
-    rebuild_defined_term()
-    rebuild_organization()
-    rebuild_administrative_area()
-    rebuild_creative_work()
-    EducationalOccupationalCredential.model_rebuild()
-
-@run_once
-def rebuild_web_page():
-    rebuild_web_page_element()
-    rebuild_breadcrumb_list()
-    rebuild_speakable_specification()
-    rebuild_image_object()
-    rebuild_specialty()
-    rebuild_person()
-    rebuild_organization()
-    rebuild_creative_work()
-    WebPage.model_rebuild()
-
-@run_once
-def rebuild_menu_section():
-    rebuild_menu_item()
-    rebuild_creative_work()
-    MenuSection.model_rebuild()
-
-@run_once
-def rebuild_episode():
-    rebuild_creative_work_season()
-    rebuild_duration()
-    rebuild_performing_group()
-    rebuild_video_object()
-    rebuild_quantitative_value()
-    rebuild_creative_work_series()
-    rebuild_music_group()
-    rebuild_person()
-    rebuild_organization()
-    rebuild_creative_work()
-    Episode.model_rebuild()
-
-@run_once
-def rebuild_manuscript():
-    rebuild_creative_work()
-    Manuscript.model_rebuild()
-
-@run_once
-def rebuild_creative_work_series():
-    rebuild_creative_work()
-    CreativeWorkSeries.model_rebuild()
-
-@run_once
-def rebuild_math_solver():
-    rebuild_solve_math_action()
-    rebuild_creative_work()
-    MathSolver.model_rebuild()
-
-@run_once
-def rebuild_hyper_toc():
-    rebuild_media_object()
-    rebuild_hyper_toc_entry()
-    rebuild_creative_work()
-    HyperToc.model_rebuild()
-
-@run_once
-def rebuild_archive_component():
-    rebuild_postal_address()
-    rebuild_archive_organization()
-    rebuild_place()
-    rebuild_creative_work()
-    ArchiveComponent.model_rebuild()
-
-@run_once
-def rebuild_control_action():
-    rebuild_action()
-    ControlAction.model_rebuild()
-
-@run_once
-def rebuild_trade_action():
-    rebuild_price_specification()
-    rebuild_action()
-    TradeAction.model_rebuild()
-
-@run_once
-def rebuild_assess_action():
-    rebuild_action()
-    AssessAction.model_rebuild()
-
-@run_once
-def rebuild_move_action():
-    rebuild_place()
-    rebuild_action()
-    MoveAction.model_rebuild()
-
-@run_once
-def rebuild_achieve_action():
-    rebuild_action()
-    AchieveAction.model_rebuild()
-
-@run_once
-def rebuild_find_action():
-    rebuild_action()
-    FindAction.model_rebuild()
-
-@run_once
-def rebuild_transfer_action():
-    rebuild_place()
-    rebuild_action()
-    TransferAction.model_rebuild()
-
-@run_once
-def rebuild_organize_action():
-    rebuild_action()
-    OrganizeAction.model_rebuild()
-
-@run_once
-def rebuild_update_action():
-    rebuild_thing()
-    rebuild_action()
-    UpdateAction.model_rebuild()
-
-@run_once
-def rebuild_create_action():
-    rebuild_action()
-    CreateAction.model_rebuild()
-
-@run_once
-def rebuild_play_action():
-    rebuild_event()
-    rebuild_audience()
-    rebuild_action()
-    PlayAction.model_rebuild()
-
-@run_once
-def rebuild_seek_to_action():
-    rebuild_hyper_toc_entry()
-    rebuild_action()
-    SeekToAction.model_rebuild()
-
-@run_once
-def rebuild_solve_math_action():
-    rebuild_action()
-    SolveMathAction.model_rebuild()
-
-@run_once
-def rebuild_consume_action():
-    rebuild_offer()
-    rebuild_action_access_specification()
-    rebuild_action()
-    ConsumeAction.model_rebuild()
-
-@run_once
-def rebuild_interact_action():
-    rebuild_action()
-    InteractAction.model_rebuild()
-
-@run_once
-def rebuild_search_action():
-    rebuild_action()
-    SearchAction.model_rebuild()
-
-@run_once
-def rebuild_product_model():
-    rebuild_product_group()
-    rebuild_product()
-    ProductModel.model_rebuild()
-
-@run_once
-def rebuild_some_products():
-    rebuild_quantitative_value()
-    rebuild_product()
-    SomeProducts.model_rebuild()
-
-@run_once
-def rebuild_product_group():
-    rebuild_defined_term()
-    rebuild_product()
-    ProductGroup.model_rebuild()
-
-@run_once
-def rebuild_product_collection():
-    rebuild_type_and_quantity_node()
-    rebuild_product()
-    ProductCollection.model_rebuild()
-
-@run_once
-def rebuild_vehicle():
-    rebuild_steering_position_value()
-    rebuild_drive_wheel_configuration_value()
-    rebuild_engine_specification()
-    rebuild_car_usage_type()
-    rebuild_qualitative_value()
-    rebuild_quantitative_value()
-    rebuild_product()
-    Vehicle.model_rebuild()
-
-@run_once
-def rebuild_individual_product():
-    rebuild_product()
-    IndividualProduct.model_rebuild()
-
-@run_once
-def rebuild_medical_procedure():
-    rebuild_medical_study_status()
-    rebuild_medical_procedure_type()
-    rebuild_event_status_type()
-    rebuild_medical_entity()
-    MedicalProcedure.model_rebuild()
-
-@run_once
-def rebuild_medical_risk_factor():
-    rebuild_medical_entity()
-    MedicalRiskFactor.model_rebuild()
-
-@run_once
-def rebuild_medical_indication():
-    rebuild_medical_entity()
-    MedicalIndication.model_rebuild()
-
-@run_once
-def rebuild_medical_test():
-    rebuild_medical_enumeration()
-    rebuild_drug()
-    rebuild_medical_device()
-    rebuild_medical_sign()
-    rebuild_medical_condition()
-    rebuild_medical_entity()
-    MedicalTest.model_rebuild()
-
-@run_once
-def rebuild_medical_risk_estimator():
-    rebuild_medical_risk_factor()
-    rebuild_medical_entity()
-    MedicalRiskEstimator.model_rebuild()
-
-@run_once
-def rebuild_lifestyle_modification():
-    rebuild_medical_entity()
-    LifestyleModification.model_rebuild()
-
-@run_once
-def rebuild_substance():
-    rebuild_maximum_dose_schedule()
-    rebuild_medical_entity()
-    Substance.model_rebuild()
-
-@run_once
-def rebuild_medical_contraindication():
-    rebuild_medical_entity()
-    MedicalContraindication.model_rebuild()
-
-@run_once
-def rebuild_medical_study():
-    rebuild_medical_study_status()
-    rebuild_event_status_type()
-    rebuild_administrative_area()
-    rebuild_person()
-    rebuild_medical_condition()
-    rebuild_organization()
-    rebuild_medical_entity()
-    MedicalStudy.model_rebuild()
-
-@run_once
-def rebuild_medical_condition():
-    rebuild_d_dx_element()
-    rebuild_medical_therapy()
-    rebuild_anatomical_system()
-    rebuild_anatomical_structure()
-    rebuild_medical_study_status()
-    rebuild_medical_condition_stage()
-    rebuild_drug()
-    rebuild_medical_sign_or_symptom()
-    rebuild_superficial_anatomy()
-    rebuild_medical_risk_factor()
-    rebuild_event_status_type()
-    rebuild_medical_test()
-    rebuild_medical_entity()
-    MedicalCondition.model_rebuild()
-
-@run_once
-def rebuild_medical_guideline():
-    rebuild_medical_evidence_level()
-    rebuild_medical_entity()
-    MedicalGuideline.model_rebuild()
-
-@run_once
-def rebuild_medical_cause():
-    rebuild_medical_entity()
-    MedicalCause.model_rebuild()
-
-@run_once
-def rebuild_drug_class():
-    rebuild_drug()
-    rebuild_medical_entity()
-    DrugClass.model_rebuild()
-
-@run_once
-def rebuild_medical_device():
-    rebuild_medical_contraindication()
-    rebuild_medical_entity()
-    MedicalDevice.model_rebuild()
-
-@run_once
-def rebuild_superficial_anatomy():
-    rebuild_anatomical_structure()
-    rebuild_medical_condition()
-    rebuild_medical_therapy()
-    rebuild_anatomical_system()
-    rebuild_medical_entity()
-    SuperficialAnatomy.model_rebuild()
-
-@run_once
-def rebuild_drug_cost():
-    rebuild_qualitative_value()
-    rebuild_drug_cost_category()
-    rebuild_administrative_area()
-    rebuild_medical_entity()
-    DrugCost.model_rebuild()
-
-@run_once
-def rebuild_anatomical_structure():
-    rebuild_medical_condition()
-    rebuild_anatomical_system()
-    rebuild_medical_therapy()
-    rebuild_image_object()
-    rebuild_medical_entity()
-    AnatomicalStructure.model_rebuild()
-
-@run_once
-def rebuild_anatomical_system():
-    rebuild_anatomical_structure()
-    rebuild_medical_condition()
-    rebuild_medical_therapy()
-    rebuild_medical_entity()
-    AnatomicalSystem.model_rebuild()
-
-@run_once
-def rebuild_medical_intangible():
-    rebuild_medical_entity()
-    MedicalIntangible.model_rebuild()
-
-@run_once
-def rebuild_news_media_organization():
-    rebuild_article()
-    rebuild_creative_work()
-    rebuild_about_page()
-    rebuild_organization()
-    NewsMediaOrganization.model_rebuild()
-
-@run_once
-def rebuild_ngo():
-    rebuild_organization()
-    NGO.model_rebuild()
-
-@run_once
-def rebuild_cooperative():
-    rebuild_organization()
-    Cooperative.model_rebuild()
-
-@run_once
-def rebuild_sports_organization():
-    rebuild_organization()
-    SportsOrganization.model_rebuild()
-
-@run_once
-def rebuild_performing_group():
-    rebuild_organization()
-    PerformingGroup.model_rebuild()
-
-@run_once
-def rebuild_funding_scheme():
-    rebuild_organization()
-    FundingScheme.model_rebuild()
-
-@run_once
-def rebuild_search_rescue_organization():
-    rebuild_organization()
-    SearchRescueOrganization.model_rebuild()
-
-@run_once
-def rebuild_library_system():
-    rebuild_organization()
-    LibrarySystem.model_rebuild()
-
-@run_once
-def rebuild_medical_organization():
-    rebuild_medical_specialty()
-    rebuild_organization()
-    MedicalOrganization.model_rebuild()
-
-@run_once
-def rebuild_online_business():
-    rebuild_organization()
-    OnlineBusiness.model_rebuild()
-
-@run_once
-def rebuild_consortium():
-    rebuild_organization()
-    Consortium.model_rebuild()
-
-@run_once
-def rebuild_workers_union():
-    rebuild_organization()
-    WorkersUnion.model_rebuild()
-
-@run_once
-def rebuild_government_organization():
-    rebuild_organization()
-    GovernmentOrganization.model_rebuild()
-
-@run_once
-def rebuild_project():
-    rebuild_organization()
-    Project.model_rebuild()
-
-@run_once
-def rebuild_research_organization():
-    rebuild_organization()
-    ResearchOrganization.model_rebuild()
-
-@run_once
-def rebuild_airline():
-    rebuild_boarding_policy_type()
-    rebuild_organization()
-    Airline.model_rebuild()
-
-@run_once
-def rebuild_corporation():
-    rebuild_organization()
-    Corporation.model_rebuild()
-
-@run_once
-def rebuild_political_party():
-    rebuild_organization()
-    PoliticalParty.model_rebuild()
-
-@run_once
-def rebuild_protein():
-    rebuild_bio_chem_entity()
-    Protein.model_rebuild()
-
-@run_once
-def rebuild_gene():
-    rebuild_anatomical_structure()
-    rebuild_defined_term()
-    rebuild_anatomical_system()
-    rebuild_bio_chem_entity()
-    Gene.model_rebuild()
-
-@run_once
-def rebuild_molecular_entity():
-    rebuild_defined_term()
-    rebuild_quantitative_value()
-    rebuild_bio_chem_entity()
-    MolecularEntity.model_rebuild()
-
-@run_once
-def rebuild_chemical_substance():
-    rebuild_defined_term()
-    rebuild_bio_chem_entity()
-    ChemicalSubstance.model_rebuild()
-
-@run_once
-def rebuild_gated_residence_community():
-    rebuild_residence()
-    GatedResidenceCommunity.model_rebuild()
-
-@run_once
-def rebuild_apartment_complex():
-    rebuild_quantitative_value()
-    rebuild_residence()
-    ApartmentComplex.model_rebuild()
-
-@run_once
-def rebuild_country():
-    rebuild_administrative_area()
-    Country.model_rebuild()
-
-@run_once
-def rebuild_city():
-    rebuild_administrative_area()
-    City.model_rebuild()
-
-@run_once
-def rebuild_state():
-    rebuild_administrative_area()
-    State.model_rebuild()
-
-@run_once
-def rebuild_school_district():
-    rebuild_administrative_area()
-    SchoolDistrict.model_rebuild()
-
-@run_once
-def rebuild_continent():
-    rebuild_landform()
-    Continent.model_rebuild()
-
-@run_once
-def rebuild_body_of_water():
-    rebuild_landform()
-    BodyOfWater.model_rebuild()
-
-@run_once
-def rebuild_mountain():
-    rebuild_landform()
-    Mountain.model_rebuild()
-
-@run_once
-def rebuild_volcano():
-    rebuild_landform()
-    Volcano.model_rebuild()
-
-@run_once
-def rebuild_radio_station():
-    rebuild_local_business()
-    RadioStation.model_rebuild()
-
-@run_once
-def rebuild_internet_cafe():
-    rebuild_local_business()
-    InternetCafe.model_rebuild()
-
-@run_once
-def rebuild_medical_business():
-    rebuild_local_business()
-    MedicalBusiness.model_rebuild()
-
-@run_once
-def rebuild_employment_agency():
-    rebuild_local_business()
-    EmploymentAgency.model_rebuild()
-
-@run_once
-def rebuild_food_establishment():
-    rebuild_menu()
-    rebuild_rating()
-    rebuild_local_business()
-    FoodEstablishment.model_rebuild()
-
-@run_once
-def rebuild_entertainment_business():
-    rebuild_local_business()
-    EntertainmentBusiness.model_rebuild()
-
-@run_once
-def rebuild_sports_activity_location():
-    rebuild_local_business()
-    SportsActivityLocation.model_rebuild()
-
-@run_once
-def rebuild_shopping_center():
-    rebuild_local_business()
-    ShoppingCenter.model_rebuild()
-
-@run_once
-def rebuild_financial_service():
-    rebuild_local_business()
-    FinancialService.model_rebuild()
-
-@run_once
-def rebuild_child_care():
-    rebuild_local_business()
-    ChildCare.model_rebuild()
-
-@run_once
-def rebuild_home_and_construction_business():
-    rebuild_local_business()
-    HomeAndConstructionBusiness.model_rebuild()
-
-@run_once
-def rebuild_automotive_business():
-    rebuild_local_business()
-    AutomotiveBusiness.model_rebuild()
-
-@run_once
-def rebuild_lodging_business():
-    rebuild_language()
-    rebuild_audience()
-    rebuild_rating()
-    rebuild_location_feature_specification()
-    rebuild_quantitative_value()
-    rebuild_local_business()
-    LodgingBusiness.model_rebuild()
-
-@run_once
-def rebuild_store():
-    rebuild_local_business()
-    Store.model_rebuild()
-
-@run_once
-def rebuild_legal_service():
-    rebuild_local_business()
-    LegalService.model_rebuild()
-
-@run_once
-def rebuild_animal_shelter():
-    rebuild_local_business()
-    AnimalShelter.model_rebuild()
-
-@run_once
-def rebuild_television_station():
-    rebuild_local_business()
-    TelevisionStation.model_rebuild()
-
-@run_once
-def rebuild_emergency_service():
-    rebuild_local_business()
-    EmergencyService.model_rebuild()
-
-@run_once
-def rebuild_dry_cleaning_or_laundry():
-    rebuild_local_business()
-    DryCleaningOrLaundry.model_rebuild()
-
-@run_once
-def rebuild_archive_organization():
-    rebuild_archive_component()
-    rebuild_local_business()
-    ArchiveOrganization.model_rebuild()
-
-@run_once
-def rebuild_real_estate_agent():
-    rebuild_local_business()
-    RealEstateAgent.model_rebuild()
-
-@run_once
-def rebuild_library():
-    rebuild_local_business()
-    Library.model_rebuild()
-
-@run_once
-def rebuild_recycling_center():
-    rebuild_local_business()
-    RecyclingCenter.model_rebuild()
-
-@run_once
-def rebuild_government_office():
-    rebuild_local_business()
-    GovernmentOffice.model_rebuild()
-
-@run_once
-def rebuild_travel_agency():
-    rebuild_local_business()
-    TravelAgency.model_rebuild()
-
-@run_once
-def rebuild_tourist_information_center():
-    rebuild_local_business()
-    TouristInformationCenter.model_rebuild()
-
-@run_once
-def rebuild_health_and_beauty_business():
-    rebuild_local_business()
-    HealthAndBeautyBusiness.model_rebuild()
-
-@run_once
-def rebuild_professional_service():
-    rebuild_local_business()
-    ProfessionalService.model_rebuild()
-
-@run_once
-def rebuild_self_storage():
-    rebuild_local_business()
-    SelfStorage.model_rebuild()
-
-@run_once
-def rebuild_playground():
-    rebuild_civic_structure()
-    Playground.model_rebuild()
-
-@run_once
-def rebuild_music_venue():
-    rebuild_civic_structure()
-    MusicVenue.model_rebuild()
-
-@run_once
-def rebuild_crematorium():
-    rebuild_civic_structure()
-    Crematorium.model_rebuild()
-
-@run_once
-def rebuild_police_station():
-    rebuild_civic_structure()
-    PoliceStation.model_rebuild()
-
-@run_once
-def rebuild_place_of_worship():
-    rebuild_civic_structure()
-    PlaceOfWorship.model_rebuild()
-
-@run_once
-def rebuild_public_toilet():
-    rebuild_civic_structure()
-    PublicToilet.model_rebuild()
-
-@run_once
-def rebuild_taxi_stand():
-    rebuild_civic_structure()
-    TaxiStand.model_rebuild()
-
-@run_once
-def rebuild_train_station():
-    rebuild_civic_structure()
-    TrainStation.model_rebuild()
-
-@run_once
-def rebuild_subway_station():
-    rebuild_civic_structure()
-    SubwayStation.model_rebuild()
-
-@run_once
-def rebuild_bridge():
-    rebuild_civic_structure()
-    Bridge.model_rebuild()
-
-@run_once
-def rebuild_event_venue():
-    rebuild_civic_structure()
-    EventVenue.model_rebuild()
-
-@run_once
-def rebuild_bus_stop():
-    rebuild_civic_structure()
-    BusStop.model_rebuild()
-
-@run_once
-def rebuild_educational_organization():
-    rebuild_person()
-    rebuild_civic_structure()
-    EducationalOrganization.model_rebuild()
-
-@run_once
-def rebuild_bus_station():
-    rebuild_civic_structure()
-    BusStation.model_rebuild()
-
-@run_once
-def rebuild_cemetery():
-    rebuild_civic_structure()
-    Cemetery.model_rebuild()
-
-@run_once
-def rebuild_government_building():
-    rebuild_civic_structure()
-    GovernmentBuilding.model_rebuild()
-
-@run_once
-def rebuild_airport():
-    rebuild_civic_structure()
-    Airport.model_rebuild()
-
-@run_once
-def rebuild_stadium_or_arena():
-    rebuild_civic_structure()
-    StadiumOrArena.model_rebuild()
-
-@run_once
-def rebuild_beach():
-    rebuild_civic_structure()
-    Beach.model_rebuild()
-
-@run_once
-def rebuild_park():
-    rebuild_civic_structure()
-    Park.model_rebuild()
-
-@run_once
-def rebuild_rv_park():
-    rebuild_civic_structure()
-    RVPark.model_rebuild()
-
-@run_once
-def rebuild_performing_arts_theater():
-    rebuild_civic_structure()
-    PerformingArtsTheater.model_rebuild()
-
-@run_once
-def rebuild_boat_terminal():
-    rebuild_civic_structure()
-    BoatTerminal.model_rebuild()
-
-@run_once
-def rebuild_hospital():
-    rebuild_medical_therapy()
-    rebuild_medical_specialty()
-    rebuild_medical_test()
-    rebuild_dataset()
-    rebuild_cdcpmd_record()
-    rebuild_medical_procedure()
-    rebuild_civic_structure()
-    Hospital.model_rebuild()
-
-@run_once
-def rebuild_aquarium():
-    rebuild_civic_structure()
-    Aquarium.model_rebuild()
-
-@run_once
-def rebuild_zoo():
-    rebuild_civic_structure()
-    Zoo.model_rebuild()
-
-@run_once
-def rebuild_parking_facility():
-    rebuild_civic_structure()
-    ParkingFacility.model_rebuild()
-
-@run_once
-def rebuild_museum():
-    rebuild_civic_structure()
-    Museum.model_rebuild()
-
-@run_once
-def rebuild_movie_theater():
-    rebuild_civic_structure()
-    MovieTheater.model_rebuild()
-
-@run_once
-def rebuild_fire_station():
-    rebuild_civic_structure()
-    FireStation.model_rebuild()
-
-@run_once
-def rebuild_apartment():
-    rebuild_quantitative_value()
-    rebuild_accommodation()
-    Apartment.model_rebuild()
-
-@run_once
-def rebuild_room():
-    rebuild_accommodation()
-    Room.model_rebuild()
-
-@run_once
-def rebuild_suite():
-    rebuild_bed_type()
-    rebuild_quantitative_value()
-    rebuild_bed_details()
-    rebuild_accommodation()
-    Suite.model_rebuild()
-
-@run_once
-def rebuild_house():
-    rebuild_quantitative_value()
-    rebuild_accommodation()
-    House.model_rebuild()
-
-@run_once
-def rebuild_camping_pitch():
-    rebuild_accommodation()
-    CampingPitch.model_rebuild()
-
-@run_once
-def rebuild_user_checkins():
-    rebuild_user_interaction()
-    UserCheckins.model_rebuild()
-
-@run_once
-def rebuild_user_blocks():
-    rebuild_user_interaction()
-    UserBlocks.model_rebuild()
-
-@run_once
-def rebuild_user_comments():
-    rebuild_person()
-    rebuild_creative_work()
-    rebuild_organization()
-    rebuild_user_interaction()
-    UserComments.model_rebuild()
-
-@run_once
-def rebuild_user_tweets():
-    rebuild_user_interaction()
-    UserTweets.model_rebuild()
-
-@run_once
-def rebuild_user_likes():
-    rebuild_user_interaction()
-    UserLikes.model_rebuild()
-
-@run_once
-def rebuild_user_plays():
-    rebuild_user_interaction()
-    UserPlays.model_rebuild()
-
-@run_once
-def rebuild_user_page_visits():
-    rebuild_user_interaction()
-    UserPageVisits.model_rebuild()
-
-@run_once
-def rebuild_user_plus_ones():
-    rebuild_user_interaction()
-    UserPlusOnes.model_rebuild()
-
-@run_once
-def rebuild_user_downloads():
-    rebuild_user_interaction()
-    UserDownloads.model_rebuild()
-
-@run_once
-def rebuild_on_demand_event():
-    rebuild_publication_event()
-    OnDemandEvent.model_rebuild()
-
-@run_once
-def rebuild_broadcast_event():
-    rebuild_event()
-    rebuild_language()
-    rebuild_publication_event()
-    BroadcastEvent.model_rebuild()
-
-@run_once
-def rebuild_event_series():
-    rebuild_series()
-    EventSeries.model_rebuild()
-
-@run_once
-def rebuild_link_role():
-    rebuild_language()
-    rebuild_role()
-    LinkRole.model_rebuild()
-
-@run_once
-def rebuild_performance_role():
-    rebuild_role()
-    PerformanceRole.model_rebuild()
-
-@run_once
-def rebuild_organization_role():
-    rebuild_role()
-    OrganizationRole.model_rebuild()
-
-@run_once
-def rebuild_government_permit():
-    rebuild_permit()
-    GovernmentPermit.model_rebuild()
-
-@run_once
-def rebuild_work_based_program():
-    rebuild_monetary_amount_distribution()
-    rebuild_category_code()
-    rebuild_educational_occupational_program()
-    WorkBasedProgram.model_rebuild()
-
-@run_once
-def rebuild_researcher():
-    rebuild_audience()
-    Researcher.model_rebuild()
-
-@run_once
-def rebuild_business_audience():
-    rebuild_quantitative_value()
-    rebuild_audience()
-    BusinessAudience.model_rebuild()
-
-@run_once
-def rebuild_educational_audience():
-    rebuild_audience()
-    EducationalAudience.model_rebuild()
-
-@run_once
-def rebuild_people_audience():
-    rebuild_medical_condition()
-    rebuild_gender_type()
-    rebuild_quantitative_value()
-    rebuild_audience()
-    PeopleAudience.model_rebuild()
-
-@run_once
-def rebuild_medical_audience():
-    rebuild_audience()
-    MedicalAudience.model_rebuild()
-
-@run_once
-def rebuild_cable_or_satellite_service():
-    rebuild_service()
-    CableOrSatelliteService.model_rebuild()
-
-@run_once
-def rebuild_web_api():
-    rebuild_creative_work()
-    rebuild_service()
-    WebAPI.model_rebuild()
-
-@run_once
-def rebuild_financial_product():
-    rebuild_quantitative_value()
-    rebuild_service()
-    FinancialProduct.model_rebuild()
-
-@run_once
-def rebuild_taxi():
-    rebuild_service()
-    Taxi.model_rebuild()
-
-@run_once
-def rebuild_food_service():
-    rebuild_service()
-    FoodService.model_rebuild()
-
-@run_once
-def rebuild_broadcast_service():
-    rebuild_place()
-    rebuild_language()
-    rebuild_broadcast_frequency_specification()
-    rebuild_organization()
-    rebuild_broadcast_channel()
-    rebuild_service()
-    BroadcastService.model_rebuild()
-
-@run_once
-def rebuild_government_service():
-    rebuild_organization()
-    rebuild_administrative_area()
-    rebuild_service()
-    GovernmentService.model_rebuild()
-
-@run_once
-def rebuild_taxi_service():
-    rebuild_service()
-    TaxiService.model_rebuild()
-
-@run_once
-def rebuild_size_group_enumeration():
-    rebuild_enumeration()
-    SizeGroupEnumeration.model_rebuild()
-
-@run_once
-def rebuild_return_label_source_enumeration():
-    rebuild_enumeration()
-    ReturnLabelSourceEnumeration.model_rebuild()
-
-@run_once
-def rebuild_physical_activity_category():
-    rebuild_enumeration()
-    PhysicalActivityCategory.model_rebuild()
-
-@run_once
-def rebuild_contact_point_option():
-    rebuild_enumeration()
-    ContactPointOption.model_rebuild()
-
-@run_once
-def rebuild_price_component_type_enumeration():
-    rebuild_enumeration()
-    PriceComponentTypeEnumeration.model_rebuild()
-
-@run_once
-def rebuild_map_category_type():
-    rebuild_enumeration()
-    MapCategoryType.model_rebuild()
-
-@run_once
-def rebuild_restricted_diet():
-    rebuild_enumeration()
-    RestrictedDiet.model_rebuild()
-
-@run_once
-def rebuild_digital_platform_enumeration():
-    rebuild_enumeration()
-    DigitalPlatformEnumeration.model_rebuild()
-
-@run_once
-def rebuild_payment_method_type():
-    rebuild_enumeration()
-    PaymentMethodType.model_rebuild()
-
-@run_once
-def rebuild_incentive_qualified_expense_type():
-    rebuild_enumeration()
-    IncentiveQualifiedExpenseType.model_rebuild()
-
-@run_once
-def rebuild_certification_status_enumeration():
-    rebuild_enumeration()
-    CertificationStatusEnumeration.model_rebuild()
-
-@run_once
-def rebuild_government_benefits_type():
-    rebuild_enumeration()
-    GovernmentBenefitsType.model_rebuild()
-
-@run_once
-def rebuild_status_enumeration():
-    rebuild_enumeration()
-    StatusEnumeration.model_rebuild()
-
-@run_once
-def rebuild_car_usage_type():
-    rebuild_enumeration()
-    CarUsageType.model_rebuild()
-
-@run_once
-def rebuild_fulfillment_type_enumeration():
-    rebuild_enumeration()
-    FulfillmentTypeEnumeration.model_rebuild()
-
-@run_once
-def rebuild_size_system_enumeration():
-    rebuild_enumeration()
-    SizeSystemEnumeration.model_rebuild()
-
-@run_once
-def rebuild_specialty():
-    rebuild_enumeration()
-    Specialty.model_rebuild()
-
-@run_once
-def rebuild_gender_type():
-    rebuild_enumeration()
-    GenderType.model_rebuild()
-
-@run_once
-def rebuild_health_aspect_enumeration():
-    rebuild_enumeration()
-    HealthAspectEnumeration.model_rebuild()
-
-@run_once
-def rebuild_media_manipulation_rating_enumeration():
-    rebuild_enumeration()
-    MediaManipulationRatingEnumeration.model_rebuild()
-
-@run_once
-def rebuild_media_enumeration():
-    rebuild_enumeration()
-    MediaEnumeration.model_rebuild()
-
-@run_once
-def rebuild_warranty_scope():
-    rebuild_enumeration()
-    WarrantyScope.model_rebuild()
-
-@run_once
-def rebuild_music_album_release_type():
-    rebuild_enumeration()
-    MusicAlbumReleaseType.model_rebuild()
-
-@run_once
-def rebuild_medical_enumeration():
-    rebuild_enumeration()
-    MedicalEnumeration.model_rebuild()
-
-@run_once
-def rebuild_digital_document_permission_type():
-    rebuild_enumeration()
-    DigitalDocumentPermissionType.model_rebuild()
-
-@run_once
-def rebuild_offer_item_condition():
-    rebuild_enumeration()
-    OfferItemCondition.model_rebuild()
-
-@run_once
-def rebuild_measurement_method_enum():
-    rebuild_enumeration()
-    MeasurementMethodEnum.model_rebuild()
-
-@run_once
-def rebuild_legal_value_level():
-    rebuild_enumeration()
-    LegalValueLevel.model_rebuild()
-
-@run_once
-def rebuild_energy_efficiency_enumeration():
-    rebuild_enumeration()
-    EnergyEfficiencyEnumeration.model_rebuild()
-
-@run_once
-def rebuild_book_format_type():
-    rebuild_enumeration()
-    BookFormatType.model_rebuild()
-
-@run_once
-def rebuild_business_entity_type():
-    rebuild_enumeration()
-    BusinessEntityType.model_rebuild()
-
-@run_once
-def rebuild_product_return_enumeration():
-    rebuild_enumeration()
-    ProductReturnEnumeration.model_rebuild()
-
-@run_once
-def rebuild_price_type_enumeration():
-    rebuild_enumeration()
-    PriceTypeEnumeration.model_rebuild()
-
-@run_once
-def rebuild_item_availability():
-    rebuild_enumeration()
-    ItemAvailability.model_rebuild()
-
-@run_once
-def rebuild_item_list_order_type():
-    rebuild_enumeration()
-    ItemListOrderType.model_rebuild()
-
-@run_once
-def rebuild_refund_type_enumeration():
-    rebuild_enumeration()
-    RefundTypeEnumeration.model_rebuild()
-
-@run_once
-def rebuild_tier_benefit_enumeration():
-    rebuild_enumeration()
-    TierBenefitEnumeration.model_rebuild()
-
-@run_once
-def rebuild_game_availability_enumeration():
-    rebuild_enumeration()
-    GameAvailabilityEnumeration.model_rebuild()
-
-@run_once
-def rebuild_boarding_policy_type():
-    rebuild_enumeration()
-    BoardingPolicyType.model_rebuild()
-
-@run_once
-def rebuild_business_function():
-    rebuild_enumeration()
-    BusinessFunction.model_rebuild()
-
-@run_once
-def rebuild_delivery_method():
-    rebuild_enumeration()
-    DeliveryMethod.model_rebuild()
-
-@run_once
-def rebuild_incentive_status():
-    rebuild_enumeration()
-    IncentiveStatus.model_rebuild()
-
-@run_once
-def rebuild_purchase_type():
-    rebuild_enumeration()
-    PurchaseType.model_rebuild()
-
-@run_once
-def rebuild_qualitative_value():
-    rebuild_measurement_type_enumeration()
-    rebuild_property_value()
-    rebuild_structured_value()
-    rebuild_defined_term()
-    rebuild_quantitative_value()
-    rebuild_enumeration()
-    QualitativeValue.model_rebuild()
-
-@run_once
-def rebuild_return_fees_enumeration():
-    rebuild_enumeration()
-    ReturnFeesEnumeration.model_rebuild()
-
-@run_once
-def rebuild_incentive_type():
-    rebuild_enumeration()
-    IncentiveType.model_rebuild()
-
-@run_once
-def rebuild_adult_oriented_enumeration():
-    rebuild_enumeration()
-    AdultOrientedEnumeration.model_rebuild()
-
-@run_once
-def rebuild_nonprofit_type():
-    rebuild_enumeration()
-    NonprofitType.model_rebuild()
-
-@run_once
-def rebuild_rsvp_response_type():
-    rebuild_enumeration()
-    RsvpResponseType.model_rebuild()
-
-@run_once
-def rebuild_return_method_enumeration():
-    rebuild_enumeration()
-    ReturnMethodEnumeration.model_rebuild()
-
-@run_once
-def rebuild_merchant_return_enumeration():
-    rebuild_enumeration()
-    MerchantReturnEnumeration.model_rebuild()
-
-@run_once
-def rebuild_day_of_week():
-    rebuild_enumeration()
-    DayOfWeek.model_rebuild()
-
-@run_once
-def rebuild_measurement_type_enumeration():
-    rebuild_enumeration()
-    MeasurementTypeEnumeration.model_rebuild()
-
-@run_once
-def rebuild_music_release_format_type():
-    rebuild_enumeration()
-    MusicReleaseFormatType.model_rebuild()
-
-@run_once
-def rebuild_event_attendance_mode_enumeration():
-    rebuild_enumeration()
-    EventAttendanceModeEnumeration.model_rebuild()
-
-@run_once
-def rebuild_music_album_production_type():
-    rebuild_enumeration()
-    MusicAlbumProductionType.model_rebuild()
-
-@run_once
-def rebuild_game_play_mode():
-    rebuild_enumeration()
-    GamePlayMode.model_rebuild()
-
-@run_once
-def rebuild_defined_region():
-    rebuild_postal_code_range_specification()
-    rebuild_country()
-    rebuild_structured_value()
-    DefinedRegion.model_rebuild()
-
-@run_once
-def rebuild_engine_specification():
-    rebuild_qualitative_value()
-    rebuild_quantitative_value()
-    rebuild_structured_value()
-    EngineSpecification.model_rebuild()
-
-@run_once
-def rebuild_shipping_service():
-    rebuild_service_period()
-    rebuild_fulfillment_type_enumeration()
-    rebuild_member_program_tier()
-    rebuild_shipping_conditions()
-    rebuild_quantitative_value()
-    rebuild_structured_value()
-    ShippingService.model_rebuild()
-
-@run_once
-def rebuild_quantitative_value():
-    rebuild_measurement_type_enumeration()
-    rebuild_property_value()
-    rebuild_qualitative_value()
-    rebuild_defined_term()
-    rebuild_enumeration()
-    rebuild_structured_value()
-    QuantitativeValue.model_rebuild()
-
-@run_once
-def rebuild_repayment_specification():
-    rebuild_monetary_amount()
-    rebuild_structured_value()
-    RepaymentSpecification.model_rebuild()
-
-@run_once
-def rebuild_service_period():
-    rebuild_duration()
-    rebuild_day_of_week()
-    rebuild_quantitative_value()
-    rebuild_opening_hours_specification()
-    rebuild_structured_value()
-    ServicePeriod.model_rebuild()
-
-@run_once
-def rebuild_warranty_promise():
-    rebuild_warranty_scope()
-    rebuild_quantitative_value()
-    rebuild_structured_value()
-    WarrantyPromise.model_rebuild()
-
-@run_once
-def rebuild_delivery_time_settings():
-    rebuild_defined_region()
-    rebuild_shipping_delivery_time()
-    rebuild_structured_value()
-    DeliveryTimeSettings.model_rebuild()
-
-@run_once
-def rebuild_shipping_rate_settings():
-    rebuild_delivery_charge_specification()
-    rebuild_defined_region()
-    rebuild_monetary_amount()
-    rebuild_structured_value()
-    ShippingRateSettings.model_rebuild()
-
-@run_once
-def rebuild_price_specification():
-    rebuild_member_program_tier()
-    rebuild_quantitative_value()
-    rebuild_structured_value()
-    PriceSpecification.model_rebuild()
-
-@run_once
-def rebuild_quantitative_value_distribution():
-    rebuild_duration()
-    rebuild_quantitative_value()
-    rebuild_structured_value()
-    QuantitativeValueDistribution.model_rebuild()
-
-@run_once
-def rebuild_shipping_delivery_time():
-    rebuild_day_of_week()
-    rebuild_service_period()
-    rebuild_quantitative_value()
-    rebuild_opening_hours_specification()
-    rebuild_structured_value()
-    ShippingDeliveryTime.model_rebuild()
-
-@run_once
-def rebuild_postal_code_range_specification():
-    rebuild_structured_value()
-    PostalCodeRangeSpecification.model_rebuild()
-
-@run_once
-def rebuild_monetary_amount():
-    rebuild_structured_value()
-    MonetaryAmount.model_rebuild()
-
-@run_once
-def rebuild_shipping_conditions():
-    rebuild_defined_region()
-    rebuild_monetary_amount()
-    rebuild_service_period()
-    rebuild_opening_hours_specification()
-    rebuild_mass()
-    rebuild_distance()
-    rebuild_quantitative_value()
-    rebuild_shipping_rate_settings()
-    rebuild_structured_value()
-    ShippingConditions.model_rebuild()
-
-@run_once
-def rebuild_property_value():
-    rebuild_measurement_type_enumeration()
-    rebuild_measurement_method_enum()
-    rebuild_qualitative_value()
-    rebuild_defined_term()
-    rebuild_quantitative_value()
-    rebuild_enumeration()
-    rebuild_structured_value()
-    PropertyValue.model_rebuild()
-
-@run_once
-def rebuild_ownership_info():
-    rebuild_person()
-    rebuild_organization()
-    rebuild_product()
-    rebuild_service()
-    rebuild_structured_value()
-    OwnershipInfo.model_rebuild()
-
-@run_once
-def rebuild_interaction_counter():
-    rebuild_place()
-    rebuild_virtual_location()
-    rebuild_software_application()
-    rebuild_web_site()
-    rebuild_action()
-    rebuild_postal_address()
-    rebuild_structured_value()
-    InteractionCounter.model_rebuild()
-
-@run_once
-def rebuild_exchange_rate_specification():
-    rebuild_unit_price_specification()
-    rebuild_monetary_amount()
-    rebuild_structured_value()
-    ExchangeRateSpecification.model_rebuild()
-
-@run_once
-def rebuild_geo_shape():
-    rebuild_country()
-    rebuild_postal_address()
-    rebuild_structured_value()
-    GeoShape.model_rebuild()
-
-@run_once
-def rebuild_cdcpmd_record():
-    rebuild_structured_value()
-    CDCPMDRecord.model_rebuild()
-
-@run_once
-def rebuild_type_and_quantity_node():
-    rebuild_business_function()
-    rebuild_service()
-    rebuild_product()
-    rebuild_structured_value()
-    TypeAndQuantityNode.model_rebuild()
-
-@run_once
-def rebuild_offer_shipping_details():
-    rebuild_defined_region()
-    rebuild_monetary_amount()
-    rebuild_shipping_service()
-    rebuild_quantitative_value()
-    rebuild_mass()
-    rebuild_member_program_tier()
-    rebuild_shipping_delivery_time()
-    rebuild_distance()
-    rebuild_shipping_rate_settings()
-    rebuild_structured_value()
-    OfferShippingDetails.model_rebuild()
-
-@run_once
-def rebuild_dated_money_specification():
-    rebuild_monetary_amount()
-    rebuild_structured_value()
-    DatedMoneySpecification.model_rebuild()
-
-@run_once
-def rebuild_contact_point():
-    rebuild_contact_point_option()
-    rebuild_place()
-    rebuild_language()
-    rebuild_opening_hours_specification()
-    rebuild_administrative_area()
-    rebuild_geo_shape()
-    rebuild_product()
-    rebuild_structured_value()
-    ContactPoint.model_rebuild()
-
-@run_once
-def rebuild_nutrition_information():
-    rebuild_mass()
-    rebuild_energy()
-    rebuild_structured_value()
-    NutritionInformation.model_rebuild()
-
-@run_once
-def rebuild_geo_coordinates():
-    rebuild_country()
-    rebuild_postal_address()
-    rebuild_structured_value()
-    GeoCoordinates.model_rebuild()
-
-@run_once
-def rebuild_opening_hours_specification():
-    rebuild_day_of_week()
-    rebuild_structured_value()
-    OpeningHoursSpecification.model_rebuild()
-
-@run_once
-def rebuild_endorsement_rating():
-    rebuild_rating()
-    EndorsementRating.model_rebuild()
-
-@run_once
-def rebuild_aggregate_rating():
-    rebuild_thing()
-    rebuild_rating()
-    AggregateRating.model_rebuild()
-
-@run_once
-def rebuild_rental_car_reservation():
-    rebuild_place()
-    rebuild_reservation()
-    RentalCarReservation.model_rebuild()
-
-@run_once
-def rebuild_lodging_reservation():
-    rebuild_qualitative_value()
-    rebuild_quantitative_value()
-    rebuild_reservation()
-    LodgingReservation.model_rebuild()
-
-@run_once
-def rebuild_train_reservation():
-    rebuild_reservation()
-    TrainReservation.model_rebuild()
-
-@run_once
-def rebuild_boat_reservation():
-    rebuild_reservation()
-    BoatReservation.model_rebuild()
-
-@run_once
-def rebuild_event_reservation():
-    rebuild_reservation()
-    EventReservation.model_rebuild()
-
-@run_once
-def rebuild_flight_reservation():
-    rebuild_qualitative_value()
-    rebuild_reservation()
-    FlightReservation.model_rebuild()
-
-@run_once
-def rebuild_bus_reservation():
-    rebuild_reservation()
-    BusReservation.model_rebuild()
-
-@run_once
-def rebuild_taxi_reservation():
-    rebuild_place()
-    rebuild_quantitative_value()
-    rebuild_reservation()
-    TaxiReservation.model_rebuild()
-
-@run_once
-def rebuild_reservation_package():
-    rebuild_reservation()
-    ReservationPackage.model_rebuild()
-
-@run_once
-def rebuild_food_establishment_reservation():
-    rebuild_quantitative_value()
-    rebuild_reservation()
-    FoodEstablishmentReservation.model_rebuild()
-
-@run_once
-def rebuild_category_code():
-    rebuild_category_code_set()
-    rebuild_defined_term()
-    CategoryCode.model_rebuild()
-
-@run_once
-def rebuild_how_to_item():
-    rebuild_quantitative_value()
-    rebuild_list_item()
-    HowToItem.model_rebuild()
-
-@run_once
-def rebuild_breadcrumb_list():
-    rebuild_item_list()
-    BreadcrumbList.model_rebuild()
-
-@run_once
-def rebuild_how_to_step():
-    rebuild_item_list()
-    HowToStep.model_rebuild()
-
-@run_once
-def rebuild_offer_catalog():
-    rebuild_item_list()
-    OfferCatalog.model_rebuild()
-
-@run_once
-def rebuild_monetary_grant():
-    rebuild_person()
-    rebuild_monetary_amount()
-    rebuild_organization()
-    rebuild_grant()
-    MonetaryGrant.model_rebuild()
-
-@run_once
-def rebuild_statistical_variable():
-    rebuild_measurement_method_enum()
-    rebuild___class()
-    rebuild_property()
-    rebuild_defined_term()
-    rebuild_enumeration()
-    rebuild_constraint_node()
-    StatisticalVariable.model_rebuild()
-
-@run_once
-def rebuild_aggregate_offer():
-    rebuild_demand()
-    rebuild_offer()
-    AggregateOffer.model_rebuild()
-
-@run_once
-def rebuild_offer_for_purchase():
-    rebuild_offer()
-    OfferForPurchase.model_rebuild()
-
-@run_once
-def rebuild_offer_for_lease():
-    rebuild_offer()
-    OfferForLease.model_rebuild()
-
-@run_once
-def rebuild_train_trip():
-    rebuild_train_station()
-    rebuild_trip()
-    TrainTrip.model_rebuild()
-
-@run_once
-def rebuild_bus_trip():
-    rebuild_bus_stop()
-    rebuild_bus_station()
-    rebuild_trip()
-    BusTrip.model_rebuild()
-
-@run_once
-def rebuild_tourist_trip():
-    rebuild_audience()
-    rebuild_trip()
-    TouristTrip.model_rebuild()
-
-@run_once
-def rebuild_flight():
-    rebuild_vehicle()
-    rebuild_duration()
-    rebuild_airport()
-    rebuild_boarding_policy_type()
-    rebuild_person()
-    rebuild_distance()
-    rebuild_organization()
-    rebuild_trip()
-    Flight.model_rebuild()
-
-@run_once
-def rebuild_boat_trip():
-    rebuild_boat_terminal()
-    rebuild_trip()
-    BoatTrip.model_rebuild()
-
-@run_once
-def rebuild_energy():
-    rebuild_quantity()
-    Energy.model_rebuild()
-
-@run_once
-def rebuild_distance():
-    rebuild_quantity()
-    Distance.model_rebuild()
-
-@run_once
-def rebuild_mass():
-    rebuild_quantity()
-    Mass.model_rebuild()
-
-@run_once
-def rebuild_duration():
-    rebuild_quantity()
-    Duration.model_rebuild()
-
-@run_once
-def rebuild_radio_channel():
-    rebuild_broadcast_channel()
-    RadioChannel.model_rebuild()
-
-@run_once
-def rebuild_television_channel():
-    rebuild_broadcast_channel()
-    TelevisionChannel.model_rebuild()
-
-@run_once
-def rebuild_comic_cover_art():
-    rebuild_comic_story()
-    ComicCoverArt.model_rebuild()
-
-@run_once
-def rebuild_recipe():
-    rebuild_duration()
-    rebuild_item_list()
-    rebuild_property_value()
-    rebuild_nutrition_information()
-    rebuild_creative_work()
-    rebuild_restricted_diet()
-    rebuild_quantitative_value()
-    rebuild_how_to()
-    Recipe.model_rebuild()
-
-@run_once
-def rebuild_health_topic_content():
-    rebuild_health_aspect_enumeration()
-    rebuild_web_content()
-    HealthTopicContent.model_rebuild()
-
-@run_once
-def rebuild_video_game():
-    rebuild_game_server()
-    rebuild_video_object()
-    rebuild_performing_group()
-    rebuild_thing()
-    rebuild_game_play_mode()
-    rebuild_music_group()
-    rebuild_creative_work()
-    rebuild_person()
-    rebuild_game()
-    VideoGame.model_rebuild()
-
-@run_once
-def rebuild_video_object():
-    rebuild_person()
-    rebuild_performing_group()
-    rebuild_music_group()
-    rebuild_media_object()
-    VideoObject.model_rebuild()
-
-@run_once
-def rebuild_audio_object():
-    rebuild_media_object()
-    AudioObject.model_rebuild()
-
-@run_once
-def rebuild_music_video_object():
-    rebuild_media_object()
-    MusicVideoObject.model_rebuild()
-
-@run_once
-def rebuild_amp_story():
-    rebuild_media_object()
-    AmpStory.model_rebuild()
-
-@run_once
-def rebuild_data_download():
-    rebuild_defined_term()
-    rebuild_measurement_method_enum()
-    rebuild_media_object()
-    DataDownload.model_rebuild()
-
-@run_once
-def rebuild_text_object():
-    rebuild_media_object()
-    TextObject.model_rebuild()
-
-@run_once
-def rebuild__3_d_model():
-    rebuild_media_object()
-    _3DModel.model_rebuild()
-
-@run_once
-def rebuild_image_object():
-    rebuild_property_value()
-    rebuild_media_object()
-    ImageObject.model_rebuild()
-
-@run_once
-def rebuild_radio_clip():
-    rebuild_clip()
-    RadioClip.model_rebuild()
-
-@run_once
-def rebuild_tv_clip():
-    rebuild_tv_series()
-    rebuild_clip()
-    TVClip.model_rebuild()
-
-@run_once
-def rebuild_movie_clip():
-    rebuild_clip()
-    MovieClip.model_rebuild()
-
-@run_once
-def rebuild_video_game_clip():
-    rebuild_clip()
-    VideoGameClip.model_rebuild()
-
-@run_once
-def rebuild_claim_review():
-    rebuild_review()
-    ClaimReview.model_rebuild()
-
-@run_once
-def rebuild_media_review():
-    rebuild_web_page()
-    rebuild_media_object()
-    rebuild_media_manipulation_rating_enumeration()
-    rebuild_review()
-    MediaReview.model_rebuild()
-
-@run_once
-def rebuild_user_review():
-    rebuild_review()
-    UserReview.model_rebuild()
-
-@run_once
-def rebuild_employer_review():
-    rebuild_review()
-    EmployerReview.model_rebuild()
-
-@run_once
-def rebuild_recommendation():
-    rebuild_thing()
-    rebuild_category_code()
-    rebuild_physical_activity_category()
-    rebuild_review()
-    Recommendation.model_rebuild()
-
-@run_once
-def rebuild_critic_review():
-    rebuild_review()
-    CriticReview.model_rebuild()
-
-@run_once
-def rebuild_note_digital_document():
-    rebuild_digital_document()
-    NoteDigitalDocument.model_rebuild()
-
-@run_once
-def rebuild_spreadsheet_digital_document():
-    rebuild_digital_document()
-    SpreadsheetDigitalDocument.model_rebuild()
-
-@run_once
-def rebuild_text_digital_document():
-    rebuild_digital_document()
-    TextDigitalDocument.model_rebuild()
-
-@run_once
-def rebuild_presentation_digital_document():
-    rebuild_digital_document()
-    PresentationDigitalDocument.model_rebuild()
-
-@run_once
-def rebuild_data_feed():
-    rebuild_data_feed_item()
-    rebuild_thing()
-    rebuild_dataset()
-    DataFeed.model_rebuild()
-
-@run_once
-def rebuild_tv_season():
-    rebuild_country()
-    rebuild_tv_series()
-    rebuild_creative_work_season()
-    TVSeason.model_rebuild()
-
-@run_once
-def rebuild_radio_season():
-    rebuild_creative_work_season()
-    RadioSeason.model_rebuild()
-
-@run_once
-def rebuild_podcast_season():
-    rebuild_creative_work_season()
-    PodcastSeason.model_rebuild()
-
-@run_once
-def rebuild_quiz():
-    rebuild_learning_resource()
-    Quiz.model_rebuild()
-
-@run_once
-def rebuild_course():
-    rebuild_course_instance()
-    rebuild_language()
-    rebuild_syllabus()
-    rebuild_educational_occupational_credential()
-    rebuild_structured_value()
-    rebuild_alignment_object()
-    rebuild_defined_term()
-    rebuild_learning_resource()
-    Course.model_rebuild()
-
-@run_once
-def rebuild_syllabus():
-    rebuild_learning_resource()
-    Syllabus.model_rebuild()
-
-@run_once
-def rebuild_music_album():
-    rebuild_music_release()
-    rebuild_music_album_release_type()
-    rebuild_music_group()
-    rebuild_person()
-    rebuild_music_album_production_type()
-    rebuild_music_playlist()
-    MusicAlbum.model_rebuild()
-
-@run_once
-def rebuild_music_release():
-    rebuild_person()
-    rebuild_music_release_format_type()
-    rebuild_duration()
-    rebuild_quantitative_value()
-    rebuild_music_album()
-    rebuild_organization()
-    rebuild_music_playlist()
-    MusicRelease.model_rebuild()
-
-@run_once
-def rebuild_table():
-    rebuild_web_page_element()
-    Table.model_rebuild()
-
-@run_once
-def rebuild_wp_footer():
-    rebuild_web_page_element()
-    WPFooter.model_rebuild()
-
-@run_once
-def rebuild_wp_side_bar():
-    rebuild_web_page_element()
-    WPSideBar.model_rebuild()
-
-@run_once
-def rebuild_wp_ad_block():
-    rebuild_web_page_element()
-    WPAdBlock.model_rebuild()
-
-@run_once
-def rebuild_wp_header():
-    rebuild_web_page_element()
-    WPHeader.model_rebuild()
-
-@run_once
-def rebuild_site_navigation_element():
-    rebuild_web_page_element()
-    SiteNavigationElement.model_rebuild()
-
-@run_once
-def rebuild_news_article():
-    rebuild_article()
-    NewsArticle.model_rebuild()
-
-@run_once
-def rebuild_satirical_article():
-    rebuild_article()
-    SatiricalArticle.model_rebuild()
-
-@run_once
-def rebuild_advertiser_content_article():
-    rebuild_article()
-    AdvertiserContentArticle.model_rebuild()
-
-@run_once
-def rebuild_social_media_posting():
-    rebuild_creative_work()
-    rebuild_article()
-    SocialMediaPosting.model_rebuild()
-
-@run_once
-def rebuild_report():
-    rebuild_article()
-    Report.model_rebuild()
-
-@run_once
-def rebuild_scholarly_article():
-    rebuild_article()
-    ScholarlyArticle.model_rebuild()
-
-@run_once
-def rebuild_tech_article():
-    rebuild_article()
-    TechArticle.model_rebuild()
-
-@run_once
-def rebuild_comic_issue():
-    rebuild_person()
-    rebuild_publication_issue()
-    ComicIssue.model_rebuild()
-
-@run_once
-def rebuild_web_application():
-    rebuild_software_application()
-    WebApplication.model_rebuild()
-
-@run_once
-def rebuild_mobile_application():
-    rebuild_software_application()
-    MobileApplication.model_rebuild()
-
-@run_once
-def rebuild_correction_comment():
-    rebuild_comment()
-    CorrectionComment.model_rebuild()
-
-@run_once
-def rebuild_question():
-    rebuild_item_list()
-    rebuild_answer()
-    rebuild_creative_work()
-    rebuild_comment()
-    Question.model_rebuild()
-
-@run_once
-def rebuild_answer():
-    rebuild_web_content()
-    rebuild_creative_work()
-    rebuild_comment()
-    Answer.model_rebuild()
-
-@run_once
-def rebuild_email_message():
-    rebuild_message()
-    EmailMessage.model_rebuild()
-
-@run_once
-def rebuild_legislation_object():
-    rebuild_legal_value_level()
-    rebuild_legislation()
-    LegislationObject.model_rebuild()
-
-@run_once
-def rebuild_category_code_set():
-    rebuild_category_code()
-    rebuild_defined_term_set()
-    CategoryCodeSet.model_rebuild()
-
-@run_once
-def rebuild_cover_art():
-    rebuild_visual_artwork()
-    CoverArt.model_rebuild()
-
-@run_once
-def rebuild_real_estate_listing():
-    rebuild_duration()
-    rebuild_quantitative_value()
-    rebuild_web_page()
-    RealEstateListing.model_rebuild()
-
-@run_once
-def rebuild_profile_page():
-    rebuild_web_page()
-    ProfilePage.model_rebuild()
-
-@run_once
-def rebuild_medical_web_page():
-    rebuild_medical_audience()
-    rebuild_medical_audience_type()
-    rebuild_web_page()
-    MedicalWebPage.model_rebuild()
-
-@run_once
-def rebuild_search_results_page():
-    rebuild_web_page()
-    SearchResultsPage.model_rebuild()
-
-@run_once
-def rebuild_checkout_page():
-    rebuild_web_page()
-    CheckoutPage.model_rebuild()
-
-@run_once
-def rebuild_contact_page():
-    rebuild_web_page()
-    ContactPage.model_rebuild()
-
-@run_once
-def rebuild_item_page():
-    rebuild_web_page()
-    ItemPage.model_rebuild()
-
-@run_once
-def rebuild_collection_page():
-    rebuild_web_page()
-    CollectionPage.model_rebuild()
-
-@run_once
-def rebuild_about_page():
-    rebuild_web_page()
-    AboutPage.model_rebuild()
-
-@run_once
-def rebuild_qa_page():
-    rebuild_web_page()
-    QAPage.model_rebuild()
-
-@run_once
-def rebuild_faq_page():
-    rebuild_web_page()
-    FAQPage.model_rebuild()
-
-@run_once
-def rebuild_radio_episode():
-    rebuild_episode()
-    RadioEpisode.model_rebuild()
-
-@run_once
-def rebuild_podcast_episode():
-    rebuild_episode()
-    PodcastEpisode.model_rebuild()
-
-@run_once
-def rebuild_tv_episode():
-    rebuild_country()
-    rebuild_tv_series()
-    rebuild_language()
-    rebuild_episode()
-    TVEpisode.model_rebuild()
-
-@run_once
-def rebuild_radio_series():
-    rebuild_creative_work_season()
-    rebuild_episode()
-    rebuild_performing_group()
-    rebuild_video_object()
-    rebuild_music_group()
-    rebuild_person()
-    rebuild_organization()
-    rebuild_creative_work_series()
-    RadioSeries.model_rebuild()
-
-@run_once
-def rebuild_periodical():
-    rebuild_creative_work_series()
-    Periodical.model_rebuild()
-
-@run_once
-def rebuild_podcast_series():
-    rebuild_person()
-    rebuild_performing_group()
-    rebuild_data_feed()
-    rebuild_creative_work_series()
-    PodcastSeries.model_rebuild()
-
-@run_once
-def rebuild_book_series():
-    rebuild_creative_work_series()
-    BookSeries.model_rebuild()
-
-@run_once
-def rebuild_movie_series():
-    rebuild_video_object()
-    rebuild_performing_group()
-    rebuild_music_group()
-    rebuild_person()
-    rebuild_organization()
-    rebuild_creative_work_series()
-    MovieSeries.model_rebuild()
-
-@run_once
-def rebuild_video_game_series():
-    rebuild_creative_work_season()
-    rebuild_place()
-    rebuild_episode()
-    rebuild_performing_group()
-    rebuild_video_object()
-    rebuild_thing()
-    rebuild_postal_address()
-    rebuild_game_play_mode()
-    rebuild_music_group()
-    rebuild_creative_work()
-    rebuild_person()
-    rebuild_quantitative_value()
-    rebuild_organization()
-    rebuild_creative_work_series()
-    VideoGameSeries.model_rebuild()
-
-@run_once
-def rebuild_resume_action():
-    rebuild_control_action()
-    ResumeAction.model_rebuild()
-
-@run_once
-def rebuild_suspend_action():
-    rebuild_control_action()
-    SuspendAction.model_rebuild()
-
-@run_once
-def rebuild_activate_action():
-    rebuild_control_action()
-    ActivateAction.model_rebuild()
-
-@run_once
-def rebuild_deactivate_action():
-    rebuild_control_action()
-    DeactivateAction.model_rebuild()
-
-@run_once
-def rebuild_rent_action():
-    rebuild_person()
-    rebuild_real_estate_agent()
-    rebuild_organization()
-    rebuild_trade_action()
-    RentAction.model_rebuild()
-
-@run_once
-def rebuild_order_action():
-    rebuild_delivery_method()
-    rebuild_trade_action()
-    OrderAction.model_rebuild()
-
-@run_once
-def rebuild_pre_order_action():
-    rebuild_trade_action()
-    PreOrderAction.model_rebuild()
-
-@run_once
-def rebuild_buy_action():
-    rebuild_warranty_promise()
-    rebuild_person()
-    rebuild_organization()
-    rebuild_trade_action()
-    BuyAction.model_rebuild()
-
-@run_once
-def rebuild_tip_action():
-    rebuild_person()
-    rebuild_contact_point()
-    rebuild_audience()
-    rebuild_organization()
-    rebuild_trade_action()
-    TipAction.model_rebuild()
-
-@run_once
-def rebuild_sell_action():
-    rebuild_warranty_promise()
-    rebuild_person()
-    rebuild_organization()
-    rebuild_trade_action()
-    SellAction.model_rebuild()
-
-@run_once
-def rebuild_pay_action():
-    rebuild_person()
-    rebuild_contact_point()
-    rebuild_audience()
-    rebuild_organization()
-    rebuild_trade_action()
-    PayAction.model_rebuild()
-
-@run_once
-def rebuild_quote_action():
-    rebuild_trade_action()
-    QuoteAction.model_rebuild()
-
-@run_once
-def rebuild_ignore_action():
-    rebuild_assess_action()
-    IgnoreAction.model_rebuild()
-
-@run_once
-def rebuild_review_action():
-    rebuild_review()
-    rebuild_assess_action()
-    ReviewAction.model_rebuild()
-
-@run_once
-def rebuild_react_action():
-    rebuild_assess_action()
-    ReactAction.model_rebuild()
-
-@run_once
-def rebuild_choose_action():
-    rebuild_thing()
-    rebuild_assess_action()
-    ChooseAction.model_rebuild()
-
-@run_once
-def rebuild_travel_action():
-    rebuild_distance()
-    rebuild_move_action()
-    TravelAction.model_rebuild()
-
-@run_once
-def rebuild_depart_action():
-    rebuild_move_action()
-    DepartAction.model_rebuild()
-
-@run_once
-def rebuild_arrive_action():
-    rebuild_move_action()
-    ArriveAction.model_rebuild()
-
-@run_once
-def rebuild_tie_action():
-    rebuild_achieve_action()
-    TieAction.model_rebuild()
-
-@run_once
-def rebuild_lose_action():
-    rebuild_person()
-    rebuild_achieve_action()
-    LoseAction.model_rebuild()
-
-@run_once
-def rebuild_win_action():
-    rebuild_person()
-    rebuild_achieve_action()
-    WinAction.model_rebuild()
-
-@run_once
-def rebuild_track_action():
-    rebuild_delivery_method()
-    rebuild_find_action()
-    TrackAction.model_rebuild()
-
-@run_once
-def rebuild_discover_action():
-    rebuild_find_action()
-    DiscoverAction.model_rebuild()
-
-@run_once
-def rebuild_check_action():
-    rebuild_find_action()
-    CheckAction.model_rebuild()
-
-@run_once
-def rebuild_lend_action():
-    rebuild_person()
-    rebuild_transfer_action()
-    LendAction.model_rebuild()
-
-@run_once
-def rebuild_send_action():
-    rebuild_contact_point()
-    rebuild_delivery_method()
-    rebuild_audience()
-    rebuild_person()
-    rebuild_organization()
-    rebuild_transfer_action()
-    SendAction.model_rebuild()
-
-@run_once
-def rebuild_money_transfer():
-    rebuild_bank_or_credit_union()
-    rebuild_monetary_amount()
-    rebuild_transfer_action()
-    MoneyTransfer.model_rebuild()
-
-@run_once
-def rebuild_return_action():
-    rebuild_person()
-    rebuild_contact_point()
-    rebuild_audience()
-    rebuild_organization()
-    rebuild_transfer_action()
-    ReturnAction.model_rebuild()
-
-@run_once
-def rebuild_take_action():
-    rebuild_transfer_action()
-    TakeAction.model_rebuild()
-
-@run_once
-def rebuild_give_action():
-    rebuild_person()
-    rebuild_contact_point()
-    rebuild_audience()
-    rebuild_organization()
-    rebuild_transfer_action()
-    GiveAction.model_rebuild()
-
-@run_once
-def rebuild_borrow_action():
-    rebuild_person()
-    rebuild_organization()
-    rebuild_transfer_action()
-    BorrowAction.model_rebuild()
-
-@run_once
-def rebuild_donate_action():
-    rebuild_contact_point()
-    rebuild_audience()
-    rebuild_price_specification()
-    rebuild_person()
-    rebuild_organization()
-    rebuild_transfer_action()
-    DonateAction.model_rebuild()
-
-@run_once
-def rebuild_receive_action():
-    rebuild_person()
-    rebuild_delivery_method()
-    rebuild_audience()
-    rebuild_organization()
-    rebuild_transfer_action()
-    ReceiveAction.model_rebuild()
-
-@run_once
-def rebuild_download_action():
-    rebuild_transfer_action()
-    DownloadAction.model_rebuild()
-
-@run_once
-def rebuild_bookmark_action():
-    rebuild_organize_action()
-    BookmarkAction.model_rebuild()
-
-@run_once
-def rebuild_plan_action():
-    rebuild_organize_action()
-    PlanAction.model_rebuild()
-
-@run_once
-def rebuild_allocate_action():
-    rebuild_organize_action()
-    AllocateAction.model_rebuild()
-
-@run_once
-def rebuild_apply_action():
-    rebuild_organize_action()
-    ApplyAction.model_rebuild()
-
-@run_once
-def rebuild_delete_action():
-    rebuild_update_action()
-    DeleteAction.model_rebuild()
-
-@run_once
-def rebuild_add_action():
-    rebuild_update_action()
-    AddAction.model_rebuild()
-
-@run_once
-def rebuild_replace_action():
-    rebuild_thing()
-    rebuild_update_action()
-    ReplaceAction.model_rebuild()
-
-@run_once
-def rebuild_draw_action():
-    rebuild_create_action()
-    DrawAction.model_rebuild()
-
-@run_once
-def rebuild_photograph_action():
-    rebuild_create_action()
-    PhotographAction.model_rebuild()
-
-@run_once
-def rebuild_cook_action():
-    rebuild_food_establishment()
-    rebuild_place()
-    rebuild_food_event()
-    rebuild_recipe()
-    rebuild_create_action()
-    CookAction.model_rebuild()
-
-@run_once
-def rebuild_paint_action():
-    rebuild_create_action()
-    PaintAction.model_rebuild()
-
-@run_once
-def rebuild_film_action():
-    rebuild_create_action()
-    FilmAction.model_rebuild()
-
-@run_once
-def rebuild_write_action():
-    rebuild_language()
-    rebuild_create_action()
-    WriteAction.model_rebuild()
-
-@run_once
-def rebuild_perform_action():
-    rebuild_entertainment_business()
-    rebuild_play_action()
-    PerformAction.model_rebuild()
-
-@run_once
-def rebuild_exercise_action():
-    rebuild_person()
-    rebuild_place()
-    rebuild_sports_team()
-    rebuild_diet()
-    rebuild_sports_activity_location()
-    rebuild_exercise_plan()
-    rebuild_distance()
-    rebuild_sports_event()
-    rebuild_play_action()
-    ExerciseAction.model_rebuild()
-
-@run_once
-def rebuild_install_action():
-    rebuild_consume_action()
-    InstallAction.model_rebuild()
-
-@run_once
-def rebuild_read_action():
-    rebuild_consume_action()
-    ReadAction.model_rebuild()
-
-@run_once
-def rebuild_view_action():
-    rebuild_consume_action()
-    ViewAction.model_rebuild()
-
-@run_once
-def rebuild_drink_action():
-    rebuild_consume_action()
-    DrinkAction.model_rebuild()
-
-@run_once
-def rebuild_use_action():
-    rebuild_consume_action()
-    UseAction.model_rebuild()
-
-@run_once
-def rebuild_eat_action():
-    rebuild_consume_action()
-    EatAction.model_rebuild()
-
-@run_once
-def rebuild_listen_action():
-    rebuild_consume_action()
-    ListenAction.model_rebuild()
-
-@run_once
-def rebuild_play_game_action():
-    rebuild_game_availability_enumeration()
-    rebuild_consume_action()
-    PlayGameAction.model_rebuild()
-
-@run_once
-def rebuild_watch_action():
-    rebuild_consume_action()
-    WatchAction.model_rebuild()
-
-@run_once
-def rebuild_marry_action():
-    rebuild_interact_action()
-    MarryAction.model_rebuild()
-
-@run_once
-def rebuild_follow_action():
-    rebuild_person()
-    rebuild_organization()
-    rebuild_interact_action()
-    FollowAction.model_rebuild()
-
-@run_once
-def rebuild_join_action():
-    rebuild_event()
-    rebuild_interact_action()
-    JoinAction.model_rebuild()
-
-@run_once
-def rebuild_leave_action():
-    rebuild_event()
-    rebuild_interact_action()
-    LeaveAction.model_rebuild()
-
-@run_once
-def rebuild_subscribe_action():
-    rebuild_interact_action()
-    SubscribeAction.model_rebuild()
-
-@run_once
-def rebuild_register_action():
-    rebuild_interact_action()
-    RegisterAction.model_rebuild()
-
-@run_once
-def rebuild_communicate_action():
-    rebuild_contact_point()
-    rebuild_language()
-    rebuild_audience()
-    rebuild_thing()
-    rebuild_person()
-    rebuild_organization()
-    rebuild_interact_action()
-    CommunicateAction.model_rebuild()
-
-@run_once
-def rebuild_un_register_action():
-    rebuild_interact_action()
-    UnRegisterAction.model_rebuild()
-
-@run_once
-def rebuild_befriend_action():
-    rebuild_interact_action()
-    BefriendAction.model_rebuild()
-
-@run_once
-def rebuild_car():
-    rebuild_quantitative_value()
-    rebuild_vehicle()
-    Car.model_rebuild()
-
-@run_once
-def rebuild_motorcycle():
-    rebuild_vehicle()
-    Motorcycle.model_rebuild()
-
-@run_once
-def rebuild_bus_or_coach():
-    rebuild_quantitative_value()
-    rebuild_vehicle()
-    BusOrCoach.model_rebuild()
-
-@run_once
-def rebuild_motorized_bicycle():
-    rebuild_vehicle()
-    MotorizedBicycle.model_rebuild()
-
-@run_once
-def rebuild_diagnostic_procedure():
-    rebuild_medical_procedure()
-    DiagnosticProcedure.model_rebuild()
-
-@run_once
-def rebuild_surgical_procedure():
-    rebuild_medical_procedure()
-    SurgicalProcedure.model_rebuild()
-
-@run_once
-def rebuild_therapeutic_procedure():
-    rebuild_dose_schedule()
-    rebuild_medical_entity()
-    rebuild_drug()
-    rebuild_medical_procedure()
-    TherapeuticProcedure.model_rebuild()
-
-@run_once
-def rebuild_treatment_indication():
-    rebuild_medical_indication()
-    TreatmentIndication.model_rebuild()
-
-@run_once
-def rebuild_approved_indication():
-    rebuild_medical_indication()
-    ApprovedIndication.model_rebuild()
-
-@run_once
-def rebuild_prevention_indication():
-    rebuild_medical_indication()
-    PreventionIndication.model_rebuild()
-
-@run_once
-def rebuild_pathology_test():
-    rebuild_medical_test()
-    PathologyTest.model_rebuild()
-
-@run_once
-def rebuild_blood_test():
-    rebuild_medical_test()
-    BloodTest.model_rebuild()
-
-@run_once
-def rebuild_imaging_test():
-    rebuild_medical_imaging_technique()
-    rebuild_medical_test()
-    ImagingTest.model_rebuild()
-
-@run_once
-def rebuild_medical_test_panel():
-    rebuild_medical_test()
-    MedicalTestPanel.model_rebuild()
-
-@run_once
-def rebuild_medical_risk_calculator():
-    rebuild_medical_risk_estimator()
-    MedicalRiskCalculator.model_rebuild()
-
-@run_once
-def rebuild_medical_risk_score():
-    rebuild_medical_risk_estimator()
-    MedicalRiskScore.model_rebuild()
-
-@run_once
-def rebuild_physical_activity():
-    rebuild_anatomical_system()
-    rebuild_anatomical_structure()
-    rebuild_category_code()
-    rebuild_superficial_anatomy()
-    rebuild_thing()
-    rebuild_physical_activity_category()
-    rebuild_lifestyle_modification()
-    PhysicalActivity.model_rebuild()
-
-@run_once
-def rebuild_diet():
-    rebuild_person()
-    rebuild_organization()
-    rebuild_lifestyle_modification()
-    Diet.model_rebuild()
-
-@run_once
-def rebuild_drug():
-    rebuild_drug_strength()
-    rebuild_maximum_dose_schedule()
-    rebuild_medical_enumeration()
-    rebuild_drug_pregnancy_category()
-    rebuild_drug_legal_status()
-    rebuild_drug_class()
-    rebuild_drug_prescription_status()
-    rebuild_dose_schedule()
-    rebuild_health_insurance_plan()
-    rebuild_substance()
-    Drug.model_rebuild()
-
-@run_once
-def rebuild_dietary_supplement():
-    rebuild_drug_legal_status()
-    rebuild_medical_enumeration()
-    rebuild_recommended_dose_schedule()
-    rebuild_maximum_dose_schedule()
-    rebuild_substance()
-    DietarySupplement.model_rebuild()
-
-@run_once
-def rebuild_medical_trial():
-    rebuild_medical_trial_design()
-    rebuild_medical_study()
-    MedicalTrial.model_rebuild()
-
-@run_once
-def rebuild_medical_observational_study():
-    rebuild_medical_observational_study_design()
-    rebuild_medical_study()
-    MedicalObservationalStudy.model_rebuild()
-
-@run_once
-def rebuild_infectious_disease():
-    rebuild_infectious_agent_class()
-    rebuild_medical_condition()
-    InfectiousDisease.model_rebuild()
-
-@run_once
-def rebuild_medical_sign_or_symptom():
-    rebuild_medical_therapy()
-    rebuild_medical_condition()
-    MedicalSignOrSymptom.model_rebuild()
-
-@run_once
-def rebuild_medical_guideline_recommendation():
-    rebuild_medical_guideline()
-    MedicalGuidelineRecommendation.model_rebuild()
-
-@run_once
-def rebuild_medical_guideline_contraindication():
-    rebuild_medical_guideline()
-    MedicalGuidelineContraindication.model_rebuild()
-
-@run_once
-def rebuild_vessel():
-    rebuild_anatomical_structure()
-    Vessel.model_rebuild()
-
-@run_once
-def rebuild_ligament():
-    rebuild_anatomical_structure()
-    Ligament.model_rebuild()
-
-@run_once
-def rebuild_bone():
-    rebuild_anatomical_structure()
-    Bone.model_rebuild()
-
-@run_once
-def rebuild_brain_structure():
-    rebuild_anatomical_structure()
-    BrainStructure.model_rebuild()
-
-@run_once
-def rebuild_joint():
-    rebuild_medical_entity()
-    rebuild_anatomical_structure()
-    Joint.model_rebuild()
-
-@run_once
-def rebuild_muscle():
-    rebuild_vessel()
-    rebuild_nerve()
-    rebuild_anatomical_structure()
-    Muscle.model_rebuild()
-
-@run_once
-def rebuild_nerve():
-    rebuild_brain_structure()
-    rebuild_muscle()
-    rebuild_superficial_anatomy()
-    rebuild_anatomical_structure()
-    Nerve.model_rebuild()
-
-@run_once
-def rebuild_dose_schedule():
-    rebuild_qualitative_value()
-    rebuild_medical_intangible()
-    DoseSchedule.model_rebuild()
-
-@run_once
-def rebuild_medical_condition_stage():
-    rebuild_medical_intangible()
-    MedicalConditionStage.model_rebuild()
-
-@run_once
-def rebuild_drug_strength():
-    rebuild_administrative_area()
-    rebuild_maximum_dose_schedule()
-    rebuild_medical_intangible()
-    DrugStrength.model_rebuild()
-
-@run_once
-def rebuild_d_dx_element():
-    rebuild_medical_condition()
-    rebuild_medical_sign_or_symptom()
-    rebuild_medical_intangible()
-    DDxElement.model_rebuild()
-
-@run_once
-def rebuild_medical_code():
-    rebuild_medical_intangible()
-    MedicalCode.model_rebuild()
-
-@run_once
-def rebuild_drug_legal_status():
-    rebuild_administrative_area()
-    rebuild_medical_intangible()
-    DrugLegalStatus.model_rebuild()
-
-@run_once
-def rebuild_sports_team():
-    rebuild_person()
-    rebuild_gender_type()
-    rebuild_sports_organization()
-    SportsTeam.model_rebuild()
-
-@run_once
-def rebuild_dance_group():
-    rebuild_performing_group()
-    DanceGroup.model_rebuild()
-
-@run_once
-def rebuild_music_group():
-    rebuild_person()
-    rebuild_music_album()
-    rebuild_item_list()
-    rebuild_music_recording()
-    rebuild_performing_group()
-    MusicGroup.model_rebuild()
-
-@run_once
-def rebuild_theater_group():
-    rebuild_performing_group()
-    TheaterGroup.model_rebuild()
-
-@run_once
-def rebuild_veterinary_care():
-    rebuild_medical_organization()
-    VeterinaryCare.model_rebuild()
-
-@run_once
-def rebuild_diagnostic_lab():
-    rebuild_medical_test()
-    rebuild_medical_organization()
-    DiagnosticLab.model_rebuild()
-
-@run_once
-def rebuild_medical_clinic():
-    rebuild_medical_specialty()
-    rebuild_medical_procedure()
-    rebuild_medical_test()
-    rebuild_medical_therapy()
-    rebuild_medical_organization()
-    MedicalClinic.model_rebuild()
-
-@run_once
-def rebuild_pharmacy():
-    rebuild_medical_organization()
-    Pharmacy.model_rebuild()
-
-@run_once
-def rebuild_online_store():
-    rebuild_online_marketplace()
-    rebuild_online_business()
-    OnlineStore.model_rebuild()
-
-@run_once
-def rebuild_funding_agency():
-    rebuild_project()
-    FundingAgency.model_rebuild()
-
-@run_once
-def rebuild_research_project():
-    rebuild_project()
-    ResearchProject.model_rebuild()
-
-@run_once
-def rebuild_lake_body_of_water():
-    rebuild_body_of_water()
-    LakeBodyOfWater.model_rebuild()
-
-@run_once
-def rebuild_reservoir():
-    rebuild_body_of_water()
-    Reservoir.model_rebuild()
-
-@run_once
-def rebuild_pond():
-    rebuild_body_of_water()
-    Pond.model_rebuild()
-
-@run_once
-def rebuild_river_body_of_water():
-    rebuild_body_of_water()
-    RiverBodyOfWater.model_rebuild()
-
-@run_once
-def rebuild_sea_body_of_water():
-    rebuild_body_of_water()
-    SeaBodyOfWater.model_rebuild()
-
-@run_once
-def rebuild_ocean_body_of_water():
-    rebuild_body_of_water()
-    OceanBodyOfWater.model_rebuild()
-
-@run_once
-def rebuild_waterfall():
-    rebuild_body_of_water()
-    Waterfall.model_rebuild()
-
-@run_once
-def rebuild_canal():
-    rebuild_body_of_water()
-    Canal.model_rebuild()
-
-@run_once
-def rebuild_dentist():
-    rebuild_medical_business()
-    Dentist.model_rebuild()
-
-@run_once
-def rebuild_physician():
-    rebuild_medical_therapy()
-    rebuild_category_code()
-    rebuild_hospital()
-    rebuild_medical_specialty()
-    rebuild_medical_test()
-    rebuild_medical_procedure()
-    rebuild_medical_business()
-    Physician.model_rebuild()
-
-@run_once
-def rebuild_optician():
-    rebuild_medical_business()
-    Optician.model_rebuild()
-
-@run_once
-def rebuild_winery():
-    rebuild_food_establishment()
-    Winery.model_rebuild()
-
-@run_once
-def rebuild_ice_cream_shop():
-    rebuild_food_establishment()
-    IceCreamShop.model_rebuild()
-
-@run_once
-def rebuild_bar_or_pub():
-    rebuild_food_establishment()
-    BarOrPub.model_rebuild()
-
-@run_once
-def rebuild_restaurant():
-    rebuild_food_establishment()
-    Restaurant.model_rebuild()
-
-@run_once
-def rebuild_bakery():
-    rebuild_food_establishment()
-    Bakery.model_rebuild()
-
-@run_once
-def rebuild_cafe_or_coffee_shop():
-    rebuild_food_establishment()
-    CafeOrCoffeeShop.model_rebuild()
-
-@run_once
-def rebuild_fast_food_restaurant():
-    rebuild_food_establishment()
-    FastFoodRestaurant.model_rebuild()
-
-@run_once
-def rebuild_distillery():
-    rebuild_food_establishment()
-    Distillery.model_rebuild()
-
-@run_once
-def rebuild_brewery():
-    rebuild_food_establishment()
-    Brewery.model_rebuild()
-
-@run_once
-def rebuild_comedy_club():
-    rebuild_entertainment_business()
-    ComedyClub.model_rebuild()
-
-@run_once
-def rebuild_amusement_park():
-    rebuild_entertainment_business()
-    AmusementPark.model_rebuild()
-
-@run_once
-def rebuild_casino():
-    rebuild_entertainment_business()
-    Casino.model_rebuild()
-
-@run_once
-def rebuild_art_gallery():
-    rebuild_entertainment_business()
-    ArtGallery.model_rebuild()
-
-@run_once
-def rebuild_adult_entertainment():
-    rebuild_entertainment_business()
-    AdultEntertainment.model_rebuild()
-
-@run_once
-def rebuild_night_club():
-    rebuild_entertainment_business()
-    NightClub.model_rebuild()
-
-@run_once
-def rebuild_public_swimming_pool():
-    rebuild_sports_activity_location()
-    PublicSwimmingPool.model_rebuild()
-
-@run_once
-def rebuild_bowling_alley():
-    rebuild_sports_activity_location()
-    BowlingAlley.model_rebuild()
-
-@run_once
-def rebuild_tennis_complex():
-    rebuild_sports_activity_location()
-    TennisComplex.model_rebuild()
-
-@run_once
-def rebuild_golf_course():
-    rebuild_sports_activity_location()
-    GolfCourse.model_rebuild()
-
-@run_once
-def rebuild_exercise_gym():
-    rebuild_sports_activity_location()
-    ExerciseGym.model_rebuild()
-
-@run_once
-def rebuild_sports_club():
-    rebuild_sports_activity_location()
-    SportsClub.model_rebuild()
-
-@run_once
-def rebuild_insurance_agency():
-    rebuild_financial_service()
-    InsuranceAgency.model_rebuild()
-
-@run_once
-def rebuild_bank_or_credit_union():
-    rebuild_financial_service()
-    BankOrCreditUnion.model_rebuild()
-
-@run_once
-def rebuild_automated_teller():
-    rebuild_financial_service()
-    AutomatedTeller.model_rebuild()
-
-@run_once
-def rebuild_accounting_service():
-    rebuild_financial_service()
-    AccountingService.model_rebuild()
-
-@run_once
-def rebuild_moving_company():
-    rebuild_home_and_construction_business()
-    MovingCompany.model_rebuild()
-
-@run_once
-def rebuild_locksmith():
-    rebuild_home_and_construction_business()
-    Locksmith.model_rebuild()
-
-@run_once
-def rebuild_general_contractor():
-    rebuild_home_and_construction_business()
-    GeneralContractor.model_rebuild()
-
-@run_once
-def rebuild_plumber():
-    rebuild_home_and_construction_business()
-    Plumber.model_rebuild()
-
-@run_once
-def rebuild_roofing_contractor():
-    rebuild_home_and_construction_business()
-    RoofingContractor.model_rebuild()
-
-@run_once
-def rebuild_hvac_business():
-    rebuild_home_and_construction_business()
-    HVACBusiness.model_rebuild()
-
-@run_once
-def rebuild_electrician():
-    rebuild_home_and_construction_business()
-    Electrician.model_rebuild()
-
-@run_once
-def rebuild_house_painter():
-    rebuild_home_and_construction_business()
-    HousePainter.model_rebuild()
-
-@run_once
-def rebuild_auto_dealer():
-    rebuild_automotive_business()
-    AutoDealer.model_rebuild()
-
-@run_once
-def rebuild_auto_body_shop():
-    rebuild_automotive_business()
-    AutoBodyShop.model_rebuild()
-
-@run_once
-def rebuild_gas_station():
-    rebuild_automotive_business()
-    GasStation.model_rebuild()
-
-@run_once
-def rebuild_motorcycle_dealer():
-    rebuild_automotive_business()
-    MotorcycleDealer.model_rebuild()
-
-@run_once
-def rebuild_auto_rental():
-    rebuild_automotive_business()
-    AutoRental.model_rebuild()
-
-@run_once
-def rebuild_auto_repair():
-    rebuild_automotive_business()
-    AutoRepair.model_rebuild()
-
-@run_once
-def rebuild_auto_wash():
-    rebuild_automotive_business()
-    AutoWash.model_rebuild()
-
-@run_once
-def rebuild_motorcycle_repair():
-    rebuild_automotive_business()
-    MotorcycleRepair.model_rebuild()
-
-@run_once
-def rebuild_bed_and_breakfast():
-    rebuild_lodging_business()
-    BedAndBreakfast.model_rebuild()
-
-@run_once
-def rebuild_vacation_rental():
-    rebuild_lodging_business()
-    VacationRental.model_rebuild()
-
-@run_once
-def rebuild_campground():
-    rebuild_lodging_business()
-    Campground.model_rebuild()
-
-@run_once
-def rebuild_resort():
-    rebuild_lodging_business()
-    Resort.model_rebuild()
-
-@run_once
-def rebuild_hotel():
-    rebuild_lodging_business()
-    Hotel.model_rebuild()
-
-@run_once
-def rebuild_motel():
-    rebuild_lodging_business()
-    Motel.model_rebuild()
-
-@run_once
-def rebuild_hostel():
-    rebuild_lodging_business()
-    Hostel.model_rebuild()
-
-@run_once
-def rebuild_hobby_shop():
-    rebuild_store()
-    HobbyShop.model_rebuild()
-
-@run_once
-def rebuild_liquor_store():
-    rebuild_store()
-    LiquorStore.model_rebuild()
-
-@run_once
-def rebuild_pawn_shop():
-    rebuild_store()
-    PawnShop.model_rebuild()
-
-@run_once
-def rebuild_electronics_store():
-    rebuild_store()
-    ElectronicsStore.model_rebuild()
-
-@run_once
-def rebuild_book_store():
-    rebuild_store()
-    BookStore.model_rebuild()
-
-@run_once
-def rebuild_florist():
-    rebuild_store()
-    Florist.model_rebuild()
-
-@run_once
-def rebuild_jewelry_store():
-    rebuild_store()
-    JewelryStore.model_rebuild()
-
-@run_once
-def rebuild_hardware_store():
-    rebuild_store()
-    HardwareStore.model_rebuild()
-
-@run_once
-def rebuild_computer_store():
-    rebuild_store()
-    ComputerStore.model_rebuild()
-
-@run_once
-def rebuild_pet_store():
-    rebuild_store()
-    PetStore.model_rebuild()
-
-@run_once
-def rebuild_garden_store():
-    rebuild_store()
-    GardenStore.model_rebuild()
-
-@run_once
-def rebuild_outlet_store():
-    rebuild_store()
-    OutletStore.model_rebuild()
-
-@run_once
-def rebuild_home_goods_store():
-    rebuild_store()
-    HomeGoodsStore.model_rebuild()
-
-@run_once
-def rebuild_department_store():
-    rebuild_store()
-    DepartmentStore.model_rebuild()
-
-@run_once
-def rebuild_office_equipment_store():
-    rebuild_store()
-    OfficeEquipmentStore.model_rebuild()
-
-@run_once
-def rebuild_shoe_store():
-    rebuild_store()
-    ShoeStore.model_rebuild()
-
-@run_once
-def rebuild_mobile_phone_store():
-    rebuild_store()
-    MobilePhoneStore.model_rebuild()
-
-@run_once
-def rebuild_music_store():
-    rebuild_store()
-    MusicStore.model_rebuild()
-
-@run_once
-def rebuild_bike_store():
-    rebuild_store()
-    BikeStore.model_rebuild()
-
-@run_once
-def rebuild_auto_parts_store():
-    rebuild_store()
-    AutoPartsStore.model_rebuild()
-
-@run_once
-def rebuild_furniture_store():
-    rebuild_store()
-    FurnitureStore.model_rebuild()
-
-@run_once
-def rebuild_grocery_store():
-    rebuild_store()
-    GroceryStore.model_rebuild()
-
-@run_once
-def rebuild_mens_clothing_store():
-    rebuild_store()
-    MensClothingStore.model_rebuild()
-
-@run_once
-def rebuild_convenience_store():
-    rebuild_store()
-    ConvenienceStore.model_rebuild()
-
-@run_once
-def rebuild_tire_shop():
-    rebuild_store()
-    TireShop.model_rebuild()
-
-@run_once
-def rebuild_movie_rental_store():
-    rebuild_store()
-    MovieRentalStore.model_rebuild()
-
-@run_once
-def rebuild_sporting_goods_store():
-    rebuild_store()
-    SportingGoodsStore.model_rebuild()
-
-@run_once
-def rebuild_wholesale_store():
-    rebuild_store()
-    WholesaleStore.model_rebuild()
-
-@run_once
-def rebuild_clothing_store():
-    rebuild_store()
-    ClothingStore.model_rebuild()
-
-@run_once
-def rebuild_toy_store():
-    rebuild_store()
-    ToyStore.model_rebuild()
-
-@run_once
-def rebuild_attorney():
-    rebuild_legal_service()
-    Attorney.model_rebuild()
-
-@run_once
-def rebuild_notary():
-    rebuild_legal_service()
-    Notary.model_rebuild()
-
-@run_once
-def rebuild_post_office():
-    rebuild_government_office()
-    PostOffice.model_rebuild()
-
-@run_once
-def rebuild_day_spa():
-    rebuild_health_and_beauty_business()
-    DaySpa.model_rebuild()
-
-@run_once
-def rebuild_beauty_salon():
-    rebuild_health_and_beauty_business()
-    BeautySalon.model_rebuild()
-
-@run_once
-def rebuild_health_club():
-    rebuild_health_and_beauty_business()
-    HealthClub.model_rebuild()
-
-@run_once
-def rebuild_hair_salon():
-    rebuild_health_and_beauty_business()
-    HairSalon.model_rebuild()
-
-@run_once
-def rebuild_nail_salon():
-    rebuild_health_and_beauty_business()
-    NailSalon.model_rebuild()
-
-@run_once
-def rebuild_tattoo_parlor():
-    rebuild_health_and_beauty_business()
-    TattooParlor.model_rebuild()
-
-@run_once
-def rebuild_hindu_temple():
-    rebuild_place_of_worship()
-    HinduTemple.model_rebuild()
-
-@run_once
-def rebuild_buddhist_temple():
-    rebuild_place_of_worship()
-    BuddhistTemple.model_rebuild()
-
-@run_once
-def rebuild_mosque():
-    rebuild_place_of_worship()
-    Mosque.model_rebuild()
-
-@run_once
-def rebuild_church():
-    rebuild_place_of_worship()
-    Church.model_rebuild()
-
-@run_once
-def rebuild_synagogue():
-    rebuild_place_of_worship()
-    Synagogue.model_rebuild()
-
-@run_once
-def rebuild_college_or_university():
-    rebuild_educational_organization()
-    CollegeOrUniversity.model_rebuild()
-
-@run_once
-def rebuild_elementary_school():
-    rebuild_educational_organization()
-    ElementarySchool.model_rebuild()
-
-@run_once
-def rebuild_school():
-    rebuild_educational_organization()
-    School.model_rebuild()
-
-@run_once
-def rebuild_middle_school():
-    rebuild_educational_organization()
-    MiddleSchool.model_rebuild()
-
-@run_once
-def rebuild_high_school():
-    rebuild_educational_organization()
-    HighSchool.model_rebuild()
-
-@run_once
-def rebuild_preschool():
-    rebuild_educational_organization()
-    Preschool.model_rebuild()
-
-@run_once
-def rebuild_embassy():
-    rebuild_government_building()
-    Embassy.model_rebuild()
-
-@run_once
-def rebuild_courthouse():
-    rebuild_government_building()
-    Courthouse.model_rebuild()
-
-@run_once
-def rebuild_defence_establishment():
-    rebuild_government_building()
-    DefenceEstablishment.model_rebuild()
-
-@run_once
-def rebuild_legislative_building():
-    rebuild_government_building()
-    LegislativeBuilding.model_rebuild()
-
-@run_once
-def rebuild_city_hall():
-    rebuild_government_building()
-    CityHall.model_rebuild()
-
-@run_once
-def rebuild_meeting_room():
-    rebuild_room()
-    MeetingRoom.model_rebuild()
-
-@run_once
-def rebuild_hotel_room():
-    rebuild_bed_type()
-    rebuild_quantitative_value()
-    rebuild_bed_details()
-    rebuild_room()
-    HotelRoom.model_rebuild()
-
-@run_once
-def rebuild_single_family_residence():
-    rebuild_quantitative_value()
-    rebuild_house()
-    SingleFamilyResidence.model_rebuild()
-
-@run_once
-def rebuild_employee_role():
-    rebuild_monetary_amount()
-    rebuild_price_specification()
-    rebuild_organization_role()
-    EmployeeRole.model_rebuild()
-
-@run_once
-def rebuild_parent_audience():
-    rebuild_people_audience()
-    ParentAudience.model_rebuild()
-
-@run_once
-def rebuild_patient():
-    rebuild_medical_condition()
-    rebuild_drug()
-    rebuild_medical_audience()
-    Patient.model_rebuild()
-
-@run_once
-def rebuild_investment_or_deposit():
-    rebuild_monetary_amount()
-    rebuild_financial_product()
-    InvestmentOrDeposit.model_rebuild()
-
-@run_once
-def rebuild_payment_service():
-    rebuild_financial_product()
-    PaymentService.model_rebuild()
-
-@run_once
-def rebuild_loan_or_credit():
-    rebuild_monetary_amount()
-    rebuild_duration()
-    rebuild_thing()
-    rebuild_repayment_specification()
-    rebuild_quantitative_value()
-    rebuild_financial_product()
-    LoanOrCredit.model_rebuild()
-
-@run_once
-def rebuild_bank_account():
-    rebuild_monetary_amount()
-    rebuild_financial_product()
-    BankAccount.model_rebuild()
-
-@run_once
-def rebuild_currency_conversion_service():
-    rebuild_financial_product()
-    CurrencyConversionService.model_rebuild()
-
-@run_once
-def rebuild_payment_card():
-    rebuild_monetary_amount()
-    rebuild_financial_product()
-    PaymentCard.model_rebuild()
-
-@run_once
-def rebuild_radio_broadcast_service():
-    rebuild_broadcast_service()
-    RadioBroadcastService.model_rebuild()
-
-@run_once
-def rebuild_wearable_size_group_enumeration():
-    rebuild_size_group_enumeration()
-    WearableSizeGroupEnumeration.model_rebuild()
-
-@run_once
-def rebuild_payment_status_type():
-    rebuild_status_enumeration()
-    PaymentStatusType.model_rebuild()
-
-@run_once
-def rebuild_reservation_status_type():
-    rebuild_status_enumeration()
-    ReservationStatusType.model_rebuild()
-
-@run_once
-def rebuild_game_server_status():
-    rebuild_status_enumeration()
-    GameServerStatus.model_rebuild()
-
-@run_once
-def rebuild_event_status_type():
-    rebuild_status_enumeration()
-    EventStatusType.model_rebuild()
-
-@run_once
-def rebuild_action_status_type():
-    rebuild_status_enumeration()
-    ActionStatusType.model_rebuild()
-
-@run_once
-def rebuild_order_status():
-    rebuild_status_enumeration()
-    OrderStatus.model_rebuild()
-
-@run_once
-def rebuild_legal_force_status():
-    rebuild_status_enumeration()
-    LegalForceStatus.model_rebuild()
-
-@run_once
-def rebuild_wearable_size_system_enumeration():
-    rebuild_size_system_enumeration()
-    WearableSizeSystemEnumeration.model_rebuild()
-
-@run_once
-def rebuild_medical_specialty():
-    rebuild_specialty()
-    MedicalSpecialty.model_rebuild()
-
-@run_once
-def rebuild_iptc_digital_source_enumeration():
-    rebuild_media_enumeration()
-    IPTCDigitalSourceEnumeration.model_rebuild()
-
-@run_once
-def rebuild_drug_prescription_status():
-    rebuild_medical_enumeration()
-    DrugPrescriptionStatus.model_rebuild()
-
-@run_once
-def rebuild_medical_device_purpose():
-    rebuild_medical_enumeration()
-    MedicalDevicePurpose.model_rebuild()
-
-@run_once
-def rebuild_medical_trial_design():
-    rebuild_medical_enumeration()
-    MedicalTrialDesign.model_rebuild()
-
-@run_once
-def rebuild_drug_cost_category():
-    rebuild_medical_enumeration()
-    DrugCostCategory.model_rebuild()
-
-@run_once
-def rebuild_medical_procedure_type():
-    rebuild_medical_enumeration()
-    MedicalProcedureType.model_rebuild()
-
-@run_once
-def rebuild_drug_pregnancy_category():
-    rebuild_medical_enumeration()
-    DrugPregnancyCategory.model_rebuild()
-
-@run_once
-def rebuild_physical_exam():
-    rebuild_medical_enumeration()
-    PhysicalExam.model_rebuild()
-
-@run_once
-def rebuild_medical_observational_study_design():
-    rebuild_medical_enumeration()
-    MedicalObservationalStudyDesign.model_rebuild()
-
-@run_once
-def rebuild_medical_evidence_level():
-    rebuild_medical_enumeration()
-    MedicalEvidenceLevel.model_rebuild()
-
-@run_once
-def rebuild_medical_study_status():
-    rebuild_medical_enumeration()
-    MedicalStudyStatus.model_rebuild()
-
-@run_once
-def rebuild_medical_imaging_technique():
-    rebuild_medical_enumeration()
-    MedicalImagingTechnique.model_rebuild()
-
-@run_once
-def rebuild_medicine_system():
-    rebuild_medical_enumeration()
-    MedicineSystem.model_rebuild()
-
-@run_once
-def rebuild_infectious_agent_class():
-    rebuild_medical_enumeration()
-    InfectiousAgentClass.model_rebuild()
-
-@run_once
-def rebuild_medical_audience_type():
-    rebuild_medical_enumeration()
-    MedicalAudienceType.model_rebuild()
-
-@run_once
-def rebuild_eu_energy_efficiency_enumeration():
-    rebuild_energy_efficiency_enumeration()
-    EUEnergyEfficiencyEnumeration.model_rebuild()
-
-@run_once
-def rebuild_energy_star_energy_efficiency_enumeration():
-    rebuild_energy_efficiency_enumeration()
-    EnergyStarEnergyEfficiencyEnumeration.model_rebuild()
-
-@run_once
-def rebuild_bed_type():
-    rebuild_qualitative_value()
-    BedType.model_rebuild()
-
-@run_once
-def rebuild_steering_position_value():
-    rebuild_qualitative_value()
-    SteeringPositionValue.model_rebuild()
-
-@run_once
-def rebuild_size_specification():
-    rebuild_size_group_enumeration()
-    rebuild_size_system_enumeration()
-    rebuild_quantitative_value()
-    rebuild_gender_type()
-    rebuild_qualitative_value()
-    SizeSpecification.model_rebuild()
-
-@run_once
-def rebuild_drive_wheel_configuration_value():
-    rebuild_qualitative_value()
-    DriveWheelConfigurationValue.model_rebuild()
-
-@run_once
-def rebuild_us_nonprofit_type():
-    rebuild_nonprofit_type()
-    USNonprofitType.model_rebuild()
-
-@run_once
-def rebuild_nl_nonprofit_type():
-    rebuild_nonprofit_type()
-    NLNonprofitType.model_rebuild()
-
-@run_once
-def rebuild_uk_nonprofit_type():
-    rebuild_nonprofit_type()
-    UKNonprofitType.model_rebuild()
-
-@run_once
-def rebuild_wearable_measurement_type_enumeration():
-    rebuild_measurement_type_enumeration()
-    WearableMeasurementTypeEnumeration.model_rebuild()
-
-@run_once
-def rebuild_body_measurement_type_enumeration():
-    rebuild_measurement_type_enumeration()
-    BodyMeasurementTypeEnumeration.model_rebuild()
-
-@run_once
-def rebuild_compound_price_specification():
-    rebuild_unit_price_specification()
-    rebuild_price_type_enumeration()
-    rebuild_price_specification()
-    CompoundPriceSpecification.model_rebuild()
-
-@run_once
-def rebuild_unit_price_specification():
-    rebuild_duration()
-    rebuild_price_component_type_enumeration()
-    rebuild_quantitative_value()
-    rebuild_price_type_enumeration()
-    rebuild_price_specification()
-    UnitPriceSpecification.model_rebuild()
-
-@run_once
-def rebuild_payment_charge_specification():
-    rebuild_payment_method()
-    rebuild_delivery_method()
-    rebuild_price_specification()
-    PaymentChargeSpecification.model_rebuild()
-
-@run_once
-def rebuild_delivery_charge_specification():
-    rebuild_geo_shape()
-    rebuild_delivery_method()
-    rebuild_place()
-    rebuild_administrative_area()
-    rebuild_price_specification()
-    DeliveryChargeSpecification.model_rebuild()
-
-@run_once
-def rebuild_monetary_amount_distribution():
-    rebuild_quantitative_value_distribution()
-    MonetaryAmountDistribution.model_rebuild()
-
-@run_once
-def rebuild_location_feature_specification():
-    rebuild_opening_hours_specification()
-    rebuild_property_value()
-    LocationFeatureSpecification.model_rebuild()
-
-@run_once
-def rebuild_geo_circle():
-    rebuild_geo_coordinates()
-    rebuild_distance()
-    rebuild_geo_shape()
-    GeoCircle.model_rebuild()
-
-@run_once
-def rebuild_postal_address():
-    rebuild_country()
-    rebuild_contact_point()
-    PostalAddress.model_rebuild()
-
-@run_once
-def rebuild_employer_aggregate_rating():
-    rebuild_aggregate_rating()
-    EmployerAggregateRating.model_rebuild()
-
-@run_once
-def rebuild_how_to_supply():
-    rebuild_monetary_amount()
-    rebuild_how_to_item()
-    HowToSupply.model_rebuild()
-
-@run_once
-def rebuild_how_to_tool():
-    rebuild_how_to_item()
-    HowToTool.model_rebuild()
-
-@run_once
-def rebuild_am_radio_channel():
-    rebuild_radio_channel()
-    AMRadioChannel.model_rebuild()
-
-@run_once
-def rebuild_fm_radio_channel():
-    rebuild_radio_channel()
-    FMRadioChannel.model_rebuild()
-
-@run_once
-def rebuild_video_object_snapshot():
-    rebuild_video_object()
-    VideoObjectSnapshot.model_rebuild()
-
-@run_once
-def rebuild_audio_object_snapshot():
-    rebuild_audio_object()
-    AudioObjectSnapshot.model_rebuild()
-
-@run_once
-def rebuild_audiobook():
-    rebuild_duration()
-    rebuild_person()
-    rebuild_quantitative_value()
-    rebuild_audio_object()
-    Audiobook.model_rebuild()
-
-@run_once
-def rebuild_image_object_snapshot():
-    rebuild_image_object()
-    ImageObjectSnapshot.model_rebuild()
-
-@run_once
-def rebuild_barcode():
-    rebuild_image_object()
-    Barcode.model_rebuild()
-
-@run_once
-def rebuild_complete_data_feed():
-    rebuild_data_feed()
-    CompleteDataFeed.model_rebuild()
-
-@run_once
-def rebuild_opinion_news_article():
-    rebuild_news_article()
-    OpinionNewsArticle.model_rebuild()
-
-@run_once
-def rebuild_review_news_article():
-    rebuild_news_article()
-    ReviewNewsArticle.model_rebuild()
-
-@run_once
-def rebuild_reportage_news_article():
-    rebuild_news_article()
-    ReportageNewsArticle.model_rebuild()
-
-@run_once
-def rebuild_background_news_article():
-    rebuild_news_article()
-    BackgroundNewsArticle.model_rebuild()
-
-@run_once
-def rebuild_analysis_news_article():
-    rebuild_news_article()
-    AnalysisNewsArticle.model_rebuild()
-
-@run_once
-def rebuild_ask_public_news_article():
-    rebuild_news_article()
-    AskPublicNewsArticle.model_rebuild()
-
-@run_once
-def rebuild_discussion_forum_posting():
-    rebuild_social_media_posting()
-    DiscussionForumPosting.model_rebuild()
-
-@run_once
-def rebuild_blog_posting():
-    rebuild_social_media_posting()
-    BlogPosting.model_rebuild()
-
-@run_once
-def rebuild_medical_scholarly_article():
-    rebuild_scholarly_article()
-    MedicalScholarlyArticle.model_rebuild()
-
-@run_once
-def rebuild_api_reference():
-    rebuild_tech_article()
-    APIReference.model_rebuild()
-
-@run_once
-def rebuild_media_gallery():
-    rebuild_collection_page()
-    MediaGallery.model_rebuild()
-
-@run_once
-def rebuild_newspaper():
-    rebuild_periodical()
-    Newspaper.model_rebuild()
-
-@run_once
-def rebuild_comic_series():
-    rebuild_periodical()
-    ComicSeries.model_rebuild()
-
-@run_once
-def rebuild_disagree_action():
-    rebuild_react_action()
-    DisagreeAction.model_rebuild()
-
-@run_once
-def rebuild_dislike_action():
-    rebuild_react_action()
-    DislikeAction.model_rebuild()
-
-@run_once
-def rebuild_want_action():
-    rebuild_react_action()
-    WantAction.model_rebuild()
-
-@run_once
-def rebuild_endorse_action():
-    rebuild_person()
-    rebuild_organization()
-    rebuild_react_action()
-    EndorseAction.model_rebuild()
-
-@run_once
-def rebuild_like_action():
-    rebuild_react_action()
-    LikeAction.model_rebuild()
-
-@run_once
-def rebuild_agree_action():
-    rebuild_react_action()
-    AgreeAction.model_rebuild()
-
-@run_once
-def rebuild_vote_action():
-    rebuild_person()
-    rebuild_choose_action()
-    VoteAction.model_rebuild()
-
-@run_once
-def rebuild_schedule_action():
-    rebuild_plan_action()
-    ScheduleAction.model_rebuild()
-
-@run_once
-def rebuild_cancel_action():
-    rebuild_plan_action()
-    CancelAction.model_rebuild()
-
-@run_once
-def rebuild_reserve_action():
-    rebuild_plan_action()
-    ReserveAction.model_rebuild()
-
-@run_once
-def rebuild_reject_action():
-    rebuild_allocate_action()
-    RejectAction.model_rebuild()
-
-@run_once
-def rebuild_authorize_action():
-    rebuild_person()
-    rebuild_contact_point()
-    rebuild_audience()
-    rebuild_organization()
-    rebuild_allocate_action()
-    AuthorizeAction.model_rebuild()
-
-@run_once
-def rebuild_accept_action():
-    rebuild_allocate_action()
-    AcceptAction.model_rebuild()
-
-@run_once
-def rebuild_assign_action():
-    rebuild_allocate_action()
-    AssignAction.model_rebuild()
-
-@run_once
-def rebuild_insert_action():
-    rebuild_place()
-    rebuild_add_action()
-    InsertAction.model_rebuild()
-
-@run_once
-def rebuild_wear_action():
-    rebuild_use_action()
-    WearAction.model_rebuild()
-
-@run_once
-def rebuild_comment_action():
-    rebuild_comment()
-    rebuild_communicate_action()
-    CommentAction.model_rebuild()
-
-@run_once
-def rebuild_reply_action():
-    rebuild_comment()
-    rebuild_communicate_action()
-    ReplyAction.model_rebuild()
-
-@run_once
-def rebuild_check_out_action():
-    rebuild_communicate_action()
-    CheckOutAction.model_rebuild()
-
-@run_once
-def rebuild_invite_action():
-    rebuild_event()
-    rebuild_communicate_action()
-    InviteAction.model_rebuild()
-
-@run_once
-def rebuild_check_in_action():
-    rebuild_communicate_action()
-    CheckInAction.model_rebuild()
-
-@run_once
-def rebuild_ask_action():
-    rebuild_question()
-    rebuild_communicate_action()
-    AskAction.model_rebuild()
-
-@run_once
-def rebuild_inform_action():
-    rebuild_event()
-    rebuild_communicate_action()
-    InformAction.model_rebuild()
-
-@run_once
-def rebuild_share_action():
-    rebuild_communicate_action()
-    ShareAction.model_rebuild()
-
-@run_once
-def rebuild_psychological_treatment():
-    rebuild_therapeutic_procedure()
-    PsychologicalTreatment.model_rebuild()
-
-@run_once
-def rebuild_medical_therapy():
-    rebuild_medical_contraindication()
-    rebuild_medical_entity()
-    rebuild_therapeutic_procedure()
-    MedicalTherapy.model_rebuild()
-
-@run_once
-def rebuild_medical_symptom():
-    rebuild_medical_sign_or_symptom()
-    MedicalSymptom.model_rebuild()
-
-@run_once
-def rebuild_medical_sign():
-    rebuild_physical_exam()
-    rebuild_medical_test()
-    rebuild_medical_sign_or_symptom()
-    MedicalSign.model_rebuild()
-
-@run_once
-def rebuild_vein():
-    rebuild_anatomical_structure()
-    rebuild_anatomical_system()
-    rebuild_vessel()
-    Vein.model_rebuild()
-
-@run_once
-def rebuild_lymphatic_vessel():
-    rebuild_anatomical_structure()
-    rebuild_anatomical_system()
-    rebuild_vessel()
-    LymphaticVessel.model_rebuild()
-
-@run_once
-def rebuild_artery():
-    rebuild_anatomical_structure()
-    rebuild_vessel()
-    Artery.model_rebuild()
-
-@run_once
-def rebuild_maximum_dose_schedule():
-    rebuild_dose_schedule()
-    MaximumDoseSchedule.model_rebuild()
-
-@run_once
-def rebuild_reported_dose_schedule():
-    rebuild_dose_schedule()
-    ReportedDoseSchedule.model_rebuild()
-
-@run_once
-def rebuild_recommended_dose_schedule():
-    rebuild_dose_schedule()
-    RecommendedDoseSchedule.model_rebuild()
-
-@run_once
-def rebuild_covid_testing_facility():
-    rebuild_medical_clinic()
-    CovidTestingFacility.model_rebuild()
-
-@run_once
-def rebuild_online_marketplace():
-    rebuild_online_store()
-    OnlineMarketplace.model_rebuild()
-
-@run_once
-def rebuild_physicians_office():
-    rebuild_physician()
-    PhysiciansOffice.model_rebuild()
-
-@run_once
-def rebuild_individual_physician():
-    rebuild_medical_organization()
-    rebuild_physician()
-    IndividualPhysician.model_rebuild()
-
-@run_once
-def rebuild_ski_resort():
-    rebuild_resort()
-    SkiResort.model_rebuild()
-
-@run_once
-def rebuild_catholic_church():
-    rebuild_church()
-    CatholicChurch.model_rebuild()
-
-@run_once
-def rebuild_brokerage_account():
-    rebuild_investment_or_deposit()
-    BrokerageAccount.model_rebuild()
-
-@run_once
-def rebuild_deposit_account():
-    rebuild_investment_or_deposit()
-    DepositAccount.model_rebuild()
-
-@run_once
-def rebuild_investment_fund():
-    rebuild_investment_or_deposit()
-    InvestmentFund.model_rebuild()
-
-@run_once
-def rebuild_mortgage_loan():
-    rebuild_monetary_amount()
-    rebuild_loan_or_credit()
-    MortgageLoan.model_rebuild()
-
-@run_once
-def rebuild_credit_card():
-    rebuild_payment_card()
-    CreditCard.model_rebuild()
-
-@run_once
-def rebuild_live_blog_posting():
-    rebuild_blog_posting()
-    LiveBlogPosting.model_rebuild()
-
-@run_once
-def rebuild_video_gallery():
-    rebuild_media_gallery()
-    VideoGallery.model_rebuild()
-
-@run_once
-def rebuild_image_gallery():
-    rebuild_media_gallery()
-    ImageGallery.model_rebuild()
-
-@run_once
-def rebuild_append_action():
-    rebuild_insert_action()
-    AppendAction.model_rebuild()
-
-@run_once
-def rebuild_prepend_action():
-    rebuild_insert_action()
-    PrependAction.model_rebuild()
-
-@run_once
-def rebuild_confirm_action():
-    rebuild_inform_action()
-    ConfirmAction.model_rebuild()
-
-@run_once
-def rebuild_rsvp_action():
-    rebuild_comment()
-    rebuild_rsvp_response_type()
-    rebuild_inform_action()
-    RsvpAction.model_rebuild()
-
-@run_once
-def rebuild_occupational_therapy():
-    rebuild_medical_therapy()
-    OccupationalTherapy.model_rebuild()
-
-@run_once
-def rebuild_palliative_procedure():
-    rebuild_medical_therapy()
-    PalliativeProcedure.model_rebuild()
-
-@run_once
-def rebuild_physical_therapy():
-    rebuild_medical_therapy()
-    PhysicalTherapy.model_rebuild()
-
-@run_once
-def rebuild_radiation_therapy():
-    rebuild_medical_therapy()
-    RadiationTherapy.model_rebuild()
-
-@run_once
-def rebuild_vital_sign():
-    rebuild_medical_sign()
-    VitalSign.model_rebuild()
+PronounceableText.model_rebuild()
+CssSelectorType.model_rebuild()
+Thing.model_rebuild()
+Person.model_rebuild()
+Place.model_rebuild()
+Event.model_rebuild()
+Intangible.model_rebuild()
+CreativeWork.model_rebuild()
+Action.model_rebuild()
+Product.model_rebuild()
+MedicalEntity.model_rebuild()
+StupidType.model_rebuild()
+Taxon.model_rebuild()
+Organization.model_rebuild()
+BioChemEntity.model_rebuild()
+Residence.model_rebuild()
+TouristDestination.model_rebuild()
+AdministrativeArea.model_rebuild()
+Landform.model_rebuild()
+LocalBusiness.model_rebuild()
+CivicStructure.model_rebuild()
+TouristAttraction.model_rebuild()
+Accommodation.model_rebuild()
+LandmarksOrHistoricalBuildings.model_rebuild()
+TheaterEvent.model_rebuild()
+FoodEvent.model_rebuild()
+EducationEvent.model_rebuild()
+Festival.model_rebuild()
+SocialEvent.model_rebuild()
+MusicEvent.model_rebuild()
+ScreeningEvent.model_rebuild()
+VisualArtsEvent.model_rebuild()
+LiteraryEvent.model_rebuild()
+UserInteraction.model_rebuild()
+DeliveryEvent.model_rebuild()
+SportsEvent.model_rebuild()
+PublicationEvent.model_rebuild()
+ComedyEvent.model_rebuild()
+CourseInstance.model_rebuild()
+ChildrensEvent.model_rebuild()
+DanceEvent.model_rebuild()
+BusinessEvent.model_rebuild()
+Hackathon.model_rebuild()
+SaleEvent.model_rebuild()
+ExhibitionEvent.model_rebuild()
+MediaSubscription.model_rebuild()
+VirtualLocation.model_rebuild()
+Ticket.model_rebuild()
+DataFeedItem.model_rebuild()
+Series.model_rebuild()
+Role.model_rebuild()
+FloorPlan.model_rebuild()
+Permit.model_rebuild()
+MemberProgramTier.model_rebuild()
+EducationalOccupationalProgram.model_rebuild()
+GeospatialGeometry.model_rebuild()
+Audience.model_rebuild()
+Brand.model_rebuild()
+Occupation.model_rebuild()
+ProgramMembership.model_rebuild()
+Service.model_rebuild()
+HealthPlanCostSharingSpecification.model_rebuild()
+Invoice.model_rebuild()
+HealthInsurancePlan.model_rebuild()
+Property.model_rebuild()
+AlignmentObject.model_rebuild()
+MerchantReturnPolicySeasonalOverride.model_rebuild()
+_Class.model_rebuild()
+EnergyConsumptionDetails.model_rebuild()
+Schedule.model_rebuild()
+Enumeration.model_rebuild()
+SpeakableSpecification.model_rebuild()
+HealthPlanFormulary.model_rebuild()
+Language.model_rebuild()
+StructuredValue.model_rebuild()
+MemberProgram.model_rebuild()
+PropertyValueSpecification.model_rebuild()
+Rating.model_rebuild()
+DigitalDocumentPermission.model_rebuild()
+ComputerLanguage.model_rebuild()
+ProductReturnPolicy.model_rebuild()
+PaymentMethod.model_rebuild()
+ParcelDelivery.model_rebuild()
+MerchantReturnPolicy.model_rebuild()
+Reservation.model_rebuild()
+JobPosting.model_rebuild()
+BroadcastFrequencySpecification.model_rebuild()
+OccupationalExperienceRequirements.model_rebuild()
+BedDetails.model_rebuild()
+GameServer.model_rebuild()
+ServiceChannel.model_rebuild()
+Demand.model_rebuild()
+DefinedTerm.model_rebuild()
+ActionAccessSpecification.model_rebuild()
+FinancialIncentive.model_rebuild()
+MenuItem.model_rebuild()
+ListItem.model_rebuild()
+OrderItem.model_rebuild()
+ItemList.model_rebuild()
+HealthPlanNetwork.model_rebuild()
+Grant.model_rebuild()
+StatisticalPopulation.model_rebuild()
+Order.model_rebuild()
+ConstraintNode.model_rebuild()
+Offer.model_rebuild()
+Trip.model_rebuild()
+Observation.model_rebuild()
+EntryPoint.model_rebuild()
+Quantity.model_rebuild()
+Seat.model_rebuild()
+BroadcastChannel.model_rebuild()
+Chapter.model_rebuild()
+TVSeries.model_rebuild()
+WebSite.model_rebuild()
+ComicStory.model_rebuild()
+HowTo.model_rebuild()
+WebContent.model_rebuild()
+Game.model_rebuild()
+Guide.model_rebuild()
+MediaObject.model_rebuild()
+DataCatalog.model_rebuild()
+Clip.model_rebuild()
+Review.model_rebuild()
+Certification.model_rebuild()
+Play.model_rebuild()
+SpecialAnnouncement.model_rebuild()
+ShortStory.model_rebuild()
+Photograph.model_rebuild()
+Claim.model_rebuild()
+Blog.model_rebuild()
+Quotation.model_rebuild()
+DigitalDocument.model_rebuild()
+Dataset.model_rebuild()
+CreativeWorkSeason.model_rebuild()
+LearningResource.model_rebuild()
+MusicPlaylist.model_rebuild()
+Menu.model_rebuild()
+Sculpture.model_rebuild()
+Painting.model_rebuild()
+WebPageElement.model_rebuild()
+Code.model_rebuild()
+Movie.model_rebuild()
+Poster.model_rebuild()
+HowToTip.model_rebuild()
+HowToSection.model_rebuild()
+MediaReviewItem.model_rebuild()
+Book.model_rebuild()
+Statement.model_rebuild()
+Season.model_rebuild()
+Article.model_rebuild()
+Atlas.model_rebuild()
+HowToDirection.model_rebuild()
+PublicationIssue.model_rebuild()
+Thesis.model_rebuild()
+SoftwareApplication.model_rebuild()
+PublicationVolume.model_rebuild()
+Comment.model_rebuild()
+MusicComposition.model_rebuild()
+ExercisePlan.model_rebuild()
+Message.model_rebuild()
+Conversation.model_rebuild()
+Drawing.model_rebuild()
+Map.model_rebuild()
+MusicRecording.model_rebuild()
+Legislation.model_rebuild()
+DefinedTermSet.model_rebuild()
+SoftwareSourceCode.model_rebuild()
+HyperTocEntry.model_rebuild()
+VisualArtwork.model_rebuild()
+SheetMusic.model_rebuild()
+Collection.model_rebuild()
+EducationalOccupationalCredential.model_rebuild()
+WebPage.model_rebuild()
+MenuSection.model_rebuild()
+Episode.model_rebuild()
+Manuscript.model_rebuild()
+CreativeWorkSeries.model_rebuild()
+MathSolver.model_rebuild()
+HyperToc.model_rebuild()
+ArchiveComponent.model_rebuild()
+ControlAction.model_rebuild()
+TradeAction.model_rebuild()
+AssessAction.model_rebuild()
+MoveAction.model_rebuild()
+AchieveAction.model_rebuild()
+FindAction.model_rebuild()
+TransferAction.model_rebuild()
+OrganizeAction.model_rebuild()
+UpdateAction.model_rebuild()
+CreateAction.model_rebuild()
+PlayAction.model_rebuild()
+SeekToAction.model_rebuild()
+SolveMathAction.model_rebuild()
+ConsumeAction.model_rebuild()
+InteractAction.model_rebuild()
+SearchAction.model_rebuild()
+ProductModel.model_rebuild()
+SomeProducts.model_rebuild()
+ProductGroup.model_rebuild()
+ProductCollection.model_rebuild()
+Vehicle.model_rebuild()
+IndividualProduct.model_rebuild()
+MedicalProcedure.model_rebuild()
+MedicalRiskFactor.model_rebuild()
+MedicalIndication.model_rebuild()
+MedicalTest.model_rebuild()
+MedicalRiskEstimator.model_rebuild()
+LifestyleModification.model_rebuild()
+Substance.model_rebuild()
+MedicalContraindication.model_rebuild()
+MedicalStudy.model_rebuild()
+MedicalCondition.model_rebuild()
+MedicalGuideline.model_rebuild()
+MedicalCause.model_rebuild()
+DrugClass.model_rebuild()
+MedicalDevice.model_rebuild()
+SuperficialAnatomy.model_rebuild()
+DrugCost.model_rebuild()
+AnatomicalStructure.model_rebuild()
+AnatomicalSystem.model_rebuild()
+MedicalIntangible.model_rebuild()
+NewsMediaOrganization.model_rebuild()
+NGO.model_rebuild()
+Cooperative.model_rebuild()
+SportsOrganization.model_rebuild()
+PerformingGroup.model_rebuild()
+FundingScheme.model_rebuild()
+SearchRescueOrganization.model_rebuild()
+LibrarySystem.model_rebuild()
+MedicalOrganization.model_rebuild()
+OnlineBusiness.model_rebuild()
+Consortium.model_rebuild()
+WorkersUnion.model_rebuild()
+GovernmentOrganization.model_rebuild()
+Project.model_rebuild()
+ResearchOrganization.model_rebuild()
+Airline.model_rebuild()
+Corporation.model_rebuild()
+PoliticalParty.model_rebuild()
+Protein.model_rebuild()
+Gene.model_rebuild()
+MolecularEntity.model_rebuild()
+ChemicalSubstance.model_rebuild()
+GatedResidenceCommunity.model_rebuild()
+ApartmentComplex.model_rebuild()
+Country.model_rebuild()
+City.model_rebuild()
+State.model_rebuild()
+SchoolDistrict.model_rebuild()
+Continent.model_rebuild()
+BodyOfWater.model_rebuild()
+Mountain.model_rebuild()
+Volcano.model_rebuild()
+RadioStation.model_rebuild()
+InternetCafe.model_rebuild()
+MedicalBusiness.model_rebuild()
+EmploymentAgency.model_rebuild()
+FoodEstablishment.model_rebuild()
+EntertainmentBusiness.model_rebuild()
+SportsActivityLocation.model_rebuild()
+ShoppingCenter.model_rebuild()
+FinancialService.model_rebuild()
+ChildCare.model_rebuild()
+HomeAndConstructionBusiness.model_rebuild()
+AutomotiveBusiness.model_rebuild()
+LodgingBusiness.model_rebuild()
+Store.model_rebuild()
+LegalService.model_rebuild()
+AnimalShelter.model_rebuild()
+TelevisionStation.model_rebuild()
+EmergencyService.model_rebuild()
+DryCleaningOrLaundry.model_rebuild()
+ArchiveOrganization.model_rebuild()
+RealEstateAgent.model_rebuild()
+Library.model_rebuild()
+RecyclingCenter.model_rebuild()
+GovernmentOffice.model_rebuild()
+TravelAgency.model_rebuild()
+TouristInformationCenter.model_rebuild()
+HealthAndBeautyBusiness.model_rebuild()
+ProfessionalService.model_rebuild()
+SelfStorage.model_rebuild()
+Playground.model_rebuild()
+MusicVenue.model_rebuild()
+Crematorium.model_rebuild()
+PoliceStation.model_rebuild()
+PlaceOfWorship.model_rebuild()
+PublicToilet.model_rebuild()
+TaxiStand.model_rebuild()
+TrainStation.model_rebuild()
+SubwayStation.model_rebuild()
+Bridge.model_rebuild()
+EventVenue.model_rebuild()
+BusStop.model_rebuild()
+EducationalOrganization.model_rebuild()
+BusStation.model_rebuild()
+Cemetery.model_rebuild()
+GovernmentBuilding.model_rebuild()
+Airport.model_rebuild()
+StadiumOrArena.model_rebuild()
+Beach.model_rebuild()
+Park.model_rebuild()
+RVPark.model_rebuild()
+PerformingArtsTheater.model_rebuild()
+BoatTerminal.model_rebuild()
+Hospital.model_rebuild()
+Aquarium.model_rebuild()
+Zoo.model_rebuild()
+ParkingFacility.model_rebuild()
+Museum.model_rebuild()
+MovieTheater.model_rebuild()
+FireStation.model_rebuild()
+Apartment.model_rebuild()
+Room.model_rebuild()
+Suite.model_rebuild()
+House.model_rebuild()
+CampingPitch.model_rebuild()
+UserCheckins.model_rebuild()
+UserBlocks.model_rebuild()
+UserComments.model_rebuild()
+UserTweets.model_rebuild()
+UserLikes.model_rebuild()
+UserPlays.model_rebuild()
+UserPageVisits.model_rebuild()
+UserPlusOnes.model_rebuild()
+UserDownloads.model_rebuild()
+OnDemandEvent.model_rebuild()
+BroadcastEvent.model_rebuild()
+EventSeries.model_rebuild()
+LinkRole.model_rebuild()
+PerformanceRole.model_rebuild()
+OrganizationRole.model_rebuild()
+GovernmentPermit.model_rebuild()
+WorkBasedProgram.model_rebuild()
+Researcher.model_rebuild()
+BusinessAudience.model_rebuild()
+EducationalAudience.model_rebuild()
+PeopleAudience.model_rebuild()
+MedicalAudience.model_rebuild()
+CableOrSatelliteService.model_rebuild()
+WebAPI.model_rebuild()
+FinancialProduct.model_rebuild()
+Taxi.model_rebuild()
+FoodService.model_rebuild()
+BroadcastService.model_rebuild()
+GovernmentService.model_rebuild()
+TaxiService.model_rebuild()
+SizeGroupEnumeration.model_rebuild()
+ReturnLabelSourceEnumeration.model_rebuild()
+PhysicalActivityCategory.model_rebuild()
+ContactPointOption.model_rebuild()
+PriceComponentTypeEnumeration.model_rebuild()
+MapCategoryType.model_rebuild()
+RestrictedDiet.model_rebuild()
+DigitalPlatformEnumeration.model_rebuild()
+PaymentMethodType.model_rebuild()
+IncentiveQualifiedExpenseType.model_rebuild()
+CertificationStatusEnumeration.model_rebuild()
+GovernmentBenefitsType.model_rebuild()
+StatusEnumeration.model_rebuild()
+CarUsageType.model_rebuild()
+FulfillmentTypeEnumeration.model_rebuild()
+SizeSystemEnumeration.model_rebuild()
+Specialty.model_rebuild()
+GenderType.model_rebuild()
+HealthAspectEnumeration.model_rebuild()
+MediaManipulationRatingEnumeration.model_rebuild()
+MediaEnumeration.model_rebuild()
+WarrantyScope.model_rebuild()
+MusicAlbumReleaseType.model_rebuild()
+MedicalEnumeration.model_rebuild()
+DigitalDocumentPermissionType.model_rebuild()
+OfferItemCondition.model_rebuild()
+MeasurementMethodEnum.model_rebuild()
+LegalValueLevel.model_rebuild()
+EnergyEfficiencyEnumeration.model_rebuild()
+BookFormatType.model_rebuild()
+BusinessEntityType.model_rebuild()
+ProductReturnEnumeration.model_rebuild()
+PriceTypeEnumeration.model_rebuild()
+ItemAvailability.model_rebuild()
+ItemListOrderType.model_rebuild()
+RefundTypeEnumeration.model_rebuild()
+TierBenefitEnumeration.model_rebuild()
+GameAvailabilityEnumeration.model_rebuild()
+BoardingPolicyType.model_rebuild()
+BusinessFunction.model_rebuild()
+DeliveryMethod.model_rebuild()
+IncentiveStatus.model_rebuild()
+PurchaseType.model_rebuild()
+QualitativeValue.model_rebuild()
+ReturnFeesEnumeration.model_rebuild()
+IncentiveType.model_rebuild()
+AdultOrientedEnumeration.model_rebuild()
+NonprofitType.model_rebuild()
+RsvpResponseType.model_rebuild()
+ReturnMethodEnumeration.model_rebuild()
+MerchantReturnEnumeration.model_rebuild()
+DayOfWeek.model_rebuild()
+MeasurementTypeEnumeration.model_rebuild()
+MusicReleaseFormatType.model_rebuild()
+EventAttendanceModeEnumeration.model_rebuild()
+MusicAlbumProductionType.model_rebuild()
+GamePlayMode.model_rebuild()
+DefinedRegion.model_rebuild()
+EngineSpecification.model_rebuild()
+ShippingService.model_rebuild()
+QuantitativeValue.model_rebuild()
+RepaymentSpecification.model_rebuild()
+ServicePeriod.model_rebuild()
+WarrantyPromise.model_rebuild()
+DeliveryTimeSettings.model_rebuild()
+ShippingRateSettings.model_rebuild()
+PriceSpecification.model_rebuild()
+QuantitativeValueDistribution.model_rebuild()
+ShippingDeliveryTime.model_rebuild()
+PostalCodeRangeSpecification.model_rebuild()
+MonetaryAmount.model_rebuild()
+ShippingConditions.model_rebuild()
+PropertyValue.model_rebuild()
+OwnershipInfo.model_rebuild()
+InteractionCounter.model_rebuild()
+ExchangeRateSpecification.model_rebuild()
+GeoShape.model_rebuild()
+CDCPMDRecord.model_rebuild()
+TypeAndQuantityNode.model_rebuild()
+OfferShippingDetails.model_rebuild()
+DatedMoneySpecification.model_rebuild()
+ContactPoint.model_rebuild()
+NutritionInformation.model_rebuild()
+GeoCoordinates.model_rebuild()
+OpeningHoursSpecification.model_rebuild()
+EndorsementRating.model_rebuild()
+AggregateRating.model_rebuild()
+RentalCarReservation.model_rebuild()
+LodgingReservation.model_rebuild()
+TrainReservation.model_rebuild()
+BoatReservation.model_rebuild()
+EventReservation.model_rebuild()
+FlightReservation.model_rebuild()
+BusReservation.model_rebuild()
+TaxiReservation.model_rebuild()
+ReservationPackage.model_rebuild()
+FoodEstablishmentReservation.model_rebuild()
+CategoryCode.model_rebuild()
+HowToItem.model_rebuild()
+BreadcrumbList.model_rebuild()
+HowToStep.model_rebuild()
+OfferCatalog.model_rebuild()
+MonetaryGrant.model_rebuild()
+StatisticalVariable.model_rebuild()
+AggregateOffer.model_rebuild()
+OfferForPurchase.model_rebuild()
+OfferForLease.model_rebuild()
+TrainTrip.model_rebuild()
+BusTrip.model_rebuild()
+TouristTrip.model_rebuild()
+Flight.model_rebuild()
+BoatTrip.model_rebuild()
+Energy.model_rebuild()
+Distance.model_rebuild()
+Mass.model_rebuild()
+Duration.model_rebuild()
+RadioChannel.model_rebuild()
+TelevisionChannel.model_rebuild()
+ComicCoverArt.model_rebuild()
+Recipe.model_rebuild()
+HealthTopicContent.model_rebuild()
+VideoGame.model_rebuild()
+VideoObject.model_rebuild()
+AudioObject.model_rebuild()
+MusicVideoObject.model_rebuild()
+AmpStory.model_rebuild()
+DataDownload.model_rebuild()
+TextObject.model_rebuild()
+_3DModel.model_rebuild()
+ImageObject.model_rebuild()
+RadioClip.model_rebuild()
+TVClip.model_rebuild()
+MovieClip.model_rebuild()
+VideoGameClip.model_rebuild()
+ClaimReview.model_rebuild()
+MediaReview.model_rebuild()
+UserReview.model_rebuild()
+EmployerReview.model_rebuild()
+Recommendation.model_rebuild()
+CriticReview.model_rebuild()
+NoteDigitalDocument.model_rebuild()
+SpreadsheetDigitalDocument.model_rebuild()
+TextDigitalDocument.model_rebuild()
+PresentationDigitalDocument.model_rebuild()
+DataFeed.model_rebuild()
+TVSeason.model_rebuild()
+RadioSeason.model_rebuild()
+PodcastSeason.model_rebuild()
+Quiz.model_rebuild()
+Course.model_rebuild()
+Syllabus.model_rebuild()
+MusicAlbum.model_rebuild()
+MusicRelease.model_rebuild()
+Table.model_rebuild()
+WPFooter.model_rebuild()
+WPSideBar.model_rebuild()
+WPAdBlock.model_rebuild()
+WPHeader.model_rebuild()
+SiteNavigationElement.model_rebuild()
+NewsArticle.model_rebuild()
+SatiricalArticle.model_rebuild()
+AdvertiserContentArticle.model_rebuild()
+SocialMediaPosting.model_rebuild()
+Report.model_rebuild()
+ScholarlyArticle.model_rebuild()
+TechArticle.model_rebuild()
+ComicIssue.model_rebuild()
+WebApplication.model_rebuild()
+MobileApplication.model_rebuild()
+CorrectionComment.model_rebuild()
+Question.model_rebuild()
+Answer.model_rebuild()
+EmailMessage.model_rebuild()
+LegislationObject.model_rebuild()
+CategoryCodeSet.model_rebuild()
+CoverArt.model_rebuild()
+RealEstateListing.model_rebuild()
+ProfilePage.model_rebuild()
+MedicalWebPage.model_rebuild()
+SearchResultsPage.model_rebuild()
+CheckoutPage.model_rebuild()
+ContactPage.model_rebuild()
+ItemPage.model_rebuild()
+CollectionPage.model_rebuild()
+AboutPage.model_rebuild()
+QAPage.model_rebuild()
+FAQPage.model_rebuild()
+RadioEpisode.model_rebuild()
+PodcastEpisode.model_rebuild()
+TVEpisode.model_rebuild()
+RadioSeries.model_rebuild()
+Periodical.model_rebuild()
+PodcastSeries.model_rebuild()
+BookSeries.model_rebuild()
+MovieSeries.model_rebuild()
+VideoGameSeries.model_rebuild()
+ResumeAction.model_rebuild()
+SuspendAction.model_rebuild()
+ActivateAction.model_rebuild()
+DeactivateAction.model_rebuild()
+RentAction.model_rebuild()
+OrderAction.model_rebuild()
+PreOrderAction.model_rebuild()
+BuyAction.model_rebuild()
+TipAction.model_rebuild()
+SellAction.model_rebuild()
+PayAction.model_rebuild()
+QuoteAction.model_rebuild()
+IgnoreAction.model_rebuild()
+ReviewAction.model_rebuild()
+ReactAction.model_rebuild()
+ChooseAction.model_rebuild()
+TravelAction.model_rebuild()
+DepartAction.model_rebuild()
+ArriveAction.model_rebuild()
+TieAction.model_rebuild()
+LoseAction.model_rebuild()
+WinAction.model_rebuild()
+TrackAction.model_rebuild()
+DiscoverAction.model_rebuild()
+CheckAction.model_rebuild()
+LendAction.model_rebuild()
+SendAction.model_rebuild()
+MoneyTransfer.model_rebuild()
+ReturnAction.model_rebuild()
+TakeAction.model_rebuild()
+GiveAction.model_rebuild()
+BorrowAction.model_rebuild()
+DonateAction.model_rebuild()
+ReceiveAction.model_rebuild()
+DownloadAction.model_rebuild()
+BookmarkAction.model_rebuild()
+PlanAction.model_rebuild()
+AllocateAction.model_rebuild()
+ApplyAction.model_rebuild()
+DeleteAction.model_rebuild()
+AddAction.model_rebuild()
+ReplaceAction.model_rebuild()
+DrawAction.model_rebuild()
+PhotographAction.model_rebuild()
+CookAction.model_rebuild()
+PaintAction.model_rebuild()
+FilmAction.model_rebuild()
+WriteAction.model_rebuild()
+PerformAction.model_rebuild()
+ExerciseAction.model_rebuild()
+InstallAction.model_rebuild()
+ReadAction.model_rebuild()
+ViewAction.model_rebuild()
+DrinkAction.model_rebuild()
+UseAction.model_rebuild()
+EatAction.model_rebuild()
+ListenAction.model_rebuild()
+PlayGameAction.model_rebuild()
+WatchAction.model_rebuild()
+MarryAction.model_rebuild()
+FollowAction.model_rebuild()
+JoinAction.model_rebuild()
+LeaveAction.model_rebuild()
+SubscribeAction.model_rebuild()
+RegisterAction.model_rebuild()
+CommunicateAction.model_rebuild()
+UnRegisterAction.model_rebuild()
+BefriendAction.model_rebuild()
+Car.model_rebuild()
+Motorcycle.model_rebuild()
+BusOrCoach.model_rebuild()
+MotorizedBicycle.model_rebuild()
+DiagnosticProcedure.model_rebuild()
+SurgicalProcedure.model_rebuild()
+TherapeuticProcedure.model_rebuild()
+TreatmentIndication.model_rebuild()
+ApprovedIndication.model_rebuild()
+PreventionIndication.model_rebuild()
+PathologyTest.model_rebuild()
+BloodTest.model_rebuild()
+ImagingTest.model_rebuild()
+MedicalTestPanel.model_rebuild()
+MedicalRiskCalculator.model_rebuild()
+MedicalRiskScore.model_rebuild()
+PhysicalActivity.model_rebuild()
+Diet.model_rebuild()
+Drug.model_rebuild()
+DietarySupplement.model_rebuild()
+MedicalTrial.model_rebuild()
+MedicalObservationalStudy.model_rebuild()
+InfectiousDisease.model_rebuild()
+MedicalSignOrSymptom.model_rebuild()
+MedicalGuidelineRecommendation.model_rebuild()
+MedicalGuidelineContraindication.model_rebuild()
+Vessel.model_rebuild()
+Ligament.model_rebuild()
+Bone.model_rebuild()
+BrainStructure.model_rebuild()
+Joint.model_rebuild()
+Muscle.model_rebuild()
+Nerve.model_rebuild()
+DoseSchedule.model_rebuild()
+MedicalConditionStage.model_rebuild()
+DrugStrength.model_rebuild()
+DDxElement.model_rebuild()
+MedicalCode.model_rebuild()
+DrugLegalStatus.model_rebuild()
+SportsTeam.model_rebuild()
+DanceGroup.model_rebuild()
+MusicGroup.model_rebuild()
+TheaterGroup.model_rebuild()
+VeterinaryCare.model_rebuild()
+DiagnosticLab.model_rebuild()
+MedicalClinic.model_rebuild()
+Pharmacy.model_rebuild()
+OnlineStore.model_rebuild()
+FundingAgency.model_rebuild()
+ResearchProject.model_rebuild()
+LakeBodyOfWater.model_rebuild()
+Reservoir.model_rebuild()
+Pond.model_rebuild()
+RiverBodyOfWater.model_rebuild()
+SeaBodyOfWater.model_rebuild()
+OceanBodyOfWater.model_rebuild()
+Waterfall.model_rebuild()
+Canal.model_rebuild()
+Dentist.model_rebuild()
+Physician.model_rebuild()
+Optician.model_rebuild()
+Winery.model_rebuild()
+IceCreamShop.model_rebuild()
+BarOrPub.model_rebuild()
+Restaurant.model_rebuild()
+Bakery.model_rebuild()
+CafeOrCoffeeShop.model_rebuild()
+FastFoodRestaurant.model_rebuild()
+Distillery.model_rebuild()
+Brewery.model_rebuild()
+ComedyClub.model_rebuild()
+AmusementPark.model_rebuild()
+Casino.model_rebuild()
+ArtGallery.model_rebuild()
+AdultEntertainment.model_rebuild()
+NightClub.model_rebuild()
+PublicSwimmingPool.model_rebuild()
+BowlingAlley.model_rebuild()
+TennisComplex.model_rebuild()
+GolfCourse.model_rebuild()
+ExerciseGym.model_rebuild()
+SportsClub.model_rebuild()
+InsuranceAgency.model_rebuild()
+BankOrCreditUnion.model_rebuild()
+AutomatedTeller.model_rebuild()
+AccountingService.model_rebuild()
+MovingCompany.model_rebuild()
+Locksmith.model_rebuild()
+GeneralContractor.model_rebuild()
+Plumber.model_rebuild()
+RoofingContractor.model_rebuild()
+HVACBusiness.model_rebuild()
+Electrician.model_rebuild()
+HousePainter.model_rebuild()
+AutoDealer.model_rebuild()
+AutoBodyShop.model_rebuild()
+GasStation.model_rebuild()
+MotorcycleDealer.model_rebuild()
+AutoRental.model_rebuild()
+AutoRepair.model_rebuild()
+AutoWash.model_rebuild()
+MotorcycleRepair.model_rebuild()
+BedAndBreakfast.model_rebuild()
+VacationRental.model_rebuild()
+Campground.model_rebuild()
+Resort.model_rebuild()
+Hotel.model_rebuild()
+Motel.model_rebuild()
+Hostel.model_rebuild()
+HobbyShop.model_rebuild()
+LiquorStore.model_rebuild()
+PawnShop.model_rebuild()
+ElectronicsStore.model_rebuild()
+BookStore.model_rebuild()
+Florist.model_rebuild()
+JewelryStore.model_rebuild()
+HardwareStore.model_rebuild()
+ComputerStore.model_rebuild()
+PetStore.model_rebuild()
+GardenStore.model_rebuild()
+OutletStore.model_rebuild()
+HomeGoodsStore.model_rebuild()
+DepartmentStore.model_rebuild()
+OfficeEquipmentStore.model_rebuild()
+ShoeStore.model_rebuild()
+MobilePhoneStore.model_rebuild()
+MusicStore.model_rebuild()
+BikeStore.model_rebuild()
+AutoPartsStore.model_rebuild()
+FurnitureStore.model_rebuild()
+GroceryStore.model_rebuild()
+MensClothingStore.model_rebuild()
+ConvenienceStore.model_rebuild()
+TireShop.model_rebuild()
+MovieRentalStore.model_rebuild()
+SportingGoodsStore.model_rebuild()
+WholesaleStore.model_rebuild()
+ClothingStore.model_rebuild()
+ToyStore.model_rebuild()
+Attorney.model_rebuild()
+Notary.model_rebuild()
+PostOffice.model_rebuild()
+DaySpa.model_rebuild()
+BeautySalon.model_rebuild()
+HealthClub.model_rebuild()
+HairSalon.model_rebuild()
+NailSalon.model_rebuild()
+TattooParlor.model_rebuild()
+HinduTemple.model_rebuild()
+BuddhistTemple.model_rebuild()
+Mosque.model_rebuild()
+Church.model_rebuild()
+Synagogue.model_rebuild()
+CollegeOrUniversity.model_rebuild()
+ElementarySchool.model_rebuild()
+School.model_rebuild()
+MiddleSchool.model_rebuild()
+HighSchool.model_rebuild()
+Preschool.model_rebuild()
+Embassy.model_rebuild()
+Courthouse.model_rebuild()
+DefenceEstablishment.model_rebuild()
+LegislativeBuilding.model_rebuild()
+CityHall.model_rebuild()
+MeetingRoom.model_rebuild()
+HotelRoom.model_rebuild()
+SingleFamilyResidence.model_rebuild()
+EmployeeRole.model_rebuild()
+ParentAudience.model_rebuild()
+Patient.model_rebuild()
+InvestmentOrDeposit.model_rebuild()
+PaymentService.model_rebuild()
+LoanOrCredit.model_rebuild()
+BankAccount.model_rebuild()
+CurrencyConversionService.model_rebuild()
+PaymentCard.model_rebuild()
+RadioBroadcastService.model_rebuild()
+WearableSizeGroupEnumeration.model_rebuild()
+PaymentStatusType.model_rebuild()
+ReservationStatusType.model_rebuild()
+GameServerStatus.model_rebuild()
+EventStatusType.model_rebuild()
+ActionStatusType.model_rebuild()
+OrderStatus.model_rebuild()
+LegalForceStatus.model_rebuild()
+WearableSizeSystemEnumeration.model_rebuild()
+MedicalSpecialty.model_rebuild()
+IPTCDigitalSourceEnumeration.model_rebuild()
+DrugPrescriptionStatus.model_rebuild()
+MedicalDevicePurpose.model_rebuild()
+MedicalTrialDesign.model_rebuild()
+DrugCostCategory.model_rebuild()
+MedicalProcedureType.model_rebuild()
+DrugPregnancyCategory.model_rebuild()
+PhysicalExam.model_rebuild()
+MedicalObservationalStudyDesign.model_rebuild()
+MedicalEvidenceLevel.model_rebuild()
+MedicalStudyStatus.model_rebuild()
+MedicalImagingTechnique.model_rebuild()
+MedicineSystem.model_rebuild()
+InfectiousAgentClass.model_rebuild()
+MedicalAudienceType.model_rebuild()
+EUEnergyEfficiencyEnumeration.model_rebuild()
+EnergyStarEnergyEfficiencyEnumeration.model_rebuild()
+BedType.model_rebuild()
+SteeringPositionValue.model_rebuild()
+SizeSpecification.model_rebuild()
+DriveWheelConfigurationValue.model_rebuild()
+USNonprofitType.model_rebuild()
+NLNonprofitType.model_rebuild()
+UKNonprofitType.model_rebuild()
+WearableMeasurementTypeEnumeration.model_rebuild()
+BodyMeasurementTypeEnumeration.model_rebuild()
+CompoundPriceSpecification.model_rebuild()
+UnitPriceSpecification.model_rebuild()
+PaymentChargeSpecification.model_rebuild()
+DeliveryChargeSpecification.model_rebuild()
+MonetaryAmountDistribution.model_rebuild()
+LocationFeatureSpecification.model_rebuild()
+GeoCircle.model_rebuild()
+PostalAddress.model_rebuild()
+EmployerAggregateRating.model_rebuild()
+HowToSupply.model_rebuild()
+HowToTool.model_rebuild()
+AMRadioChannel.model_rebuild()
+FMRadioChannel.model_rebuild()
+VideoObjectSnapshot.model_rebuild()
+AudioObjectSnapshot.model_rebuild()
+Audiobook.model_rebuild()
+ImageObjectSnapshot.model_rebuild()
+Barcode.model_rebuild()
+CompleteDataFeed.model_rebuild()
+OpinionNewsArticle.model_rebuild()
+ReviewNewsArticle.model_rebuild()
+ReportageNewsArticle.model_rebuild()
+BackgroundNewsArticle.model_rebuild()
+AnalysisNewsArticle.model_rebuild()
+AskPublicNewsArticle.model_rebuild()
+DiscussionForumPosting.model_rebuild()
+BlogPosting.model_rebuild()
+MedicalScholarlyArticle.model_rebuild()
+APIReference.model_rebuild()
+MediaGallery.model_rebuild()
+Newspaper.model_rebuild()
+ComicSeries.model_rebuild()
+DisagreeAction.model_rebuild()
+DislikeAction.model_rebuild()
+WantAction.model_rebuild()
+EndorseAction.model_rebuild()
+LikeAction.model_rebuild()
+AgreeAction.model_rebuild()
+VoteAction.model_rebuild()
+ScheduleAction.model_rebuild()
+CancelAction.model_rebuild()
+ReserveAction.model_rebuild()
+RejectAction.model_rebuild()
+AuthorizeAction.model_rebuild()
+AcceptAction.model_rebuild()
+AssignAction.model_rebuild()
+InsertAction.model_rebuild()
+WearAction.model_rebuild()
+CommentAction.model_rebuild()
+ReplyAction.model_rebuild()
+CheckOutAction.model_rebuild()
+InviteAction.model_rebuild()
+CheckInAction.model_rebuild()
+AskAction.model_rebuild()
+InformAction.model_rebuild()
+ShareAction.model_rebuild()
+PsychologicalTreatment.model_rebuild()
+MedicalTherapy.model_rebuild()
+MedicalSymptom.model_rebuild()
+MedicalSign.model_rebuild()
+Vein.model_rebuild()
+LymphaticVessel.model_rebuild()
+Artery.model_rebuild()
+MaximumDoseSchedule.model_rebuild()
+ReportedDoseSchedule.model_rebuild()
+RecommendedDoseSchedule.model_rebuild()
+CovidTestingFacility.model_rebuild()
+OnlineMarketplace.model_rebuild()
+PhysiciansOffice.model_rebuild()
+IndividualPhysician.model_rebuild()
+SkiResort.model_rebuild()
+CatholicChurch.model_rebuild()
+BrokerageAccount.model_rebuild()
+DepositAccount.model_rebuild()
+InvestmentFund.model_rebuild()
+MortgageLoan.model_rebuild()
+CreditCard.model_rebuild()
+LiveBlogPosting.model_rebuild()
+VideoGallery.model_rebuild()
+ImageGallery.model_rebuild()
+AppendAction.model_rebuild()
+PrependAction.model_rebuild()
+ConfirmAction.model_rebuild()
+RsvpAction.model_rebuild()
+OccupationalTherapy.model_rebuild()
+PalliativeProcedure.model_rebuild()
+PhysicalTherapy.model_rebuild()
+RadiationTherapy.model_rebuild()
+VitalSign.model_rebuild()

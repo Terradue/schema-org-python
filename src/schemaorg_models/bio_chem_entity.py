@@ -22,12 +22,12 @@ from typing import (
 from .thing import Thing
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .taxon import Taxon
+    from .defined_term import DefinedTerm
     from .gene import Gene
     from .property_value import PropertyValue
-    from .grant import Grant
-    from .defined_term import DefinedTerm
     from .medical_condition import MedicalCondition
+    from .grant import Grant
+    from .taxon import Taxon
 
 class BioChemEntity(Thing):
     '''

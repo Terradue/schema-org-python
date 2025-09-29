@@ -22,14 +22,14 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .certification_status_enumeration import CertificationStatusEnumeration
-    from .rating import Rating
     from .image_object import ImageObject
-    from .thing import Thing
-    from .administrative_area import AdministrativeArea
-    from .defined_term import DefinedTerm
+    from .rating import Rating
     from .quantitative_value import QuantitativeValue
+    from .thing import Thing
+    from .defined_term import DefinedTerm
+    from .administrative_area import AdministrativeArea
     from .organization import Organization
+    from .certification_status_enumeration import CertificationStatusEnumeration
 
 class Certification(CreativeWork):
     '''

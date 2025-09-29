@@ -22,12 +22,12 @@ from typing import (
 from .product import Product
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .car_usage_type import CarUsageType
+    from .quantitative_value import QuantitativeValue
+    from .qualitative_value import QualitativeValue
+    from .engine_specification import EngineSpecification
     from .steering_position_value import SteeringPositionValue
     from .drive_wheel_configuration_value import DriveWheelConfigurationValue
-    from .engine_specification import EngineSpecification
-    from .car_usage_type import CarUsageType
-    from .qualitative_value import QualitativeValue
-    from .quantitative_value import QuantitativeValue
 
 class Vehicle(Product):
     '''

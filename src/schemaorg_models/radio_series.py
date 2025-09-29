@@ -22,13 +22,13 @@ from typing import (
 from .creative_work_series import CreativeWorkSeries
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .creative_work_season import CreativeWorkSeason
-    from .episode import Episode
-    from .performing_group import PerformingGroup
     from .video_object import VideoObject
+    from .creative_work_season import CreativeWorkSeason
+    from .organization import Organization
     from .music_group import MusicGroup
     from .person import Person
-    from .organization import Organization
+    from .episode import Episode
+    from .performing_group import PerformingGroup
 
 class RadioSeries(CreativeWorkSeries):
     '''

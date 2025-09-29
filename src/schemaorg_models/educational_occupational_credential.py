@@ -22,10 +22,10 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .duration import Duration
-    from .defined_term import DefinedTerm
-    from .organization import Organization
     from .administrative_area import AdministrativeArea
+    from .defined_term import DefinedTerm
+    from .duration import Duration
+    from .organization import Organization
 
 class EducationalOccupationalCredential(CreativeWork):
     '''

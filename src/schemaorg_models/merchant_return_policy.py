@@ -22,17 +22,17 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .country import Country
-    from .monetary_amount import MonetaryAmount
-    from .offer_item_condition import OfferItemCondition
-    from .merchant_return_enumeration import MerchantReturnEnumeration
-    from .property_value import PropertyValue
-    from .refund_type_enumeration import RefundTypeEnumeration
-    from .return_fees_enumeration import ReturnFeesEnumeration
     from .member_program_tier import MemberProgramTier
-    from .return_label_source_enumeration import ReturnLabelSourceEnumeration
     from .return_method_enumeration import ReturnMethodEnumeration
     from .merchant_return_policy_seasonal_override import MerchantReturnPolicySeasonalOverride
+    from .refund_type_enumeration import RefundTypeEnumeration
+    from .return_label_source_enumeration import ReturnLabelSourceEnumeration
+    from .property_value import PropertyValue
+    from .offer_item_condition import OfferItemCondition
+    from .country import Country
+    from .monetary_amount import MonetaryAmount
+    from .merchant_return_enumeration import MerchantReturnEnumeration
+    from .return_fees_enumeration import ReturnFeesEnumeration
 
 class MerchantReturnPolicy(Intangible):
     '''

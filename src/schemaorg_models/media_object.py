@@ -22,15 +22,15 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .place import Place
-    from .media_subscription import MediaSubscription
-    from .duration import Duration
-    from .news_article import NewsArticle
-    from .quantitative_value import QuantitativeValue
-    from .claim import Claim
     from .geo_shape import GeoShape
-    from .distance import Distance
+    from .quantitative_value import QuantitativeValue
+    from .media_subscription import MediaSubscription
     from .organization import Organization
+    from .place import Place
+    from .distance import Distance
+    from .duration import Duration
+    from .claim import Claim
+    from .news_article import NewsArticle
 
 class MediaObject(CreativeWork):
     '''

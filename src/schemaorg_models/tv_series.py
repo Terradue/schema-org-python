@@ -22,14 +22,14 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .country import Country
-    from .creative_work_season import CreativeWorkSeason
-    from .episode import Episode
     from .video_object import VideoObject
-    from .performing_group import PerformingGroup
+    from .creative_work_season import CreativeWorkSeason
+    from .organization import Organization
     from .music_group import MusicGroup
     from .person import Person
-    from .organization import Organization
+    from .episode import Episode
+    from .performing_group import PerformingGroup
+    from .country import Country
 
 class TVSeries(CreativeWork):
     '''

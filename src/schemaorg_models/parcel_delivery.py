@@ -23,12 +23,12 @@ from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .delivery_method import DeliveryMethod
-    from .delivery_event import DeliveryEvent
-    from .order import Order
-    from .postal_address import PostalAddress
-    from .person import Person
-    from .organization import Organization
     from .product import Product
+    from .postal_address import PostalAddress
+    from .organization import Organization
+    from .order import Order
+    from .person import Person
+    from .delivery_event import DeliveryEvent
 
 class ParcelDelivery(Intangible):
     '''

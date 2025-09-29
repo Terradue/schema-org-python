@@ -22,8 +22,8 @@ from typing import (
 from .service import Service
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .organization import Organization
     from .administrative_area import AdministrativeArea
+    from .organization import Organization
 
 class GovernmentService(Service):
     '''

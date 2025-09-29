@@ -22,19 +22,19 @@ from typing import (
 from .creative_work_series import CreativeWorkSeries
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .creative_work_season import CreativeWorkSeason
-    from .place import Place
-    from .episode import Episode
-    from .performing_group import PerformingGroup
-    from .video_object import VideoObject
+    from .quantitative_value import QuantitativeValue
     from .thing import Thing
+    from .video_object import VideoObject
     from .postal_address import PostalAddress
-    from .game_play_mode import GamePlayMode
+    from .creative_work_season import CreativeWorkSeason
+    from .organization import Organization
+    from .place import Place
     from .music_group import MusicGroup
     from .creative_work import CreativeWork
+    from .game_play_mode import GamePlayMode
     from .person import Person
-    from .quantitative_value import QuantitativeValue
-    from .organization import Organization
+    from .episode import Episode
+    from .performing_group import PerformingGroup
 
 class VideoGameSeries(CreativeWorkSeries):
     '''

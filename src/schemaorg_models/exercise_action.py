@@ -22,14 +22,14 @@ from typing import (
 from .play_action import PlayAction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .person import Person
-    from .place import Place
-    from .sports_team import SportsTeam
     from .diet import Diet
+    from .sports_team import SportsTeam
     from .sports_activity_location import SportsActivityLocation
-    from .exercise_plan import ExercisePlan
+    from .place import Place
     from .distance import Distance
+    from .exercise_plan import ExercisePlan
     from .sports_event import SportsEvent
+    from .person import Person
 
 class ExerciseAction(PlayAction):
     '''

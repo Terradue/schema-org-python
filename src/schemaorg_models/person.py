@@ -22,36 +22,36 @@ from typing import (
 from .thing import Thing
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .offer import Offer
+    from .ownership_info import OwnershipInfo
+    from .defined_term import DefinedTerm
+    from .place import Place
+    from .demand import Demand
+    from .offer_catalog import OfferCatalog
+    from .certification import Certification
+    from .mass import Mass
+    from .program_membership import ProgramMembership
+    from .grant import Grant
+    from .contact_point import ContactPoint
+    from .educational_organization import EducationalOrganization
+    from .language import Language
+    from .creative_work import CreativeWork
+    from .gender_type import GenderType
     from .country import Country
     from .monetary_amount import MonetaryAmount
-    from .language import Language
-    from .ownership_info import OwnershipInfo
-    from .educational_organization import EducationalOrganization
-    from .brand import Brand
-    from .organization import Organization
-    from .distance import Distance
-    from .event import Event
-    from .structured_value import StructuredValue
-    from .creative_work import CreativeWork
-    from .defined_term import DefinedTerm
-    from .interaction_counter import InteractionCounter
-    from .demand import Demand
-    from .product import Product
-    from .certification import Certification
-    from .offer import Offer
-    from .occupation import Occupation
     from .price_specification import PriceSpecification
-    from .postal_address import PostalAddress
-    from .contact_point import ContactPoint
-    from .place import Place
-    from .offer_catalog import OfferCatalog
     from .educational_occupational_credential import EducationalOccupationalCredential
-    from .grant import Grant
-    from .program_membership import ProgramMembership
-    from .mass import Mass
-    from .gender_type import GenderType
+    from .product import Product
+    from .interaction_counter import InteractionCounter
+    from .organization import Organization
+    from .brand import Brand
+    from .distance import Distance
+    from .structured_value import StructuredValue
     from .member_program_tier import MemberProgramTier
     from .quantitative_value import QuantitativeValue
+    from .occupation import Occupation
+    from .event import Event
+    from .postal_address import PostalAddress
 
 class Person(Thing):
     '''

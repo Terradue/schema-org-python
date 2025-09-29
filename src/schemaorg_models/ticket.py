@@ -22,10 +22,10 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .person import Person
-    from .organization import Organization
-    from .price_specification import PriceSpecification
     from .seat import Seat
+    from .price_specification import PriceSpecification
+    from .organization import Organization
+    from .person import Person
 
 class Ticket(Intangible):
     '''

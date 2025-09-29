@@ -22,15 +22,15 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .creative_work_season import CreativeWorkSeason
-    from .duration import Duration
-    from .performing_group import PerformingGroup
-    from .video_object import VideoObject
     from .quantitative_value import QuantitativeValue
-    from .creative_work_series import CreativeWorkSeries
-    from .music_group import MusicGroup
-    from .person import Person
+    from .video_object import VideoObject
+    from .creative_work_season import CreativeWorkSeason
     from .organization import Organization
+    from .music_group import MusicGroup
+    from .creative_work_series import CreativeWorkSeries
+    from .duration import Duration
+    from .person import Person
+    from .performing_group import PerformingGroup
 
 class Episode(CreativeWork):
     '''

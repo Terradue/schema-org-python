@@ -23,12 +23,12 @@ from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .offer import Offer
-    from .place import Place
-    from .media_subscription import MediaSubscription
-    from .category_code import CategoryCode
-    from .thing import Thing
-    from .physical_activity_category import PhysicalActivityCategory
     from .geo_shape import GeoShape
+    from .thing import Thing
+    from .media_subscription import MediaSubscription
+    from .physical_activity_category import PhysicalActivityCategory
+    from .place import Place
+    from .category_code import CategoryCode
 
 class ActionAccessSpecification(Intangible):
     '''

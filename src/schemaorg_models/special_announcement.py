@@ -22,16 +22,16 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .government_service import GovernmentService
-    from .observation import Observation
-    from .civic_structure import CivicStructure
-    from .dataset import Dataset
-    from .category_code import CategoryCode
-    from .web_content import WebContent
     from .data_feed import DataFeed
     from .thing import Thing
+    from .web_content import WebContent
+    from .government_service import GovernmentService
     from .physical_activity_category import PhysicalActivityCategory
+    from .category_code import CategoryCode
+    from .observation import Observation
+    from .civic_structure import CivicStructure
     from .local_business import LocalBusiness
+    from .dataset import Dataset
 
 class SpecialAnnouncement(CreativeWork):
     '''

@@ -22,13 +22,13 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .event import Event
-    from .medical_entity import MedicalEntity
-    from .creative_work import CreativeWork
-    from .product import Product
-    from .person import Person
     from .bio_chem_entity import BioChemEntity
+    from .product import Product
     from .organization import Organization
+    from .event import Event
+    from .creative_work import CreativeWork
+    from .person import Person
+    from .medical_entity import MedicalEntity
 
 class Grant(Intangible):
     '''

@@ -22,13 +22,13 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .monetary_amount_distribution import MonetaryAmountDistribution
-    from .monetary_amount import MonetaryAmount
-    from .educational_occupational_credential import EducationalOccupationalCredential
-    from .category_code import CategoryCode
     from .occupational_experience_requirements import OccupationalExperienceRequirements
     from .administrative_area import AdministrativeArea
     from .defined_term import DefinedTerm
+    from .category_code import CategoryCode
+    from .monetary_amount_distribution import MonetaryAmountDistribution
+    from .monetary_amount import MonetaryAmount
+    from .educational_occupational_credential import EducationalOccupationalCredential
 
 class Occupation(Intangible):
     '''

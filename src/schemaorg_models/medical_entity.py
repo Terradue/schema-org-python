@@ -22,15 +22,15 @@ from typing import (
 from .thing import Thing
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .medical_study import MedicalStudy
-    from .medical_guideline import MedicalGuideline
-    from .medical_enumeration import MedicalEnumeration
-    from .grant import Grant
-    from .medical_specialty import MedicalSpecialty
     from .drug_legal_status import DrugLegalStatus
+    from .medical_enumeration import MedicalEnumeration
+    from .medical_code import MedicalCode
+    from .medical_study import MedicalStudy
     from .medicine_system import MedicineSystem
     from .organization import Organization
-    from .medical_code import MedicalCode
+    from .medical_guideline import MedicalGuideline
+    from .medical_specialty import MedicalSpecialty
+    from .grant import Grant
 
 class MedicalEntity(Thing):
     '''

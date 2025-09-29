@@ -22,21 +22,21 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .place import Place
-    from .unit_price_specification import UnitPriceSpecification
-    from .monetary_amount import MonetaryAmount
     from .geo_shape import GeoShape
-    from .purchase_type import PurchaseType
-    from .loan_or_credit import LoanOrCredit
-    from .incentive_status import IncentiveStatus
     from .quantitative_value import QuantitativeValue
-    from .administrative_area import AdministrativeArea
-    from .incentive_qualified_expense_type import IncentiveQualifiedExpenseType
-    from .person import Person
-    from .incentive_type import IncentiveType
-    from .organization import Organization
-    from .product import Product
     from .defined_term import DefinedTerm
+    from .administrative_area import AdministrativeArea
+    from .product import Product
+    from .organization import Organization
+    from .place import Place
+    from .purchase_type import PurchaseType
+    from .incentive_type import IncentiveType
+    from .incentive_qualified_expense_type import IncentiveQualifiedExpenseType
+    from .loan_or_credit import LoanOrCredit
+    from .unit_price_specification import UnitPriceSpecification
+    from .person import Person
+    from .incentive_status import IncentiveStatus
+    from .monetary_amount import MonetaryAmount
 
 class FinancialIncentive(Intangible):
     '''

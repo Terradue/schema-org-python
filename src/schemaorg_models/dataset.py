@@ -22,13 +22,13 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .property_value import PropertyValue
-    from .measurement_method_enum import MeasurementMethodEnum
     from .data_download import DataDownload
-    from .data_catalog import DataCatalog
-    from .statistical_variable import StatisticalVariable
     from .property import Property
+    from .statistical_variable import StatisticalVariable
     from .defined_term import DefinedTerm
+    from .measurement_method_enum import MeasurementMethodEnum
+    from .property_value import PropertyValue
+    from .data_catalog import DataCatalog
 
 class Dataset(CreativeWork):
     '''

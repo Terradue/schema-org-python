@@ -22,10 +22,10 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .postal_address import PostalAddress
-    from .thing import Thing
-    from .quantitative_value import QuantitativeValue
     from .place import Place
+    from .postal_address import PostalAddress
+    from .quantitative_value import QuantitativeValue
+    from .thing import Thing
 
 class Game(CreativeWork):
     '''

@@ -22,10 +22,10 @@ from typing import (
 from .price_specification import PriceSpecification
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .geo_shape import GeoShape
-    from .delivery_method import DeliveryMethod
-    from .place import Place
     from .administrative_area import AdministrativeArea
+    from .delivery_method import DeliveryMethod
+    from .geo_shape import GeoShape
+    from .place import Place
 
 class DeliveryChargeSpecification(PriceSpecification):
     '''

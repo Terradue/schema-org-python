@@ -22,11 +22,11 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .contact_point import ContactPoint
     from .audience import Audience
-    from .person import Person
-    from .digital_document_permission_type import DigitalDocumentPermissionType
     from .organization import Organization
+    from .person import Person
+    from .contact_point import ContactPoint
+    from .digital_document_permission_type import DigitalDocumentPermissionType
 
 class DigitalDocumentPermission(Intangible):
     '''

@@ -23,10 +23,10 @@ from .creative_work_series import CreativeWorkSeries
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .video_object import VideoObject
-    from .performing_group import PerformingGroup
+    from .organization import Organization
     from .music_group import MusicGroup
     from .person import Person
-    from .organization import Organization
+    from .performing_group import PerformingGroup
 
 class MovieSeries(CreativeWorkSeries):
     '''

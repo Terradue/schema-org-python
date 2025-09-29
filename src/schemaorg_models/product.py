@@ -22,36 +22,36 @@ from typing import (
 from .thing import Thing
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .country import Country
-    from .offer_item_condition import OfferItemCondition
+    from .offer import Offer
     from .product_group import ProductGroup
-    from .adult_oriented_enumeration import AdultOrientedEnumeration
-    from .image_object import ImageObject
-    from .brand import Brand
-    from .energy_consumption_details import EnergyConsumptionDetails
-    from .merchant_return_policy import MerchantReturnPolicy
-    from .distance import Distance
-    from .organization import Organization
-    from .property_value import PropertyValue
-    from .item_list import ItemList
     from .defined_term import DefinedTerm
     from .demand import Demand
+    from .energy_consumption_details import EnergyConsumptionDetails
     from .certification import Certification
-    from .offer import Offer
-    from .review import Review
-    from .web_content import WebContent
-    from .aggregate_rating import AggregateRating
-    from .list_item import ListItem
-    from .product_return_policy import ProductReturnPolicy
-    from .size_specification import SizeSpecification
-    from .audience import Audience
-    from .category_code import CategoryCode
-    from .grant import Grant
     from .mass import Mass
-    from .service import Service
-    from .physical_activity_category import PhysicalActivityCategory
+    from .grant import Grant
     from .product_model import ProductModel
+    from .web_content import WebContent
+    from .product_return_policy import ProductReturnPolicy
+    from .physical_activity_category import PhysicalActivityCategory
+    from .category_code import CategoryCode
+    from .property_value import PropertyValue
+    from .country import Country
+    from .list_item import ListItem
+    from .audience import Audience
+    from .organization import Organization
+    from .brand import Brand
+    from .distance import Distance
+    from .merchant_return_policy import MerchantReturnPolicy
+    from .adult_oriented_enumeration import AdultOrientedEnumeration
+    from .service import Service
+    from .offer_item_condition import OfferItemCondition
+    from .size_specification import SizeSpecification
+    from .aggregate_rating import AggregateRating
+    from .image_object import ImageObject
     from .quantitative_value import QuantitativeValue
+    from .review import Review
+    from .item_list import ItemList
 
 class Product(Thing):
     '''

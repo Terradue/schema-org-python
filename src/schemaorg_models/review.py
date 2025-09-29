@@ -22,11 +22,11 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .item_list import ItemList
-    from .web_content import WebContent
     from .rating import Rating
-    from .thing import Thing
     from .list_item import ListItem
+    from .web_content import WebContent
+    from .thing import Thing
+    from .item_list import ItemList
 
 class Review(CreativeWork):
     '''

@@ -22,11 +22,11 @@ from typing import (
 from .financial_product import FinancialProduct
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .monetary_amount import MonetaryAmount
-    from .duration import Duration
+    from .quantitative_value import QuantitativeValue
     from .thing import Thing
     from .repayment_specification import RepaymentSpecification
-    from .quantitative_value import QuantitativeValue
+    from .duration import Duration
+    from .monetary_amount import MonetaryAmount
 
 class LoanOrCredit(FinancialProduct):
     '''

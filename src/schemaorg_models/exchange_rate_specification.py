@@ -22,8 +22,8 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .unit_price_specification import UnitPriceSpecification
     from .monetary_amount import MonetaryAmount
+    from .unit_price_specification import UnitPriceSpecification
 
 class ExchangeRateSpecification(StructuredValue):
     '''

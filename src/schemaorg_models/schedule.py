@@ -22,8 +22,8 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .duration import Duration
     from .day_of_week import DayOfWeek
+    from .duration import Duration
     from .quantitative_value import QuantitativeValue
 
 class Schedule(Intangible):

@@ -23,8 +23,8 @@ from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .delivery_charge_specification import DeliveryChargeSpecification
-    from .defined_region import DefinedRegion
     from .monetary_amount import MonetaryAmount
+    from .defined_region import DefinedRegion
 
 class ShippingRateSettings(StructuredValue):
     '''

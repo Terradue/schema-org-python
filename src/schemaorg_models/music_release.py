@@ -22,12 +22,12 @@ from typing import (
 from .music_playlist import MusicPlaylist
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .person import Person
     from .music_release_format_type import MusicReleaseFormatType
-    from .duration import Duration
     from .quantitative_value import QuantitativeValue
-    from .music_album import MusicAlbum
     from .organization import Organization
+    from .music_album import MusicAlbum
+    from .duration import Duration
+    from .person import Person
 
 class MusicRelease(MusicPlaylist):
     '''

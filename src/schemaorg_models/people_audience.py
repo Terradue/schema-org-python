@@ -23,8 +23,8 @@ from .audience import Audience
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .medical_condition import MedicalCondition
-    from .gender_type import GenderType
     from .quantitative_value import QuantitativeValue
+    from .gender_type import GenderType
 
 class PeopleAudience(Audience):
     '''

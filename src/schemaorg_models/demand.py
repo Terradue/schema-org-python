@@ -22,29 +22,29 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .offer_item_condition import OfferItemCondition
     from .geo_shape import GeoShape
-    from .business_entity_type import BusinessEntityType
-    from .organization import Organization
-    from .loan_or_credit import LoanOrCredit
     from .warranty_promise import WarrantyPromise
-    from .payment_method import PaymentMethod
-    from .item_availability import ItemAvailability
-    from .event import Event
-    from .creative_work import CreativeWork
-    from .administrative_area import AdministrativeArea
-    from .product import Product
-    from .price_specification import PriceSpecification
-    from .type_and_quantity_node import TypeAndQuantityNode
-    from .aggregate_offer import AggregateOffer
-    from .person import Person
-    from .delivery_method import DeliveryMethod
-    from .place import Place
-    from .menu_item import MenuItem
     from .business_function import BusinessFunction
+    from .place import Place
+    from .business_entity_type import BusinessEntityType
+    from .aggregate_offer import AggregateOffer
+    from .delivery_method import DeliveryMethod
+    from .item_availability import ItemAvailability
+    from .creative_work import CreativeWork
+    from .payment_method import PaymentMethod
     from .trip import Trip
+    from .price_specification import PriceSpecification
+    from .product import Product
+    from .organization import Organization
     from .service import Service
+    from .offer_item_condition import OfferItemCondition
     from .quantitative_value import QuantitativeValue
+    from .administrative_area import AdministrativeArea
+    from .event import Event
+    from .loan_or_credit import LoanOrCredit
+    from .person import Person
+    from .type_and_quantity_node import TypeAndQuantityNode
+    from .menu_item import MenuItem
 
 class Demand(Intangible):
     '''

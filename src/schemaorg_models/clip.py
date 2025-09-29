@@ -23,12 +23,12 @@ from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .creative_work_season import CreativeWorkSeason
+    from .hyper_toc_entry import HyperTocEntry
+    from .music_group import MusicGroup
+    from .creative_work_series import CreativeWorkSeries
+    from .person import Person
     from .episode import Episode
     from .performing_group import PerformingGroup
-    from .creative_work_series import CreativeWorkSeries
-    from .music_group import MusicGroup
-    from .person import Person
-    from .hyper_toc_entry import HyperTocEntry
 
 class Clip(CreativeWork):
     '''

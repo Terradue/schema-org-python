@@ -172,34 +172,13 @@ from typing import (
 )
 """)
 
-        f.write(f"__all__ = {str(ts_sorted)}\n\n")
-
         for class_name in ts_sorted:
             f.write(f"from .{camel_to_snake(class_name)} import {class_name}\n")
 
-        f.write("""
-def run_once(f):
-    def wrapper(*args, **kwargs):
-        if not wrapper.has_run:
-            wrapper.has_run = True
-            return f(*args, **kwargs)
-    wrapper.has_run = False
-    return wrapper
-""")
+        f.write("\n\n")
 
         for class_name in ts_sorted:
-            class_info = classes.get(class_name)
-            
-            if class_info: # even if we could be quiet sure it is not None 
-                f.write(f"\n@run_once\ndef rebuild_{camel_to_snake(class_name)}():\n")
-
-                for import_ in class_info.imports:
-                    f.write(f"    rebuild_{camel_to_snake(import_)}()\n")
-
-                if class_info.parent and classes.get(class_info.parent):
-                    f.write(f"    rebuild_{camel_to_snake(class_info.parent)}()\n")
-                
-                f.write(f"    {class_name}.model_rebuild()\n")
+            f.write(f"{class_name}.model_rebuild()\n")
 
     # Generate model files
     for class_name, class_info in classes.items():
@@ -261,7 +240,7 @@ if TYPE_CHECKING:
 
             if not class_info.parent:
                 f.write("""    # global serializer for HttpUrl
-    @field_serializer(HttpUrl, mode="plain")
+    @field_serializer(HttpUrl, mode="plain", check_fields=False)
     def serialize_httpurl(self, value: HttpUrl) -> str:
         return str(value)
 

@@ -22,8 +22,8 @@ from typing import (
 from .sports_organization import SportsOrganization
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .person import Person
     from .gender_type import GenderType
+    from .person import Person
 
 class SportsTeam(SportsOrganization):
     '''

@@ -23,11 +23,11 @@ from .civic_structure import CivicStructure
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .medical_therapy import MedicalTherapy
+    from .cdcpmd_record import CDCPMDRecord
     from .medical_specialty import MedicalSpecialty
+    from .medical_procedure import MedicalProcedure
     from .medical_test import MedicalTest
     from .dataset import Dataset
-    from .cdcpmd_record import CDCPMDRecord
-    from .medical_procedure import MedicalProcedure
 
 class Hospital(CivicStructure):
     '''

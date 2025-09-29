@@ -22,8 +22,8 @@ from typing import (
 from .medical_entity import MedicalEntity
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .anatomical_structure import AnatomicalStructure
     from .medical_condition import MedicalCondition
+    from .anatomical_structure import AnatomicalStructure
     from .medical_therapy import MedicalTherapy
 
 class AnatomicalSystem(MedicalEntity):

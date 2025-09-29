@@ -22,13 +22,13 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .duration import Duration
     from .music_playlist import MusicPlaylist
-    from .music_composition import MusicComposition
-    from .music_album import MusicAlbum
-    from .music_group import MusicGroup
-    from .person import Person
     from .quantitative_value import QuantitativeValue
+    from .music_composition import MusicComposition
+    from .music_group import MusicGroup
+    from .music_album import MusicAlbum
+    from .duration import Duration
+    from .person import Person
 
 class MusicRecording(CreativeWork):
     '''

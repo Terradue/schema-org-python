@@ -23,18 +23,18 @@ from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .offer import Offer
-    from .person import Person
-    from .course import Course
-    from .monetary_amount_distribution import MonetaryAmountDistribution
-    from .duration import Duration
-    from .structured_value import StructuredValue
-    from .educational_occupational_credential import EducationalOccupationalCredential
-    from .category_code import CategoryCode
-    from .day_of_week import DayOfWeek
-    from .alignment_object import AlignmentObject
     from .defined_term import DefinedTerm
+    from .day_of_week import DayOfWeek
+    from .course import Course
     from .organization import Organization
     from .demand import Demand
+    from .category_code import CategoryCode
+    from .duration import Duration
+    from .person import Person
+    from .alignment_object import AlignmentObject
+    from .monetary_amount_distribution import MonetaryAmountDistribution
+    from .structured_value import StructuredValue
+    from .educational_occupational_credential import EducationalOccupationalCredential
 
 class EducationalOccupationalProgram(Intangible):
     '''

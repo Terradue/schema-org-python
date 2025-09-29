@@ -22,9 +22,9 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .postal_address import PostalAddress
-    from .archive_organization import ArchiveOrganization
     from .place import Place
+    from .archive_organization import ArchiveOrganization
+    from .postal_address import PostalAddress
 
 class ArchiveComponent(CreativeWork):
     '''

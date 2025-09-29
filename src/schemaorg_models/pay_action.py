@@ -22,10 +22,10 @@ from typing import (
 from .trade_action import TradeAction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .person import Person
-    from .contact_point import ContactPoint
     from .audience import Audience
+    from .contact_point import ContactPoint
     from .organization import Organization
+    from .person import Person
 
 class PayAction(TradeAction):
     '''

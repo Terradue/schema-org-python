@@ -23,8 +23,8 @@ from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .business_function import BusinessFunction
-    from .service import Service
     from .product import Product
+    from .service import Service
 
 class TypeAndQuantityNode(StructuredValue):
     '''

@@ -23,8 +23,8 @@ from .trade_action import TradeAction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .warranty_promise import WarrantyPromise
-    from .person import Person
     from .organization import Organization
+    from .person import Person
 
 class BuyAction(TradeAction):
     '''

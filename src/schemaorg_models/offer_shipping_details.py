@@ -22,15 +22,15 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .defined_region import DefinedRegion
-    from .monetary_amount import MonetaryAmount
-    from .shipping_service import ShippingService
-    from .quantitative_value import QuantitativeValue
-    from .mass import Mass
     from .member_program_tier import MemberProgramTier
+    from .quantitative_value import QuantitativeValue
     from .shipping_delivery_time import ShippingDeliveryTime
     from .distance import Distance
+    from .mass import Mass
     from .shipping_rate_settings import ShippingRateSettings
+    from .shipping_service import ShippingService
+    from .monetary_amount import MonetaryAmount
+    from .defined_region import DefinedRegion
 
 class OfferShippingDetails(StructuredValue):
     '''

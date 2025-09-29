@@ -22,8 +22,8 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .defined_region import DefinedRegion
     from .shipping_delivery_time import ShippingDeliveryTime
+    from .defined_region import DefinedRegion
 
 class DeliveryTimeSettings(StructuredValue):
     '''

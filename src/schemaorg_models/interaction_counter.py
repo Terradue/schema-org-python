@@ -22,11 +22,11 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .place import Place
-    from .virtual_location import VirtualLocation
-    from .software_application import SoftwareApplication
     from .web_site import WebSite
+    from .software_application import SoftwareApplication
+    from .virtual_location import VirtualLocation
     from .action import Action
+    from .place import Place
     from .postal_address import PostalAddress
 
 class InteractionCounter(StructuredValue):

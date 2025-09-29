@@ -22,12 +22,12 @@ from typing import (
 from .lifestyle_modification import LifestyleModification
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .anatomical_system import AnatomicalSystem
-    from .anatomical_structure import AnatomicalStructure
-    from .category_code import CategoryCode
-    from .superficial_anatomy import SuperficialAnatomy
     from .thing import Thing
+    from .superficial_anatomy import SuperficialAnatomy
     from .physical_activity_category import PhysicalActivityCategory
+    from .category_code import CategoryCode
+    from .anatomical_structure import AnatomicalStructure
+    from .anatomical_system import AnatomicalSystem
 
 class PhysicalActivity(LifestyleModification):
     '''

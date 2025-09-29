@@ -22,10 +22,10 @@ from typing import (
 from .transfer_action import TransferAction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .person import Person
-    from .delivery_method import DeliveryMethod
     from .audience import Audience
+    from .delivery_method import DeliveryMethod
     from .organization import Organization
+    from .person import Person
 
 class ReceiveAction(TransferAction):
     '''

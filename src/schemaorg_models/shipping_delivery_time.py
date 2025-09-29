@@ -24,8 +24,8 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .day_of_week import DayOfWeek
     from .service_period import ServicePeriod
-    from .quantitative_value import QuantitativeValue
     from .opening_hours_specification import OpeningHoursSpecification
+    from .quantitative_value import QuantitativeValue
 
 class ShippingDeliveryTime(StructuredValue):
     '''

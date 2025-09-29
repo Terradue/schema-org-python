@@ -21,12 +21,12 @@ from typing import (
 )
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .property_value import PropertyValue
-    from .event import Event
     from .image_object import ImageObject
     from .action import Action
+    from .event import Event
     from .creative_work import CreativeWork
     from .text_object import TextObject
+    from .property_value import PropertyValue
 
 class Thing(BaseModel):
     '''
@@ -49,7 +49,7 @@ class Thing(BaseModel):
         potentialAction: Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.
     '''
     # global serializer for HttpUrl
-    @field_serializer(HttpUrl, mode="plain")
+    @field_serializer(HttpUrl, mode="plain", check_fields=False)
     def serialize_httpurl(self, value: HttpUrl) -> str:
         return str(value)
 

@@ -22,13 +22,13 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .web_page_element import WebPageElement
     from .breadcrumb_list import BreadcrumbList
-    from .speakable_specification import SpeakableSpecification
     from .image_object import ImageObject
-    from .specialty import Specialty
-    from .person import Person
+    from .web_page_element import WebPageElement
     from .organization import Organization
+    from .specialty import Specialty
+    from .speakable_specification import SpeakableSpecification
+    from .person import Person
 
 class WebPage(CreativeWork):
     '''

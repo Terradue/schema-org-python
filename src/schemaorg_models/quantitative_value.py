@@ -22,10 +22,10 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .measurement_type_enumeration import MeasurementTypeEnumeration
-    from .property_value import PropertyValue
-    from .qualitative_value import QualitativeValue
     from .defined_term import DefinedTerm
+    from .qualitative_value import QualitativeValue
+    from .property_value import PropertyValue
+    from .measurement_type_enumeration import MeasurementTypeEnumeration
     from .enumeration import Enumeration
 
 class QuantitativeValue(StructuredValue):

@@ -22,40 +22,40 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .offer_item_condition import OfferItemCondition
-    from .offer_shipping_details import OfferShippingDetails
-    from .adult_oriented_enumeration import AdultOrientedEnumeration
     from .geo_shape import GeoShape
-    from .business_entity_type import BusinessEntityType
-    from .merchant_return_policy import MerchantReturnPolicy
-    from .organization import Organization
-    from .loan_or_credit import LoanOrCredit
-    from .property_value import PropertyValue
-    from .item_availability import ItemAvailability
-    from .payment_method import PaymentMethod
-    from .duration import Duration
-    from .event import Event
     from .warranty_promise import WarrantyPromise
-    from .creative_work import CreativeWork
-    from .administrative_area import AdministrativeArea
-    from .product import Product
-    from .review import Review
-    from .price_specification import PriceSpecification
-    from .aggregate_rating import AggregateRating
-    from .type_and_quantity_node import TypeAndQuantityNode
-    from .person import Person
+    from .business_function import BusinessFunction
+    from .place import Place
+    from .duration import Duration
+    from .business_entity_type import BusinessEntityType
     from .aggregate_offer import AggregateOffer
     from .delivery_method import DeliveryMethod
-    from .place import Place
-    from .menu_item import MenuItem
-    from .category_code import CategoryCode
-    from .business_function import BusinessFunction
-    from .trip import Trip
-    from .thing import Thing
-    from .member_program_tier import MemberProgramTier
-    from .service import Service
+    from .item_availability import ItemAvailability
     from .physical_activity_category import PhysicalActivityCategory
+    from .category_code import CategoryCode
+    from .creative_work import CreativeWork
+    from .payment_method import PaymentMethod
+    from .property_value import PropertyValue
+    from .trip import Trip
+    from .price_specification import PriceSpecification
+    from .thing import Thing
+    from .product import Product
+    from .organization import Organization
+    from .merchant_return_policy import MerchantReturnPolicy
+    from .adult_oriented_enumeration import AdultOrientedEnumeration
+    from .service import Service
+    from .offer_item_condition import OfferItemCondition
+    from .aggregate_rating import AggregateRating
+    from .member_program_tier import MemberProgramTier
     from .quantitative_value import QuantitativeValue
+    from .administrative_area import AdministrativeArea
+    from .offer_shipping_details import OfferShippingDetails
+    from .review import Review
+    from .event import Event
+    from .loan_or_credit import LoanOrCredit
+    from .person import Person
+    from .type_and_quantity_node import TypeAndQuantityNode
+    from .menu_item import MenuItem
 
 class Offer(Intangible):
     '''

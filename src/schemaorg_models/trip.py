@@ -23,11 +23,11 @@ from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .offer import Offer
+    from .organization import Organization
     from .place import Place
     from .item_list import ItemList
-    from .person import Person
-    from .organization import Organization
     from .demand import Demand
+    from .person import Person
 
 class Trip(Intangible):
     '''

@@ -22,14 +22,14 @@ from typing import (
 from .game import Game
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .game_server import GameServer
-    from .video_object import VideoObject
-    from .performing_group import PerformingGroup
     from .thing import Thing
-    from .game_play_mode import GamePlayMode
-    from .music_group import MusicGroup
+    from .video_object import VideoObject
     from .creative_work import CreativeWork
+    from .music_group import MusicGroup
+    from .game_server import GameServer
     from .person import Person
+    from .game_play_mode import GamePlayMode
+    from .performing_group import PerformingGroup
 
 class VideoGame(Game):
     '''

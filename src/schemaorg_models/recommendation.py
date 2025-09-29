@@ -23,8 +23,8 @@ from .review import Review
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .thing import Thing
-    from .category_code import CategoryCode
     from .physical_activity_category import PhysicalActivityCategory
+    from .category_code import CategoryCode
 
 class Recommendation(Review):
     '''

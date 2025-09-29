@@ -22,9 +22,9 @@ from typing import (
 from .medical_entity import MedicalEntity
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .administrative_area import AdministrativeArea
     from .qualitative_value import QualitativeValue
     from .drug_cost_category import DrugCostCategory
-    from .administrative_area import AdministrativeArea
 
 class DrugCost(MedicalEntity):
     '''

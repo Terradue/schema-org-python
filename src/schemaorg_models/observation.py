@@ -22,14 +22,14 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .place import Place
-    from .property_value import PropertyValue
-    from .measurement_method_enum import MeasurementMethodEnum
-    from .statistical_variable import StatisticalVariable
     from .property import Property
+    from .quantitative_value import QuantitativeValue
     from .thing import Thing
     from .defined_term import DefinedTerm
-    from .quantitative_value import QuantitativeValue
+    from .statistical_variable import StatisticalVariable
+    from .measurement_method_enum import MeasurementMethodEnum
+    from .place import Place
+    from .property_value import PropertyValue
     from .enumeration import Enumeration
 
 class Observation(Intangible):
