@@ -99,20 +99,31 @@ def generate_models(graph: Graph):
             ts_sorted.append(class_name)
     # Write init file
     with open("src/schemaorg_models/__init__.py", "w") as f:
-        f.write(f"""
-# Schema.org Pydantic v2 models
-# The MIT License (MIT)
-""")
-    '''
-        f.write("from typing import Union, List, Optional\n")
-        f.write("from datetime import date, datetime, time\n")
-        f.write("from pydantic import field_validator, ConfigDict, Field, HttpUrl\n\n")
+        nl = '\n'
+        cnl = ',\n    '
+        f.write(f"""from __future__ import annotations
+import importlib
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+{nl.join(f"    from .{camel_to_snake(class_name)} import {class_name}" for class_name in ts_sorted)}
 
-        for class_name in ts_sorted:
-            if class_name is not None:
-                class_filename = camel_to_snake(class_name)
-                f.write(f"from schema_models.{class_filename} import {class_name}\n")
-    '''
+__all__ = [
+    {cnl.join(repr(class_name) for class_name in ts_sorted)}
+]
+
+_lazy_map = {{
+{nl.join(f"    {class_name!r}: '.{camel_to_snake(class_name)}'," for class_name in ts_sorted)}
+}}
+
+def __getattr__(name): 
+    mod = importlib.import_module(_lazy_map[name], __name__)
+    return getattr(mod, name)
+
+if TYPE_CHECKING:
+    for _n, _m in _lazy_map.items():
+        globals()[_n] = getattr(importlib.import_module(_m, __name__), _n)
+        """)
+
     # Second pass: collect properties
     for class_name, class_info in classes.items():
         class_uri = SCHEMA[class_name]

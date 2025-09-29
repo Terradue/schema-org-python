@@ -16,11 +16,11 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .speakable_specification import SpeakableSpecification
-    from .web_page_element import WebPageElement
-    from .organization import Organization
-    from .breadcrumb_list import BreadcrumbList
     from .specialty import Specialty
+    from .web_page_element import WebPageElement
+    from .breadcrumb_list import BreadcrumbList
+    from .organization import Organization
+    from .speakable_specification import SpeakableSpecification
     from .person import Person
     from .image_object import ImageObject
 

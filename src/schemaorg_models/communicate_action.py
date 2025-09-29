@@ -12,12 +12,12 @@ from typing import (
 from .interact_action import InteractAction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .audience import Audience
     from .contact_point import ContactPoint
-    from .organization import Organization
-    from .thing import Thing
     from .language import Language
+    from .thing import Thing
+    from .audience import Audience
     from .person import Person
+    from .organization import Organization
 
 class CommunicateAction(InteractAction):
     """

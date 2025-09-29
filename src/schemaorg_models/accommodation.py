@@ -14,11 +14,11 @@ from .place import Place
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .bed_type import BedType
-    from .location_feature_specification import LocationFeatureSpecification
-    from .bed_details import BedDetails
-    from .duration import Duration
-    from .floor_plan import FloorPlan
     from .quantitative_value import QuantitativeValue
+    from .floor_plan import FloorPlan
+    from .bed_details import BedDetails
+    from .location_feature_specification import LocationFeatureSpecification
+    from .duration import Duration
 
 class Accommodation(Place):
     """

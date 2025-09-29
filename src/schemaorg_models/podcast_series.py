@@ -13,9 +13,9 @@ from typing import (
 from .creative_work_series import CreativeWorkSeries
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .performing_group import PerformingGroup
     from .data_feed import DataFeed
     from .person import Person
-    from .performing_group import PerformingGroup
 
 class PodcastSeries(CreativeWorkSeries):
     """

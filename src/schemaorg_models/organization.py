@@ -16,42 +16,42 @@ from typing import (
 from .thing import Thing
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .postal_address import PostalAddress
-    from .product import Product
-    from .aggregate_rating import AggregateRating
-    from .offer_catalog import OfferCatalog
-    from .language import Language
-    from .grant import Grant
-    from .loan_or_credit import LoanOrCredit
-    from .image_object import ImageObject
-    from .program_membership import ProgramMembership
-    from .payment_method import PaymentMethod
-    from .demand import Demand
-    from .creative_work import CreativeWork
-    from .certification import Certification
     from .about_page import AboutPage
+    from .language import Language
+    from .merchant_return_policy import MerchantReturnPolicy
+    from .ownership_info import OwnershipInfo
+    from .payment_method import PaymentMethod
     from .person import Person
-    from .geo_shape import GeoShape
+    from .image_object import ImageObject
+    from .event import Event
     from .member_program_tier import MemberProgramTier
+    from .grant import Grant
+    from .contact_point import ContactPoint
+    from .shipping_service import ShippingService
+    from .interaction_counter import InteractionCounter
+    from .certification import Certification
+    from .geo_shape import GeoShape
+    from .educational_occupational_credential import EducationalOccupationalCredential
+    from .place import Place
+    from .offer_catalog import OfferCatalog
+    from .defined_term import DefinedTerm
+    from .member_program import MemberProgram
     from .virtual_location import VirtualLocation
     from .article import Article
-    from .defined_term import DefinedTerm
-    from .review import Review
-    from .member_program import MemberProgram
-    from .quantitative_value import QuantitativeValue
-    from .brand import Brand
-    from .place import Place
-    from .administrative_area import AdministrativeArea
-    from .shipping_service import ShippingService
     from .nonprofit_type import NonprofitType
-    from .interaction_counter import InteractionCounter
-    from .ownership_info import OwnershipInfo
-    from .contact_point import ContactPoint
-    from .merchant_return_policy import MerchantReturnPolicy
+    from .quantitative_value import QuantitativeValue
+    from .review import Review
+    from .product import Product
     from .offer import Offer
-    from .event import Event
+    from .brand import Brand
+    from .administrative_area import AdministrativeArea
     from .product_return_policy import ProductReturnPolicy
-    from .educational_occupational_credential import EducationalOccupationalCredential
+    from .postal_address import PostalAddress
+    from .demand import Demand
+    from .creative_work import CreativeWork
+    from .aggregate_rating import AggregateRating
+    from .program_membership import ProgramMembership
+    from .loan_or_credit import LoanOrCredit
 
 class Organization(Thing):
     """

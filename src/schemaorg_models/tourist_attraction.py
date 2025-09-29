@@ -12,8 +12,8 @@ from typing import (
 from .place import Place
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .audience import Audience
     from .language import Language
+    from .audience import Audience
 
 class TouristAttraction(Place):
     """

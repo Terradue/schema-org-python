@@ -19,11 +19,11 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .postal_address import PostalAddress
     from .product import Product
-    from .order import Order
-    from .organization import Organization
     from .delivery_event import DeliveryEvent
-    from .delivery_method import DeliveryMethod
     from .person import Person
+    from .organization import Organization
+    from .delivery_method import DeliveryMethod
+    from .order import Order
 
 class ParcelDelivery(Intangible):
     """

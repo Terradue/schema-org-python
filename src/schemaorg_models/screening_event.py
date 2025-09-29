@@ -12,8 +12,8 @@ from typing import (
 from .event import Event
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .movie import Movie
     from .language import Language
+    from .movie import Movie
 
 class ScreeningEvent(Event):
     """

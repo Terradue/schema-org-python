@@ -12,9 +12,9 @@ from typing import (
 from .anatomical_structure import AnatomicalStructure
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .muscle import Muscle
-    from .brain_structure import BrainStructure
     from .superficial_anatomy import SuperficialAnatomy
+    from .brain_structure import BrainStructure
+    from .muscle import Muscle
 
 class Nerve(AnatomicalStructure):
     """

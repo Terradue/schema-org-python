@@ -12,8 +12,8 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .menu_section import MenuSection
     from .menu_item import MenuItem
+    from .menu_section import MenuSection
 
 class Menu(CreativeWork):
     """

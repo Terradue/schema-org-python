@@ -12,11 +12,11 @@ from typing import (
 from .service import Service
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .broadcast_frequency_specification import BroadcastFrequencySpecification
-    from .organization import Organization
-    from .broadcast_channel import BroadcastChannel
     from .language import Language
+    from .organization import Organization
+    from .broadcast_frequency_specification import BroadcastFrequencySpecification
     from .place import Place
+    from .broadcast_channel import BroadcastChannel
 
 class BroadcastService(Service):
     """

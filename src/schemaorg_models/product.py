@@ -16,36 +16,36 @@ from typing import (
 from .thing import Thing
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .property_value import PropertyValue
+    from .web_content import WebContent
+    from .merchant_return_policy import MerchantReturnPolicy
+    from .adult_oriented_enumeration import AdultOrientedEnumeration
+    from .image_object import ImageObject
+    from .grant import Grant
+    from .category_code import CategoryCode
+    from .certification import Certification
+    from .distance import Distance
+    from .audience import Audience
+    from .defined_term import DefinedTerm
+    from .size_specification import SizeSpecification
+    from .country import Country
+    from .item_list import ItemList
+    from .physical_activity_category import PhysicalActivityCategory
+    from .quantitative_value import QuantitativeValue
+    from .review import Review
+    from .list_item import ListItem
+    from .offer import Offer
+    from .brand import Brand
+    from .product_return_policy import ProductReturnPolicy
+    from .demand import Demand
     from .product_model import ProductModel
+    from .product_group import ProductGroup
     from .offer_item_condition import OfferItemCondition
     from .aggregate_rating import AggregateRating
-    from .audience import Audience
-    from .size_specification import SizeSpecification
-    from .adult_oriented_enumeration import AdultOrientedEnumeration
-    from .country import Country
-    from .grant import Grant
     from .energy_consumption_details import EnergyConsumptionDetails
-    from .image_object import ImageObject
     from .service import Service
-    from .demand import Demand
-    from .certification import Certification
     from .organization import Organization
-    from .list_item import ListItem
     from .mass import Mass
-    from .defined_term import DefinedTerm
-    from .review import Review
-    from .quantitative_value import QuantitativeValue
-    from .brand import Brand
-    from .distance import Distance
-    from .category_code import CategoryCode
-    from .property_value import PropertyValue
-    from .physical_activity_category import PhysicalActivityCategory
-    from .product_group import ProductGroup
-    from .merchant_return_policy import MerchantReturnPolicy
-    from .web_content import WebContent
-    from .offer import Offer
-    from .product_return_policy import ProductReturnPolicy
-    from .item_list import ItemList
 
 class Product(Thing):
     """

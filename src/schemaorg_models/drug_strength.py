@@ -12,8 +12,8 @@ from typing import (
 from .medical_intangible import MedicalIntangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .maximum_dose_schedule import MaximumDoseSchedule
     from .administrative_area import AdministrativeArea
+    from .maximum_dose_schedule import MaximumDoseSchedule
 
 class DrugStrength(MedicalIntangible):
     """

@@ -12,12 +12,12 @@ from typing import (
 from .play_action import PlayAction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .distance import Distance
+    from .sports_activity_location import SportsActivityLocation
     from .exercise_plan import ExercisePlan
     from .sports_team import SportsTeam
-    from .diet import Diet
     from .sports_event import SportsEvent
-    from .sports_activity_location import SportsActivityLocation
+    from .distance import Distance
+    from .diet import Diet
     from .person import Person
     from .place import Place
 

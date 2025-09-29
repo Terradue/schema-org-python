@@ -17,20 +17,20 @@ from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .quantitative_value import QuantitativeValue
-    from .loan_or_credit import LoanOrCredit
-    from .incentive_qualified_expense_type import IncentiveQualifiedExpenseType
-    from .purchase_type import PurchaseType
-    from .product import Product
     from .incentive_type import IncentiveType
+    from .geo_shape import GeoShape
+    from .product import Product
     from .incentive_status import IncentiveStatus
-    from .place import Place
-    from .defined_term import DefinedTerm
-    from .organization import Organization
     from .unit_price_specification import UnitPriceSpecification
     from .monetary_amount import MonetaryAmount
+    from .incentive_qualified_expense_type import IncentiveQualifiedExpenseType
     from .person import Person
-    from .geo_shape import GeoShape
+    from .organization import Organization
     from .administrative_area import AdministrativeArea
+    from .place import Place
+    from .loan_or_credit import LoanOrCredit
+    from .purchase_type import PurchaseType
+    from .defined_term import DefinedTerm
 
 class FinancialIncentive(Intangible):
     """

@@ -12,11 +12,11 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .rating import Rating
-    from .thing import Thing
     from .web_content import WebContent
-    from .list_item import ListItem
     from .item_list import ItemList
+    from .thing import Thing
+    from .list_item import ListItem
+    from .rating import Rating
 
 class Review(CreativeWork):
     """

@@ -12,9 +12,9 @@ from typing import (
 from .trade_action import TradeAction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .organization import Organization
     from .real_estate_agent import RealEstateAgent
     from .person import Person
+    from .organization import Organization
 
 class RentAction(TradeAction):
     """

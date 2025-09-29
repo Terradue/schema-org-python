@@ -14,9 +14,9 @@ from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .quantitative_value import QuantitativeValue
-    from .place import Place
     from .thing import Thing
     from .postal_address import PostalAddress
+    from .place import Place
 
 class Game(CreativeWork):
     """

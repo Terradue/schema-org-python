@@ -12,8 +12,8 @@ from typing import (
 from .dataset import Dataset
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .thing import Thing
     from .data_feed_item import DataFeedItem
+    from .thing import Thing
 
 class DataFeed(Dataset):
     """

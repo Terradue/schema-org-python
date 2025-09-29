@@ -12,11 +12,11 @@ from typing import (
 from .enumeration import Enumeration
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .structured_value import StructuredValue
     from .property_value import PropertyValue
+    from .quantitative_value import QuantitativeValue
+    from .structured_value import StructuredValue
     from .measurement_type_enumeration import MeasurementTypeEnumeration
     from .defined_term import DefinedTerm
-    from .quantitative_value import QuantitativeValue
 
 class QualitativeValue(Enumeration):
     """

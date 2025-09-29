@@ -17,39 +17,39 @@ from typing import (
 from .thing import Thing
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .aggregate_rating import AggregateRating
-    from .audience import Audience
-    from .product import Product
-    from .size_specification import SizeSpecification
-    from .country import Country
-    from .duration import Duration
     from .language import Language
-    from .grant import Grant
-    from .clip import Clip
-    from .image_object import ImageObject
-    from .claim import Claim
-    from .publication_event import PublicationEvent
-    from .demand import Demand
-    from .alignment_object import AlignmentObject
-    from .organization import Organization
-    from .web_page import WebPage
-    from .person import Person
-    from .music_recording import MusicRecording
-    from .event import Event
-    from .correction_comment import CorrectionComment
-    from .defined_term import DefinedTerm
-    from .review import Review
-    from .comment import Comment
-    from .quantitative_value import QuantitativeValue
-    from .place import Place
-    from .rating import Rating
-    from .interaction_counter import InteractionCounter
-    from .video_object import VideoObject
-    from .iptc_digital_source_enumeration import IPTCDigitalSourceEnumeration
     from .audio_object import AudioObject
-    from .offer import Offer
-    from .media_object import MediaObject
+    from .person import Person
+    from .image_object import ImageObject
+    from .grant import Grant
+    from .event import Event
+    from .publication_event import PublicationEvent
+    from .alignment_object import AlignmentObject
+    from .clip import Clip
+    from .interaction_counter import InteractionCounter
+    from .web_page import WebPage
+    from .audience import Audience
+    from .iptc_digital_source_enumeration import IPTCDigitalSourceEnumeration
+    from .place import Place
+    from .defined_term import DefinedTerm
+    from .country import Country
+    from .size_specification import SizeSpecification
     from .item_list import ItemList
+    from .quantitative_value import QuantitativeValue
+    from .review import Review
+    from .product import Product
+    from .video_object import VideoObject
+    from .duration import Duration
+    from .offer import Offer
+    from .claim import Claim
+    from .media_object import MediaObject
+    from .music_recording import MusicRecording
+    from .demand import Demand
+    from .aggregate_rating import AggregateRating
+    from .comment import Comment
+    from .organization import Organization
+    from .rating import Rating
+    from .correction_comment import CorrectionComment
 
 class CreativeWork(Thing):
     """

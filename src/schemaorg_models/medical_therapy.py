@@ -12,8 +12,8 @@ from typing import (
 from .therapeutic_procedure import TherapeuticProcedure
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .medical_entity import MedicalEntity
     from .medical_contraindication import MedicalContraindication
+    from .medical_entity import MedicalEntity
 
 class MedicalTherapy(TherapeuticProcedure):
     """

@@ -12,8 +12,8 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .organization import Organization
     from .member_program_tier import MemberProgramTier
+    from .organization import Organization
 
 class MemberProgram(Intangible):
     """

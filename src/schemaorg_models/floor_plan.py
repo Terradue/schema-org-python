@@ -14,8 +14,8 @@ from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .quantitative_value import QuantitativeValue
-    from .location_feature_specification import LocationFeatureSpecification
     from .accommodation import Accommodation
+    from .location_feature_specification import LocationFeatureSpecification
     from .image_object import ImageObject
 
 class FloorPlan(Intangible):

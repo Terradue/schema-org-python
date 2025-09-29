@@ -13,8 +13,8 @@ from typing import (
 from .creative_work_season import CreativeWorkSeason
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .tv_series import TVSeries
     from .country import Country
+    from .tv_series import TVSeries
 
 class TVSeason(CreativeWorkSeason):
     """

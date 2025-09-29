@@ -12,8 +12,8 @@ from typing import (
 from .trip import Trip
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .bus_stop import BusStop
     from .bus_station import BusStation
+    from .bus_stop import BusStop
 
 class BusTrip(Trip):
     """

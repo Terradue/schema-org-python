@@ -13,11 +13,11 @@ from .music_playlist import MusicPlaylist
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .music_release_format_type import MusicReleaseFormatType
-    from .music_album import MusicAlbum
-    from .duration import Duration
-    from .organization import Organization
     from .quantitative_value import QuantitativeValue
+    from .duration import Duration
+    from .music_album import MusicAlbum
     from .person import Person
+    from .organization import Organization
 
 class MusicRelease(MusicPlaylist):
     """

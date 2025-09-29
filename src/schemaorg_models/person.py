@@ -16,36 +16,36 @@ from typing import (
 from .thing import Thing
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .postal_address import PostalAddress
-    from .product import Product
-    from .country import Country
-    from .offer_catalog import OfferCatalog
     from .language import Language
-    from .grant import Grant
-    from .program_membership import ProgramMembership
-    from .demand import Demand
-    from .creative_work import CreativeWork
-    from .certification import Certification
-    from .organization import Organization
-    from .price_specification import PriceSpecification
-    from .occupation import Occupation
-    from .mass import Mass
-    from .member_program_tier import MemberProgramTier
-    from .defined_term import DefinedTerm
-    from .gender_type import GenderType
-    from .quantitative_value import QuantitativeValue
-    from .brand import Brand
-    from .place import Place
-    from .distance import Distance
-    from .structured_value import StructuredValue
-    from .interaction_counter import InteractionCounter
-    from .educational_organization import EducationalOrganization
     from .ownership_info import OwnershipInfo
-    from .contact_point import ContactPoint
-    from .monetary_amount import MonetaryAmount
-    from .offer import Offer
+    from .grant import Grant
+    from .member_program_tier import MemberProgramTier
     from .event import Event
+    from .contact_point import ContactPoint
+    from .educational_organization import EducationalOrganization
+    from .interaction_counter import InteractionCounter
+    from .certification import Certification
     from .educational_occupational_credential import EducationalOccupationalCredential
+    from .distance import Distance
+    from .place import Place
+    from .offer_catalog import OfferCatalog
+    from .defined_term import DefinedTerm
+    from .country import Country
+    from .quantitative_value import QuantitativeValue
+    from .price_specification import PriceSpecification
+    from .product import Product
+    from .offer import Offer
+    from .occupation import Occupation
+    from .brand import Brand
+    from .postal_address import PostalAddress
+    from .demand import Demand
+    from .structured_value import StructuredValue
+    from .creative_work import CreativeWork
+    from .monetary_amount import MonetaryAmount
+    from .gender_type import GenderType
+    from .organization import Organization
+    from .mass import Mass
+    from .program_membership import ProgramMembership
 
 class Person(Thing):
     """

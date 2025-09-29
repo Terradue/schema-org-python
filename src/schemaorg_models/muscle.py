@@ -12,8 +12,8 @@ from typing import (
 from .anatomical_structure import AnatomicalStructure
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .nerve import Nerve
     from .vessel import Vessel
+    from .nerve import Nerve
 
 class Muscle(AnatomicalStructure):
     """

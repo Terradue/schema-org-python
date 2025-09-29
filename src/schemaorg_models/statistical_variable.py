@@ -13,11 +13,11 @@ from typing import (
 from .constraint_node import ConstraintNode
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .__class import _Class
     from .enumeration import Enumeration
     from .measurement_method_enum import MeasurementMethodEnum
-    from .__class import _Class
-    from .defined_term import DefinedTerm
     from .property import Property
+    from .defined_term import DefinedTerm
 
 class StatisticalVariable(ConstraintNode):
     """

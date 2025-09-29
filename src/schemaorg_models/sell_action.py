@@ -12,9 +12,9 @@ from typing import (
 from .trade_action import TradeAction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .organization import Organization
-    from .person import Person
     from .warranty_promise import WarrantyPromise
+    from .person import Person
+    from .organization import Organization
 
 class SellAction(TradeAction):
     """

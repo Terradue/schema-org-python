@@ -15,12 +15,12 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .reservation_status_type import ReservationStatusType
-    from .organization import Organization
     from .price_specification import PriceSpecification
     from .thing import Thing
+    from .reservation_status_type import ReservationStatusType
     from .ticket import Ticket
     from .person import Person
+    from .organization import Organization
     from .program_membership import ProgramMembership
 
 class Reservation(Intangible):

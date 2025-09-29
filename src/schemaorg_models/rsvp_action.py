@@ -12,8 +12,8 @@ from typing import (
 from .inform_action import InformAction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .rsvp_response_type import RsvpResponseType
     from .comment import Comment
+    from .rsvp_response_type import RsvpResponseType
 
 class RsvpAction(InformAction):
     """

@@ -14,11 +14,11 @@ from .lifestyle_modification import LifestyleModification
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .category_code import CategoryCode
-    from .physical_activity_category import PhysicalActivityCategory
-    from .thing import Thing
-    from .anatomical_system import AnatomicalSystem
-    from .anatomical_structure import AnatomicalStructure
     from .superficial_anatomy import SuperficialAnatomy
+    from .physical_activity_category import PhysicalActivityCategory
+    from .anatomical_system import AnatomicalSystem
+    from .thing import Thing
+    from .anatomical_structure import AnatomicalStructure
 
 class PhysicalActivity(LifestyleModification):
     """

@@ -12,8 +12,8 @@ from typing import (
 from .interact_action import InteractAction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .organization import Organization
     from .person import Person
+    from .organization import Organization
 
 class FollowAction(InteractAction):
     """

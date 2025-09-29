@@ -12,8 +12,8 @@ from typing import (
 from .react_action import ReactAction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .organization import Organization
     from .person import Person
+    from .organization import Organization
 
 class EndorseAction(ReactAction):
     """

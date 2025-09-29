@@ -13,8 +13,8 @@ from typing import (
 from .event import Event
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .person import Person
     from .schedule import Schedule
+    from .person import Person
 
 class CourseInstance(Event):
     """

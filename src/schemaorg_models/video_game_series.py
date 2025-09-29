@@ -13,19 +13,19 @@ from typing import (
 from .creative_work_series import CreativeWorkSeries
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .postal_address import PostalAddress
-    from .creative_work_season import CreativeWorkSeason
-    from .video_object import VideoObject
-    from .creative_work import CreativeWork
     from .performing_group import PerformingGroup
-    from .music_group import MusicGroup
-    from .organization import Organization
-    from .thing import Thing
-    from .game_play_mode import GamePlayMode
+    from .episode import Episode
+    from .postal_address import PostalAddress
     from .quantitative_value import QuantitativeValue
+    from .thing import Thing
+    from .organization import Organization
+    from .creative_work import CreativeWork
+    from .video_object import VideoObject
+    from .creative_work_season import CreativeWorkSeason
+    from .music_group import MusicGroup
     from .person import Person
     from .place import Place
-    from .episode import Episode
+    from .game_play_mode import GamePlayMode
 
 class VideoGameSeries(CreativeWorkSeries):
     """

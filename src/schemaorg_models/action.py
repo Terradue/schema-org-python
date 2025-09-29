@@ -20,11 +20,11 @@ if TYPE_CHECKING:
     from .virtual_location import VirtualLocation
     from .postal_address import PostalAddress
     from .entry_point import EntryPoint
-    from .how_to import HowTo
-    from .organization import Organization
-    from .person import Person
-    from .place import Place
     from .action_status_type import ActionStatusType
+    from .how_to import HowTo
+    from .person import Person
+    from .organization import Organization
+    from .place import Place
 
 class Action(Thing):
     """

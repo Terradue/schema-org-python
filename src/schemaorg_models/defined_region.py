@@ -12,8 +12,8 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .postal_code_range_specification import PostalCodeRangeSpecification
     from .country import Country
+    from .postal_code_range_specification import PostalCodeRangeSpecification
 
 class DefinedRegion(StructuredValue):
     """

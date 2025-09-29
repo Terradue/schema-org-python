@@ -12,9 +12,9 @@ from typing import (
 from .music_playlist import MusicPlaylist
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .music_album_production_type import MusicAlbumProductionType
     from .music_album_release_type import MusicAlbumReleaseType
     from .music_group import MusicGroup
-    from .music_album_production_type import MusicAlbumProductionType
     from .person import Person
     from .music_release import MusicRelease
 

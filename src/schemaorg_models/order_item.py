@@ -12,11 +12,11 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .order_status import OrderStatus
-    from .product import Product
-    from .parcel_delivery import ParcelDelivery
     from .quantitative_value import QuantitativeValue
+    from .product import Product
     from .service import Service
+    from .parcel_delivery import ParcelDelivery
+    from .order_status import OrderStatus
 
 class OrderItem(Intangible):
     """

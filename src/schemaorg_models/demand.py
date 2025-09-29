@@ -18,29 +18,29 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .offer_item_condition import OfferItemCondition
-    from .trip import Trip
-    from .product import Product
-    from .warranty_promise import WarrantyPromise
-    from .menu_item import MenuItem
-    from .loan_or_credit import LoanOrCredit
-    from .service import Service
-    from .payment_method import PaymentMethod
-    from .creative_work import CreativeWork
-    from .type_and_quantity_node import TypeAndQuantityNode
-    from .price_specification import PriceSpecification
-    from .organization import Organization
-    from .person import Person
-    from .geo_shape import GeoShape
-    from .aggregate_offer import AggregateOffer
-    from .delivery_method import DeliveryMethod
-    from .quantitative_value import QuantitativeValue
-    from .place import Place
-    from .administrative_area import AdministrativeArea
-    from .item_availability import ItemAvailability
     from .business_function import BusinessFunction
-    from .business_entity_type import BusinessEntityType
+    from .payment_method import PaymentMethod
+    from .person import Person
     from .event import Event
+    from .warranty_promise import WarrantyPromise
+    from .geo_shape import GeoShape
+    from .place import Place
+    from .type_and_quantity_node import TypeAndQuantityNode
+    from .quantitative_value import QuantitativeValue
+    from .price_specification import PriceSpecification
+    from .menu_item import MenuItem
+    from .product import Product
+    from .business_entity_type import BusinessEntityType
+    from .aggregate_offer import AggregateOffer
+    from .administrative_area import AdministrativeArea
+    from .loan_or_credit import LoanOrCredit
+    from .item_availability import ItemAvailability
+    from .offer_item_condition import OfferItemCondition
+    from .creative_work import CreativeWork
+    from .service import Service
+    from .delivery_method import DeliveryMethod
+    from .organization import Organization
+    from .trip import Trip
 
 class Demand(Intangible):
     """

@@ -12,8 +12,8 @@ from typing import (
 from .medical_intangible import MedicalIntangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .medical_condition import MedicalCondition
     from .medical_sign_or_symptom import MedicalSignOrSymptom
+    from .medical_condition import MedicalCondition
 
 class DDxElement(MedicalIntangible):
     """

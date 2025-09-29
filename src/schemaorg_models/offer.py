@@ -18,40 +18,40 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .offer_item_condition import OfferItemCondition
-    from .trip import Trip
-    from .product import Product
-    from .aggregate_rating import AggregateRating
-    from .adult_oriented_enumeration import AdultOrientedEnumeration
-    from .duration import Duration
-    from .warranty_promise import WarrantyPromise
-    from .menu_item import MenuItem
-    from .loan_or_credit import LoanOrCredit
-    from .service import Service
-    from .offer_shipping_details import OfferShippingDetails
-    from .payment_method import PaymentMethod
-    from .creative_work import CreativeWork
-    from .type_and_quantity_node import TypeAndQuantityNode
-    from .price_specification import PriceSpecification
-    from .organization import Organization
+    from .property_value import PropertyValue
+    from .business_function import BusinessFunction
     from .thing import Thing
+    from .merchant_return_policy import MerchantReturnPolicy
+    from .adult_oriented_enumeration import AdultOrientedEnumeration
+    from .payment_method import PaymentMethod
+    from .offer_shipping_details import OfferShippingDetails
     from .person import Person
-    from .geo_shape import GeoShape
-    from .aggregate_offer import AggregateOffer
+    from .event import Event
     from .member_program_tier import MemberProgramTier
-    from .review import Review
-    from .delivery_method import DeliveryMethod
-    from .quantitative_value import QuantitativeValue
+    from .category_code import CategoryCode
+    from .warranty_promise import WarrantyPromise
+    from .geo_shape import GeoShape
+    from .trip import Trip
     from .place import Place
+    from .type_and_quantity_node import TypeAndQuantityNode
+    from .physical_activity_category import PhysicalActivityCategory
+    from .quantitative_value import QuantitativeValue
+    from .price_specification import PriceSpecification
+    from .menu_item import MenuItem
+    from .review import Review
+    from .product import Product
+    from .duration import Duration
+    from .business_entity_type import BusinessEntityType
+    from .aggregate_offer import AggregateOffer
     from .administrative_area import AdministrativeArea
     from .item_availability import ItemAvailability
-    from .category_code import CategoryCode
-    from .business_function import BusinessFunction
-    from .property_value import PropertyValue
-    from .physical_activity_category import PhysicalActivityCategory
-    from .business_entity_type import BusinessEntityType
-    from .merchant_return_policy import MerchantReturnPolicy
-    from .event import Event
+    from .offer_item_condition import OfferItemCondition
+    from .creative_work import CreativeWork
+    from .aggregate_rating import AggregateRating
+    from .service import Service
+    from .delivery_method import DeliveryMethod
+    from .organization import Organization
+    from .loan_or_credit import LoanOrCredit
 
 class Offer(Intangible):
     """

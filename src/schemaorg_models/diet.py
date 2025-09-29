@@ -12,8 +12,8 @@ from typing import (
 from .lifestyle_modification import LifestyleModification
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .organization import Organization
     from .person import Person
+    from .organization import Organization
 
 class Diet(LifestyleModification):
     """

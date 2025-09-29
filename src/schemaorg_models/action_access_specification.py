@@ -22,9 +22,9 @@ if TYPE_CHECKING:
     from .physical_activity_category import PhysicalActivityCategory
     from .media_subscription import MediaSubscription
     from .thing import Thing
+    from .geo_shape import GeoShape
     from .offer import Offer
     from .place import Place
-    from .geo_shape import GeoShape
 
 class ActionAccessSpecification(Intangible):
     """

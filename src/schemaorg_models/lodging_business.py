@@ -16,11 +16,11 @@ from typing import (
 from .local_business import LocalBusiness
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .location_feature_specification import LocationFeatureSpecification
-    from .rating import Rating
-    from .audience import Audience
     from .language import Language
     from .quantitative_value import QuantitativeValue
+    from .location_feature_specification import LocationFeatureSpecification
+    from .audience import Audience
+    from .rating import Rating
 
 class LodgingBusiness(LocalBusiness):
     """

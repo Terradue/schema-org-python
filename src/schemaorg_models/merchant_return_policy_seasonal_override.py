@@ -16,11 +16,11 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .return_method_enumeration import ReturnMethodEnumeration
     from .return_fees_enumeration import ReturnFeesEnumeration
+    from .refund_type_enumeration import RefundTypeEnumeration
     from .merchant_return_enumeration import MerchantReturnEnumeration
     from .monetary_amount import MonetaryAmount
-    from .refund_type_enumeration import RefundTypeEnumeration
+    from .return_method_enumeration import ReturnMethodEnumeration
 
 class MerchantReturnPolicySeasonalOverride(Intangible):
     """

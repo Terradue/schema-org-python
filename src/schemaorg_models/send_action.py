@@ -12,11 +12,11 @@ from typing import (
 from .transfer_action import TransferAction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .audience import Audience
     from .contact_point import ContactPoint
     from .organization import Organization
-    from .delivery_method import DeliveryMethod
+    from .audience import Audience
     from .person import Person
+    from .delivery_method import DeliveryMethod
 
 class SendAction(TransferAction):
     """

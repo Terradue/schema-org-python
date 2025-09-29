@@ -13,10 +13,10 @@ from typing import (
 from .financial_product import FinancialProduct
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .quantitative_value import QuantitativeValue
     from .repayment_specification import RepaymentSpecification
-    from .duration import Duration
+    from .quantitative_value import QuantitativeValue
     from .thing import Thing
+    from .duration import Duration
     from .monetary_amount import MonetaryAmount
 
 class LoanOrCredit(FinancialProduct):

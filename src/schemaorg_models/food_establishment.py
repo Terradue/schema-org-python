@@ -13,8 +13,8 @@ from typing import (
 from .local_business import LocalBusiness
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .rating import Rating
     from .menu import Menu
+    from .rating import Rating
 
 class FoodEstablishment(LocalBusiness):
     """

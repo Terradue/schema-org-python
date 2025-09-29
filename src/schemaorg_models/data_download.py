@@ -13,8 +13,8 @@ from typing import (
 from .media_object import MediaObject
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .defined_term import DefinedTerm
     from .measurement_method_enum import MeasurementMethodEnum
+    from .defined_term import DefinedTerm
 
 class DataDownload(MediaObject):
     """

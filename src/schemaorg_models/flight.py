@@ -15,13 +15,13 @@ from typing import (
 from .trip import Trip
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .distance import Distance
     from .boarding_policy_type import BoardingPolicyType
     from .duration import Duration
     from .airport import Airport
+    from .distance import Distance
+    from .person import Person
     from .organization import Organization
     from .vehicle import Vehicle
-    from .person import Person
 
 class Flight(Trip):
     """

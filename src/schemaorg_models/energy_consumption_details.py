@@ -12,8 +12,8 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .eu_energy_efficiency_enumeration import EUEnergyEfficiencyEnumeration
     from .energy_efficiency_enumeration import EnergyEfficiencyEnumeration
+    from .eu_energy_efficiency_enumeration import EUEnergyEfficiencyEnumeration
 
 class EnergyConsumptionDetails(Intangible):
     """

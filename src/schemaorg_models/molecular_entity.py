@@ -12,8 +12,8 @@ from typing import (
 from .bio_chem_entity import BioChemEntity
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .defined_term import DefinedTerm
     from .quantitative_value import QuantitativeValue
+    from .defined_term import DefinedTerm
 
 class MolecularEntity(BioChemEntity):
     """

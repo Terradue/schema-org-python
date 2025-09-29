@@ -13,13 +13,13 @@ from typing import (
 from .learning_resource import LearningResource
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .structured_value import StructuredValue
-    from .syllabus import Syllabus
     from .alignment_object import AlignmentObject
-    from .defined_term import DefinedTerm
     from .language import Language
-    from .course_instance import CourseInstance
+    from .syllabus import Syllabus
+    from .structured_value import StructuredValue
     from .educational_occupational_credential import EducationalOccupationalCredential
+    from .course_instance import CourseInstance
+    from .defined_term import DefinedTerm
 
 class Course(LearningResource):
     """

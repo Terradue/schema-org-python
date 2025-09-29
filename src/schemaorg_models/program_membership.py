@@ -12,10 +12,10 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .organization import Organization
-    from .person import Person
     from .quantitative_value import QuantitativeValue
     from .member_program import MemberProgram
+    from .person import Person
+    from .organization import Organization
 
 class ProgramMembership(Intangible):
     """

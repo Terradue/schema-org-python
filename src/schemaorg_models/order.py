@@ -17,17 +17,17 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .order_status import OrderStatus
-    from .payment_method import PaymentMethod
+    from .invoice import Invoice
     from .postal_address import PostalAddress
     from .product import Product
+    from .offer import Offer
+    from .payment_method import PaymentMethod
     from .parcel_delivery import ParcelDelivery
     from .order_item import OrderItem
-    from .organization import Organization
     from .person import Person
-    from .offer import Offer
-    from .invoice import Invoice
+    from .organization import Organization
     from .service import Service
+    from .order_status import OrderStatus
 
 class Order(Intangible):
     """
