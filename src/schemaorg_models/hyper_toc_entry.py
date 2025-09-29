@@ -41,24 +41,24 @@ class HyperTocEntry(CreativeWork):
     utterances: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'utterances',
+            'https://schema.org/utterances'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/utterances'
     )
     tocContinuation: Optional[Union['HyperTocEntry', List['HyperTocEntry']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'tocContinuation',
+            'https://schema.org/tocContinuation'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/tocContinuation'
     )
     associatedMedia: Optional[Union['MediaObject', List['MediaObject']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'associatedMedia',
+            'https://schema.org/associatedMedia'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/associatedMedia'
     )

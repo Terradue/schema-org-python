@@ -49,7 +49,6 @@ def safe_name(name: str) -> str:
     clean_name = re.sub(r"[^a-zA-Z0-9]", "", name)
     return to_protected_name(clean_name[0].upper() + clean_name[1:])
 
-
 def get_parent_class(graph: Graph, class_uri):
     for _, _, parent_uri in graph.triples((class_uri, RDFS.subClassOf, None)):
         if str(parent_uri).startswith(str(SCHEMA)):
@@ -109,7 +108,9 @@ def generate_models(graph: Graph):
             # Second pass: collect properties
             print(f"Collect properties for {subject}...")
             for s, p, o in graph.triples((None, SCHEMA.domainIncludes, subject)):
-                prop_name = to_protected_name(str(s).split("/")[-1])
+                prop_name = str(s).split("/")[-1]
+                if prop_name.lower() in kwlist:
+                    prop_name = f'{prop_name}_'
 
                 property_info: PropertyInfo = PropertyInfo(
                     name=prop_name
@@ -137,7 +138,7 @@ def generate_models(graph: Graph):
                         pass
 
     sorter = TopologicalSorter()
-    ts_sorted = []
+    ts_sorted: MutableSequence[str] = []
 
     for class_name, class_info in classes.items():
         sorter.add(class_name, class_info.parent)
@@ -149,23 +150,56 @@ def generate_models(graph: Graph):
 
     # Write init file
     with open("src/schemaorg_models/__init__.py", "w") as f:
+        f.write("""from datetime import (
+    date,
+    datetime,
+    time
+)
+from pydantic import (
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
+)
+from typing import (
+    List,
+    Literal,
+    Optional,
+    Union
+)
+""")
+
         f.write(f"__all__ = {str(ts_sorted)}\n\n")
 
         for class_name in ts_sorted:
             f.write(f"from .{camel_to_snake(class_name)} import {class_name}\n")
 
+        f.write("""
+def run_once(f):
+    def wrapper(*args, **kwargs):
+        if not wrapper.has_run:
+            wrapper.has_run = True
+            return f(*args, **kwargs)
+    wrapper.has_run = False
+    return wrapper
+""")
+
         for class_name in ts_sorted:
             class_info = classes.get(class_name)
             
-            f.write(f"\ndef rebuild_{camel_to_snake(class_name)}():\n")
+            if class_info: # even if we could be quiet sure it is not None 
+                f.write(f"\n@run_once\ndef rebuild_{camel_to_snake(class_name)}():\n")
 
-            for import_ in class_info.imports:
-                f.write(f"    rebuild_{camel_to_snake(import_)}()\n")
+                for import_ in class_info.imports:
+                    f.write(f"    rebuild_{camel_to_snake(import_)}()\n")
 
-            if class_info.parent:
-                f.write(f"    rebuild_{camel_to_snake(class_info.parent)}()\n")
-            
-            f.write(f"    {class_name}.model_rebuild()\n")
+                if class_info.parent and classes.get(class_info.parent):
+                    f.write(f"    rebuild_{camel_to_snake(class_info.parent)}()\n")
+                
+                f.write(f"    {class_name}.model_rebuild()\n")
 
     # Generate model files
     for class_name, class_info in classes.items():
@@ -197,7 +231,8 @@ from typing import (
 """)
 
             # Import parent class if exists
-            if class_info.parent:
+            # there are types that do not exist, i.e. <https://schema.org/Text> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+            if class_info.parent and classes.get(class_info.parent): 
                 f.write(f"from .{camel_to_snake(class_info.parent)} import {class_info.parent}\n")
 
             # add the type checking, if any import is required
@@ -209,7 +244,7 @@ if TYPE_CHECKING:
                 f.write(f"    from .{camel_to_snake(prop_type)} import {prop_type}\n")
 
             # Class definition
-            if class_info.parent:
+            if class_info.parent and classes.get(class_info.parent):
                 f.write(f"\nclass {class_name}({class_info.parent}):\n")
             else:
                 f.write(f"\nclass {class_name}(BaseModel):\n")
@@ -247,15 +282,15 @@ if TYPE_CHECKING:
                     [f"{prop_type}, List[{prop_type}]" for prop_type in property_info.types]
                 )
 
-                variable_name = f"{property_info.name}_" if prop_name.lower() in kwlist else property_info.name
+                variable_name = f"{property_info.name}_" if property_info.name.lower() in kwlist else property_info.name
                 	
                 f.write(f"""    {variable_name}: Optional[Union[{prop_types}]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            '{prop_name}',
-            'https://schema.org/{prop_name}'
+            '{property_info.name}',
+            'https://schema.org/{property_info.name}'
         ),
-        serialization_alias='https://schema.org/{prop_name}'
+        serialization_alias='https://schema.org/{property_info.name}'
     )
 """)
     return classes

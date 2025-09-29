@@ -40,16 +40,16 @@ class Substance(MedicalEntity):
     maximumIntake: Optional[Union['MaximumDoseSchedule', List['MaximumDoseSchedule']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'maximumIntake',
+            'https://schema.org/maximumIntake'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/maximumIntake'
     )
     activeIngredient: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'activeIngredient',
+            'https://schema.org/activeIngredient'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/activeIngredient'
     )

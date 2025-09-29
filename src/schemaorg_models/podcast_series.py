@@ -22,9 +22,9 @@ from typing import (
 from .creative_work_series import CreativeWorkSeries
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .data_feed import DataFeed
-    from .performing_group import PerformingGroup
     from .person import Person
+    from .performing_group import PerformingGroup
+    from .data_feed import DataFeed
 
 class PodcastSeries(CreativeWorkSeries):
     '''
@@ -42,16 +42,16 @@ class PodcastSeries(CreativeWorkSeries):
     webFeed: Optional[Union['DataFeed', List['DataFeed'], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'webFeed',
+            'https://schema.org/webFeed'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/webFeed'
     )
     actor: Optional[Union['Person', List['Person'], 'PerformingGroup', List['PerformingGroup']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'actor',
+            'https://schema.org/actor'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/actor'
     )

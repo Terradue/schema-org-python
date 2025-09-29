@@ -40,16 +40,16 @@ class Audience(Intangible):
     geographicArea: Optional[Union['AdministrativeArea', List['AdministrativeArea']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'geographicArea',
+            'https://schema.org/geographicArea'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/geographicArea'
     )
     audienceType: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'audienceType',
+            'https://schema.org/audienceType'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/audienceType'
     )

@@ -41,24 +41,24 @@ class AggregateRating(Rating):
     reviewCount: Optional[Union[int, List[int]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'reviewCount',
+            'https://schema.org/reviewCount'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/reviewCount'
     )
     ratingCount: Optional[Union[int, List[int]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'ratingCount',
+            'https://schema.org/ratingCount'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/ratingCount'
     )
     itemReviewed: Optional[Union['Thing', List['Thing']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'itemReviewed',
+            'https://schema.org/itemReviewed'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/itemReviewed'
     )

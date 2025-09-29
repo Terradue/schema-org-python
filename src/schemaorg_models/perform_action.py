@@ -39,8 +39,8 @@ class PerformAction(PlayAction):
     entertainmentBusiness: Optional[Union['EntertainmentBusiness', List['EntertainmentBusiness']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'entertainmentBusiness',
+            'https://schema.org/entertainmentBusiness'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/entertainmentBusiness'
     )

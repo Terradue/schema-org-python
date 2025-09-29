@@ -36,8 +36,8 @@ class MedicalCause(MedicalEntity):
     causeOf: Optional[Union['MedicalEntity', List['MedicalEntity']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'causeOf',
+            'https://schema.org/causeOf'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/causeOf'
     )

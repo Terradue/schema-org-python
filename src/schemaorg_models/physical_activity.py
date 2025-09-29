@@ -22,12 +22,12 @@ from typing import (
 from .lifestyle_modification import LifestyleModification
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .anatomical_structure import AnatomicalStructure
-    from .thing import Thing
-    from .superficial_anatomy import SuperficialAnatomy
     from .anatomical_system import AnatomicalSystem
-    from .physical_activity_category import PhysicalActivityCategory
+    from .anatomical_structure import AnatomicalStructure
     from .category_code import CategoryCode
+    from .superficial_anatomy import SuperficialAnatomy
+    from .thing import Thing
+    from .physical_activity_category import PhysicalActivityCategory
 
 class PhysicalActivity(LifestyleModification):
     '''
@@ -47,32 +47,32 @@ class PhysicalActivity(LifestyleModification):
     pathophysiology: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'pathophysiology',
+            'https://schema.org/pathophysiology'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/pathophysiology'
     )
     category: Optional[Union['PhysicalActivityCategory', List['PhysicalActivityCategory'], 'CategoryCode', List['CategoryCode'], str, List[str], 'Thing', List['Thing'], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'category',
+            'https://schema.org/category'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/category'
     )
     epidemiology: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'epidemiology',
+            'https://schema.org/epidemiology'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/epidemiology'
     )
     associatedAnatomy: Optional[Union['AnatomicalSystem', List['AnatomicalSystem'], 'SuperficialAnatomy', List['SuperficialAnatomy'], 'AnatomicalStructure', List['AnatomicalStructure']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'associatedAnatomy',
+            'https://schema.org/associatedAnatomy'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/associatedAnatomy'
     )

@@ -41,16 +41,16 @@ class ConstraintNode(Intangible):
     numConstraints: Optional[Union[int, List[int]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'numConstraints',
+            'https://schema.org/numConstraints'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/numConstraints'
     )
     constraintProperty: Optional[Union[HttpUrl, List[HttpUrl], 'Property', List['Property']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'constraintProperty',
+            'https://schema.org/constraintProperty'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/constraintProperty'
     )

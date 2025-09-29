@@ -22,8 +22,8 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .menu_item import MenuItem
     from .menu_section import MenuSection
+    from .menu_item import MenuItem
 
 class Menu(CreativeWork):
     '''
@@ -41,16 +41,16 @@ class Menu(CreativeWork):
     hasMenuItem: Optional[Union['MenuItem', List['MenuItem']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'hasMenuItem',
+            'https://schema.org/hasMenuItem'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/hasMenuItem'
     )
     hasMenuSection: Optional[Union['MenuSection', List['MenuSection']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'hasMenuSection',
+            'https://schema.org/hasMenuSection'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/hasMenuSection'
     )

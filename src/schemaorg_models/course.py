@@ -22,13 +22,13 @@ from typing import (
 from .learning_resource import LearningResource
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .course_instance import CourseInstance
+    from .language import Language
     from .syllabus import Syllabus
     from .educational_occupational_credential import EducationalOccupationalCredential
-    from .course_instance import CourseInstance
     from .structured_value import StructuredValue
-    from .defined_term import DefinedTerm
-    from .language import Language
     from .alignment_object import AlignmentObject
+    from .defined_term import DefinedTerm
 
 class Course(LearningResource):
     '''
@@ -54,80 +54,80 @@ class Course(LearningResource):
     availableLanguage: Optional[Union[str, List[str], 'Language', List['Language']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'availableLanguage',
+            'https://schema.org/availableLanguage'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/availableLanguage'
     )
     courseCode: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'courseCode',
+            'https://schema.org/courseCode'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/courseCode'
     )
     numberOfCredits: Optional[Union[int, List[int], 'StructuredValue', List['StructuredValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'numberOfCredits',
+            'https://schema.org/numberOfCredits'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/numberOfCredits'
     )
     syllabusSections: Optional[Union['Syllabus', List['Syllabus']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'syllabusSections',
+            'https://schema.org/syllabusSections'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/syllabusSections'
     )
     educationalCredentialAwarded: Optional[Union['EducationalOccupationalCredential', List['EducationalOccupationalCredential'], str, List[str], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'educationalCredentialAwarded',
+            'https://schema.org/educationalCredentialAwarded'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/educationalCredentialAwarded'
     )
     financialAidEligible: Optional[Union['DefinedTerm', List['DefinedTerm'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'financialAidEligible',
+            'https://schema.org/financialAidEligible'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/financialAidEligible'
     )
     coursePrerequisites: Optional[Union['Course', List['Course'], 'AlignmentObject', List['AlignmentObject'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'coursePrerequisites',
+            'https://schema.org/coursePrerequisites'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/coursePrerequisites'
     )
     occupationalCredentialAwarded: Optional[Union[HttpUrl, List[HttpUrl], 'EducationalOccupationalCredential', List['EducationalOccupationalCredential'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'occupationalCredentialAwarded',
+            'https://schema.org/occupationalCredentialAwarded'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/occupationalCredentialAwarded'
     )
     totalHistoricalEnrollment: Optional[Union[int, List[int]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'totalHistoricalEnrollment',
+            'https://schema.org/totalHistoricalEnrollment'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/totalHistoricalEnrollment'
     )
     hasCourseInstance: Optional[Union['CourseInstance', List['CourseInstance']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'hasCourseInstance',
+            'https://schema.org/hasCourseInstance'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/hasCourseInstance'
     )

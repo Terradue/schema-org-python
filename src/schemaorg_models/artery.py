@@ -40,16 +40,16 @@ class Artery(Vessel):
     arterialBranch: Optional[Union['AnatomicalStructure', List['AnatomicalStructure']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'arterialBranch',
+            'https://schema.org/arterialBranch'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/arterialBranch'
     )
     supplyTo: Optional[Union['AnatomicalStructure', List['AnatomicalStructure']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'supplyTo',
+            'https://schema.org/supplyTo'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/supplyTo'
     )

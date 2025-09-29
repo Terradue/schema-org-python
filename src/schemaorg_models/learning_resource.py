@@ -52,56 +52,56 @@ This property should not be used where the nature of the alignment can be descri
     educationalLevel: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], 'DefinedTerm', List['DefinedTerm']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'educationalLevel',
+            'https://schema.org/educationalLevel'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/educationalLevel'
     )
     educationalAlignment: Optional[Union['AlignmentObject', List['AlignmentObject']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'educationalAlignment',
+            'https://schema.org/educationalAlignment'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/educationalAlignment'
     )
     teaches: Optional[Union['DefinedTerm', List['DefinedTerm'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'teaches',
+            'https://schema.org/teaches'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/teaches'
     )
     educationalUse: Optional[Union['DefinedTerm', List['DefinedTerm'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'educationalUse',
+            'https://schema.org/educationalUse'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/educationalUse'
     )
     competencyRequired: Optional[Union['DefinedTerm', List['DefinedTerm'], str, List[str], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'competencyRequired',
+            'https://schema.org/competencyRequired'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/competencyRequired'
     )
     learningResourceType: Optional[Union['DefinedTerm', List['DefinedTerm'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'learningResourceType',
+            'https://schema.org/learningResourceType'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/learningResourceType'
     )
     assesses: Optional[Union['DefinedTerm', List['DefinedTerm'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'assesses',
+            'https://schema.org/assesses'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/assesses'
     )

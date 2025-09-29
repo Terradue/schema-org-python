@@ -36,8 +36,8 @@ class ReservationPackage(Reservation):
     subReservation: Optional[Union['Reservation', List['Reservation']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'subReservation',
+            'https://schema.org/subReservation'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/subReservation'
     )

@@ -22,13 +22,13 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .product import Product
     from .delivery_method import DeliveryMethod
-    from .person import Person
     from .delivery_event import DeliveryEvent
-    from .organization import Organization
     from .order import Order
     from .postal_address import PostalAddress
+    from .person import Person
+    from .organization import Organization
+    from .product import Product
 
 class ParcelDelivery(Intangible):
     '''
@@ -56,96 +56,96 @@ class ParcelDelivery(Intangible):
     hasDeliveryMethod: Optional[Union['DeliveryMethod', List['DeliveryMethod']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'hasDeliveryMethod',
+            'https://schema.org/hasDeliveryMethod'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/hasDeliveryMethod'
     )
     expectedArrivalUntil: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'expectedArrivalUntil',
+            'https://schema.org/expectedArrivalUntil'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/expectedArrivalUntil'
     )
     originAddress: Optional[Union['PostalAddress', List['PostalAddress']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'originAddress',
+            'https://schema.org/originAddress'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/originAddress'
     )
     deliveryAddress: Optional[Union['PostalAddress', List['PostalAddress']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'deliveryAddress',
+            'https://schema.org/deliveryAddress'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/deliveryAddress'
     )
     itemShipped: Optional[Union['Product', List['Product']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'itemShipped',
+            'https://schema.org/itemShipped'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/itemShipped'
     )
     trackingNumber: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'trackingNumber',
+            'https://schema.org/trackingNumber'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/trackingNumber'
     )
     provider: Optional[Union['Person', List['Person'], 'Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'provider',
+            'https://schema.org/provider'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/provider'
     )
     trackingUrl: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'trackingUrl',
+            'https://schema.org/trackingUrl'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/trackingUrl'
     )
     expectedArrivalFrom: Optional[Union[datetime, List[datetime], date, List[date]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'expectedArrivalFrom',
+            'https://schema.org/expectedArrivalFrom'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/expectedArrivalFrom'
     )
     carrier: Optional[Union['Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'carrier',
+            'https://schema.org/carrier'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/carrier'
     )
     deliveryStatus: Optional[Union['DeliveryEvent', List['DeliveryEvent']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'deliveryStatus',
+            'https://schema.org/deliveryStatus'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/deliveryStatus'
     )
     partOfOrder: Optional[Union['Order', List['Order']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'partOfOrder',
+            'https://schema.org/partOfOrder'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/partOfOrder'
     )

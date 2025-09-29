@@ -39,8 +39,8 @@ class PlayGameAction(ConsumeAction):
     gameAvailabilityType: Optional[Union[str, List[str], 'GameAvailabilityEnumeration', List['GameAvailabilityEnumeration']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'gameAvailabilityType',
+            'https://schema.org/gameAvailabilityType'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/gameAvailabilityType'
     )

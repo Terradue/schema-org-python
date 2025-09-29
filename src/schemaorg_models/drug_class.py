@@ -39,8 +39,8 @@ class DrugClass(MedicalEntity):
     drug: Optional[Union['Drug', List['Drug']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'drug',
+            'https://schema.org/drug'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/drug'
     )

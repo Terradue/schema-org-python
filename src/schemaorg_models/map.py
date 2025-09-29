@@ -39,8 +39,8 @@ class Map(CreativeWork):
     mapType: Optional[Union['MapCategoryType', List['MapCategoryType']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'mapType',
+            'https://schema.org/mapType'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/mapType'
     )

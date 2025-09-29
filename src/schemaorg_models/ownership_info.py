@@ -22,10 +22,10 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .service import Service
-    from .product import Product
-    from .organization import Organization
     from .person import Person
+    from .organization import Organization
+    from .product import Product
+    from .service import Service
 
 class OwnershipInfo(StructuredValue):
     '''
@@ -45,32 +45,32 @@ class OwnershipInfo(StructuredValue):
     ownedFrom: Optional[Union[datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'ownedFrom',
+            'https://schema.org/ownedFrom'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/ownedFrom'
     )
     acquiredFrom: Optional[Union['Organization', List['Organization'], 'Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'acquiredFrom',
+            'https://schema.org/acquiredFrom'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/acquiredFrom'
     )
     typeOfGood: Optional[Union['Product', List['Product'], 'Service', List['Service']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'typeOfGood',
+            'https://schema.org/typeOfGood'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/typeOfGood'
     )
     ownedThrough: Optional[Union[datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'ownedThrough',
+            'https://schema.org/ownedThrough'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/ownedThrough'
     )

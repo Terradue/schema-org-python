@@ -40,16 +40,16 @@ class DefinedTerm(Intangible):
     termCode: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'termCode',
+            'https://schema.org/termCode'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/termCode'
     )
     inDefinedTermSet: Optional[Union[HttpUrl, List[HttpUrl], 'DefinedTermSet', List['DefinedTermSet']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'inDefinedTermSet',
+            'https://schema.org/inDefinedTermSet'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/inDefinedTermSet'
     )

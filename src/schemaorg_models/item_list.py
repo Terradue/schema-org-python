@@ -22,9 +22,9 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .thing import Thing
     from .list_item import ListItem
     from .item_list_order_type import ItemListOrderType
-    from .thing import Thing
 
 class ItemList(Intangible):
     '''
@@ -48,32 +48,32 @@ Note: The order of elements in your mark-up is not sufficient for indicating the
     numberOfItems: Optional[Union[int, List[int]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'numberOfItems',
+            'https://schema.org/numberOfItems'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/numberOfItems'
     )
     aggregateElement: Optional[Union['Thing', List['Thing']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'aggregateElement',
+            'https://schema.org/aggregateElement'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/aggregateElement'
     )
     itemListOrder: Optional[Union['ItemListOrderType', List['ItemListOrderType'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'itemListOrder',
+            'https://schema.org/itemListOrder'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/itemListOrder'
     )
     itemListElement: Optional[Union[str, List[str], 'Thing', List['Thing'], 'ListItem', List['ListItem']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'itemListElement',
+            'https://schema.org/itemListElement'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/itemListElement'
     )

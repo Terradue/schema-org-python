@@ -43,8 +43,8 @@ Related actions:\
     question: Optional[Union['Question', List['Question']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'question',
+            'https://schema.org/question'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/question'
     )

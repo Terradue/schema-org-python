@@ -44,32 +44,32 @@ Use standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/IS
     currency: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'currency',
+            'https://schema.org/currency'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/currency'
     )
     endDate: Optional[Union[datetime, List[datetime], date, List[date]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'endDate',
+            'https://schema.org/endDate'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/endDate'
     )
     amount: Optional[Union['MonetaryAmount', List['MonetaryAmount'], float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'amount',
+            'https://schema.org/amount'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/amount'
     )
     startDate: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'startDate',
+            'https://schema.org/startDate'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/startDate'
     )

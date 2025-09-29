@@ -50,40 +50,40 @@ Use standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/IS
     paymentAccepted: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'paymentAccepted',
+            'https://schema.org/paymentAccepted'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/paymentAccepted'
     )
     priceRange: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'priceRange',
+            'https://schema.org/priceRange'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/priceRange'
     )
     branchOf: Optional[Union['Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'branchOf',
+            'https://schema.org/branchOf'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/branchOf'
     )
     currenciesAccepted: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'currenciesAccepted',
+            'https://schema.org/currenciesAccepted'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/currenciesAccepted'
     )
     openingHours: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'openingHours',
+            'https://schema.org/openingHours'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/openingHours'
     )

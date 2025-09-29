@@ -41,24 +41,24 @@ class Joint(AnatomicalStructure):
     functionalClass: Optional[Union['MedicalEntity', List['MedicalEntity'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'functionalClass',
+            'https://schema.org/functionalClass'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/functionalClass'
     )
     structuralClass: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'structuralClass',
+            'https://schema.org/structuralClass'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/structuralClass'
     )
     biomechnicalClass: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'biomechnicalClass',
+            'https://schema.org/biomechnicalClass'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/biomechnicalClass'
     )

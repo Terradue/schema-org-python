@@ -22,8 +22,8 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .game_server_status import GameServerStatus
     from .video_game import VideoGame
+    from .game_server_status import GameServerStatus
 
 class GameServer(Intangible):
     '''
@@ -42,24 +42,24 @@ class GameServer(Intangible):
     playersOnline: Optional[Union[int, List[int]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'playersOnline',
+            'https://schema.org/playersOnline'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/playersOnline'
     )
     serverStatus: Optional[Union['GameServerStatus', List['GameServerStatus']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'serverStatus',
+            'https://schema.org/serverStatus'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/serverStatus'
     )
     game: Optional[Union['VideoGame', List['VideoGame']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'game',
+            'https://schema.org/game'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/game'
     )

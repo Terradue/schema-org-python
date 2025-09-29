@@ -49,40 +49,40 @@ If the value for the [[closes]] property is less than the value for the [[opens]
     dayOfWeek: Optional[Union['DayOfWeek', List['DayOfWeek']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'dayOfWeek',
+            'https://schema.org/dayOfWeek'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/dayOfWeek'
     )
     validFrom: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'validFrom',
+            'https://schema.org/validFrom'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/validFrom'
     )
     closes: Optional[Union[time, List[time]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'closes',
+            'https://schema.org/closes'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/closes'
     )
     opens: Optional[Union[time, List[time]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'opens',
+            'https://schema.org/opens'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/opens'
     )
     validThrough: Optional[Union[datetime, List[datetime], date, List[date]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'validThrough',
+            'https://schema.org/validThrough'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/validThrough'
     )

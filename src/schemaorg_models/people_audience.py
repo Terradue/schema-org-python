@@ -49,72 +49,72 @@ class PeopleAudience(Audience):
     suggestedGender: Optional[Union['GenderType', List['GenderType'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'suggestedGender',
+            'https://schema.org/suggestedGender'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/suggestedGender'
     )
     requiredMaxAge: Optional[Union[int, List[int]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'requiredMaxAge',
+            'https://schema.org/requiredMaxAge'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/requiredMaxAge'
     )
     suggestedAge: Optional[Union['QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'suggestedAge',
+            'https://schema.org/suggestedAge'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/suggestedAge'
     )
     suggestedMinAge: Optional[Union[float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'suggestedMinAge',
+            'https://schema.org/suggestedMinAge'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/suggestedMinAge'
     )
     requiredGender: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'requiredGender',
+            'https://schema.org/requiredGender'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/requiredGender'
     )
     suggestedMaxAge: Optional[Union[float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'suggestedMaxAge',
+            'https://schema.org/suggestedMaxAge'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/suggestedMaxAge'
     )
     requiredMinAge: Optional[Union[int, List[int]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'requiredMinAge',
+            'https://schema.org/requiredMinAge'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/requiredMinAge'
     )
     suggestedMeasurement: Optional[Union['QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'suggestedMeasurement',
+            'https://schema.org/suggestedMeasurement'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/suggestedMeasurement'
     )
     healthCondition: Optional[Union['MedicalCondition', List['MedicalCondition']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'healthCondition',
+            'https://schema.org/healthCondition'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/healthCondition'
     )

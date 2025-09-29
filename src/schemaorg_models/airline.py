@@ -40,16 +40,16 @@ class Airline(Organization):
     iataCode: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'iataCode',
+            'https://schema.org/iataCode'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/iataCode'
     )
     boardingPolicy: Optional[Union['BoardingPolicyType', List['BoardingPolicyType']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'boardingPolicy',
+            'https://schema.org/boardingPolicy'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/boardingPolicy'
     )

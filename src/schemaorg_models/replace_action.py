@@ -40,16 +40,16 @@ class ReplaceAction(UpdateAction):
     replacer: Optional[Union['Thing', List['Thing']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'replacer',
+            'https://schema.org/replacer'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/replacer'
     )
     replacee: Optional[Union['Thing', List['Thing']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'replacee',
+            'https://schema.org/replacee'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/replacee'
     )

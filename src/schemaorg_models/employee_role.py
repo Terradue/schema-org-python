@@ -22,8 +22,8 @@ from typing import (
 from .organization_role import OrganizationRole
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .price_specification import PriceSpecification
     from .monetary_amount import MonetaryAmount
+    from .price_specification import PriceSpecification
 
 class EmployeeRole(OrganizationRole):
     '''
@@ -41,16 +41,16 @@ class EmployeeRole(OrganizationRole):
     salaryCurrency: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'salaryCurrency',
+            'https://schema.org/salaryCurrency'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/salaryCurrency'
     )
     baseSalary: Optional[Union[float, List[float], 'PriceSpecification', List['PriceSpecification'], 'MonetaryAmount', List['MonetaryAmount']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'baseSalary',
+            'https://schema.org/baseSalary'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/baseSalary'
     )

@@ -23,12 +23,12 @@ from .trip import Trip
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .vehicle import Vehicle
-    from .person import Person
-    from .distance import Distance
-    from .boarding_policy_type import BoardingPolicyType
-    from .organization import Organization
     from .duration import Duration
     from .airport import Airport
+    from .boarding_policy_type import BoardingPolicyType
+    from .person import Person
+    from .distance import Distance
+    from .organization import Organization
 
 class Flight(Trip):
     '''
@@ -59,120 +59,120 @@ class Flight(Trip):
     boardingPolicy: Optional[Union['BoardingPolicyType', List['BoardingPolicyType']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'boardingPolicy',
+            'https://schema.org/boardingPolicy'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/boardingPolicy'
     )
     estimatedFlightDuration: Optional[Union[str, List[str], 'Duration', List['Duration']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'estimatedFlightDuration',
+            'https://schema.org/estimatedFlightDuration'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/estimatedFlightDuration'
     )
     departureAirport: Optional[Union['Airport', List['Airport']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'departureAirport',
+            'https://schema.org/departureAirport'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/departureAirport'
     )
     carrier: Optional[Union['Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'carrier',
+            'https://schema.org/carrier'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/carrier'
     )
     departureGate: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'departureGate',
+            'https://schema.org/departureGate'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/departureGate'
     )
     seller: Optional[Union['Organization', List['Organization'], 'Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'seller',
+            'https://schema.org/seller'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/seller'
     )
     arrivalTerminal: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'arrivalTerminal',
+            'https://schema.org/arrivalTerminal'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/arrivalTerminal'
     )
     flightDistance: Optional[Union[str, List[str], 'Distance', List['Distance']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'flightDistance',
+            'https://schema.org/flightDistance'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/flightDistance'
     )
     webCheckinTime: Optional[Union[datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'webCheckinTime',
+            'https://schema.org/webCheckinTime'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/webCheckinTime'
     )
     mealService: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'mealService',
+            'https://schema.org/mealService'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/mealService'
     )
     aircraft: Optional[Union['Vehicle', List['Vehicle'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'aircraft',
+            'https://schema.org/aircraft'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/aircraft'
     )
     arrivalGate: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'arrivalGate',
+            'https://schema.org/arrivalGate'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/arrivalGate'
     )
     flightNumber: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'flightNumber',
+            'https://schema.org/flightNumber'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/flightNumber'
     )
     departureTerminal: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'departureTerminal',
+            'https://schema.org/departureTerminal'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/departureTerminal'
     )
     arrivalAirport: Optional[Union['Airport', List['Airport']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'arrivalAirport',
+            'https://schema.org/arrivalAirport'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/arrivalAirport'
     )

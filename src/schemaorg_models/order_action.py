@@ -39,8 +39,8 @@ class OrderAction(TradeAction):
     deliveryMethod: Optional[Union['DeliveryMethod', List['DeliveryMethod']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'deliveryMethod',
+            'https://schema.org/deliveryMethod'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/deliveryMethod'
     )

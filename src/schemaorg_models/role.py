@@ -41,32 +41,32 @@ See also [blog post](https://blog.schema.org/2014/06/16/introducing-role/).
     roleName: Optional[Union[HttpUrl, List[HttpUrl], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'roleName',
+            'https://schema.org/roleName'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/roleName'
     )
     namedPosition: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'namedPosition',
+            'https://schema.org/namedPosition'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/namedPosition'
     )
     endDate: Optional[Union[datetime, List[datetime], date, List[date]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'endDate',
+            'https://schema.org/endDate'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/endDate'
     )
     startDate: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'startDate',
+            'https://schema.org/startDate'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/startDate'
     )

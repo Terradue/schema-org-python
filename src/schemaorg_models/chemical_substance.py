@@ -41,24 +41,24 @@ class ChemicalSubstance(BioChemEntity):
     chemicalComposition: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'chemicalComposition',
+            'https://schema.org/chemicalComposition'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/chemicalComposition'
     )
     chemicalRole: Optional[Union['DefinedTerm', List['DefinedTerm']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'chemicalRole',
+            'https://schema.org/chemicalRole'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/chemicalRole'
     )
     potentialUse: Optional[Union['DefinedTerm', List['DefinedTerm']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'potentialUse',
+            'https://schema.org/potentialUse'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/potentialUse'
     )

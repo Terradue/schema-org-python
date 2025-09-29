@@ -22,15 +22,15 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .geo_shape import GeoShape
-    from .news_article import NewsArticle
-    from .distance import Distance
     from .place import Place
     from .media_subscription import MediaSubscription
-    from .organization import Organization
-    from .quantitative_value import QuantitativeValue
     from .duration import Duration
+    from .news_article import NewsArticle
+    from .quantitative_value import QuantitativeValue
     from .claim import Claim
+    from .geo_shape import GeoShape
+    from .distance import Distance
+    from .organization import Organization
 
 class MediaObject(CreativeWork):
     '''
@@ -77,160 +77,160 @@ See also [[eligibleRegion]].
     encodesCreativeWork: Optional[Union['CreativeWork', List['CreativeWork']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'encodesCreativeWork',
+            'https://schema.org/encodesCreativeWork'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/encodesCreativeWork'
     )
     height: Optional[Union['Distance', List['Distance'], 'QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'height',
+            'https://schema.org/height'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/height'
     )
     productionCompany: Optional[Union['Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'productionCompany',
+            'https://schema.org/productionCompany'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/productionCompany'
     )
     regionsAllowed: Optional[Union['Place', List['Place']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'regionsAllowed',
+            'https://schema.org/regionsAllowed'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/regionsAllowed'
     )
     contentSize: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'contentSize',
+            'https://schema.org/contentSize'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/contentSize'
     )
     interpretedAsClaim: Optional[Union['Claim', List['Claim']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'interpretedAsClaim',
+            'https://schema.org/interpretedAsClaim'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/interpretedAsClaim'
     )
     requiresSubscription: Optional[Union[bool, List[bool], 'MediaSubscription', List['MediaSubscription']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'requiresSubscription',
+            'https://schema.org/requiresSubscription'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/requiresSubscription'
     )
     endTime: Optional[Union[time, List[time], datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'endTime',
+            'https://schema.org/endTime'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/endTime'
     )
     bitrate: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'bitrate',
+            'https://schema.org/bitrate'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/bitrate'
     )
     encodingFormat: Optional[Union[HttpUrl, List[HttpUrl], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'encodingFormat',
+            'https://schema.org/encodingFormat'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/encodingFormat'
     )
     contentUrl: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'contentUrl',
+            'https://schema.org/contentUrl'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/contentUrl'
     )
     associatedArticle: Optional[Union['NewsArticle', List['NewsArticle']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'associatedArticle',
+            'https://schema.org/associatedArticle'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/associatedArticle'
     )
     width: Optional[Union['QuantitativeValue', List['QuantitativeValue'], 'Distance', List['Distance']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'width',
+            'https://schema.org/width'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/width'
     )
     playerType: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'playerType',
+            'https://schema.org/playerType'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/playerType'
     )
     duration: Optional[Union['Duration', List['Duration'], 'QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'duration',
+            'https://schema.org/duration'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/duration'
     )
     embedUrl: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'embedUrl',
+            'https://schema.org/embedUrl'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/embedUrl'
     )
     startTime: Optional[Union[time, List[time], datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'startTime',
+            'https://schema.org/startTime'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/startTime'
     )
     ineligibleRegion: Optional[Union[str, List[str], 'Place', List['Place'], 'GeoShape', List['GeoShape']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'ineligibleRegion',
+            'https://schema.org/ineligibleRegion'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/ineligibleRegion'
     )
     sha256: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'sha256',
+            'https://schema.org/sha256'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/sha256'
     )
     uploadDate: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'uploadDate',
+            'https://schema.org/uploadDate'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/uploadDate'
     )

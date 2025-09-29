@@ -22,10 +22,10 @@ from typing import (
 from .medical_entity import MedicalEntity
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .medical_condition import MedicalCondition
+    from .anatomical_system import AnatomicalSystem
     from .medical_therapy import MedicalTherapy
     from .image_object import ImageObject
-    from .anatomical_system import AnatomicalSystem
-    from .medical_condition import MedicalCondition
 
 class AnatomicalStructure(MedicalEntity):
     '''
@@ -49,64 +49,64 @@ class AnatomicalStructure(MedicalEntity):
     subStructure: Optional[Union['AnatomicalStructure', List['AnatomicalStructure']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'subStructure',
+            'https://schema.org/subStructure'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/subStructure'
     )
     associatedPathophysiology: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'associatedPathophysiology',
+            'https://schema.org/associatedPathophysiology'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/associatedPathophysiology'
     )
     diagram: Optional[Union['ImageObject', List['ImageObject']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'diagram',
+            'https://schema.org/diagram'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/diagram'
     )
     relatedCondition: Optional[Union['MedicalCondition', List['MedicalCondition']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'relatedCondition',
+            'https://schema.org/relatedCondition'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/relatedCondition'
     )
     bodyLocation: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'bodyLocation',
+            'https://schema.org/bodyLocation'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/bodyLocation'
     )
     connectedTo: Optional[Union['AnatomicalStructure', List['AnatomicalStructure']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'connectedTo',
+            'https://schema.org/connectedTo'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/connectedTo'
     )
     relatedTherapy: Optional[Union['MedicalTherapy', List['MedicalTherapy']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'relatedTherapy',
+            'https://schema.org/relatedTherapy'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/relatedTherapy'
     )
     partOfSystem: Optional[Union['AnatomicalSystem', List['AnatomicalSystem']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'partOfSystem',
+            'https://schema.org/partOfSystem'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/partOfSystem'
     )

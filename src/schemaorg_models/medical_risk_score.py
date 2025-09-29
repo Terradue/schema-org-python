@@ -36,8 +36,8 @@ class MedicalRiskScore(MedicalRiskEstimator):
     algorithm: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'algorithm',
+            'https://schema.org/algorithm'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/algorithm'
     )

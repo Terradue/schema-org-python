@@ -22,11 +22,11 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .demand import Demand
-    from .restricted_diet import RestrictedDiet
     from .menu_section import MenuSection
     from .offer import Offer
     from .nutrition_information import NutritionInformation
+    from .restricted_diet import RestrictedDiet
+    from .demand import Demand
 
 class MenuItem(Intangible):
     '''
@@ -47,32 +47,32 @@ class MenuItem(Intangible):
     suitableForDiet: Optional[Union['RestrictedDiet', List['RestrictedDiet']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'suitableForDiet',
+            'https://schema.org/suitableForDiet'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/suitableForDiet'
     )
     menuAddOn: Optional[Union['MenuItem', List['MenuItem'], 'MenuSection', List['MenuSection']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'menuAddOn',
+            'https://schema.org/menuAddOn'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/menuAddOn'
     )
     offers: Optional[Union['Demand', List['Demand'], 'Offer', List['Offer']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'offers',
+            'https://schema.org/offers'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/offers'
     )
     nutrition: Optional[Union['NutritionInformation', List['NutritionInformation']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'nutrition',
+            'https://schema.org/nutrition'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/nutrition'
     )

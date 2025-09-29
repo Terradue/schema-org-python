@@ -22,8 +22,8 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .organization import Organization
     from .person import Person
+    from .organization import Organization
 
 class Claim(CreativeWork):
     '''
@@ -47,24 +47,24 @@ class Claim(CreativeWork):
     claimInterpreter: Optional[Union['Organization', List['Organization'], 'Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'claimInterpreter',
+            'https://schema.org/claimInterpreter'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/claimInterpreter'
     )
     firstAppearance: Optional[Union['CreativeWork', List['CreativeWork']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'firstAppearance',
+            'https://schema.org/firstAppearance'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/firstAppearance'
     )
     appearance: Optional[Union['CreativeWork', List['CreativeWork']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'appearance',
+            'https://schema.org/appearance'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/appearance'
     )

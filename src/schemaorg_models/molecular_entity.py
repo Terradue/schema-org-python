@@ -22,8 +22,8 @@ from typing import (
 from .bio_chem_entity import BioChemEntity
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .quantitative_value import QuantitativeValue
     from .defined_term import DefinedTerm
+    from .quantitative_value import QuantitativeValue
 
 class MolecularEntity(BioChemEntity):
     '''
@@ -48,72 +48,72 @@ class MolecularEntity(BioChemEntity):
     chemicalRole: Optional[Union['DefinedTerm', List['DefinedTerm']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'chemicalRole',
+            'https://schema.org/chemicalRole'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/chemicalRole'
     )
     inChI: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'inChI',
+            'https://schema.org/inChI'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/inChI'
     )
     smiles: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'smiles',
+            'https://schema.org/smiles'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/smiles'
     )
     molecularWeight: Optional[Union[str, List[str], 'QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'molecularWeight',
+            'https://schema.org/molecularWeight'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/molecularWeight'
     )
     potentialUse: Optional[Union['DefinedTerm', List['DefinedTerm']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'potentialUse',
+            'https://schema.org/potentialUse'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/potentialUse'
     )
     inChIKey: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'inChIKey',
+            'https://schema.org/inChIKey'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/inChIKey'
     )
     molecularFormula: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'molecularFormula',
+            'https://schema.org/molecularFormula'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/molecularFormula'
     )
     iupacName: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'iupacName',
+            'https://schema.org/iupacName'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/iupacName'
     )
     monoisotopicMolecularWeight: Optional[Union[str, List[str], 'QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'monoisotopicMolecularWeight',
+            'https://schema.org/monoisotopicMolecularWeight'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/monoisotopicMolecularWeight'
     )

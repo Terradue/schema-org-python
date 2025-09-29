@@ -22,9 +22,9 @@ from typing import (
 from .media_object import MediaObject
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .music_group import MusicGroup
-    from .performing_group import PerformingGroup
     from .person import Person
+    from .performing_group import PerformingGroup
+    from .music_group import MusicGroup
 
 class VideoObject(MediaObject):
     '''
@@ -50,80 +50,80 @@ class VideoObject(MediaObject):
     directors: Optional[Union['Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'directors',
+            'https://schema.org/directors'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/directors'
     )
     director: Optional[Union['Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'director',
+            'https://schema.org/director'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/director'
     )
     videoFrameSize: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'videoFrameSize',
+            'https://schema.org/videoFrameSize'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/videoFrameSize'
     )
     actor: Optional[Union['Person', List['Person'], 'PerformingGroup', List['PerformingGroup']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'actor',
+            'https://schema.org/actor'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/actor'
     )
     transcript: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'transcript',
+            'https://schema.org/transcript'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/transcript'
     )
     actors: Optional[Union['Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'actors',
+            'https://schema.org/actors'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/actors'
     )
     videoQuality: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'videoQuality',
+            'https://schema.org/videoQuality'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/videoQuality'
     )
     musicBy: Optional[Union['MusicGroup', List['MusicGroup'], 'Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'musicBy',
+            'https://schema.org/musicBy'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/musicBy'
     )
     caption: Optional[Union['MediaObject', List['MediaObject'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'caption',
+            'https://schema.org/caption'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/caption'
     )
     embeddedTextCaption: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'embeddedTextCaption',
+            'https://schema.org/embeddedTextCaption'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/embeddedTextCaption'
     )

@@ -39,8 +39,8 @@ class TVClip(Clip):
     partOfTVSeries: Optional[Union['TVSeries', List['TVSeries']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'partOfTVSeries',
+            'https://schema.org/partOfTVSeries'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/partOfTVSeries'
     )

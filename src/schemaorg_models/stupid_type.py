@@ -39,8 +39,8 @@ class StupidType(Thing):
     stupidProperty: Optional[Union['QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'stupidProperty',
+            'https://schema.org/stupidProperty'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/stupidProperty'
     )

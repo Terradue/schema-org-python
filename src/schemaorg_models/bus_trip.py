@@ -43,32 +43,32 @@ class BusTrip(Trip):
     busNumber: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'busNumber',
+            'https://schema.org/busNumber'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/busNumber'
     )
     arrivalBusStop: Optional[Union['BusStation', List['BusStation'], 'BusStop', List['BusStop']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'arrivalBusStop',
+            'https://schema.org/arrivalBusStop'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/arrivalBusStop'
     )
     departureBusStop: Optional[Union['BusStop', List['BusStop'], 'BusStation', List['BusStation']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'departureBusStop',
+            'https://schema.org/departureBusStop'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/departureBusStop'
     )
     busName: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'busName',
+            'https://schema.org/busName'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/busName'
     )

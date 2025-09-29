@@ -22,26 +22,26 @@ from typing import (
 from .thing import Thing
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .review import Review
-    from .schedule import Schedule
-    from .event_status_type import EventStatusType
-    from .audience import Audience
-    from .place import Place
-    from .quantitative_value import QuantitativeValue
-    from .offer import Offer
-    from .aggregate_rating import AggregateRating
-    from .demand import Demand
-    from .creative_work import CreativeWork
-    from .duration import Duration
-    from .postal_address import PostalAddress
-    from .performing_group import PerformingGroup
-    from .organization import Organization
     from .language import Language
-    from .virtual_location import VirtualLocation
-    from .person import Person
-    from .defined_term import DefinedTerm
+    from .organization import Organization
     from .event_attendance_mode_enumeration import EventAttendanceModeEnumeration
+    from .virtual_location import VirtualLocation
+    from .duration import Duration
+    from .creative_work import CreativeWork
+    from .defined_term import DefinedTerm
+    from .demand import Demand
+    from .offer import Offer
+    from .schedule import Schedule
+    from .performing_group import PerformingGroup
+    from .review import Review
+    from .aggregate_rating import AggregateRating
+    from .postal_address import PostalAddress
+    from .person import Person
+    from .place import Place
+    from .audience import Audience
     from .grant import Grant
+    from .event_status_type import EventStatusType
+    from .quantitative_value import QuantitativeValue
 
 class Event(Thing):
     '''
@@ -105,328 +105,328 @@ class Event(Thing):
     recordedIn: Optional[Union['CreativeWork', List['CreativeWork']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'recordedIn',
+            'https://schema.org/recordedIn'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/recordedIn'
     )
     isAccessibleForFree: Optional[Union[bool, List[bool]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'isAccessibleForFree',
+            'https://schema.org/isAccessibleForFree'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/isAccessibleForFree'
     )
     aggregateRating: Optional[Union['AggregateRating', List['AggregateRating']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'aggregateRating',
+            'https://schema.org/aggregateRating'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/aggregateRating'
     )
     eventSchedule: Optional[Union['Schedule', List['Schedule']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'eventSchedule',
+            'https://schema.org/eventSchedule'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/eventSchedule'
     )
     director: Optional[Union['Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'director',
+            'https://schema.org/director'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/director'
     )
     remainingAttendeeCapacity: Optional[Union[int, List[int]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'remainingAttendeeCapacity',
+            'https://schema.org/remainingAttendeeCapacity'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/remainingAttendeeCapacity'
     )
     about: Optional[Union['Thing', List['Thing']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'about',
+            'https://schema.org/about'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/about'
     )
     subEvent: Optional[Union['Event', List['Event']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'subEvent',
+            'https://schema.org/subEvent'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/subEvent'
     )
     maximumPhysicalAttendeeCapacity: Optional[Union[int, List[int]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'maximumPhysicalAttendeeCapacity',
+            'https://schema.org/maximumPhysicalAttendeeCapacity'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/maximumPhysicalAttendeeCapacity'
     )
     workFeatured: Optional[Union['CreativeWork', List['CreativeWork']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'workFeatured',
+            'https://schema.org/workFeatured'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/workFeatured'
     )
     location: Optional[Union['VirtualLocation', List['VirtualLocation'], 'PostalAddress', List['PostalAddress'], str, List[str], 'Place', List['Place']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'location',
+            'https://schema.org/location'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/location'
     )
     startDate: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'startDate',
+            'https://schema.org/startDate'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/startDate'
     )
     previousStartDate: Optional[Union[date, List[date]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'previousStartDate',
+            'https://schema.org/previousStartDate'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/previousStartDate'
     )
     funder: Optional[Union['Organization', List['Organization'], 'Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'funder',
+            'https://schema.org/funder'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/funder'
     )
     maximumVirtualAttendeeCapacity: Optional[Union[int, List[int]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'maximumVirtualAttendeeCapacity',
+            'https://schema.org/maximumVirtualAttendeeCapacity'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/maximumVirtualAttendeeCapacity'
     )
     duration: Optional[Union['Duration', List['Duration'], 'QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'duration',
+            'https://schema.org/duration'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/duration'
     )
     keywords: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], 'DefinedTerm', List['DefinedTerm']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'keywords',
+            'https://schema.org/keywords'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/keywords'
     )
     translator: Optional[Union['Person', List['Person'], 'Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'translator',
+            'https://schema.org/translator'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/translator'
     )
     doorTime: Optional[Union[time, List[time], datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'doorTime',
+            'https://schema.org/doorTime'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/doorTime'
     )
     attendee: Optional[Union['Person', List['Person'], 'Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'attendee',
+            'https://schema.org/attendee'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/attendee'
     )
     offers: Optional[Union['Demand', List['Demand'], 'Offer', List['Offer']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'offers',
+            'https://schema.org/offers'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/offers'
     )
     audience: Optional[Union['Audience', List['Audience']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'audience',
+            'https://schema.org/audience'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/audience'
     )
     funding: Optional[Union['Grant', List['Grant']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'funding',
+            'https://schema.org/funding'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/funding'
     )
     performers: Optional[Union['Person', List['Person'], 'Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'performers',
+            'https://schema.org/performers'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/performers'
     )
     eventStatus: Optional[Union['EventStatusType', List['EventStatusType']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'eventStatus',
+            'https://schema.org/eventStatus'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/eventStatus'
     )
     actor: Optional[Union['Person', List['Person'], 'PerformingGroup', List['PerformingGroup']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'actor',
+            'https://schema.org/actor'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/actor'
     )
     superEvent: Optional[Union['Event', List['Event']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'superEvent',
+            'https://schema.org/superEvent'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/superEvent'
     )
     eventAttendanceMode: Optional[Union['EventAttendanceModeEnumeration', List['EventAttendanceModeEnumeration']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'eventAttendanceMode',
+            'https://schema.org/eventAttendanceMode'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/eventAttendanceMode'
     )
     organizer: Optional[Union['Person', List['Person'], 'Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'organizer',
+            'https://schema.org/organizer'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/organizer'
     )
     attendees: Optional[Union['Person', List['Person'], 'Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'attendees',
+            'https://schema.org/attendees'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/attendees'
     )
     subEvents: Optional[Union['Event', List['Event']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'subEvents',
+            'https://schema.org/subEvents'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/subEvents'
     )
     review: Optional[Union['Review', List['Review']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'review',
+            'https://schema.org/review'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/review'
     )
     performer: Optional[Union['Person', List['Person'], 'Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'performer',
+            'https://schema.org/performer'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/performer'
     )
     typicalAgeRange: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'typicalAgeRange',
+            'https://schema.org/typicalAgeRange'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/typicalAgeRange'
     )
     endDate: Optional[Union[datetime, List[datetime], date, List[date]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'endDate',
+            'https://schema.org/endDate'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/endDate'
     )
     contributor: Optional[Union['Organization', List['Organization'], 'Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'contributor',
+            'https://schema.org/contributor'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/contributor'
     )
     composer: Optional[Union['Organization', List['Organization'], 'Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'composer',
+            'https://schema.org/composer'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/composer'
     )
     maximumAttendeeCapacity: Optional[Union[int, List[int]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'maximumAttendeeCapacity',
+            'https://schema.org/maximumAttendeeCapacity'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/maximumAttendeeCapacity'
     )
     workPerformed: Optional[Union['CreativeWork', List['CreativeWork']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'workPerformed',
+            'https://schema.org/workPerformed'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/workPerformed'
     )
     inLanguage: Optional[Union[str, List[str], 'Language', List['Language']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'inLanguage',
+            'https://schema.org/inLanguage'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/inLanguage'
     )
     sponsor: Optional[Union['Organization', List['Organization'], 'Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'sponsor',
+            'https://schema.org/sponsor'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/sponsor'
     )

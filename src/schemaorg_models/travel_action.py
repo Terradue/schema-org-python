@@ -39,8 +39,8 @@ class TravelAction(MoveAction):
     distance: Optional[Union['Distance', List['Distance']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'distance',
+            'https://schema.org/distance'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/distance'
     )

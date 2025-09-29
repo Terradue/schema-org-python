@@ -38,24 +38,24 @@ class LiveBlogPosting(BlogPosting):
     liveBlogUpdate: Optional[Union['BlogPosting', List['BlogPosting']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'liveBlogUpdate',
+            'https://schema.org/liveBlogUpdate'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/liveBlogUpdate'
     )
     coverageStartTime: Optional[Union[datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'coverageStartTime',
+            'https://schema.org/coverageStartTime'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/coverageStartTime'
     )
     coverageEndTime: Optional[Union[datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'coverageEndTime',
+            'https://schema.org/coverageEndTime'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/coverageEndTime'
     )

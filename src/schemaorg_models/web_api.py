@@ -39,8 +39,8 @@ class WebAPI(Service):
     documentation: Optional[Union[HttpUrl, List[HttpUrl], 'CreativeWork', List['CreativeWork']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'documentation',
+            'https://schema.org/documentation'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/documentation'
     )

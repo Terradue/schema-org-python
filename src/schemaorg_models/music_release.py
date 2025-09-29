@@ -24,10 +24,10 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .person import Person
     from .music_release_format_type import MusicReleaseFormatType
-    from .quantitative_value import QuantitativeValue
     from .duration import Duration
-    from .organization import Organization
+    from .quantitative_value import QuantitativeValue
     from .music_album import MusicAlbum
+    from .organization import Organization
 
 class MusicRelease(MusicPlaylist):
     '''
@@ -49,48 +49,48 @@ class MusicRelease(MusicPlaylist):
     recordLabel: Optional[Union['Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'recordLabel',
+            'https://schema.org/recordLabel'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/recordLabel'
     )
     musicReleaseFormat: Optional[Union['MusicReleaseFormatType', List['MusicReleaseFormatType']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'musicReleaseFormat',
+            'https://schema.org/musicReleaseFormat'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/musicReleaseFormat'
     )
     catalogNumber: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'catalogNumber',
+            'https://schema.org/catalogNumber'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/catalogNumber'
     )
     releaseOf: Optional[Union['MusicAlbum', List['MusicAlbum']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'releaseOf',
+            'https://schema.org/releaseOf'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/releaseOf'
     )
     duration: Optional[Union['Duration', List['Duration'], 'QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'duration',
+            'https://schema.org/duration'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/duration'
     )
     creditedTo: Optional[Union['Person', List['Person'], 'Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'creditedTo',
+            'https://schema.org/creditedTo'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/creditedTo'
     )

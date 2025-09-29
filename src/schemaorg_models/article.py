@@ -61,64 +61,64 @@ we define a supporting type, [[SpeakableSpecification]]  which is defined to be 
     pagination: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'pagination',
+            'https://schema.org/pagination'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/pagination'
     )
     articleBody: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'articleBody',
+            'https://schema.org/articleBody'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/articleBody'
     )
     pageEnd: Optional[Union[str, List[str], int, List[int]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'pageEnd',
+            'https://schema.org/pageEnd'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/pageEnd'
     )
     backstory: Optional[Union[str, List[str], 'CreativeWork', List['CreativeWork']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'backstory',
+            'https://schema.org/backstory'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/backstory'
     )
     wordCount: Optional[Union[int, List[int]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'wordCount',
+            'https://schema.org/wordCount'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/wordCount'
     )
     articleSection: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'articleSection',
+            'https://schema.org/articleSection'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/articleSection'
     )
     speakable: Optional[Union[HttpUrl, List[HttpUrl], 'SpeakableSpecification', List['SpeakableSpecification']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'speakable',
+            'https://schema.org/speakable'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/speakable'
     )
     pageStart: Optional[Union[int, List[int], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'pageStart',
+            'https://schema.org/pageStart'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/pageStart'
     )

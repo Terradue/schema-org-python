@@ -39,8 +39,8 @@ class ArchiveOrganization(LocalBusiness):
     archiveHeld: Optional[Union['ArchiveComponent', List['ArchiveComponent']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'archiveHeld',
+            'https://schema.org/archiveHeld'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/archiveHeld'
     )

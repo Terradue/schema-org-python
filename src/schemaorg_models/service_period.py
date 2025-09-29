@@ -22,9 +22,9 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .quantitative_value import QuantitativeValue
     from .duration import Duration
     from .day_of_week import DayOfWeek
+    from .quantitative_value import QuantitativeValue
     from .opening_hours_specification import OpeningHoursSpecification
 
 class ServicePeriod(StructuredValue):
@@ -44,24 +44,24 @@ class ServicePeriod(StructuredValue):
     businessDays: Optional[Union['OpeningHoursSpecification', List['OpeningHoursSpecification'], 'DayOfWeek', List['DayOfWeek']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'businessDays',
+            'https://schema.org/businessDays'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/businessDays'
     )
     duration: Optional[Union['Duration', List['Duration'], 'QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'duration',
+            'https://schema.org/duration'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/duration'
     )
     cutoffTime: Optional[Union[time, List[time]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'cutoffTime',
+            'https://schema.org/cutoffTime'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/cutoffTime'
     )

@@ -22,8 +22,8 @@ from typing import (
 from .sports_organization import SportsOrganization
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .gender_type import GenderType
     from .person import Person
+    from .gender_type import GenderType
 
 class SportsTeam(SportsOrganization):
     '''
@@ -42,24 +42,24 @@ class SportsTeam(SportsOrganization):
     athlete: Optional[Union['Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'athlete',
+            'https://schema.org/athlete'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/athlete'
     )
     coach: Optional[Union['Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'coach',
+            'https://schema.org/coach'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/coach'
     )
     gender: Optional[Union['GenderType', List['GenderType'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'gender',
+            'https://schema.org/gender'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/gender'
     )

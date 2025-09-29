@@ -22,21 +22,21 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .loan_or_credit import LoanOrCredit
-    from .incentive_type import IncentiveType
+    from .place import Place
+    from .unit_price_specification import UnitPriceSpecification
     from .monetary_amount import MonetaryAmount
     from .geo_shape import GeoShape
-    from .unit_price_specification import UnitPriceSpecification
-    from .product import Product
-    from .incentive_status import IncentiveStatus
-    from .person import Person
-    from .administrative_area import AdministrativeArea
-    from .place import Place
-    from .defined_term import DefinedTerm
-    from .organization import Organization
-    from .quantitative_value import QuantitativeValue
     from .purchase_type import PurchaseType
+    from .loan_or_credit import LoanOrCredit
+    from .incentive_status import IncentiveStatus
+    from .quantitative_value import QuantitativeValue
+    from .administrative_area import AdministrativeArea
     from .incentive_qualified_expense_type import IncentiveQualifiedExpenseType
+    from .person import Person
+    from .incentive_type import IncentiveType
+    from .organization import Organization
+    from .product import Product
+    from .defined_term import DefinedTerm
 
 class FinancialIncentive(Intangible):
     '''
@@ -157,112 +157,112 @@ In summary: <ul><li>Use [[QuantitativeValue]] for absolute/percentage-based ince
     incomeLimit: Optional[Union[str, List[str], 'MonetaryAmount', List['MonetaryAmount']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'incomeLimit',
+            'https://schema.org/incomeLimit'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/incomeLimit'
     )
     qualifiedExpense: Optional[Union['IncentiveQualifiedExpenseType', List['IncentiveQualifiedExpenseType']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'qualifiedExpense',
+            'https://schema.org/qualifiedExpense'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/qualifiedExpense'
     )
     provider: Optional[Union['Person', List['Person'], 'Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'provider',
+            'https://schema.org/provider'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/provider'
     )
     incentivizedItem: Optional[Union['DefinedTerm', List['DefinedTerm'], 'Product', List['Product']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'incentivizedItem',
+            'https://schema.org/incentivizedItem'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/incentivizedItem'
     )
     validThrough: Optional[Union[datetime, List[datetime], date, List[date]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'validThrough',
+            'https://schema.org/validThrough'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/validThrough'
     )
     areaServed: Optional[Union['GeoShape', List['GeoShape'], str, List[str], 'AdministrativeArea', List['AdministrativeArea'], 'Place', List['Place']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'areaServed',
+            'https://schema.org/areaServed'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/areaServed'
     )
     publisher: Optional[Union['Person', List['Person'], 'Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'publisher',
+            'https://schema.org/publisher'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/publisher'
     )
     eligibleWithSupplier: Optional[Union['Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'eligibleWithSupplier',
+            'https://schema.org/eligibleWithSupplier'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/eligibleWithSupplier'
     )
     purchaseType: Optional[Union['PurchaseType', List['PurchaseType']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'purchaseType',
+            'https://schema.org/purchaseType'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/purchaseType'
     )
     validFrom: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'validFrom',
+            'https://schema.org/validFrom'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/validFrom'
     )
     incentiveAmount: Optional[Union['UnitPriceSpecification', List['UnitPriceSpecification'], 'QuantitativeValue', List['QuantitativeValue'], 'LoanOrCredit', List['LoanOrCredit']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'incentiveAmount',
+            'https://schema.org/incentiveAmount'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/incentiveAmount'
     )
     purchasePriceLimit: Optional[Union['MonetaryAmount', List['MonetaryAmount']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'purchasePriceLimit',
+            'https://schema.org/purchasePriceLimit'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/purchasePriceLimit'
     )
     incentiveType: Optional[Union['IncentiveType', List['IncentiveType']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'incentiveType',
+            'https://schema.org/incentiveType'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/incentiveType'
     )
     incentiveStatus: Optional[Union['IncentiveStatus', List['IncentiveStatus']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'incentiveStatus',
+            'https://schema.org/incentiveStatus'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/incentiveStatus'
     )

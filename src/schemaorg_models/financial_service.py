@@ -36,8 +36,8 @@ class FinancialService(LocalBusiness):
     feesAndCommissionsSpecification: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'feesAndCommissionsSpecification',
+            'https://schema.org/feesAndCommissionsSpecification'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/feesAndCommissionsSpecification'
     )

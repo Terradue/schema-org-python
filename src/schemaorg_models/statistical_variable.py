@@ -22,11 +22,11 @@ from typing import (
 from .constraint_node import ConstraintNode
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .measurement_method_enum import MeasurementMethodEnum
     from .__class import _Class
     from .property import Property
-    from .enumeration import Enumeration
     from .defined_term import DefinedTerm
-    from .measurement_method_enum import MeasurementMethodEnum
+    from .enumeration import Enumeration
 
 class StatisticalVariable(ConstraintNode):
     '''
@@ -55,56 +55,56 @@ If there are several [[variableMeasured]] properties recorded for some given dat
     statType: Optional[Union[HttpUrl, List[HttpUrl], 'Property', List['Property'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'statType',
+            'https://schema.org/statType'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/statType'
     )
     measurementDenominator: Optional[Union['StatisticalVariable', List['StatisticalVariable']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'measurementDenominator',
+            'https://schema.org/measurementDenominator'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/measurementDenominator'
     )
     populationType: Optional[Union['_Class', List['_Class']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'populationType',
+            'https://schema.org/populationType'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/populationType'
     )
     measurementMethod: Optional[Union['DefinedTerm', List['DefinedTerm'], str, List[str], 'MeasurementMethodEnum', List['MeasurementMethodEnum'], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'measurementMethod',
+            'https://schema.org/measurementMethod'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/measurementMethod'
     )
     measuredProperty: Optional[Union['Property', List['Property']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'measuredProperty',
+            'https://schema.org/measuredProperty'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/measuredProperty'
     )
     measurementQualifier: Optional[Union['Enumeration', List['Enumeration']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'measurementQualifier',
+            'https://schema.org/measurementQualifier'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/measurementQualifier'
     )
     measurementTechnique: Optional[Union['DefinedTerm', List['DefinedTerm'], 'MeasurementMethodEnum', List['MeasurementMethodEnum'], str, List[str], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'measurementTechnique',
+            'https://schema.org/measurementTechnique'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/measurementTechnique'
     )

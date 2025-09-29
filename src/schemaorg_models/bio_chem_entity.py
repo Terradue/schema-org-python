@@ -24,10 +24,10 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .taxon import Taxon
     from .gene import Gene
-    from .defined_term import DefinedTerm
-    from .medical_condition import MedicalCondition
     from .property_value import PropertyValue
     from .grant import Grant
+    from .defined_term import DefinedTerm
+    from .medical_condition import MedicalCondition
 
 class BioChemEntity(Thing):
     '''
@@ -56,104 +56,104 @@ class BioChemEntity(Thing):
     taxonomicRange: Optional[Union['Taxon', List['Taxon'], 'DefinedTerm', List['DefinedTerm'], str, List[str], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'taxonomicRange',
+            'https://schema.org/taxonomicRange'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/taxonomicRange'
     )
     isInvolvedInBiologicalProcess: Optional[Union['PropertyValue', List['PropertyValue'], HttpUrl, List[HttpUrl], 'DefinedTerm', List['DefinedTerm']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'isInvolvedInBiologicalProcess',
+            'https://schema.org/isInvolvedInBiologicalProcess'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/isInvolvedInBiologicalProcess'
     )
     hasBioChemEntityPart: Optional[Union['BioChemEntity', List['BioChemEntity']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'hasBioChemEntityPart',
+            'https://schema.org/hasBioChemEntityPart'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/hasBioChemEntityPart'
     )
     bioChemSimilarity: Optional[Union['BioChemEntity', List['BioChemEntity']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'bioChemSimilarity',
+            'https://schema.org/bioChemSimilarity'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/bioChemSimilarity'
     )
     hasRepresentation: Optional[Union['PropertyValue', List['PropertyValue'], HttpUrl, List[HttpUrl], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'hasRepresentation',
+            'https://schema.org/hasRepresentation'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/hasRepresentation'
     )
     biologicalRole: Optional[Union['DefinedTerm', List['DefinedTerm']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'biologicalRole',
+            'https://schema.org/biologicalRole'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/biologicalRole'
     )
     hasMolecularFunction: Optional[Union['PropertyValue', List['PropertyValue'], HttpUrl, List[HttpUrl], 'DefinedTerm', List['DefinedTerm']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'hasMolecularFunction',
+            'https://schema.org/hasMolecularFunction'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/hasMolecularFunction'
     )
     bioChemInteraction: Optional[Union['BioChemEntity', List['BioChemEntity']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'bioChemInteraction',
+            'https://schema.org/bioChemInteraction'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/bioChemInteraction'
     )
     isLocatedInSubcellularLocation: Optional[Union[HttpUrl, List[HttpUrl], 'PropertyValue', List['PropertyValue'], 'DefinedTerm', List['DefinedTerm']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'isLocatedInSubcellularLocation',
+            'https://schema.org/isLocatedInSubcellularLocation'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/isLocatedInSubcellularLocation'
     )
     funding: Optional[Union['Grant', List['Grant']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'funding',
+            'https://schema.org/funding'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/funding'
     )
     isPartOfBioChemEntity: Optional[Union['BioChemEntity', List['BioChemEntity']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'isPartOfBioChemEntity',
+            'https://schema.org/isPartOfBioChemEntity'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/isPartOfBioChemEntity'
     )
     isEncodedByBioChemEntity: Optional[Union['Gene', List['Gene']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'isEncodedByBioChemEntity',
+            'https://schema.org/isEncodedByBioChemEntity'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/isEncodedByBioChemEntity'
     )
     associatedDisease: Optional[Union['MedicalCondition', List['MedicalCondition'], 'PropertyValue', List['PropertyValue'], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'associatedDisease',
+            'https://schema.org/associatedDisease'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/associatedDisease'
     )

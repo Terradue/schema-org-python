@@ -22,9 +22,9 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .place import Place
-    from .archive_organization import ArchiveOrganization
     from .postal_address import PostalAddress
+    from .archive_organization import ArchiveOrganization
+    from .place import Place
 
 class ArchiveComponent(CreativeWork):
     '''
@@ -42,16 +42,16 @@ class ArchiveComponent(CreativeWork):
     holdingArchive: Optional[Union['ArchiveOrganization', List['ArchiveOrganization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'holdingArchive',
+            'https://schema.org/holdingArchive'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/holdingArchive'
     )
     itemLocation: Optional[Union['PostalAddress', List['PostalAddress'], str, List[str], 'Place', List['Place']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'itemLocation',
+            'https://schema.org/itemLocation'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/itemLocation'
     )

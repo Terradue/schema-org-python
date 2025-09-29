@@ -22,10 +22,10 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .shipping_conditions import ShippingConditions
-    from .member_program_tier import MemberProgramTier
-    from .fulfillment_type_enumeration import FulfillmentTypeEnumeration
     from .service_period import ServicePeriod
+    from .fulfillment_type_enumeration import FulfillmentTypeEnumeration
+    from .member_program_tier import MemberProgramTier
+    from .shipping_conditions import ShippingConditions
     from .quantitative_value import QuantitativeValue
 
 class ShippingService(StructuredValue):
@@ -50,32 +50,32 @@ In the context of [[ShippingService]], use the [[ServicePeriod]] format, that co
     fulfillmentType: Optional[Union['FulfillmentTypeEnumeration', List['FulfillmentTypeEnumeration']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'fulfillmentType',
+            'https://schema.org/fulfillmentType'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/fulfillmentType'
     )
     shippingConditions: Optional[Union['ShippingConditions', List['ShippingConditions']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'shippingConditions',
+            'https://schema.org/shippingConditions'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/shippingConditions'
     )
     validForMemberTier: Optional[Union['MemberProgramTier', List['MemberProgramTier']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'validForMemberTier',
+            'https://schema.org/validForMemberTier'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/validForMemberTier'
     )
     handlingTime: Optional[Union['ServicePeriod', List['ServicePeriod'], 'QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'handlingTime',
+            'https://schema.org/handlingTime'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/handlingTime'
     )

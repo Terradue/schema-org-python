@@ -22,8 +22,8 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .music_recording import MusicRecording
     from .item_list import ItemList
+    from .music_recording import MusicRecording
 
 class MusicPlaylist(CreativeWork):
     '''
@@ -42,24 +42,24 @@ class MusicPlaylist(CreativeWork):
     tracks: Optional[Union['MusicRecording', List['MusicRecording']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'tracks',
+            'https://schema.org/tracks'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/tracks'
     )
     track: Optional[Union['ItemList', List['ItemList'], 'MusicRecording', List['MusicRecording']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'track',
+            'https://schema.org/track'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/track'
     )
     numTracks: Optional[Union[int, List[int]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'numTracks',
+            'https://schema.org/numTracks'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/numTracks'
     )

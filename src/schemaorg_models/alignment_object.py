@@ -42,40 +42,40 @@ Should not be used where the nature of the alignment can be described using a si
     alignmentType: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'alignmentType',
+            'https://schema.org/alignmentType'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/alignmentType'
     )
     targetName: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'targetName',
+            'https://schema.org/targetName'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/targetName'
     )
     educationalFramework: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'educationalFramework',
+            'https://schema.org/educationalFramework'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/educationalFramework'
     )
     targetDescription: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'targetDescription',
+            'https://schema.org/targetDescription'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/targetDescription'
     )
     targetUrl: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'targetUrl',
+            'https://schema.org/targetUrl'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/targetUrl'
     )

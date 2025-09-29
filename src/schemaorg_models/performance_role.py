@@ -36,8 +36,8 @@ class PerformanceRole(Role):
     characterName: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'characterName',
+            'https://schema.org/characterName'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/characterName'
     )

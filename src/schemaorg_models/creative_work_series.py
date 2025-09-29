@@ -43,24 +43,24 @@ It is common for properties applicable to an item from the series to be usefully
     endDate: Optional[Union[datetime, List[datetime], date, List[date]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'endDate',
+            'https://schema.org/endDate'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/endDate'
     )
     startDate: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'startDate',
+            'https://schema.org/startDate'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/startDate'
     )
     issn: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'issn',
+            'https://schema.org/issn'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/issn'
     )

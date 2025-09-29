@@ -22,13 +22,13 @@ from typing import (
 from .how_to import HowTo
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .restricted_diet import RestrictedDiet
-    from .creative_work import CreativeWork
-    from .item_list import ItemList
     from .duration import Duration
-    from .quantitative_value import QuantitativeValue
-    from .nutrition_information import NutritionInformation
+    from .item_list import ItemList
     from .property_value import PropertyValue
+    from .nutrition_information import NutritionInformation
+    from .creative_work import CreativeWork
+    from .restricted_diet import RestrictedDiet
+    from .quantitative_value import QuantitativeValue
 
 class Recipe(HowTo):
     '''
@@ -54,80 +54,80 @@ class Recipe(HowTo):
     suitableForDiet: Optional[Union['RestrictedDiet', List['RestrictedDiet']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'suitableForDiet',
+            'https://schema.org/suitableForDiet'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/suitableForDiet'
     )
     cookTime: Optional[Union['Duration', List['Duration']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'cookTime',
+            'https://schema.org/cookTime'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/cookTime'
     )
     recipeIngredient: Optional[Union['PropertyValue', List['PropertyValue'], 'ItemList', List['ItemList'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'recipeIngredient',
+            'https://schema.org/recipeIngredient'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/recipeIngredient'
     )
     recipeInstructions: Optional[Union['ItemList', List['ItemList'], str, List[str], 'CreativeWork', List['CreativeWork']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'recipeInstructions',
+            'https://schema.org/recipeInstructions'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/recipeInstructions'
     )
     recipeYield: Optional[Union[str, List[str], 'QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'recipeYield',
+            'https://schema.org/recipeYield'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/recipeYield'
     )
     ingredients: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'ingredients',
+            'https://schema.org/ingredients'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/ingredients'
     )
     recipeCategory: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'recipeCategory',
+            'https://schema.org/recipeCategory'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/recipeCategory'
     )
     nutrition: Optional[Union['NutritionInformation', List['NutritionInformation']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'nutrition',
+            'https://schema.org/nutrition'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/nutrition'
     )
     cookingMethod: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'cookingMethod',
+            'https://schema.org/cookingMethod'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/cookingMethod'
     )
     recipeCuisine: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'recipeCuisine',
+            'https://schema.org/recipeCuisine'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/recipeCuisine'
     )

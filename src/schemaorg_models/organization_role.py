@@ -36,8 +36,8 @@ class OrganizationRole(Role):
     numberedPosition: Optional[Union[float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'numberedPosition',
+            'https://schema.org/numberedPosition'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/numberedPosition'
     )

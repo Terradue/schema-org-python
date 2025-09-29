@@ -22,8 +22,8 @@ from typing import (
 from .transfer_action import TransferAction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .monetary_amount import MonetaryAmount
     from .bank_or_credit_union import BankOrCreditUnion
+    from .monetary_amount import MonetaryAmount
 
 class MoneyTransfer(TransferAction):
     '''
@@ -41,16 +41,16 @@ class MoneyTransfer(TransferAction):
     beneficiaryBank: Optional[Union[str, List[str], 'BankOrCreditUnion', List['BankOrCreditUnion']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'beneficiaryBank',
+            'https://schema.org/beneficiaryBank'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/beneficiaryBank'
     )
     amount: Optional[Union['MonetaryAmount', List['MonetaryAmount'], float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'amount',
+            'https://schema.org/amount'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/amount'
     )

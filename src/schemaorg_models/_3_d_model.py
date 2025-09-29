@@ -37,8 +37,8 @@ case of a single file published after Zip compression, the convention of appendi
     isResizable: Optional[Union[bool, List[bool]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'isResizable',
+            'https://schema.org/isResizable'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/isResizable'
     )

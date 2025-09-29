@@ -22,8 +22,8 @@ from typing import (
 from .web_page import WebPage
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .medical_audience_type import MedicalAudienceType
     from .medical_audience import MedicalAudience
+    from .medical_audience_type import MedicalAudienceType
 
 class MedicalWebPage(WebPage):
     '''
@@ -41,16 +41,16 @@ class MedicalWebPage(WebPage):
     medicalAudience: Optional[Union['MedicalAudience', List['MedicalAudience'], 'MedicalAudienceType', List['MedicalAudienceType']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'medicalAudience',
+            'https://schema.org/medicalAudience'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/medicalAudience'
     )
     aspect: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'aspect',
+            'https://schema.org/aspect'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/aspect'
     )

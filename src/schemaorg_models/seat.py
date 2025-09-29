@@ -42,32 +42,32 @@ class Seat(Intangible):
     seatNumber: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'seatNumber',
+            'https://schema.org/seatNumber'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/seatNumber'
     )
     seatSection: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'seatSection',
+            'https://schema.org/seatSection'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/seatSection'
     )
     seatingType: Optional[Union[str, List[str], 'QualitativeValue', List['QualitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'seatingType',
+            'https://schema.org/seatingType'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/seatingType'
     )
     seatRow: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'seatRow',
+            'https://schema.org/seatRow'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/seatRow'
     )

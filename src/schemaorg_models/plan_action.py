@@ -36,8 +36,8 @@ class PlanAction(OrganizeAction):
     scheduledTime: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'scheduledTime',
+            'https://schema.org/scheduledTime'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/scheduledTime'
     )

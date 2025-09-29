@@ -49,88 +49,88 @@ class PropertyValueSpecification(Intangible):
     valuePattern: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'valuePattern',
+            'https://schema.org/valuePattern'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/valuePattern'
     )
     minValue: Optional[Union[float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'minValue',
+            'https://schema.org/minValue'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/minValue'
     )
     stepValue: Optional[Union[float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'stepValue',
+            'https://schema.org/stepValue'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/stepValue'
     )
     readonlyValue: Optional[Union[bool, List[bool]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'readonlyValue',
+            'https://schema.org/readonlyValue'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/readonlyValue'
     )
     valueRequired: Optional[Union[bool, List[bool]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'valueRequired',
+            'https://schema.org/valueRequired'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/valueRequired'
     )
     maxValue: Optional[Union[float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'maxValue',
+            'https://schema.org/maxValue'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/maxValue'
     )
     defaultValue: Optional[Union[str, List[str], 'Thing', List['Thing']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'defaultValue',
+            'https://schema.org/defaultValue'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/defaultValue'
     )
     valueMinLength: Optional[Union[float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'valueMinLength',
+            'https://schema.org/valueMinLength'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/valueMinLength'
     )
     multipleValues: Optional[Union[bool, List[bool]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'multipleValues',
+            'https://schema.org/multipleValues'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/multipleValues'
     )
     valueMaxLength: Optional[Union[float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'valueMaxLength',
+            'https://schema.org/valueMaxLength'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/valueMaxLength'
     )
     valueName: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'valueName',
+            'https://schema.org/valueName'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/valueName'
     )

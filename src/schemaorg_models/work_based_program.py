@@ -43,16 +43,16 @@ Note: for historical reasons, any textual label and formal code provided as a li
     trainingSalary: Optional[Union['MonetaryAmountDistribution', List['MonetaryAmountDistribution']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'trainingSalary',
+            'https://schema.org/trainingSalary'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/trainingSalary'
     )
     occupationalCategory: Optional[Union['CategoryCode', List['CategoryCode'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'occupationalCategory',
+            'https://schema.org/occupationalCategory'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/occupationalCategory'
     )

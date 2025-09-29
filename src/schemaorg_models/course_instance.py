@@ -22,8 +22,8 @@ from typing import (
 from .event import Event
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .schedule import Schedule
     from .person import Person
+    from .schedule import Schedule
 
 class CourseInstance(Event):
     '''
@@ -43,32 +43,32 @@ class CourseInstance(Event):
     instructor: Optional[Union['Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'instructor',
+            'https://schema.org/instructor'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/instructor'
     )
     courseWorkload: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'courseWorkload',
+            'https://schema.org/courseWorkload'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/courseWorkload'
     )
     courseSchedule: Optional[Union['Schedule', List['Schedule']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'courseSchedule',
+            'https://schema.org/courseSchedule'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/courseSchedule'
     )
     courseMode: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'courseMode',
+            'https://schema.org/courseMode'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/courseMode'
     )

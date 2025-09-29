@@ -22,8 +22,8 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .enumeration import Enumeration
     from .property import Property
+    from .enumeration import Enumeration
 
 class _Class(Intangible):
     '''
@@ -40,8 +40,8 @@ class _Class(Intangible):
     supersededBy: Optional[Union['Enumeration', List['Enumeration'], '_Class', List['_Class'], 'Property', List['Property']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'supersededBy',
+            'https://schema.org/supersededBy'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/supersededBy'
     )

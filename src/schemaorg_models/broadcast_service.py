@@ -23,8 +23,8 @@ from .service import Service
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .place import Place
-    from .broadcast_frequency_specification import BroadcastFrequencySpecification
     from .language import Language
+    from .broadcast_frequency_specification import BroadcastFrequencySpecification
     from .organization import Organization
     from .broadcast_channel import BroadcastChannel
 
@@ -53,88 +53,88 @@ class BroadcastService(Service):
     callSign: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'callSign',
+            'https://schema.org/callSign'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/callSign'
     )
     broadcastAffiliateOf: Optional[Union['Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'broadcastAffiliateOf',
+            'https://schema.org/broadcastAffiliateOf'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/broadcastAffiliateOf'
     )
     broadcaster: Optional[Union['Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'broadcaster',
+            'https://schema.org/broadcaster'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/broadcaster'
     )
     area: Optional[Union['Place', List['Place']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'area',
+            'https://schema.org/area'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/area'
     )
     videoFormat: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'videoFormat',
+            'https://schema.org/videoFormat'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/videoFormat'
     )
     broadcastDisplayName: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'broadcastDisplayName',
+            'https://schema.org/broadcastDisplayName'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/broadcastDisplayName'
     )
     inLanguage: Optional[Union[str, List[str], 'Language', List['Language']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'inLanguage',
+            'https://schema.org/inLanguage'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/inLanguage'
     )
     broadcastFrequency: Optional[Union[str, List[str], 'BroadcastFrequencySpecification', List['BroadcastFrequencySpecification']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'broadcastFrequency',
+            'https://schema.org/broadcastFrequency'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/broadcastFrequency'
     )
     hasBroadcastChannel: Optional[Union['BroadcastChannel', List['BroadcastChannel']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'hasBroadcastChannel',
+            'https://schema.org/hasBroadcastChannel'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/hasBroadcastChannel'
     )
     parentService: Optional[Union['BroadcastService', List['BroadcastService']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'parentService',
+            'https://schema.org/parentService'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/parentService'
     )
     broadcastTimezone: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'broadcastTimezone',
+            'https://schema.org/broadcastTimezone'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/broadcastTimezone'
     )

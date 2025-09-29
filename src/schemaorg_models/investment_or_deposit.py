@@ -39,8 +39,8 @@ class InvestmentOrDeposit(FinancialProduct):
     amount: Optional[Union['MonetaryAmount', List['MonetaryAmount'], float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'amount',
+            'https://schema.org/amount'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/amount'
     )

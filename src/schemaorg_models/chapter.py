@@ -38,24 +38,24 @@ class Chapter(CreativeWork):
     pageStart: Optional[Union[int, List[int], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'pageStart',
+            'https://schema.org/pageStart'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/pageStart'
     )
     pagination: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'pagination',
+            'https://schema.org/pagination'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/pagination'
     )
     pageEnd: Optional[Union[str, List[str], int, List[int]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'pageEnd',
+            'https://schema.org/pageEnd'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/pageEnd'
     )

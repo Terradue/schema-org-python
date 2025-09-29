@@ -37,16 +37,16 @@ class MedicalConditionStage(MedicalIntangible):
     stageAsNumber: Optional[Union[float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'stageAsNumber',
+            'https://schema.org/stageAsNumber'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/stageAsNumber'
     )
     subStageSuffix: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'subStageSuffix',
+            'https://schema.org/subStageSuffix'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/subStageSuffix'
     )

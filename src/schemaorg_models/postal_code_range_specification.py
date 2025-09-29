@@ -37,16 +37,16 @@ class PostalCodeRangeSpecification(StructuredValue):
     postalCodeBegin: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'postalCodeBegin',
+            'https://schema.org/postalCodeBegin'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/postalCodeBegin'
     )
     postalCodeEnd: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'postalCodeEnd',
+            'https://schema.org/postalCodeEnd'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/postalCodeEnd'
     )

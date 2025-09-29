@@ -39,8 +39,8 @@ class DigitalDocument(CreativeWork):
     hasDigitalDocumentPermission: Optional[Union['DigitalDocumentPermission', List['DigitalDocumentPermission']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'hasDigitalDocumentPermission',
+            'https://schema.org/hasDigitalDocumentPermission'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/hasDigitalDocumentPermission'
     )

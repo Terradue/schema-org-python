@@ -22,9 +22,9 @@ from typing import (
 from .episode import Episode
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .country import Country
     from .tv_series import TVSeries
     from .language import Language
-    from .country import Country
 
 class TVEpisode(Episode):
     '''
@@ -53,32 +53,32 @@ In the case of products, the country of origin of the product. The exact interpr
     partOfTVSeries: Optional[Union['TVSeries', List['TVSeries']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'partOfTVSeries',
+            'https://schema.org/partOfTVSeries'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/partOfTVSeries'
     )
     subtitleLanguage: Optional[Union['Language', List['Language'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'subtitleLanguage',
+            'https://schema.org/subtitleLanguage'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/subtitleLanguage'
     )
     titleEIDR: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'titleEIDR',
+            'https://schema.org/titleEIDR'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/titleEIDR'
     )
     countryOfOrigin: Optional[Union['Country', List['Country']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'countryOfOrigin',
+            'https://schema.org/countryOfOrigin'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/countryOfOrigin'
     )

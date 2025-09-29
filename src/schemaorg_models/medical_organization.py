@@ -41,24 +41,24 @@ class MedicalOrganization(Organization):
     healthPlanNetworkId: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'healthPlanNetworkId',
+            'https://schema.org/healthPlanNetworkId'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/healthPlanNetworkId'
     )
     isAcceptingNewPatients: Optional[Union[bool, List[bool]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'isAcceptingNewPatients',
+            'https://schema.org/isAcceptingNewPatients'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/isAcceptingNewPatients'
     )
     medicalSpecialty: Optional[Union['MedicalSpecialty', List['MedicalSpecialty']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'medicalSpecialty',
+            'https://schema.org/medicalSpecialty'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/medicalSpecialty'
     )

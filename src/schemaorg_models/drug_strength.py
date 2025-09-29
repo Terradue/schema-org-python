@@ -44,40 +44,40 @@ class DrugStrength(MedicalIntangible):
     strengthUnit: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'strengthUnit',
+            'https://schema.org/strengthUnit'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/strengthUnit'
     )
     maximumIntake: Optional[Union['MaximumDoseSchedule', List['MaximumDoseSchedule']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'maximumIntake',
+            'https://schema.org/maximumIntake'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/maximumIntake'
     )
     availableIn: Optional[Union['AdministrativeArea', List['AdministrativeArea']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'availableIn',
+            'https://schema.org/availableIn'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/availableIn'
     )
     strengthValue: Optional[Union[float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'strengthValue',
+            'https://schema.org/strengthValue'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/strengthValue'
     )
     activeIngredient: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'activeIngredient',
+            'https://schema.org/activeIngredient'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/activeIngredient'
     )

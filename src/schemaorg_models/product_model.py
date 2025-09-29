@@ -41,24 +41,24 @@ class ProductModel(Product):
     predecessorOf: Optional[Union['ProductModel', List['ProductModel']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'predecessorOf',
+            'https://schema.org/predecessorOf'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/predecessorOf'
     )
     isVariantOf: Optional[Union['ProductModel', List['ProductModel'], 'ProductGroup', List['ProductGroup']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'isVariantOf',
+            'https://schema.org/isVariantOf'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/isVariantOf'
     )
     successorOf: Optional[Union['ProductModel', List['ProductModel']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'successorOf',
+            'https://schema.org/successorOf'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/successorOf'
     )

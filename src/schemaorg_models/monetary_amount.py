@@ -48,48 +48,48 @@ Use standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/IS
     currency: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'currency',
+            'https://schema.org/currency'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/currency'
     )
     validThrough: Optional[Union[datetime, List[datetime], date, List[date]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'validThrough',
+            'https://schema.org/validThrough'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/validThrough'
     )
     minValue: Optional[Union[float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'minValue',
+            'https://schema.org/minValue'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/minValue'
     )
     value: Optional[Union[float, List[float], 'StructuredValue', List['StructuredValue'], bool, List[bool], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'value',
+            'https://schema.org/value'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/value'
     )
     validFrom: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'validFrom',
+            'https://schema.org/validFrom'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/validFrom'
     )
     maxValue: Optional[Union[float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'maxValue',
+            'https://schema.org/maxValue'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/maxValue'
     )

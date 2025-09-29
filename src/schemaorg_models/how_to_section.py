@@ -39,8 +39,8 @@ class HowToSection(CreativeWork):
     steps: Optional[Union[str, List[str], 'CreativeWork', List['CreativeWork'], 'ItemList', List['ItemList']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'steps',
+            'https://schema.org/steps'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/steps'
     )

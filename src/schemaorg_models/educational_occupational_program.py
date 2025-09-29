@@ -22,19 +22,19 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .demand import Demand
-    from .educational_occupational_credential import EducationalOccupationalCredential
-    from .course import Course
-    from .day_of_week import DayOfWeek
-    from .person import Person
-    from .monetary_amount_distribution import MonetaryAmountDistribution
-    from .structured_value import StructuredValue
-    from .defined_term import DefinedTerm
-    from .duration import Duration
     from .offer import Offer
-    from .organization import Organization
-    from .alignment_object import AlignmentObject
+    from .person import Person
+    from .course import Course
+    from .monetary_amount_distribution import MonetaryAmountDistribution
+    from .duration import Duration
+    from .structured_value import StructuredValue
+    from .educational_occupational_credential import EducationalOccupationalCredential
     from .category_code import CategoryCode
+    from .day_of_week import DayOfWeek
+    from .alignment_object import AlignmentObject
+    from .defined_term import DefinedTerm
+    from .organization import Organization
+    from .demand import Demand
 
 class EducationalOccupationalProgram(Intangible):
     '''
@@ -77,192 +77,192 @@ Note: for historical reasons, any textual label and formal code provided as a li
     timeToComplete: Optional[Union['Duration', List['Duration']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'timeToComplete',
+            'https://schema.org/timeToComplete'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/timeToComplete'
     )
     programType: Optional[Union[str, List[str], 'DefinedTerm', List['DefinedTerm']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'programType',
+            'https://schema.org/programType'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/programType'
     )
     applicationStartDate: Optional[Union[date, List[date]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'applicationStartDate',
+            'https://schema.org/applicationStartDate'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/applicationStartDate'
     )
     offers: Optional[Union['Demand', List['Demand'], 'Offer', List['Offer']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'offers',
+            'https://schema.org/offers'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/offers'
     )
     dayOfWeek: Optional[Union['DayOfWeek', List['DayOfWeek']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'dayOfWeek',
+            'https://schema.org/dayOfWeek'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/dayOfWeek'
     )
     applicationDeadline: Optional[Union[str, List[str], date, List[date]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'applicationDeadline',
+            'https://schema.org/applicationDeadline'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/applicationDeadline'
     )
     typicalCreditsPerTerm: Optional[Union[int, List[int], 'StructuredValue', List['StructuredValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'typicalCreditsPerTerm',
+            'https://schema.org/typicalCreditsPerTerm'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/typicalCreditsPerTerm'
     )
     educationalCredentialAwarded: Optional[Union['EducationalOccupationalCredential', List['EducationalOccupationalCredential'], str, List[str], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'educationalCredentialAwarded',
+            'https://schema.org/educationalCredentialAwarded'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/educationalCredentialAwarded'
     )
     endDate: Optional[Union[datetime, List[datetime], date, List[date]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'endDate',
+            'https://schema.org/endDate'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/endDate'
     )
     provider: Optional[Union['Person', List['Person'], 'Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'provider',
+            'https://schema.org/provider'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/provider'
     )
     salaryUponCompletion: Optional[Union['MonetaryAmountDistribution', List['MonetaryAmountDistribution']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'salaryUponCompletion',
+            'https://schema.org/salaryUponCompletion'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/salaryUponCompletion'
     )
     numberOfCredits: Optional[Union[int, List[int], 'StructuredValue', List['StructuredValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'numberOfCredits',
+            'https://schema.org/numberOfCredits'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/numberOfCredits'
     )
     termsPerYear: Optional[Union[float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'termsPerYear',
+            'https://schema.org/termsPerYear'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/termsPerYear'
     )
     educationalProgramMode: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'educationalProgramMode',
+            'https://schema.org/educationalProgramMode'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/educationalProgramMode'
     )
     trainingSalary: Optional[Union['MonetaryAmountDistribution', List['MonetaryAmountDistribution']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'trainingSalary',
+            'https://schema.org/trainingSalary'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/trainingSalary'
     )
     termDuration: Optional[Union['Duration', List['Duration']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'termDuration',
+            'https://schema.org/termDuration'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/termDuration'
     )
     timeOfDay: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'timeOfDay',
+            'https://schema.org/timeOfDay'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/timeOfDay'
     )
     maximumEnrollment: Optional[Union[int, List[int]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'maximumEnrollment',
+            'https://schema.org/maximumEnrollment'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/maximumEnrollment'
     )
     financialAidEligible: Optional[Union['DefinedTerm', List['DefinedTerm'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'financialAidEligible',
+            'https://schema.org/financialAidEligible'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/financialAidEligible'
     )
     occupationalCredentialAwarded: Optional[Union[HttpUrl, List[HttpUrl], 'EducationalOccupationalCredential', List['EducationalOccupationalCredential'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'occupationalCredentialAwarded',
+            'https://schema.org/occupationalCredentialAwarded'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/occupationalCredentialAwarded'
     )
     hasCourse: Optional[Union['Course', List['Course']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'hasCourse',
+            'https://schema.org/hasCourse'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/hasCourse'
     )
     occupationalCategory: Optional[Union['CategoryCode', List['CategoryCode'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'occupationalCategory',
+            'https://schema.org/occupationalCategory'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/occupationalCategory'
     )
     programPrerequisites: Optional[Union['AlignmentObject', List['AlignmentObject'], 'Course', List['Course'], 'EducationalOccupationalCredential', List['EducationalOccupationalCredential'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'programPrerequisites',
+            'https://schema.org/programPrerequisites'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/programPrerequisites'
     )
     startDate: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'startDate',
+            'https://schema.org/startDate'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/startDate'
     )

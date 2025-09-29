@@ -42,32 +42,32 @@ class PaymentCard(FinancialProduct):
     monthlyMinimumRepaymentAmount: Optional[Union[float, List[float], 'MonetaryAmount', List['MonetaryAmount']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'monthlyMinimumRepaymentAmount',
+            'https://schema.org/monthlyMinimumRepaymentAmount'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/monthlyMinimumRepaymentAmount'
     )
     floorLimit: Optional[Union['MonetaryAmount', List['MonetaryAmount']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'floorLimit',
+            'https://schema.org/floorLimit'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/floorLimit'
     )
     cashBack: Optional[Union[float, List[float], bool, List[bool]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'cashBack',
+            'https://schema.org/cashBack'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/cashBack'
     )
     contactlessPayment: Optional[Union[bool, List[bool]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'contactlessPayment',
+            'https://schema.org/contactlessPayment'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/contactlessPayment'
     )

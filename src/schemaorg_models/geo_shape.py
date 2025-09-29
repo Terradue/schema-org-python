@@ -22,8 +22,8 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .postal_address import PostalAddress
     from .country import Country
+    from .postal_address import PostalAddress
 
 class GeoShape(StructuredValue):
     '''
@@ -47,64 +47,64 @@ class GeoShape(StructuredValue):
     circle: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'circle',
+            'https://schema.org/circle'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/circle'
     )
     line: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'line',
+            'https://schema.org/line'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/line'
     )
     address: Optional[Union[str, List[str], 'PostalAddress', List['PostalAddress']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'address',
+            'https://schema.org/address'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/address'
     )
     postalCode: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'postalCode',
+            'https://schema.org/postalCode'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/postalCode'
     )
     elevation: Optional[Union[str, List[str], float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'elevation',
+            'https://schema.org/elevation'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/elevation'
     )
     addressCountry: Optional[Union[str, List[str], 'Country', List['Country']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'addressCountry',
+            'https://schema.org/addressCountry'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/addressCountry'
     )
     polygon: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'polygon',
+            'https://schema.org/polygon'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/polygon'
     )
     box: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'box',
+            'https://schema.org/box'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/box'
     )

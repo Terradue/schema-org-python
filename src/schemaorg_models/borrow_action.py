@@ -22,8 +22,8 @@ from typing import (
 from .transfer_action import TransferAction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .organization import Organization
     from .person import Person
+    from .organization import Organization
 
 class BorrowAction(TransferAction):
     '''
@@ -44,8 +44,8 @@ Related actions:\
     lender: Optional[Union['Organization', List['Organization'], 'Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'lender',
+            'https://schema.org/lender'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/lender'
     )

@@ -22,9 +22,9 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .quantitative_value import QuantitativeValue
-    from .day_of_week import DayOfWeek
     from .duration import Duration
+    from .day_of_week import DayOfWeek
+    from .quantitative_value import QuantitativeValue
 
 class Schedule(Intangible):
     '''
@@ -63,104 +63,104 @@ Note that Event uses startDate/endDate instead of startTime/endTime, even when d
     scheduleTimezone: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'scheduleTimezone',
+            'https://schema.org/scheduleTimezone'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/scheduleTimezone'
     )
     repeatFrequency: Optional[Union[str, List[str], 'Duration', List['Duration']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'repeatFrequency',
+            'https://schema.org/repeatFrequency'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/repeatFrequency'
     )
     endDate: Optional[Union[datetime, List[datetime], date, List[date]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'endDate',
+            'https://schema.org/endDate'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/endDate'
     )
     exceptDate: Optional[Union[datetime, List[datetime], date, List[date]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'exceptDate',
+            'https://schema.org/exceptDate'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/exceptDate'
     )
     byDay: Optional[Union[str, List[str], 'DayOfWeek', List['DayOfWeek']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'byDay',
+            'https://schema.org/byDay'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/byDay'
     )
     byMonthDay: Optional[Union[int, List[int]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'byMonthDay',
+            'https://schema.org/byMonthDay'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/byMonthDay'
     )
     endTime: Optional[Union[time, List[time], datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'endTime',
+            'https://schema.org/endTime'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/endTime'
     )
     startDate: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'startDate',
+            'https://schema.org/startDate'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/startDate'
     )
     duration: Optional[Union['Duration', List['Duration'], 'QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'duration',
+            'https://schema.org/duration'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/duration'
     )
     repeatCount: Optional[Union[int, List[int]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'repeatCount',
+            'https://schema.org/repeatCount'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/repeatCount'
     )
     byMonthWeek: Optional[Union[int, List[int]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'byMonthWeek',
+            'https://schema.org/byMonthWeek'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/byMonthWeek'
     )
     byMonth: Optional[Union[int, List[int]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'byMonth',
+            'https://schema.org/byMonth'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/byMonth'
     )
     startTime: Optional[Union[time, List[time], datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'startTime',
+            'https://schema.org/startTime'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/startTime'
     )

@@ -42,32 +42,32 @@ class DoseSchedule(MedicalIntangible):
     frequency: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'frequency',
+            'https://schema.org/frequency'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/frequency'
     )
     doseValue: Optional[Union[float, List[float], 'QualitativeValue', List['QualitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'doseValue',
+            'https://schema.org/doseValue'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/doseValue'
     )
     targetPopulation: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'targetPopulation',
+            'https://schema.org/targetPopulation'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/targetPopulation'
     )
     doseUnit: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'doseUnit',
+            'https://schema.org/doseUnit'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/doseUnit'
     )

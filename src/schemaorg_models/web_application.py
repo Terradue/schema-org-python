@@ -36,8 +36,8 @@ class WebApplication(SoftwareApplication):
     browserRequirements: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'browserRequirements',
+            'https://schema.org/browserRequirements'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/browserRequirements'
     )

@@ -41,24 +41,24 @@ class BankAccount(FinancialProduct):
     bankAccountType: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'bankAccountType',
+            'https://schema.org/bankAccountType'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/bankAccountType'
     )
     accountOverdraftLimit: Optional[Union['MonetaryAmount', List['MonetaryAmount']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'accountOverdraftLimit',
+            'https://schema.org/accountOverdraftLimit'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/accountOverdraftLimit'
     )
     accountMinimumInflow: Optional[Union['MonetaryAmount', List['MonetaryAmount']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'accountMinimumInflow',
+            'https://schema.org/accountMinimumInflow'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/accountMinimumInflow'
     )

@@ -36,8 +36,8 @@ class Report(Article):
     reportNumber: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'reportNumber',
+            'https://schema.org/reportNumber'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/reportNumber'
     )

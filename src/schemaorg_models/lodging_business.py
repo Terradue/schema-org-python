@@ -22,11 +22,11 @@ from typing import (
 from .local_business import LocalBusiness
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .rating import Rating
-    from .audience import Audience
     from .language import Language
-    from .quantitative_value import QuantitativeValue
+    from .audience import Audience
+    from .rating import Rating
     from .location_feature_specification import LocationFeatureSpecification
+    from .quantitative_value import QuantitativeValue
 
 class LodgingBusiness(LocalBusiness):
     '''
@@ -51,64 +51,64 @@ Typical unit code(s): ROM for room or C62 for no unit. The type of room can be p
     amenityFeature: Optional[Union['LocationFeatureSpecification', List['LocationFeatureSpecification']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'amenityFeature',
+            'https://schema.org/amenityFeature'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/amenityFeature'
     )
     audience: Optional[Union['Audience', List['Audience']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'audience',
+            'https://schema.org/audience'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/audience'
     )
     checkoutTime: Optional[Union[datetime, List[datetime], time, List[time]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'checkoutTime',
+            'https://schema.org/checkoutTime'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/checkoutTime'
     )
     numberOfRooms: Optional[Union[float, List[float], 'QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'numberOfRooms',
+            'https://schema.org/numberOfRooms'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/numberOfRooms'
     )
     starRating: Optional[Union['Rating', List['Rating']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'starRating',
+            'https://schema.org/starRating'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/starRating'
     )
     petsAllowed: Optional[Union[str, List[str], bool, List[bool]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'petsAllowed',
+            'https://schema.org/petsAllowed'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/petsAllowed'
     )
     availableLanguage: Optional[Union[str, List[str], 'Language', List['Language']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'availableLanguage',
+            'https://schema.org/availableLanguage'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/availableLanguage'
     )
     checkinTime: Optional[Union[time, List[time], datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'checkinTime',
+            'https://schema.org/checkinTime'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/checkinTime'
     )

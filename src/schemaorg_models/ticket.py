@@ -22,10 +22,10 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .person import Person
+    from .organization import Organization
     from .price_specification import PriceSpecification
     from .seat import Seat
-    from .organization import Organization
-    from .person import Person
 
 class Ticket(Intangible):
     '''
@@ -56,64 +56,64 @@ Usage guidelines:\
     underName: Optional[Union['Person', List['Person'], 'Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'underName',
+            'https://schema.org/underName'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/underName'
     )
     priceCurrency: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'priceCurrency',
+            'https://schema.org/priceCurrency'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/priceCurrency'
     )
     ticketedSeat: Optional[Union['Seat', List['Seat']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'ticketedSeat',
+            'https://schema.org/ticketedSeat'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/ticketedSeat'
     )
     dateIssued: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'dateIssued',
+            'https://schema.org/dateIssued'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/dateIssued'
     )
     ticketNumber: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'ticketNumber',
+            'https://schema.org/ticketNumber'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/ticketNumber'
     )
     totalPrice: Optional[Union[str, List[str], 'PriceSpecification', List['PriceSpecification'], float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'totalPrice',
+            'https://schema.org/totalPrice'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/totalPrice'
     )
     ticketToken: Optional[Union[HttpUrl, List[HttpUrl], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'ticketToken',
+            'https://schema.org/ticketToken'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/ticketToken'
     )
     issuedBy: Optional[Union['Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'issuedBy',
+            'https://schema.org/issuedBy'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/issuedBy'
     )

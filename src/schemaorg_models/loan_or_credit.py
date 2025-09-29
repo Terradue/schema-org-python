@@ -23,10 +23,10 @@ from .financial_product import FinancialProduct
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .monetary_amount import MonetaryAmount
+    from .duration import Duration
     from .thing import Thing
     from .repayment_specification import RepaymentSpecification
     from .quantitative_value import QuantitativeValue
-    from .duration import Duration
 
 class LoanOrCredit(FinancialProduct):
     '''
@@ -53,72 +53,72 @@ Use standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/IS
     gracePeriod: Optional[Union['Duration', List['Duration']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'gracePeriod',
+            'https://schema.org/gracePeriod'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/gracePeriod'
     )
     requiredCollateral: Optional[Union[str, List[str], 'Thing', List['Thing']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'requiredCollateral',
+            'https://schema.org/requiredCollateral'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/requiredCollateral'
     )
     currency: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'currency',
+            'https://schema.org/currency'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/currency'
     )
     loanRepaymentForm: Optional[Union['RepaymentSpecification', List['RepaymentSpecification']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'loanRepaymentForm',
+            'https://schema.org/loanRepaymentForm'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/loanRepaymentForm'
     )
     amount: Optional[Union['MonetaryAmount', List['MonetaryAmount'], float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'amount',
+            'https://schema.org/amount'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/amount'
     )
     recourseLoan: Optional[Union[bool, List[bool]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'recourseLoan',
+            'https://schema.org/recourseLoan'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/recourseLoan'
     )
     loanTerm: Optional[Union['QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'loanTerm',
+            'https://schema.org/loanTerm'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/loanTerm'
     )
     loanType: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'loanType',
+            'https://schema.org/loanType'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/loanType'
     )
     renegotiableLoan: Optional[Union[bool, List[bool]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'renegotiableLoan',
+            'https://schema.org/renegotiableLoan'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/renegotiableLoan'
     )

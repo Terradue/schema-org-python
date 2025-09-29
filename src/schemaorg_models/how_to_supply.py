@@ -39,8 +39,8 @@ class HowToSupply(HowToItem):
     estimatedCost: Optional[Union[str, List[str], 'MonetaryAmount', List['MonetaryAmount']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'estimatedCost',
+            'https://schema.org/estimatedCost'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/estimatedCost'
     )

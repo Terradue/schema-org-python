@@ -22,8 +22,8 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .organization import Organization
     from .person import Person
+    from .organization import Organization
 
 class Rating(Intangible):
     '''
@@ -50,48 +50,48 @@ Usage guidelines:\
     bestRating: Optional[Union[str, List[str], float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'bestRating',
+            'https://schema.org/bestRating'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/bestRating'
     )
     reviewAspect: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'reviewAspect',
+            'https://schema.org/reviewAspect'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/reviewAspect'
     )
     author: Optional[Union['Person', List['Person'], 'Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'author',
+            'https://schema.org/author'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/author'
     )
     ratingValue: Optional[Union[str, List[str], float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'ratingValue',
+            'https://schema.org/ratingValue'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/ratingValue'
     )
     worstRating: Optional[Union[str, List[str], float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'worstRating',
+            'https://schema.org/worstRating'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/worstRating'
     )
     ratingExplanation: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'ratingExplanation',
+            'https://schema.org/ratingExplanation'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/ratingExplanation'
     )

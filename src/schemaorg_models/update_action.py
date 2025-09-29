@@ -40,16 +40,16 @@ class UpdateAction(Action):
     targetCollection: Optional[Union['Thing', List['Thing']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'targetCollection',
+            'https://schema.org/targetCollection'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/targetCollection'
     )
     collection: Optional[Union['Thing', List['Thing']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'collection',
+            'https://schema.org/collection'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/collection'
     )

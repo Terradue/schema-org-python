@@ -22,8 +22,8 @@ from typing import (
 from .creative_work_season import CreativeWorkSeason
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .tv_series import TVSeries
     from .country import Country
+    from .tv_series import TVSeries
 
 class TVSeason(CreativeWorkSeason):
     '''
@@ -51,24 +51,24 @@ Since schema.org types like [[Movie]], [[TVEpisode]], [[TVSeason]], and [[TVSeri
     countryOfOrigin: Optional[Union['Country', List['Country']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'countryOfOrigin',
+            'https://schema.org/countryOfOrigin'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/countryOfOrigin'
     )
     partOfTVSeries: Optional[Union['TVSeries', List['TVSeries']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'partOfTVSeries',
+            'https://schema.org/partOfTVSeries'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/partOfTVSeries'
     )
     titleEIDR: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'titleEIDR',
+            'https://schema.org/titleEIDR'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/titleEIDR'
     )

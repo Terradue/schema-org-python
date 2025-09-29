@@ -43,40 +43,40 @@ class HealthPlanCostSharingSpecification(Intangible):
     healthPlanCoinsuranceRate: Optional[Union[float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'healthPlanCoinsuranceRate',
+            'https://schema.org/healthPlanCoinsuranceRate'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/healthPlanCoinsuranceRate'
     )
     healthPlanCopay: Optional[Union['PriceSpecification', List['PriceSpecification']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'healthPlanCopay',
+            'https://schema.org/healthPlanCopay'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/healthPlanCopay'
     )
     healthPlanCopayOption: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'healthPlanCopayOption',
+            'https://schema.org/healthPlanCopayOption'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/healthPlanCopayOption'
     )
     healthPlanCoinsuranceOption: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'healthPlanCoinsuranceOption',
+            'https://schema.org/healthPlanCoinsuranceOption'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/healthPlanCoinsuranceOption'
     )
     healthPlanPharmacyCategory: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'healthPlanPharmacyCategory',
+            'https://schema.org/healthPlanPharmacyCategory'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/healthPlanPharmacyCategory'
     )

@@ -36,8 +36,8 @@ class Guide(CreativeWork):
     reviewAspect: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'reviewAspect',
+            'https://schema.org/reviewAspect'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/reviewAspect'
     )

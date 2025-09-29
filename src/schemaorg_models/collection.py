@@ -36,8 +36,8 @@ class Collection(CreativeWork):
     collectionSize: Optional[Union[int, List[int]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'collectionSize',
+            'https://schema.org/collectionSize'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/collectionSize'
     )

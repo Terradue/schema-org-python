@@ -36,8 +36,8 @@ class Corporation(Organization):
     tickerSymbol: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'tickerSymbol',
+            'https://schema.org/tickerSymbol'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/tickerSymbol'
     )

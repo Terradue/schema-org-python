@@ -42,16 +42,16 @@ class TouristDestination(Place):
     touristType: Optional[Union['Audience', List['Audience'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'touristType',
+            'https://schema.org/touristType'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/touristType'
     )
     includesAttraction: Optional[Union['TouristAttraction', List['TouristAttraction']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'includesAttraction',
+            'https://schema.org/includesAttraction'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/includesAttraction'
     )

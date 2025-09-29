@@ -36,8 +36,8 @@ class ClaimReview(Review):
     claimReviewed: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'claimReviewed',
+            'https://schema.org/claimReviewed'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/claimReviewed'
     )

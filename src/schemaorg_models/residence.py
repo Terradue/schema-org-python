@@ -39,8 +39,8 @@ class Residence(Place):
     accommodationFloorPlan: Optional[Union['FloorPlan', List['FloorPlan']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'accommodationFloorPlan',
+            'https://schema.org/accommodationFloorPlan'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/accommodationFloorPlan'
     )

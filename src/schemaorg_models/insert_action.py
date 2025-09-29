@@ -39,8 +39,8 @@ class InsertAction(AddAction):
     toLocation: Optional[Union['Place', List['Place']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'toLocation',
+            'https://schema.org/toLocation'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/toLocation'
     )

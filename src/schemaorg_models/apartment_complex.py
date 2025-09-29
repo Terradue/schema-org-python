@@ -43,40 +43,40 @@ class ApartmentComplex(Residence):
     tourBookingPage: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'tourBookingPage',
+            'https://schema.org/tourBookingPage'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/tourBookingPage'
     )
     numberOfAvailableAccommodationUnits: Optional[Union['QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'numberOfAvailableAccommodationUnits',
+            'https://schema.org/numberOfAvailableAccommodationUnits'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/numberOfAvailableAccommodationUnits'
     )
     numberOfBedrooms: Optional[Union[float, List[float], 'QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'numberOfBedrooms',
+            'https://schema.org/numberOfBedrooms'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/numberOfBedrooms'
     )
     petsAllowed: Optional[Union[str, List[str], bool, List[bool]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'petsAllowed',
+            'https://schema.org/petsAllowed'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/petsAllowed'
     )
     numberOfAccommodationUnits: Optional[Union['QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'numberOfAccommodationUnits',
+            'https://schema.org/numberOfAccommodationUnits'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/numberOfAccommodationUnits'
     )

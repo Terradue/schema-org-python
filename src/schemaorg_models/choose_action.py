@@ -40,16 +40,16 @@ class ChooseAction(AssessAction):
     option: Optional[Union[str, List[str], 'Thing', List['Thing']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'option',
+            'https://schema.org/option'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/option'
     )
     actionOption: Optional[Union[str, List[str], 'Thing', List['Thing']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'actionOption',
+            'https://schema.org/actionOption'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/actionOption'
     )

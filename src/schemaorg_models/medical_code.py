@@ -37,16 +37,16 @@ class MedicalCode(MedicalIntangible):
     codingSystem: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'codingSystem',
+            'https://schema.org/codingSystem'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/codingSystem'
     )
     codeValue: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'codeValue',
+            'https://schema.org/codeValue'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/codeValue'
     )

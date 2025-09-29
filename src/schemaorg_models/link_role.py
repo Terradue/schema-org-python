@@ -40,16 +40,16 @@ class LinkRole(Role):
     inLanguage: Optional[Union[str, List[str], 'Language', List['Language']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'inLanguage',
+            'https://schema.org/inLanguage'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/inLanguage'
     )
     linkRelationship: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'linkRelationship',
+            'https://schema.org/linkRelationship'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/linkRelationship'
     )

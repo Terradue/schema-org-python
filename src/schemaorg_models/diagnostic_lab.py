@@ -39,8 +39,8 @@ class DiagnosticLab(MedicalOrganization):
     availableTest: Optional[Union['MedicalTest', List['MedicalTest']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'availableTest',
+            'https://schema.org/availableTest'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/availableTest'
     )

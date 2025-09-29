@@ -36,8 +36,8 @@ class MedicalTestPanel(MedicalTest):
     subTest: Optional[Union['MedicalTest', List['MedicalTest']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'subTest',
+            'https://schema.org/subTest'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/subTest'
     )

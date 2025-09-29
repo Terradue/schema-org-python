@@ -39,8 +39,8 @@ class ProductCollection(Product):
     includesObject: Optional[Union['TypeAndQuantityNode', List['TypeAndQuantityNode']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'includesObject',
+            'https://schema.org/includesObject'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/includesObject'
     )

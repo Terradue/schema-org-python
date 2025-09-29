@@ -40,16 +40,16 @@ class MortgageLoan(LoanOrCredit):
     loanMortgageMandateAmount: Optional[Union['MonetaryAmount', List['MonetaryAmount']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'loanMortgageMandateAmount',
+            'https://schema.org/loanMortgageMandateAmount'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/loanMortgageMandateAmount'
     )
     domiciledMortgage: Optional[Union[bool, List[bool]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'domiciledMortgage',
+            'https://schema.org/domiciledMortgage'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/domiciledMortgage'
     )

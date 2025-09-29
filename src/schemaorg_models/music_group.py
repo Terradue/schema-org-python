@@ -22,10 +22,10 @@ from typing import (
 from .performing_group import PerformingGroup
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .item_list import ItemList
     from .person import Person
-    from .music_recording import MusicRecording
     from .music_album import MusicAlbum
+    from .item_list import ItemList
+    from .music_recording import MusicRecording
 
 class MusicGroup(PerformingGroup):
     '''
@@ -47,42 +47,42 @@ class MusicGroup(PerformingGroup):
     albums: Optional[Union['MusicAlbum', List['MusicAlbum']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'albums',
+            'https://schema.org/albums'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/albums'
     )
     album: Optional[Union['MusicAlbum', List['MusicAlbum']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'album',
+            'https://schema.org/album'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/album'
     )
     musicGroupMember: Optional[Union['Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'musicGroupMember',
+            'https://schema.org/musicGroupMember'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/musicGroupMember'
     )
     tracks: Optional[Union['MusicRecording', List['MusicRecording']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'tracks',
+            'https://schema.org/tracks'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/tracks'
     )
     track: Optional[Union['ItemList', List['ItemList'], 'MusicRecording', List['MusicRecording']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'track',
+            'https://schema.org/track'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/track'
     )
     genre: Optional[Union[HttpUrl, List[HttpUrl], str, List[str]]] = Field(
         default=None,

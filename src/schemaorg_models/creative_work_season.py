@@ -23,11 +23,11 @@ from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .episode import Episode
+    from .performing_group import PerformingGroup
+    from .video_object import VideoObject
     from .creative_work_series import CreativeWorkSeries
     from .person import Person
-    from .performing_group import PerformingGroup
     from .organization import Organization
-    from .video_object import VideoObject
 
 class CreativeWorkSeason(CreativeWork):
     '''
@@ -54,88 +54,88 @@ class CreativeWorkSeason(CreativeWork):
     director: Optional[Union['Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'director',
+            'https://schema.org/director'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/director'
     )
     actor: Optional[Union['Person', List['Person'], 'PerformingGroup', List['PerformingGroup']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'actor',
+            'https://schema.org/actor'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/actor'
     )
     partOfSeries: Optional[Union['CreativeWorkSeries', List['CreativeWorkSeries']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'partOfSeries',
+            'https://schema.org/partOfSeries'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/partOfSeries'
     )
     episode: Optional[Union['Episode', List['Episode']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'episode',
+            'https://schema.org/episode'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/episode'
     )
     numberOfEpisodes: Optional[Union[int, List[int]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'numberOfEpisodes',
+            'https://schema.org/numberOfEpisodes'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/numberOfEpisodes'
     )
     endDate: Optional[Union[datetime, List[datetime], date, List[date]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'endDate',
+            'https://schema.org/endDate'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/endDate'
     )
     productionCompany: Optional[Union['Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'productionCompany',
+            'https://schema.org/productionCompany'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/productionCompany'
     )
     seasonNumber: Optional[Union[str, List[str], int, List[int]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'seasonNumber',
+            'https://schema.org/seasonNumber'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/seasonNumber'
     )
     episodes: Optional[Union['Episode', List['Episode']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'episodes',
+            'https://schema.org/episodes'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/episodes'
     )
     trailer: Optional[Union['VideoObject', List['VideoObject']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'trailer',
+            'https://schema.org/trailer'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/trailer'
     )
     startDate: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'startDate',
+            'https://schema.org/startDate'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/startDate'
     )

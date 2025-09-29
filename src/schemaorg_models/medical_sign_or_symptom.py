@@ -39,8 +39,8 @@ class MedicalSignOrSymptom(MedicalCondition):
     possibleTreatment: Optional[Union['MedicalTherapy', List['MedicalTherapy']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'possibleTreatment',
+            'https://schema.org/possibleTreatment'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/possibleTreatment'
     )

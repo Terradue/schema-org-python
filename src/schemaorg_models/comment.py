@@ -39,32 +39,32 @@ class Comment(CreativeWork):
     parentItem: Optional[Union['CreativeWork', List['CreativeWork'], 'Comment', List['Comment']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'parentItem',
+            'https://schema.org/parentItem'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/parentItem'
     )
     downvoteCount: Optional[Union[int, List[int]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'downvoteCount',
+            'https://schema.org/downvoteCount'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/downvoteCount'
     )
     sharedContent: Optional[Union['CreativeWork', List['CreativeWork']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'sharedContent',
+            'https://schema.org/sharedContent'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/sharedContent'
     )
     upvoteCount: Optional[Union[int, List[int]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'upvoteCount',
+            'https://schema.org/upvoteCount'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/upvoteCount'
     )

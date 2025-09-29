@@ -36,8 +36,8 @@ class SolveMathAction(Action):
     eduQuestionType: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'eduQuestionType',
+            'https://schema.org/eduQuestionType'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/eduQuestionType'
     )

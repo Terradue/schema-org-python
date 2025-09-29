@@ -22,9 +22,9 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .unit_price_specification import UnitPriceSpecification
     from .tier_benefit_enumeration import TierBenefitEnumeration
     from .monetary_amount import MonetaryAmount
-    from .unit_price_specification import UnitPriceSpecification
     from .credit_card import CreditCard
     from .quantitative_value import QuantitativeValue
     from .member_program import MemberProgram
@@ -47,32 +47,32 @@ class MemberProgramTier(Intangible):
     membershipPointsEarned: Optional[Union['QuantitativeValue', List['QuantitativeValue'], float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'membershipPointsEarned',
+            'https://schema.org/membershipPointsEarned'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/membershipPointsEarned'
     )
     hasTierBenefit: Optional[Union['TierBenefitEnumeration', List['TierBenefitEnumeration']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'hasTierBenefit',
+            'https://schema.org/hasTierBenefit'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/hasTierBenefit'
     )
     isTierOf: Optional[Union['MemberProgram', List['MemberProgram']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'isTierOf',
+            'https://schema.org/isTierOf'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/isTierOf'
     )
     hasTierRequirement: Optional[Union['MonetaryAmount', List['MonetaryAmount'], 'CreditCard', List['CreditCard'], str, List[str], 'UnitPriceSpecification', List['UnitPriceSpecification']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'hasTierRequirement',
+            'https://schema.org/hasTierRequirement'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/hasTierRequirement'
     )

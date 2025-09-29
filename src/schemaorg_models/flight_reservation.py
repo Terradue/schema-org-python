@@ -44,32 +44,32 @@ Note: This type is for information about actual reservations, e.g. in confirmati
     boardingGroup: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'boardingGroup',
+            'https://schema.org/boardingGroup'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/boardingGroup'
     )
     passengerPriorityStatus: Optional[Union[str, List[str], 'QualitativeValue', List['QualitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'passengerPriorityStatus',
+            'https://schema.org/passengerPriorityStatus'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/passengerPriorityStatus'
     )
     passengerSequenceNumber: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'passengerSequenceNumber',
+            'https://schema.org/passengerSequenceNumber'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/passengerSequenceNumber'
     )
     securityScreening: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'securityScreening',
+            'https://schema.org/securityScreening'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/securityScreening'
     )

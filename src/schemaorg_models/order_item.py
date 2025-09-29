@@ -22,11 +22,11 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .service import Service
-    from .product import Product
-    from .parcel_delivery import ParcelDelivery
     from .order_status import OrderStatus
+    from .service import Service
+    from .parcel_delivery import ParcelDelivery
     from .quantitative_value import QuantitativeValue
+    from .product import Product
 
 class OrderItem(Intangible):
     '''
@@ -47,40 +47,40 @@ class OrderItem(Intangible):
     orderQuantity: Optional[Union[float, List[float], 'QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'orderQuantity',
+            'https://schema.org/orderQuantity'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/orderQuantity'
     )
     orderItemStatus: Optional[Union['OrderStatus', List['OrderStatus']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'orderItemStatus',
+            'https://schema.org/orderItemStatus'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/orderItemStatus'
     )
     orderItemNumber: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'orderItemNumber',
+            'https://schema.org/orderItemNumber'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/orderItemNumber'
     )
     orderDelivery: Optional[Union['ParcelDelivery', List['ParcelDelivery']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'orderDelivery',
+            'https://schema.org/orderDelivery'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/orderDelivery'
     )
     orderedItem: Optional[Union['OrderItem', List['OrderItem'], 'Service', List['Service'], 'Product', List['Product']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'orderedItem',
+            'https://schema.org/orderedItem'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/orderedItem'
     )

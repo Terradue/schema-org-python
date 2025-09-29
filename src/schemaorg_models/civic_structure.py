@@ -41,8 +41,8 @@ class CivicStructure(Place):
     openingHours: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'openingHours',
+            'https://schema.org/openingHours'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/openingHours'
     )

@@ -22,15 +22,15 @@ from typing import (
 from .thing import Thing
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .medical_study import MedicalStudy
     from .medical_guideline import MedicalGuideline
     from .medical_enumeration import MedicalEnumeration
-    from .organization import Organization
-    from .medicine_system import MedicineSystem
-    from .medical_specialty import MedicalSpecialty
-    from .medical_code import MedicalCode
-    from .drug_legal_status import DrugLegalStatus
-    from .medical_study import MedicalStudy
     from .grant import Grant
+    from .medical_specialty import MedicalSpecialty
+    from .drug_legal_status import DrugLegalStatus
+    from .medicine_system import MedicineSystem
+    from .organization import Organization
+    from .medical_code import MedicalCode
 
 class MedicalEntity(Thing):
     '''
@@ -54,64 +54,64 @@ class MedicalEntity(Thing):
     code: Optional[Union['MedicalCode', List['MedicalCode']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'code',
+            'https://schema.org/code'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/code'
     )
     guideline: Optional[Union['MedicalGuideline', List['MedicalGuideline']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'guideline',
+            'https://schema.org/guideline'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/guideline'
     )
     legalStatus: Optional[Union['DrugLegalStatus', List['DrugLegalStatus'], 'MedicalEnumeration', List['MedicalEnumeration'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'legalStatus',
+            'https://schema.org/legalStatus'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/legalStatus'
     )
     recognizingAuthority: Optional[Union['Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'recognizingAuthority',
+            'https://schema.org/recognizingAuthority'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/recognizingAuthority'
     )
     medicineSystem: Optional[Union['MedicineSystem', List['MedicineSystem']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'medicineSystem',
+            'https://schema.org/medicineSystem'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/medicineSystem'
     )
     funding: Optional[Union['Grant', List['Grant']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'funding',
+            'https://schema.org/funding'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/funding'
     )
     relevantSpecialty: Optional[Union['MedicalSpecialty', List['MedicalSpecialty']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'relevantSpecialty',
+            'https://schema.org/relevantSpecialty'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/relevantSpecialty'
     )
     study: Optional[Union['MedicalStudy', List['MedicalStudy']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'study',
+            'https://schema.org/study'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/study'
     )

@@ -41,8 +41,8 @@ population, and does not imply that the population consists of people. For examp
     populationType: Optional[Union['_Class', List['_Class']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'populationType',
+            'https://schema.org/populationType'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/populationType'
     )

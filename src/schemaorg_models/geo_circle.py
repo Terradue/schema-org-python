@@ -22,8 +22,8 @@ from typing import (
 from .geo_shape import GeoShape
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .distance import Distance
     from .geo_coordinates import GeoCoordinates
+    from .distance import Distance
 
 class GeoCircle(GeoShape):
     '''
@@ -44,16 +44,16 @@ class GeoCircle(GeoShape):
     geoMidpoint: Optional[Union['GeoCoordinates', List['GeoCoordinates']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'geoMidpoint',
+            'https://schema.org/geoMidpoint'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/geoMidpoint'
     )
     geoRadius: Optional[Union[float, List[float], 'Distance', List['Distance'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'geoRadius',
+            'https://schema.org/geoRadius'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/geoRadius'
     )

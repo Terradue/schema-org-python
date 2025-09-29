@@ -22,12 +22,12 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .thing import Thing
+    from .program_membership import ProgramMembership
     from .price_specification import PriceSpecification
     from .ticket import Ticket
+    from .thing import Thing
     from .reservation_status_type import ReservationStatusType
     from .person import Person
-    from .program_membership import ProgramMembership
     from .organization import Organization
 
 class Reservation(Intangible):
@@ -66,104 +66,104 @@ Use standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/IS
     reservationStatus: Optional[Union['ReservationStatusType', List['ReservationStatusType']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'reservationStatus',
+            'https://schema.org/reservationStatus'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/reservationStatus'
     )
     bookingAgent: Optional[Union['Person', List['Person'], 'Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'bookingAgent',
+            'https://schema.org/bookingAgent'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/bookingAgent'
     )
     reservationFor: Optional[Union['Thing', List['Thing']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'reservationFor',
+            'https://schema.org/reservationFor'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/reservationFor'
     )
     totalPrice: Optional[Union[str, List[str], 'PriceSpecification', List['PriceSpecification'], float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'totalPrice',
+            'https://schema.org/totalPrice'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/totalPrice'
     )
     priceCurrency: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'priceCurrency',
+            'https://schema.org/priceCurrency'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/priceCurrency'
     )
     broker: Optional[Union['Person', List['Person'], 'Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'broker',
+            'https://schema.org/broker'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/broker'
     )
     bookingTime: Optional[Union[datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'bookingTime',
+            'https://schema.org/bookingTime'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/bookingTime'
     )
     provider: Optional[Union['Person', List['Person'], 'Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'provider',
+            'https://schema.org/provider'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/provider'
     )
     reservationId: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'reservationId',
+            'https://schema.org/reservationId'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/reservationId'
     )
     underName: Optional[Union['Person', List['Person'], 'Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'underName',
+            'https://schema.org/underName'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/underName'
     )
     reservedTicket: Optional[Union['Ticket', List['Ticket']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'reservedTicket',
+            'https://schema.org/reservedTicket'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/reservedTicket'
     )
     modifiedTime: Optional[Union[datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'modifiedTime',
+            'https://schema.org/modifiedTime'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/modifiedTime'
     )
     programMembershipUsed: Optional[Union['ProgramMembership', List['ProgramMembership']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'programMembershipUsed',
+            'https://schema.org/programMembershipUsed'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/programMembershipUsed'
     )

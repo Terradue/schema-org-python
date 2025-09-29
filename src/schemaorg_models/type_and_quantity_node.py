@@ -23,8 +23,8 @@ from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .business_function import BusinessFunction
-    from .product import Product
     from .service import Service
+    from .product import Product
 
 class TypeAndQuantityNode(StructuredValue):
     '''
@@ -46,40 +46,40 @@ class TypeAndQuantityNode(StructuredValue):
     amountOfThisGood: Optional[Union[float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'amountOfThisGood',
+            'https://schema.org/amountOfThisGood'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/amountOfThisGood'
     )
     unitText: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'unitText',
+            'https://schema.org/unitText'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/unitText'
     )
     businessFunction: Optional[Union['BusinessFunction', List['BusinessFunction']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'businessFunction',
+            'https://schema.org/businessFunction'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/businessFunction'
     )
     typeOfGood: Optional[Union['Product', List['Product'], 'Service', List['Service']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'typeOfGood',
+            'https://schema.org/typeOfGood'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/typeOfGood'
     )
     unitCode: Optional[Union[HttpUrl, List[HttpUrl], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'unitCode',
+            'https://schema.org/unitCode'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/unitCode'
     )

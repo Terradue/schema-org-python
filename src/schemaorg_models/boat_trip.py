@@ -40,16 +40,16 @@ class BoatTrip(Trip):
     departureBoatTerminal: Optional[Union['BoatTerminal', List['BoatTerminal']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'departureBoatTerminal',
+            'https://schema.org/departureBoatTerminal'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/departureBoatTerminal'
     )
     arrivalBoatTerminal: Optional[Union['BoatTerminal', List['BoatTerminal']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'arrivalBoatTerminal',
+            'https://schema.org/arrivalBoatTerminal'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/arrivalBoatTerminal'
     )

@@ -42,32 +42,32 @@ class DataFeedItem(Intangible):
     item: Optional[Union['Thing', List['Thing']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'item',
+            'https://schema.org/item'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/item'
     )
     dateCreated: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'dateCreated',
+            'https://schema.org/dateCreated'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/dateCreated'
     )
     dateDeleted: Optional[Union[datetime, List[datetime], date, List[date]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'dateDeleted',
+            'https://schema.org/dateDeleted'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/dateDeleted'
     )
     dateModified: Optional[Union[datetime, List[datetime], date, List[date]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'dateModified',
+            'https://schema.org/dateModified'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/dateModified'
     )

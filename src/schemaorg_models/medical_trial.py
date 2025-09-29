@@ -39,8 +39,8 @@ class MedicalTrial(MedicalStudy):
     trialDesign: Optional[Union['MedicalTrialDesign', List['MedicalTrialDesign']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'trialDesign',
+            'https://schema.org/trialDesign'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/trialDesign'
     )

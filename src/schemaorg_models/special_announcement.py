@@ -22,16 +22,16 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .thing import Thing
-    from .web_content import WebContent
-    from .civic_structure import CivicStructure
     from .government_service import GovernmentService
-    from .dataset import Dataset
-    from .data_feed import DataFeed
     from .observation import Observation
-    from .local_business import LocalBusiness
-    from .physical_activity_category import PhysicalActivityCategory
+    from .civic_structure import CivicStructure
+    from .dataset import Dataset
     from .category_code import CategoryCode
+    from .web_content import WebContent
+    from .data_feed import DataFeed
+    from .thing import Thing
+    from .physical_activity_category import PhysicalActivityCategory
+    from .local_business import LocalBusiness
 
 class SpecialAnnouncement(CreativeWork):
     '''
@@ -97,104 +97,104 @@ media type information, e.g. "application/rss+xml" or "application/atom+xml".
     travelBans: Optional[Union[HttpUrl, List[HttpUrl], 'WebContent', List['WebContent']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'travelBans',
+            'https://schema.org/travelBans'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/travelBans'
     )
     quarantineGuidelines: Optional[Union[HttpUrl, List[HttpUrl], 'WebContent', List['WebContent']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'quarantineGuidelines',
+            'https://schema.org/quarantineGuidelines'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/quarantineGuidelines'
     )
     datePosted: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'datePosted',
+            'https://schema.org/datePosted'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/datePosted'
     )
     newsUpdatesAndGuidelines: Optional[Union[HttpUrl, List[HttpUrl], 'WebContent', List['WebContent']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'newsUpdatesAndGuidelines',
+            'https://schema.org/newsUpdatesAndGuidelines'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/newsUpdatesAndGuidelines'
     )
     publicTransportClosuresInfo: Optional[Union[HttpUrl, List[HttpUrl], 'WebContent', List['WebContent']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'publicTransportClosuresInfo',
+            'https://schema.org/publicTransportClosuresInfo'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/publicTransportClosuresInfo'
     )
     governmentBenefitsInfo: Optional[Union['GovernmentService', List['GovernmentService']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'governmentBenefitsInfo',
+            'https://schema.org/governmentBenefitsInfo'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/governmentBenefitsInfo'
     )
     gettingTestedInfo: Optional[Union[HttpUrl, List[HttpUrl], 'WebContent', List['WebContent']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'gettingTestedInfo',
+            'https://schema.org/gettingTestedInfo'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/gettingTestedInfo'
     )
     diseasePreventionInfo: Optional[Union[HttpUrl, List[HttpUrl], 'WebContent', List['WebContent']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'diseasePreventionInfo',
+            'https://schema.org/diseasePreventionInfo'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/diseasePreventionInfo'
     )
     category: Optional[Union['PhysicalActivityCategory', List['PhysicalActivityCategory'], 'CategoryCode', List['CategoryCode'], str, List[str], 'Thing', List['Thing'], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'category',
+            'https://schema.org/category'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/category'
     )
     schoolClosuresInfo: Optional[Union[HttpUrl, List[HttpUrl], 'WebContent', List['WebContent']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'schoolClosuresInfo',
+            'https://schema.org/schoolClosuresInfo'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/schoolClosuresInfo'
     )
     diseaseSpreadStatistics: Optional[Union['Observation', List['Observation'], HttpUrl, List[HttpUrl], 'Dataset', List['Dataset'], 'WebContent', List['WebContent']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'diseaseSpreadStatistics',
+            'https://schema.org/diseaseSpreadStatistics'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/diseaseSpreadStatistics'
     )
     announcementLocation: Optional[Union['LocalBusiness', List['LocalBusiness'], 'CivicStructure', List['CivicStructure']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'announcementLocation',
+            'https://schema.org/announcementLocation'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/announcementLocation'
     )
     webFeed: Optional[Union['DataFeed', List['DataFeed'], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'webFeed',
+            'https://schema.org/webFeed'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/webFeed'
     )

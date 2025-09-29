@@ -23,11 +23,11 @@ from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .contact_point import ContactPoint
-    from .service import Service
     from .place import Place
     from .language import Language
     from .duration import Duration
     from .postal_address import PostalAddress
+    from .service import Service
 
 class ServiceChannel(Intangible):
     '''
@@ -51,64 +51,64 @@ class ServiceChannel(Intangible):
     processingTime: Optional[Union['Duration', List['Duration']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'processingTime',
+            'https://schema.org/processingTime'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/processingTime'
     )
     availableLanguage: Optional[Union[str, List[str], 'Language', List['Language']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'availableLanguage',
+            'https://schema.org/availableLanguage'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/availableLanguage'
     )
     servicePostalAddress: Optional[Union['PostalAddress', List['PostalAddress']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'servicePostalAddress',
+            'https://schema.org/servicePostalAddress'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/servicePostalAddress'
     )
     providesService: Optional[Union['Service', List['Service']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'providesService',
+            'https://schema.org/providesService'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/providesService'
     )
     serviceSmsNumber: Optional[Union['ContactPoint', List['ContactPoint']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'serviceSmsNumber',
+            'https://schema.org/serviceSmsNumber'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/serviceSmsNumber'
     )
     serviceUrl: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'serviceUrl',
+            'https://schema.org/serviceUrl'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/serviceUrl'
     )
     serviceLocation: Optional[Union['Place', List['Place']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'serviceLocation',
+            'https://schema.org/serviceLocation'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/serviceLocation'
     )
     servicePhone: Optional[Union['ContactPoint', List['ContactPoint']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'servicePhone',
+            'https://schema.org/servicePhone'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/servicePhone'
     )

@@ -22,8 +22,8 @@ from typing import (
 from .publication_event import PublicationEvent
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .language import Language
     from .event import Event
+    from .language import Language
 
 class BroadcastEvent(PublicationEvent):
     '''
@@ -43,32 +43,32 @@ class BroadcastEvent(PublicationEvent):
     videoFormat: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'videoFormat',
+            'https://schema.org/videoFormat'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/videoFormat'
     )
     broadcastOfEvent: Optional[Union['Event', List['Event']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'broadcastOfEvent',
+            'https://schema.org/broadcastOfEvent'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/broadcastOfEvent'
     )
     subtitleLanguage: Optional[Union['Language', List['Language'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'subtitleLanguage',
+            'https://schema.org/subtitleLanguage'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/subtitleLanguage'
     )
     isLiveBroadcast: Optional[Union[bool, List[bool]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'isLiveBroadcast',
+            'https://schema.org/isLiveBroadcast'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/isLiveBroadcast'
     )

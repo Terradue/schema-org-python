@@ -39,8 +39,8 @@ class EducationalOrganization(CivicStructure):
     alumni: Optional[Union['Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'alumni',
+            'https://schema.org/alumni'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/alumni'
     )

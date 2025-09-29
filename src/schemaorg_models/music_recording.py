@@ -22,13 +22,13 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .music_playlist import MusicPlaylist
-    from .person import Person
     from .duration import Duration
-    from .quantitative_value import QuantitativeValue
-    from .music_group import MusicGroup
+    from .music_playlist import MusicPlaylist
     from .music_composition import MusicComposition
     from .music_album import MusicAlbum
+    from .music_group import MusicGroup
+    from .person import Person
+    from .quantitative_value import QuantitativeValue
 
 class MusicRecording(CreativeWork):
     '''
@@ -50,48 +50,48 @@ class MusicRecording(CreativeWork):
     inPlaylist: Optional[Union['MusicPlaylist', List['MusicPlaylist']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'inPlaylist',
+            'https://schema.org/inPlaylist'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/inPlaylist'
     )
     inAlbum: Optional[Union['MusicAlbum', List['MusicAlbum']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'inAlbum',
+            'https://schema.org/inAlbum'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/inAlbum'
     )
     recordingOf: Optional[Union['MusicComposition', List['MusicComposition']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'recordingOf',
+            'https://schema.org/recordingOf'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/recordingOf'
     )
     byArtist: Optional[Union['MusicGroup', List['MusicGroup'], 'Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'byArtist',
+            'https://schema.org/byArtist'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/byArtist'
     )
     isrcCode: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'isrcCode',
+            'https://schema.org/isrcCode'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/isrcCode'
     )
     duration: Optional[Union['Duration', List['Duration'], 'QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'duration',
+            'https://schema.org/duration'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/duration'
     )

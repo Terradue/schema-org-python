@@ -41,16 +41,16 @@ class MemberProgram(Intangible):
     hostingOrganization: Optional[Union['Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'hostingOrganization',
+            'https://schema.org/hostingOrganization'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/hostingOrganization'
     )
     hasTiers: Optional[Union['MemberProgramTier', List['MemberProgramTier']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'hasTiers',
+            'https://schema.org/hasTiers'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/hasTiers'
     )

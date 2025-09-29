@@ -22,9 +22,9 @@ from typing import (
 from .medical_procedure import MedicalProcedure
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .drug import Drug
-    from .medical_entity import MedicalEntity
     from .dose_schedule import DoseSchedule
+    from .medical_entity import MedicalEntity
+    from .drug import Drug
 
 class TherapeuticProcedure(MedicalProcedure):
     '''
@@ -43,24 +43,24 @@ class TherapeuticProcedure(MedicalProcedure):
     drug: Optional[Union['Drug', List['Drug']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'drug',
+            'https://schema.org/drug'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/drug'
     )
     adverseOutcome: Optional[Union['MedicalEntity', List['MedicalEntity']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'adverseOutcome',
+            'https://schema.org/adverseOutcome'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/adverseOutcome'
     )
     doseSchedule: Optional[Union['DoseSchedule', List['DoseSchedule']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'doseSchedule',
+            'https://schema.org/doseSchedule'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/doseSchedule'
     )

@@ -22,13 +22,13 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .breadcrumb_list import BreadcrumbList
-    from .person import Person
-    from .image_object import ImageObject
-    from .organization import Organization
-    from .speakable_specification import SpeakableSpecification
     from .web_page_element import WebPageElement
+    from .breadcrumb_list import BreadcrumbList
+    from .speakable_specification import SpeakableSpecification
+    from .image_object import ImageObject
     from .specialty import Specialty
+    from .person import Person
+    from .organization import Organization
 
 class WebPage(CreativeWork):
     '''
@@ -67,80 +67,80 @@ we define a supporting type, [[SpeakableSpecification]]  which is defined to be 
     mainContentOfPage: Optional[Union['WebPageElement', List['WebPageElement']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'mainContentOfPage',
+            'https://schema.org/mainContentOfPage'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/mainContentOfPage'
     )
     significantLink: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'significantLink',
+            'https://schema.org/significantLink'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/significantLink'
     )
     speakable: Optional[Union[HttpUrl, List[HttpUrl], 'SpeakableSpecification', List['SpeakableSpecification']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'speakable',
+            'https://schema.org/speakable'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/speakable'
     )
     lastReviewed: Optional[Union[date, List[date]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'lastReviewed',
+            'https://schema.org/lastReviewed'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/lastReviewed'
     )
     primaryImageOfPage: Optional[Union['ImageObject', List['ImageObject']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'primaryImageOfPage',
+            'https://schema.org/primaryImageOfPage'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/primaryImageOfPage'
     )
     reviewedBy: Optional[Union['Person', List['Person'], 'Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'reviewedBy',
+            'https://schema.org/reviewedBy'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/reviewedBy'
     )
     relatedLink: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'relatedLink',
+            'https://schema.org/relatedLink'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/relatedLink'
     )
     significantLinks: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'significantLinks',
+            'https://schema.org/significantLinks'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/significantLinks'
     )
     specialty: Optional[Union['Specialty', List['Specialty']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'specialty',
+            'https://schema.org/specialty'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/specialty'
     )
     breadcrumb: Optional[Union[str, List[str], 'BreadcrumbList', List['BreadcrumbList']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'breadcrumb',
+            'https://schema.org/breadcrumb'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/breadcrumb'
     )

@@ -22,14 +22,14 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .defined_region import DefinedRegion
     from .monetary_amount import MonetaryAmount
     from .shipping_service import ShippingService
-    from .member_program_tier import MemberProgramTier
-    from .mass import Mass
-    from .defined_region import DefinedRegion
-    from .distance import Distance
-    from .shipping_delivery_time import ShippingDeliveryTime
     from .quantitative_value import QuantitativeValue
+    from .mass import Mass
+    from .member_program_tier import MemberProgramTier
+    from .shipping_delivery_time import ShippingDeliveryTime
+    from .distance import Distance
     from .shipping_rate_settings import ShippingRateSettings
 
 class OfferShippingDetails(StructuredValue):
@@ -71,112 +71,112 @@ or Fast and expensive: $15 in 1-2 days.
     depth: Optional[Union['Distance', List['Distance'], 'QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'depth',
+            'https://schema.org/depth'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/depth'
     )
     shippingLabel: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'shippingLabel',
+            'https://schema.org/shippingLabel'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/shippingLabel'
     )
     hasShippingService: Optional[Union['ShippingService', List['ShippingService']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'hasShippingService',
+            'https://schema.org/hasShippingService'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/hasShippingService'
     )
     shippingDestination: Optional[Union['DefinedRegion', List['DefinedRegion']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'shippingDestination',
+            'https://schema.org/shippingDestination'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/shippingDestination'
     )
     deliveryTime: Optional[Union['ShippingDeliveryTime', List['ShippingDeliveryTime']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'deliveryTime',
+            'https://schema.org/deliveryTime'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/deliveryTime'
     )
     doesNotShip: Optional[Union[bool, List[bool]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'doesNotShip',
+            'https://schema.org/doesNotShip'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/doesNotShip'
     )
     width: Optional[Union['QuantitativeValue', List['QuantitativeValue'], 'Distance', List['Distance']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'width',
+            'https://schema.org/width'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/width'
     )
     validForMemberTier: Optional[Union['MemberProgramTier', List['MemberProgramTier']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'validForMemberTier',
+            'https://schema.org/validForMemberTier'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/validForMemberTier'
     )
     shippingOrigin: Optional[Union['DefinedRegion', List['DefinedRegion']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'shippingOrigin',
+            'https://schema.org/shippingOrigin'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/shippingOrigin'
     )
     height: Optional[Union['Distance', List['Distance'], 'QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'height',
+            'https://schema.org/height'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/height'
     )
     transitTimeLabel: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'transitTimeLabel',
+            'https://schema.org/transitTimeLabel'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/transitTimeLabel'
     )
     weight: Optional[Union['QuantitativeValue', List['QuantitativeValue'], 'Mass', List['Mass']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'weight',
+            'https://schema.org/weight'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/weight'
     )
     shippingRate: Optional[Union['ShippingRateSettings', List['ShippingRateSettings'], 'MonetaryAmount', List['MonetaryAmount']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'shippingRate',
+            'https://schema.org/shippingRate'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/shippingRate'
     )
     shippingSettingsLink: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'shippingSettingsLink',
+            'https://schema.org/shippingSettingsLink'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/shippingSettingsLink'
     )

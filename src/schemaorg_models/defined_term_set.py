@@ -39,8 +39,8 @@ class DefinedTermSet(CreativeWork):
     hasDefinedTerm: Optional[Union['DefinedTerm', List['DefinedTerm']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'hasDefinedTerm',
+            'https://schema.org/hasDefinedTerm'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/hasDefinedTerm'
     )

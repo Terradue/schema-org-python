@@ -38,24 +38,24 @@ class HealthPlanFormulary(Intangible):
     offersPrescriptionByMail: Optional[Union[bool, List[bool]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'offersPrescriptionByMail',
+            'https://schema.org/offersPrescriptionByMail'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/offersPrescriptionByMail'
     )
     healthPlanDrugTier: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'healthPlanDrugTier',
+            'https://schema.org/healthPlanDrugTier'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/healthPlanDrugTier'
     )
     healthPlanCostSharing: Optional[Union[bool, List[bool]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'healthPlanCostSharing',
+            'https://schema.org/healthPlanCostSharing'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/healthPlanCostSharing'
     )

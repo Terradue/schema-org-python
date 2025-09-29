@@ -19,9 +19,8 @@ from typing import (
     Optional,
     Union
 )
-from .text import Text
 
-class CssSelectorType(Text):
+class CssSelectorType(BaseModel):
     '''
     Text representing a CSS selector.
     '''

@@ -22,8 +22,8 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .energy import Energy
     from .duration import Duration
+    from .energy import Energy
     from .quantitative_value import QuantitativeValue
 
 class ExercisePlan(CreativeWork):
@@ -48,64 +48,64 @@ class ExercisePlan(CreativeWork):
     additionalVariable: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'additionalVariable',
+            'https://schema.org/additionalVariable'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/additionalVariable'
     )
     activityDuration: Optional[Union['QuantitativeValue', List['QuantitativeValue'], 'Duration', List['Duration']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'activityDuration',
+            'https://schema.org/activityDuration'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/activityDuration'
     )
     intensity: Optional[Union[str, List[str], 'QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'intensity',
+            'https://schema.org/intensity'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/intensity'
     )
     repetitions: Optional[Union[float, List[float], 'QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'repetitions',
+            'https://schema.org/repetitions'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/repetitions'
     )
     workload: Optional[Union['Energy', List['Energy'], 'QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'workload',
+            'https://schema.org/workload'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/workload'
     )
     restPeriods: Optional[Union['QuantitativeValue', List['QuantitativeValue'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'restPeriods',
+            'https://schema.org/restPeriods'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/restPeriods'
     )
     activityFrequency: Optional[Union[str, List[str], 'QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'activityFrequency',
+            'https://schema.org/activityFrequency'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/activityFrequency'
     )
     exerciseType: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'exerciseType',
+            'https://schema.org/exerciseType'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/exerciseType'
     )

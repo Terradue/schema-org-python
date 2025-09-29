@@ -22,10 +22,10 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .place import Place
     from .postal_address import PostalAddress
     from .thing import Thing
     from .quantitative_value import QuantitativeValue
+    from .place import Place
 
 class Game(CreativeWork):
     '''
@@ -46,40 +46,40 @@ class Game(CreativeWork):
     quest: Optional[Union['Thing', List['Thing']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'quest',
+            'https://schema.org/quest'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/quest'
     )
     characterAttribute: Optional[Union['Thing', List['Thing']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'characterAttribute',
+            'https://schema.org/characterAttribute'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/characterAttribute'
     )
     gameItem: Optional[Union['Thing', List['Thing']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'gameItem',
+            'https://schema.org/gameItem'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/gameItem'
     )
     numberOfPlayers: Optional[Union['QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'numberOfPlayers',
+            'https://schema.org/numberOfPlayers'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/numberOfPlayers'
     )
     gameLocation: Optional[Union['Place', List['Place'], HttpUrl, List[HttpUrl], 'PostalAddress', List['PostalAddress']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'gameLocation',
+            'https://schema.org/gameLocation'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/gameLocation'
     )

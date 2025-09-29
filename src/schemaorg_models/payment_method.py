@@ -52,8 +52,8 @@ Structured values are recommended for newer payment methods.
     paymentMethodType: Optional[Union['PaymentMethodType', List['PaymentMethodType']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'paymentMethodType',
+            'https://schema.org/paymentMethodType'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/paymentMethodType'
     )

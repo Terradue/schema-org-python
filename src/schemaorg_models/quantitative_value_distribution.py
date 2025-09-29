@@ -22,8 +22,8 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .quantitative_value import QuantitativeValue
     from .duration import Duration
+    from .quantitative_value import QuantitativeValue
 
 class QuantitativeValueDistribution(StructuredValue):
     '''
@@ -45,48 +45,48 @@ class QuantitativeValueDistribution(StructuredValue):
     median: Optional[Union[float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'median',
+            'https://schema.org/median'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/median'
     )
     percentile75: Optional[Union[float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'percentile75',
+            'https://schema.org/percentile75'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/percentile75'
     )
     percentile25: Optional[Union[float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'percentile25',
+            'https://schema.org/percentile25'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/percentile25'
     )
     percentile90: Optional[Union[float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'percentile90',
+            'https://schema.org/percentile90'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/percentile90'
     )
     percentile10: Optional[Union[float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'percentile10',
+            'https://schema.org/percentile10'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/percentile10'
     )
     duration: Optional[Union['Duration', List['Duration'], 'QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'duration',
+            'https://schema.org/duration'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/duration'
     )

@@ -22,9 +22,9 @@ from typing import (
 from .user_interaction import UserInteraction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .person import Person
     from .creative_work import CreativeWork
     from .organization import Organization
-    from .person import Person
 
 class UserComments(UserInteraction):
     '''
@@ -45,40 +45,40 @@ class UserComments(UserInteraction):
     commentTime: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'commentTime',
+            'https://schema.org/commentTime'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/commentTime'
     )
     replyToUrl: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'replyToUrl',
+            'https://schema.org/replyToUrl'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/replyToUrl'
     )
     creator: Optional[Union['Person', List['Person'], 'Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'creator',
+            'https://schema.org/creator'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/creator'
     )
     discusses: Optional[Union['CreativeWork', List['CreativeWork']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'discusses',
+            'https://schema.org/discusses'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/discusses'
     )
     commentText: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'commentText',
+            'https://schema.org/commentText'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/commentText'
     )

@@ -22,10 +22,10 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .image_object import ImageObject
     from .accommodation import Accommodation
     from .location_feature_specification import LocationFeatureSpecification
     from .quantitative_value import QuantitativeValue
+    from .image_object import ImageObject
 
 class FloorPlan(Intangible):
     '''
@@ -55,96 +55,96 @@ Typical unit code(s): MTK for square meter, FTK for square foot, or YDK for squa
     numberOfAvailableAccommodationUnits: Optional[Union['QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'numberOfAvailableAccommodationUnits',
+            'https://schema.org/numberOfAvailableAccommodationUnits'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/numberOfAvailableAccommodationUnits'
     )
     layoutImage: Optional[Union[HttpUrl, List[HttpUrl], 'ImageObject', List['ImageObject']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'layoutImage',
+            'https://schema.org/layoutImage'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/layoutImage'
     )
     numberOfPartialBathrooms: Optional[Union[float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'numberOfPartialBathrooms',
+            'https://schema.org/numberOfPartialBathrooms'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/numberOfPartialBathrooms'
     )
     numberOfBedrooms: Optional[Union[float, List[float], 'QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'numberOfBedrooms',
+            'https://schema.org/numberOfBedrooms'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/numberOfBedrooms'
     )
     numberOfRooms: Optional[Union[float, List[float], 'QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'numberOfRooms',
+            'https://schema.org/numberOfRooms'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/numberOfRooms'
     )
     petsAllowed: Optional[Union[str, List[str], bool, List[bool]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'petsAllowed',
+            'https://schema.org/petsAllowed'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/petsAllowed'
     )
     numberOfBathroomsTotal: Optional[Union[int, List[int]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'numberOfBathroomsTotal',
+            'https://schema.org/numberOfBathroomsTotal'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/numberOfBathroomsTotal'
     )
     numberOfAccommodationUnits: Optional[Union['QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'numberOfAccommodationUnits',
+            'https://schema.org/numberOfAccommodationUnits'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/numberOfAccommodationUnits'
     )
     numberOfFullBathrooms: Optional[Union[float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'numberOfFullBathrooms',
+            'https://schema.org/numberOfFullBathrooms'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/numberOfFullBathrooms'
     )
     floorSize: Optional[Union['QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'floorSize',
+            'https://schema.org/floorSize'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/floorSize'
     )
     isPlanForApartment: Optional[Union['Accommodation', List['Accommodation']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'isPlanForApartment',
+            'https://schema.org/isPlanForApartment'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/isPlanForApartment'
     )
     amenityFeature: Optional[Union['LocationFeatureSpecification', List['LocationFeatureSpecification']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'amenityFeature',
+            'https://schema.org/amenityFeature'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/amenityFeature'
     )

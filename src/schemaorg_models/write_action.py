@@ -40,16 +40,16 @@ class WriteAction(CreateAction):
     language: Optional[Union['Language', List['Language']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'language',
+            'https://schema.org/language'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/language'
     )
     inLanguage: Optional[Union[str, List[str], 'Language', List['Language']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'inLanguage',
+            'https://schema.org/inLanguage'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/inLanguage'
     )

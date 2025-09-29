@@ -36,8 +36,8 @@ class OnlineMarketplace(OnlineStore):
     hasStore: Optional[Union['OnlineStore', List['OnlineStore']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'hasStore',
+            'https://schema.org/hasStore'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/hasStore'
     )

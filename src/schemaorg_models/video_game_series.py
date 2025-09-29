@@ -22,19 +22,19 @@ from typing import (
 from .creative_work_series import CreativeWorkSeries
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .thing import Thing
-    from .episode import Episode
-    from .creative_work import CreativeWork
-    from .person import Person
     from .creative_work_season import CreativeWorkSeason
     from .place import Place
+    from .episode import Episode
     from .performing_group import PerformingGroup
-    from .quantitative_value import QuantitativeValue
-    from .game_play_mode import GamePlayMode
-    from .organization import Organization
-    from .music_group import MusicGroup
-    from .postal_address import PostalAddress
     from .video_object import VideoObject
+    from .thing import Thing
+    from .postal_address import PostalAddress
+    from .game_play_mode import GamePlayMode
+    from .music_group import MusicGroup
+    from .creative_work import CreativeWork
+    from .person import Person
+    from .quantitative_value import QuantitativeValue
+    from .organization import Organization
 
 class VideoGameSeries(CreativeWorkSeries):
     '''
@@ -72,176 +72,176 @@ class VideoGameSeries(CreativeWorkSeries):
     gameItem: Optional[Union['Thing', List['Thing']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'gameItem',
+            'https://schema.org/gameItem'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/gameItem'
     )
     episode: Optional[Union['Episode', List['Episode']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'episode',
+            'https://schema.org/episode'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/episode'
     )
     numberOfEpisodes: Optional[Union[int, List[int]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'numberOfEpisodes',
+            'https://schema.org/numberOfEpisodes'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/numberOfEpisodes'
     )
     numberOfPlayers: Optional[Union['QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'numberOfPlayers',
+            'https://schema.org/numberOfPlayers'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/numberOfPlayers'
     )
     actor: Optional[Union['Person', List['Person'], 'PerformingGroup', List['PerformingGroup']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'actor',
+            'https://schema.org/actor'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/actor'
     )
     quest: Optional[Union['Thing', List['Thing']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'quest',
+            'https://schema.org/quest'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/quest'
     )
     gameLocation: Optional[Union['Place', List['Place'], HttpUrl, List[HttpUrl], 'PostalAddress', List['PostalAddress']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'gameLocation',
+            'https://schema.org/gameLocation'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/gameLocation'
     )
     playMode: Optional[Union['GamePlayMode', List['GamePlayMode']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'playMode',
+            'https://schema.org/playMode'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/playMode'
     )
     season: Optional[Union['CreativeWorkSeason', List['CreativeWorkSeason'], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'season',
+            'https://schema.org/season'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/season'
     )
     productionCompany: Optional[Union['Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'productionCompany',
+            'https://schema.org/productionCompany'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/productionCompany'
     )
     musicBy: Optional[Union['MusicGroup', List['MusicGroup'], 'Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'musicBy',
+            'https://schema.org/musicBy'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/musicBy'
     )
     characterAttribute: Optional[Union['Thing', List['Thing']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'characterAttribute',
+            'https://schema.org/characterAttribute'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/characterAttribute'
     )
     actors: Optional[Union['Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'actors',
+            'https://schema.org/actors'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/actors'
     )
     seasons: Optional[Union['CreativeWorkSeason', List['CreativeWorkSeason']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'seasons',
+            'https://schema.org/seasons'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/seasons'
     )
     numberOfSeasons: Optional[Union[int, List[int]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'numberOfSeasons',
+            'https://schema.org/numberOfSeasons'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/numberOfSeasons'
     )
     cheatCode: Optional[Union['CreativeWork', List['CreativeWork']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'cheatCode',
+            'https://schema.org/cheatCode'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/cheatCode'
     )
     trailer: Optional[Union['VideoObject', List['VideoObject']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'trailer',
+            'https://schema.org/trailer'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/trailer'
     )
     directors: Optional[Union['Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'directors',
+            'https://schema.org/directors'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/directors'
     )
     containsSeason: Optional[Union['CreativeWorkSeason', List['CreativeWorkSeason']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'containsSeason',
+            'https://schema.org/containsSeason'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/containsSeason'
     )
     episodes: Optional[Union['Episode', List['Episode']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'episodes',
+            'https://schema.org/episodes'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/episodes'
     )
     gamePlatform: Optional[Union[HttpUrl, List[HttpUrl], str, List[str], 'Thing', List['Thing']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'gamePlatform',
+            'https://schema.org/gamePlatform'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/gamePlatform'
     )
     director: Optional[Union['Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'director',
+            'https://schema.org/director'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/director'
     )

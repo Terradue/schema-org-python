@@ -47,16 +47,16 @@ If there are several [[variableMeasured]] properties recorded for some given dat
     measurementMethod: Optional[Union['DefinedTerm', List['DefinedTerm'], str, List[str], 'MeasurementMethodEnum', List['MeasurementMethodEnum'], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'measurementMethod',
+            'https://schema.org/measurementMethod'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/measurementMethod'
     )
     measurementTechnique: Optional[Union['DefinedTerm', List['DefinedTerm'], 'MeasurementMethodEnum', List['MeasurementMethodEnum'], str, List[str], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'measurementTechnique',
+            'https://schema.org/measurementTechnique'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/measurementTechnique'
     )

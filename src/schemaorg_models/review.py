@@ -22,11 +22,11 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .item_list import ItemList
+    from .web_content import WebContent
     from .rating import Rating
     from .thing import Thing
-    from .item_list import ItemList
     from .list_item import ListItem
-    from .web_content import WebContent
 
 class Review(CreativeWork):
     '''
@@ -60,72 +60,72 @@ The property values can be expressed either as unstructured text (repeated as ne
     itemReviewed: Optional[Union['Thing', List['Thing']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'itemReviewed',
+            'https://schema.org/itemReviewed'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/itemReviewed'
     )
     positiveNotes: Optional[Union['WebContent', List['WebContent'], 'ItemList', List['ItemList'], str, List[str], 'ListItem', List['ListItem']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'positiveNotes',
+            'https://schema.org/positiveNotes'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/positiveNotes'
     )
     reviewAspect: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'reviewAspect',
+            'https://schema.org/reviewAspect'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/reviewAspect'
     )
     reviewRating: Optional[Union['Rating', List['Rating']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'reviewRating',
+            'https://schema.org/reviewRating'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/reviewRating'
     )
     associatedReview: Optional[Union['Review', List['Review']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'associatedReview',
+            'https://schema.org/associatedReview'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/associatedReview'
     )
     associatedClaimReview: Optional[Union['Review', List['Review']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'associatedClaimReview',
+            'https://schema.org/associatedClaimReview'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/associatedClaimReview'
     )
     negativeNotes: Optional[Union['ListItem', List['ListItem'], 'WebContent', List['WebContent'], 'ItemList', List['ItemList'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'negativeNotes',
+            'https://schema.org/negativeNotes'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/negativeNotes'
     )
     reviewBody: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'reviewBody',
+            'https://schema.org/reviewBody'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/reviewBody'
     )
     associatedMediaReview: Optional[Union['Review', List['Review']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'associatedMediaReview',
+            'https://schema.org/associatedMediaReview'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/associatedMediaReview'
     )

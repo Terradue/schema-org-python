@@ -22,11 +22,11 @@ from typing import (
 from .medical_entity import MedicalEntity
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .medical_enumeration import MedicalEnumeration
     from .drug import Drug
     from .medical_device import MedicalDevice
-    from .medical_enumeration import MedicalEnumeration
-    from .medical_condition import MedicalCondition
     from .medical_sign import MedicalSign
+    from .medical_condition import MedicalCondition
 
 class MedicalTest(MedicalEntity):
     '''
@@ -47,40 +47,40 @@ class MedicalTest(MedicalEntity):
     affectedBy: Optional[Union['Drug', List['Drug']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'affectedBy',
+            'https://schema.org/affectedBy'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/affectedBy'
     )
     signDetected: Optional[Union['MedicalSign', List['MedicalSign']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'signDetected',
+            'https://schema.org/signDetected'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/signDetected'
     )
     usesDevice: Optional[Union['MedicalDevice', List['MedicalDevice']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'usesDevice',
+            'https://schema.org/usesDevice'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/usesDevice'
     )
     usedToDiagnose: Optional[Union['MedicalCondition', List['MedicalCondition']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'usedToDiagnose',
+            'https://schema.org/usedToDiagnose'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/usedToDiagnose'
     )
     normalRange: Optional[Union['MedicalEnumeration', List['MedicalEnumeration'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'normalRange',
+            'https://schema.org/normalRange'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/normalRange'
     )

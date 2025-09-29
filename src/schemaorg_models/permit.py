@@ -22,11 +22,11 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .service import Service
+    from .duration import Duration
     from .audience import Audience
+    from .service import Service
     from .administrative_area import AdministrativeArea
     from .organization import Organization
-    from .duration import Duration
 
 class Permit(Intangible):
     '''
@@ -49,56 +49,56 @@ class Permit(Intangible):
     validFor: Optional[Union['Duration', List['Duration']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'validFor',
+            'https://schema.org/validFor'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/validFor'
     )
     validIn: Optional[Union['AdministrativeArea', List['AdministrativeArea']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'validIn',
+            'https://schema.org/validIn'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/validIn'
     )
     validFrom: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'validFrom',
+            'https://schema.org/validFrom'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/validFrom'
     )
     permitAudience: Optional[Union['Audience', List['Audience']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'permitAudience',
+            'https://schema.org/permitAudience'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/permitAudience'
     )
     issuedBy: Optional[Union['Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'issuedBy',
+            'https://schema.org/issuedBy'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/issuedBy'
     )
     issuedThrough: Optional[Union['Service', List['Service']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'issuedThrough',
+            'https://schema.org/issuedThrough'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/issuedThrough'
     )
     validUntil: Optional[Union[date, List[date]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'validUntil',
+            'https://schema.org/validUntil'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/validUntil'
     )

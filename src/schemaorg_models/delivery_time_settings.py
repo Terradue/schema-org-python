@@ -22,8 +22,8 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .shipping_delivery_time import ShippingDeliveryTime
     from .defined_region import DefinedRegion
+    from .shipping_delivery_time import ShippingDeliveryTime
 
 class DeliveryTimeSettings(StructuredValue):
     '''
@@ -43,32 +43,32 @@ class DeliveryTimeSettings(StructuredValue):
     transitTimeLabel: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'transitTimeLabel',
+            'https://schema.org/transitTimeLabel'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/transitTimeLabel'
     )
     isUnlabelledFallback: Optional[Union[bool, List[bool]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'isUnlabelledFallback',
+            'https://schema.org/isUnlabelledFallback'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/isUnlabelledFallback'
     )
     shippingDestination: Optional[Union['DefinedRegion', List['DefinedRegion']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'shippingDestination',
+            'https://schema.org/shippingDestination'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/shippingDestination'
     )
     deliveryTime: Optional[Union['ShippingDeliveryTime', List['ShippingDeliveryTime']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'deliveryTime',
+            'https://schema.org/deliveryTime'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/deliveryTime'
     )

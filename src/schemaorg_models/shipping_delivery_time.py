@@ -22,9 +22,9 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .quantitative_value import QuantitativeValue
-    from .service_period import ServicePeriod
     from .day_of_week import DayOfWeek
+    from .service_period import ServicePeriod
+    from .quantitative_value import QuantitativeValue
     from .opening_hours_specification import OpeningHoursSpecification
 
 class ShippingDeliveryTime(StructuredValue):
@@ -54,32 +54,32 @@ In the context of [[ShippingService]], use the [[ServicePeriod]] format, that co
     businessDays: Optional[Union['OpeningHoursSpecification', List['OpeningHoursSpecification'], 'DayOfWeek', List['DayOfWeek']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'businessDays',
+            'https://schema.org/businessDays'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/businessDays'
     )
     transitTime: Optional[Union['ServicePeriod', List['ServicePeriod'], 'QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'transitTime',
+            'https://schema.org/transitTime'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/transitTime'
     )
     handlingTime: Optional[Union['ServicePeriod', List['ServicePeriod'], 'QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'handlingTime',
+            'https://schema.org/handlingTime'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/handlingTime'
     )
     cutoffTime: Optional[Union[time, List[time]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'cutoffTime',
+            'https://schema.org/cutoffTime'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/cutoffTime'
     )

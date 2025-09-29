@@ -22,13 +22,13 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .episode import Episode
-    from .hyper_toc_entry import HyperTocEntry
-    from .creative_work_series import CreativeWorkSeries
     from .creative_work_season import CreativeWorkSeason
-    from .person import Person
+    from .episode import Episode
     from .performing_group import PerformingGroup
+    from .creative_work_series import CreativeWorkSeries
     from .music_group import MusicGroup
+    from .person import Person
+    from .hyper_toc_entry import HyperTocEntry
 
 class Clip(CreativeWork):
     '''
@@ -55,88 +55,88 @@ class Clip(CreativeWork):
     clipNumber: Optional[Union[int, List[int], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'clipNumber',
+            'https://schema.org/clipNumber'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/clipNumber'
     )
     director: Optional[Union['Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'director',
+            'https://schema.org/director'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/director'
     )
     partOfEpisode: Optional[Union['Episode', List['Episode']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'partOfEpisode',
+            'https://schema.org/partOfEpisode'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/partOfEpisode'
     )
     partOfSeries: Optional[Union['CreativeWorkSeries', List['CreativeWorkSeries']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'partOfSeries',
+            'https://schema.org/partOfSeries'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/partOfSeries'
     )
     endOffset: Optional[Union['HyperTocEntry', List['HyperTocEntry'], float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'endOffset',
+            'https://schema.org/endOffset'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/endOffset'
     )
     partOfSeason: Optional[Union['CreativeWorkSeason', List['CreativeWorkSeason']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'partOfSeason',
+            'https://schema.org/partOfSeason'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/partOfSeason'
     )
     actor: Optional[Union['Person', List['Person'], 'PerformingGroup', List['PerformingGroup']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'actor',
+            'https://schema.org/actor'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/actor'
     )
     startOffset: Optional[Union[float, List[float], 'HyperTocEntry', List['HyperTocEntry']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'startOffset',
+            'https://schema.org/startOffset'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/startOffset'
     )
     actors: Optional[Union['Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'actors',
+            'https://schema.org/actors'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/actors'
     )
     musicBy: Optional[Union['MusicGroup', List['MusicGroup'], 'Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'musicBy',
+            'https://schema.org/musicBy'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/musicBy'
     )
     directors: Optional[Union['Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'directors',
+            'https://schema.org/directors'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/directors'
     )

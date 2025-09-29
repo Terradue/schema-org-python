@@ -37,16 +37,16 @@ class TechArticle(Article):
     proficiencyLevel: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'proficiencyLevel',
+            'https://schema.org/proficiencyLevel'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/proficiencyLevel'
     )
     dependencies: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'dependencies',
+            'https://schema.org/dependencies'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/dependencies'
     )

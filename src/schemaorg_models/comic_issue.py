@@ -53,48 +53,48 @@ class ComicIssue(PublicationIssue):
     variantCover: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'variantCover',
+            'https://schema.org/variantCover'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/variantCover'
     )
     colorist: Optional[Union['Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'colorist',
+            'https://schema.org/colorist'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/colorist'
     )
     artist: Optional[Union['Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'artist',
+            'https://schema.org/artist'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/artist'
     )
     penciler: Optional[Union['Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'penciler',
+            'https://schema.org/penciler'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/penciler'
     )
     inker: Optional[Union['Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'inker',
+            'https://schema.org/inker'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/inker'
     )
     letterer: Optional[Union['Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'letterer',
+            'https://schema.org/letterer'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/letterer'
     )

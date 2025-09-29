@@ -51,24 +51,24 @@ Use standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/IS
     price: Optional[Union[str, List[str], float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'price',
+            'https://schema.org/price'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/price'
     )
     priceCurrency: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'priceCurrency',
+            'https://schema.org/priceCurrency'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/priceCurrency'
     )
     priceSpecification: Optional[Union['PriceSpecification', List['PriceSpecification']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'priceSpecification',
+            'https://schema.org/priceSpecification'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/priceSpecification'
     )

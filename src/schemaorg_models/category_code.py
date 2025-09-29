@@ -40,16 +40,16 @@ class CategoryCode(DefinedTerm):
     inCodeSet: Optional[Union[HttpUrl, List[HttpUrl], 'CategoryCodeSet', List['CategoryCodeSet']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'inCodeSet',
+            'https://schema.org/inCodeSet'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/inCodeSet'
     )
     codeValue: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'codeValue',
+            'https://schema.org/codeValue'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/codeValue'
     )

@@ -22,8 +22,8 @@ from typing import (
 from .medical_intangible import MedicalIntangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .medical_sign_or_symptom import MedicalSignOrSymptom
     from .medical_condition import MedicalCondition
+    from .medical_sign_or_symptom import MedicalSignOrSymptom
 
 class DDxElement(MedicalIntangible):
     '''
@@ -41,16 +41,16 @@ class DDxElement(MedicalIntangible):
     distinguishingSign: Optional[Union['MedicalSignOrSymptom', List['MedicalSignOrSymptom']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'distinguishingSign',
+            'https://schema.org/distinguishingSign'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/distinguishingSign'
     )
     diagnosis: Optional[Union['MedicalCondition', List['MedicalCondition']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'diagnosis',
+            'https://schema.org/diagnosis'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/diagnosis'
     )

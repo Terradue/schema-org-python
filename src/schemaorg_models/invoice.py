@@ -23,16 +23,16 @@ from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .monetary_amount import MonetaryAmount
-    from .thing import Thing
-    from .price_specification import PriceSpecification
+    from .duration import Duration
     from .payment_method import PaymentMethod
     from .payment_status_type import PaymentStatusType
+    from .category_code import CategoryCode
+    from .order import Order
+    from .price_specification import PriceSpecification
+    from .thing import Thing
+    from .physical_activity_category import PhysicalActivityCategory
     from .person import Person
     from .organization import Organization
-    from .duration import Duration
-    from .order import Order
-    from .physical_activity_category import PhysicalActivityCategory
-    from .category_code import CategoryCode
 
 class Invoice(Intangible):
     '''
@@ -64,128 +64,128 @@ class Invoice(Intangible):
     referencesOrder: Optional[Union['Order', List['Order']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'referencesOrder',
+            'https://schema.org/referencesOrder'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/referencesOrder'
     )
     paymentDueDate: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'paymentDueDate',
+            'https://schema.org/paymentDueDate'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/paymentDueDate'
     )
     paymentDue: Optional[Union[datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'paymentDue',
+            'https://schema.org/paymentDue'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/paymentDue'
     )
     paymentMethodId: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'paymentMethodId',
+            'https://schema.org/paymentMethodId'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/paymentMethodId'
     )
     broker: Optional[Union['Person', List['Person'], 'Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'broker',
+            'https://schema.org/broker'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/broker'
     )
     accountId: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'accountId',
+            'https://schema.org/accountId'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/accountId'
     )
     category: Optional[Union['PhysicalActivityCategory', List['PhysicalActivityCategory'], 'CategoryCode', List['CategoryCode'], str, List[str], 'Thing', List['Thing'], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'category',
+            'https://schema.org/category'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/category'
     )
     scheduledPaymentDate: Optional[Union[date, List[date]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'scheduledPaymentDate',
+            'https://schema.org/scheduledPaymentDate'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/scheduledPaymentDate'
     )
     totalPaymentDue: Optional[Union['PriceSpecification', List['PriceSpecification'], 'MonetaryAmount', List['MonetaryAmount']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'totalPaymentDue',
+            'https://schema.org/totalPaymentDue'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/totalPaymentDue'
     )
     customer: Optional[Union['Person', List['Person'], 'Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'customer',
+            'https://schema.org/customer'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/customer'
     )
     paymentMethod: Optional[Union[str, List[str], 'PaymentMethod', List['PaymentMethod']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'paymentMethod',
+            'https://schema.org/paymentMethod'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/paymentMethod'
     )
     minimumPaymentDue: Optional[Union['PriceSpecification', List['PriceSpecification'], 'MonetaryAmount', List['MonetaryAmount']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'minimumPaymentDue',
+            'https://schema.org/minimumPaymentDue'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/minimumPaymentDue'
     )
     confirmationNumber: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'confirmationNumber',
+            'https://schema.org/confirmationNumber'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/confirmationNumber'
     )
     provider: Optional[Union['Person', List['Person'], 'Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'provider',
+            'https://schema.org/provider'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/provider'
     )
     paymentStatus: Optional[Union[str, List[str], 'PaymentStatusType', List['PaymentStatusType']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'paymentStatus',
+            'https://schema.org/paymentStatus'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/paymentStatus'
     )
     billingPeriod: Optional[Union['Duration', List['Duration']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'billingPeriod',
+            'https://schema.org/billingPeriod'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/billingPeriod'
     )

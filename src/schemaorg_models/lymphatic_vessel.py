@@ -22,8 +22,8 @@ from typing import (
 from .vessel import Vessel
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .anatomical_system import AnatomicalSystem
     from .anatomical_structure import AnatomicalStructure
+    from .anatomical_system import AnatomicalSystem
 
 class LymphaticVessel(Vessel):
     '''
@@ -42,24 +42,24 @@ class LymphaticVessel(Vessel):
     regionDrained: Optional[Union['AnatomicalStructure', List['AnatomicalStructure'], 'AnatomicalSystem', List['AnatomicalSystem']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'regionDrained',
+            'https://schema.org/regionDrained'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/regionDrained'
     )
     runsTo: Optional[Union['Vessel', List['Vessel']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'runsTo',
+            'https://schema.org/runsTo'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/runsTo'
     )
     originatesFrom: Optional[Union['Vessel', List['Vessel']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'originatesFrom',
+            'https://schema.org/originatesFrom'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/originatesFrom'
     )

@@ -38,8 +38,8 @@ Use standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/IS
     currency: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'currency',
+            'https://schema.org/currency'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/currency'
     )

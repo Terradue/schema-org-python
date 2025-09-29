@@ -22,8 +22,8 @@ from typing import (
 from .action import Action
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .audience import Audience
     from .event import Event
+    from .audience import Audience
 
 class PlayAction(Action):
     '''
@@ -46,16 +46,16 @@ Related actions:\
     audience: Optional[Union['Audience', List['Audience']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'audience',
+            'https://schema.org/audience'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/audience'
     )
     event: Optional[Union['Event', List['Event']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'event',
+            'https://schema.org/event'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/event'
     )

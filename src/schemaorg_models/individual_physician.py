@@ -40,8 +40,8 @@ The [[practicesAt]] property can be used to indicate [[MedicalOrganization]] hos
     practicesAt: Optional[Union['MedicalOrganization', List['MedicalOrganization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'practicesAt',
+            'https://schema.org/practicesAt'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/practicesAt'
     )

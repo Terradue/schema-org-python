@@ -43,16 +43,16 @@ class RealEstateListing(WebPage):
     leaseLength: Optional[Union['QuantitativeValue', List['QuantitativeValue'], 'Duration', List['Duration']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'leaseLength',
+            'https://schema.org/leaseLength'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/leaseLength'
     )
     datePosted: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'datePosted',
+            'https://schema.org/datePosted'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/datePosted'
     )

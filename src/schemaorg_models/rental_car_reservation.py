@@ -44,32 +44,32 @@ Note: This type is for information about actual reservations, e.g. in confirmati
     pickupTime: Optional[Union[datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'pickupTime',
+            'https://schema.org/pickupTime'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/pickupTime'
     )
     dropoffTime: Optional[Union[datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'dropoffTime',
+            'https://schema.org/dropoffTime'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/dropoffTime'
     )
     dropoffLocation: Optional[Union['Place', List['Place']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'dropoffLocation',
+            'https://schema.org/dropoffLocation'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/dropoffLocation'
     )
     pickupLocation: Optional[Union['Place', List['Place']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'pickupLocation',
+            'https://schema.org/pickupLocation'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/pickupLocation'
     )

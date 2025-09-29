@@ -60,88 +60,88 @@ Usage guidelines:\
     minPrice: Optional[Union[float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'minPrice',
+            'https://schema.org/minPrice'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/minPrice'
     )
     maxPrice: Optional[Union[float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'maxPrice',
+            'https://schema.org/maxPrice'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/maxPrice'
     )
     priceCurrency: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'priceCurrency',
+            'https://schema.org/priceCurrency'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/priceCurrency'
     )
     valueAddedTaxIncluded: Optional[Union[bool, List[bool]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'valueAddedTaxIncluded',
+            'https://schema.org/valueAddedTaxIncluded'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/valueAddedTaxIncluded'
     )
     eligibleQuantity: Optional[Union['QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'eligibleQuantity',
+            'https://schema.org/eligibleQuantity'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/eligibleQuantity'
     )
     validThrough: Optional[Union[datetime, List[datetime], date, List[date]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'validThrough',
+            'https://schema.org/validThrough'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/validThrough'
     )
     eligibleTransactionVolume: Optional[Union['PriceSpecification', List['PriceSpecification']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'eligibleTransactionVolume',
+            'https://schema.org/eligibleTransactionVolume'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/eligibleTransactionVolume'
     )
     validFrom: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'validFrom',
+            'https://schema.org/validFrom'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/validFrom'
     )
     validForMemberTier: Optional[Union['MemberProgramTier', List['MemberProgramTier']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'validForMemberTier',
+            'https://schema.org/validForMemberTier'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/validForMemberTier'
     )
     membershipPointsEarned: Optional[Union['QuantitativeValue', List['QuantitativeValue'], float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'membershipPointsEarned',
+            'https://schema.org/membershipPointsEarned'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/membershipPointsEarned'
     )
     price: Optional[Union[str, List[str], float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'price',
+            'https://schema.org/price'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/price'
     )

@@ -22,10 +22,10 @@ from typing import (
 from .qualitative_value import QualitativeValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .size_system_enumeration import SizeSystemEnumeration
-    from .gender_type import GenderType
-    from .quantitative_value import QuantitativeValue
     from .size_group_enumeration import SizeGroupEnumeration
+    from .size_system_enumeration import SizeSystemEnumeration
+    from .quantitative_value import QuantitativeValue
+    from .gender_type import GenderType
 
 class SizeSpecification(QualitativeValue):
     '''
@@ -47,48 +47,48 @@ class SizeSpecification(QualitativeValue):
     suggestedMeasurement: Optional[Union['QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'suggestedMeasurement',
+            'https://schema.org/suggestedMeasurement'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/suggestedMeasurement'
     )
     sizeSystem: Optional[Union[str, List[str], 'SizeSystemEnumeration', List['SizeSystemEnumeration']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'sizeSystem',
+            'https://schema.org/sizeSystem'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/sizeSystem'
     )
     suggestedAge: Optional[Union['QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'suggestedAge',
+            'https://schema.org/suggestedAge'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/suggestedAge'
     )
     sizeGroup: Optional[Union['SizeGroupEnumeration', List['SizeGroupEnumeration'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'sizeGroup',
+            'https://schema.org/sizeGroup'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/sizeGroup'
     )
     hasMeasurement: Optional[Union['QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'hasMeasurement',
+            'https://schema.org/hasMeasurement'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/hasMeasurement'
     )
     suggestedGender: Optional[Union['GenderType', List['GenderType'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'suggestedGender',
+            'https://schema.org/suggestedGender'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/suggestedGender'
     )

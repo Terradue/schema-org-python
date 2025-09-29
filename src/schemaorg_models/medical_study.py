@@ -22,12 +22,12 @@ from typing import (
 from .medical_entity import MedicalEntity
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .event_status_type import EventStatusType
-    from .person import Person
-    from .administrative_area import AdministrativeArea
     from .medical_study_status import MedicalStudyStatus
-    from .organization import Organization
+    from .event_status_type import EventStatusType
+    from .administrative_area import AdministrativeArea
+    from .person import Person
     from .medical_condition import MedicalCondition
+    from .organization import Organization
 
 class MedicalStudy(MedicalEntity):
     '''
@@ -48,40 +48,40 @@ class MedicalStudy(MedicalEntity):
     studySubject: Optional[Union['MedicalEntity', List['MedicalEntity']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'studySubject',
+            'https://schema.org/studySubject'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/studySubject'
     )
     sponsor: Optional[Union['Organization', List['Organization'], 'Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'sponsor',
+            'https://schema.org/sponsor'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/sponsor'
     )
     status: Optional[Union['EventStatusType', List['EventStatusType'], 'MedicalStudyStatus', List['MedicalStudyStatus'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'status',
+            'https://schema.org/status'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/status'
     )
     studyLocation: Optional[Union['AdministrativeArea', List['AdministrativeArea']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'studyLocation',
+            'https://schema.org/studyLocation'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/studyLocation'
     )
     healthCondition: Optional[Union['MedicalCondition', List['MedicalCondition']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'healthCondition',
+            'https://schema.org/healthCondition'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/healthCondition'
     )

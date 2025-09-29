@@ -22,14 +22,14 @@ from typing import (
 from .play_action import PlayAction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .sports_event import SportsEvent
-    from .sports_team import SportsTeam
     from .person import Person
-    from .diet import Diet
-    from .distance import Distance
     from .place import Place
+    from .sports_team import SportsTeam
+    from .diet import Diet
     from .sports_activity_location import SportsActivityLocation
     from .exercise_plan import ExercisePlan
+    from .distance import Distance
+    from .sports_event import SportsEvent
 
 class ExerciseAction(PlayAction):
     '''
@@ -58,104 +58,104 @@ class ExerciseAction(PlayAction):
     diet: Optional[Union['Diet', List['Diet']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'diet',
+            'https://schema.org/diet'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/diet'
     )
     distance: Optional[Union['Distance', List['Distance']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'distance',
+            'https://schema.org/distance'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/distance'
     )
     exerciseRelatedDiet: Optional[Union['Diet', List['Diet']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'exerciseRelatedDiet',
+            'https://schema.org/exerciseRelatedDiet'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/exerciseRelatedDiet'
     )
     exerciseCourse: Optional[Union['Place', List['Place']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'exerciseCourse',
+            'https://schema.org/exerciseCourse'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/exerciseCourse'
     )
     exerciseType: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'exerciseType',
+            'https://schema.org/exerciseType'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/exerciseType'
     )
     exercisePlan: Optional[Union['ExercisePlan', List['ExercisePlan']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'exercisePlan',
+            'https://schema.org/exercisePlan'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/exercisePlan'
     )
     course: Optional[Union['Place', List['Place']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'course',
+            'https://schema.org/course'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/course'
     )
     sportsEvent: Optional[Union['SportsEvent', List['SportsEvent']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'sportsEvent',
+            'https://schema.org/sportsEvent'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/sportsEvent'
     )
     fromLocation: Optional[Union['Place', List['Place']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'fromLocation',
+            'https://schema.org/fromLocation'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/fromLocation'
     )
     sportsTeam: Optional[Union['SportsTeam', List['SportsTeam']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'sportsTeam',
+            'https://schema.org/sportsTeam'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/sportsTeam'
     )
     opponent: Optional[Union['Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'opponent',
+            'https://schema.org/opponent'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/opponent'
     )
     sportsActivityLocation: Optional[Union['SportsActivityLocation', List['SportsActivityLocation']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'sportsActivityLocation',
+            'https://schema.org/sportsActivityLocation'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/sportsActivityLocation'
     )
     toLocation: Optional[Union['Place', List['Place']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'toLocation',
+            'https://schema.org/toLocation'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/toLocation'
     )

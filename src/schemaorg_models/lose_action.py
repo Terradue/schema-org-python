@@ -39,8 +39,8 @@ class LoseAction(AchieveAction):
     winner: Optional[Union['Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'winner',
+            'https://schema.org/winner'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/winner'
     )

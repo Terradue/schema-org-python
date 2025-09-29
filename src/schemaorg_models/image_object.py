@@ -42,32 +42,32 @@ class ImageObject(MediaObject):
     representativeOfPage: Optional[Union[bool, List[bool]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'representativeOfPage',
+            'https://schema.org/representativeOfPage'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/representativeOfPage'
     )
     caption: Optional[Union['MediaObject', List['MediaObject'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'caption',
+            'https://schema.org/caption'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/caption'
     )
     embeddedTextCaption: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'embeddedTextCaption',
+            'https://schema.org/embeddedTextCaption'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/embeddedTextCaption'
     )
     exifData: Optional[Union['PropertyValue', List['PropertyValue'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'exifData',
+            'https://schema.org/exifData'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/exifData'
     )

@@ -22,8 +22,8 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .quantitative_value import QuantitativeValue
     from .qualitative_value import QualitativeValue
+    from .quantitative_value import QuantitativeValue
 
 class EngineSpecification(StructuredValue):
     '''
@@ -58,40 +58,40 @@ Typical unit code(s): NU for newton metre (N m), F17 for pound-force per foot, o
     fuelType: Optional[Union[str, List[str], 'QualitativeValue', List['QualitativeValue'], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'fuelType',
+            'https://schema.org/fuelType'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/fuelType'
     )
     engineType: Optional[Union[HttpUrl, List[HttpUrl], str, List[str], 'QualitativeValue', List['QualitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'engineType',
+            'https://schema.org/engineType'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/engineType'
     )
     engineDisplacement: Optional[Union['QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'engineDisplacement',
+            'https://schema.org/engineDisplacement'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/engineDisplacement'
     )
     enginePower: Optional[Union['QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'enginePower',
+            'https://schema.org/enginePower'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/enginePower'
     )
     torque: Optional[Union['QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'torque',
+            'https://schema.org/torque'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/torque'
     )

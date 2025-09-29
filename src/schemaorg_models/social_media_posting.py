@@ -39,8 +39,8 @@ class SocialMediaPosting(Article):
     sharedContent: Optional[Union['CreativeWork', List['CreativeWork']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'sharedContent',
+            'https://schema.org/sharedContent'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/sharedContent'
     )

@@ -22,8 +22,8 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .digital_platform_enumeration import DigitalPlatformEnumeration
     from .software_application import SoftwareApplication
+    from .digital_platform_enumeration import DigitalPlatformEnumeration
 
 class EntryPoint(Intangible):
     '''
@@ -46,56 +46,56 @@ class EntryPoint(Intangible):
     httpMethod: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'httpMethod',
+            'https://schema.org/httpMethod'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/httpMethod'
     )
     contentType: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'contentType',
+            'https://schema.org/contentType'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/contentType'
     )
     urlTemplate: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'urlTemplate',
+            'https://schema.org/urlTemplate'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/urlTemplate'
     )
     actionApplication: Optional[Union['SoftwareApplication', List['SoftwareApplication']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'actionApplication',
+            'https://schema.org/actionApplication'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/actionApplication'
     )
     encodingType: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'encodingType',
+            'https://schema.org/encodingType'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/encodingType'
     )
     application: Optional[Union['SoftwareApplication', List['SoftwareApplication']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'application',
+            'https://schema.org/application'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/application'
     )
     actionPlatform: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], 'DigitalPlatformEnumeration', List['DigitalPlatformEnumeration']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'actionPlatform',
+            'https://schema.org/actionPlatform'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/actionPlatform'
     )

@@ -22,9 +22,9 @@ from typing import (
 from .medical_entity import MedicalEntity
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .medical_study_status import MedicalStudyStatus
     from .medical_procedure_type import MedicalProcedureType
     from .event_status_type import EventStatusType
-    from .medical_study_status import MedicalStudyStatus
 
 class MedicalProcedure(MedicalEntity):
     '''
@@ -46,48 +46,48 @@ class MedicalProcedure(MedicalEntity):
     bodyLocation: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'bodyLocation',
+            'https://schema.org/bodyLocation'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/bodyLocation'
     )
     preparation: Optional[Union['MedicalEntity', List['MedicalEntity'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'preparation',
+            'https://schema.org/preparation'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/preparation'
     )
     status: Optional[Union['EventStatusType', List['EventStatusType'], 'MedicalStudyStatus', List['MedicalStudyStatus'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'status',
+            'https://schema.org/status'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/status'
     )
     howPerformed: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'howPerformed',
+            'https://schema.org/howPerformed'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/howPerformed'
     )
     procedureType: Optional[Union['MedicalProcedureType', List['MedicalProcedureType']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'procedureType',
+            'https://schema.org/procedureType'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/procedureType'
     )
     followup: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'followup',
+            'https://schema.org/followup'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/followup'
     )

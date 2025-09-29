@@ -41,24 +41,24 @@ class BusinessAudience(Audience):
     numberOfEmployees: Optional[Union['QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'numberOfEmployees',
+            'https://schema.org/numberOfEmployees'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/numberOfEmployees'
     )
     yearsInOperation: Optional[Union['QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'yearsInOperation',
+            'https://schema.org/yearsInOperation'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/yearsInOperation'
     )
     yearlyRevenue: Optional[Union['QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'yearlyRevenue',
+            'https://schema.org/yearlyRevenue'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/yearlyRevenue'
     )

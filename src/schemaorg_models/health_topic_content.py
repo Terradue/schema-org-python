@@ -40,8 +40,8 @@ class HealthTopicContent(WebContent):
     hasHealthAspect: Optional[Union['HealthAspectEnumeration', List['HealthAspectEnumeration']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'hasHealthAspect',
+            'https://schema.org/hasHealthAspect'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/hasHealthAspect'
     )

@@ -39,8 +39,8 @@ class VoteAction(ChooseAction):
     candidate: Optional[Union['Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'candidate',
+            'https://schema.org/candidate'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/candidate'
     )

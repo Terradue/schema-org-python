@@ -42,24 +42,24 @@ class BroadcastFrequencySpecification(Intangible):
     broadcastSubChannel: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'broadcastSubChannel',
+            'https://schema.org/broadcastSubChannel'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/broadcastSubChannel'
     )
     broadcastFrequencyValue: Optional[Union[float, List[float], 'QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'broadcastFrequencyValue',
+            'https://schema.org/broadcastFrequencyValue'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/broadcastFrequencyValue'
     )
     broadcastSignalModulation: Optional[Union[str, List[str], 'QualitativeValue', List['QualitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'broadcastSignalModulation',
+            'https://schema.org/broadcastSignalModulation'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/broadcastSignalModulation'
     )

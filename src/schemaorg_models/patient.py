@@ -22,8 +22,8 @@ from typing import (
 from .medical_audience import MedicalAudience
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .drug import Drug
     from .medical_condition import MedicalCondition
+    from .drug import Drug
 
 class Patient(MedicalAudience):
     '''
@@ -42,24 +42,24 @@ class Patient(MedicalAudience):
     healthCondition: Optional[Union['MedicalCondition', List['MedicalCondition']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'healthCondition',
+            'https://schema.org/healthCondition'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/healthCondition'
     )
     diagnosis: Optional[Union['MedicalCondition', List['MedicalCondition']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'diagnosis',
+            'https://schema.org/diagnosis'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/diagnosis'
     )
     drug: Optional[Union['Drug', List['Drug']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'drug',
+            'https://schema.org/drug'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/drug'
     )

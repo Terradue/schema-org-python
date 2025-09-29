@@ -36,8 +36,8 @@ class SportsOrganization(Organization):
     sport: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'sport',
+            'https://schema.org/sport'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/sport'
     )

@@ -39,8 +39,8 @@ class SomeProducts(Product):
     inventoryLevel: Optional[Union['QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'inventoryLevel',
+            'https://schema.org/inventoryLevel'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/inventoryLevel'
     )

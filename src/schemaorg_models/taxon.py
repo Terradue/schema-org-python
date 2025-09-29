@@ -43,32 +43,32 @@ class Taxon(Thing):
     hasDefinedTerm: Optional[Union['DefinedTerm', List['DefinedTerm']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'hasDefinedTerm',
+            'https://schema.org/hasDefinedTerm'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/hasDefinedTerm'
     )
     taxonRank: Optional[Union[str, List[str], 'PropertyValue', List['PropertyValue'], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'taxonRank',
+            'https://schema.org/taxonRank'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/taxonRank'
     )
     parentTaxon: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], 'Taxon', List['Taxon']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'parentTaxon',
+            'https://schema.org/parentTaxon'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/parentTaxon'
     )
     childTaxon: Optional[Union['Taxon', List['Taxon'], str, List[str], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'childTaxon',
+            'https://schema.org/childTaxon'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/childTaxon'
     )

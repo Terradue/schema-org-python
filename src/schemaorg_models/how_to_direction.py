@@ -22,10 +22,10 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .media_object import MediaObject
-    from .how_to_tool import HowToTool
     from .duration import Duration
+    from .media_object import MediaObject
     from .how_to_supply import HowToSupply
+    from .how_to_tool import HowToTool
 
 class HowToDirection(CreativeWork):
     '''
@@ -49,64 +49,64 @@ class HowToDirection(CreativeWork):
     beforeMedia: Optional[Union['MediaObject', List['MediaObject'], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'beforeMedia',
+            'https://schema.org/beforeMedia'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/beforeMedia'
     )
     prepTime: Optional[Union['Duration', List['Duration']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'prepTime',
+            'https://schema.org/prepTime'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/prepTime'
     )
     supply: Optional[Union['HowToSupply', List['HowToSupply'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'supply',
+            'https://schema.org/supply'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/supply'
     )
     performTime: Optional[Union['Duration', List['Duration']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'performTime',
+            'https://schema.org/performTime'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/performTime'
     )
     totalTime: Optional[Union['Duration', List['Duration']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'totalTime',
+            'https://schema.org/totalTime'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/totalTime'
     )
     duringMedia: Optional[Union[HttpUrl, List[HttpUrl], 'MediaObject', List['MediaObject']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'duringMedia',
+            'https://schema.org/duringMedia'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/duringMedia'
     )
     tool: Optional[Union[str, List[str], 'HowToTool', List['HowToTool']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'tool',
+            'https://schema.org/tool'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/tool'
     )
     afterMedia: Optional[Union[HttpUrl, List[HttpUrl], 'MediaObject', List['MediaObject']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'afterMedia',
+            'https://schema.org/afterMedia'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/afterMedia'
     )

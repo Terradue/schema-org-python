@@ -22,8 +22,8 @@ from typing import (
 from .lifestyle_modification import LifestyleModification
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .organization import Organization
     from .person import Person
+    from .organization import Organization
 
 class Diet(LifestyleModification):
     '''
@@ -44,40 +44,40 @@ class Diet(LifestyleModification):
     risks: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'risks',
+            'https://schema.org/risks'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/risks'
     )
     physiologicalBenefits: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'physiologicalBenefits',
+            'https://schema.org/physiologicalBenefits'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/physiologicalBenefits'
     )
     dietFeatures: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'dietFeatures',
+            'https://schema.org/dietFeatures'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/dietFeatures'
     )
     expertConsiderations: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'expertConsiderations',
+            'https://schema.org/expertConsiderations'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/expertConsiderations'
     )
     endorsers: Optional[Union['Organization', List['Organization'], 'Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'endorsers',
+            'https://schema.org/endorsers'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/endorsers'
     )

@@ -23,8 +23,8 @@ from .review import Review
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .thing import Thing
-    from .physical_activity_category import PhysicalActivityCategory
     from .category_code import CategoryCode
+    from .physical_activity_category import PhysicalActivityCategory
 
 class Recommendation(Review):
     '''
@@ -41,8 +41,8 @@ class Recommendation(Review):
     category: Optional[Union['PhysicalActivityCategory', List['PhysicalActivityCategory'], 'CategoryCode', List['CategoryCode'], str, List[str], 'Thing', List['Thing'], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'category',
+            'https://schema.org/category'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/category'
     )

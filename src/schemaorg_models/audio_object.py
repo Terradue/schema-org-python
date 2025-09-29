@@ -38,24 +38,24 @@ class AudioObject(MediaObject):
     transcript: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'transcript',
+            'https://schema.org/transcript'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/transcript'
     )
     caption: Optional[Union['MediaObject', List['MediaObject'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'caption',
+            'https://schema.org/caption'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/caption'
     )
     embeddedTextCaption: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'embeddedTextCaption',
+            'https://schema.org/embeddedTextCaption'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/embeddedTextCaption'
     )

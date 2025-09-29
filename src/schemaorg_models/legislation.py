@@ -22,11 +22,11 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .legal_force_status import LegalForceStatus
-    from .person import Person
-    from .administrative_area import AdministrativeArea
-    from .organization import Organization
     from .category_code import CategoryCode
+    from .legal_force_status import LegalForceStatus
+    from .administrative_area import AdministrativeArea
+    from .person import Person
+    from .organization import Organization
 
 class Legislation(CreativeWork):
     '''
@@ -62,160 +62,160 @@ class Legislation(CreativeWork):
     legislationApplies: Optional[Union['Legislation', List['Legislation']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'legislationApplies',
+            'https://schema.org/legislationApplies'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/legislationApplies'
     )
     legislationCountersignedBy: Optional[Union['Person', List['Person'], 'Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'legislationCountersignedBy',
+            'https://schema.org/legislationCountersignedBy'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/legislationCountersignedBy'
     )
     legislationChanges: Optional[Union['Legislation', List['Legislation']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'legislationChanges',
+            'https://schema.org/legislationChanges'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/legislationChanges'
     )
     legislationCommences: Optional[Union['Legislation', List['Legislation']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'legislationCommences',
+            'https://schema.org/legislationCommences'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/legislationCommences'
     )
     legislationRepeals: Optional[Union['Legislation', List['Legislation']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'legislationRepeals',
+            'https://schema.org/legislationRepeals'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/legislationRepeals'
     )
     legislationType: Optional[Union[str, List[str], 'CategoryCode', List['CategoryCode']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'legislationType',
+            'https://schema.org/legislationType'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/legislationType'
     )
     jurisdiction: Optional[Union[str, List[str], 'AdministrativeArea', List['AdministrativeArea']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'jurisdiction',
+            'https://schema.org/jurisdiction'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/jurisdiction'
     )
     legislationJurisdiction: Optional[Union[str, List[str], 'AdministrativeArea', List['AdministrativeArea']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'legislationJurisdiction',
+            'https://schema.org/legislationJurisdiction'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/legislationJurisdiction'
     )
     legislationCorrects: Optional[Union['Legislation', List['Legislation']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'legislationCorrects',
+            'https://schema.org/legislationCorrects'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/legislationCorrects'
     )
     legislationTransposes: Optional[Union['Legislation', List['Legislation']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'legislationTransposes',
+            'https://schema.org/legislationTransposes'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/legislationTransposes'
     )
     legislationDate: Optional[Union[date, List[date]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'legislationDate',
+            'https://schema.org/legislationDate'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/legislationDate'
     )
     legislationEnsuresImplementationOf: Optional[Union['Legislation', List['Legislation']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'legislationEnsuresImplementationOf',
+            'https://schema.org/legislationEnsuresImplementationOf'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/legislationEnsuresImplementationOf'
     )
     legislationPassedBy: Optional[Union['Person', List['Person'], 'Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'legislationPassedBy',
+            'https://schema.org/legislationPassedBy'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/legislationPassedBy'
     )
     legislationConsolidates: Optional[Union['Legislation', List['Legislation']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'legislationConsolidates',
+            'https://schema.org/legislationConsolidates'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/legislationConsolidates'
     )
     legislationDateOfApplicability: Optional[Union[date, List[date]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'legislationDateOfApplicability',
+            'https://schema.org/legislationDateOfApplicability'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/legislationDateOfApplicability'
     )
     legislationIdentifier: Optional[Union[HttpUrl, List[HttpUrl], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'legislationIdentifier',
+            'https://schema.org/legislationIdentifier'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/legislationIdentifier'
     )
     legislationLegalForce: Optional[Union['LegalForceStatus', List['LegalForceStatus']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'legislationLegalForce',
+            'https://schema.org/legislationLegalForce'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/legislationLegalForce'
     )
     legislationAmends: Optional[Union['Legislation', List['Legislation']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'legislationAmends',
+            'https://schema.org/legislationAmends'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/legislationAmends'
     )
     legislationDateVersion: Optional[Union[date, List[date]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'legislationDateVersion',
+            'https://schema.org/legislationDateVersion'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/legislationDateVersion'
     )
     legislationResponsible: Optional[Union['Person', List['Person'], 'Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'legislationResponsible',
+            'https://schema.org/legislationResponsible'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/legislationResponsible'
     )

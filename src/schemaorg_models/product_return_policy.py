@@ -37,16 +37,16 @@ class ProductReturnPolicy(Intangible):
     productReturnDays: Optional[Union[int, List[int]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'productReturnDays',
+            'https://schema.org/productReturnDays'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/productReturnDays'
     )
     productReturnLink: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'productReturnLink',
+            'https://schema.org/productReturnLink'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/productReturnLink'
     )

@@ -22,15 +22,15 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .person import Person
-    from .performing_group import PerformingGroup
-    from .organization import Organization
-    from .duration import Duration
-    from .quantitative_value import QuantitativeValue
-    from .language import Language
-    from .music_group import MusicGroup
-    from .video_object import VideoObject
     from .country import Country
+    from .language import Language
+    from .duration import Duration
+    from .video_object import VideoObject
+    from .quantitative_value import QuantitativeValue
+    from .performing_group import PerformingGroup
+    from .music_group import MusicGroup
+    from .person import Person
+    from .organization import Organization
 
 class Movie(CreativeWork):
     '''
@@ -66,88 +66,88 @@ In the case of products, the country of origin of the product. The exact interpr
     titleEIDR: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'titleEIDR',
+            'https://schema.org/titleEIDR'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/titleEIDR'
     )
     actors: Optional[Union['Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'actors',
+            'https://schema.org/actors'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/actors'
     )
     productionCompany: Optional[Union['Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'productionCompany',
+            'https://schema.org/productionCompany'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/productionCompany'
     )
     musicBy: Optional[Union['MusicGroup', List['MusicGroup'], 'Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'musicBy',
+            'https://schema.org/musicBy'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/musicBy'
     )
     countryOfOrigin: Optional[Union['Country', List['Country']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'countryOfOrigin',
+            'https://schema.org/countryOfOrigin'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/countryOfOrigin'
     )
     trailer: Optional[Union['VideoObject', List['VideoObject']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'trailer',
+            'https://schema.org/trailer'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/trailer'
     )
     directors: Optional[Union['Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'directors',
+            'https://schema.org/directors'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/directors'
     )
     duration: Optional[Union['Duration', List['Duration'], 'QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'duration',
+            'https://schema.org/duration'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/duration'
     )
     director: Optional[Union['Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'director',
+            'https://schema.org/director'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/director'
     )
     actor: Optional[Union['Person', List['Person'], 'PerformingGroup', List['PerformingGroup']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'actor',
+            'https://schema.org/actor'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/actor'
     )
     subtitleLanguage: Optional[Union['Language', List['Language'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'subtitleLanguage',
+            'https://schema.org/subtitleLanguage'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/subtitleLanguage'
     )

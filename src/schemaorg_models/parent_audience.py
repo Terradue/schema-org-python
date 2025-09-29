@@ -37,16 +37,16 @@ class ParentAudience(PeopleAudience):
     childMaxAge: Optional[Union[float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'childMaxAge',
+            'https://schema.org/childMaxAge'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/childMaxAge'
     )
     childMinAge: Optional[Union[float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'childMinAge',
+            'https://schema.org/childMinAge'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/childMinAge'
     )

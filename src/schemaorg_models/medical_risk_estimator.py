@@ -40,16 +40,16 @@ class MedicalRiskEstimator(MedicalEntity):
     estimatesRiskOf: Optional[Union['MedicalEntity', List['MedicalEntity']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'estimatesRiskOf',
+            'https://schema.org/estimatesRiskOf'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/estimatesRiskOf'
     )
     includedRiskFactor: Optional[Union['MedicalRiskFactor', List['MedicalRiskFactor']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'includedRiskFactor',
+            'https://schema.org/includedRiskFactor'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/includedRiskFactor'
     )

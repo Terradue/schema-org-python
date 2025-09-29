@@ -43,24 +43,24 @@ While a ProductGroup itself is not directly offered for sale, the various varyin
     variesBy: Optional[Union['DefinedTerm', List['DefinedTerm'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'variesBy',
+            'https://schema.org/variesBy'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/variesBy'
     )
     hasVariant: Optional[Union['Product', List['Product']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'hasVariant',
+            'https://schema.org/hasVariant'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/hasVariant'
     )
     productGroupID: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'productGroupID',
+            'https://schema.org/productGroupID'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/productGroupID'
     )

@@ -42,32 +42,32 @@ class MedicalGuideline(MedicalEntity):
     guidelineSubject: Optional[Union['MedicalEntity', List['MedicalEntity']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'guidelineSubject',
+            'https://schema.org/guidelineSubject'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/guidelineSubject'
     )
     evidenceLevel: Optional[Union['MedicalEvidenceLevel', List['MedicalEvidenceLevel']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'evidenceLevel',
+            'https://schema.org/evidenceLevel'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/evidenceLevel'
     )
     evidenceOrigin: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'evidenceOrigin',
+            'https://schema.org/evidenceOrigin'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/evidenceOrigin'
     )
     guidelineDate: Optional[Union[date, List[date]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'guidelineDate',
+            'https://schema.org/guidelineDate'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/guidelineDate'
     )

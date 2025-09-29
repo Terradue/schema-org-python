@@ -49,72 +49,72 @@ class HealthInsurancePlan(Intangible):
     benefitsSummaryUrl: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'benefitsSummaryUrl',
+            'https://schema.org/benefitsSummaryUrl'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/benefitsSummaryUrl'
     )
     includesHealthPlanNetwork: Optional[Union['HealthPlanNetwork', List['HealthPlanNetwork']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'includesHealthPlanNetwork',
+            'https://schema.org/includesHealthPlanNetwork'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/includesHealthPlanNetwork'
     )
     includesHealthPlanFormulary: Optional[Union['HealthPlanFormulary', List['HealthPlanFormulary']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'includesHealthPlanFormulary',
+            'https://schema.org/includesHealthPlanFormulary'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/includesHealthPlanFormulary'
     )
     contactPoint: Optional[Union['ContactPoint', List['ContactPoint']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'contactPoint',
+            'https://schema.org/contactPoint'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/contactPoint'
     )
     healthPlanId: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'healthPlanId',
+            'https://schema.org/healthPlanId'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/healthPlanId'
     )
     healthPlanMarketingUrl: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'healthPlanMarketingUrl',
+            'https://schema.org/healthPlanMarketingUrl'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/healthPlanMarketingUrl'
     )
     usesHealthPlanIdStandard: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'usesHealthPlanIdStandard',
+            'https://schema.org/usesHealthPlanIdStandard'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/usesHealthPlanIdStandard'
     )
     healthPlanDrugOption: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'healthPlanDrugOption',
+            'https://schema.org/healthPlanDrugOption'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/healthPlanDrugOption'
     )
     healthPlanDrugTier: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'healthPlanDrugTier',
+            'https://schema.org/healthPlanDrugTier'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/healthPlanDrugTier'
     )

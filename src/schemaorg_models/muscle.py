@@ -22,8 +22,8 @@ from typing import (
 from .anatomical_structure import AnatomicalStructure
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .nerve import Nerve
     from .vessel import Vessel
+    from .nerve import Nerve
 
 class Muscle(AnatomicalStructure):
     '''
@@ -44,40 +44,40 @@ class Muscle(AnatomicalStructure):
     antagonist: Optional[Union['Muscle', List['Muscle']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'antagonist',
+            'https://schema.org/antagonist'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/antagonist'
     )
     insertion: Optional[Union['AnatomicalStructure', List['AnatomicalStructure']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'insertion',
+            'https://schema.org/insertion'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/insertion'
     )
     nerve: Optional[Union['Nerve', List['Nerve']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'nerve',
+            'https://schema.org/nerve'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/nerve'
     )
     bloodSupply: Optional[Union['Vessel', List['Vessel']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'bloodSupply',
+            'https://schema.org/bloodSupply'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/bloodSupply'
     )
     muscleAction: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'muscleAction',
+            'https://schema.org/muscleAction'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/muscleAction'
     )

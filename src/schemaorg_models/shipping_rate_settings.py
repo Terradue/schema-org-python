@@ -22,9 +22,9 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .monetary_amount import MonetaryAmount
-    from .defined_region import DefinedRegion
     from .delivery_charge_specification import DeliveryChargeSpecification
+    from .defined_region import DefinedRegion
+    from .monetary_amount import MonetaryAmount
 
 class ShippingRateSettings(StructuredValue):
     '''
@@ -48,64 +48,64 @@ class ShippingRateSettings(StructuredValue):
     weightPercentage: Optional[Union[float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'weightPercentage',
+            'https://schema.org/weightPercentage'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/weightPercentage'
     )
     doesNotShip: Optional[Union[bool, List[bool]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'doesNotShip',
+            'https://schema.org/doesNotShip'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/doesNotShip'
     )
     freeShippingThreshold: Optional[Union['DeliveryChargeSpecification', List['DeliveryChargeSpecification'], 'MonetaryAmount', List['MonetaryAmount']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'freeShippingThreshold',
+            'https://schema.org/freeShippingThreshold'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/freeShippingThreshold'
     )
     isUnlabelledFallback: Optional[Union[bool, List[bool]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'isUnlabelledFallback',
+            'https://schema.org/isUnlabelledFallback'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/isUnlabelledFallback'
     )
     orderPercentage: Optional[Union[float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'orderPercentage',
+            'https://schema.org/orderPercentage'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/orderPercentage'
     )
     shippingLabel: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'shippingLabel',
+            'https://schema.org/shippingLabel'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/shippingLabel'
     )
     shippingDestination: Optional[Union['DefinedRegion', List['DefinedRegion']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'shippingDestination',
+            'https://schema.org/shippingDestination'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/shippingDestination'
     )
     shippingRate: Optional[Union['ShippingRateSettings', List['ShippingRateSettings'], 'MonetaryAmount', List['MonetaryAmount']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'shippingRate',
+            'https://schema.org/shippingRate'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/shippingRate'
     )

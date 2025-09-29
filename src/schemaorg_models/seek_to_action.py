@@ -39,8 +39,8 @@ class SeekToAction(Action):
     startOffset: Optional[Union[float, List[float], 'HyperTocEntry', List['HyperTocEntry']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'startOffset',
+            'https://schema.org/startOffset'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/startOffset'
     )

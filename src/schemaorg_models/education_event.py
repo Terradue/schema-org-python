@@ -41,24 +41,24 @@ class EducationEvent(Event):
     educationalLevel: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], 'DefinedTerm', List['DefinedTerm']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'educationalLevel',
+            'https://schema.org/educationalLevel'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/educationalLevel'
     )
     assesses: Optional[Union['DefinedTerm', List['DefinedTerm'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'assesses',
+            'https://schema.org/assesses'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/assesses'
     )
     teaches: Optional[Union['DefinedTerm', List['DefinedTerm'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'teaches',
+            'https://schema.org/teaches'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/teaches'
     )

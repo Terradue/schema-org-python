@@ -41,24 +41,24 @@ class Blog(CreativeWork):
     issn: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'issn',
+            'https://schema.org/issn'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/issn'
     )
     blogPost: Optional[Union['BlogPosting', List['BlogPosting']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'blogPost',
+            'https://schema.org/blogPost'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/blogPost'
     )
     blogPosts: Optional[Union['BlogPosting', List['BlogPosting']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'blogPosts',
+            'https://schema.org/blogPosts'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/blogPosts'
     )

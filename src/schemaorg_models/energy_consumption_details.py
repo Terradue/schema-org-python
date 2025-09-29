@@ -42,24 +42,24 @@ class EnergyConsumptionDetails(Intangible):
     hasEnergyEfficiencyCategory: Optional[Union['EnergyEfficiencyEnumeration', List['EnergyEfficiencyEnumeration']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'hasEnergyEfficiencyCategory',
+            'https://schema.org/hasEnergyEfficiencyCategory'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/hasEnergyEfficiencyCategory'
     )
     energyEfficiencyScaleMax: Optional[Union['EUEnergyEfficiencyEnumeration', List['EUEnergyEfficiencyEnumeration']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'energyEfficiencyScaleMax',
+            'https://schema.org/energyEfficiencyScaleMax'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/energyEfficiencyScaleMax'
     )
     energyEfficiencyScaleMin: Optional[Union['EUEnergyEfficiencyEnumeration', List['EUEnergyEfficiencyEnumeration']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'energyEfficiencyScaleMin',
+            'https://schema.org/energyEfficiencyScaleMin'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/energyEfficiencyScaleMin'
     )

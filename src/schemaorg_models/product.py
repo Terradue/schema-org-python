@@ -22,36 +22,36 @@ from typing import (
 from .thing import Thing
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .review import Review
-    from .service import Service
-    from .certification import Certification
-    from .merchant_return_policy import MerchantReturnPolicy
-    from .audience import Audience
-    from .list_item import ListItem
-    from .energy_consumption_details import EnergyConsumptionDetails
-    from .product_model import ProductModel
-    from .quantitative_value import QuantitativeValue
-    from .offer import Offer
-    from .brand import Brand
-    from .aggregate_rating import AggregateRating
-    from .web_content import WebContent
-    from .demand import Demand
-    from .mass import Mass
-    from .item_list import ItemList
-    from .image_object import ImageObject
-    from .distance import Distance
-    from .adult_oriented_enumeration import AdultOrientedEnumeration
-    from .category_code import CategoryCode
-    from .product_return_policy import ProductReturnPolicy
+    from .country import Country
+    from .offer_item_condition import OfferItemCondition
     from .product_group import ProductGroup
+    from .adult_oriented_enumeration import AdultOrientedEnumeration
+    from .image_object import ImageObject
+    from .brand import Brand
+    from .energy_consumption_details import EnergyConsumptionDetails
+    from .merchant_return_policy import MerchantReturnPolicy
+    from .distance import Distance
     from .organization import Organization
     from .property_value import PropertyValue
-    from .country import Country
-    from .size_specification import SizeSpecification
-    from .offer_item_condition import OfferItemCondition
+    from .item_list import ItemList
     from .defined_term import DefinedTerm
-    from .physical_activity_category import PhysicalActivityCategory
+    from .demand import Demand
+    from .certification import Certification
+    from .offer import Offer
+    from .review import Review
+    from .web_content import WebContent
+    from .aggregate_rating import AggregateRating
+    from .list_item import ListItem
+    from .product_return_policy import ProductReturnPolicy
+    from .size_specification import SizeSpecification
+    from .audience import Audience
+    from .category_code import CategoryCode
     from .grant import Grant
+    from .mass import Mass
+    from .service import Service
+    from .physical_activity_category import PhysicalActivityCategory
+    from .product_model import ProductModel
+    from .quantitative_value import QuantitativeValue
 
 class Product(Thing):
     '''
@@ -156,472 +156,472 @@ In the case of products, the country of origin of the product. The exact interpr
     reviews: Optional[Union['Review', List['Review']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'reviews',
+            'https://schema.org/reviews'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/reviews'
     )
     inProductGroupWithID: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'inProductGroupWithID',
+            'https://schema.org/inProductGroupWithID'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/inProductGroupWithID'
     )
     gtin: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'gtin',
+            'https://schema.org/gtin'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/gtin'
     )
     gtin8: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'gtin8',
+            'https://schema.org/gtin8'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/gtin8'
     )
     isRelatedTo: Optional[Union['Service', List['Service'], 'Product', List['Product']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'isRelatedTo',
+            'https://schema.org/isRelatedTo'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/isRelatedTo'
     )
     colorSwatch: Optional[Union['ImageObject', List['ImageObject'], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'colorSwatch',
+            'https://schema.org/colorSwatch'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/colorSwatch'
     )
     asin: Optional[Union[HttpUrl, List[HttpUrl], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'asin',
+            'https://schema.org/asin'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/asin'
     )
     pattern: Optional[Union['DefinedTerm', List['DefinedTerm'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'pattern',
+            'https://schema.org/pattern'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/pattern'
     )
     awards: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'awards',
+            'https://schema.org/awards'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/awards'
     )
     productionDate: Optional[Union[date, List[date]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'productionDate',
+            'https://schema.org/productionDate'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/productionDate'
     )
     model: Optional[Union['ProductModel', List['ProductModel'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'model',
+            'https://schema.org/model'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/model'
     )
     hasCertification: Optional[Union['Certification', List['Certification']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'hasCertification',
+            'https://schema.org/hasCertification'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/hasCertification'
     )
     isVariantOf: Optional[Union['ProductModel', List['ProductModel'], 'ProductGroup', List['ProductGroup']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'isVariantOf',
+            'https://schema.org/isVariantOf'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/isVariantOf'
     )
     isFamilyFriendly: Optional[Union[bool, List[bool]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'isFamilyFriendly',
+            'https://schema.org/isFamilyFriendly'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/isFamilyFriendly'
     )
     logo: Optional[Union[HttpUrl, List[HttpUrl], 'ImageObject', List['ImageObject']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'logo',
+            'https://schema.org/logo'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/logo'
     )
     aggregateRating: Optional[Union['AggregateRating', List['AggregateRating']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'aggregateRating',
+            'https://schema.org/aggregateRating'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/aggregateRating'
     )
     sku: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'sku',
+            'https://schema.org/sku'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/sku'
     )
     negativeNotes: Optional[Union['ListItem', List['ListItem'], 'WebContent', List['WebContent'], 'ItemList', List['ItemList'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'negativeNotes',
+            'https://schema.org/negativeNotes'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/negativeNotes'
     )
     width: Optional[Union['QuantitativeValue', List['QuantitativeValue'], 'Distance', List['Distance']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'width',
+            'https://schema.org/width'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/width'
     )
     color: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'color',
+            'https://schema.org/color'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/color'
     )
     hasAdultConsideration: Optional[Union['AdultOrientedEnumeration', List['AdultOrientedEnumeration']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'hasAdultConsideration',
+            'https://schema.org/hasAdultConsideration'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/hasAdultConsideration'
     )
     purchaseDate: Optional[Union[date, List[date]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'purchaseDate',
+            'https://schema.org/purchaseDate'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/purchaseDate'
     )
     countryOfAssembly: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'countryOfAssembly',
+            'https://schema.org/countryOfAssembly'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/countryOfAssembly'
     )
     slogan: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'slogan',
+            'https://schema.org/slogan'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/slogan'
     )
     mobileUrl: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'mobileUrl',
+            'https://schema.org/mobileUrl'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/mobileUrl'
     )
     keywords: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], 'DefinedTerm', List['DefinedTerm']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'keywords',
+            'https://schema.org/keywords'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/keywords'
     )
     hasProductReturnPolicy: Optional[Union['ProductReturnPolicy', List['ProductReturnPolicy']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'hasProductReturnPolicy',
+            'https://schema.org/hasProductReturnPolicy'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/hasProductReturnPolicy'
     )
     award: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'award',
+            'https://schema.org/award'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/award'
     )
     isSimilarTo: Optional[Union['Service', List['Service'], 'Product', List['Product']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'isSimilarTo',
+            'https://schema.org/isSimilarTo'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/isSimilarTo'
     )
     additionalProperty: Optional[Union['PropertyValue', List['PropertyValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'additionalProperty',
+            'https://schema.org/additionalProperty'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/additionalProperty'
     )
     productID: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'productID',
+            'https://schema.org/productID'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/productID'
     )
     gtin13: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'gtin13',
+            'https://schema.org/gtin13'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/gtin13'
     )
     offers: Optional[Union['Demand', List['Demand'], 'Offer', List['Offer']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'offers',
+            'https://schema.org/offers'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/offers'
     )
     audience: Optional[Union['Audience', List['Audience']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'audience',
+            'https://schema.org/audience'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/audience'
     )
     hasGS1DigitalLink: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'hasGS1DigitalLink',
+            'https://schema.org/hasGS1DigitalLink'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/hasGS1DigitalLink'
     )
     isConsumableFor: Optional[Union['Product', List['Product']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'isConsumableFor',
+            'https://schema.org/isConsumableFor'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/isConsumableFor'
     )
     funding: Optional[Union['Grant', List['Grant']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'funding',
+            'https://schema.org/funding'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/funding'
     )
     hasMeasurement: Optional[Union['QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'hasMeasurement',
+            'https://schema.org/hasMeasurement'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/hasMeasurement'
     )
     hasEnergyConsumptionDetails: Optional[Union['EnergyConsumptionDetails', List['EnergyConsumptionDetails']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'hasEnergyConsumptionDetails',
+            'https://schema.org/hasEnergyConsumptionDetails'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/hasEnergyConsumptionDetails'
     )
     brand: Optional[Union['Organization', List['Organization'], 'Brand', List['Brand']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'brand',
+            'https://schema.org/brand'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/brand'
     )
     countryOfLastProcessing: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'countryOfLastProcessing',
+            'https://schema.org/countryOfLastProcessing'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/countryOfLastProcessing'
     )
     itemCondition: Optional[Union['OfferItemCondition', List['OfferItemCondition']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'itemCondition',
+            'https://schema.org/itemCondition'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/itemCondition'
     )
     material: Optional[Union[str, List[str], 'Product', List['Product'], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'material',
+            'https://schema.org/material'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/material'
     )
     mpn: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'mpn',
+            'https://schema.org/mpn'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/mpn'
     )
     height: Optional[Union['Distance', List['Distance'], 'QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'height',
+            'https://schema.org/height'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/height'
     )
     releaseDate: Optional[Union[date, List[date]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'releaseDate',
+            'https://schema.org/releaseDate'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/releaseDate'
     )
     size: Optional[Union['DefinedTerm', List['DefinedTerm'], str, List[str], 'SizeSpecification', List['SizeSpecification'], 'QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'size',
+            'https://schema.org/size'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/size'
     )
     category: Optional[Union['PhysicalActivityCategory', List['PhysicalActivityCategory'], 'CategoryCode', List['CategoryCode'], str, List[str], 'Thing', List['Thing'], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'category',
+            'https://schema.org/category'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/category'
     )
     weight: Optional[Union['QuantitativeValue', List['QuantitativeValue'], 'Mass', List['Mass']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'weight',
+            'https://schema.org/weight'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/weight'
     )
     hasMerchantReturnPolicy: Optional[Union['MerchantReturnPolicy', List['MerchantReturnPolicy']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'hasMerchantReturnPolicy',
+            'https://schema.org/hasMerchantReturnPolicy'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/hasMerchantReturnPolicy'
     )
     nsn: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'nsn',
+            'https://schema.org/nsn'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/nsn'
     )
     gtin14: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'gtin14',
+            'https://schema.org/gtin14'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/gtin14'
     )
     gtin12: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'gtin12',
+            'https://schema.org/gtin12'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/gtin12'
     )
     manufacturer: Optional[Union['Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'manufacturer',
+            'https://schema.org/manufacturer'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/manufacturer'
     )
     review: Optional[Union['Review', List['Review']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'review',
+            'https://schema.org/review'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/review'
     )
     depth: Optional[Union['Distance', List['Distance'], 'QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'depth',
+            'https://schema.org/depth'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/depth'
     )
     positiveNotes: Optional[Union['WebContent', List['WebContent'], 'ItemList', List['ItemList'], str, List[str], 'ListItem', List['ListItem']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'positiveNotes',
+            'https://schema.org/positiveNotes'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/positiveNotes'
     )
     countryOfOrigin: Optional[Union['Country', List['Country']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'countryOfOrigin',
+            'https://schema.org/countryOfOrigin'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/countryOfOrigin'
     )
     isAccessoryOrSparePartFor: Optional[Union['Product', List['Product']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'isAccessoryOrSparePartFor',
+            'https://schema.org/isAccessoryOrSparePartFor'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/isAccessoryOrSparePartFor'
     )

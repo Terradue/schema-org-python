@@ -22,8 +22,8 @@ from typing import (
 from .react_action import ReactAction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .organization import Organization
     from .person import Person
+    from .organization import Organization
 
 class EndorseAction(ReactAction):
     '''
@@ -40,8 +40,8 @@ class EndorseAction(ReactAction):
     endorsee: Optional[Union['Person', List['Person'], 'Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'endorsee',
+            'https://schema.org/endorsee'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/endorsee'
     )

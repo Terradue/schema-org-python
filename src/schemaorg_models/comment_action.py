@@ -39,8 +39,8 @@ class CommentAction(CommunicateAction):
     resultComment: Optional[Union['Comment', List['Comment']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'resultComment',
+            'https://schema.org/resultComment'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/resultComment'
     )

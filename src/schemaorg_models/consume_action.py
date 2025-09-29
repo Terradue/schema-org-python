@@ -22,8 +22,8 @@ from typing import (
 from .action import Action
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .action_access_specification import ActionAccessSpecification
     from .offer import Offer
+    from .action_access_specification import ActionAccessSpecification
 
 class ConsumeAction(Action):
     '''
@@ -41,16 +41,16 @@ class ConsumeAction(Action):
     actionAccessibilityRequirement: Optional[Union['ActionAccessSpecification', List['ActionAccessSpecification']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'actionAccessibilityRequirement',
+            'https://schema.org/actionAccessibilityRequirement'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/actionAccessibilityRequirement'
     )
     expectsAcceptanceOf: Optional[Union['Offer', List['Offer']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'expectsAcceptanceOf',
+            'https://schema.org/expectsAcceptanceOf'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/expectsAcceptanceOf'
     )

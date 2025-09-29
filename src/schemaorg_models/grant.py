@@ -22,13 +22,13 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .product import Product
-    from .medical_entity import MedicalEntity
     from .event import Event
-    from .person import Person
+    from .medical_entity import MedicalEntity
     from .creative_work import CreativeWork
-    from .organization import Organization
+    from .product import Product
+    from .person import Person
     from .bio_chem_entity import BioChemEntity
+    from .organization import Organization
 
 class Grant(Intangible):
     '''
@@ -53,24 +53,24 @@ The amount of a [[Grant]] is represented using [[amount]] as a [[MonetaryAmount]
     sponsor: Optional[Union['Organization', List['Organization'], 'Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'sponsor',
+            'https://schema.org/sponsor'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/sponsor'
     )
     funder: Optional[Union['Organization', List['Organization'], 'Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'funder',
+            'https://schema.org/funder'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/funder'
     )
     fundedItem: Optional[Union['Event', List['Event'], 'MedicalEntity', List['MedicalEntity'], 'BioChemEntity', List['BioChemEntity'], 'Product', List['Product'], 'CreativeWork', List['CreativeWork'], 'Person', List['Person'], 'Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'fundedItem',
+            'https://schema.org/fundedItem'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/fundedItem'
     )

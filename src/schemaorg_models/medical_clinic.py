@@ -22,10 +22,10 @@ from typing import (
 from .medical_organization import MedicalOrganization
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .medical_therapy import MedicalTherapy
-    from .medical_test import MedicalTest
-    from .medical_procedure import MedicalProcedure
     from .medical_specialty import MedicalSpecialty
+    from .medical_procedure import MedicalProcedure
+    from .medical_test import MedicalTest
+    from .medical_therapy import MedicalTherapy
 
 class MedicalClinic(MedicalOrganization):
     '''
@@ -43,16 +43,16 @@ class MedicalClinic(MedicalOrganization):
     availableService: Optional[Union['MedicalProcedure', List['MedicalProcedure'], 'MedicalTherapy', List['MedicalTherapy'], 'MedicalTest', List['MedicalTest']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'availableService',
+            'https://schema.org/availableService'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/availableService'
     )
     medicalSpecialty: Optional[Union['MedicalSpecialty', List['MedicalSpecialty']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'medicalSpecialty',
+            'https://schema.org/medicalSpecialty'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/medicalSpecialty'
     )

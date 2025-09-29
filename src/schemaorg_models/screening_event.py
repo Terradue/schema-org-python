@@ -42,24 +42,24 @@ class ScreeningEvent(Event):
     subtitleLanguage: Optional[Union['Language', List['Language'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'subtitleLanguage',
+            'https://schema.org/subtitleLanguage'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/subtitleLanguage'
     )
     videoFormat: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'videoFormat',
+            'https://schema.org/videoFormat'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/videoFormat'
     )
     workPresented: Optional[Union['Movie', List['Movie']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'workPresented',
+            'https://schema.org/workPresented'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/workPresented'
     )

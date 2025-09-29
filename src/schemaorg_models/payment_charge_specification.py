@@ -41,16 +41,16 @@ class PaymentChargeSpecification(PriceSpecification):
     appliesToDeliveryMethod: Optional[Union['DeliveryMethod', List['DeliveryMethod']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'appliesToDeliveryMethod',
+            'https://schema.org/appliesToDeliveryMethod'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/appliesToDeliveryMethod'
     )
     appliesToPaymentMethod: Optional[Union['PaymentMethod', List['PaymentMethod']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'appliesToPaymentMethod',
+            'https://schema.org/appliesToPaymentMethod'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/appliesToPaymentMethod'
     )

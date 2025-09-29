@@ -38,24 +38,24 @@ class HealthPlanNetwork(Intangible):
     healthPlanNetworkTier: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'healthPlanNetworkTier',
+            'https://schema.org/healthPlanNetworkTier'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/healthPlanNetworkTier'
     )
     healthPlanNetworkId: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'healthPlanNetworkId',
+            'https://schema.org/healthPlanNetworkId'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/healthPlanNetworkId'
     )
     healthPlanCostSharing: Optional[Union[bool, List[bool]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'healthPlanCostSharing',
+            'https://schema.org/healthPlanCostSharing'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/healthPlanCostSharing'
     )

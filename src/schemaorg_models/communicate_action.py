@@ -23,11 +23,11 @@ from .interact_action import InteractAction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .contact_point import ContactPoint
-    from .thing import Thing
+    from .language import Language
     from .audience import Audience
+    from .thing import Thing
     from .person import Person
     from .organization import Organization
-    from .language import Language
 
 class CommunicateAction(InteractAction):
     '''
@@ -47,32 +47,32 @@ class CommunicateAction(InteractAction):
     inLanguage: Optional[Union[str, List[str], 'Language', List['Language']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'inLanguage',
+            'https://schema.org/inLanguage'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/inLanguage'
     )
     about: Optional[Union['Thing', List['Thing']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'about',
+            'https://schema.org/about'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/about'
     )
     recipient: Optional[Union['Organization', List['Organization'], 'Audience', List['Audience'], 'ContactPoint', List['ContactPoint'], 'Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'recipient',
+            'https://schema.org/recipient'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/recipient'
     )
     language: Optional[Union['Language', List['Language']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'language',
+            'https://schema.org/language'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/language'
     )

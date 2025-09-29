@@ -23,11 +23,11 @@ from .medical_business import MedicalBusiness
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .medical_therapy import MedicalTherapy
+    from .category_code import CategoryCode
     from .hospital import Hospital
+    from .medical_specialty import MedicalSpecialty
     from .medical_test import MedicalTest
     from .medical_procedure import MedicalProcedure
-    from .medical_specialty import MedicalSpecialty
-    from .category_code import CategoryCode
 
 class Physician(MedicalBusiness):
     '''
@@ -51,40 +51,40 @@ Note: for historical reasons, any textual label and formal code provided as a li
     hospitalAffiliation: Optional[Union['Hospital', List['Hospital']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'hospitalAffiliation',
+            'https://schema.org/hospitalAffiliation'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/hospitalAffiliation'
     )
     availableService: Optional[Union['MedicalProcedure', List['MedicalProcedure'], 'MedicalTherapy', List['MedicalTherapy'], 'MedicalTest', List['MedicalTest']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'availableService',
+            'https://schema.org/availableService'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/availableService'
     )
     usNPI: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'usNPI',
+            'https://schema.org/usNPI'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/usNPI'
     )
     occupationalCategory: Optional[Union['CategoryCode', List['CategoryCode'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'occupationalCategory',
+            'https://schema.org/occupationalCategory'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/occupationalCategory'
     )
     medicalSpecialty: Optional[Union['MedicalSpecialty', List['MedicalSpecialty']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'medicalSpecialty',
+            'https://schema.org/medicalSpecialty'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/medicalSpecialty'
     )

@@ -40,16 +40,16 @@ class SpeakableSpecification(Intangible):
     cssSelector: Optional[Union['CssSelectorType', List['CssSelectorType']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'cssSelector',
+            'https://schema.org/cssSelector'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/cssSelector'
     )
     xpath: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'xpath',
+            'https://schema.org/xpath'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/xpath'
     )

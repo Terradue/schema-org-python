@@ -40,40 +40,40 @@ class APIReference(TechArticle):
     assembly: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'assembly',
+            'https://schema.org/assembly'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/assembly'
     )
     targetPlatform: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'targetPlatform',
+            'https://schema.org/targetPlatform'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/targetPlatform'
     )
     executableLibraryName: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'executableLibraryName',
+            'https://schema.org/executableLibraryName'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/executableLibraryName'
     )
     assemblyVersion: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'assemblyVersion',
+            'https://schema.org/assemblyVersion'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/assemblyVersion'
     )
     programmingModel: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'programmingModel',
+            'https://schema.org/programmingModel'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/programmingModel'
     )

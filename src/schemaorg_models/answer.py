@@ -41,16 +41,16 @@ class Answer(Comment):
     parentItem: Optional[Union['CreativeWork', List['CreativeWork'], 'Comment', List['Comment']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'parentItem',
+            'https://schema.org/parentItem'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/parentItem'
     )
     answerExplanation: Optional[Union['Comment', List['Comment'], 'WebContent', List['WebContent']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'answerExplanation',
+            'https://schema.org/answerExplanation'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/answerExplanation'
     )

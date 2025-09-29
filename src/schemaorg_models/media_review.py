@@ -46,24 +46,24 @@ class MediaReview(Review):
     mediaAuthenticityCategory: Optional[Union['MediaManipulationRatingEnumeration', List['MediaManipulationRatingEnumeration']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'mediaAuthenticityCategory',
+            'https://schema.org/mediaAuthenticityCategory'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/mediaAuthenticityCategory'
     )
     originalMediaLink: Optional[Union['WebPage', List['WebPage'], HttpUrl, List[HttpUrl], 'MediaObject', List['MediaObject']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'originalMediaLink',
+            'https://schema.org/originalMediaLink'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/originalMediaLink'
     )
     originalMediaContextDescription: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'originalMediaContextDescription',
+            'https://schema.org/originalMediaContextDescription'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/originalMediaContextDescription'
     )

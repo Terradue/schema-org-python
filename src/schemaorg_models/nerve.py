@@ -22,9 +22,9 @@ from typing import (
 from .anatomical_structure import AnatomicalStructure
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .brain_structure import BrainStructure
     from .muscle import Muscle
     from .superficial_anatomy import SuperficialAnatomy
-    from .brain_structure import BrainStructure
 
 class Nerve(AnatomicalStructure):
     '''
@@ -44,32 +44,32 @@ class Nerve(AnatomicalStructure):
     sensoryUnit: Optional[Union['SuperficialAnatomy', List['SuperficialAnatomy'], 'AnatomicalStructure', List['AnatomicalStructure']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'sensoryUnit',
+            'https://schema.org/sensoryUnit'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/sensoryUnit'
     )
     branch: Optional[Union['AnatomicalStructure', List['AnatomicalStructure']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'branch',
+            'https://schema.org/branch'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/branch'
     )
     nerveMotor: Optional[Union['Muscle', List['Muscle']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'nerveMotor',
+            'https://schema.org/nerveMotor'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/nerveMotor'
     )
     sourcedFrom: Optional[Union['BrainStructure', List['BrainStructure']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'sourcedFrom',
+            'https://schema.org/sourcedFrom'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/sourcedFrom'
     )

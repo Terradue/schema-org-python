@@ -22,14 +22,14 @@ from typing import (
 from .thing import Thing
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .entry_point import EntryPoint
     from .how_to import HowTo
-    from .action_status_type import ActionStatusType
-    from .virtual_location import VirtualLocation
-    from .person import Person
     from .place import Place
-    from .organization import Organization
+    from .virtual_location import VirtualLocation
+    from .action_status_type import ActionStatusType
     from .postal_address import PostalAddress
+    from .person import Person
+    from .organization import Organization
+    from .entry_point import EntryPoint
 
 class Action(Thing):
     '''
@@ -64,104 +64,104 @@ Note that Event uses startDate/endDate instead of startTime/endTime, even when d
     actionStatus: Optional[Union['ActionStatusType', List['ActionStatusType']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'actionStatus',
+            'https://schema.org/actionStatus'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/actionStatus'
     )
     target: Optional[Union[HttpUrl, List[HttpUrl], 'EntryPoint', List['EntryPoint']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'target',
+            'https://schema.org/target'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/target'
     )
     instrument: Optional[Union['Thing', List['Thing']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'instrument',
+            'https://schema.org/instrument'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/instrument'
     )
     provider: Optional[Union['Person', List['Person'], 'Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'provider',
+            'https://schema.org/provider'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/provider'
     )
     actionProcess: Optional[Union['HowTo', List['HowTo']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'actionProcess',
+            'https://schema.org/actionProcess'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/actionProcess'
     )
     agent: Optional[Union['Person', List['Person'], 'Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'agent',
+            'https://schema.org/agent'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/agent'
     )
     participant: Optional[Union['Organization', List['Organization'], 'Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'participant',
+            'https://schema.org/participant'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/participant'
     )
     endTime: Optional[Union[time, List[time], datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'endTime',
+            'https://schema.org/endTime'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/endTime'
     )
     error: Optional[Union['Thing', List['Thing']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'error',
+            'https://schema.org/error'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/error'
     )
     result: Optional[Union['Thing', List['Thing']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'result',
+            'https://schema.org/result'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/result'
     )
     object: Optional[Union['Thing', List['Thing']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'object',
+            'https://schema.org/object'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/object'
     )
     location: Optional[Union['VirtualLocation', List['VirtualLocation'], 'PostalAddress', List['PostalAddress'], str, List[str], 'Place', List['Place']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'location',
+            'https://schema.org/location'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/location'
     )
     startTime: Optional[Union[time, List[time], datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'startTime',
+            'https://schema.org/startTime'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/startTime'
     )

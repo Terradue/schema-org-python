@@ -47,24 +47,24 @@ Note that Event uses startDate/endDate instead of startTime/endTime, even when d
     partySize: Optional[Union[int, List[int], 'QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'partySize',
+            'https://schema.org/partySize'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/partySize'
     )
     endTime: Optional[Union[time, List[time], datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'endTime',
+            'https://schema.org/endTime'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/endTime'
     )
     startTime: Optional[Union[time, List[time], datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'startTime',
+            'https://schema.org/startTime'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/startTime'
     )

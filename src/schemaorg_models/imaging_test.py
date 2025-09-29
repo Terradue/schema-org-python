@@ -39,8 +39,8 @@ class ImagingTest(MedicalTest):
     imagingTechnique: Optional[Union['MedicalImagingTechnique', List['MedicalImagingTechnique']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'imagingTechnique',
+            'https://schema.org/imagingTechnique'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/imagingTechnique'
     )

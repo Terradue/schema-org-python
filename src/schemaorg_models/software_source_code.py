@@ -22,8 +22,8 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .software_application import SoftwareApplication
     from .computer_language import ComputerLanguage
+    from .software_application import SoftwareApplication
 
 class SoftwareSourceCode(CreativeWork):
     '''
@@ -46,56 +46,56 @@ class SoftwareSourceCode(CreativeWork):
     sampleType: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'sampleType',
+            'https://schema.org/sampleType'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/sampleType'
     )
     runtimePlatform: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'runtimePlatform',
+            'https://schema.org/runtimePlatform'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/runtimePlatform'
     )
     codeRepository: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'codeRepository',
+            'https://schema.org/codeRepository'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/codeRepository'
     )
     codeSampleType: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'codeSampleType',
+            'https://schema.org/codeSampleType'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/codeSampleType'
     )
     runtime: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'runtime',
+            'https://schema.org/runtime'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/runtime'
     )
     targetProduct: Optional[Union['SoftwareApplication', List['SoftwareApplication']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'targetProduct',
+            'https://schema.org/targetProduct'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/targetProduct'
     )
     programmingLanguage: Optional[Union[str, List[str], 'ComputerLanguage', List['ComputerLanguage']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'programmingLanguage',
+            'https://schema.org/programmingLanguage'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/programmingLanguage'
     )

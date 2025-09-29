@@ -23,11 +23,11 @@ from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .measurement_type_enumeration import MeasurementTypeEnumeration
-    from .enumeration import Enumeration
+    from .measurement_method_enum import MeasurementMethodEnum
     from .qualitative_value import QualitativeValue
     from .defined_term import DefinedTerm
     from .quantitative_value import QuantitativeValue
-    from .measurement_method_enum import MeasurementMethodEnum
+    from .enumeration import Enumeration
 
 class PropertyValue(StructuredValue):
     '''
@@ -70,72 +70,72 @@ Standards bodies should promote a standard prefix for the identifiers of propert
     unitText: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'unitText',
+            'https://schema.org/unitText'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/unitText'
     )
     measurementTechnique: Optional[Union['DefinedTerm', List['DefinedTerm'], 'MeasurementMethodEnum', List['MeasurementMethodEnum'], str, List[str], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'measurementTechnique',
+            'https://schema.org/measurementTechnique'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/measurementTechnique'
     )
     minValue: Optional[Union[float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'minValue',
+            'https://schema.org/minValue'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/minValue'
     )
     propertyID: Optional[Union[HttpUrl, List[HttpUrl], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'propertyID',
+            'https://schema.org/propertyID'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/propertyID'
     )
     value: Optional[Union[float, List[float], 'StructuredValue', List['StructuredValue'], bool, List[bool], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'value',
+            'https://schema.org/value'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/value'
     )
     maxValue: Optional[Union[float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'maxValue',
+            'https://schema.org/maxValue'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/maxValue'
     )
     unitCode: Optional[Union[HttpUrl, List[HttpUrl], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'unitCode',
+            'https://schema.org/unitCode'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/unitCode'
     )
     measurementMethod: Optional[Union['DefinedTerm', List['DefinedTerm'], str, List[str], 'MeasurementMethodEnum', List['MeasurementMethodEnum'], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'measurementMethod',
+            'https://schema.org/measurementMethod'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/measurementMethod'
     )
     valueReference: Optional[Union['DefinedTerm', List['DefinedTerm'], 'MeasurementTypeEnumeration', List['MeasurementTypeEnumeration'], str, List[str], 'Enumeration', List['Enumeration'], 'QualitativeValue', List['QualitativeValue'], 'QuantitativeValue', List['QuantitativeValue'], 'PropertyValue', List['PropertyValue'], 'StructuredValue', List['StructuredValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'valueReference',
+            'https://schema.org/valueReference'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/valueReference'
     )

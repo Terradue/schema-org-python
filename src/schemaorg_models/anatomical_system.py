@@ -22,9 +22,9 @@ from typing import (
 from .medical_entity import MedicalEntity
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .medical_therapy import MedicalTherapy
     from .anatomical_structure import AnatomicalStructure
     from .medical_condition import MedicalCondition
+    from .medical_therapy import MedicalTherapy
 
 class AnatomicalSystem(MedicalEntity):
     '''
@@ -45,40 +45,40 @@ class AnatomicalSystem(MedicalEntity):
     associatedPathophysiology: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'associatedPathophysiology',
+            'https://schema.org/associatedPathophysiology'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/associatedPathophysiology'
     )
     comprisedOf: Optional[Union['AnatomicalStructure', List['AnatomicalStructure'], 'AnatomicalSystem', List['AnatomicalSystem']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'comprisedOf',
+            'https://schema.org/comprisedOf'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/comprisedOf'
     )
     relatedStructure: Optional[Union['AnatomicalStructure', List['AnatomicalStructure']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'relatedStructure',
+            'https://schema.org/relatedStructure'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/relatedStructure'
     )
     relatedCondition: Optional[Union['MedicalCondition', List['MedicalCondition']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'relatedCondition',
+            'https://schema.org/relatedCondition'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/relatedCondition'
     )
     relatedTherapy: Optional[Union['MedicalTherapy', List['MedicalTherapy']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'relatedTherapy',
+            'https://schema.org/relatedTherapy'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/relatedTherapy'
     )

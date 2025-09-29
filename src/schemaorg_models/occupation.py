@@ -22,13 +22,13 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .educational_occupational_credential import EducationalOccupationalCredential
-    from .monetary_amount import MonetaryAmount
-    from .administrative_area import AdministrativeArea
-    from .occupational_experience_requirements import OccupationalExperienceRequirements
-    from .defined_term import DefinedTerm
     from .monetary_amount_distribution import MonetaryAmountDistribution
+    from .monetary_amount import MonetaryAmount
+    from .educational_occupational_credential import EducationalOccupationalCredential
     from .category_code import CategoryCode
+    from .occupational_experience_requirements import OccupationalExperienceRequirements
+    from .administrative_area import AdministrativeArea
+    from .defined_term import DefinedTerm
 
 class Occupation(Intangible):
     '''
@@ -54,64 +54,64 @@ Note: for historical reasons, any textual label and formal code provided as a li
     occupationalCategory: Optional[Union['CategoryCode', List['CategoryCode'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'occupationalCategory',
+            'https://schema.org/occupationalCategory'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/occupationalCategory'
     )
     occupationLocation: Optional[Union['AdministrativeArea', List['AdministrativeArea']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'occupationLocation',
+            'https://schema.org/occupationLocation'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/occupationLocation'
     )
     experienceRequirements: Optional[Union['OccupationalExperienceRequirements', List['OccupationalExperienceRequirements'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'experienceRequirements',
+            'https://schema.org/experienceRequirements'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/experienceRequirements'
     )
     responsibilities: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'responsibilities',
+            'https://schema.org/responsibilities'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/responsibilities'
     )
     qualifications: Optional[Union['EducationalOccupationalCredential', List['EducationalOccupationalCredential'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'qualifications',
+            'https://schema.org/qualifications'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/qualifications'
     )
     skills: Optional[Union['DefinedTerm', List['DefinedTerm'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'skills',
+            'https://schema.org/skills'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/skills'
     )
     estimatedSalary: Optional[Union['MonetaryAmountDistribution', List['MonetaryAmountDistribution'], float, List[float], 'MonetaryAmount', List['MonetaryAmount']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'estimatedSalary',
+            'https://schema.org/estimatedSalary'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/estimatedSalary'
     )
     educationRequirements: Optional[Union['EducationalOccupationalCredential', List['EducationalOccupationalCredential'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'educationRequirements',
+            'https://schema.org/educationRequirements'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/educationRequirements'
     )

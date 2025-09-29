@@ -36,8 +36,8 @@ class MovieTheater(CivicStructure):
     screenCount: Optional[Union[float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'screenCount',
+            'https://schema.org/screenCount'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/screenCount'
     )

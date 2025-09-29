@@ -36,8 +36,8 @@ class EducationalAudience(Audience):
     educationalRole: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'educationalRole',
+            'https://schema.org/educationalRole'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/educationalRole'
     )

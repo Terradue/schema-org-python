@@ -46,16 +46,16 @@ Typical unit code(s): KGM for kilogram, LBR for pound\
     roofLoad: Optional[Union['QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'roofLoad',
+            'https://schema.org/roofLoad'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/roofLoad'
     )
     acrissCode: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'acrissCode',
+            'https://schema.org/acrissCode'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/acrissCode'
     )

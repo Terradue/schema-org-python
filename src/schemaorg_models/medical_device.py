@@ -44,48 +44,48 @@ class MedicalDevice(MedicalEntity):
     procedure: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'procedure',
+            'https://schema.org/procedure'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/procedure'
     )
     seriousAdverseOutcome: Optional[Union['MedicalEntity', List['MedicalEntity']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'seriousAdverseOutcome',
+            'https://schema.org/seriousAdverseOutcome'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/seriousAdverseOutcome'
     )
     adverseOutcome: Optional[Union['MedicalEntity', List['MedicalEntity']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'adverseOutcome',
+            'https://schema.org/adverseOutcome'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/adverseOutcome'
     )
     preOp: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'preOp',
+            'https://schema.org/preOp'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/preOp'
     )
     contraindication: Optional[Union[str, List[str], 'MedicalContraindication', List['MedicalContraindication']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'contraindication',
+            'https://schema.org/contraindication'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/contraindication'
     )
     postOp: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'postOp',
+            'https://schema.org/postOp'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/postOp'
     )

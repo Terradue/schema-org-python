@@ -40,8 +40,8 @@ class TouristTrip(Trip):
     touristType: Optional[Union['Audience', List['Audience'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'touristType',
+            'https://schema.org/touristType'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/touristType'
     )

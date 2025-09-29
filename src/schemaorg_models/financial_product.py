@@ -41,24 +41,24 @@ class FinancialProduct(Service):
     interestRate: Optional[Union[float, List[float], 'QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'interestRate',
+            'https://schema.org/interestRate'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/interestRate'
     )
     annualPercentageRate: Optional[Union['QuantitativeValue', List['QuantitativeValue'], float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'annualPercentageRate',
+            'https://schema.org/annualPercentageRate'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/annualPercentageRate'
     )
     feesAndCommissionsSpecification: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'feesAndCommissionsSpecification',
+            'https://schema.org/feesAndCommissionsSpecification'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/feesAndCommissionsSpecification'
     )

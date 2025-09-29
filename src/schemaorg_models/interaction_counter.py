@@ -22,11 +22,11 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .place import Place
+    from .virtual_location import VirtualLocation
+    from .software_application import SoftwareApplication
     from .web_site import WebSite
     from .action import Action
-    from .virtual_location import VirtualLocation
-    from .place import Place
-    from .software_application import SoftwareApplication
     from .postal_address import PostalAddress
 
 class InteractionCounter(StructuredValue):
@@ -53,48 +53,48 @@ Note that Event uses startDate/endDate instead of startTime/endTime, even when d
     interactionType: Optional[Union['Action', List['Action']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'interactionType',
+            'https://schema.org/interactionType'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/interactionType'
     )
     userInteractionCount: Optional[Union[int, List[int]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'userInteractionCount',
+            'https://schema.org/userInteractionCount'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/userInteractionCount'
     )
     endTime: Optional[Union[time, List[time], datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'endTime',
+            'https://schema.org/endTime'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/endTime'
     )
     location: Optional[Union['VirtualLocation', List['VirtualLocation'], 'PostalAddress', List['PostalAddress'], str, List[str], 'Place', List['Place']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'location',
+            'https://schema.org/location'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/location'
     )
     interactionService: Optional[Union['WebSite', List['WebSite'], 'SoftwareApplication', List['SoftwareApplication']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'interactionService',
+            'https://schema.org/interactionService'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/interactionService'
     )
     startTime: Optional[Union[time, List[time], datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'startTime',
+            'https://schema.org/startTime'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/startTime'
     )

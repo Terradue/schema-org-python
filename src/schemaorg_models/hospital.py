@@ -23,11 +23,11 @@ from .civic_structure import CivicStructure
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .medical_therapy import MedicalTherapy
-    from .cdcpmd_record import CDCPMDRecord
-    from .dataset import Dataset
-    from .medical_test import MedicalTest
-    from .medical_procedure import MedicalProcedure
     from .medical_specialty import MedicalSpecialty
+    from .medical_test import MedicalTest
+    from .dataset import Dataset
+    from .cdcpmd_record import CDCPMDRecord
+    from .medical_procedure import MedicalProcedure
 
 class Hospital(CivicStructure):
     '''
@@ -46,24 +46,24 @@ class Hospital(CivicStructure):
     healthcareReportingData: Optional[Union['Dataset', List['Dataset'], 'CDCPMDRecord', List['CDCPMDRecord']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'healthcareReportingData',
+            'https://schema.org/healthcareReportingData'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/healthcareReportingData'
     )
     medicalSpecialty: Optional[Union['MedicalSpecialty', List['MedicalSpecialty']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'medicalSpecialty',
+            'https://schema.org/medicalSpecialty'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/medicalSpecialty'
     )
     availableService: Optional[Union['MedicalProcedure', List['MedicalProcedure'], 'MedicalTherapy', List['MedicalTherapy'], 'MedicalTest', List['MedicalTest']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'availableService',
+            'https://schema.org/availableService'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/availableService'
     )

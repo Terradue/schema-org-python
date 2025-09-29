@@ -22,8 +22,8 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .monetary_amount import MonetaryAmount
     from .unit_price_specification import UnitPriceSpecification
+    from .monetary_amount import MonetaryAmount
 
 class ExchangeRateSpecification(StructuredValue):
     '''
@@ -44,24 +44,24 @@ Use standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/IS
     exchangeRateSpread: Optional[Union['MonetaryAmount', List['MonetaryAmount'], float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'exchangeRateSpread',
+            'https://schema.org/exchangeRateSpread'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/exchangeRateSpread'
     )
     currency: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'currency',
+            'https://schema.org/currency'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/currency'
     )
     currentExchangeRate: Optional[Union['UnitPriceSpecification', List['UnitPriceSpecification']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'currentExchangeRate',
+            'https://schema.org/currentExchangeRate'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/currentExchangeRate'
     )

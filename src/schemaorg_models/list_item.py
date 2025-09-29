@@ -42,32 +42,32 @@ class ListItem(Intangible):
     position: Optional[Union[int, List[int], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'position',
+            'https://schema.org/position'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/position'
     )
     nextItem: Optional[Union['ListItem', List['ListItem']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'nextItem',
+            'https://schema.org/nextItem'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/nextItem'
     )
     item: Optional[Union['Thing', List['Thing']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'item',
+            'https://schema.org/item'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/item'
     )
     previousItem: Optional[Union['ListItem', List['ListItem']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'previousItem',
+            'https://schema.org/previousItem'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/previousItem'
     )

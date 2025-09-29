@@ -39,8 +39,8 @@ class ReviewAction(AssessAction):
     resultReview: Optional[Union['Review', List['Review']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'resultReview',
+            'https://schema.org/resultReview'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/resultReview'
     )

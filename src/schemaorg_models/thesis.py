@@ -36,8 +36,8 @@ class Thesis(CreativeWork):
     inSupportOf: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'inSupportOf',
+            'https://schema.org/inSupportOf'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/inSupportOf'
     )

@@ -42,16 +42,16 @@ Typical unit code(s): C62 for person.
     numberOfRooms: Optional[Union[float, List[float], 'QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'numberOfRooms',
+            'https://schema.org/numberOfRooms'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/numberOfRooms'
     )
     occupancy: Optional[Union['QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'occupancy',
+            'https://schema.org/occupancy'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/occupancy'
     )

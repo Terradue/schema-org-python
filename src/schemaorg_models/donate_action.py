@@ -23,8 +23,8 @@ from .transfer_action import TransferAction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .contact_point import ContactPoint
-    from .price_specification import PriceSpecification
     from .audience import Audience
+    from .price_specification import PriceSpecification
     from .person import Person
     from .organization import Organization
 
@@ -56,32 +56,32 @@ Use standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/IS
     price: Optional[Union[str, List[str], float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'price',
+            'https://schema.org/price'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/price'
     )
     priceCurrency: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'priceCurrency',
+            'https://schema.org/priceCurrency'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/priceCurrency'
     )
     priceSpecification: Optional[Union['PriceSpecification', List['PriceSpecification']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'priceSpecification',
+            'https://schema.org/priceSpecification'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/priceSpecification'
     )
     recipient: Optional[Union['Organization', List['Organization'], 'Audience', List['Audience'], 'ContactPoint', List['ContactPoint'], 'Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'recipient',
+            'https://schema.org/recipient'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/recipient'
     )

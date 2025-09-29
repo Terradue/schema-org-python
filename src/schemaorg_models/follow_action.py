@@ -22,8 +22,8 @@ from typing import (
 from .interact_action import InteractAction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .organization import Organization
     from .person import Person
+    from .organization import Organization
 
 class FollowAction(InteractAction):
     '''
@@ -48,8 +48,8 @@ Related actions:\
     followee: Optional[Union['Person', List['Person'], 'Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'followee',
+            'https://schema.org/followee'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/followee'
     )

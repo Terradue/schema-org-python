@@ -22,8 +22,8 @@ from typing import (
 from .price_specification import PriceSpecification
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .price_type_enumeration import PriceTypeEnumeration
     from .unit_price_specification import UnitPriceSpecification
+    from .price_type_enumeration import PriceTypeEnumeration
 
 class CompoundPriceSpecification(PriceSpecification):
     '''
@@ -41,16 +41,16 @@ class CompoundPriceSpecification(PriceSpecification):
     priceType: Optional[Union[str, List[str], 'PriceTypeEnumeration', List['PriceTypeEnumeration']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'priceType',
+            'https://schema.org/priceType'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/priceType'
     )
     priceComponent: Optional[Union['UnitPriceSpecification', List['UnitPriceSpecification']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'priceComponent',
+            'https://schema.org/priceComponent'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/priceComponent'
     )

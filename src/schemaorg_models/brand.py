@@ -22,8 +22,8 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .review import Review
     from .aggregate_rating import AggregateRating
+    from .review import Review
     from .image_object import ImageObject
 
 class Brand(Intangible):
@@ -44,32 +44,32 @@ class Brand(Intangible):
     review: Optional[Union['Review', List['Review']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'review',
+            'https://schema.org/review'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/review'
     )
     aggregateRating: Optional[Union['AggregateRating', List['AggregateRating']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'aggregateRating',
+            'https://schema.org/aggregateRating'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/aggregateRating'
     )
     logo: Optional[Union[HttpUrl, List[HttpUrl], 'ImageObject', List['ImageObject']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'logo',
+            'https://schema.org/logo'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/logo'
     )
     slogan: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'slogan',
+            'https://schema.org/slogan'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/slogan'
     )

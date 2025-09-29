@@ -39,8 +39,8 @@ class OnlineStore(OnlineBusiness):
     isStoreOn: Optional[Union['OnlineMarketplace', List['OnlineMarketplace']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'isStoreOn',
+            'https://schema.org/isStoreOn'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/isStoreOn'
     )

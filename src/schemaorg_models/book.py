@@ -22,8 +22,8 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .book_format_type import BookFormatType
     from .person import Person
+    from .book_format_type import BookFormatType
 
 class Book(CreativeWork):
     '''
@@ -45,48 +45,48 @@ class Book(CreativeWork):
     abridged: Optional[Union[bool, List[bool]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'abridged',
+            'https://schema.org/abridged'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/abridged'
     )
     bookFormat: Optional[Union['BookFormatType', List['BookFormatType']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'bookFormat',
+            'https://schema.org/bookFormat'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/bookFormat'
     )
     isbn: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'isbn',
+            'https://schema.org/isbn'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/isbn'
     )
     numberOfPages: Optional[Union[int, List[int]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'numberOfPages',
+            'https://schema.org/numberOfPages'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/numberOfPages'
     )
     illustrator: Optional[Union['Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'illustrator',
+            'https://schema.org/illustrator'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/illustrator'
     )
     bookEdition: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'bookEdition',
+            'https://schema.org/bookEdition'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/bookEdition'
     )

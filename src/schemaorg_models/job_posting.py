@@ -22,19 +22,19 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .contact_point import ContactPoint
-    from .educational_occupational_credential import EducationalOccupationalCredential
-    from .monetary_amount import MonetaryAmount
-    from .price_specification import PriceSpecification
     from .person import Person
-    from .administrative_area import AdministrativeArea
-    from .occupation import Occupation
-    from .occupational_experience_requirements import OccupationalExperienceRequirements
+    from .contact_point import ContactPoint
+    from .monetary_amount_distribution import MonetaryAmountDistribution
     from .place import Place
+    from .monetary_amount import MonetaryAmount
+    from .occupation import Occupation
+    from .educational_occupational_credential import EducationalOccupationalCredential
+    from .category_code import CategoryCode
+    from .occupational_experience_requirements import OccupationalExperienceRequirements
+    from .price_specification import PriceSpecification
+    from .administrative_area import AdministrativeArea
     from .defined_term import DefinedTerm
     from .organization import Organization
-    from .monetary_amount_distribution import MonetaryAmountDistribution
-    from .category_code import CategoryCode
 
 class JobPosting(Intangible):
     '''
@@ -89,296 +89,296 @@ Note: for historical reasons, any textual label and formal code provided as a li
     estimatedSalary: Optional[Union['MonetaryAmountDistribution', List['MonetaryAmountDistribution'], float, List[float], 'MonetaryAmount', List['MonetaryAmount']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'estimatedSalary',
+            'https://schema.org/estimatedSalary'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/estimatedSalary'
     )
     directApply: Optional[Union[bool, List[bool]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'directApply',
+            'https://schema.org/directApply'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/directApply'
     )
     totalJobOpenings: Optional[Union[int, List[int]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'totalJobOpenings',
+            'https://schema.org/totalJobOpenings'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/totalJobOpenings'
     )
     skills: Optional[Union['DefinedTerm', List['DefinedTerm'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'skills',
+            'https://schema.org/skills'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/skills'
     )
     workHours: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'workHours',
+            'https://schema.org/workHours'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/workHours'
     )
     applicantLocationRequirements: Optional[Union['AdministrativeArea', List['AdministrativeArea']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'applicantLocationRequirements',
+            'https://schema.org/applicantLocationRequirements'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/applicantLocationRequirements'
     )
     validThrough: Optional[Union[datetime, List[datetime], date, List[date]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'validThrough',
+            'https://schema.org/validThrough'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/validThrough'
     )
     jobImmediateStart: Optional[Union[bool, List[bool]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'jobImmediateStart',
+            'https://schema.org/jobImmediateStart'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/jobImmediateStart'
     )
     title: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'title',
+            'https://schema.org/title'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/title'
     )
     employmentType: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'employmentType',
+            'https://schema.org/employmentType'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/employmentType'
     )
     salaryCurrency: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'salaryCurrency',
+            'https://schema.org/salaryCurrency'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/salaryCurrency'
     )
     educationRequirements: Optional[Union['EducationalOccupationalCredential', List['EducationalOccupationalCredential'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'educationRequirements',
+            'https://schema.org/educationRequirements'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/educationRequirements'
     )
     benefits: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'benefits',
+            'https://schema.org/benefits'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/benefits'
     )
     industry: Optional[Union['DefinedTerm', List['DefinedTerm'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'industry',
+            'https://schema.org/industry'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/industry'
     )
     sensoryRequirement: Optional[Union[HttpUrl, List[HttpUrl], 'DefinedTerm', List['DefinedTerm'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'sensoryRequirement',
+            'https://schema.org/sensoryRequirement'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/sensoryRequirement'
     )
     incentives: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'incentives',
+            'https://schema.org/incentives'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/incentives'
     )
     experienceInPlaceOfEducation: Optional[Union[bool, List[bool]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'experienceInPlaceOfEducation',
+            'https://schema.org/experienceInPlaceOfEducation'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/experienceInPlaceOfEducation'
     )
     applicationContact: Optional[Union['ContactPoint', List['ContactPoint']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'applicationContact',
+            'https://schema.org/applicationContact'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/applicationContact'
     )
     occupationalCategory: Optional[Union['CategoryCode', List['CategoryCode'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'occupationalCategory',
+            'https://schema.org/occupationalCategory'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/occupationalCategory'
     )
     physicalRequirement: Optional[Union['DefinedTerm', List['DefinedTerm'], str, List[str], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'physicalRequirement',
+            'https://schema.org/physicalRequirement'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/physicalRequirement'
     )
     relevantOccupation: Optional[Union['Occupation', List['Occupation']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'relevantOccupation',
+            'https://schema.org/relevantOccupation'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/relevantOccupation'
     )
     datePosted: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'datePosted',
+            'https://schema.org/datePosted'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/datePosted'
     )
     experienceRequirements: Optional[Union['OccupationalExperienceRequirements', List['OccupationalExperienceRequirements'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'experienceRequirements',
+            'https://schema.org/experienceRequirements'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/experienceRequirements'
     )
     eligibilityToWorkRequirement: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'eligibilityToWorkRequirement',
+            'https://schema.org/eligibilityToWorkRequirement'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/eligibilityToWorkRequirement'
     )
     jobStartDate: Optional[Union[date, List[date], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'jobStartDate',
+            'https://schema.org/jobStartDate'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/jobStartDate'
     )
     specialCommitments: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'specialCommitments',
+            'https://schema.org/specialCommitments'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/specialCommitments'
     )
     incentiveCompensation: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'incentiveCompensation',
+            'https://schema.org/incentiveCompensation'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/incentiveCompensation'
     )
     responsibilities: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'responsibilities',
+            'https://schema.org/responsibilities'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/responsibilities'
     )
     employmentUnit: Optional[Union['Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'employmentUnit',
+            'https://schema.org/employmentUnit'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/employmentUnit'
     )
     hiringOrganization: Optional[Union['Person', List['Person'], 'Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'hiringOrganization',
+            'https://schema.org/hiringOrganization'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/hiringOrganization'
     )
     jobLocationType: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'jobLocationType',
+            'https://schema.org/jobLocationType'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/jobLocationType'
     )
     jobLocation: Optional[Union['Place', List['Place']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'jobLocation',
+            'https://schema.org/jobLocation'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/jobLocation'
     )
     employerOverview: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'employerOverview',
+            'https://schema.org/employerOverview'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/employerOverview'
     )
     securityClearanceRequirement: Optional[Union[HttpUrl, List[HttpUrl], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'securityClearanceRequirement',
+            'https://schema.org/securityClearanceRequirement'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/securityClearanceRequirement'
     )
     baseSalary: Optional[Union[float, List[float], 'PriceSpecification', List['PriceSpecification'], 'MonetaryAmount', List['MonetaryAmount']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'baseSalary',
+            'https://schema.org/baseSalary'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/baseSalary'
     )
     qualifications: Optional[Union['EducationalOccupationalCredential', List['EducationalOccupationalCredential'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'qualifications',
+            'https://schema.org/qualifications'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/qualifications'
     )
     jobBenefits: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'jobBenefits',
+            'https://schema.org/jobBenefits'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/jobBenefits'
     )

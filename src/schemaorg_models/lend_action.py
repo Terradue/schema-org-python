@@ -43,8 +43,8 @@ Related actions:\
     borrower: Optional[Union['Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'borrower',
+            'https://schema.org/borrower'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/borrower'
     )

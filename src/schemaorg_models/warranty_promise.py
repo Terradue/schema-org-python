@@ -41,16 +41,16 @@ class WarrantyPromise(StructuredValue):
     warrantyScope: Optional[Union['WarrantyScope', List['WarrantyScope']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'warrantyScope',
+            'https://schema.org/warrantyScope'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/warrantyScope'
     )
     durationOfWarranty: Optional[Union['QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'durationOfWarranty',
+            'https://schema.org/durationOfWarranty'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/durationOfWarranty'
     )

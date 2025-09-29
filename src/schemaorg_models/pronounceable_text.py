@@ -19,12 +19,11 @@ from typing import (
     Optional,
     Union
 )
-from .text import Text
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .language import Language
 
-class PronounceableText(Text):
+class PronounceableText(BaseModel):
     '''
     Data type: PronounceableText.
 
@@ -42,32 +41,32 @@ class PronounceableText(Text):
     speechToTextMarkup: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'speechToTextMarkup',
+            'https://schema.org/speechToTextMarkup'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/speechToTextMarkup'
     )
     inLanguage: Optional[Union[str, List[str], 'Language', List['Language']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'inLanguage',
+            'https://schema.org/inLanguage'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/inLanguage'
     )
     phoneticText: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'phoneticText',
+            'https://schema.org/phoneticText'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/phoneticText'
     )
     textValue: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'textValue',
+            'https://schema.org/textValue'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/textValue'
     )

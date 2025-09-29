@@ -22,9 +22,9 @@ from typing import (
 from .trade_action import TradeAction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .organization import Organization
-    from .real_estate_agent import RealEstateAgent
     from .person import Person
+    from .real_estate_agent import RealEstateAgent
+    from .organization import Organization
 
 class RentAction(TradeAction):
     '''
@@ -42,16 +42,16 @@ class RentAction(TradeAction):
     realEstateAgent: Optional[Union['RealEstateAgent', List['RealEstateAgent']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'realEstateAgent',
+            'https://schema.org/realEstateAgent'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/realEstateAgent'
     )
     landlord: Optional[Union['Organization', List['Organization'], 'Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'landlord',
+            'https://schema.org/landlord'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/landlord'
     )

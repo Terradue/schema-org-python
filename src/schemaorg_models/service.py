@@ -22,26 +22,26 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .review import Review
-    from .certification import Certification
-    from .product import Product
-    from .audience import Audience
-    from .place import Place
-    from .offer import Offer
-    from .brand import Brand
-    from .aggregate_rating import AggregateRating
-    from .demand import Demand
-    from .geo_shape import GeoShape
-    from .image_object import ImageObject
     from .opening_hours_specification import OpeningHoursSpecification
+    from .government_benefits_type import GovernmentBenefitsType
+    from .image_object import ImageObject
+    from .geo_shape import GeoShape
+    from .brand import Brand
+    from .organization import Organization
+    from .service_channel import ServiceChannel
+    from .administrative_area import AdministrativeArea
+    from .demand import Demand
+    from .certification import Certification
+    from .offer import Offer
+    from .product import Product
+    from .review import Review
+    from .aggregate_rating import AggregateRating
+    from .person import Person
+    from .place import Place
+    from .offer_catalog import OfferCatalog
+    from .audience import Audience
     from .category_code import CategoryCode
     from .thing import Thing
-    from .administrative_area import AdministrativeArea
-    from .organization import Organization
-    from .offer_catalog import OfferCatalog
-    from .government_benefits_type import GovernmentBenefitsType
-    from .person import Person
-    from .service_channel import ServiceChannel
     from .physical_activity_category import PhysicalActivityCategory
 
 class Service(Intangible):
@@ -84,200 +84,200 @@ class Service(Intangible):
     slogan: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'slogan',
+            'https://schema.org/slogan'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/slogan'
     )
     logo: Optional[Union[HttpUrl, List[HttpUrl], 'ImageObject', List['ImageObject']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'logo',
+            'https://schema.org/logo'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/logo'
     )
     audience: Optional[Union['Audience', List['Audience']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'audience',
+            'https://schema.org/audience'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/audience'
     )
     produces: Optional[Union['Thing', List['Thing']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'produces',
+            'https://schema.org/produces'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/produces'
     )
     hoursAvailable: Optional[Union['OpeningHoursSpecification', List['OpeningHoursSpecification']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'hoursAvailable',
+            'https://schema.org/hoursAvailable'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/hoursAvailable'
     )
     serviceAudience: Optional[Union['Audience', List['Audience']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'serviceAudience',
+            'https://schema.org/serviceAudience'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/serviceAudience'
     )
     termsOfService: Optional[Union[HttpUrl, List[HttpUrl], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'termsOfService',
+            'https://schema.org/termsOfService'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/termsOfService'
     )
     award: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'award',
+            'https://schema.org/award'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/award'
     )
     availableChannel: Optional[Union['ServiceChannel', List['ServiceChannel']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'availableChannel',
+            'https://schema.org/availableChannel'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/availableChannel'
     )
     isSimilarTo: Optional[Union['Service', List['Service'], 'Product', List['Product']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'isSimilarTo',
+            'https://schema.org/isSimilarTo'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/isSimilarTo'
     )
     offers: Optional[Union['Demand', List['Demand'], 'Offer', List['Offer']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'offers',
+            'https://schema.org/offers'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/offers'
     )
     providerMobility: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'providerMobility',
+            'https://schema.org/providerMobility'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/providerMobility'
     )
     brand: Optional[Union['Organization', List['Organization'], 'Brand', List['Brand']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'brand',
+            'https://schema.org/brand'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/brand'
     )
     review: Optional[Union['Review', List['Review']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'review',
+            'https://schema.org/review'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/review'
     )
     broker: Optional[Union['Person', List['Person'], 'Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'broker',
+            'https://schema.org/broker'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/broker'
     )
     provider: Optional[Union['Person', List['Person'], 'Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'provider',
+            'https://schema.org/provider'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/provider'
     )
     category: Optional[Union['PhysicalActivityCategory', List['PhysicalActivityCategory'], 'CategoryCode', List['CategoryCode'], str, List[str], 'Thing', List['Thing'], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'category',
+            'https://schema.org/category'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/category'
     )
     serviceArea: Optional[Union['AdministrativeArea', List['AdministrativeArea'], 'GeoShape', List['GeoShape'], 'Place', List['Place']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'serviceArea',
+            'https://schema.org/serviceArea'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/serviceArea'
     )
     hasOfferCatalog: Optional[Union['OfferCatalog', List['OfferCatalog']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'hasOfferCatalog',
+            'https://schema.org/hasOfferCatalog'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/hasOfferCatalog'
     )
     hasCertification: Optional[Union['Certification', List['Certification']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'hasCertification',
+            'https://schema.org/hasCertification'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/hasCertification'
     )
     serviceType: Optional[Union['GovernmentBenefitsType', List['GovernmentBenefitsType'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'serviceType',
+            'https://schema.org/serviceType'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/serviceType'
     )
     aggregateRating: Optional[Union['AggregateRating', List['AggregateRating']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'aggregateRating',
+            'https://schema.org/aggregateRating'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/aggregateRating'
     )
     areaServed: Optional[Union['GeoShape', List['GeoShape'], str, List[str], 'AdministrativeArea', List['AdministrativeArea'], 'Place', List['Place']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'areaServed',
+            'https://schema.org/areaServed'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/areaServed'
     )
     isRelatedTo: Optional[Union['Service', List['Service'], 'Product', List['Product']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'isRelatedTo',
+            'https://schema.org/isRelatedTo'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/isRelatedTo'
     )
     serviceOutput: Optional[Union['Thing', List['Thing']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'serviceOutput',
+            'https://schema.org/serviceOutput'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/serviceOutput'
     )

@@ -22,10 +22,10 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .event import Event
-    from .music_recording import MusicRecording
-    from .organization import Organization
     from .person import Person
+    from .organization import Organization
+    from .music_recording import MusicRecording
+    from .event import Event
 
 class MusicComposition(CreativeWork):
     '''
@@ -51,80 +51,80 @@ class MusicComposition(CreativeWork):
     recordedAs: Optional[Union['MusicRecording', List['MusicRecording']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'recordedAs',
+            'https://schema.org/recordedAs'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/recordedAs'
     )
     composer: Optional[Union['Organization', List['Organization'], 'Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'composer',
+            'https://schema.org/composer'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/composer'
     )
     musicArrangement: Optional[Union['MusicComposition', List['MusicComposition']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'musicArrangement',
+            'https://schema.org/musicArrangement'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/musicArrangement'
     )
     lyrics: Optional[Union['CreativeWork', List['CreativeWork']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'lyrics',
+            'https://schema.org/lyrics'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/lyrics'
     )
     includedComposition: Optional[Union['MusicComposition', List['MusicComposition']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'includedComposition',
+            'https://schema.org/includedComposition'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/includedComposition'
     )
     musicalKey: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'musicalKey',
+            'https://schema.org/musicalKey'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/musicalKey'
     )
     iswcCode: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'iswcCode',
+            'https://schema.org/iswcCode'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/iswcCode'
     )
     lyricist: Optional[Union['Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'lyricist',
+            'https://schema.org/lyricist'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/lyricist'
     )
     musicCompositionForm: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'musicCompositionForm',
+            'https://schema.org/musicCompositionForm'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/musicCompositionForm'
     )
     firstPerformance: Optional[Union['Event', List['Event']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'firstPerformance',
+            'https://schema.org/firstPerformance'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/firstPerformance'
     )

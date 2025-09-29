@@ -39,8 +39,8 @@ class MedicalObservationalStudy(MedicalStudy):
     studyDesign: Optional[Union['MedicalObservationalStudyDesign', List['MedicalObservationalStudyDesign']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'studyDesign',
+            'https://schema.org/studyDesign'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/studyDesign'
     )

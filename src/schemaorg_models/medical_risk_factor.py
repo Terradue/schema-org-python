@@ -36,8 +36,8 @@ class MedicalRiskFactor(MedicalEntity):
     increasesRiskOf: Optional[Union['MedicalEntity', List['MedicalEntity']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'increasesRiskOf',
+            'https://schema.org/increasesRiskOf'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/increasesRiskOf'
     )

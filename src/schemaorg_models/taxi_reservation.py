@@ -44,24 +44,24 @@ Note: This type is for information about actual reservations, e.g. in confirmati
     partySize: Optional[Union[int, List[int], 'QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'partySize',
+            'https://schema.org/partySize'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/partySize'
     )
     pickupLocation: Optional[Union['Place', List['Place']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'pickupLocation',
+            'https://schema.org/pickupLocation'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/pickupLocation'
     )
     pickupTime: Optional[Union[datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'pickupTime',
+            'https://schema.org/pickupTime'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/pickupTime'
     )

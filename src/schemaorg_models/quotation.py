@@ -22,8 +22,8 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .organization import Organization
     from .person import Person
+    from .organization import Organization
 
 class Quotation(CreativeWork):
     '''
@@ -40,8 +40,8 @@ class Quotation(CreativeWork):
     spokenByCharacter: Optional[Union['Person', List['Person'], 'Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'spokenByCharacter',
+            'https://schema.org/spokenByCharacter'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/spokenByCharacter'
     )

@@ -36,8 +36,8 @@ class OccupationalExperienceRequirements(Intangible):
     monthsOfExperience: Optional[Union[float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'monthsOfExperience',
+            'https://schema.org/monthsOfExperience'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/monthsOfExperience'
     )

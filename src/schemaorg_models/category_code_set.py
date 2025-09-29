@@ -39,8 +39,8 @@ class CategoryCodeSet(DefinedTermSet):
     hasCategoryCode: Optional[Union['CategoryCode', List['CategoryCode']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'hasCategoryCode',
+            'https://schema.org/hasCategoryCode'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/hasCategoryCode'
     )

@@ -22,8 +22,8 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .organization import Organization
     from .offer import Offer
+    from .organization import Organization
 
 class MediaSubscription(Intangible):
     '''
@@ -41,16 +41,16 @@ class MediaSubscription(Intangible):
     expectsAcceptanceOf: Optional[Union['Offer', List['Offer']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'expectsAcceptanceOf',
+            'https://schema.org/expectsAcceptanceOf'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/expectsAcceptanceOf'
     )
     authenticator: Optional[Union['Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'authenticator',
+            'https://schema.org/authenticator'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/authenticator'
     )

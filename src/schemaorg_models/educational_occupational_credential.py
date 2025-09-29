@@ -22,10 +22,10 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .administrative_area import AdministrativeArea
-    from .defined_term import DefinedTerm
     from .duration import Duration
+    from .defined_term import DefinedTerm
     from .organization import Organization
+    from .administrative_area import AdministrativeArea
 
 class EducationalOccupationalCredential(CreativeWork):
     '''
@@ -47,48 +47,48 @@ class EducationalOccupationalCredential(CreativeWork):
     recognizedBy: Optional[Union['Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'recognizedBy',
+            'https://schema.org/recognizedBy'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/recognizedBy'
     )
     validFor: Optional[Union['Duration', List['Duration']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'validFor',
+            'https://schema.org/validFor'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/validFor'
     )
     validIn: Optional[Union['AdministrativeArea', List['AdministrativeArea']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'validIn',
+            'https://schema.org/validIn'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/validIn'
     )
     educationalLevel: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], 'DefinedTerm', List['DefinedTerm']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'educationalLevel',
+            'https://schema.org/educationalLevel'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/educationalLevel'
     )
     competencyRequired: Optional[Union['DefinedTerm', List['DefinedTerm'], str, List[str], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'competencyRequired',
+            'https://schema.org/competencyRequired'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/competencyRequired'
     )
     credentialCategory: Optional[Union['DefinedTerm', List['DefinedTerm'], str, List[str], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'credentialCategory',
+            'https://schema.org/credentialCategory'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/credentialCategory'
     )

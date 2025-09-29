@@ -22,9 +22,9 @@ from typing import (
 from .audio_object import AudioObject
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .quantitative_value import QuantitativeValue
     from .duration import Duration
     from .person import Person
+    from .quantitative_value import QuantitativeValue
 
 class Audiobook(AudioObject):
     '''
@@ -42,16 +42,16 @@ class Audiobook(AudioObject):
     duration: Optional[Union['Duration', List['Duration'], 'QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'duration',
+            'https://schema.org/duration'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/duration'
     )
     readBy: Optional[Union['Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'readBy',
+            'https://schema.org/readBy'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/readBy'
     )

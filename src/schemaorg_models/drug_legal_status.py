@@ -39,8 +39,8 @@ class DrugLegalStatus(MedicalIntangible):
     applicableLocation: Optional[Union['AdministrativeArea', List['AdministrativeArea']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'applicableLocation',
+            'https://schema.org/applicableLocation'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/applicableLocation'
     )

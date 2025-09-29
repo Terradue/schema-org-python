@@ -22,9 +22,9 @@ from typing import (
 from .grant import Grant
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .person import Person
     from .monetary_amount import MonetaryAmount
     from .organization import Organization
-    from .person import Person
 
 class MonetaryGrant(Grant):
     '''
@@ -42,16 +42,16 @@ class MonetaryGrant(Grant):
     amount: Optional[Union['MonetaryAmount', List['MonetaryAmount'], float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'amount',
+            'https://schema.org/amount'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/amount'
     )
     funder: Optional[Union['Organization', List['Organization'], 'Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'funder',
+            'https://schema.org/funder'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/funder'
     )

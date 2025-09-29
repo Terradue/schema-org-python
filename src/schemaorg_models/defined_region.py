@@ -57,40 +57,40 @@ Region = state, canton, prefecture, autonomous community...
     postalCodeRange: Optional[Union['PostalCodeRangeSpecification', List['PostalCodeRangeSpecification']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'postalCodeRange',
+            'https://schema.org/postalCodeRange'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/postalCodeRange'
     )
     addressRegion: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'addressRegion',
+            'https://schema.org/addressRegion'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/addressRegion'
     )
     postalCode: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'postalCode',
+            'https://schema.org/postalCode'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/postalCode'
     )
     addressCountry: Optional[Union[str, List[str], 'Country', List['Country']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'addressCountry',
+            'https://schema.org/addressCountry'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/addressCountry'
     )
     postalCodePrefix: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'postalCodePrefix',
+            'https://schema.org/postalCodePrefix'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/postalCodePrefix'
     )

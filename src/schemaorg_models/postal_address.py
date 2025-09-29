@@ -45,56 +45,56 @@ class PostalAddress(ContactPoint):
     addressRegion: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'addressRegion',
+            'https://schema.org/addressRegion'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/addressRegion'
     )
     postalCode: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'postalCode',
+            'https://schema.org/postalCode'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/postalCode'
     )
     streetAddress: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'streetAddress',
+            'https://schema.org/streetAddress'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/streetAddress'
     )
     addressCountry: Optional[Union[str, List[str], 'Country', List['Country']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'addressCountry',
+            'https://schema.org/addressCountry'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/addressCountry'
     )
     addressLocality: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'addressLocality',
+            'https://schema.org/addressLocality'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/addressLocality'
     )
     extendedAddress: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'extendedAddress',
+            'https://schema.org/extendedAddress'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/extendedAddress'
     )
     postOfficeBoxNumber: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'postOfficeBoxNumber',
+            'https://schema.org/postOfficeBoxNumber'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/postOfficeBoxNumber'
     )

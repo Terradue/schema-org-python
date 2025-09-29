@@ -23,10 +23,10 @@ from .enumeration import Enumeration
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .measurement_type_enumeration import MeasurementTypeEnumeration
-    from .structured_value import StructuredValue
-    from .quantitative_value import QuantitativeValue
-    from .defined_term import DefinedTerm
     from .property_value import PropertyValue
+    from .structured_value import StructuredValue
+    from .defined_term import DefinedTerm
+    from .quantitative_value import QuantitativeValue
 
 class QualitativeValue(Enumeration):
     '''
@@ -53,64 +53,64 @@ Note: Publishers should be aware that applications designed to use specific sche
     greaterOrEqual: Optional[Union['QualitativeValue', List['QualitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'greaterOrEqual',
+            'https://schema.org/greaterOrEqual'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/greaterOrEqual'
     )
     equal: Optional[Union['QualitativeValue', List['QualitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'equal',
+            'https://schema.org/equal'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/equal'
     )
     lesserOrEqual: Optional[Union['QualitativeValue', List['QualitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'lesserOrEqual',
+            'https://schema.org/lesserOrEqual'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/lesserOrEqual'
     )
     greater: Optional[Union['QualitativeValue', List['QualitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'greater',
+            'https://schema.org/greater'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/greater'
     )
     lesser: Optional[Union['QualitativeValue', List['QualitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'lesser',
+            'https://schema.org/lesser'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/lesser'
     )
     additionalProperty: Optional[Union['PropertyValue', List['PropertyValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'additionalProperty',
+            'https://schema.org/additionalProperty'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/additionalProperty'
     )
     valueReference: Optional[Union['DefinedTerm', List['DefinedTerm'], 'MeasurementTypeEnumeration', List['MeasurementTypeEnumeration'], str, List[str], 'Enumeration', List['Enumeration'], 'QualitativeValue', List['QualitativeValue'], 'QuantitativeValue', List['QuantitativeValue'], 'PropertyValue', List['PropertyValue'], 'StructuredValue', List['StructuredValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'valueReference',
+            'https://schema.org/valueReference'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/valueReference'
     )
     nonEqual: Optional[Union['QualitativeValue', List['QualitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'nonEqual',
+            'https://schema.org/nonEqual'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/nonEqual'
     )

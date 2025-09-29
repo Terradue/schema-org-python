@@ -42,24 +42,24 @@ class MedicalTherapy(TherapeuticProcedure):
     seriousAdverseOutcome: Optional[Union['MedicalEntity', List['MedicalEntity']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'seriousAdverseOutcome',
+            'https://schema.org/seriousAdverseOutcome'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/seriousAdverseOutcome'
     )
     contraindication: Optional[Union[str, List[str], 'MedicalContraindication', List['MedicalContraindication']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'contraindication',
+            'https://schema.org/contraindication'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/contraindication'
     )
     duplicateTherapy: Optional[Union['MedicalTherapy', List['MedicalTherapy']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'duplicateTherapy',
+            'https://schema.org/duplicateTherapy'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/duplicateTherapy'
     )

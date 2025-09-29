@@ -22,10 +22,10 @@ from typing import (
 from .trade_action import TradeAction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .person import Person
     from .contact_point import ContactPoint
     from .audience import Audience
     from .organization import Organization
-    from .person import Person
 
 class TipAction(TradeAction):
     '''
@@ -42,8 +42,8 @@ class TipAction(TradeAction):
     recipient: Optional[Union['Organization', List['Organization'], 'Audience', List['Audience'], 'ContactPoint', List['ContactPoint'], 'Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'recipient',
+            'https://schema.org/recipient'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/recipient'
     )

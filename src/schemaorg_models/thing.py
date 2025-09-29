@@ -21,12 +21,12 @@ from typing import (
 )
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .action import Action
-    from .event import Event
-    from .creative_work import CreativeWork
-    from .image_object import ImageObject
-    from .text_object import TextObject
     from .property_value import PropertyValue
+    from .event import Event
+    from .image_object import ImageObject
+    from .action import Action
+    from .creative_work import CreativeWork
+    from .text_object import TextObject
 
 class Thing(BaseModel):
     '''
@@ -61,96 +61,96 @@ class Thing(BaseModel):
     additionalType: Optional[Union[str, List[str], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'additionalType',
+            'https://schema.org/additionalType'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/additionalType'
     )
     identifier: Optional[Union[HttpUrl, List[HttpUrl], str, List[str], 'PropertyValue', List['PropertyValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'identifier',
+            'https://schema.org/identifier'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/identifier'
     )
     image: Optional[Union['ImageObject', List['ImageObject'], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'image',
+            'https://schema.org/image'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/image'
     )
     url: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'url',
+            'https://schema.org/url'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/url'
     )
     disambiguatingDescription: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'disambiguatingDescription',
+            'https://schema.org/disambiguatingDescription'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/disambiguatingDescription'
     )
     description: Optional[Union[str, List[str], 'TextObject', List['TextObject']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'description',
+            'https://schema.org/description'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/description'
     )
     mainEntityOfPage: Optional[Union['CreativeWork', List['CreativeWork'], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'mainEntityOfPage',
+            'https://schema.org/mainEntityOfPage'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/mainEntityOfPage'
     )
     sameAs: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'sameAs',
+            'https://schema.org/sameAs'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/sameAs'
     )
     name: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'name',
+            'https://schema.org/name'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/name'
     )
     subjectOf: Optional[Union['Event', List['Event'], 'CreativeWork', List['CreativeWork']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'subjectOf',
+            'https://schema.org/subjectOf'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/subjectOf'
     )
     alternateName: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'alternateName',
+            'https://schema.org/alternateName'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/alternateName'
     )
     potentialAction: Optional[Union['Action', List['Action']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'potentialAction',
+            'https://schema.org/potentialAction'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/potentialAction'
     )

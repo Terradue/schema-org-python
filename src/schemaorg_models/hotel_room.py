@@ -23,8 +23,8 @@ from .room import Room
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .bed_type import BedType
-    from .bed_details import BedDetails
     from .quantitative_value import QuantitativeValue
+    from .bed_details import BedDetails
 
 class HotelRoom(Room):
     '''
@@ -47,16 +47,16 @@ Typical unit code(s): C62 for person.
     occupancy: Optional[Union['QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'occupancy',
+            'https://schema.org/occupancy'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/occupancy'
     )
     bed: Optional[Union['BedType', List['BedType'], str, List[str], 'BedDetails', List['BedDetails']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'bed',
+            'https://schema.org/bed'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/bed'
     )

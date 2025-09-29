@@ -22,8 +22,8 @@ from typing import (
 from .service import Service
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .administrative_area import AdministrativeArea
     from .organization import Organization
+    from .administrative_area import AdministrativeArea
 
 class GovernmentService(Service):
     '''
@@ -41,16 +41,16 @@ class GovernmentService(Service):
     jurisdiction: Optional[Union[str, List[str], 'AdministrativeArea', List['AdministrativeArea']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'jurisdiction',
+            'https://schema.org/jurisdiction'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/jurisdiction'
     )
     serviceOperator: Optional[Union['Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'serviceOperator',
+            'https://schema.org/serviceOperator'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/serviceOperator'
     )

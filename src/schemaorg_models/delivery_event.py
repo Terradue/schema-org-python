@@ -42,32 +42,32 @@ class DeliveryEvent(Event):
     availableThrough: Optional[Union[datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'availableThrough',
+            'https://schema.org/availableThrough'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/availableThrough'
     )
     availableFrom: Optional[Union[datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'availableFrom',
+            'https://schema.org/availableFrom'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/availableFrom'
     )
     hasDeliveryMethod: Optional[Union['DeliveryMethod', List['DeliveryMethod']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'hasDeliveryMethod',
+            'https://schema.org/hasDeliveryMethod'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/hasDeliveryMethod'
     )
     accessCode: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'accessCode',
+            'https://schema.org/accessCode'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/accessCode'
     )

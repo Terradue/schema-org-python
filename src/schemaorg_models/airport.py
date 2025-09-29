@@ -37,16 +37,16 @@ class Airport(CivicStructure):
     iataCode: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'iataCode',
+            'https://schema.org/iataCode'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/iataCode'
     )
     icaoCode: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'icaoCode',
+            'https://schema.org/icaoCode'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/icaoCode'
     )

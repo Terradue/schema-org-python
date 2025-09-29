@@ -22,13 +22,13 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .property import Property
-    from .statistical_variable import StatisticalVariable
-    from .data_download import DataDownload
-    from .defined_term import DefinedTerm
     from .property_value import PropertyValue
-    from .data_catalog import DataCatalog
     from .measurement_method_enum import MeasurementMethodEnum
+    from .data_download import DataDownload
+    from .data_catalog import DataCatalog
+    from .statistical_variable import StatisticalVariable
+    from .property import Property
+    from .defined_term import DefinedTerm
 
 class Dataset(CreativeWork):
     '''
@@ -60,80 +60,80 @@ If there are several [[variableMeasured]] properties recorded for some given dat
     issn: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'issn',
+            'https://schema.org/issn'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/issn'
     )
     variableMeasured: Optional[Union['Property', List['Property'], 'StatisticalVariable', List['StatisticalVariable'], str, List[str], 'PropertyValue', List['PropertyValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'variableMeasured',
+            'https://schema.org/variableMeasured'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/variableMeasured'
     )
     includedDataCatalog: Optional[Union['DataCatalog', List['DataCatalog']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'includedDataCatalog',
+            'https://schema.org/includedDataCatalog'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/includedDataCatalog'
     )
     includedInDataCatalog: Optional[Union['DataCatalog', List['DataCatalog']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'includedInDataCatalog',
+            'https://schema.org/includedInDataCatalog'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/includedInDataCatalog'
     )
     catalog: Optional[Union['DataCatalog', List['DataCatalog']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'catalog',
+            'https://schema.org/catalog'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/catalog'
     )
     variablesMeasured: Optional[Union[str, List[str], 'PropertyValue', List['PropertyValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'variablesMeasured',
+            'https://schema.org/variablesMeasured'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/variablesMeasured'
     )
     distribution: Optional[Union['DataDownload', List['DataDownload']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'distribution',
+            'https://schema.org/distribution'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/distribution'
     )
     measurementTechnique: Optional[Union['DefinedTerm', List['DefinedTerm'], 'MeasurementMethodEnum', List['MeasurementMethodEnum'], str, List[str], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'measurementTechnique',
+            'https://schema.org/measurementTechnique'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/measurementTechnique'
     )
     datasetTimeInterval: Optional[Union[datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'datasetTimeInterval',
+            'https://schema.org/datasetTimeInterval'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/datasetTimeInterval'
     )
     measurementMethod: Optional[Union['DefinedTerm', List['DefinedTerm'], str, List[str], 'MeasurementMethodEnum', List['MeasurementMethodEnum'], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'measurementMethod',
+            'https://schema.org/measurementMethod'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/measurementMethod'
     )

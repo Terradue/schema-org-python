@@ -22,9 +22,9 @@ from typing import (
 from .substance import Substance
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .drug_legal_status import DrugLegalStatus
     from .medical_enumeration import MedicalEnumeration
     from .recommended_dose_schedule import RecommendedDoseSchedule
-    from .drug_legal_status import DrugLegalStatus
     from .maximum_dose_schedule import MaximumDoseSchedule
 
 class DietarySupplement(Substance):
@@ -51,80 +51,80 @@ class DietarySupplement(Substance):
     proprietaryName: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'proprietaryName',
+            'https://schema.org/proprietaryName'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/proprietaryName'
     )
     mechanismOfAction: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'mechanismOfAction',
+            'https://schema.org/mechanismOfAction'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/mechanismOfAction'
     )
     isProprietary: Optional[Union[bool, List[bool]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'isProprietary',
+            'https://schema.org/isProprietary'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/isProprietary'
     )
     maximumIntake: Optional[Union['MaximumDoseSchedule', List['MaximumDoseSchedule']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'maximumIntake',
+            'https://schema.org/maximumIntake'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/maximumIntake'
     )
     activeIngredient: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'activeIngredient',
+            'https://schema.org/activeIngredient'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/activeIngredient'
     )
     recommendedIntake: Optional[Union['RecommendedDoseSchedule', List['RecommendedDoseSchedule']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'recommendedIntake',
+            'https://schema.org/recommendedIntake'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/recommendedIntake'
     )
     safetyConsideration: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'safetyConsideration',
+            'https://schema.org/safetyConsideration'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/safetyConsideration'
     )
     targetPopulation: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'targetPopulation',
+            'https://schema.org/targetPopulation'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/targetPopulation'
     )
     legalStatus: Optional[Union['DrugLegalStatus', List['DrugLegalStatus'], 'MedicalEnumeration', List['MedicalEnumeration'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'legalStatus',
+            'https://schema.org/legalStatus'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/legalStatus'
     )
     nonProprietaryName: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'nonProprietaryName',
+            'https://schema.org/nonProprietaryName'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/nonProprietaryName'
     )

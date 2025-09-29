@@ -22,10 +22,10 @@ from typing import (
 from .price_specification import PriceSpecification
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .price_type_enumeration import PriceTypeEnumeration
-    from .quantitative_value import QuantitativeValue
     from .duration import Duration
     from .price_component_type_enumeration import PriceComponentTypeEnumeration
+    from .quantitative_value import QuantitativeValue
+    from .price_type_enumeration import PriceTypeEnumeration
 
 class UnitPriceSpecification(PriceSpecification):
     '''
@@ -50,64 +50,64 @@ class UnitPriceSpecification(PriceSpecification):
     unitText: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'unitText',
+            'https://schema.org/unitText'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/unitText'
     )
     billingDuration: Optional[Union['Duration', List['Duration'], float, List[float], 'QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'billingDuration',
+            'https://schema.org/billingDuration'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/billingDuration'
     )
     unitCode: Optional[Union[HttpUrl, List[HttpUrl], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'unitCode',
+            'https://schema.org/unitCode'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/unitCode'
     )
     referenceQuantity: Optional[Union['QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'referenceQuantity',
+            'https://schema.org/referenceQuantity'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/referenceQuantity'
     )
     priceComponentType: Optional[Union['PriceComponentTypeEnumeration', List['PriceComponentTypeEnumeration']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'priceComponentType',
+            'https://schema.org/priceComponentType'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/priceComponentType'
     )
     billingIncrement: Optional[Union[float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'billingIncrement',
+            'https://schema.org/billingIncrement'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/billingIncrement'
     )
     priceType: Optional[Union[str, List[str], 'PriceTypeEnumeration', List['PriceTypeEnumeration']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'priceType',
+            'https://schema.org/priceType'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/priceType'
     )
     billingStart: Optional[Union[float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'billingStart',
+            'https://schema.org/billingStart'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/billingStart'
     )

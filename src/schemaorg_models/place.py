@@ -22,21 +22,21 @@ from typing import (
 from .thing import Thing
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .review import Review
-    from .certification import Certification
-    from .geo_shape import GeoShape
-    from .geospatial_geometry import GeospatialGeometry
-    from .event import Event
-    from .image_object import ImageObject
-    from .defined_term import DefinedTerm
-    from .opening_hours_specification import OpeningHoursSpecification
     from .map import Map
-    from .location_feature_specification import LocationFeatureSpecification
-    from .property_value import PropertyValue
-    from .aggregate_rating import AggregateRating
-    from .postal_address import PostalAddress
-    from .photograph import Photograph
     from .geo_coordinates import GeoCoordinates
+    from .geo_shape import GeoShape
+    from .opening_hours_specification import OpeningHoursSpecification
+    from .property_value import PropertyValue
+    from .event import Event
+    from .review import Review
+    from .image_object import ImageObject
+    from .aggregate_rating import AggregateRating
+    from .location_feature_specification import LocationFeatureSpecification
+    from .postal_address import PostalAddress
+    from .defined_term import DefinedTerm
+    from .certification import Certification
+    from .photograph import Photograph
+    from .geospatial_geometry import GeospatialGeometry
 
 class Place(Thing):
     '''
@@ -108,376 +108,376 @@ Use this to explicitly override general opening hours brought in scope by [[open
     faxNumber: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'faxNumber',
+            'https://schema.org/faxNumber'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/faxNumber'
     )
     globalLocationNumber: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'globalLocationNumber',
+            'https://schema.org/globalLocationNumber'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/globalLocationNumber'
     )
     event: Optional[Union['Event', List['Event']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'event',
+            'https://schema.org/event'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/event'
     )
     hasCertification: Optional[Union['Certification', List['Certification']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'hasCertification',
+            'https://schema.org/hasCertification'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/hasCertification'
     )
     isAccessibleForFree: Optional[Union[bool, List[bool]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'isAccessibleForFree',
+            'https://schema.org/isAccessibleForFree'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/isAccessibleForFree'
     )
     geoIntersects: Optional[Union['Place', List['Place'], 'GeospatialGeometry', List['GeospatialGeometry']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'geoIntersects',
+            'https://schema.org/geoIntersects'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/geoIntersects'
     )
     geoCoveredBy: Optional[Union['GeospatialGeometry', List['GeospatialGeometry'], 'Place', List['Place']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'geoCoveredBy',
+            'https://schema.org/geoCoveredBy'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/geoCoveredBy'
     )
     reviews: Optional[Union['Review', List['Review']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'reviews',
+            'https://schema.org/reviews'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/reviews'
     )
     aggregateRating: Optional[Union['AggregateRating', List['AggregateRating']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'aggregateRating',
+            'https://schema.org/aggregateRating'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/aggregateRating'
     )
     hasMap: Optional[Union[HttpUrl, List[HttpUrl], 'Map', List['Map']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'hasMap',
+            'https://schema.org/hasMap'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/hasMap'
     )
     longitude: Optional[Union[float, List[float], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'longitude',
+            'https://schema.org/longitude'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/longitude'
     )
     photos: Optional[Union['Photograph', List['Photograph'], 'ImageObject', List['ImageObject']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'photos',
+            'https://schema.org/photos'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/photos'
     )
     photo: Optional[Union['Photograph', List['Photograph'], 'ImageObject', List['ImageObject']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'photo',
+            'https://schema.org/photo'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/photo'
     )
     geoEquals: Optional[Union['Place', List['Place'], 'GeospatialGeometry', List['GeospatialGeometry']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'geoEquals',
+            'https://schema.org/geoEquals'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/geoEquals'
     )
     hasDriveThroughService: Optional[Union[bool, List[bool]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'hasDriveThroughService',
+            'https://schema.org/hasDriveThroughService'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/hasDriveThroughService'
     )
     geoCovers: Optional[Union['Place', List['Place'], 'GeospatialGeometry', List['GeospatialGeometry']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'geoCovers',
+            'https://schema.org/geoCovers'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/geoCovers'
     )
     slogan: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'slogan',
+            'https://schema.org/slogan'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/slogan'
     )
     amenityFeature: Optional[Union['LocationFeatureSpecification', List['LocationFeatureSpecification']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'amenityFeature',
+            'https://schema.org/amenityFeature'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/amenityFeature'
     )
     keywords: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], 'DefinedTerm', List['DefinedTerm']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'keywords',
+            'https://schema.org/keywords'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/keywords'
     )
     logo: Optional[Union[HttpUrl, List[HttpUrl], 'ImageObject', List['ImageObject']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'logo',
+            'https://schema.org/logo'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/logo'
     )
     map: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'map',
+            'https://schema.org/map'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/map'
     )
     geo: Optional[Union['GeoShape', List['GeoShape'], 'GeoCoordinates', List['GeoCoordinates']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'geo',
+            'https://schema.org/geo'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/geo'
     )
     tourBookingPage: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'tourBookingPage',
+            'https://schema.org/tourBookingPage'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/tourBookingPage'
     )
     latitude: Optional[Union[str, List[str], float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'latitude',
+            'https://schema.org/latitude'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/latitude'
     )
     publicAccess: Optional[Union[bool, List[bool]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'publicAccess',
+            'https://schema.org/publicAccess'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/publicAccess'
     )
     maps: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'maps',
+            'https://schema.org/maps'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/maps'
     )
     branchCode: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'branchCode',
+            'https://schema.org/branchCode'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/branchCode'
     )
     address: Optional[Union[str, List[str], 'PostalAddress', List['PostalAddress']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'address',
+            'https://schema.org/address'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/address'
     )
     additionalProperty: Optional[Union['PropertyValue', List['PropertyValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'additionalProperty',
+            'https://schema.org/additionalProperty'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/additionalProperty'
     )
     events: Optional[Union['Event', List['Event']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'events',
+            'https://schema.org/events'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/events'
     )
     openingHoursSpecification: Optional[Union['OpeningHoursSpecification', List['OpeningHoursSpecification']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'openingHoursSpecification',
+            'https://schema.org/openingHoursSpecification'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/openingHoursSpecification'
     )
     hasGS1DigitalLink: Optional[Union[HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'hasGS1DigitalLink',
+            'https://schema.org/hasGS1DigitalLink'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/hasGS1DigitalLink'
     )
     geoContains: Optional[Union['Place', List['Place'], 'GeospatialGeometry', List['GeospatialGeometry']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'geoContains',
+            'https://schema.org/geoContains'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/geoContains'
     )
     telephone: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'telephone',
+            'https://schema.org/telephone'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/telephone'
     )
     smokingAllowed: Optional[Union[bool, List[bool]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'smokingAllowed',
+            'https://schema.org/smokingAllowed'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/smokingAllowed'
     )
     geoDisjoint: Optional[Union['GeospatialGeometry', List['GeospatialGeometry'], 'Place', List['Place']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'geoDisjoint',
+            'https://schema.org/geoDisjoint'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/geoDisjoint'
     )
     containedInPlace: Optional[Union['Place', List['Place']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'containedInPlace',
+            'https://schema.org/containedInPlace'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/containedInPlace'
     )
     geoOverlaps: Optional[Union['Place', List['Place'], 'GeospatialGeometry', List['GeospatialGeometry']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'geoOverlaps',
+            'https://schema.org/geoOverlaps'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/geoOverlaps'
     )
     review: Optional[Union['Review', List['Review']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'review',
+            'https://schema.org/review'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/review'
     )
     containedIn: Optional[Union['Place', List['Place']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'containedIn',
+            'https://schema.org/containedIn'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/containedIn'
     )
     specialOpeningHoursSpecification: Optional[Union['OpeningHoursSpecification', List['OpeningHoursSpecification']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'specialOpeningHoursSpecification',
+            'https://schema.org/specialOpeningHoursSpecification'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/specialOpeningHoursSpecification'
     )
     geoTouches: Optional[Union['Place', List['Place'], 'GeospatialGeometry', List['GeospatialGeometry']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'geoTouches',
+            'https://schema.org/geoTouches'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/geoTouches'
     )
     containsPlace: Optional[Union['Place', List['Place']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'containsPlace',
+            'https://schema.org/containsPlace'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/containsPlace'
     )
     isicV4: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'isicV4',
+            'https://schema.org/isicV4'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/isicV4'
     )
     geoCrosses: Optional[Union['Place', List['Place'], 'GeospatialGeometry', List['GeospatialGeometry']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'geoCrosses',
+            'https://schema.org/geoCrosses'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/geoCrosses'
     )
     maximumAttendeeCapacity: Optional[Union[int, List[int]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'maximumAttendeeCapacity',
+            'https://schema.org/maximumAttendeeCapacity'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/maximumAttendeeCapacity'
     )
     geoWithin: Optional[Union['GeospatialGeometry', List['GeospatialGeometry'], 'Place', List['Place']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'geoWithin',
+            'https://schema.org/geoWithin'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/geoWithin'
     )

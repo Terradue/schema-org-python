@@ -22,10 +22,10 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .rating import Rating
     from .certification_status_enumeration import CertificationStatusEnumeration
-    from .thing import Thing
+    from .rating import Rating
     from .image_object import ImageObject
+    from .thing import Thing
     from .administrative_area import AdministrativeArea
     from .defined_term import DefinedTerm
     from .quantitative_value import QuantitativeValue
@@ -57,96 +57,96 @@ class Certification(CreativeWork):
     certificationIdentification: Optional[Union['DefinedTerm', List['DefinedTerm'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'certificationIdentification',
+            'https://schema.org/certificationIdentification'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/certificationIdentification'
     )
     logo: Optional[Union[HttpUrl, List[HttpUrl], 'ImageObject', List['ImageObject']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'logo',
+            'https://schema.org/logo'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/logo'
     )
     about: Optional[Union['Thing', List['Thing']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'about',
+            'https://schema.org/about'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/about'
     )
     validFrom: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'validFrom',
+            'https://schema.org/validFrom'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/validFrom'
     )
     auditDate: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'auditDate',
+            'https://schema.org/auditDate'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/auditDate'
     )
     expires: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'expires',
+            'https://schema.org/expires'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/expires'
     )
     certificationRating: Optional[Union['Rating', List['Rating']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'certificationRating',
+            'https://schema.org/certificationRating'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/certificationRating'
     )
     validIn: Optional[Union['AdministrativeArea', List['AdministrativeArea']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'validIn',
+            'https://schema.org/validIn'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/validIn'
     )
     hasMeasurement: Optional[Union['QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'hasMeasurement',
+            'https://schema.org/hasMeasurement'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/hasMeasurement'
     )
     issuedBy: Optional[Union['Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'issuedBy',
+            'https://schema.org/issuedBy'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/issuedBy'
     )
     certificationStatus: Optional[Union['CertificationStatusEnumeration', List['CertificationStatusEnumeration']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'certificationStatus',
+            'https://schema.org/certificationStatus'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/certificationStatus'
     )
     datePublished: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'datePublished',
+            'https://schema.org/datePublished'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/datePublished'
     )

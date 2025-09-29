@@ -22,9 +22,9 @@ from typing import (
 from .medical_entity import MedicalEntity
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
+    from .qualitative_value import QualitativeValue
     from .drug_cost_category import DrugCostCategory
     from .administrative_area import AdministrativeArea
-    from .qualitative_value import QualitativeValue
 
 class DrugCost(MedicalEntity):
     '''
@@ -46,48 +46,48 @@ class DrugCost(MedicalEntity):
     costPerUnit: Optional[Union[str, List[str], float, List[float], 'QualitativeValue', List['QualitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'costPerUnit',
+            'https://schema.org/costPerUnit'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/costPerUnit'
     )
     costOrigin: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'costOrigin',
+            'https://schema.org/costOrigin'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/costOrigin'
     )
     drugUnit: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'drugUnit',
+            'https://schema.org/drugUnit'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/drugUnit'
     )
     costCategory: Optional[Union['DrugCostCategory', List['DrugCostCategory']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'costCategory',
+            'https://schema.org/costCategory'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/costCategory'
     )
     costCurrency: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'costCurrency',
+            'https://schema.org/costCurrency'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/costCurrency'
     )
     applicableLocation: Optional[Union['AdministrativeArea', List['AdministrativeArea']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'applicableLocation',
+            'https://schema.org/applicableLocation'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/applicableLocation'
     )

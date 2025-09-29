@@ -41,24 +41,24 @@ class InfectiousDisease(MedicalCondition):
     transmissionMethod: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'transmissionMethod',
+            'https://schema.org/transmissionMethod'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/transmissionMethod'
     )
     infectiousAgentClass: Optional[Union['InfectiousAgentClass', List['InfectiousAgentClass']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'infectiousAgentClass',
+            'https://schema.org/infectiousAgentClass'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/infectiousAgentClass'
     )
     infectiousAgent: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'infectiousAgent',
+            'https://schema.org/infectiousAgent'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/infectiousAgent'
     )

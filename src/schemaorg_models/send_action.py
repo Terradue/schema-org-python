@@ -23,8 +23,8 @@ from .transfer_action import TransferAction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .contact_point import ContactPoint
-    from .audience import Audience
     from .delivery_method import DeliveryMethod
+    from .audience import Audience
     from .person import Person
     from .organization import Organization
 
@@ -47,16 +47,16 @@ class SendAction(TransferAction):
     deliveryMethod: Optional[Union['DeliveryMethod', List['DeliveryMethod']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'deliveryMethod',
+            'https://schema.org/deliveryMethod'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/deliveryMethod'
     )
     recipient: Optional[Union['Organization', List['Organization'], 'Audience', List['Audience'], 'ContactPoint', List['ContactPoint'], 'Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'recipient',
+            'https://schema.org/recipient'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/recipient'
     )

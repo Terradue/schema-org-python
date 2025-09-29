@@ -22,8 +22,8 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .energy import Energy
     from .mass import Mass
+    from .energy import Energy
 
 class NutritionInformation(StructuredValue):
     '''
@@ -51,96 +51,96 @@ class NutritionInformation(StructuredValue):
     unsaturatedFatContent: Optional[Union['Mass', List['Mass']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'unsaturatedFatContent',
+            'https://schema.org/unsaturatedFatContent'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/unsaturatedFatContent'
     )
     cholesterolContent: Optional[Union['Mass', List['Mass']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'cholesterolContent',
+            'https://schema.org/cholesterolContent'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/cholesterolContent'
     )
     calories: Optional[Union['Energy', List['Energy']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'calories',
+            'https://schema.org/calories'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/calories'
     )
     transFatContent: Optional[Union['Mass', List['Mass']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'transFatContent',
+            'https://schema.org/transFatContent'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/transFatContent'
     )
     fiberContent: Optional[Union['Mass', List['Mass']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'fiberContent',
+            'https://schema.org/fiberContent'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/fiberContent'
     )
     servingSize: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'servingSize',
+            'https://schema.org/servingSize'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/servingSize'
     )
     carbohydrateContent: Optional[Union['Mass', List['Mass']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'carbohydrateContent',
+            'https://schema.org/carbohydrateContent'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/carbohydrateContent'
     )
     fatContent: Optional[Union['Mass', List['Mass']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'fatContent',
+            'https://schema.org/fatContent'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/fatContent'
     )
     sodiumContent: Optional[Union['Mass', List['Mass']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'sodiumContent',
+            'https://schema.org/sodiumContent'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/sodiumContent'
     )
     sugarContent: Optional[Union['Mass', List['Mass']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'sugarContent',
+            'https://schema.org/sugarContent'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/sugarContent'
     )
     saturatedFatContent: Optional[Union['Mass', List['Mass']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'saturatedFatContent',
+            'https://schema.org/saturatedFatContent'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/saturatedFatContent'
     )
     proteinContent: Optional[Union['Mass', List['Mass']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'proteinContent',
+            'https://schema.org/proteinContent'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/proteinContent'
     )

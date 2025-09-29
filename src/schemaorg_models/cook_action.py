@@ -22,9 +22,9 @@ from typing import (
 from .create_action import CreateAction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .food_event import FoodEvent
-    from .place import Place
     from .food_establishment import FoodEstablishment
+    from .place import Place
+    from .food_event import FoodEvent
     from .recipe import Recipe
 
 class CookAction(CreateAction):
@@ -44,24 +44,24 @@ class CookAction(CreateAction):
     foodEvent: Optional[Union['FoodEvent', List['FoodEvent']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'foodEvent',
+            'https://schema.org/foodEvent'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/foodEvent'
     )
     recipe: Optional[Union['Recipe', List['Recipe']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'recipe',
+            'https://schema.org/recipe'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/recipe'
     )
     foodEstablishment: Optional[Union['Place', List['Place'], 'FoodEstablishment', List['FoodEstablishment']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'foodEstablishment',
+            'https://schema.org/foodEstablishment'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/foodEstablishment'
     )

@@ -22,8 +22,8 @@ from typing import (
 from .dataset import Dataset
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .thing import Thing
     from .data_feed_item import DataFeedItem
+    from .thing import Thing
 
 class DataFeed(Dataset):
     '''
@@ -40,8 +40,8 @@ class DataFeed(Dataset):
     dataFeedElement: Optional[Union['DataFeedItem', List['DataFeedItem'], str, List[str], 'Thing', List['Thing']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'dataFeedElement',
+            'https://schema.org/dataFeedElement'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/dataFeedElement'
     )

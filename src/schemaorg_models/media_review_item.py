@@ -39,8 +39,8 @@ class MediaReviewItem(CreativeWork):
     mediaItemAppearance: Optional[Union['MediaObject', List['MediaObject']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'mediaItemAppearance',
+            'https://schema.org/mediaItemAppearance'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/mediaItemAppearance'
     )

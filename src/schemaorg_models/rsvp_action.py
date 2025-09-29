@@ -42,24 +42,24 @@ class RsvpAction(InformAction):
     additionalNumberOfGuests: Optional[Union[float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'additionalNumberOfGuests',
+            'https://schema.org/additionalNumberOfGuests'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/additionalNumberOfGuests'
     )
     comment: Optional[Union['Comment', List['Comment']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'comment',
+            'https://schema.org/comment'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/comment'
     )
     rsvpResponse: Optional[Union['RsvpResponseType', List['RsvpResponseType']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'rsvpResponse',
+            'https://schema.org/rsvpResponse'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/rsvpResponse'
     )

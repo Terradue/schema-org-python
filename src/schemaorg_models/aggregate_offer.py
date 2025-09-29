@@ -55,32 +55,32 @@ Usage guidelines:\
     highPrice: Optional[Union[str, List[str], float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'highPrice',
+            'https://schema.org/highPrice'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/highPrice'
     )
     lowPrice: Optional[Union[str, List[str], float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'lowPrice',
+            'https://schema.org/lowPrice'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/lowPrice'
     )
     offerCount: Optional[Union[int, List[int]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'offerCount',
+            'https://schema.org/offerCount'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/offerCount'
     )
     offers: Optional[Union['Demand', List['Demand'], 'Offer', List['Offer']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'offers',
+            'https://schema.org/offers'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/offers'
     )

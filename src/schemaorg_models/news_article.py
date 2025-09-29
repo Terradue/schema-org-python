@@ -48,40 +48,40 @@ Dateline summaries are oriented more towards human readers than towards automate
     printColumn: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'printColumn',
+            'https://schema.org/printColumn'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/printColumn'
     )
     dateline: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'dateline',
+            'https://schema.org/dateline'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/dateline'
     )
     printEdition: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'printEdition',
+            'https://schema.org/printEdition'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/printEdition'
     )
     printSection: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'printSection',
+            'https://schema.org/printSection'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/printSection'
     )
     printPage: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'printPage',
+            'https://schema.org/printPage'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/printPage'
     )

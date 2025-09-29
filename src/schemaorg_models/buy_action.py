@@ -23,8 +23,8 @@ from .trade_action import TradeAction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .warranty_promise import WarrantyPromise
-    from .organization import Organization
     from .person import Person
+    from .organization import Organization
 
 class BuyAction(TradeAction):
     '''
@@ -43,24 +43,24 @@ class BuyAction(TradeAction):
     seller: Optional[Union['Organization', List['Organization'], 'Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'seller',
+            'https://schema.org/seller'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/seller'
     )
     vendor: Optional[Union['Person', List['Person'], 'Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'vendor',
+            'https://schema.org/vendor'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/vendor'
     )
     warrantyPromise: Optional[Union['WarrantyPromise', List['WarrantyPromise']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'warrantyPromise',
+            'https://schema.org/warrantyPromise'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/warrantyPromise'
     )

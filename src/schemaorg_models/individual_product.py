@@ -36,8 +36,8 @@ class IndividualProduct(Product):
     serialNumber: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'serialNumber',
+            'https://schema.org/serialNumber'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/serialNumber'
     )

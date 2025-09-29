@@ -22,12 +22,12 @@ from typing import (
 from .product import Product
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .engine_specification import EngineSpecification
+    from .steering_position_value import SteeringPositionValue
     from .drive_wheel_configuration_value import DriveWheelConfigurationValue
+    from .engine_specification import EngineSpecification
     from .car_usage_type import CarUsageType
     from .qualitative_value import QualitativeValue
     from .quantitative_value import QuantitativeValue
-    from .steering_position_value import SteeringPositionValue
 
 class Vehicle(Product):
     '''
@@ -146,320 +146,320 @@ Typical unit code(s): SEC for seconds\
     vehicleIdentificationNumber: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'vehicleIdentificationNumber',
+            'https://schema.org/vehicleIdentificationNumber'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/vehicleIdentificationNumber'
     )
     dateVehicleFirstRegistered: Optional[Union[date, List[date]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'dateVehicleFirstRegistered',
+            'https://schema.org/dateVehicleFirstRegistered'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/dateVehicleFirstRegistered'
     )
     callSign: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'callSign',
+            'https://schema.org/callSign'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/callSign'
     )
     fuelCapacity: Optional[Union['QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'fuelCapacity',
+            'https://schema.org/fuelCapacity'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/fuelCapacity'
     )
     bodyType: Optional[Union[str, List[str], 'QualitativeValue', List['QualitativeValue'], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'bodyType',
+            'https://schema.org/bodyType'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/bodyType'
     )
     driveWheelConfiguration: Optional[Union[str, List[str], 'DriveWheelConfigurationValue', List['DriveWheelConfigurationValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'driveWheelConfiguration',
+            'https://schema.org/driveWheelConfiguration'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/driveWheelConfiguration'
     )
     fuelType: Optional[Union[str, List[str], 'QualitativeValue', List['QualitativeValue'], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'fuelType',
+            'https://schema.org/fuelType'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/fuelType'
     )
     trailerWeight: Optional[Union['QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'trailerWeight',
+            'https://schema.org/trailerWeight'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/trailerWeight'
     )
     numberOfPreviousOwners: Optional[Union[float, List[float], 'QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'numberOfPreviousOwners',
+            'https://schema.org/numberOfPreviousOwners'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/numberOfPreviousOwners'
     )
     numberOfAirbags: Optional[Union[float, List[float], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'numberOfAirbags',
+            'https://schema.org/numberOfAirbags'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/numberOfAirbags'
     )
     vehicleTransmission: Optional[Union[str, List[str], 'QualitativeValue', List['QualitativeValue'], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'vehicleTransmission',
+            'https://schema.org/vehicleTransmission'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/vehicleTransmission'
     )
     payload: Optional[Union['QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'payload',
+            'https://schema.org/payload'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/payload'
     )
     numberOfAxles: Optional[Union[float, List[float], 'QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'numberOfAxles',
+            'https://schema.org/numberOfAxles'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/numberOfAxles'
     )
     tongueWeight: Optional[Union['QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'tongueWeight',
+            'https://schema.org/tongueWeight'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/tongueWeight'
     )
     stupidProperty: Optional[Union['QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'stupidProperty',
+            'https://schema.org/stupidProperty'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/stupidProperty'
     )
     productionDate: Optional[Union[date, List[date]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'productionDate',
+            'https://schema.org/productionDate'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/productionDate'
     )
     steeringPosition: Optional[Union['SteeringPositionValue', List['SteeringPositionValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'steeringPosition',
+            'https://schema.org/steeringPosition'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/steeringPosition'
     )
     vehicleSeatingCapacity: Optional[Union[float, List[float], 'QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'vehicleSeatingCapacity',
+            'https://schema.org/vehicleSeatingCapacity'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/vehicleSeatingCapacity'
     )
     fuelEfficiency: Optional[Union['QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'fuelEfficiency',
+            'https://schema.org/fuelEfficiency'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/fuelEfficiency'
     )
     numberOfDoors: Optional[Union[float, List[float], 'QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'numberOfDoors',
+            'https://schema.org/numberOfDoors'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/numberOfDoors'
     )
     vehicleSpecialUsage: Optional[Union['CarUsageType', List['CarUsageType'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'vehicleSpecialUsage',
+            'https://schema.org/vehicleSpecialUsage'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/vehicleSpecialUsage'
     )
     seatingCapacity: Optional[Union['QuantitativeValue', List['QuantitativeValue'], float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'seatingCapacity',
+            'https://schema.org/seatingCapacity'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/seatingCapacity'
     )
     speed: Optional[Union['QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'speed',
+            'https://schema.org/speed'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/speed'
     )
     vehicleInteriorType: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'vehicleInteriorType',
+            'https://schema.org/vehicleInteriorType'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/vehicleInteriorType'
     )
     vehicleInteriorColor: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'vehicleInteriorColor',
+            'https://schema.org/vehicleInteriorColor'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/vehicleInteriorColor'
     )
     vehicleModelDate: Optional[Union[date, List[date]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'vehicleModelDate',
+            'https://schema.org/vehicleModelDate'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/vehicleModelDate'
     )
     vehicleConfiguration: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'vehicleConfiguration',
+            'https://schema.org/vehicleConfiguration'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/vehicleConfiguration'
     )
     knownVehicleDamages: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'knownVehicleDamages',
+            'https://schema.org/knownVehicleDamages'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/knownVehicleDamages'
     )
     meetsEmissionStandard: Optional[Union[str, List[str], 'QualitativeValue', List['QualitativeValue'], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'meetsEmissionStandard',
+            'https://schema.org/meetsEmissionStandard'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/meetsEmissionStandard'
     )
     weightTotal: Optional[Union['QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'weightTotal',
+            'https://schema.org/weightTotal'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/weightTotal'
     )
     numberOfForwardGears: Optional[Union[float, List[float], 'QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'numberOfForwardGears',
+            'https://schema.org/numberOfForwardGears'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/numberOfForwardGears'
     )
     modelDate: Optional[Union[date, List[date]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'modelDate',
+            'https://schema.org/modelDate'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/modelDate'
     )
     purchaseDate: Optional[Union[date, List[date]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'purchaseDate',
+            'https://schema.org/purchaseDate'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/purchaseDate'
     )
     vehicleEngine: Optional[Union['EngineSpecification', List['EngineSpecification']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'vehicleEngine',
+            'https://schema.org/vehicleEngine'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/vehicleEngine'
     )
     emissionsCO2: Optional[Union[float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'emissionsCO2',
+            'https://schema.org/emissionsCO2'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/emissionsCO2'
     )
     wheelbase: Optional[Union['QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'wheelbase',
+            'https://schema.org/wheelbase'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/wheelbase'
     )
     mileageFromOdometer: Optional[Union['QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'mileageFromOdometer',
+            'https://schema.org/mileageFromOdometer'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/mileageFromOdometer'
     )
     cargoVolume: Optional[Union['QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'cargoVolume',
+            'https://schema.org/cargoVolume'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/cargoVolume'
     )
     fuelConsumption: Optional[Union['QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'fuelConsumption',
+            'https://schema.org/fuelConsumption'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/fuelConsumption'
     )
     accelerationTime: Optional[Union['QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'accelerationTime',
+            'https://schema.org/accelerationTime'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/accelerationTime'
     )

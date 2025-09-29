@@ -39,8 +39,8 @@ class LegislationObject(Legislation):
     legislationLegalValue: Optional[Union['LegalValueLevel', List['LegalValueLevel']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'legislationLegalValue',
+            'https://schema.org/legislationLegalValue'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/legislationLegalValue'
     )

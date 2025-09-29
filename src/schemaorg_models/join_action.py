@@ -45,8 +45,8 @@ Related actions:\
     event: Optional[Union['Event', List['Event']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'event',
+            'https://schema.org/event'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/event'
     )

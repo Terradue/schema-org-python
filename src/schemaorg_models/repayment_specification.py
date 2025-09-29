@@ -43,40 +43,40 @@ class RepaymentSpecification(StructuredValue):
     numberOfLoanPayments: Optional[Union[float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'numberOfLoanPayments',
+            'https://schema.org/numberOfLoanPayments'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/numberOfLoanPayments'
     )
     loanPaymentAmount: Optional[Union['MonetaryAmount', List['MonetaryAmount']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'loanPaymentAmount',
+            'https://schema.org/loanPaymentAmount'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/loanPaymentAmount'
     )
     earlyPrepaymentPenalty: Optional[Union['MonetaryAmount', List['MonetaryAmount']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'earlyPrepaymentPenalty',
+            'https://schema.org/earlyPrepaymentPenalty'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/earlyPrepaymentPenalty'
     )
     downPayment: Optional[Union[float, List[float], 'MonetaryAmount', List['MonetaryAmount']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'downPayment',
+            'https://schema.org/downPayment'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/downPayment'
     )
     loanPaymentFrequency: Optional[Union[float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'genre',
-            'https://schema.org/genre'
+            'loanPaymentFrequency',
+            'https://schema.org/loanPaymentFrequency'
         ),
-        serialization_alias='https://schema.org/genre'
+        serialization_alias='https://schema.org/loanPaymentFrequency'
     )
