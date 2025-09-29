@@ -1,16 +1,30 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .medical_enumeration import MedicalEnumeration
 
 class MedicineSystem(MedicalEnumeration):
-    """
-The system of medicine that includes this MedicalEntity, for example 'evidence-based', 'homeopathic', 'chiropractic', etc.
-    """
+    '''
+    Systems of medical practice.
+    '''
     class_: Literal['https://schema.org/MedicineSystem'] = Field( # type: ignore
         default='https://schema.org/MedicineSystem',
         alias='@type',

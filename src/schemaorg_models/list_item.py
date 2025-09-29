@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -15,9 +25,15 @@ if TYPE_CHECKING:
     from .thing import Thing
 
 class ListItem(Intangible):
-    """
-An list item, e.g. a step in a checklist or how-to description.
-    """
+    '''
+    An list item, e.g. a step in a checklist or how-to description.
+
+    Attributes:
+        position: The position of an item in a series or sequence of items.
+        nextItem: A link to the ListItem that follows the current one.
+        item: An entity represented by an entry in a list or data feed (e.g. an 'artist' in a list of 'artists').
+        previousItem: A link to the ListItem that precedes the current one.
+    '''
     class_: Literal['https://schema.org/ListItem'] = Field( # type: ignore
         default='https://schema.org/ListItem',
         alias='@type',
@@ -26,32 +42,32 @@ An list item, e.g. a step in a checklist or how-to description.
     position: Optional[Union[int, List[int], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'position',
-            'https://schema.org/position'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/position'
+        serialization_alias='https://schema.org/genre'
     )
-    nextItem: Optional[Union["ListItem", List["ListItem"]]] = Field(
+    nextItem: Optional[Union['ListItem', List['ListItem']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'nextItem',
-            'https://schema.org/nextItem'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/nextItem'
+        serialization_alias='https://schema.org/genre'
     )
-    item: Optional[Union["Thing", List["Thing"]]] = Field(
+    item: Optional[Union['Thing', List['Thing']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'item',
-            'https://schema.org/item'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/item'
+        serialization_alias='https://schema.org/genre'
     )
-    previousItem: Optional[Union["ListItem", List["ListItem"]]] = Field(
+    previousItem: Optional[Union['ListItem', List['ListItem']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'previousItem',
-            'https://schema.org/previousItem'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/previousItem'
+        serialization_alias='https://schema.org/genre'
     )

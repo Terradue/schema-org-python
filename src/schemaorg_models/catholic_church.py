@@ -1,16 +1,30 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .church import Church
 
 class CatholicChurch(Church):
-    """
-A Catholic church.
-    """
+    '''
+    A Catholic church.
+    '''
     class_: Literal['https://schema.org/CatholicChurch'] = Field( # type: ignore
         default='https://schema.org/CatholicChurch',
         alias='@type',

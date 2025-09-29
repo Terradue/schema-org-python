@@ -1,16 +1,30 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .radio_channel import RadioChannel
 
 class AMRadioChannel(RadioChannel):
-    """
-A radio channel that uses AM.
-    """
+    '''
+    A radio channel that uses AM.
+    '''
     class_: Literal['https://schema.org/AMRadioChannel'] = Field( # type: ignore
         default='https://schema.org/AMRadioChannel',
         alias='@type',

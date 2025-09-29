@@ -8,7 +8,13 @@ import sys
 from collections import defaultdict
 from graphlib import TopologicalSorter
 from keyword import kwlist
-from typing import Dict
+from pydantic import BaseModel
+from typing import (
+    Dict,
+    MutableSequence,
+    Optional,
+    Set
+)
 
 from rdflib import RDF, RDFS, Graph, Namespace
 
@@ -34,9 +40,14 @@ def parse_schema(content: str) -> Graph:
     return g
 
 
+def to_protected_name(name: str) -> str:
+    if name[0].isdigit() or name.lower() in kwlist:
+        return f"_{name}"
+    return name
+
 def safe_name(name: str) -> str:
     clean_name = re.sub(r"[^a-zA-Z0-9]", "", name)
-    return clean_name[0].upper() + clean_name[1:]
+    return to_protected_name(clean_name[0].upper() + clean_name[1:])
 
 
 def get_parent_class(graph: Graph, class_uri):
@@ -54,49 +65,88 @@ def camel_to_snake(name):
     # Convert the entire string to lowercase
     return s2.lower()
 
+class PropertyInfo(BaseModel):
+    name: str
+    types: MutableSequence[str] = []
+    docstring: Optional[str] = None
+
+class ClassInfo(BaseModel):
+    imports: Set[str] = set([])
+    name: str
+    parent: Optional[str] = None
+    docstring: Optional[str] = None
+    order: int = 0
+    properties: MutableSequence[PropertyInfo] = []
+
+def set_docstring(graph: Graph, subject, info):
+    for c_subject, c_predicate, c_object in graph.triples((subject, RDFS.comment, None)):
+        info.docstring = (
+            c_object.replace("\\n", "\n")
+            .replace("\\(", "\\\\(")
+            .replace("\\_", "\\\\_")
+        )
 
 def generate_models(graph: Graph):
     os.makedirs("src/schemaorg_models", exist_ok=True)
 
-    classes: Dict[str, Dict] = {}
+    classes: Dict[str, ClassInfo] = {}
 
     # First pass: collect class info
-    for s, p, o in graph.triples((None, RDF.type, RDFS.Class)):
-        if str(s).startswith(str(SCHEMA)) and str(s) not in BASE_TYPES_STR:
-            class_name = safe_name(str(s).split("/")[-1])
-            parent_class = get_parent_class(graph, s)
-            classes[class_name] = {"parent": parent_class, "properties": []}
+    for subject, predicate, object in graph.triples((None, RDF.type, RDFS.Class)):
+        if str(subject).startswith(str(SCHEMA)) and str(subject) not in BASE_TYPES_STR:
+            class_name = safe_name(str(subject).split("/")[-1])
 
-    # Extract comments into a docstring
-    for s, p, o in graph.triples((None, RDFS.comment, None)):
-        if str(s).startswith(str(SCHEMA)) and str(s) not in BASE_TYPES_STR:
-            class_name = safe_name(str(s).split("/")[-1])
-            if class_name in classes:
-                classes[class_name]["docstring"] = (
-                    o.replace("\\n", "\n")
-                    .replace("\\(", "\\\\(")
-                    .replace("\\_", "\\\\_")
+            class_info: ClassInfo = ClassInfo(
+                name=class_name,
+                parent=get_parent_class(graph, subject)
+            )
+
+            classes[class_name] = class_info #{"parent": parent_class, "properties": []}
+
+            # Extract comments into a docstring
+            set_docstring(graph, subject, class_info)
+
+            # Second pass: collect properties
+            print(f"Collect properties for {subject}...")
+            for s, p, o in graph.triples((None, SCHEMA.domainIncludes, subject)):
+                prop_name = to_protected_name(str(s).split("/")[-1])
+
+                property_info: PropertyInfo = PropertyInfo(
+                    name=prop_name
                 )
 
-    # if class_name begins with a number, add underscore to the class name
-    deleted_keys = set()
-    for class_name, class_info in classes.items():
-        if class_name[0].isdigit() or class_name.lower() in kwlist:
-            deleted_keys.add(class_name)
+                print(f" * {prop_name}")
+                set_docstring(graph, s, property_info)
 
-    for class_name in deleted_keys:
-        classes[f"_{class_name}"] = classes[class_name]
-        del classes[class_name]
+                class_info.properties.append(property_info)
 
-    ts = TopologicalSorter()
+                for _, _, prop_range in graph.triples((s, SCHEMA.rangeIncludes, None)):
+                    print(f"    - {prop_range}")
+                    try:
+                        if prop_range in BASE_TYPES:
+                            python_type = BASE_TYPES[prop_range]
+                            property_info.types.append(python_type)
+                        else:
+                            python_type = safe_name(str(prop_range).split("/")[-1])
+                            
+                            if python_type != class_info.parent and python_type != class_name:
+                                class_info.imports.add(python_type)
+
+                            property_info.types.append(f"'{python_type}'")
+                    except Exception:
+                        pass
+
+    sorter = TopologicalSorter()
     ts_sorted = []
+
     for class_name, class_info in classes.items():
-        parent = class_info["parent"]
-        ts.add(class_name, parent)
-    for order, class_name in enumerate(ts.static_order()):
+        sorter.add(class_name, class_info.parent)
+
+    for order, class_name in enumerate(sorter.static_order()):
         if class_name is not None and class_name in classes:
-            classes[class_name]["order"] = order
+            classes[class_name].order = order
             ts_sorted.append(class_name)
+
     # Write init file
     with open("src/schemaorg_models/__init__.py", "w") as f:
         f.write(f"__all__ = {str(ts_sorted)}\n\n")
@@ -104,28 +154,18 @@ def generate_models(graph: Graph):
         for class_name in ts_sorted:
             f.write(f"from .{camel_to_snake(class_name)} import {class_name}\n")
 
-    # Second pass: collect properties
-    for class_name, class_info in classes.items():
-        class_uri = SCHEMA[class_name]
+        for class_name in ts_sorted:
+            class_info = classes.get(class_name)
+            
+            f.write(f"\ndef rebuild_{camel_to_snake(class_name)}():\n")
 
-        for s, p, o in graph.triples((None, SCHEMA.domainIncludes, class_uri)):
-            prop_name = str(s).split("/")[-1]
+            for import_ in class_info.imports:
+                f.write(f"    rebuild_{camel_to_snake(import_)}()\n")
 
-            for _, _, prop_range in graph.triples((s, SCHEMA.rangeIncludes, None)):
-                try:
-                    if prop_range in BASE_TYPES:
-                        python_type = BASE_TYPES[prop_range]
-                    else:
-                        python_type = safe_name(str(prop_range).split("/")[-1])
-                    # if class_name begins with a number, add underscore to the class name
-                    if python_type[0].isdigit() or python_type.lower() in kwlist:
-                        python_type = f"_{python_type}"
-                    # Ditto for property names
-                    # if prop_name[0].isdigit() or prop_name.lower() in kwlist:
-                    #    prop_name = f"_{prop_name}"
-                    class_info["properties"].append((prop_name, python_type))
-                except Exception:
-                    pass
+            if class_info.parent:
+                f.write(f"    rebuild_{camel_to_snake(class_info.parent)}()\n")
+            
+            f.write(f"    {class_name}.model_rebuild()\n")
 
     # Generate model files
     for class_name, class_info in classes.items():
@@ -157,38 +197,34 @@ from typing import (
 """)
 
             # Import parent class if exists
-            if class_info["parent"]:
-                f.write(f"from .{camel_to_snake(class_info['parent'])} import {class_info['parent']}\n")
+            if class_info.parent:
+                f.write(f"from .{camel_to_snake(class_info.parent)} import {class_info.parent}\n")
 
-            # Import other classes
-            other_classes = {}
-            aux_imports : set = set([])
-            for prop_name, prop_type in class_info["properties"]:
-                if prop_type != class_name and prop_type not in BASE_TYPES.values():
-                    forward_def = classes[prop_type]["order"] > class_info["order"]
-                    other_classes[prop_type] = forward_def
-
-                    if not class_info["parent"] or class_info["parent"] and prop_type != class_info["parent"]:
-                        aux_imports.add(prop_type)
-
-            if aux_imports:
+            # add the type checking, if any import is required
+            if class_info.imports:
                 f.write("""from typing import TYPE_CHECKING
 if TYPE_CHECKING:
 """)
-            for prop_type in aux_imports:
+            for prop_type in class_info.imports:
                 f.write(f"    from .{camel_to_snake(prop_type)} import {prop_type}\n")
 
             # Class definition
-            if class_info["parent"]:
-                f.write(f"\nclass {class_name}({class_info['parent']}):\n")
+            if class_info.parent:
+                f.write(f"\nclass {class_name}({class_info.parent}):\n")
             else:
                 f.write(f"\nclass {class_name}(BaseModel):\n")
 
-            docstring = class_info.get("docstring", None)
-            if docstring is not None:
-                f.write(f'    """\n{docstring}\n    """\n')
+            f.write("    '''\n")
+            f.write(f"    {class_info.docstring if class_info.docstring else 'Class description not available'}\n")
 
-            if not class_info["parent"]:
+            if class_info.properties:
+                f.write(f"\n    Attributes:\n")
+                for property_info in class_info.properties:
+                    f.write(f"        {property_info.name}: {property_info.docstring if property_info.docstring else 'Attribute description not available'}\n")
+
+            f.write("    '''\n")
+
+            if not class_info.parent:
                 f.write("""    # global serializer for HttpUrl
     @field_serializer(HttpUrl, mode="plain")
     def serialize_httpurl(self, value: HttpUrl) -> str:
@@ -206,23 +242,12 @@ if TYPE_CHECKING:
     )
 """)
             # Properties
-            if not class_info["properties"]:
-                f.write("    pass\n")
-
-            prop_dict = defaultdict(list)
-            for prop_name, prop_type in class_info["properties"]:
-                # if prop_type is self, it should be in double quotes
-                forward_def = other_classes.get(prop_type, False)
-                if prop_type == class_name or prop_type in other_classes:
-                    prop_type = f'"{prop_type}"'
-                prop_dict[prop_name].append(prop_type)
-
-            for prop_name, prop_type_list in prop_dict.items():
+            for property_info in class_info.properties:
                 prop_types = ", ".join(
-                    [f"{prop_type}, List[{prop_type}]" for prop_type in prop_type_list]
+                    [f"{prop_type}, List[{prop_type}]" for prop_type in property_info.types]
                 )
 
-                variable_name = f"{prop_name}_" if prop_name[0].isdigit() or prop_name.lower() in kwlist else prop_name
+                variable_name = f"{property_info.name}_" if prop_name.lower() in kwlist else property_info.name
                 	
                 f.write(f"""    {variable_name}: Optional[Union[{prop_types}]] = Field(
         default=None,

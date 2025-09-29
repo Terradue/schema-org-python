@@ -1,16 +1,30 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .medical_sign import MedicalSign
 
 class VitalSign(MedicalSign):
-    """
-Vital signs are measures of various physiological functions in order to assess the most basic body functions.
-    """
+    '''
+    Vital signs are measures of various physiological functions in order to assess the most basic body functions.
+    '''
     class_: Literal['https://schema.org/VitalSign'] = Field( # type: ignore
         default='https://schema.org/VitalSign',
         alias='@type',

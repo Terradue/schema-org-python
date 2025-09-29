@@ -1,16 +1,30 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .administrative_area import AdministrativeArea
 
 class City(AdministrativeArea):
-    """
-A city or town.
-    """
+    '''
+    A city or town.
+    '''
     class_: Literal['https://schema.org/City'] = Field( # type: ignore
         default='https://schema.org/City',
         alias='@type',

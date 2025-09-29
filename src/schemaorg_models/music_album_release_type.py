@@ -1,16 +1,30 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .enumeration import Enumeration
 
 class MusicAlbumReleaseType(Enumeration):
-    """
-The kind of release which this album is: single, EP or album.
-    """
+    '''
+    The kind of release which this album is: single, EP or album.
+    '''
     class_: Literal['https://schema.org/MusicAlbumReleaseType'] = Field( # type: ignore
         default='https://schema.org/MusicAlbumReleaseType',
         alias='@type',

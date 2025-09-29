@@ -1,15 +1,29 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .news_article import NewsArticle
 
 class ReportageNewsArticle(NewsArticle):
-    """
-The [[ReportageNewsArticle]] type is a subtype of [[NewsArticle]] representing
+    '''
+    The [[ReportageNewsArticle]] type is a subtype of [[NewsArticle]] representing
  news articles which are the result of journalistic news reporting conventions.
 
 In practice many news publishers produce a wide variety of article types, many of which might be considered a [[NewsArticle]] but not a [[ReportageNewsArticle]]. For example, opinion pieces, reviews, analysis, sponsored or satirical articles, or articles that combine several of these elements.
@@ -18,7 +32,7 @@ The [[ReportageNewsArticle]] type is based on a stricter ideal for "news" as a w
 
 A [[ReportageNewsArticle]] which goes deeper into analysis can also be marked with an additional type of [[AnalysisNewsArticle]].
 
-    """
+    '''
     class_: Literal['https://schema.org/ReportageNewsArticle'] = Field( # type: ignore
         default='https://schema.org/ReportageNewsArticle',
         alias='@type',

@@ -1,16 +1,30 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .consume_action import ConsumeAction
 
 class ViewAction(ConsumeAction):
-    """
-The act of consuming static visual content.
-    """
+    '''
+    The act of consuming static visual content.
+    '''
     class_: Literal['https://schema.org/ViewAction'] = Field( # type: ignore
         default='https://schema.org/ViewAction',
         alias='@type',

@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -12,9 +22,14 @@ from typing import (
 from .creative_work import CreativeWork
 
 class Chapter(CreativeWork):
-    """
-One of the sections into which a book is divided. A chapter usually has a section number or a name.
-    """
+    '''
+    One of the sections into which a book is divided. A chapter usually has a section number or a name.
+
+    Attributes:
+        pageStart: The page on which the work starts; for example "135" or "xiii".
+        pagination: Any description of pages that is not separated into pageStart and pageEnd; for example, "1-6, 9, 55" or "10-12, 46-49".
+        pageEnd: The page on which the work ends; for example "138" or "xvi".
+    '''
     class_: Literal['https://schema.org/Chapter'] = Field( # type: ignore
         default='https://schema.org/Chapter',
         alias='@type',
@@ -23,24 +38,24 @@ One of the sections into which a book is divided. A chapter usually has a sectio
     pageStart: Optional[Union[int, List[int], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'pageStart',
-            'https://schema.org/pageStart'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/pageStart'
+        serialization_alias='https://schema.org/genre'
     )
     pagination: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'pagination',
-            'https://schema.org/pagination'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/pagination'
+        serialization_alias='https://schema.org/genre'
     )
     pageEnd: Optional[Union[str, List[str], int, List[int]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'pageEnd',
-            'https://schema.org/pageEnd'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/pageEnd'
+        serialization_alias='https://schema.org/genre'
     )

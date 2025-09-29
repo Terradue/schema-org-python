@@ -1,16 +1,30 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .comment import Comment
 
 class CorrectionComment(Comment):
-    """
-A [[comment]] that corrects [[CreativeWork]].
-    """
+    '''
+    A [[comment]] that corrects [[CreativeWork]].
+    '''
     class_: Literal['https://schema.org/CorrectionComment'] = Field( # type: ignore
         default='https://schema.org/CorrectionComment',
         alias='@type',

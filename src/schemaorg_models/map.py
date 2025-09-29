@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -15,19 +25,22 @@ if TYPE_CHECKING:
     from .map_category_type import MapCategoryType
 
 class Map(CreativeWork):
-    """
-A map.
-    """
+    '''
+    A map.
+
+    Attributes:
+        mapType: Indicates the kind of Map, from the MapCategoryType Enumeration.
+    '''
     class_: Literal['https://schema.org/Map'] = Field( # type: ignore
         default='https://schema.org/Map',
         alias='@type',
         serialization_alias='@type'
     )
-    mapType: Optional[Union["MapCategoryType", List["MapCategoryType"]]] = Field(
+    mapType: Optional[Union['MapCategoryType', List['MapCategoryType']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'mapType',
-            'https://schema.org/mapType'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/mapType'
+        serialization_alias='https://schema.org/genre'
     )

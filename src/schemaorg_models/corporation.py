@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -12,9 +22,12 @@ from typing import (
 from .organization import Organization
 
 class Corporation(Organization):
-    """
-Organization: A business corporation.
-    """
+    '''
+    Organization: A business corporation.
+
+    Attributes:
+        tickerSymbol: The exchange traded instrument associated with a Corporation object. The tickerSymbol is expressed as an exchange and an instrument name separated by a space character. For the exchange component of the tickerSymbol attribute, we recommend using the controlled vocabulary of Market Identifier Codes (MIC) specified in ISO 15022.
+    '''
     class_: Literal['https://schema.org/Corporation'] = Field( # type: ignore
         default='https://schema.org/Corporation',
         alias='@type',
@@ -23,8 +36,8 @@ Organization: A business corporation.
     tickerSymbol: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'tickerSymbol',
-            'https://schema.org/tickerSymbol'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/tickerSymbol'
+        serialization_alias='https://schema.org/genre'
     )

@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -16,27 +26,31 @@ if TYPE_CHECKING:
     from .media_object import MediaObject
 
 class HyperToc(CreativeWork):
-    """
-A HyperToc represents a hypertext table of contents for complex media objects, such as [[VideoObject]], [[AudioObject]]. Items in the table of contents are indicated using the [[tocEntry]] property, and typed [[HyperTocEntry]]. For cases where the same larger work is split into multiple files, [[associatedMedia]] can be used on individual [[HyperTocEntry]] items.
-    """
+    '''
+    A HyperToc represents a hypertext table of contents for complex media objects, such as [[VideoObject]], [[AudioObject]]. Items in the table of contents are indicated using the [[tocEntry]] property, and typed [[HyperTocEntry]]. For cases where the same larger work is split into multiple files, [[associatedMedia]] can be used on individual [[HyperTocEntry]] items.
+
+    Attributes:
+        tocEntry: Indicates a [[HyperTocEntry]] in a [[HyperToc]].
+        associatedMedia: A media object that encodes this CreativeWork. This property is a synonym for encoding.
+    '''
     class_: Literal['https://schema.org/HyperToc'] = Field( # type: ignore
         default='https://schema.org/HyperToc',
         alias='@type',
         serialization_alias='@type'
     )
-    tocEntry: Optional[Union["HyperTocEntry", List["HyperTocEntry"]]] = Field(
+    tocEntry: Optional[Union['HyperTocEntry', List['HyperTocEntry']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'tocEntry',
-            'https://schema.org/tocEntry'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/tocEntry'
+        serialization_alias='https://schema.org/genre'
     )
-    associatedMedia: Optional[Union["MediaObject", List["MediaObject"]]] = Field(
+    associatedMedia: Optional[Union['MediaObject', List['MediaObject']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'associatedMedia',
-            'https://schema.org/associatedMedia'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/associatedMedia'
+        serialization_alias='https://schema.org/genre'
     )

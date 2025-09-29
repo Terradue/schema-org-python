@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -12,58 +22,65 @@ from typing import (
 from .medical_entity import MedicalEntity
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .medical_sign import MedicalSign
-    from .medical_enumeration import MedicalEnumeration
-    from .medical_device import MedicalDevice
     from .drug import Drug
+    from .medical_device import MedicalDevice
+    from .medical_enumeration import MedicalEnumeration
     from .medical_condition import MedicalCondition
+    from .medical_sign import MedicalSign
 
 class MedicalTest(MedicalEntity):
-    """
-Any medical test, typically performed for diagnostic purposes.
-    """
+    '''
+    Any medical test, typically performed for diagnostic purposes.
+
+    Attributes:
+        affectedBy: Drugs that affect the test's results.
+        signDetected: A sign detected by the test.
+        usesDevice: Device used to perform the test.
+        usedToDiagnose: A condition the test is used to diagnose.
+        normalRange: Range of acceptable values for a typical patient, when applicable.
+    '''
     class_: Literal['https://schema.org/MedicalTest'] = Field( # type: ignore
         default='https://schema.org/MedicalTest',
         alias='@type',
         serialization_alias='@type'
     )
-    affectedBy: Optional[Union["Drug", List["Drug"]]] = Field(
+    affectedBy: Optional[Union['Drug', List['Drug']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'affectedBy',
-            'https://schema.org/affectedBy'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/affectedBy'
+        serialization_alias='https://schema.org/genre'
     )
-    signDetected: Optional[Union["MedicalSign", List["MedicalSign"]]] = Field(
+    signDetected: Optional[Union['MedicalSign', List['MedicalSign']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'signDetected',
-            'https://schema.org/signDetected'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/signDetected'
+        serialization_alias='https://schema.org/genre'
     )
-    usesDevice: Optional[Union["MedicalDevice", List["MedicalDevice"]]] = Field(
+    usesDevice: Optional[Union['MedicalDevice', List['MedicalDevice']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'usesDevice',
-            'https://schema.org/usesDevice'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/usesDevice'
+        serialization_alias='https://schema.org/genre'
     )
-    usedToDiagnose: Optional[Union["MedicalCondition", List["MedicalCondition"]]] = Field(
+    usedToDiagnose: Optional[Union['MedicalCondition', List['MedicalCondition']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'usedToDiagnose',
-            'https://schema.org/usedToDiagnose'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/usedToDiagnose'
+        serialization_alias='https://schema.org/genre'
     )
-    normalRange: Optional[Union["MedicalEnumeration", List["MedicalEnumeration"], str, List[str]]] = Field(
+    normalRange: Optional[Union['MedicalEnumeration', List['MedicalEnumeration'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'normalRange',
-            'https://schema.org/normalRange'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/normalRange'
+        serialization_alias='https://schema.org/genre'
     )

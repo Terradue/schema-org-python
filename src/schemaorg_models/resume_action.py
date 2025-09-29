@@ -1,16 +1,30 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .control_action import ControlAction
 
 class ResumeAction(ControlAction):
-    """
-The act of resuming a device or application which was formerly paused (e.g. resume music playback or resume a timer).
-    """
+    '''
+    The act of resuming a device or application which was formerly paused (e.g. resume music playback or resume a timer).
+    '''
     class_: Literal['https://schema.org/ResumeAction'] = Field( # type: ignore
         default='https://schema.org/ResumeAction',
         alias='@type',

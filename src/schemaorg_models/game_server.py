@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -16,9 +26,14 @@ if TYPE_CHECKING:
     from .video_game import VideoGame
 
 class GameServer(Intangible):
-    """
-Server that provides game interaction in a multiplayer game.
-    """
+    '''
+    Server that provides game interaction in a multiplayer game.
+
+    Attributes:
+        playersOnline: Number of players on the server.
+        serverStatus: Status of a game server.
+        game: Video game which is played on this server.
+    '''
     class_: Literal['https://schema.org/GameServer'] = Field( # type: ignore
         default='https://schema.org/GameServer',
         alias='@type',
@@ -27,24 +42,24 @@ Server that provides game interaction in a multiplayer game.
     playersOnline: Optional[Union[int, List[int]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'playersOnline',
-            'https://schema.org/playersOnline'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/playersOnline'
+        serialization_alias='https://schema.org/genre'
     )
-    serverStatus: Optional[Union["GameServerStatus", List["GameServerStatus"]]] = Field(
+    serverStatus: Optional[Union['GameServerStatus', List['GameServerStatus']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'serverStatus',
-            'https://schema.org/serverStatus'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/serverStatus'
+        serialization_alias='https://schema.org/genre'
     )
-    game: Optional[Union["VideoGame", List["VideoGame"]]] = Field(
+    game: Optional[Union['VideoGame', List['VideoGame']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'game',
-            'https://schema.org/game'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/game'
+        serialization_alias='https://schema.org/genre'
     )

@@ -1,16 +1,30 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .social_media_posting import SocialMediaPosting
 
 class BlogPosting(SocialMediaPosting):
-    """
-A blog post.
-    """
+    '''
+    A blog post.
+    '''
     class_: Literal['https://schema.org/BlogPosting'] = Field( # type: ignore
         default='https://schema.org/BlogPosting',
         alias='@type',

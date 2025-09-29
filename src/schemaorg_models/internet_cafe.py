@@ -1,16 +1,30 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .local_business import LocalBusiness
 
 class InternetCafe(LocalBusiness):
-    """
-An internet cafe.
-    """
+    '''
+    An internet cafe.
+    '''
     class_: Literal['https://schema.org/InternetCafe'] = Field( # type: ignore
         default='https://schema.org/InternetCafe',
         alias='@type',

@@ -1,16 +1,30 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .civic_structure import CivicStructure
 
 class Bridge(CivicStructure):
-    """
-A bridge.
-    """
+    '''
+    A bridge.
+    '''
     class_: Literal['https://schema.org/Bridge'] = Field( # type: ignore
         default='https://schema.org/Bridge',
         alias='@type',

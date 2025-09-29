@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -15,19 +25,22 @@ if TYPE_CHECKING:
     from .defined_term import DefinedTerm
 
 class DefinedTermSet(CreativeWork):
-    """
-A set of defined terms, for example a set of categories or a classification scheme, a glossary, dictionary or enumeration.
-    """
+    '''
+    A set of defined terms, for example a set of categories or a classification scheme, a glossary, dictionary or enumeration.
+
+    Attributes:
+        hasDefinedTerm: A Defined Term contained in this term set.
+    '''
     class_: Literal['https://schema.org/DefinedTermSet'] = Field( # type: ignore
         default='https://schema.org/DefinedTermSet',
         alias='@type',
         serialization_alias='@type'
     )
-    hasDefinedTerm: Optional[Union["DefinedTerm", List["DefinedTerm"]]] = Field(
+    hasDefinedTerm: Optional[Union['DefinedTerm', List['DefinedTerm']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'hasDefinedTerm',
-            'https://schema.org/hasDefinedTerm'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/hasDefinedTerm'
+        serialization_alias='https://schema.org/genre'
     )

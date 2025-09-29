@@ -1,16 +1,30 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .service import Service
 
 class Taxi(Service):
-    """
-A taxi.
-    """
+    '''
+    A taxi.
+    '''
     class_: Literal['https://schema.org/Taxi'] = Field( # type: ignore
         default='https://schema.org/Taxi',
         alias='@type',

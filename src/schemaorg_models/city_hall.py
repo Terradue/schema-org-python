@@ -1,16 +1,30 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .government_building import GovernmentBuilding
 
 class CityHall(GovernmentBuilding):
-    """
-A city hall.
-    """
+    '''
+    A city hall.
+    '''
     class_: Literal['https://schema.org/CityHall'] = Field( # type: ignore
         default='https://schema.org/CityHall',
         alias='@type',

@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -15,19 +25,22 @@ if TYPE_CHECKING:
     from .person import Person
 
 class WinAction(AchieveAction):
-    """
-The act of achieving victory in a competitive activity.
-    """
+    '''
+    The act of achieving victory in a competitive activity.
+
+    Attributes:
+        loser: A sub property of participant. The loser of the action.
+    '''
     class_: Literal['https://schema.org/WinAction'] = Field( # type: ignore
         default='https://schema.org/WinAction',
         alias='@type',
         serialization_alias='@type'
     )
-    loser: Optional[Union["Person", List["Person"]]] = Field(
+    loser: Optional[Union['Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'loser',
-            'https://schema.org/loser'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/loser'
+        serialization_alias='https://schema.org/genre'
     )

@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -16,35 +26,40 @@ if TYPE_CHECKING:
     from .item_list import ItemList
 
 class MusicPlaylist(CreativeWork):
-    """
-A collection of music tracks in playlist form.
-    """
+    '''
+    A collection of music tracks in playlist form.
+
+    Attributes:
+        tracks: A music recording (track)&#x2014;usually a single song.
+        track: A music recording (track)&#x2014;usually a single song. If an ItemList is given, the list should contain items of type MusicRecording.
+        numTracks: The number of tracks in this album or playlist.
+    '''
     class_: Literal['https://schema.org/MusicPlaylist'] = Field( # type: ignore
         default='https://schema.org/MusicPlaylist',
         alias='@type',
         serialization_alias='@type'
     )
-    tracks: Optional[Union["MusicRecording", List["MusicRecording"]]] = Field(
+    tracks: Optional[Union['MusicRecording', List['MusicRecording']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'tracks',
-            'https://schema.org/tracks'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/tracks'
+        serialization_alias='https://schema.org/genre'
     )
-    track: Optional[Union["ItemList", List["ItemList"], "MusicRecording", List["MusicRecording"]]] = Field(
+    track: Optional[Union['ItemList', List['ItemList'], 'MusicRecording', List['MusicRecording']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'track',
-            'https://schema.org/track'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/track'
+        serialization_alias='https://schema.org/genre'
     )
     numTracks: Optional[Union[int, List[int]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'numTracks',
-            'https://schema.org/numTracks'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/numTracks'
+        serialization_alias='https://schema.org/genre'
     )

@@ -1,10 +1,17 @@
 from __future__ import annotations
 from datetime import (
-    datetime
+    date,
+    datetime,
+    time
 )
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -18,11 +25,17 @@ if TYPE_CHECKING:
     from .place import Place
 
 class RentalCarReservation(Reservation):
-    """
-A reservation for a rental car.\
+    '''
+    A reservation for a rental car.\
 \
 Note: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations.
-    """
+
+    Attributes:
+        pickupTime: When a taxi will pick up a passenger or a rental car can be picked up.
+        dropoffTime: When a rental car can be dropped off.
+        dropoffLocation: Where a rental car can be dropped off.
+        pickupLocation: Where a taxi will pick up a passenger or a rental car can be picked up.
+    '''
     class_: Literal['https://schema.org/RentalCarReservation'] = Field( # type: ignore
         default='https://schema.org/RentalCarReservation',
         alias='@type',
@@ -31,32 +44,32 @@ Note: This type is for information about actual reservations, e.g. in confirmati
     pickupTime: Optional[Union[datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'pickupTime',
-            'https://schema.org/pickupTime'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/pickupTime'
+        serialization_alias='https://schema.org/genre'
     )
     dropoffTime: Optional[Union[datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'dropoffTime',
-            'https://schema.org/dropoffTime'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/dropoffTime'
+        serialization_alias='https://schema.org/genre'
     )
-    dropoffLocation: Optional[Union["Place", List["Place"]]] = Field(
+    dropoffLocation: Optional[Union['Place', List['Place']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'dropoffLocation',
-            'https://schema.org/dropoffLocation'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/dropoffLocation'
+        serialization_alias='https://schema.org/genre'
     )
-    pickupLocation: Optional[Union["Place", List["Place"]]] = Field(
+    pickupLocation: Optional[Union['Place', List['Place']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'pickupLocation',
-            'https://schema.org/pickupLocation'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/pickupLocation'
+        serialization_alias='https://schema.org/genre'
     )

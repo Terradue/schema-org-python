@@ -1,11 +1,17 @@
 from __future__ import annotations
 from datetime import (
     date,
-    datetime
+    datetime,
+    time
 )
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -20,29 +26,33 @@ if TYPE_CHECKING:
     from .quantitative_value import QuantitativeValue
 
 class RealEstateListing(WebPage):
-    """
-A [[RealEstateListing]] is a listing that describes one or more real-estate [[Offer]]s (whose [[businessFunction]] is typically to lease out, or to sell).
+    '''
+    A [[RealEstateListing]] is a listing that describes one or more real-estate [[Offer]]s (whose [[businessFunction]] is typically to lease out, or to sell).
   The [[RealEstateListing]] type itself represents the overall listing, as manifested in some [[WebPage]].
   
-    """
+
+    Attributes:
+        leaseLength: Length of the lease for some [[Accommodation]], either particular to some [[Offer]] or in some cases intrinsic to the property.
+        datePosted: Publication date of an online listing.
+    '''
     class_: Literal['https://schema.org/RealEstateListing'] = Field( # type: ignore
         default='https://schema.org/RealEstateListing',
         alias='@type',
         serialization_alias='@type'
     )
-    leaseLength: Optional[Union["QuantitativeValue", List["QuantitativeValue"], "Duration", List["Duration"]]] = Field(
+    leaseLength: Optional[Union['QuantitativeValue', List['QuantitativeValue'], 'Duration', List['Duration']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'leaseLength',
-            'https://schema.org/leaseLength'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/leaseLength'
+        serialization_alias='https://schema.org/genre'
     )
     datePosted: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'datePosted',
-            'https://schema.org/datePosted'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/datePosted'
+        serialization_alias='https://schema.org/genre'
     )

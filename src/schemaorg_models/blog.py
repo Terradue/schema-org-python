@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -15,9 +25,14 @@ if TYPE_CHECKING:
     from .blog_posting import BlogPosting
 
 class Blog(CreativeWork):
-    """
-A [blog](https://en.wikipedia.org/wiki/Blog), sometimes known as a "weblog". Note that the individual posts ([[BlogPosting]]s) in a [[Blog]] are often colloquially referred to by the same term.
-    """
+    '''
+    A [blog](https://en.wikipedia.org/wiki/Blog), sometimes known as a "weblog". Note that the individual posts ([[BlogPosting]]s) in a [[Blog]] are often colloquially referred to by the same term.
+
+    Attributes:
+        issn: The International Standard Serial Number (ISSN) that identifies this serial publication. You can repeat this property to identify different formats of, or the linking ISSN (ISSN-L) for, this serial publication.
+        blogPost: A posting that is part of this blog.
+        blogPosts: Indicates a post that is part of a [[Blog]]. Note that historically, what we term a "Blog" was once known as a "weblog", and that what we term a "BlogPosting" is now often colloquially referred to as a "blog".
+    '''
     class_: Literal['https://schema.org/Blog'] = Field( # type: ignore
         default='https://schema.org/Blog',
         alias='@type',
@@ -26,24 +41,24 @@ A [blog](https://en.wikipedia.org/wiki/Blog), sometimes known as a "weblog". Not
     issn: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'issn',
-            'https://schema.org/issn'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/issn'
+        serialization_alias='https://schema.org/genre'
     )
-    blogPost: Optional[Union["BlogPosting", List["BlogPosting"]]] = Field(
+    blogPost: Optional[Union['BlogPosting', List['BlogPosting']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'blogPost',
-            'https://schema.org/blogPost'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/blogPost'
+        serialization_alias='https://schema.org/genre'
     )
-    blogPosts: Optional[Union["BlogPosting", List["BlogPosting"]]] = Field(
+    blogPosts: Optional[Union['BlogPosting', List['BlogPosting']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'blogPosts',
-            'https://schema.org/blogPosts'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/blogPosts'
+        serialization_alias='https://schema.org/genre'
     )

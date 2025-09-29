@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -15,9 +25,15 @@ if TYPE_CHECKING:
     from .qualitative_value import QualitativeValue
 
 class DoseSchedule(MedicalIntangible):
-    """
-A dosing schedule for the drug for a given population, either observed, recommended, or maximum dose based on the type used.
-    """
+    '''
+    A specific dosing schedule for a drug or supplement.
+
+    Attributes:
+        frequency: How often the dose is taken, e.g. 'daily'.
+        doseValue: The value of the dose, e.g. 500.
+        targetPopulation: Characteristics of the population for which this is intended, or which typically uses it, e.g. 'adults'.
+        doseUnit: The unit of the dose, e.g. 'mg'.
+    '''
     class_: Literal['https://schema.org/DoseSchedule'] = Field( # type: ignore
         default='https://schema.org/DoseSchedule',
         alias='@type',
@@ -26,32 +42,32 @@ A dosing schedule for the drug for a given population, either observed, recommen
     frequency: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'frequency',
-            'https://schema.org/frequency'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/frequency'
+        serialization_alias='https://schema.org/genre'
     )
-    doseValue: Optional[Union[float, List[float], "QualitativeValue", List["QualitativeValue"]]] = Field(
+    doseValue: Optional[Union[float, List[float], 'QualitativeValue', List['QualitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'doseValue',
-            'https://schema.org/doseValue'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/doseValue'
+        serialization_alias='https://schema.org/genre'
     )
     targetPopulation: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'targetPopulation',
-            'https://schema.org/targetPopulation'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/targetPopulation'
+        serialization_alias='https://schema.org/genre'
     )
     doseUnit: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'doseUnit',
-            'https://schema.org/doseUnit'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/doseUnit'
+        serialization_alias='https://schema.org/genre'
     )

@@ -1,6 +1,15 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
+    BaseModel,
+    ConfigDict,
     Field,
     HttpUrl
 )
@@ -17,71 +26,82 @@ if TYPE_CHECKING:
     from .defined_term import DefinedTerm
 
 class LearningResource(CreativeWork):
-    """
-The LearningResource type can be used to indicate [[CreativeWork]]s (whether physical or digital) that have a particular and explicit orientation towards learning, education, skill acquisition, and other educational purposes.
+    '''
+    The LearningResource type can be used to indicate [[CreativeWork]]s (whether physical or digital) that have a particular and explicit orientation towards learning, education, skill acquisition, and other educational purposes.
 
 [[LearningResource]] is expected to be used as an addition to a primary type such as [[Book]], [[VideoObject]], [[Product]] etc.
 
 [[EducationEvent]] serves a similar purpose for event-like things (e.g. a [[Trip]]). A [[LearningResource]] may be created as a result of an [[EducationEvent]], for example by recording one.
-    """
+
+    Attributes:
+        educationalLevel: The level in terms of progression through an educational or training context. Examples of educational levels include 'beginner', 'intermediate' or 'advanced', and formal sets of level indicators.
+        educationalAlignment: An alignment to an established educational framework.
+
+This property should not be used where the nature of the alignment can be described using a simple property, for example to express that a resource [[teaches]] or [[assesses]] a competency.
+        teaches: The item being described is intended to help a person learn the competency or learning outcome defined by the referenced term.
+        educationalUse: The purpose of a work in the context of education; for example, 'assignment', 'group work'.
+        competencyRequired: Knowledge, skill, ability or personal attribute that must be demonstrated by a person or other entity in order to do something such as earn an Educational Occupational Credential or understand a LearningResource.
+        learningResourceType: The predominant type or kind characterizing the learning resource. For example, 'presentation', 'handout'.
+        assesses: The item being described is intended to assess the competency or learning outcome defined by the referenced term.
+    '''
     class_: Literal['https://schema.org/LearningResource'] = Field( # type: ignore
         default='https://schema.org/LearningResource',
         alias='@type',
         serialization_alias='@type'
     )
-    educationalLevel: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], "DefinedTerm", List["DefinedTerm"]]] = Field(
+    educationalLevel: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], 'DefinedTerm', List['DefinedTerm']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'educationalLevel',
-            'https://schema.org/educationalLevel'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/educationalLevel'
+        serialization_alias='https://schema.org/genre'
     )
-    educationalAlignment: Optional[Union["AlignmentObject", List["AlignmentObject"]]] = Field(
+    educationalAlignment: Optional[Union['AlignmentObject', List['AlignmentObject']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'educationalAlignment',
-            'https://schema.org/educationalAlignment'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/educationalAlignment'
+        serialization_alias='https://schema.org/genre'
     )
-    teaches: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str]]] = Field(
+    teaches: Optional[Union['DefinedTerm', List['DefinedTerm'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'teaches',
-            'https://schema.org/teaches'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/teaches'
+        serialization_alias='https://schema.org/genre'
     )
-    educationalUse: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str]]] = Field(
+    educationalUse: Optional[Union['DefinedTerm', List['DefinedTerm'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'educationalUse',
-            'https://schema.org/educationalUse'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/educationalUse'
+        serialization_alias='https://schema.org/genre'
     )
-    competencyRequired: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str], HttpUrl, List[HttpUrl]]] = Field(
+    competencyRequired: Optional[Union['DefinedTerm', List['DefinedTerm'], str, List[str], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'competencyRequired',
-            'https://schema.org/competencyRequired'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/competencyRequired'
+        serialization_alias='https://schema.org/genre'
     )
-    learningResourceType: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str]]] = Field(
+    learningResourceType: Optional[Union['DefinedTerm', List['DefinedTerm'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'learningResourceType',
-            'https://schema.org/learningResourceType'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/learningResourceType'
+        serialization_alias='https://schema.org/genre'
     )
-    assesses: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str]]] = Field(
+    assesses: Optional[Union['DefinedTerm', List['DefinedTerm'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'assesses',
-            'https://schema.org/assesses'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/assesses'
+        serialization_alias='https://schema.org/genre'
     )

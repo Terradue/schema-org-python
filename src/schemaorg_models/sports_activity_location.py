@@ -1,16 +1,30 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .local_business import LocalBusiness
 
 class SportsActivityLocation(LocalBusiness):
-    """
-A sub property of location. The sports activity location where this action occurred.
-    """
+    '''
+    A sports location, such as a playing field.
+    '''
     class_: Literal['https://schema.org/SportsActivityLocation'] = Field( # type: ignore
         default='https://schema.org/SportsActivityLocation',
         alias='@type',

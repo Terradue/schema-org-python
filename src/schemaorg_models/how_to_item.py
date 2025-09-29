@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -15,19 +25,22 @@ if TYPE_CHECKING:
     from .quantitative_value import QuantitativeValue
 
 class HowToItem(ListItem):
-    """
-An item used as either a tool or supply when performing the instructions for how to achieve a result.
-    """
+    '''
+    An item used as either a tool or supply when performing the instructions for how to achieve a result.
+
+    Attributes:
+        requiredQuantity: The required quantity of the item(s).
+    '''
     class_: Literal['https://schema.org/HowToItem'] = Field( # type: ignore
         default='https://schema.org/HowToItem',
         alias='@type',
         serialization_alias='@type'
     )
-    requiredQuantity: Optional[Union[str, List[str], float, List[float], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    requiredQuantity: Optional[Union[str, List[str], float, List[float], 'QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'requiredQuantity',
-            'https://schema.org/requiredQuantity'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/requiredQuantity'
+        serialization_alias='https://schema.org/genre'
     )

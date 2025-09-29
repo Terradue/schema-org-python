@@ -1,16 +1,30 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .creative_work import CreativeWork
 
 class Season(CreativeWork):
-    """
-A season in a media series.
-    """
+    '''
+    A media season, e.g. TV, radio, video game etc.
+    '''
     class_: Literal['https://schema.org/Season'] = Field( # type: ignore
         default='https://schema.org/Season',
         alias='@type',

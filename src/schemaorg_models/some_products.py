@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -15,19 +25,22 @@ if TYPE_CHECKING:
     from .quantitative_value import QuantitativeValue
 
 class SomeProducts(Product):
-    """
-A placeholder for multiple similar products of the same kind.
-    """
+    '''
+    A placeholder for multiple similar products of the same kind.
+
+    Attributes:
+        inventoryLevel: The current approximate inventory level for the item or items.
+    '''
     class_: Literal['https://schema.org/SomeProducts'] = Field( # type: ignore
         default='https://schema.org/SomeProducts',
         alias='@type',
         serialization_alias='@type'
     )
-    inventoryLevel: Optional[Union["QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    inventoryLevel: Optional[Union['QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'inventoryLevel',
-            'https://schema.org/inventoryLevel'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/inventoryLevel'
+        serialization_alias='https://schema.org/genre'
     )

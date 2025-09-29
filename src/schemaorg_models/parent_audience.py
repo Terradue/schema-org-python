@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -12,9 +22,13 @@ from typing import (
 from .people_audience import PeopleAudience
 
 class ParentAudience(PeopleAudience):
-    """
-A set of characteristics describing parents, who can be interested in viewing some content.
-    """
+    '''
+    A set of characteristics describing parents, who can be interested in viewing some content.
+
+    Attributes:
+        childMaxAge: Maximal age of the child.
+        childMinAge: Minimal age of the child.
+    '''
     class_: Literal['https://schema.org/ParentAudience'] = Field( # type: ignore
         default='https://schema.org/ParentAudience',
         alias='@type',
@@ -23,16 +37,16 @@ A set of characteristics describing parents, who can be interested in viewing so
     childMaxAge: Optional[Union[float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'childMaxAge',
-            'https://schema.org/childMaxAge'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/childMaxAge'
+        serialization_alias='https://schema.org/genre'
     )
     childMinAge: Optional[Union[float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'childMinAge',
-            'https://schema.org/childMinAge'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/childMinAge'
+        serialization_alias='https://schema.org/genre'
     )

@@ -1,16 +1,30 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .local_business import LocalBusiness
 
 class EntertainmentBusiness(LocalBusiness):
-    """
-A sub property of location. The entertainment business where the action occurred.
-    """
+    '''
+    A business providing entertainment.
+    '''
     class_: Literal['https://schema.org/EntertainmentBusiness'] = Field( # type: ignore
         default='https://schema.org/EntertainmentBusiness',
         alias='@type',

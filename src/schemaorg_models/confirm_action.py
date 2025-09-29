@@ -1,20 +1,34 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .inform_action import InformAction
 
 class ConfirmAction(InformAction):
-    """
-The act of notifying someone that a future event/action is going to happen as expected.\
+    '''
+    The act of notifying someone that a future event/action is going to happen as expected.\
 \
 Related actions:\
 \
 * [[CancelAction]]: The antonym of ConfirmAction.
-    """
+    '''
     class_: Literal['https://schema.org/ConfirmAction'] = Field( # type: ignore
         default='https://schema.org/ConfirmAction',
         alias='@type',

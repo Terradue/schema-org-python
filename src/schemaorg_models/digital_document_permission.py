@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -12,34 +22,38 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .digital_document_permission_type import DigitalDocumentPermissionType
     from .contact_point import ContactPoint
+    from .digital_document_permission_type import DigitalDocumentPermissionType
+    from .audience import Audience
     from .person import Person
     from .organization import Organization
-    from .audience import Audience
 
 class DigitalDocumentPermission(Intangible):
-    """
-A permission for a particular person or group to access a particular file.
-    """
+    '''
+    A permission for a particular person or group to access a particular file.
+
+    Attributes:
+        permissionType: The type of permission granted the person, organization, or audience.
+        grantee: The person, organization, contact point, or audience that has been granted this permission.
+    '''
     class_: Literal['https://schema.org/DigitalDocumentPermission'] = Field( # type: ignore
         default='https://schema.org/DigitalDocumentPermission',
         alias='@type',
         serialization_alias='@type'
     )
-    permissionType: Optional[Union["DigitalDocumentPermissionType", List["DigitalDocumentPermissionType"]]] = Field(
+    permissionType: Optional[Union['DigitalDocumentPermissionType', List['DigitalDocumentPermissionType']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'permissionType',
-            'https://schema.org/permissionType'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/permissionType'
+        serialization_alias='https://schema.org/genre'
     )
-    grantee: Optional[Union["Organization", List["Organization"], "Audience", List["Audience"], "Person", List["Person"], "ContactPoint", List["ContactPoint"]]] = Field(
+    grantee: Optional[Union['Organization', List['Organization'], 'Audience', List['Audience'], 'Person', List['Person'], 'ContactPoint', List['ContactPoint']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'grantee',
-            'https://schema.org/grantee'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/grantee'
+        serialization_alias='https://schema.org/genre'
     )

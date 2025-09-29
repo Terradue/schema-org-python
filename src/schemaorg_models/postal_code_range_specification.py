@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -12,9 +22,13 @@ from typing import (
 from .structured_value import StructuredValue
 
 class PostalCodeRangeSpecification(StructuredValue):
-    """
-Indicates a range of postal codes, usually defined as the set of valid codes between [[postalCodeBegin]] and [[postalCodeEnd]], inclusively.
-    """
+    '''
+    Indicates a range of postal codes, usually defined as the set of valid codes between [[postalCodeBegin]] and [[postalCodeEnd]], inclusively.
+
+    Attributes:
+        postalCodeBegin: First postal code in a range (included).
+        postalCodeEnd: Last postal code in the range (included). Needs to be after [[postalCodeBegin]].
+    '''
     class_: Literal['https://schema.org/PostalCodeRangeSpecification'] = Field( # type: ignore
         default='https://schema.org/PostalCodeRangeSpecification',
         alias='@type',
@@ -23,16 +37,16 @@ Indicates a range of postal codes, usually defined as the set of valid codes bet
     postalCodeBegin: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'postalCodeBegin',
-            'https://schema.org/postalCodeBegin'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/postalCodeBegin'
+        serialization_alias='https://schema.org/genre'
     )
     postalCodeEnd: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'postalCodeEnd',
-            'https://schema.org/postalCodeEnd'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/postalCodeEnd'
+        serialization_alias='https://schema.org/genre'
     )

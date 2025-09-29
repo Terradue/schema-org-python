@@ -1,16 +1,30 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .enumeration import Enumeration
 
 class MusicReleaseFormatType(Enumeration):
-    """
-Format of this release (the type of recording media used, i.e. compact disc, digital media, LP, etc.).
-    """
+    '''
+    Format of this release (the type of recording media used, i.e. compact disc, digital media, LP, etc.).
+    '''
     class_: Literal['https://schema.org/MusicReleaseFormatType'] = Field( # type: ignore
         default='https://schema.org/MusicReleaseFormatType',
         alias='@type',

@@ -1,22 +1,36 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .interact_action import InteractAction
 
 class SubscribeAction(InteractAction):
-    """
-The act of forming a personal connection with someone/something (object) unidirectionally/asymmetrically to get updates pushed to.\
+    '''
+    The act of forming a personal connection with someone/something (object) unidirectionally/asymmetrically to get updates pushed to.\
 \
 Related actions:\
 \
 * [[FollowAction]]: Unlike FollowAction, SubscribeAction implies that the subscriber acts as a passive agent being constantly/actively pushed for updates.\
 * [[RegisterAction]]: Unlike RegisterAction, SubscribeAction implies that the agent is interested in continuing receiving updates from the object.\
 * [[JoinAction]]: Unlike JoinAction, SubscribeAction implies that the agent is interested in continuing receiving updates from the object.
-    """
+    '''
     class_: Literal['https://schema.org/SubscribeAction'] = Field( # type: ignore
         default='https://schema.org/SubscribeAction',
         alias='@type',

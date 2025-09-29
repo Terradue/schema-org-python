@@ -1,16 +1,30 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .episode import Episode
 
 class RadioEpisode(Episode):
-    """
-A radio episode which can be part of a series or season.
-    """
+    '''
+    A radio episode which can be part of a series or season.
+    '''
     class_: Literal['https://schema.org/RadioEpisode'] = Field( # type: ignore
         default='https://schema.org/RadioEpisode',
         alias='@type',

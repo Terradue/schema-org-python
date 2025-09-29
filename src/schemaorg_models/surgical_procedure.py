@@ -1,16 +1,30 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .medical_procedure import MedicalProcedure
 
 class SurgicalProcedure(MedicalProcedure):
-    """
-A medical procedure involving an incision with instruments; performed for diagnose, or therapeutic purposes.
-    """
+    '''
+    A medical procedure involving an incision with instruments; performed for diagnose, or therapeutic purposes.
+    '''
     class_: Literal['https://schema.org/SurgicalProcedure'] = Field( # type: ignore
         default='https://schema.org/SurgicalProcedure',
         alias='@type',

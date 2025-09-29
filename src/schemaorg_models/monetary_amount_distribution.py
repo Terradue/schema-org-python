@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -12,9 +22,14 @@ from typing import (
 from .quantitative_value_distribution import QuantitativeValueDistribution
 
 class MonetaryAmountDistribution(QuantitativeValueDistribution):
-    """
-A statistical distribution of monetary amounts.
-    """
+    '''
+    A statistical distribution of monetary amounts.
+
+    Attributes:
+        currency: The currency in which the monetary amount is expressed.\
+\
+Use standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217), e.g. "USD"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies, e.g. "BTC"; well known names for [Local Exchange Trading Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types, e.g. "Ithaca HOUR".
+    '''
     class_: Literal['https://schema.org/MonetaryAmountDistribution'] = Field( # type: ignore
         default='https://schema.org/MonetaryAmountDistribution',
         alias='@type',
@@ -23,8 +38,8 @@ A statistical distribution of monetary amounts.
     currency: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'currency',
-            'https://schema.org/currency'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/currency'
+        serialization_alias='https://schema.org/genre'
     )

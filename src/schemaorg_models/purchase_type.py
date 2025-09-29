@@ -1,16 +1,30 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .enumeration import Enumeration
 
 class PurchaseType(Enumeration):
-    """
-Optional. The type of purchase the consumer must make in order to qualify for this incentive.
-    """
+    '''
+    Enumerates a purchase type for an item.
+    '''
     class_: Literal['https://schema.org/PurchaseType'] = Field( # type: ignore
         default='https://schema.org/PurchaseType',
         alias='@type',

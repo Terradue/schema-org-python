@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -12,50 +22,56 @@ from typing import (
 from .music_playlist import MusicPlaylist
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .music_album_release_type import MusicAlbumReleaseType
     from .music_release import MusicRelease
     from .person import Person
-    from .music_group import MusicGroup
+    from .music_album_release_type import MusicAlbumReleaseType
     from .music_album_production_type import MusicAlbumProductionType
+    from .music_group import MusicGroup
 
 class MusicAlbum(MusicPlaylist):
-    """
-A collection of music tracks.
-    """
+    '''
+    A collection of music tracks.
+
+    Attributes:
+        albumRelease: A release of this album.
+        byArtist: The artist that performed this album or recording.
+        albumProductionType: Classification of the album by its type of content: soundtrack, live album, studio album, etc.
+        albumReleaseType: The kind of release which this album is: single, EP or album.
+    '''
     class_: Literal['https://schema.org/MusicAlbum'] = Field( # type: ignore
         default='https://schema.org/MusicAlbum',
         alias='@type',
         serialization_alias='@type'
     )
-    albumRelease: Optional[Union["MusicRelease", List["MusicRelease"]]] = Field(
+    albumRelease: Optional[Union['MusicRelease', List['MusicRelease']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'albumRelease',
-            'https://schema.org/albumRelease'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/albumRelease'
+        serialization_alias='https://schema.org/genre'
     )
-    byArtist: Optional[Union["MusicGroup", List["MusicGroup"], "Person", List["Person"]]] = Field(
+    byArtist: Optional[Union['MusicGroup', List['MusicGroup'], 'Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'byArtist',
-            'https://schema.org/byArtist'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/byArtist'
+        serialization_alias='https://schema.org/genre'
     )
-    albumProductionType: Optional[Union["MusicAlbumProductionType", List["MusicAlbumProductionType"]]] = Field(
+    albumProductionType: Optional[Union['MusicAlbumProductionType', List['MusicAlbumProductionType']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'albumProductionType',
-            'https://schema.org/albumProductionType'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/albumProductionType'
+        serialization_alias='https://schema.org/genre'
     )
-    albumReleaseType: Optional[Union["MusicAlbumReleaseType", List["MusicAlbumReleaseType"]]] = Field(
+    albumReleaseType: Optional[Union['MusicAlbumReleaseType', List['MusicAlbumReleaseType']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'albumReleaseType',
-            'https://schema.org/albumReleaseType'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/albumReleaseType'
+        serialization_alias='https://schema.org/genre'
     )

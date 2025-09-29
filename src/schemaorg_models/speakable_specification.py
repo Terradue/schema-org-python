@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -15,27 +25,31 @@ if TYPE_CHECKING:
     from .css_selector_type import CssSelectorType
 
 class SpeakableSpecification(Intangible):
-    """
-A SpeakableSpecification indicates (typically via [[xpath]] or [[cssSelector]]) sections of a document that are highlighted as particularly [[speakable]]. Instances of this type are expected to be used primarily as values of the [[speakable]] property.
-    """
+    '''
+    A SpeakableSpecification indicates (typically via [[xpath]] or [[cssSelector]]) sections of a document that are highlighted as particularly [[speakable]]. Instances of this type are expected to be used primarily as values of the [[speakable]] property.
+
+    Attributes:
+        cssSelector: A CSS selector, e.g. of a [[SpeakableSpecification]] or [[WebPageElement]]. In the latter case, multiple matches within a page can constitute a single conceptual "Web page element".
+        xpath: An XPath, e.g. of a [[SpeakableSpecification]] or [[WebPageElement]]. In the latter case, multiple matches within a page can constitute a single conceptual "Web page element".
+    '''
     class_: Literal['https://schema.org/SpeakableSpecification'] = Field( # type: ignore
         default='https://schema.org/SpeakableSpecification',
         alias='@type',
         serialization_alias='@type'
     )
-    cssSelector: Optional[Union["CssSelectorType", List["CssSelectorType"]]] = Field(
+    cssSelector: Optional[Union['CssSelectorType', List['CssSelectorType']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'cssSelector',
-            'https://schema.org/cssSelector'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/cssSelector'
+        serialization_alias='https://schema.org/genre'
     )
     xpath: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'xpath',
-            'https://schema.org/xpath'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/xpath'
+        serialization_alias='https://schema.org/genre'
     )

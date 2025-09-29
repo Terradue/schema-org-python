@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -16,19 +26,22 @@ if TYPE_CHECKING:
     from .person import Person
 
 class Quotation(CreativeWork):
-    """
-A quotation. Often but not necessarily from some written work, attributable to a real world author and - if associated with a fictional character - to any fictional Person. Use [[isBasedOn]] to link to source/origin. The [[recordedIn]] property can be used to reference a Quotation from an [[Event]].
-    """
+    '''
+    A quotation. Often but not necessarily from some written work, attributable to a real world author and - if associated with a fictional character - to any fictional Person. Use [[isBasedOn]] to link to source/origin. The [[recordedIn]] property can be used to reference a Quotation from an [[Event]].
+
+    Attributes:
+        spokenByCharacter: The (e.g. fictional) character, Person or Organization to whom the quotation is attributed within the containing CreativeWork.
+    '''
     class_: Literal['https://schema.org/Quotation'] = Field( # type: ignore
         default='https://schema.org/Quotation',
         alias='@type',
         serialization_alias='@type'
     )
-    spokenByCharacter: Optional[Union["Person", List["Person"], "Organization", List["Organization"]]] = Field(
+    spokenByCharacter: Optional[Union['Person', List['Person'], 'Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'spokenByCharacter',
-            'https://schema.org/spokenByCharacter'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/spokenByCharacter'
+        serialization_alias='https://schema.org/genre'
     )

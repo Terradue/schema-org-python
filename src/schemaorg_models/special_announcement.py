@@ -1,10 +1,15 @@
 from __future__ import annotations
 from datetime import (
     date,
-    datetime
+    datetime,
+    time
 )
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
+    BaseModel,
+    ConfigDict,
     Field,
     HttpUrl
 )
@@ -17,20 +22,20 @@ from typing import (
 from .creative_work import CreativeWork
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .dataset import Dataset
-    from .physical_activity_category import PhysicalActivityCategory
-    from .category_code import CategoryCode
+    from .thing import Thing
+    from .web_content import WebContent
     from .civic_structure import CivicStructure
     from .government_service import GovernmentService
-    from .web_content import WebContent
-    from .local_business import LocalBusiness
-    from .observation import Observation
+    from .dataset import Dataset
     from .data_feed import DataFeed
-    from .thing import Thing
+    from .observation import Observation
+    from .local_business import LocalBusiness
+    from .physical_activity_category import PhysicalActivityCategory
+    from .category_code import CategoryCode
 
 class SpecialAnnouncement(CreativeWork):
-    """
-A SpecialAnnouncement combines a simple date-stamped textual information update
+    '''
+    A SpecialAnnouncement combines a simple date-stamped textual information update
       with contextualized Web links and other structured data.  It represents an information update made by a
       locally-oriented organization, for example schools, pharmacies, healthcare providers,  community groups, police,
       local government.
@@ -66,113 +71,130 @@ The basic content of [[SpecialAnnouncement]] is similar to that of an [RSS](http
 with the [[webFeed]] property. This can be a simple URL, or an inline [[DataFeed]] object, with [[encodingFormat]] providing
 media type information, e.g. "application/rss+xml" or "application/atom+xml".
 
-    """
+
+    Attributes:
+        travelBans: Information about travel bans, e.g. in the context of a pandemic.
+        quarantineGuidelines: Guidelines about quarantine rules, e.g. in the context of a pandemic.
+        datePosted: Publication date of an online listing.
+        newsUpdatesAndGuidelines: Indicates a page with news updates and guidelines. This could often be (but is not required to be) the main page containing [[SpecialAnnouncement]] markup on a site.
+        publicTransportClosuresInfo: Information about public transport closures.
+        governmentBenefitsInfo: governmentBenefitsInfo provides information about government benefits associated with a SpecialAnnouncement.
+        gettingTestedInfo: Information about getting tested (for a [[MedicalCondition]]), e.g. in the context of a pandemic.
+        diseasePreventionInfo: Information about disease prevention.
+        category: A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
+        schoolClosuresInfo: Information about school closures.
+        diseaseSpreadStatistics: Statistical information about the spread of a disease, either as [[WebContent]], or
+  described directly as a [[Dataset]], or the specific [[Observation]]s in the dataset. When a [[WebContent]] URL is
+  provided, the page indicated might also contain more such markup.
+        announcementLocation: Indicates a specific [[CivicStructure]] or [[LocalBusiness]] associated with the SpecialAnnouncement. For example, a specific testing facility or business with special opening hours. For a larger geographic region like a quarantine of an entire region, use [[spatialCoverage]].
+        webFeed: The URL for a feed, e.g. associated with a podcast series, blog, or series of date-stamped updates. This is usually RSS or Atom.
+    '''
     class_: Literal['https://schema.org/SpecialAnnouncement'] = Field( # type: ignore
         default='https://schema.org/SpecialAnnouncement',
         alias='@type',
         serialization_alias='@type'
     )
-    travelBans: Optional[Union[HttpUrl, List[HttpUrl], "WebContent", List["WebContent"]]] = Field(
+    travelBans: Optional[Union[HttpUrl, List[HttpUrl], 'WebContent', List['WebContent']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'travelBans',
-            'https://schema.org/travelBans'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/travelBans'
+        serialization_alias='https://schema.org/genre'
     )
-    quarantineGuidelines: Optional[Union[HttpUrl, List[HttpUrl], "WebContent", List["WebContent"]]] = Field(
+    quarantineGuidelines: Optional[Union[HttpUrl, List[HttpUrl], 'WebContent', List['WebContent']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'quarantineGuidelines',
-            'https://schema.org/quarantineGuidelines'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/quarantineGuidelines'
+        serialization_alias='https://schema.org/genre'
     )
     datePosted: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'datePosted',
-            'https://schema.org/datePosted'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/datePosted'
+        serialization_alias='https://schema.org/genre'
     )
-    newsUpdatesAndGuidelines: Optional[Union[HttpUrl, List[HttpUrl], "WebContent", List["WebContent"]]] = Field(
+    newsUpdatesAndGuidelines: Optional[Union[HttpUrl, List[HttpUrl], 'WebContent', List['WebContent']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'newsUpdatesAndGuidelines',
-            'https://schema.org/newsUpdatesAndGuidelines'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/newsUpdatesAndGuidelines'
+        serialization_alias='https://schema.org/genre'
     )
-    publicTransportClosuresInfo: Optional[Union[HttpUrl, List[HttpUrl], "WebContent", List["WebContent"]]] = Field(
+    publicTransportClosuresInfo: Optional[Union[HttpUrl, List[HttpUrl], 'WebContent', List['WebContent']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'publicTransportClosuresInfo',
-            'https://schema.org/publicTransportClosuresInfo'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/publicTransportClosuresInfo'
+        serialization_alias='https://schema.org/genre'
     )
-    governmentBenefitsInfo: Optional[Union["GovernmentService", List["GovernmentService"]]] = Field(
+    governmentBenefitsInfo: Optional[Union['GovernmentService', List['GovernmentService']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'governmentBenefitsInfo',
-            'https://schema.org/governmentBenefitsInfo'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/governmentBenefitsInfo'
+        serialization_alias='https://schema.org/genre'
     )
-    gettingTestedInfo: Optional[Union[HttpUrl, List[HttpUrl], "WebContent", List["WebContent"]]] = Field(
+    gettingTestedInfo: Optional[Union[HttpUrl, List[HttpUrl], 'WebContent', List['WebContent']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'gettingTestedInfo',
-            'https://schema.org/gettingTestedInfo'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/gettingTestedInfo'
+        serialization_alias='https://schema.org/genre'
     )
-    diseasePreventionInfo: Optional[Union[HttpUrl, List[HttpUrl], "WebContent", List["WebContent"]]] = Field(
+    diseasePreventionInfo: Optional[Union[HttpUrl, List[HttpUrl], 'WebContent', List['WebContent']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'diseasePreventionInfo',
-            'https://schema.org/diseasePreventionInfo'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/diseasePreventionInfo'
+        serialization_alias='https://schema.org/genre'
     )
-    category: Optional[Union["PhysicalActivityCategory", List["PhysicalActivityCategory"], "CategoryCode", List["CategoryCode"], str, List[str], "Thing", List["Thing"], HttpUrl, List[HttpUrl]]] = Field(
+    category: Optional[Union['PhysicalActivityCategory', List['PhysicalActivityCategory'], 'CategoryCode', List['CategoryCode'], str, List[str], 'Thing', List['Thing'], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'category',
-            'https://schema.org/category'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/category'
+        serialization_alias='https://schema.org/genre'
     )
-    schoolClosuresInfo: Optional[Union[HttpUrl, List[HttpUrl], "WebContent", List["WebContent"]]] = Field(
+    schoolClosuresInfo: Optional[Union[HttpUrl, List[HttpUrl], 'WebContent', List['WebContent']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'schoolClosuresInfo',
-            'https://schema.org/schoolClosuresInfo'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/schoolClosuresInfo'
+        serialization_alias='https://schema.org/genre'
     )
-    diseaseSpreadStatistics: Optional[Union["Observation", List["Observation"], HttpUrl, List[HttpUrl], "Dataset", List["Dataset"], "WebContent", List["WebContent"]]] = Field(
+    diseaseSpreadStatistics: Optional[Union['Observation', List['Observation'], HttpUrl, List[HttpUrl], 'Dataset', List['Dataset'], 'WebContent', List['WebContent']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'diseaseSpreadStatistics',
-            'https://schema.org/diseaseSpreadStatistics'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/diseaseSpreadStatistics'
+        serialization_alias='https://schema.org/genre'
     )
-    announcementLocation: Optional[Union["LocalBusiness", List["LocalBusiness"], "CivicStructure", List["CivicStructure"]]] = Field(
+    announcementLocation: Optional[Union['LocalBusiness', List['LocalBusiness'], 'CivicStructure', List['CivicStructure']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'announcementLocation',
-            'https://schema.org/announcementLocation'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/announcementLocation'
+        serialization_alias='https://schema.org/genre'
     )
-    webFeed: Optional[Union["DataFeed", List["DataFeed"], HttpUrl, List[HttpUrl]]] = Field(
+    webFeed: Optional[Union['DataFeed', List['DataFeed'], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'webFeed',
-            'https://schema.org/webFeed'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/webFeed'
+        serialization_alias='https://schema.org/genre'
     )

@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -12,31 +22,35 @@ from typing import (
 from .medical_intangible import MedicalIntangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .medical_condition import MedicalCondition
     from .medical_sign_or_symptom import MedicalSignOrSymptom
+    from .medical_condition import MedicalCondition
 
 class DDxElement(MedicalIntangible):
-    """
-An alternative, closely-related condition typically considered later in the differential diagnosis process along with the signs that are used to distinguish it.
-    """
+    '''
+    An alternative, closely-related condition typically considered later in the differential diagnosis process along with the signs that are used to distinguish it.
+
+    Attributes:
+        distinguishingSign: One of a set of signs and symptoms that can be used to distinguish this diagnosis from others in the differential diagnosis.
+        diagnosis: One or more alternative conditions considered in the differential diagnosis process as output of a diagnosis process.
+    '''
     class_: Literal['https://schema.org/DDxElement'] = Field( # type: ignore
         default='https://schema.org/DDxElement',
         alias='@type',
         serialization_alias='@type'
     )
-    distinguishingSign: Optional[Union["MedicalSignOrSymptom", List["MedicalSignOrSymptom"]]] = Field(
+    distinguishingSign: Optional[Union['MedicalSignOrSymptom', List['MedicalSignOrSymptom']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'distinguishingSign',
-            'https://schema.org/distinguishingSign'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/distinguishingSign'
+        serialization_alias='https://schema.org/genre'
     )
-    diagnosis: Optional[Union["MedicalCondition", List["MedicalCondition"]]] = Field(
+    diagnosis: Optional[Union['MedicalCondition', List['MedicalCondition']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'diagnosis',
-            'https://schema.org/diagnosis'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/diagnosis'
+        serialization_alias='https://schema.org/genre'
     )

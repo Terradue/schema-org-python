@@ -1,16 +1,30 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .resort import Resort
 
 class SkiResort(Resort):
-    """
-A ski resort.
-    """
+    '''
+    A ski resort.
+    '''
     class_: Literal['https://schema.org/SkiResort'] = Field( # type: ignore
         default='https://schema.org/SkiResort',
         alias='@type',

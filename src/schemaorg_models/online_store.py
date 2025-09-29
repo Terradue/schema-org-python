@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -15,19 +25,22 @@ if TYPE_CHECKING:
     from .online_marketplace import OnlineMarketplace
 
 class OnlineStore(OnlineBusiness):
-    """
-An eCommerce site.
-    """
+    '''
+    An eCommerce site.
+
+    Attributes:
+        isStoreOn: The eCommerce marketplace this online store is on.
+    '''
     class_: Literal['https://schema.org/OnlineStore'] = Field( # type: ignore
         default='https://schema.org/OnlineStore',
         alias='@type',
         serialization_alias='@type'
     )
-    isStoreOn: Optional[Union["OnlineMarketplace", List["OnlineMarketplace"]]] = Field(
+    isStoreOn: Optional[Union['OnlineMarketplace', List['OnlineMarketplace']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'isStoreOn',
-            'https://schema.org/isStoreOn'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/isStoreOn'
+        serialization_alias='https://schema.org/genre'
     )

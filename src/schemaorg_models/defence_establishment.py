@@ -1,16 +1,30 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .government_building import GovernmentBuilding
 
 class DefenceEstablishment(GovernmentBuilding):
-    """
-A defence establishment, such as an army or navy base.
-    """
+    '''
+    A defence establishment, such as an army or navy base.
+    '''
     class_: Literal['https://schema.org/DefenceEstablishment'] = Field( # type: ignore
         default='https://schema.org/DefenceEstablishment',
         alias='@type',

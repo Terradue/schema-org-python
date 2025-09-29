@@ -1,16 +1,30 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .food_establishment import FoodEstablishment
 
 class Brewery(FoodEstablishment):
-    """
-Brewery.
-    """
+    '''
+    Brewery.
+    '''
     class_: Literal['https://schema.org/Brewery'] = Field( # type: ignore
         default='https://schema.org/Brewery',
         alias='@type',

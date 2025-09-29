@@ -1,16 +1,30 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .body_of_water import BodyOfWater
 
 class RiverBodyOfWater(BodyOfWater):
-    """
-A river (for example, the broad majestic Shannon).
-    """
+    '''
+    A river (for example, the broad majestic Shannon).
+    '''
     class_: Literal['https://schema.org/RiverBodyOfWater'] = Field( # type: ignore
         default='https://schema.org/RiverBodyOfWater',
         alias='@type',

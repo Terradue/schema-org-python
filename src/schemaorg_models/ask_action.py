@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -15,23 +25,26 @@ if TYPE_CHECKING:
     from .question import Question
 
 class AskAction(CommunicateAction):
-    """
-The act of posing a question / favor to someone.\
+    '''
+    The act of posing a question / favor to someone.\
 \
 Related actions:\
 \
 * [[ReplyAction]]: Appears generally as a response to AskAction.
-    """
+
+    Attributes:
+        question: A sub property of object. A question.
+    '''
     class_: Literal['https://schema.org/AskAction'] = Field( # type: ignore
         default='https://schema.org/AskAction',
         alias='@type',
         serialization_alias='@type'
     )
-    question: Optional[Union["Question", List["Question"]]] = Field(
+    question: Optional[Union['Question', List['Question']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'question',
-            'https://schema.org/question'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/question'
+        serialization_alias='https://schema.org/genre'
     )

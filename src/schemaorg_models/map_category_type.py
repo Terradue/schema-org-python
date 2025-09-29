@@ -1,16 +1,30 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .enumeration import Enumeration
 
 class MapCategoryType(Enumeration):
-    """
-An enumeration of several kinds of Map.
-    """
+    '''
+    An enumeration of several kinds of Map.
+    '''
     class_: Literal['https://schema.org/MapCategoryType'] = Field( # type: ignore
         default='https://schema.org/MapCategoryType',
         alias='@type',

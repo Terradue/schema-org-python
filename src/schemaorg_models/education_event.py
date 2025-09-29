@@ -1,6 +1,15 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
+    BaseModel,
+    ConfigDict,
     Field,
     HttpUrl
 )
@@ -16,35 +25,40 @@ if TYPE_CHECKING:
     from .defined_term import DefinedTerm
 
 class EducationEvent(Event):
-    """
-Event type: Education event.
-    """
+    '''
+    Event type: Education event.
+
+    Attributes:
+        educationalLevel: The level in terms of progression through an educational or training context. Examples of educational levels include 'beginner', 'intermediate' or 'advanced', and formal sets of level indicators.
+        assesses: The item being described is intended to assess the competency or learning outcome defined by the referenced term.
+        teaches: The item being described is intended to help a person learn the competency or learning outcome defined by the referenced term.
+    '''
     class_: Literal['https://schema.org/EducationEvent'] = Field( # type: ignore
         default='https://schema.org/EducationEvent',
         alias='@type',
         serialization_alias='@type'
     )
-    educationalLevel: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], "DefinedTerm", List["DefinedTerm"]]] = Field(
+    educationalLevel: Optional[Union[str, List[str], HttpUrl, List[HttpUrl], 'DefinedTerm', List['DefinedTerm']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'educationalLevel',
-            'https://schema.org/educationalLevel'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/educationalLevel'
+        serialization_alias='https://schema.org/genre'
     )
-    assesses: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str]]] = Field(
+    assesses: Optional[Union['DefinedTerm', List['DefinedTerm'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'assesses',
-            'https://schema.org/assesses'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/assesses'
+        serialization_alias='https://schema.org/genre'
     )
-    teaches: Optional[Union["DefinedTerm", List["DefinedTerm"], str, List[str]]] = Field(
+    teaches: Optional[Union['DefinedTerm', List['DefinedTerm'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'teaches',
-            'https://schema.org/teaches'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/teaches'
+        serialization_alias='https://schema.org/genre'
     )

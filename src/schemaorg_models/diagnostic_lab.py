@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -15,19 +25,22 @@ if TYPE_CHECKING:
     from .medical_test import MedicalTest
 
 class DiagnosticLab(MedicalOrganization):
-    """
-A medical laboratory that offers on-site or off-site diagnostic services.
-    """
+    '''
+    A medical laboratory that offers on-site or off-site diagnostic services.
+
+    Attributes:
+        availableTest: A diagnostic test or procedure offered by this lab.
+    '''
     class_: Literal['https://schema.org/DiagnosticLab'] = Field( # type: ignore
         default='https://schema.org/DiagnosticLab',
         alias='@type',
         serialization_alias='@type'
     )
-    availableTest: Optional[Union["MedicalTest", List["MedicalTest"]]] = Field(
+    availableTest: Optional[Union['MedicalTest', List['MedicalTest']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'availableTest',
-            'https://schema.org/availableTest'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/availableTest'
+        serialization_alias='https://schema.org/genre'
     )

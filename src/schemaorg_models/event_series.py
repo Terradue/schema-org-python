@@ -1,15 +1,29 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .series import Series
 
 class EventSeries(Series):
-    """
-A series of [[Event]]s. Included events can relate with the series using the [[superEvent]] property.
+    '''
+    A series of [[Event]]s. Included events can relate with the series using the [[superEvent]] property.
 
 An EventSeries is a collection of events that share some unifying characteristic. For example, "The Olympic Games" is a series, which
 is repeated regularly. The "2012 London Olympics" can be presented both as an [[Event]] in the series "Olympic Games", and as an
@@ -23,7 +37,7 @@ worrying about which kinds of series are really event-like enough to call an Eve
 may seem more Event-like when the period of time is compact and when aspects such as location are fixed, but
 it may also sometimes prove useful to describe a longer-term series as an Event.
    
-    """
+    '''
     class_: Literal['https://schema.org/EventSeries'] = Field( # type: ignore
         default='https://schema.org/EventSeries',
         alias='@type',

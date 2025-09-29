@@ -1,16 +1,30 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .web_page import WebPage
 
 class ItemPage(WebPage):
-    """
-A page devoted to a single item, such as a particular product or hotel.
-    """
+    '''
+    A page devoted to a single item, such as a particular product or hotel.
+    '''
     class_: Literal['https://schema.org/ItemPage'] = Field( # type: ignore
         default='https://schema.org/ItemPage',
         alias='@type',

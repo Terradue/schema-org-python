@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -12,9 +22,12 @@ from typing import (
 from .creative_work import CreativeWork
 
 class Collection(CreativeWork):
-    """
-A collection of items, e.g. creative works or products.
-    """
+    '''
+    A collection of items, e.g. creative works or products.
+
+    Attributes:
+        collectionSize: The number of items in the [[Collection]].
+    '''
     class_: Literal['https://schema.org/Collection'] = Field( # type: ignore
         default='https://schema.org/Collection',
         alias='@type',
@@ -23,8 +36,8 @@ A collection of items, e.g. creative works or products.
     collectionSize: Optional[Union[int, List[int]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'collectionSize',
-            'https://schema.org/collectionSize'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/collectionSize'
+        serialization_alias='https://schema.org/genre'
     )

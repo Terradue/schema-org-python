@@ -1,16 +1,30 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .medical_indication import MedicalIndication
 
 class PreventionIndication(MedicalIndication):
-    """
-An indication for preventing an underlying condition, symptom, etc.
-    """
+    '''
+    An indication for preventing an underlying condition, symptom, etc.
+    '''
     class_: Literal['https://schema.org/PreventionIndication'] = Field( # type: ignore
         default='https://schema.org/PreventionIndication',
         alias='@type',

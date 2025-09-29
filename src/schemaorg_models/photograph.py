@@ -1,16 +1,30 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .creative_work import CreativeWork
 
 class Photograph(CreativeWork):
-    """
-A photograph.
-    """
+    '''
+    A photograph.
+    '''
     class_: Literal['https://schema.org/Photograph'] = Field( # type: ignore
         default='https://schema.org/Photograph',
         alias='@type',

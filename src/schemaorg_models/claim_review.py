@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -12,9 +22,12 @@ from typing import (
 from .review import Review
 
 class ClaimReview(Review):
-    """
-A fact-checking review of claims made (or reported) in some creative work (referenced via itemReviewed).
-    """
+    '''
+    A fact-checking review of claims made (or reported) in some creative work (referenced via itemReviewed).
+
+    Attributes:
+        claimReviewed: A short summary of the specific claims reviewed in a ClaimReview.
+    '''
     class_: Literal['https://schema.org/ClaimReview'] = Field( # type: ignore
         default='https://schema.org/ClaimReview',
         alias='@type',
@@ -23,8 +36,8 @@ A fact-checking review of claims made (or reported) in some creative work (refer
     claimReviewed: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'claimReviewed',
-            'https://schema.org/claimReviewed'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/claimReviewed'
+        serialization_alias='https://schema.org/genre'
     )

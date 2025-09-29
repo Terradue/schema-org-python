@@ -1,16 +1,30 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .legal_service import LegalService
 
 class Notary(LegalService):
-    """
-A notary.
-    """
+    '''
+    A notary.
+    '''
     class_: Literal['https://schema.org/Notary'] = Field( # type: ignore
         default='https://schema.org/Notary',
         alias='@type',

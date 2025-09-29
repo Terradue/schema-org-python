@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -12,13 +22,19 @@ from typing import (
 from .publication_event import PublicationEvent
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .event import Event
     from .language import Language
+    from .event import Event
 
 class BroadcastEvent(PublicationEvent):
-    """
-An over the air or online broadcast event.
-    """
+    '''
+    An over the air or online broadcast event.
+
+    Attributes:
+        videoFormat: The type of screening or video broadcast used (e.g. IMAX, 3D, SD, HD, etc.).
+        broadcastOfEvent: The event being broadcast such as a sporting event or awards ceremony.
+        subtitleLanguage: Languages in which subtitles/captions are available, in [IETF BCP 47 standard format](http://tools.ietf.org/html/bcp47).
+        isLiveBroadcast: True if the broadcast is of a live event.
+    '''
     class_: Literal['https://schema.org/BroadcastEvent'] = Field( # type: ignore
         default='https://schema.org/BroadcastEvent',
         alias='@type',
@@ -27,32 +43,32 @@ An over the air or online broadcast event.
     videoFormat: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'videoFormat',
-            'https://schema.org/videoFormat'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/videoFormat'
+        serialization_alias='https://schema.org/genre'
     )
-    broadcastOfEvent: Optional[Union["Event", List["Event"]]] = Field(
+    broadcastOfEvent: Optional[Union['Event', List['Event']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'broadcastOfEvent',
-            'https://schema.org/broadcastOfEvent'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/broadcastOfEvent'
+        serialization_alias='https://schema.org/genre'
     )
-    subtitleLanguage: Optional[Union["Language", List["Language"], str, List[str]]] = Field(
+    subtitleLanguage: Optional[Union['Language', List['Language'], str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'subtitleLanguage',
-            'https://schema.org/subtitleLanguage'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/subtitleLanguage'
+        serialization_alias='https://schema.org/genre'
     )
     isLiveBroadcast: Optional[Union[bool, List[bool]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'isLiveBroadcast',
-            'https://schema.org/isLiveBroadcast'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/isLiveBroadcast'
+        serialization_alias='https://schema.org/genre'
     )

@@ -1,20 +1,34 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .local_business import LocalBusiness
 
 class ProfessionalService(LocalBusiness):
-    """
-Original definition: "provider of professional services."\
+    '''
+    Original definition: "provider of professional services."\
 \
 The general [[ProfessionalService]] type for local businesses was deprecated due to confusion with [[Service]]. For reference, the types that it included were: [[Dentist]],
         [[AccountingService]], [[Attorney]], [[Notary]], as well as types for several kinds of [[HomeAndConstructionBusiness]]: [[Electrician]], [[GeneralContractor]],
         [[HousePainter]], [[Locksmith]], [[Plumber]], [[RoofingContractor]]. [[LegalService]] was introduced as a more inclusive supertype of [[Attorney]].
-    """
+    '''
     class_: Literal['https://schema.org/ProfessionalService'] = Field( # type: ignore
         default='https://schema.org/ProfessionalService',
         alias='@type',

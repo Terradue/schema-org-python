@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -12,23 +22,26 @@ from typing import (
 from .dataset import Dataset
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .data_feed_item import DataFeedItem
     from .thing import Thing
+    from .data_feed_item import DataFeedItem
 
 class DataFeed(Dataset):
-    """
-A single feed providing structured information about one or more entities or topics.
-    """
+    '''
+    A single feed providing structured information about one or more entities or topics.
+
+    Attributes:
+        dataFeedElement: An item within a data feed. Data feeds may have many elements.
+    '''
     class_: Literal['https://schema.org/DataFeed'] = Field( # type: ignore
         default='https://schema.org/DataFeed',
         alias='@type',
         serialization_alias='@type'
     )
-    dataFeedElement: Optional[Union["DataFeedItem", List["DataFeedItem"], str, List[str], "Thing", List["Thing"]]] = Field(
+    dataFeedElement: Optional[Union['DataFeedItem', List['DataFeedItem'], str, List[str], 'Thing', List['Thing']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'dataFeedElement',
-            'https://schema.org/dataFeedElement'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/dataFeedElement'
+        serialization_alias='https://schema.org/genre'
     )

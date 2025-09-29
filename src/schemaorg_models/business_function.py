@@ -1,15 +1,29 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .enumeration import Enumeration
 
 class BusinessFunction(Enumeration):
-    """
-The business function specifies the type of activity or access (i.e., the bundle of rights) offered by the organization or business person through the offer. Typical are sell, rental or lease, maintenance or repair, manufacture / produce, recycle / dispose, engineering / construction, or installation. Proprietary specifications of access rights are also instances of this class.\
+    '''
+    The business function specifies the type of activity or access (i.e., the bundle of rights) offered by the organization or business person through the offer. Typical are sell, rental or lease, maintenance or repair, manufacture / produce, recycle / dispose, engineering / construction, or installation. Proprietary specifications of access rights are also instances of this class.\
 \
 Commonly used values:\
 \
@@ -22,7 +36,7 @@ Commonly used values:\
 * http://purl.org/goodrelations/v1#Sell\
 * http://purl.org/goodrelations/v1#Buy
         
-    """
+    '''
     class_: Literal['https://schema.org/BusinessFunction'] = Field( # type: ignore
         default='https://schema.org/BusinessFunction',
         alias='@type',

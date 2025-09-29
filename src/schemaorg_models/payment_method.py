@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -15,8 +25,8 @@ if TYPE_CHECKING:
     from .payment_method_type import PaymentMethodType
 
 class PaymentMethod(Intangible):
-    """
-A payment method is a standardized procedure for transferring the monetary amount for a purchase. Payment methods are characterized by the legal and technical structures used, and by the organization or group carrying out the transaction. The following legacy values should be accepted:
+    '''
+    A payment method is a standardized procedure for transferring the monetary amount for a purchase. Payment methods are characterized by the legal and technical structures used, and by the organization or group carrying out the transaction. The following legacy values should be accepted:
     \
 \
 * http://purl.org/goodrelations/v1#ByBankTransferInAdvance\
@@ -30,17 +40,20 @@ A payment method is a standardized procedure for transferring the monetary amoun
 * http://purl.org/goodrelations/v1#PaySwarm\
 \
 Structured values are recommended for newer payment methods.
-    """
+
+    Attributes:
+        paymentMethodType: The type of a payment method.
+    '''
     class_: Literal['https://schema.org/PaymentMethod'] = Field( # type: ignore
         default='https://schema.org/PaymentMethod',
         alias='@type',
         serialization_alias='@type'
     )
-    paymentMethodType: Optional[Union["PaymentMethodType", List["PaymentMethodType"]]] = Field(
+    paymentMethodType: Optional[Union['PaymentMethodType', List['PaymentMethodType']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'paymentMethodType',
-            'https://schema.org/paymentMethodType'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/paymentMethodType'
+        serialization_alias='https://schema.org/genre'
     )

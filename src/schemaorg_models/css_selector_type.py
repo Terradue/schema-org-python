@@ -1,16 +1,30 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .text import Text
 
 class CssSelectorType(Text):
-    """
-Text representing a CSS selector.
-    """
+    '''
+    Text representing a CSS selector.
+    '''
     class_: Literal['https://schema.org/CssSelectorType'] = Field( # type: ignore
         default='https://schema.org/CssSelectorType',
         alias='@type',

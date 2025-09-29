@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -12,38 +22,42 @@ from typing import (
 from .transfer_action import TransferAction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .organization import Organization
-    from .audience import Audience
-    from .person import Person
     from .delivery_method import DeliveryMethod
+    from .audience import Audience
+    from .organization import Organization
+    from .person import Person
 
 class ReceiveAction(TransferAction):
-    """
-The act of physically/electronically taking delivery of an object that has been transferred from an origin to a destination. Reciprocal of SendAction.\
+    '''
+    The act of physically/electronically taking delivery of an object that has been transferred from an origin to a destination. Reciprocal of SendAction.\
 \
 Related actions:\
 \
 * [[SendAction]]: The reciprocal of ReceiveAction.\
 * [[TakeAction]]: Unlike TakeAction, ReceiveAction does not imply that the ownership has been transferred (e.g. I can receive a package, but it does not mean the package is now mine).
-    """
+
+    Attributes:
+        sender: A sub property of participant. The participant who is at the sending end of the action.
+        deliveryMethod: A sub property of instrument. The method of delivery.
+    '''
     class_: Literal['https://schema.org/ReceiveAction'] = Field( # type: ignore
         default='https://schema.org/ReceiveAction',
         alias='@type',
         serialization_alias='@type'
     )
-    sender: Optional[Union["Organization", List["Organization"], "Audience", List["Audience"], "Person", List["Person"]]] = Field(
+    sender: Optional[Union['Organization', List['Organization'], 'Audience', List['Audience'], 'Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'sender',
-            'https://schema.org/sender'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/sender'
+        serialization_alias='https://schema.org/genre'
     )
-    deliveryMethod: Optional[Union["DeliveryMethod", List["DeliveryMethod"]]] = Field(
+    deliveryMethod: Optional[Union['DeliveryMethod', List['DeliveryMethod']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'deliveryMethod',
-            'https://schema.org/deliveryMethod'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/deliveryMethod'
+        serialization_alias='https://schema.org/genre'
     )

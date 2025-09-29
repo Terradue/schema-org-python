@@ -1,10 +1,17 @@
 from __future__ import annotations
 from datetime import (
-    datetime
+    date,
+    datetime,
+    time
 )
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -18,9 +25,15 @@ if TYPE_CHECKING:
     from .delivery_method import DeliveryMethod
 
 class DeliveryEvent(Event):
-    """
-An event involving the delivery of an item.
-    """
+    '''
+    An event involving the delivery of an item.
+
+    Attributes:
+        availableThrough: After this date, the item will no longer be available for pickup.
+        availableFrom: When the item is available for pickup from the store, locker, etc.
+        hasDeliveryMethod: Method used for delivery or shipping.
+        accessCode: Password, PIN, or access code needed for delivery (e.g. from a locker).
+    '''
     class_: Literal['https://schema.org/DeliveryEvent'] = Field( # type: ignore
         default='https://schema.org/DeliveryEvent',
         alias='@type',
@@ -29,32 +42,32 @@ An event involving the delivery of an item.
     availableThrough: Optional[Union[datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'availableThrough',
-            'https://schema.org/availableThrough'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/availableThrough'
+        serialization_alias='https://schema.org/genre'
     )
     availableFrom: Optional[Union[datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'availableFrom',
-            'https://schema.org/availableFrom'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/availableFrom'
+        serialization_alias='https://schema.org/genre'
     )
-    hasDeliveryMethod: Optional[Union["DeliveryMethod", List["DeliveryMethod"]]] = Field(
+    hasDeliveryMethod: Optional[Union['DeliveryMethod', List['DeliveryMethod']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'hasDeliveryMethod',
-            'https://schema.org/hasDeliveryMethod'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/hasDeliveryMethod'
+        serialization_alias='https://schema.org/genre'
     )
     accessCode: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'accessCode',
-            'https://schema.org/accessCode'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/accessCode'
+        serialization_alias='https://schema.org/genre'
     )

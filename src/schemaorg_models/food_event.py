@@ -1,16 +1,30 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .event import Event
 
 class FoodEvent(Event):
-    """
-A sub property of location. The specific food event where the action occurred.
-    """
+    '''
+    Event type: Food event.
+    '''
     class_: Literal['https://schema.org/FoodEvent'] = Field( # type: ignore
         default='https://schema.org/FoodEvent',
         alias='@type',

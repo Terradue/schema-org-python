@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -12,30 +22,33 @@ from typing import (
 from .transfer_action import TransferAction
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .organization import Organization
-    from .audience import Audience
-    from .person import Person
     from .contact_point import ContactPoint
+    from .audience import Audience
+    from .organization import Organization
+    from .person import Person
 
 class GiveAction(TransferAction):
-    """
-The act of transferring ownership of an object to a destination. Reciprocal of TakeAction.\
+    '''
+    The act of transferring ownership of an object to a destination. Reciprocal of TakeAction.\
 \
 Related actions:\
 \
 * [[TakeAction]]: Reciprocal of GiveAction.\
 * [[SendAction]]: Unlike SendAction, GiveAction implies that ownership is being transferred (e.g. I may send my laptop to you, but that doesn't mean I'm giving it to you).
-    """
+
+    Attributes:
+        recipient: A sub property of participant. The participant who is at the receiving end of the action.
+    '''
     class_: Literal['https://schema.org/GiveAction'] = Field( # type: ignore
         default='https://schema.org/GiveAction',
         alias='@type',
         serialization_alias='@type'
     )
-    recipient: Optional[Union["Organization", List["Organization"], "Audience", List["Audience"], "ContactPoint", List["ContactPoint"], "Person", List["Person"]]] = Field(
+    recipient: Optional[Union['Organization', List['Organization'], 'Audience', List['Audience'], 'ContactPoint', List['ContactPoint'], 'Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'recipient',
-            'https://schema.org/recipient'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/recipient'
+        serialization_alias='https://schema.org/genre'
     )

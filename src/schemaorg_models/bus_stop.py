@@ -1,16 +1,30 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .civic_structure import CivicStructure
 
 class BusStop(CivicStructure):
-    """
-A bus stop.
-    """
+    '''
+    A bus stop.
+    '''
     class_: Literal['https://schema.org/BusStop'] = Field( # type: ignore
         default='https://schema.org/BusStop',
         alias='@type',

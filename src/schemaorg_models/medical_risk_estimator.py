@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -15,27 +25,31 @@ if TYPE_CHECKING:
     from .medical_risk_factor import MedicalRiskFactor
 
 class MedicalRiskEstimator(MedicalEntity):
-    """
-Any rule set or interactive tool for estimating the risk of developing a complication or condition.
-    """
+    '''
+    Any rule set or interactive tool for estimating the risk of developing a complication or condition.
+
+    Attributes:
+        estimatesRiskOf: The condition, complication, or symptom whose risk is being estimated.
+        includedRiskFactor: A modifiable or non-modifiable risk factor included in the calculation, e.g. age, coexisting condition.
+    '''
     class_: Literal['https://schema.org/MedicalRiskEstimator'] = Field( # type: ignore
         default='https://schema.org/MedicalRiskEstimator',
         alias='@type',
         serialization_alias='@type'
     )
-    estimatesRiskOf: Optional[Union["MedicalEntity", List["MedicalEntity"]]] = Field(
+    estimatesRiskOf: Optional[Union['MedicalEntity', List['MedicalEntity']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'estimatesRiskOf',
-            'https://schema.org/estimatesRiskOf'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/estimatesRiskOf'
+        serialization_alias='https://schema.org/genre'
     )
-    includedRiskFactor: Optional[Union["MedicalRiskFactor", List["MedicalRiskFactor"]]] = Field(
+    includedRiskFactor: Optional[Union['MedicalRiskFactor', List['MedicalRiskFactor']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'includedRiskFactor',
-            'https://schema.org/includedRiskFactor'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/includedRiskFactor'
+        serialization_alias='https://schema.org/genre'
     )

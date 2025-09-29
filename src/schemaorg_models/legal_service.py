@@ -1,18 +1,32 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .local_business import LocalBusiness
 
 class LegalService(LocalBusiness):
-    """
-A LegalService is a business that provides legally-oriented services, advice and representation, e.g. law firms.\
+    '''
+    A LegalService is a business that provides legally-oriented services, advice and representation, e.g. law firms.\
 \
 As a [[LocalBusiness]] it can be described as a [[provider]] of one or more [[Service]]\\(s).
-    """
+    '''
     class_: Literal['https://schema.org/LegalService'] = Field( # type: ignore
         default='https://schema.org/LegalService',
         alias='@type',

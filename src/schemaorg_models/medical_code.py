@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -12,9 +22,13 @@ from typing import (
 from .medical_intangible import MedicalIntangible
 
 class MedicalCode(MedicalIntangible):
-    """
-A code for a medical entity.
-    """
+    '''
+    A code for a medical entity.
+
+    Attributes:
+        codingSystem: The coding system, e.g. 'ICD-10'.
+        codeValue: A short textual code that uniquely identifies the value.
+    '''
     class_: Literal['https://schema.org/MedicalCode'] = Field( # type: ignore
         default='https://schema.org/MedicalCode',
         alias='@type',
@@ -23,16 +37,16 @@ A code for a medical entity.
     codingSystem: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'codingSystem',
-            'https://schema.org/codingSystem'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/codingSystem'
+        serialization_alias='https://schema.org/genre'
     )
     codeValue: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'codeValue',
-            'https://schema.org/codeValue'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/codeValue'
+        serialization_alias='https://schema.org/genre'
     )

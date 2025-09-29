@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -12,100 +22,112 @@ from typing import (
 from .structured_value import StructuredValue
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .administrative_area import AdministrativeArea
-    from .product import Product
-    from .opening_hours_specification import OpeningHoursSpecification
     from .geo_shape import GeoShape
+    from .product import Product
     from .contact_point_option import ContactPointOption
+    from .administrative_area import AdministrativeArea
     from .place import Place
     from .language import Language
+    from .opening_hours_specification import OpeningHoursSpecification
 
 class ContactPoint(StructuredValue):
-    """
-A contact point for a person or organization.
-    """
+    '''
+    A contact point&#x2014;for example, a Customer Complaints department.
+
+    Attributes:
+        serviceArea: The geographic area where the service is provided.
+        email: Email address.
+        hoursAvailable: The hours during which this service or contact is available.
+        telephone: The telephone number.
+        availableLanguage: A language someone may use with or at the item, service or place. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[inLanguage]].
+        productSupported: The product or service this support contact point is related to (such as product support for a particular product line). This can be a specific product or product line (e.g. "iPhone") or a general category of products or services (e.g. "smartphones").
+        contactOption: An option available on this contact point (e.g. a toll-free number or support for hearing-impaired callers).
+        contactType: A person or organization can have different contact points, for different purposes. For example, a sales contact point, a PR contact point and so on. This property is used to specify the kind of contact point.
+        faxNumber: The fax number.
+        areaServed: The geographic area where a service or offered item is provided.
+    '''
     class_: Literal['https://schema.org/ContactPoint'] = Field( # type: ignore
         default='https://schema.org/ContactPoint',
         alias='@type',
         serialization_alias='@type'
     )
-    serviceArea: Optional[Union["AdministrativeArea", List["AdministrativeArea"], "GeoShape", List["GeoShape"], "Place", List["Place"]]] = Field(
+    serviceArea: Optional[Union['AdministrativeArea', List['AdministrativeArea'], 'GeoShape', List['GeoShape'], 'Place', List['Place']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'serviceArea',
-            'https://schema.org/serviceArea'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/serviceArea'
+        serialization_alias='https://schema.org/genre'
     )
     email: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'email',
-            'https://schema.org/email'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/email'
+        serialization_alias='https://schema.org/genre'
     )
-    hoursAvailable: Optional[Union["OpeningHoursSpecification", List["OpeningHoursSpecification"]]] = Field(
+    hoursAvailable: Optional[Union['OpeningHoursSpecification', List['OpeningHoursSpecification']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'hoursAvailable',
-            'https://schema.org/hoursAvailable'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/hoursAvailable'
+        serialization_alias='https://schema.org/genre'
     )
     telephone: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'telephone',
-            'https://schema.org/telephone'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/telephone'
+        serialization_alias='https://schema.org/genre'
     )
-    availableLanguage: Optional[Union[str, List[str], "Language", List["Language"]]] = Field(
+    availableLanguage: Optional[Union[str, List[str], 'Language', List['Language']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'availableLanguage',
-            'https://schema.org/availableLanguage'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/availableLanguage'
+        serialization_alias='https://schema.org/genre'
     )
-    productSupported: Optional[Union[str, List[str], "Product", List["Product"]]] = Field(
+    productSupported: Optional[Union[str, List[str], 'Product', List['Product']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'productSupported',
-            'https://schema.org/productSupported'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/productSupported'
+        serialization_alias='https://schema.org/genre'
     )
-    contactOption: Optional[Union["ContactPointOption", List["ContactPointOption"]]] = Field(
+    contactOption: Optional[Union['ContactPointOption', List['ContactPointOption']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'contactOption',
-            'https://schema.org/contactOption'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/contactOption'
+        serialization_alias='https://schema.org/genre'
     )
     contactType: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'contactType',
-            'https://schema.org/contactType'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/contactType'
+        serialization_alias='https://schema.org/genre'
     )
     faxNumber: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'faxNumber',
-            'https://schema.org/faxNumber'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/faxNumber'
+        serialization_alias='https://schema.org/genre'
     )
-    areaServed: Optional[Union["GeoShape", List["GeoShape"], str, List[str], "AdministrativeArea", List["AdministrativeArea"], "Place", List["Place"]]] = Field(
+    areaServed: Optional[Union['GeoShape', List['GeoShape'], str, List[str], 'AdministrativeArea', List['AdministrativeArea'], 'Place', List['Place']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'areaServed',
-            'https://schema.org/areaServed'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/areaServed'
+        serialization_alias='https://schema.org/genre'
     )

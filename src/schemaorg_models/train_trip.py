@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -15,59 +25,67 @@ if TYPE_CHECKING:
     from .train_station import TrainStation
 
 class TrainTrip(Trip):
-    """
-A trip on a commercial train line.
-    """
+    '''
+    A trip on a commercial train line.
+
+    Attributes:
+        arrivalStation: The station where the train trip ends.
+        trainName: The name of the train (e.g. The Orient Express).
+        departureStation: The station from which the train departs.
+        departurePlatform: The platform from which the train departs.
+        arrivalPlatform: The platform where the train arrives.
+        trainNumber: The unique identifier for the train.
+    '''
     class_: Literal['https://schema.org/TrainTrip'] = Field( # type: ignore
         default='https://schema.org/TrainTrip',
         alias='@type',
         serialization_alias='@type'
     )
-    arrivalStation: Optional[Union["TrainStation", List["TrainStation"]]] = Field(
+    arrivalStation: Optional[Union['TrainStation', List['TrainStation']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'arrivalStation',
-            'https://schema.org/arrivalStation'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/arrivalStation'
+        serialization_alias='https://schema.org/genre'
     )
     trainName: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'trainName',
-            'https://schema.org/trainName'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/trainName'
+        serialization_alias='https://schema.org/genre'
     )
-    departureStation: Optional[Union["TrainStation", List["TrainStation"]]] = Field(
+    departureStation: Optional[Union['TrainStation', List['TrainStation']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'departureStation',
-            'https://schema.org/departureStation'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/departureStation'
+        serialization_alias='https://schema.org/genre'
     )
     departurePlatform: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'departurePlatform',
-            'https://schema.org/departurePlatform'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/departurePlatform'
+        serialization_alias='https://schema.org/genre'
     )
     arrivalPlatform: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'arrivalPlatform',
-            'https://schema.org/arrivalPlatform'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/arrivalPlatform'
+        serialization_alias='https://schema.org/genre'
     )
     trainNumber: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'trainNumber',
-            'https://schema.org/trainNumber'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/trainNumber'
+        serialization_alias='https://schema.org/genre'
     )

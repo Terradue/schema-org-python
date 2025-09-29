@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -16,9 +26,17 @@ if TYPE_CHECKING:
     from .person import Person
 
 class Book(CreativeWork):
-    """
-A book.
-    """
+    '''
+    A book.
+
+    Attributes:
+        abridged: Indicates whether the book is an abridged edition.
+        bookFormat: The format of the book.
+        isbn: The ISBN of the book.
+        numberOfPages: The number of pages in the book.
+        illustrator: The illustrator of the book.
+        bookEdition: The edition of the book.
+    '''
     class_: Literal['https://schema.org/Book'] = Field( # type: ignore
         default='https://schema.org/Book',
         alias='@type',
@@ -27,48 +45,48 @@ A book.
     abridged: Optional[Union[bool, List[bool]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'abridged',
-            'https://schema.org/abridged'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/abridged'
+        serialization_alias='https://schema.org/genre'
     )
-    bookFormat: Optional[Union["BookFormatType", List["BookFormatType"]]] = Field(
+    bookFormat: Optional[Union['BookFormatType', List['BookFormatType']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'bookFormat',
-            'https://schema.org/bookFormat'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/bookFormat'
+        serialization_alias='https://schema.org/genre'
     )
     isbn: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'isbn',
-            'https://schema.org/isbn'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/isbn'
+        serialization_alias='https://schema.org/genre'
     )
     numberOfPages: Optional[Union[int, List[int]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'numberOfPages',
-            'https://schema.org/numberOfPages'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/numberOfPages'
+        serialization_alias='https://schema.org/genre'
     )
-    illustrator: Optional[Union["Person", List["Person"]]] = Field(
+    illustrator: Optional[Union['Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'illustrator',
-            'https://schema.org/illustrator'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/illustrator'
+        serialization_alias='https://schema.org/genre'
     )
     bookEdition: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'bookEdition',
-            'https://schema.org/bookEdition'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/bookEdition'
+        serialization_alias='https://schema.org/genre'
     )

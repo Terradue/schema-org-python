@@ -1,6 +1,15 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
+    BaseModel,
+    ConfigDict,
     Field,
     HttpUrl
 )
@@ -13,132 +22,148 @@ from typing import (
 from .creative_work_series import CreativeWorkSeries
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .creative_work_season import CreativeWorkSeason
-    from .performing_group import PerformingGroup
-    from .video_object import VideoObject
-    from .person import Person
-    from .music_group import MusicGroup
-    from .organization import Organization
     from .episode import Episode
+    from .creative_work_season import CreativeWorkSeason
+    from .person import Person
+    from .performing_group import PerformingGroup
+    from .organization import Organization
+    from .music_group import MusicGroup
+    from .video_object import VideoObject
 
 class RadioSeries(CreativeWorkSeries):
-    """
-CreativeWorkSeries dedicated to radio broadcast and associated online delivery.
-    """
+    '''
+    CreativeWorkSeries dedicated to radio broadcast and associated online delivery.
+
+    Attributes:
+        episode: An episode of a TV, radio or game media within a series or season.
+        numberOfEpisodes: The number of episodes in this season or series.
+        actor: An actor (individual or a group), e.g. in TV, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.
+        actors: An actor, e.g. in TV, radio, movie, video games etc. Actors can be associated with individual items or with a series, episode, clip.
+        season: A season in a media series.
+        productionCompany: The production company or studio responsible for the item, e.g. series, video game, episode etc.
+        musicBy: The composer of the soundtrack.
+        seasons: A season in a media series.
+        episodes: An episode of a TV/radio series or season.
+        numberOfSeasons: The number of seasons in this series.
+        trailer: The trailer of a movie or TV/radio series, season, episode, etc.
+        directors: A director of e.g. TV, radio, movie, video games etc. content. Directors can be associated with individual items or with a series, episode, clip.
+        containsSeason: A season that is part of the media series.
+        director: A director of e.g. TV, radio, movie, video gaming etc. content, or of an event. Directors can be associated with individual items or with a series, episode, clip.
+    '''
     class_: Literal['https://schema.org/RadioSeries'] = Field( # type: ignore
         default='https://schema.org/RadioSeries',
         alias='@type',
         serialization_alias='@type'
     )
-    episode: Optional[Union["Episode", List["Episode"]]] = Field(
+    episode: Optional[Union['Episode', List['Episode']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'episode',
-            'https://schema.org/episode'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/episode'
+        serialization_alias='https://schema.org/genre'
     )
     numberOfEpisodes: Optional[Union[int, List[int]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'numberOfEpisodes',
-            'https://schema.org/numberOfEpisodes'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/numberOfEpisodes'
+        serialization_alias='https://schema.org/genre'
     )
-    actor: Optional[Union["Person", List["Person"], "PerformingGroup", List["PerformingGroup"]]] = Field(
+    actor: Optional[Union['Person', List['Person'], 'PerformingGroup', List['PerformingGroup']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'actor',
-            'https://schema.org/actor'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/actor'
+        serialization_alias='https://schema.org/genre'
     )
-    actors: Optional[Union["Person", List["Person"]]] = Field(
+    actors: Optional[Union['Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'actors',
-            'https://schema.org/actors'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/actors'
+        serialization_alias='https://schema.org/genre'
     )
-    season: Optional[Union["CreativeWorkSeason", List["CreativeWorkSeason"], HttpUrl, List[HttpUrl]]] = Field(
+    season: Optional[Union['CreativeWorkSeason', List['CreativeWorkSeason'], HttpUrl, List[HttpUrl]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'season',
-            'https://schema.org/season'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/season'
+        serialization_alias='https://schema.org/genre'
     )
-    productionCompany: Optional[Union["Organization", List["Organization"]]] = Field(
+    productionCompany: Optional[Union['Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'productionCompany',
-            'https://schema.org/productionCompany'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/productionCompany'
+        serialization_alias='https://schema.org/genre'
     )
-    musicBy: Optional[Union["MusicGroup", List["MusicGroup"], "Person", List["Person"]]] = Field(
+    musicBy: Optional[Union['MusicGroup', List['MusicGroup'], 'Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'musicBy',
-            'https://schema.org/musicBy'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/musicBy'
+        serialization_alias='https://schema.org/genre'
     )
-    seasons: Optional[Union["CreativeWorkSeason", List["CreativeWorkSeason"]]] = Field(
+    seasons: Optional[Union['CreativeWorkSeason', List['CreativeWorkSeason']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'seasons',
-            'https://schema.org/seasons'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/seasons'
+        serialization_alias='https://schema.org/genre'
     )
-    episodes: Optional[Union["Episode", List["Episode"]]] = Field(
+    episodes: Optional[Union['Episode', List['Episode']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'episodes',
-            'https://schema.org/episodes'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/episodes'
+        serialization_alias='https://schema.org/genre'
     )
     numberOfSeasons: Optional[Union[int, List[int]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'numberOfSeasons',
-            'https://schema.org/numberOfSeasons'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/numberOfSeasons'
+        serialization_alias='https://schema.org/genre'
     )
-    trailer: Optional[Union["VideoObject", List["VideoObject"]]] = Field(
+    trailer: Optional[Union['VideoObject', List['VideoObject']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'trailer',
-            'https://schema.org/trailer'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/trailer'
+        serialization_alias='https://schema.org/genre'
     )
-    directors: Optional[Union["Person", List["Person"]]] = Field(
+    directors: Optional[Union['Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'directors',
-            'https://schema.org/directors'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/directors'
+        serialization_alias='https://schema.org/genre'
     )
-    containsSeason: Optional[Union["CreativeWorkSeason", List["CreativeWorkSeason"]]] = Field(
+    containsSeason: Optional[Union['CreativeWorkSeason', List['CreativeWorkSeason']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'containsSeason',
-            'https://schema.org/containsSeason'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/containsSeason'
+        serialization_alias='https://schema.org/genre'
     )
-    director: Optional[Union["Person", List["Person"]]] = Field(
+    director: Optional[Union['Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'director',
-            'https://schema.org/director'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/director'
+        serialization_alias='https://schema.org/genre'
     )

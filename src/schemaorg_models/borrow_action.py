@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -16,23 +26,26 @@ if TYPE_CHECKING:
     from .person import Person
 
 class BorrowAction(TransferAction):
-    """
-The act of obtaining an object under an agreement to return it at a later date. Reciprocal of LendAction.\
+    '''
+    The act of obtaining an object under an agreement to return it at a later date. Reciprocal of LendAction.\
 \
 Related actions:\
 \
 * [[LendAction]]: Reciprocal of BorrowAction.
-    """
+
+    Attributes:
+        lender: A sub property of participant. The person that lends the object being borrowed.
+    '''
     class_: Literal['https://schema.org/BorrowAction'] = Field( # type: ignore
         default='https://schema.org/BorrowAction',
         alias='@type',
         serialization_alias='@type'
     )
-    lender: Optional[Union["Organization", List["Organization"], "Person", List["Person"]]] = Field(
+    lender: Optional[Union['Organization', List['Organization'], 'Person', List['Person']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'lender',
-            'https://schema.org/lender'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/lender'
+        serialization_alias='https://schema.org/genre'
     )

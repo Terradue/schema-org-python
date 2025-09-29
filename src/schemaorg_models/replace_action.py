@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -15,27 +25,31 @@ if TYPE_CHECKING:
     from .thing import Thing
 
 class ReplaceAction(UpdateAction):
-    """
-The act of editing a recipient by replacing an old object with a new object.
-    """
+    '''
+    The act of editing a recipient by replacing an old object with a new object.
+
+    Attributes:
+        replacer: A sub property of object. The object that replaces.
+        replacee: A sub property of object. The object that is being replaced.
+    '''
     class_: Literal['https://schema.org/ReplaceAction'] = Field( # type: ignore
         default='https://schema.org/ReplaceAction',
         alias='@type',
         serialization_alias='@type'
     )
-    replacer: Optional[Union["Thing", List["Thing"]]] = Field(
+    replacer: Optional[Union['Thing', List['Thing']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'replacer',
-            'https://schema.org/replacer'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/replacer'
+        serialization_alias='https://schema.org/genre'
     )
-    replacee: Optional[Union["Thing", List["Thing"]]] = Field(
+    replacee: Optional[Union['Thing', List['Thing']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'replacee',
-            'https://schema.org/replacee'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/replacee'
+        serialization_alias='https://schema.org/genre'
     )

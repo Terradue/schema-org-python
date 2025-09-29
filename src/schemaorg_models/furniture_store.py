@@ -1,16 +1,30 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .store import Store
 
 class FurnitureStore(Store):
-    """
-A furniture store.
-    """
+    '''
+    A furniture store.
+    '''
     class_: Literal['https://schema.org/FurnitureStore'] = Field( # type: ignore
         default='https://schema.org/FurnitureStore',
         alias='@type',

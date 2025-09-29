@@ -1,20 +1,34 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .local_business import LocalBusiness
 
 class HomeAndConstructionBusiness(LocalBusiness):
-    """
-A construction business.\
+    '''
+    A construction business.\
 \
 A HomeAndConstructionBusiness is a [[LocalBusiness]] that provides services around homes and buildings.\
 \
 As a [[LocalBusiness]] it can be described as a [[provider]] of one or more [[Service]]\\(s).
-    """
+    '''
     class_: Literal['https://schema.org/HomeAndConstructionBusiness'] = Field( # type: ignore
         default='https://schema.org/HomeAndConstructionBusiness',
         alias='@type',

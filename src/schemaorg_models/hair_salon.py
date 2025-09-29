@@ -1,16 +1,30 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .health_and_beauty_business import HealthAndBeautyBusiness
 
 class HairSalon(HealthAndBeautyBusiness):
-    """
-A hair salon.
-    """
+    '''
+    A hair salon.
+    '''
     class_: Literal['https://schema.org/HairSalon'] = Field( # type: ignore
         default='https://schema.org/HairSalon',
         alias='@type',

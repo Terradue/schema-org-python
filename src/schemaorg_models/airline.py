@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -15,9 +25,13 @@ if TYPE_CHECKING:
     from .boarding_policy_type import BoardingPolicyType
 
 class Airline(Organization):
-    """
-An organization that provides flights for passengers.
-    """
+    '''
+    An organization that provides flights for passengers.
+
+    Attributes:
+        iataCode: IATA identifier for an airline or airport.
+        boardingPolicy: The type of boarding policy used by the airline (e.g. zone-based or group-based).
+    '''
     class_: Literal['https://schema.org/Airline'] = Field( # type: ignore
         default='https://schema.org/Airline',
         alias='@type',
@@ -26,16 +40,16 @@ An organization that provides flights for passengers.
     iataCode: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'iataCode',
-            'https://schema.org/iataCode'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/iataCode'
+        serialization_alias='https://schema.org/genre'
     )
-    boardingPolicy: Optional[Union["BoardingPolicyType", List["BoardingPolicyType"]]] = Field(
+    boardingPolicy: Optional[Union['BoardingPolicyType', List['BoardingPolicyType']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'boardingPolicy',
-            'https://schema.org/boardingPolicy'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/boardingPolicy'
+        serialization_alias='https://schema.org/genre'
     )

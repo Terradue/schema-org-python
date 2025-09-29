@@ -1,16 +1,30 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .enumeration import Enumeration
 
 class IncentiveType(Enumeration):
-    """
-The type of incentive offered (tax credit/rebate, tax deduction, tax waiver, subsidies, etc.).
-    """
+    '''
+    Enumerates common financial incentives for products, including tax credits, tax deductions, rebates and subsidies, etc.
+    '''
     class_: Literal['https://schema.org/IncentiveType'] = Field( # type: ignore
         default='https://schema.org/IncentiveType',
         alias='@type',

@@ -1,16 +1,30 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .lodging_business import LodgingBusiness
 
 class VacationRental(LodgingBusiness):
-    """
-A kind of lodging business that focuses on renting single properties for limited time.
-    """
+    '''
+    A kind of lodging business that focuses on renting single properties for limited time.
+    '''
     class_: Literal['https://schema.org/VacationRental'] = Field( # type: ignore
         default='https://schema.org/VacationRental',
         alias='@type',

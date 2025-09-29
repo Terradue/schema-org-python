@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -15,19 +25,22 @@ if TYPE_CHECKING:
     from .drug import Drug
 
 class DrugClass(MedicalEntity):
-    """
-A class of medical drugs, e.g., statins. Classes can represent general pharmacological class, common mechanisms of action, common physiological effects, etc.
-    """
+    '''
+    A class of medical drugs, e.g., statins. Classes can represent general pharmacological class, common mechanisms of action, common physiological effects, etc.
+
+    Attributes:
+        drug: Specifying a drug or medicine used in a medication procedure.
+    '''
     class_: Literal['https://schema.org/DrugClass'] = Field( # type: ignore
         default='https://schema.org/DrugClass',
         alias='@type',
         serialization_alias='@type'
     )
-    drug: Optional[Union["Drug", List["Drug"]]] = Field(
+    drug: Optional[Union['Drug', List['Drug']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'drug',
-            'https://schema.org/drug'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/drug'
+        serialization_alias='https://schema.org/genre'
     )

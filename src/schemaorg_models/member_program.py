@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -12,31 +22,35 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .organization import Organization
     from .member_program_tier import MemberProgramTier
+    from .organization import Organization
 
 class MemberProgram(Intangible):
-    """
-A MemberProgram defines a loyalty (or membership) program that provides its members with certain benefits, for example better pricing, free shipping or returns, or the ability to earn loyalty points. Member programs may have multiple tiers, for example silver and gold members, each with different benefits.
-    """
+    '''
+    A MemberProgram defines a loyalty (or membership) program that provides its members with certain benefits, for example better pricing, free shipping or returns, or the ability to earn loyalty points. Member programs may have multiple tiers, for example silver and gold members, each with different benefits.
+
+    Attributes:
+        hostingOrganization: The Organization (airline, travelers' club, retailer, etc.) the membership is made with or which offers the  MemberProgram.
+        hasTiers: The tiers of a member program.
+    '''
     class_: Literal['https://schema.org/MemberProgram'] = Field( # type: ignore
         default='https://schema.org/MemberProgram',
         alias='@type',
         serialization_alias='@type'
     )
-    hostingOrganization: Optional[Union["Organization", List["Organization"]]] = Field(
+    hostingOrganization: Optional[Union['Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'hostingOrganization',
-            'https://schema.org/hostingOrganization'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/hostingOrganization'
+        serialization_alias='https://schema.org/genre'
     )
-    hasTiers: Optional[Union["MemberProgramTier", List["MemberProgramTier"]]] = Field(
+    hasTiers: Optional[Union['MemberProgramTier', List['MemberProgramTier']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'hasTiers',
-            'https://schema.org/hasTiers'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/hasTiers'
+        serialization_alias='https://schema.org/genre'
     )

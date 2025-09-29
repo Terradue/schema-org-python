@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -15,19 +25,22 @@ if TYPE_CHECKING:
     from .tv_series import TVSeries
 
 class TVClip(Clip):
-    """
-A short TV program or a segment/part of a TV program.
-    """
+    '''
+    A short TV program or a segment/part of a TV program.
+
+    Attributes:
+        partOfTVSeries: The TV series to which this episode or season belongs.
+    '''
     class_: Literal['https://schema.org/TVClip'] = Field( # type: ignore
         default='https://schema.org/TVClip',
         alias='@type',
         serialization_alias='@type'
     )
-    partOfTVSeries: Optional[Union["TVSeries", List["TVSeries"]]] = Field(
+    partOfTVSeries: Optional[Union['TVSeries', List['TVSeries']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'partOfTVSeries',
-            'https://schema.org/partOfTVSeries'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/partOfTVSeries'
+        serialization_alias='https://schema.org/genre'
     )

@@ -1,16 +1,30 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .enumeration import Enumeration
 
 class NonprofitType(Enumeration):
-    """
-NonprofitType enumerates several kinds of official non-profit types of which a non-profit organization can be.
-    """
+    '''
+    NonprofitType enumerates several kinds of official non-profit types of which a non-profit organization can be.
+    '''
     class_: Literal['https://schema.org/NonprofitType'] = Field( # type: ignore
         default='https://schema.org/NonprofitType',
         alias='@type',

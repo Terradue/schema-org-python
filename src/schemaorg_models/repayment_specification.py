@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -15,9 +25,16 @@ if TYPE_CHECKING:
     from .monetary_amount import MonetaryAmount
 
 class RepaymentSpecification(StructuredValue):
-    """
-A structured value representing repayment.
-    """
+    '''
+    A structured value representing repayment.
+
+    Attributes:
+        numberOfLoanPayments: The number of payments contractually required at origination to repay the loan. For monthly paying loans this is the number of months from the contractual first payment date to the maturity date.
+        loanPaymentAmount: The amount of money to pay in a single payment.
+        earlyPrepaymentPenalty: The amount to be paid as a penalty in the event of early payment of the loan.
+        downPayment: a type of payment made in cash during the onset of the purchase of an expensive good/service. The payment typically represents only a percentage of the full purchase price.
+        loanPaymentFrequency: Frequency of payments due, i.e. number of months between payments. This is defined as a frequency, i.e. the reciprocal of a period of time.
+    '''
     class_: Literal['https://schema.org/RepaymentSpecification'] = Field( # type: ignore
         default='https://schema.org/RepaymentSpecification',
         alias='@type',
@@ -26,40 +43,40 @@ A structured value representing repayment.
     numberOfLoanPayments: Optional[Union[float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'numberOfLoanPayments',
-            'https://schema.org/numberOfLoanPayments'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/numberOfLoanPayments'
+        serialization_alias='https://schema.org/genre'
     )
-    loanPaymentAmount: Optional[Union["MonetaryAmount", List["MonetaryAmount"]]] = Field(
+    loanPaymentAmount: Optional[Union['MonetaryAmount', List['MonetaryAmount']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'loanPaymentAmount',
-            'https://schema.org/loanPaymentAmount'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/loanPaymentAmount'
+        serialization_alias='https://schema.org/genre'
     )
-    earlyPrepaymentPenalty: Optional[Union["MonetaryAmount", List["MonetaryAmount"]]] = Field(
+    earlyPrepaymentPenalty: Optional[Union['MonetaryAmount', List['MonetaryAmount']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'earlyPrepaymentPenalty',
-            'https://schema.org/earlyPrepaymentPenalty'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/earlyPrepaymentPenalty'
+        serialization_alias='https://schema.org/genre'
     )
-    downPayment: Optional[Union[float, List[float], "MonetaryAmount", List["MonetaryAmount"]]] = Field(
+    downPayment: Optional[Union[float, List[float], 'MonetaryAmount', List['MonetaryAmount']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'downPayment',
-            'https://schema.org/downPayment'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/downPayment'
+        serialization_alias='https://schema.org/genre'
     )
     loanPaymentFrequency: Optional[Union[float, List[float]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'loanPaymentFrequency',
-            'https://schema.org/loanPaymentFrequency'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/loanPaymentFrequency'
+        serialization_alias='https://schema.org/genre'
     )

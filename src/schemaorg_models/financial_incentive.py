@@ -1,11 +1,17 @@
 from __future__ import annotations
 from datetime import (
     date,
-    datetime
+    datetime,
+    time
 )
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -16,145 +22,247 @@ from typing import (
 from .intangible import Intangible
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .purchase_type import PurchaseType
+    from .loan_or_credit import LoanOrCredit
+    from .incentive_type import IncentiveType
+    from .monetary_amount import MonetaryAmount
+    from .geo_shape import GeoShape
+    from .unit_price_specification import UnitPriceSpecification
+    from .product import Product
+    from .incentive_status import IncentiveStatus
+    from .person import Person
     from .administrative_area import AdministrativeArea
     from .place import Place
-    from .loan_or_credit import LoanOrCredit
-    from .product import Product
-    from .incentive_qualified_expense_type import IncentiveQualifiedExpenseType
-    from .quantitative_value import QuantitativeValue
-    from .monetary_amount import MonetaryAmount
-    from .incentive_status import IncentiveStatus
-    from .geo_shape import GeoShape
-    from .person import Person
-    from .unit_price_specification import UnitPriceSpecification
-    from .organization import Organization
-    from .incentive_type import IncentiveType
     from .defined_term import DefinedTerm
+    from .organization import Organization
+    from .quantitative_value import QuantitativeValue
+    from .purchase_type import PurchaseType
+    from .incentive_qualified_expense_type import IncentiveQualifiedExpenseType
 
 class FinancialIncentive(Intangible):
-    """
-<p>Represents financial incentives for goods/services offered by an organization (or individual).</p>
+    '''
+    <p>Represents financial incentives for goods/services offered by an organization (or individual).</p>
 
 <p>Typically contains the [[name]] of the incentive, the [[incentivizedItem]], the [[incentiveAmount]], the [[incentiveStatus]], [[incentiveType]], the [[provider]] of the incentive, and [[eligibleWithSupplier]].</p>
 
 <p>Optionally contains criteria on whether the incentive is limited based on [[purchaseType]], [[purchasePriceLimit]], [[incomeLimit]], and the [[qualifiedExpense]].
     
-    """
+
+    Attributes:
+        incomeLimit: Optional. Income limit for which the incentive is applicable for.
+    
+<p>If MonetaryAmount is specified, this should be based on annualized income (e.g. if an incentive is limited to those making <$114,000 annually):</p>
+    {
+        "@type": "MonetaryAmount",
+        "maxValue": 114000,
+        "currency": "USD",
+    }
+
+Use Text for incentives that are limited based on other criteria, for example if an incentive is only available to recipients making 120% of the median poverty income in their area.
+        qualifiedExpense: Optional. The types of expenses that are covered by the incentive. For example some incentives are only for the goods (tangible items) but the services (labor) are excluded.
+        provider: The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller.
+        incentivizedItem: The type or specific product(s) and/or service(s) being incentivized.
+<p>DefinedTermSets are used for product and service categories such as the United Nations Standard Products and Services Code:</p>
+    {
+        "@type": "DefinedTerm",
+        "inDefinedTermSet": "https://www.unspsc.org/",
+        "termCode": "261315XX",
+        "name": "Photovoltaic module"
+    }
+
+<p>For a specific product or service, use the Product type:</p>
+    {
+        "@type": "Product",
+        "name": "Kenmore White 17" Microwave",
+    }
+For multiple different incentivized items, use multiple [[DefinedTerm]] or [[Product]].
+        validThrough: The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours.
+        areaServed: The geographic area where a service or offered item is provided.
+        publisher: The publisher of the article in question.
+        eligibleWithSupplier: The supplier of the incentivized item/service for which the incentive is valid for such as a utility company, merchant, or contractor.
+        purchaseType: Optional. The type of purchase the consumer must make in order to qualify for this incentive.
+        validFrom: The date when the item becomes valid.
+        incentiveAmount: Describes the amount that can be redeemed from this incentive.
+    
+<p>[[QuantitativeValue]]: Use this for incentives based on price (either raw amount or percentage-based). For a raw amount example, "You can claim $2,500 - $7,500 from the total cost of installation" would be represented as the following:</p>
+    {
+        "@type": "QuantitativeValue",
+        “minValue”: 2500,
+        “maxValue”: 7500,
+        "unitCode": "USD"
+    }
+<p>[[QuantitivateValue]] can also be used for percentage amounts. In such cases, value is used to represent the incentive’s percentage, while maxValue represents a limit (if one exists) to that incentive. The unitCode should be 'P1' and the unitText should be '%', while valueReference should be used for holding the currency type. For example, "You can claim up to 30% of the total cost of installation, up to a maximum of $7,500" would be:</p>
+    {
+        "@type": "QuantitativeValue",
+        "value": 30,
+        "unitCode": "P1",
+        "unitText": "%",
+        “maxValue”: 7500,
+        “valueReference”: “USD”
+    }
+<p>[[UnitPriceSpecification]]: Use this for incentives that are based on amounts rather than price. For example, a net metering rebate that pays $10/kWh, up to $1,000:</p>
+    {
+        "@type": "UnitPriceSpecification",
+        "price": 10,
+        "priceCurrency": "USD",
+        "referenceQuantity": 1,
+        "unitCode": "DO3",
+        "unitText": "kw/h",
+        "maxPrice": 1000,
+        "description": "$10 / kwh up to $1000"
+    }
+<p>[[LoanOrCredit]]: Use for incentives that are loan based. For example, a loan of $4,000 - $50,000 with a repayment term of 10 years, interest free would look like:</p>
+    {
+        "@type": "LoanOrCredit",
+        "loanTerm": {
+                "@type":"QuantitativeValue",
+                "value":"10",
+                "unitCode": "ANN"
+            },
+        "amount":[
+            {
+                "@type": "QuantitativeValue",
+                "Name":"fixed interest rate",
+                "value":"0",
+            },
+        ],
+        "amount":[
+            {
+                "@type": "MonetaryAmount",
+                "Name":"min loan amount",
+                "value":"4000",
+                "currency":"CAD"
+            },
+            {
+                "@type": "MonetaryAmount",
+                "Name":"max loan amount",
+                "value":"50000",
+                "currency":"CAD"
+            }
+        ],
+    }
+
+In summary: <ul><li>Use [[QuantitativeValue]] for absolute/percentage-based incentives applied on the price of a good/service.</li>
+<li>Use [[UnitPriceSpecification]] for incentives based on a per-unit basis (e.g. net metering).</li>
+<li>Use [[LoanOrCredit]] for loans/credits.</li>
+</ul>.
+        purchasePriceLimit: Optional. The maximum price the item can have and still qualify for this offer.
+        incentiveType: The type of incentive offered (tax credit/rebate, tax deduction, tax waiver, subsidies, etc.).
+        incentiveStatus: The status of the incentive (active, on hold, retired, etc.).
+    '''
     class_: Literal['https://schema.org/FinancialIncentive'] = Field( # type: ignore
         default='https://schema.org/FinancialIncentive',
         alias='@type',
         serialization_alias='@type'
     )
-    incomeLimit: Optional[Union[str, List[str], "MonetaryAmount", List["MonetaryAmount"]]] = Field(
+    incomeLimit: Optional[Union[str, List[str], 'MonetaryAmount', List['MonetaryAmount']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'incomeLimit',
-            'https://schema.org/incomeLimit'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/incomeLimit'
+        serialization_alias='https://schema.org/genre'
     )
-    qualifiedExpense: Optional[Union["IncentiveQualifiedExpenseType", List["IncentiveQualifiedExpenseType"]]] = Field(
+    qualifiedExpense: Optional[Union['IncentiveQualifiedExpenseType', List['IncentiveQualifiedExpenseType']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'qualifiedExpense',
-            'https://schema.org/qualifiedExpense'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/qualifiedExpense'
+        serialization_alias='https://schema.org/genre'
     )
-    provider: Optional[Union["Person", List["Person"], "Organization", List["Organization"]]] = Field(
+    provider: Optional[Union['Person', List['Person'], 'Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'provider',
-            'https://schema.org/provider'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/provider'
+        serialization_alias='https://schema.org/genre'
     )
-    incentivizedItem: Optional[Union["DefinedTerm", List["DefinedTerm"], "Product", List["Product"]]] = Field(
+    incentivizedItem: Optional[Union['DefinedTerm', List['DefinedTerm'], 'Product', List['Product']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'incentivizedItem',
-            'https://schema.org/incentivizedItem'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/incentivizedItem'
+        serialization_alias='https://schema.org/genre'
     )
     validThrough: Optional[Union[datetime, List[datetime], date, List[date]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'validThrough',
-            'https://schema.org/validThrough'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/validThrough'
+        serialization_alias='https://schema.org/genre'
     )
-    areaServed: Optional[Union["GeoShape", List["GeoShape"], str, List[str], "AdministrativeArea", List["AdministrativeArea"], "Place", List["Place"]]] = Field(
+    areaServed: Optional[Union['GeoShape', List['GeoShape'], str, List[str], 'AdministrativeArea', List['AdministrativeArea'], 'Place', List['Place']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'areaServed',
-            'https://schema.org/areaServed'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/areaServed'
+        serialization_alias='https://schema.org/genre'
     )
-    publisher: Optional[Union["Person", List["Person"], "Organization", List["Organization"]]] = Field(
+    publisher: Optional[Union['Person', List['Person'], 'Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'publisher',
-            'https://schema.org/publisher'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/publisher'
+        serialization_alias='https://schema.org/genre'
     )
-    eligibleWithSupplier: Optional[Union["Organization", List["Organization"]]] = Field(
+    eligibleWithSupplier: Optional[Union['Organization', List['Organization']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'eligibleWithSupplier',
-            'https://schema.org/eligibleWithSupplier'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/eligibleWithSupplier'
+        serialization_alias='https://schema.org/genre'
     )
-    purchaseType: Optional[Union["PurchaseType", List["PurchaseType"]]] = Field(
+    purchaseType: Optional[Union['PurchaseType', List['PurchaseType']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'purchaseType',
-            'https://schema.org/purchaseType'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/purchaseType'
+        serialization_alias='https://schema.org/genre'
     )
     validFrom: Optional[Union[date, List[date], datetime, List[datetime]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'validFrom',
-            'https://schema.org/validFrom'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/validFrom'
+        serialization_alias='https://schema.org/genre'
     )
-    incentiveAmount: Optional[Union["UnitPriceSpecification", List["UnitPriceSpecification"], "QuantitativeValue", List["QuantitativeValue"], "LoanOrCredit", List["LoanOrCredit"]]] = Field(
+    incentiveAmount: Optional[Union['UnitPriceSpecification', List['UnitPriceSpecification'], 'QuantitativeValue', List['QuantitativeValue'], 'LoanOrCredit', List['LoanOrCredit']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'incentiveAmount',
-            'https://schema.org/incentiveAmount'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/incentiveAmount'
+        serialization_alias='https://schema.org/genre'
     )
-    purchasePriceLimit: Optional[Union["MonetaryAmount", List["MonetaryAmount"]]] = Field(
+    purchasePriceLimit: Optional[Union['MonetaryAmount', List['MonetaryAmount']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'purchasePriceLimit',
-            'https://schema.org/purchasePriceLimit'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/purchasePriceLimit'
+        serialization_alias='https://schema.org/genre'
     )
-    incentiveType: Optional[Union["IncentiveType", List["IncentiveType"]]] = Field(
+    incentiveType: Optional[Union['IncentiveType', List['IncentiveType']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'incentiveType',
-            'https://schema.org/incentiveType'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/incentiveType'
+        serialization_alias='https://schema.org/genre'
     )
-    incentiveStatus: Optional[Union["IncentiveStatus", List["IncentiveStatus"]]] = Field(
+    incentiveStatus: Optional[Union['IncentiveStatus', List['IncentiveStatus']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'incentiveStatus',
-            'https://schema.org/incentiveStatus'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/incentiveStatus'
+        serialization_alias='https://schema.org/genre'
     )

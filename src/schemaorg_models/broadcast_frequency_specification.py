@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -16,9 +26,14 @@ if TYPE_CHECKING:
     from .quantitative_value import QuantitativeValue
 
 class BroadcastFrequencySpecification(Intangible):
-    """
-The frequency in MHz and the modulation used for a particular BroadcastService.
-    """
+    '''
+    The frequency in MHz and the modulation used for a particular BroadcastService.
+
+    Attributes:
+        broadcastSubChannel: The subchannel used for the broadcast.
+        broadcastFrequencyValue: The frequency in MHz for a particular broadcast.
+        broadcastSignalModulation: The modulation (e.g. FM, AM, etc) used by a particular broadcast service.
+    '''
     class_: Literal['https://schema.org/BroadcastFrequencySpecification'] = Field( # type: ignore
         default='https://schema.org/BroadcastFrequencySpecification',
         alias='@type',
@@ -27,24 +42,24 @@ The frequency in MHz and the modulation used for a particular BroadcastService.
     broadcastSubChannel: Optional[Union[str, List[str]]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'broadcastSubChannel',
-            'https://schema.org/broadcastSubChannel'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/broadcastSubChannel'
+        serialization_alias='https://schema.org/genre'
     )
-    broadcastFrequencyValue: Optional[Union[float, List[float], "QuantitativeValue", List["QuantitativeValue"]]] = Field(
+    broadcastFrequencyValue: Optional[Union[float, List[float], 'QuantitativeValue', List['QuantitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'broadcastFrequencyValue',
-            'https://schema.org/broadcastFrequencyValue'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/broadcastFrequencyValue'
+        serialization_alias='https://schema.org/genre'
     )
-    broadcastSignalModulation: Optional[Union[str, List[str], "QualitativeValue", List["QualitativeValue"]]] = Field(
+    broadcastSignalModulation: Optional[Union[str, List[str], 'QualitativeValue', List['QualitativeValue']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'broadcastSignalModulation',
-            'https://schema.org/broadcastSignalModulation'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/broadcastSignalModulation'
+        serialization_alias='https://schema.org/genre'
     )

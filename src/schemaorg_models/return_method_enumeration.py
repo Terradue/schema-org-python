@@ -1,16 +1,30 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
-    Field
+    field_serializer,
+    field_validator,
+    AliasChoices,
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
-    Literal
+    List,
+    Literal,
+    Optional,
+    Union
 )
 from .enumeration import Enumeration
 
 class ReturnMethodEnumeration(Enumeration):
-    """
-Enumerates several types of product return methods.
-    """
+    '''
+    Enumerates several types of product return methods.
+    '''
     class_: Literal['https://schema.org/ReturnMethodEnumeration'] = Field( # type: ignore
         default='https://schema.org/ReturnMethodEnumeration',
         alias='@type',

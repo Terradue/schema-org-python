@@ -1,7 +1,17 @@
 from __future__ import annotations
+from datetime import (
+    date,
+    datetime,
+    time
+)
 from pydantic import (
+    field_serializer,
+    field_validator,
     AliasChoices,
-    Field
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl
 )
 from typing import (
     List,
@@ -15,27 +25,31 @@ if TYPE_CHECKING:
     from .boat_terminal import BoatTerminal
 
 class BoatTrip(Trip):
-    """
-A trip on a commercial ferry line.
-    """
+    '''
+    A trip on a commercial ferry line.
+
+    Attributes:
+        departureBoatTerminal: The terminal or port from which the boat departs.
+        arrivalBoatTerminal: The terminal or port from which the boat arrives.
+    '''
     class_: Literal['https://schema.org/BoatTrip'] = Field( # type: ignore
         default='https://schema.org/BoatTrip',
         alias='@type',
         serialization_alias='@type'
     )
-    departureBoatTerminal: Optional[Union["BoatTerminal", List["BoatTerminal"]]] = Field(
+    departureBoatTerminal: Optional[Union['BoatTerminal', List['BoatTerminal']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'departureBoatTerminal',
-            'https://schema.org/departureBoatTerminal'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/departureBoatTerminal'
+        serialization_alias='https://schema.org/genre'
     )
-    arrivalBoatTerminal: Optional[Union["BoatTerminal", List["BoatTerminal"]]] = Field(
+    arrivalBoatTerminal: Optional[Union['BoatTerminal', List['BoatTerminal']]] = Field(
         default=None,
         validation_alias=AliasChoices(
-            'arrivalBoatTerminal',
-            'https://schema.org/arrivalBoatTerminal'
+            'genre',
+            'https://schema.org/genre'
         ),
-        serialization_alias='https://schema.org/arrivalBoatTerminal'
+        serialization_alias='https://schema.org/genre'
     )
